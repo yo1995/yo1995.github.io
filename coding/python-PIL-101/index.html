@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html>
+
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="利用pillow来处理图片，一键生成带白边的缩略图">
+  <meta name="author" content="Chen Ting">
+  <meta name="keywords" content="">
+  <meta name="theme-color" content="#272727">
+
+  <title>Using PIL(Pillow) to generate thumbnail</title>
+
+  <link rel="icon" href="/img/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="canonical" href="https://yo1995.github.io/coding/python-PIL-101/" />
+  <link rel="alternate" type="application/rss+xml" title="Chen's Blog" href="https://yo1995.github.io/feed.xml" />
+  
+  <meta property="og:site_name" content="Chen's Blog" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://yo1995.github.io/coding/python-PIL-101/" />
+  <meta property="og:title" content="Using PIL(Pillow) to generate thumbnail" />
+  <meta property="og:description" content="利用pillow来处理图片，一键生成带白边的缩略图" />
+  <meta property="og:article:published_time" content="2016-08-27T00:00:00-04:00" />
+  <meta property="og:article:author" content="Chen Ting" />
+
+  <meta property="og:image" content="/images/201608/pillow.jpg" />
+  
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <!-- PLUGINS -->
+  <link rel="stylesheet" href="/assets/css/vlthemes.css">
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">	
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  
+  
+  
+
+</head>
+<!-- 180622 - tecent analytics -->
+<script type="text/javascript" src="https://tajs.qq.com/stats?sId=65898920" charset="UTF-8"></script>
+
+
+  <body>
+
+		<!-- FRAMES -->
+		<span class="frame-line top-frame"></span>
+		<span class="frame-line right-frame"></span>
+		<span class="frame-line bottom-frame"></span>
+		<span class="frame-line left-frame"></span>
+
+    <div class="animsition">
+      <div class="content">
+
+        
+<!-- header-fixed / header-scroll-up  -->
+<div class="scroll-indicator fixedheader" style="width"></div>
+<header class="header-wrap header-fixed minimal-menu">
+    <div class="header-inner">
+        <div class="container">
+			
+            <div class="logo">
+                <a href="/blog" class="animsition-link">Ch<span>e</span>n's Blog</a>
+            </div>
+			
+
+            <a href="#" class="menu-toggle desctop-menu">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <a href="#" class="menu-toggle mobile-menu-toggle">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <nav class="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="/" class="animsition-link">
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item-has-children">
+                        <a href="">
+                            <span>Blog</span>
+                        </a>
+						    <ul class="sub-menu">
+								<li>
+									<a href="/blog/" class="animsition-link">
+										<span>Blog Index</span>
+									</a>
+								</li>
+								<li>
+									<a href="/posts/" class="animsition-link">
+										<span>Archives</span>
+									</a>
+								</li>
+								<li>
+									<a href="/categories/" class="animsition-link">
+										<span>Categories</span>
+									</a>
+								</li>
+								<li>
+									<a href="/tags/" class="animsition-link">
+										<span>Tags</span>
+									</a>
+								</li>
+							</ul>
+                    </li>
+
+                    <li>
+                        <a href="/photos/" class="animsition-link">
+                            <span>Photos</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/about/" class="animsition-link">
+                            <span>About</span>
+                        </a>
+                    </li>
+					
+					  <!--li>
+                        <a href="" class="animsition-link" id="CN">
+                            <span>CN</span>
+                        </a>
+                    </li-->
+                </ul>
+            </nav>
+            <!-- END PRIMARY-MENU -->
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <!-- END HEADER-INNER -->
+</header>
+<!-- END HEADER-WRAP -->
+
+
+        
+
+        <main id="main-content">
+          
+          <div class="single-post-wrap clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 content-fixed">
+
+        <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
+          <div class="post-thumb clearfix">
+            
+            <img src="/images/201608/pillow.jpg" alt="Using PIL(Pillow) to generate thumbnail">
+            
+          </div>
+          
+          <div class="post-content" itemprop="articleBody">
+            <div class="post-date" datetime="2016-08-27T00:00:00-04:00" itemprop="datePublished">
+              Aug 27, 2016
+            </div>
+            <h1 class="post-title" itemprop="name headline">Using PIL(Pillow) to generate thumbnail</h1>
+            <div class="content-color">
+            
+            <p>缘起相册，我更换到这个主题。
+然而，不完美终究还是不完美。不像CMS类博客，纯静态虽然快，但用起来还是有诸多不便。
+比如说相册功能，无论如何简化，你还是需要一行一行插入上传后图床上的照片网址。</p>
+
+<p>为了免去这份劳累，写个脚本生成网址看来是必须的咯。于是，第一版脚本的思路就诞生了。</p>
+
+<h2 id="第一版v10">第一版v1.0</h2>
+<p>第一版代码对应的是先前的博客、自己设计的相册功能用的。因为不太会js所以相册很简单，因而Python也写的很简洁。</p>
+
+<p>主要是为了生成对应的照片网址。因为我把所有图片传到了另外一个repo避免单一repo过大，所以引用照片时需要使用rawcontent对应的github网址。</p>
+
+<p>需要实现的功能有：</p>
+<ul>
+  <li>遍历指定目录下所有图片类文件的文件名</li>
+  <li>将文件名字符串进行处理后变为对应的网址</li>
+</ul>
+
+<p>很简单，不是吗？篇幅缘故，只在文末贴最新版代码。这里指明几个所需函数：</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="c"># 得到当前的绝对路径，windows下生成的字符串是反斜杠</span>
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span> <span class="c"># 返回值为真伪，确定文件是否存在</span>
+</code></pre></div></div>
+
+<h2 id="第二版v20">第二版v2.0</h2>
+<p>用了一段时间后，转到这个相册来啦。虽然布局变为了响应式，风格也炫酷了很多，但本质上并没有改变。几乎所有的静态博客解决方案都有用到fancybox这个js插件，以优雅地展示图片。</p>
+
+<p>因而，我的代码不需要怎么变动，就可以直接迁移到这个博客上来啦
+总还是有些变化。因为这个博客支持caption显示，因而代码改变一点</p>
+
+<ul>
+  <li>20180728 更新：hascaption的class已替换为直接alt，即正常的图片插入格式</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">link</span> <span class="o">=</span> <span class="n">yourlink</span> <span class="o">+</span> <span class="s">'</span><span class="se">\r\n</span><span class="s">'</span> <span class="o">+</span> <span class="s">'{:.hascaption}'</span>
+</code></pre></div></div>
+<p>需要注意的是，三种常用桌面系统对换行符的定义不同。windows是CRLF而Macintosh和Linux是LF，windows下编程需要注意一点。或者使用现代化的文本编辑器亦不会因此产生问题，如sublime和notepad++。</p>
+
+<h2 id="第二版v21">第二版v2.1</h2>
+<p>上线一段时间里，都很安逸。尽管页面访问有些慢，但我并没在意。</p>
+
+<p>后来实在是慢的不行了！主页载入平均时间十五秒！天啊<img class="emoji" title=":scream:" alt=":scream:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f631.png" height="20" width="20">在发现元凶之前，我还以为是图片造成的。的确博客中有很多图片可能会导致载入过慢。于是我便打起了优化图片的主意。</p>
+
+<p>首先是缩小图片尺寸。博文配图统一缩小到长边1800像素以内。图片质量保留70%足够看了。另外就是主页图，别用png带alpha通道了，直接压成jpg中等质量。灰度图真的无所谓的。</p>
+
+<p>优化了一番以后，并没有特别的好转。还是F12一下。</p>
+
+<p>这一看不要紧，原来之前相册载入的时候都是原图。这还了得！每次点开相册需要把所有的原图都载入后才能显示。GIF相册一共40+MB，配上github时不时抽风的网速……之前最长载入花了三分多钟还没成。原来真凶在这里！</p>
+
+<p>如何解决这个问题呢？催生了第二版代码的第一次迭代；</p>
+<ul>
+  <li>能够生成缩略图</li>
+  <li>能够正确resize各种类型的图片</li>
+  <li>能够生成缩略图路径</li>
+</ul>
+
+<p>先从简单的说起。缩略图路径我想了一想，还是生成在不同路径下用相同文件名比较好。这样在增减原始图时不会因为同目录下有缩略图而产生麻烦。</p>
+
+<p>其次是resize。查了一下Python最常用的图像处理库，貌似就是<a href="https://python-pillow.org/">Pillow</a>了。功能够用，效率够高，很好。只是当我写完代码才想到，其实是可以用MATLAB的，那样更熟悉一些……只是运行启动时间更长了。</p>
+
+<p>最后是缩略图。有几个要求：</p>
+<ul>
+  <li>匹配最长边相等</li>
+  <li>比例不能变</li>
+  <li>画质尽可能好点</li>
+</ul>
+
+<p>画质方面，查了文档后发现有bilinear、bicubic和ANTIALIAS三种选项，其中最后一种最佳。</p>
+
+<p>比例方面，当时不知有现成函数，于是自己写了个判断，最长边的问题也一并解决：</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>
+<span class="k">if</span> <span class="n">w</span> <span class="o">&gt;</span> <span class="n">h</span><span class="p">:</span>
+    <span class="n">div</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="o">/</span><span class="n">h</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">320</span><span class="o">/</span><span class="n">div</span><span class="p">)</span>
+    <span class="n">img</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="mi">320</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span><span class="n">Image</span><span class="o">.</span><span class="n">ANTIALIAS</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">small_path</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">div</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">h</span><span class="p">)</span><span class="o">/</span><span class="n">w</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">320</span><span class="o">/</span><span class="n">div</span><span class="p">)</span>
+    <span class="n">img</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="n">w</span><span class="p">,</span> <span class="mi">320</span><span class="p">),</span><span class="n">Image</span><span class="o">.</span><span class="n">ANTIALIAS</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">small_path</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Python2.7和Python3有诸多不同，浮点数这个就是有点烦。当时debug花了好几分钟才发现是这里有问题。</p>
+
+<h2 id="第二版v22">第二版v2.2</h2>
+<p>上面一个版本运行很顺畅。上线以后本以为没问题，可一刷新问题又来了：ul li在垂直对齐时存在一些问题，导致有些图片高，有些图片低。反复试验后发现，横版图片会以上边缘对齐左右居中，而竖版图片则会垂直占满li并左右居中。</p>
+
+<p>调了一小时css无果，遂想到了替代方案：给thumbnail加白边，全都变成1:1比例图片。这招其实我也在以前其它工程中使用过，这里拿来恰巧合适。</p>
+
+<p>继续列需求：</p>
+<ul>
+  <li>给缩略图加白边形成正方形 - 匹配各个图片长宽</li>
+  <li>缩略图加边框后居中</li>
+</ul>
+
+<p>研究了一下PIL的函数，并没有合适的拼接类函数，裁剪的倒是很多。最后选用了paste。
+另外就是改用了thumbnail类，直接压图无需自己算参数。
+浮点和整数转换出了一点小差错。对于图片而言像素长宽均需为整数。
+用了一个小技巧，用input函数来暂停程序，类似system(“pause”);异曲同工。</p>
+
+<h2 id="第二版v23">第二版v2.3</h2>
+<p>又遇到问题了0916.想在目录里放子目录，读取到是没问题，写目录时因为偷懒没有匹配好，导致输出的thumb地址错误。重新考虑了如何匹配，新的代码见下面。
+提取文件名换成了<code class="highlighter-rouge">os.path.splitext(os.path.basename(path))[0]</code></p>
+
+<h2 id="最新版代码于下方更新">最新版代码于下方更新</h2>
+<p>v2.3 - 修改了文件目录生成的逻辑 
+v2.2 - 加入了缩略图加白边居中功能
+v2.1 - 加入了缩略图功能
+v2.0 - 加入了新的链接生成</p>
+
+<p>v1.0 - 初始代码，生成链接</p>
+
+<h3 id="最新版代码">最新版代码</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">os.path</span>  
+<span class="kn">import</span> <span class="nn">sys</span>
+ 
+<span class="k">def</span> <span class="nf">GetFileList</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">fileList</span><span class="p">):</span>
+    <span class="n">newDir</span> <span class="o">=</span> <span class="nb">dir</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="nb">dir</span><span class="p">):</span>
+        <span class="n">fileList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dir</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'gbk'</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="nb">dir</span><span class="p">):</span>  
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="nb">dir</span><span class="p">):</span>
+            <span class="c">#if s == "xxx":</span>
+                <span class="c">#continue</span>
+            <span class="n">newDir</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+            <span class="n">GetFileList</span><span class="p">(</span><span class="n">newDir</span><span class="p">,</span> <span class="n">fileList</span><span class="p">)</span>  <span class="c"># iterate to get the final file</span>
+    <span class="k">return</span> <span class="n">fileList</span>
+
+<span class="c"># path = os.getcwd()</span>
+<span class="n">fname</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">"Please input the dir: (example: awards cannot process GIF!)</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s">'C:</span><span class="err">\</span><span class="s">Program Files</span><span class="err">\</span><span class="s">Git</span><span class="err">\</span><span class="s">usr</span><span class="err">\</span><span class="s">yo1995.github.io</span><span class="err">\</span><span class="s">photos</span><span class="err">\</span><span class="s">page-backup</span><span class="se">\\</span><span class="s">'</span> <span class="o">+</span>  <span class="n">fname</span>
+<span class="n">lcur</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span>
+
+<span class="n">small_path</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">path</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="s">'/'</span> <span class="k">else</span> <span class="n">path</span><span class="p">)</span> <span class="o">+</span> <span class="s">'_m'</span>
+<span class="k">print</span> <span class="n">small_path</span>
+<span class="n">imgblank</span> <span class="o">=</span> <span class="s">'templ.jpg'</span>
+<span class="n">thumbsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">600</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">small_path</span><span class="p">):</span>  
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">small_path</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>  
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>  
+        <span class="n">fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+        <span class="n">imgb</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="n">imgblank</span><span class="p">)</span>
+        <span class="p">(</span><span class="n">sizeblankw</span> <span class="p">,</span> <span class="n">sizeblankh</span><span class="p">)</span><span class="o">=</span> <span class="n">imgb</span><span class="o">.</span><span class="n">size</span>
+        <span class="n">savepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">small_path</span><span class="p">,</span> <span class="n">fp</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:])</span>
+        <span class="n">savecheck</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">small_path</span><span class="p">,</span> <span class="n">fp</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="p">)])</span>
+        <span class="c"># print 'sp' + savepath</span>
+        <span class="c"># print 'fp' + fp</span>
+        <span class="c"># print 'f' + f</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">savecheck</span><span class="p">):</span>  
+            <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">savecheck</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">savepath</span> <span class="o">+</span> <span class="n">fp</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">savepath</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:]):</span>
+            <span class="k">print</span> <span class="s">u'existing, not writing'</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="n">img</span><span class="o">.</span><span class="n">thumbnail</span><span class="p">(</span><span class="n">thumbsize</span><span class="p">,</span><span class="n">Image</span><span class="o">.</span><span class="n">ANTIALIAS</span><span class="p">)</span>
+            <span class="n">w</span><span class="p">,</span><span class="n">h</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>
+            <span class="k">print</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
+            <span class="n">wm</span> <span class="o">=</span> <span class="p">(</span><span class="n">sizeblankw</span> <span class="o">-</span> <span class="n">w</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span> 
+            <span class="n">hm</span> <span class="o">=</span> <span class="p">(</span><span class="n">sizeblankh</span> <span class="o">-</span> <span class="n">h</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span> 
+            <span class="n">box2</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">wm</span><span class="p">)</span> <span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">hm</span><span class="p">)</span> <span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">sizeblankw</span> <span class="o">-</span> <span class="n">wm</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">sizeblankh</span> <span class="o">-</span> <span class="n">hm</span><span class="p">))</span>
+            <span class="k">print</span> <span class="n">box2</span>
+            <span class="n">imgb</span><span class="o">.</span><span class="n">paste</span><span class="p">(</span><span class="n">img</span> <span class="p">,</span> <span class="n">box2</span><span class="p">)</span>
+            <span class="n">imgb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">savepath</span><span class="p">)</span>
+            <span class="k">print</span> <span class="s">'writing file '</span> <span class="o">+</span> <span class="n">fp</span>
+
+<span class="nb">reload</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>  
+<span class="n">sys</span><span class="o">.</span><span class="n">setdefaultencoding</span><span class="p">(</span><span class="s">'utf8'</span><span class="p">)</span>
+<span class="n">l</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="nb">list</span> <span class="o">=</span> <span class="n">GetFileList</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="p">[])</span>
+<span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="s">'result.txt'</span><span class="p">,</span><span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">result</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span> <span class="c"># record the main path towards file</span>
+        <span class="n">e2</span> <span class="o">=</span> <span class="n">e</span><span class="p">[</span><span class="n">l</span><span class="o">-</span><span class="n">lcur</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span> <span class="c"># l is the length of PATH while lcur is the length of Current Main Path</span>
+        <span class="n">e</span> <span class="o">=</span>  <span class="s">'- image_title: '</span> <span class="o">+</span>  <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">e</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span> \
+        <span class="o">+</span> <span class="s">'</span><span class="se">\r\n</span><span class="s">  image_path: "https://raw.githubusercontent.com/yo1995/page-backup/master'</span> <span class="o">+</span> <span class="n">e2</span> \
+        <span class="o">+</span>  <span class="s">'" </span><span class="se">\r\n</span><span class="s">  thumb_path: "https://raw.githubusercontent.com/yo1995/page-backup/master'</span> <span class="o">+</span> <span class="n">e2</span><span class="p">[:</span><span class="n">lcur</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s">'_m/'</span><span class="o">+</span> <span class="n">e2</span><span class="p">[</span><span class="n">lcur</span><span class="p">:]</span> <span class="o">+</span> <span class="s">'"'</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"</span><span class="se">\\</span><span class="s">"</span><span class="p">,</span> <span class="s">'/'</span><span class="p">)</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">e</span> <span class="o">+</span> <span class="s">'</span><span class="se">\r\n</span><span class="s">'</span><span class="p">)</span>
+
+<span class="nb">raw_input</span><span class="p">(</span><span class="s">'finished ! press any key to exit'</span><span class="p">)</span>
+</code></pre></div></div>
+
+            
+            </div>
+            
+<div class="entry-tags clearfix">
+
+    <div class="entry-footer clearfix">
+
+        <div class="pull-left">
+            <span>
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/#python">Python</a>
+                
+                <a href="/tags/#image">image</a>
+                
+                <a href="/tags/#code">code</a>
+                
+            </span>            
+            <span><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv">0</span> views</span>
+            <span>
+                <i class="fa fa-comments-o"></i>
+                <a href="#comments">GFW comments</a>
+				<!--被墙替换class="disqus-comment-count" data-disqus-identifier="Chen's Blog//coding/python-PIL-101-->
+            </span>
+            <span>
+                <i class="fa fa-check-square-o"></i><span>4930 words</span>
+            </span>
+            <span>
+                <i class="fa fa-link"></i>
+                <a data-toggle="collapse" href="#share-content" aria-expanded="false" aria-controls="share-content">Share</a>
+        </span>
+</div>
+        <div class="pull-right collapse in" id="share-content">
+            
+<div class="entry-share-links">
+
+    <div class="btn-group" role="group" aria-label="Share">
+        <button type="button" class="btn btn-default btn-sm btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="http://www.facebook.com/sharer.php?u=https://yo1995.github.io/coding/python-PIL-101/" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></button>
+        
+        <button type="button" class="btn btn-default btn-sm btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="https://twitter.com/share?url=https://yo1995.github.io/coding/python-PIL-101/&amp;text=Using%20PIL(Pillow)%20to%20generate%20thumbnail" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-weibo" data-toggle="tooltip" data-placement="top" title="新浪微博"><a href="http://service.weibo.com/share/share.php?url=https://yo1995.github.io/coding/python-PIL-101/&amp;title=%E5%88%86%E4%BA%AB%4011L23+%E7%9A%84%E6%96%87%E7%AB%A0%E3%80%8CUsing%20PIL(Pillow)%20to%20generate%20thumbnail%E3%80%8D&amp;content=%E5%88%A9%E7%94%A8pillow%E6%9D%A5%E5%A4%84%E7%90%86%E5%9B%BE%E7%89%87%EF%BC%8C%E4%B8%80%E9%94%AE%E7%94%9F%E6%88%90%E5%B8%A6%E7%99%BD%E8%BE%B9%E7%9A%84%E7%BC%A9%E7%95%A5%E5%9B%BE&amp;pic=https://yo1995.github.io/images/201608/pillow.jpg" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-douban" data-toggle="tooltip" data-placement="top" title="豆瓣"><a href="https://www.douban.com/share/service?name=Using%20PIL(Pillow)%20to%20generate%20thumbnail&amp;href=https://yo1995.github.io/coding/python-PIL-101/&amp;image=https://yo1995.github.io/images/201608/pillow.jpg&amp;url=https://yo1995.github.io/coding/python-PIL-101/&amp;title=Using%20PIL(Pillow)%20to%20generate%20thumbnail" target="_blank"><i class="fa fa-fw">豆</i></a></button>
+
+        <a tabindex="0" class="btn btn-sm btn-weixin" role="button" data-trigger="hover" data-placement="top" id="qrcode-btn"><i class="fa fa-fw fa-weixin"></i></a>
+
+        <div id="qrcode-content" class="qrcode-hidden"><div id="qrcode"></div></div>
+        <div id="qrcode-title" class="qrcode-hidden">Scan to Read</div>
+		
+		<button type="button" class="btn btn-default btn-sm btn-email"><a href="mailto:?Subject=Using%20PIL(Pillow)%20to%20generate%20thumbnail&amp;Body=%E5%88%A9%E7%94%A8pillow%E6%9D%A5%E5%A4%84%E7%90%86%E5%9B%BE%E7%89%87%EF%BC%8C%E4%B8%80%E9%94%AE%E7%94%9F%E6%88%90%E5%B8%A6%E7%99%BD%E8%BE%B9%E7%9A%84%E7%BC%A9%E7%95%A5%E5%9B%BE%20https://yo1995.github.io/coding/python-PIL-101/"><i class="fa fa-fw fa-envelope-o"></i> Email</a></button>
+
+        <div class="btn-group btn-group-justified dropup" role="group">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle btn-more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-share-alt"></i><span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-google"><a href="https://plus.google.com/share?url=https://yo1995.github.io/coding/python-PIL-101/" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google Plus</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://yo1995.github.io/coding/python-PIL-101/" target="_blank"><i class="fa fa-fw fa-linkedin"></i> Linkedin</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-digg"><a href="http://www.digg.com/submit?url=https://yo1995.github.io/coding/python-PIL-101/" target="_blank"><i class="fa fa-fw fa-digg"></i> Digg</a></button></li>
+
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-pinterest"><a href="https://pinterest.com/pin/create/bookmarklet/?media=https://yo1995.github.io/images/201608/pillow.jpg&amp;url=https://yo1995.github.io/coding/python-PIL-101/&amp;description=Using%20PIL(Pillow)%20to%20generate%20thumbnail" target="_blank"><i class="fa fa-fw fa-pinterest-p"></i> Pinterest</a></button></li>
+                 
+                 
+
+                <li><button type="button" class="btn btn-default btn-sm btn-reddit"><a href="http://reddit.com/submit?url=https://yo1995.github.io/coding/python-PIL-101/&amp;title=Using%20PIL(Pillow)%20to%20generate%20thumbnail" target="_blank"><i class="fa fa-fw fa-reddit-alien"></i> Reddit</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-tumblr"><a href="http://www.tumblr.com/share/link?url=https://yo1995.github.io/coding/python-PIL-101/&amp;title=Using%20PIL(Pillow)%20to%20generate%20thumbnail" target="_blank"><i class="fa fa-fw fa-tumblr"></i> Tumblr</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-print"><a href="javascript:;" onclick="window.print()"><i class="fa fa-fw fa-print"></i> Print</a></button></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+        </div>
+    </div>  
+
+</div>
+
+          </div>
+        </article>
+        <!-- END SINGLE-POST -->
+
+        
+<div class="post-navigation clearfix">
+    <div class="row">
+
+        <div class="col-xs-6">
+            <div class="previous-post">
+                <div class="arrow">
+                    <i class="fa fa-angle-double-left"></i>
+                    
+                    <a href="/physics/CAS-semi-1/" class="animsition-link" data-hover-text="Prev: Days in semi.ac - 1">Prev: Days in semi.ac - 1</a>
+                    
+                </div>
+
+            </div>
+            <!-- END PREVIOUS-POST -->
+        </div>
+        <div class="col-xs-6">
+            <div class="next-post">
+                <div class="arrow">
+                    
+                    <a href="/html/googleapis-substitution/" class="animsition-link" data-hover-text="Next: Google Fonts and substitution">Next: Google Fonts and substitution</a>
+                    
+                    <i class="fa fa-angle-double-right"></i>
+                </div>
+
+            </div>
+            <!-- END NEXT-POST -->
+        </div>
+    </div>
+</div>
+<!-- END POST-NAVIGATION -->
+		<!-- 180726 add multi author support -->
+		 
+			<div class="author-info clearfix">
+    <div class="author-avatar">
+        <img class="avatar" src="/img/avatar.png" alt="Chen Ting">
+    </div>
+
+    <div class="author-description">
+        <h4 class="author-title">
+            <a href="/about/">Chen Ting <i class="fa fa-link"></i></a>
+        </h4>
+        <p class="author-bio">
+            The page aims to exhibit several activities &amp; achievements which the author engaged in during his undergraduate &amp; graduate period. Meanwhile, other aspects such as lifestyles, literary work, travel notes, etc. would interweave in the narration.
+        </p>
+    </div>
+	<!-- add busaunzi to see how many views and reads happens to my page. addition to tecent -->
+	<script async src="/assets/js/busuanzi.pure.mini.js"></script>
+</div>
+<!-- END AUTHOR-INFO -->
+		 
+		 
+        
+
+<div class="comments-area clearfix">
+    <div class="comment-respond">
+		<h4 class="comment-reply-title" id="comments">Leave a Comment</h4>
+		<div class="disqus-placeholder alert alert-info" style="text-align: center">
+			<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Disqus might be GFW-ed. Excited!
+		</div>
+		<script src="/assets/js/disqusloader.js"></script>
+		<div class="disqus"></div>
+		<!--
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+        this.page.url = "https://yo1995.github.io/coding/python-PIL-101/";
+        this.page.identifier = "Chen's Blog//coding/python-PIL-101";
+        this.page.title = "Using PIL(Pillow) to generate thumbnail";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//yo1995.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+		-->
+		<script>disqusLoader( '.disqus', { 
+			scriptUrl: '//yo1995.disqus.com/embed.js',
+			disqusConfig: function(){
+				this.callbacks.onReady = [function(){
+				var el = document.querySelector( '.disqus-placeholder' );
+				if( el.classList )
+					el.classList.add( 'is-hidden' ); // IE 10+
+				else
+					el.className += ' ' + 'is-hidden'; // IE 8-9
+				}];}
+			});
+		</script>
+       <noscript>Please conquer the GFW or enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    </div>
+</div>
+<!-- END COMMENTS-AREA -->
+
+
+      </div>
+
+      <div class="col-md-4 sidebar-fixed">
+    <div class="sidebar">
+        <aside class="widget-wrap widget-search">
+            <h6 class="widget-title">
+                <span>Search for a topic?</span>
+            </h6>
+			<div onclick="keyinsearch()" class="search-form text-center" id="search-container">
+				<input type="text" id="search-input" placeholder="search...">
+				<i class="fa fa-search"></i>
+				<ul id="results-container" style="list-style:square"></ul>
+			</div>
+			<!-- 180206 - update -->
+<script src="/assets/js/jekyll-search.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  function keyinsearch () {
+  SimpleJekyllSearch({
+	searchInput: document.getElementById('search-input'),
+	resultsContainer: document.getElementById('results-container'),
+	json: '/search.json',
+	searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+	noResultsText: '无结果',
+	limit: 5,
+	fuzzy: false
+  });
+  }
+</script>
+
+
+<!-- 暂时还没想好cache怎么改写，目前每次请求都是200 ！= = 不够chrome貌似是直接从本地磁盘加载的 -->
+<!--
+<form class="search-form" action="/search/" target="_blank" method="get">
+	<input type="text" placeholder="Search..." name="q">
+	<i class="fa fa-search"></i>
+</form>
+-->
+
+        </aside>
+        <!-- END WIDGET-WRAP -->		
+        <aside class="widget-wrap widget-categories">
+            <h6 class="widget-title">
+                <span>Categories</span>
+            </h6>
+            <ul>
+				
+				
+                <li><a href="/categories/#coding">Coding</a></li>
+                
+                <li><a href="/categories/#ee">EE</a></li>
+                
+                <li><a href="/categories/#games">Games</a></li>
+                
+                <li><a href="/categories/#html">Html</a></li>
+                
+                <li><a href="/categories/#life">Life</a></li>
+                
+                <li><a href="/categories/#movie">Movie</a></li>
+                
+                <li><a href="/categories/#physics">Physics</a></li>
+                
+                <li><a href="/categories/#reading">Reading</a></li>
+                
+                <li><a href="/categories/#school">School</a></li>
+                
+                <li><a href="/categories/#tools">Tools</a></li>
+                
+                <li><a href="/categories/#video">Video</a></li>
+                
+            </ul>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-recent-posts">
+            <h6 class="widget-title">
+                <span>Related Posts</span>
+            </h6>
+            <ul class="recent-posts">
+            
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/tools/youget-in-windows/">
+                                <img src="/images/201807/you-get-logo.png" alt="Windows 下运行 you-get 获取视频">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/tools/youget-in-windows/">Windows 下运行 you-get 获取视频</a>
+                            <span>2018/07/30</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/nba2k11-shotchart-project/">
+                                <img src="/images/201807/nba2k11.jpg" alt="NBA2K11 投篮点辅助">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/nba2k11-shotchart-project/">NBA2K11 投篮点辅助</a>
+                            <span>2018/07/06</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/Ultimate-NBA-Downloader/">
+                                <img src="/images/201805/BR_Logo.png" alt="BR图片下载器">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/Ultimate-NBA-Downloader/">BR图片下载器</a>
+                            <span>2018/05/28</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                    
+
+                
+                                   
+            </ul>
+
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-tag">
+            <h6 class="widget-title">
+                <span>Tags Widget <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+
+            <div class="tag-cloud">
+                
+                <a href="/tags/#df">DF</a>
+                
+                <a href="/tags/#production">production</a>
+                
+                <a href="/tags/#education">education</a>
+                
+                <a href="/tags/#lifestyle">lifestyle</a>
+                
+                <a href="/tags/#volunteer">volunteer</a>
+                
+                <a href="/tags/#physics">physics</a>
+                
+                <a href="/tags/#lectures">lectures</a>
+                
+                <a href="/tags/#school">school</a>
+                
+                <a href="/tags/#football">football</a>
+                
+                <a href="/tags/#sports">sports</a>
+                
+                <a href="/tags/#movie">movie</a>
+                
+                <a href="/tags/#tv">TV</a>
+                
+                <a href="/tags/#life">life</a>
+                
+                <a href="/tags/#diversity">diversity</a>
+                
+                <a href="/tags/#arts">arts</a>
+                
+                <a href="/tags/#c#">C#</a>
+                
+                <a href="/tags/#innovation">innovation</a>
+                
+                <a href="/tags/#contest">contest</a>
+                
+                <a href="/tags/#project">project</a>
+                
+                <a href="/tags/#fpga">FPGA</a>
+                
+                <a href="/tags/#vlc">VLC</a>
+                
+                <a href="/tags/#blog">blog</a>
+                
+                <a href="/tags/#impact-factors">Impact Factors</a>
+                
+                <a href="/tags/#helloworld">helloworld</a>
+                
+                <a href="/tags/#jekyll">jekyll</a>
+                
+                <a href="/tags/#html">html</a>
+                
+                <a href="/tags/#css">css</a>
+                
+                <a href="/tags/#github">github</a>
+                
+                <a href="/tags/#js">js</a>
+                
+                <a href="/tags/#hexo">hexo</a>
+                
+                <a href="/tags/#semiconductor">semiconductor</a>
+                
+                <a href="/tags/#experiments">experiments</a>
+                
+                <a href="/tags/#python">Python</a>
+                
+                <a href="/tags/#image">image</a>
+                
+                <a href="/tags/#code">code</a>
+                
+                <a href="/tags/#gfw">GFW</a>
+                
+                <a href="/tags/#git">Git</a>
+                
+                <a href="/tags/#windows">Windows</a>
+                
+                <a href="/tags/#tools">tools</a>
+                
+                <a href="/tags/#shell">shell</a>
+                
+                <a href="/tags/#scripts">scripts</a>
+                
+                <a href="/tags/#thu">THU</a>
+                
+                <a href="/tags/#liquid">liquid</a>
+                
+                <a href="/tags/#coding">coding</a>
+                
+                <a href="/tags/#latex">LaTeX</a>
+                
+                <a href="/tags/#basic">basic</a>
+                
+                <a href="/tags/#review">review</a>
+                
+                <a href="/tags/#games">games</a>
+                
+                <a href="/tags/#roguelike">roguelike</a>
+                
+                <a href="/tags/#matlab">MATLAB</a>
+                
+                <a href="/tags/#chaos">chaos</a>
+                
+                <a href="/tags/#simulation">simulation</a>
+                
+                <a href="/tags/#camping">camping</a>
+                
+                <a href="/tags/#phd">PhD</a>
+                
+                <a href="/tags/#philosophy">philosophy</a>
+                
+                <a href="/tags/#reading">reading</a>
+                
+                <a href="/tags/#optics">optics</a>
+                
+                <a href="/tags/#year">year</a>
+                
+                <a href="/tags/#dream">dream</a>
+                
+                <a href="/tags/#girls">girls</a>
+                
+                <a href="/tags/#circuit">circuit</a>
+                
+                <a href="/tags/#electronics">electronics</a>
+                
+                <a href="/tags/#memory">memory</a>
+                
+                <a href="/tags/#france">France</a>
+                
+                <a href="/tags/#ingenieur">ingenieur</a>
+                
+                <a href="/tags/#bbs">bbs</a>
+                
+                <a href="/tags/#history">history</a>
+                
+                <a href="/tags/#byr">byr</a>
+                
+                <a href="/tags/#travel">travel</a>
+                
+                <a href="/tags/#tour">tour</a>
+                
+                <a href="/tags/#future">future</a>
+                
+                <a href="/tags/#graduate">graduate</a>
+                
+                <a href="/tags/#investment">investment</a>
+                
+                <a href="/tags/#love">love</a>
+                
+                <a href="/tags/#laptop">laptop</a>
+                
+                <a href="/tags/#mac">Mac</a>
+                
+                <a href="/tags/#hackintosh">hackintosh</a>
+                
+                <a href="/tags/#foudre">foudre</a>
+                
+                <a href="/tags/#law">law</a>
+                
+                <a href="/tags/#juven">juven</a>
+                
+                <a href="/tags/#ramen">ramen</a>
+                
+                <a href="/tags/#industry">industry</a>
+                
+                <a href="/tags/#alcohol">alcohol</a>
+                
+                <a href="/tags/#bar">bar</a>
+                
+                <a href="/tags/#confession">confession</a>
+                
+                <a href="/tags/#postdoc">postdoc</a>
+                
+                <a href="/tags/#nyu">NYU</a>
+                
+                <a href="/tags/#hahn">Hahn</a>
+                
+                <a href="/tags/#scholar">scholar</a>
+                
+                <a href="/tags/#academia">academia</a>
+                
+                <a href="/tags/#nba">NBA</a>
+                
+                <a href="/tags/#cool">cool</a>
+                
+                <a href="/tags/#study">study</a>
+                
+                <a href="/tags/#fourier">Fourier</a>
+                
+                <a href="/tags/#signal">signal</a>
+                
+                <a href="/tags/#theorem">theorem</a>
+                
+                <a href="/tags/#trivial">trivial</a>
+                
+                <a href="/tags/#chuapp">chuapp</a>
+                
+                <a href="/tags/#city">city</a>
+                
+                <a href="/tags/#politics">politics</a>
+                
+                <a href="/tags/#data">data</a>
+                
+                <a href="/tags/#tech">tech</a>
+                
+                <a href="/tags/#nas">NAS</a>
+                
+                <a href="/tags/#network">network</a>
+                
+                <a href="/tags/#infrastructure">infrastructure</a>
+                
+                <a href="/tags/#self-esteem">self-esteem</a>
+                
+                <a href="/tags/#confidence">confidence</a>
+                
+                <a href="/tags/#mental">mental</a>
+                
+                <a href="/tags/#value">value</a>
+                
+                <a href="/tags/#property">property</a>
+                
+                <a href="/tags/#fame">fame</a>
+                
+                <a href="/tags/#wechat">wechat</a>
+                
+                <a href="/tags/#crawler">crawler</a>
+                
+                <a href="/tags/#threading">threading</a>
+                
+                <a href="/tags/#multiprocessing">multiprocessing</a>
+                
+                <a href="/tags/#genuine">genuine</a>
+                
+                <a href="/tags/#adobe">Adobe</a>
+                
+                <a href="/tags/#codec">Codec</a>
+                
+                <a href="/tags/#software">software</a>
+                
+                <a href="/tags/#enlighten">enlighten</a>
+                
+                <a href="/tags/#friends">friends</a>
+                
+                <a href="/tags/#chance">chance</a>
+                
+                <a href="/tags/#choice">choice</a>
+                
+                <a href="/tags/#projectuniv">PROJECTUNIV</a>
+                
+                <a href="/tags/#cpp">cpp</a>
+                
+                <a href="/tags/#visualization">visualization</a>
+                
+                <a href="/tags/#gui">GUI</a>
+                
+                <a href="/tags/#gif">gif</a>
+                
+                <a href="/tags/#remastered">remastered</a>
+                
+                <a href="/tags/#exe">exe</a>
+                
+                <a href="/tags/#emoji">emoji</a>
+                
+                <a href="/tags/#gif">GIF</a>
+                
+                <a href="/tags/#video">video</a>
+                
+                <a href="/tags/#emoticon">emoticon</a>
+                
+                <a href="/tags/#pil">PIL</a>
+                
+                <a href="/tags/#swimming">swimming</a>
+                
+                <a href="/tags/#premiere">Premiere</a>
+                
+                <a href="/tags/#golf">golf</a>
+                
+                <a href="/tags/#gbbb">GBBB</a>
+                
+                <a href="/tags/#beatbox">beatbox</a>
+                
+                <a href="/tags/#loopstation">loopstation</a>
+                
+                <a href="/tags/#photo">photo</a>
+                
+                <a href="/tags/#plugin">plugin</a>
+                
+                <a href="/tags/#ae">AE</a>
+                
+                <a href="/tags/#music">music</a>
+                
+                <a href="/tags/#nature">nature</a>
+                
+                <a href="/tags/#basketball">basketball</a>
+                
+                <a href="/tags/#rdfz">RDFZ</a>
+                
+                <a href="/tags/#world">world</a>
+                
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+    </div>
+    <!-- END SIDEBAR -->
+</div>
+
+    </div>
+  </div>
+</div>
+<!-- END SINGLE-POST-WRAP -->
+
+
+        </main>
+        <!-- END MAIN -->
+
+        
+<footer>
+  <div class="footer">
+    <div class="container">
+      <div class="text-center">
+        <a href="/blog" class="logo clearfix animsition-link"><img src="/img/sig.svg" width="400" alt="Chen's Sig"></a>
+        <p class="copy">
+          Maintained by <a href="/about/">Chen Ting</a> 
+		  
+        </p>
+        <div class="icon-list">
+          <a href="https://www.linkedin.com/in/ting-chen-402bab122/" target="_blank">
+            <i class="fa fa-fw fa-linkedin"></i>
+          </a>
+          <a href="http://my.hupu.com/17573413/" target="_blank">
+            <i class="fa fa-fw fa-futbol-o"></i>
+          </a>
+          <a href="https://www.douban.com/people/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-book"></i>
+          </a>
+		   <a href="https://www.flickr.com/photos/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-flickr"></i>
+          </a>
+          <a href="https://github.com/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-github"></i>
+          </a>
+		  <a href="/feed.xml" target="_blank">
+            <i class="fa fa-fw fa-rss"></i>
+          </a>
+        </div>
+        <div class="scroll-top">go to top</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END FOOTER -->
+</footer>
+
+      </div>
+      <!-- END CONTENT -->
+    </div>
+    <!-- END ANIMSITION -->
+
+    
+<!-- SCRIPTS -->
+<script src="/assets/js/jquery-1.12.0.min.js"></script>
+<script src="/assets/js/plugins.min.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<!-- CUSTOM SCRIPT -->
+<script src="/assets/js/script.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/js/tether.min.js"></script>
+<script>document.getElementById("CN").href = "http://yo1995.coding.me" + window.location.pathname;</script>
+
+
+<script src="/assets/js/qrcode.js"></script>
+<script>
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: "https://yo1995.github.io/coding/python-PIL-101/",
+    width: 196,
+    height: 196,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H,
+    useSVG: true
+});
+</script>
+
+
+<!-- 爱心特效 -->
+
+
+
+<script async src="/assets/js/busuanzi.pure.mini.js">
+</script>
+<!--功夫网卡住了script id="dsq-count-scr" src="//yo1995.disqus.com/count.js" async></script-->
+
+
+
+
+
+
+
+<!--script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82518311-1', 'auto');
+  ga('send', 'pageview', {
+  'page': '/coding/python-PIL-101/',
+  'title': 'Using PIL(Pillow) to generate thumbnail'
+  });
+
+</script-->
+
+
+  </body>
+
+</html>

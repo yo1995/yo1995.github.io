@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html>
+
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="日常Python使用系列">
+  <meta name="author" content="Chen Ting">
+  <meta name="keywords" content="">
+  <meta name="theme-color" content="#272727">
+
+  <title>Python日常小记 - 文字表情包制作器 for Wechat</title>
+
+  <link rel="icon" href="/img/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="canonical" href="https://yo1995.github.io/coding/python-gif-emoticon-generator/" />
+  <link rel="alternate" type="application/rss+xml" title="Chen's Blog" href="https://yo1995.github.io/feed.xml" />
+  
+  <meta property="og:site_name" content="Chen's Blog" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://yo1995.github.io/coding/python-gif-emoticon-generator/" />
+  <meta property="og:title" content="Python日常小记 - 文字表情包制作器 for Wechat" />
+  <meta property="og:description" content="日常Python使用系列" />
+  <meta property="og:article:published_time" content="2016-09-05T00:00:00-04:00" />
+  <meta property="og:article:author" content="Chen Ting" />
+
+  <meta property="og:image" content="/images/201609/GIF89a.png" />
+  
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <!-- PLUGINS -->
+  <link rel="stylesheet" href="/assets/css/vlthemes.css">
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">	
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  
+  
+  
+
+</head>
+<!-- 180622 - tecent analytics -->
+<script type="text/javascript" src="https://tajs.qq.com/stats?sId=65898920" charset="UTF-8"></script>
+
+
+  <body data-spy="scroll" data-target="#navbar" data-offset="100">
+
+		<!-- FRAMES -->
+		<span class="frame-line top-frame"></span>
+		<span class="frame-line right-frame"></span>
+		<span class="frame-line bottom-frame"></span>
+		<span class="frame-line left-frame"></span>
+
+    <div class="animsition">
+      <div class="content">
+
+        
+<!-- header-fixed / header-scroll-up  -->
+<div class="scroll-indicator fixedheader" style="width"></div>
+<header class="header-wrap header-fixed minimal-menu">
+    <div class="header-inner">
+        <div class="container">
+			
+            <div class="logo">
+                <a href="/blog" class="animsition-link">Ch<span>e</span>n's Blog</a>
+            </div>
+			
+
+            <a href="#" class="menu-toggle desctop-menu">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <a href="#" class="menu-toggle mobile-menu-toggle">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <nav class="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="/" class="animsition-link">
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item-has-children" class="current-menu-item">
+                        <a href="">
+                            <span>Blog</span>
+                        </a>
+						    <ul class="sub-menu">
+								<li>
+									<a href="/blog/" class="animsition-link">
+										<span>Blog Index</span>
+									</a>
+								</li>
+								<li>
+									<a href="/posts/" class="animsition-link">
+										<span>Archives</span>
+									</a>
+								</li>
+								<li>
+									<a href="/categories/" class="animsition-link">
+										<span>Categories</span>
+									</a>
+								</li>
+								<li>
+									<a href="/tags/" class="animsition-link">
+										<span>Tags</span>
+									</a>
+								</li>
+							</ul>
+                    </li>
+
+                    <li>
+                        <a href="/photos/" class="animsition-link">
+                            <span>Photos</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/about/" class="animsition-link">
+                            <span>About</span>
+                        </a>
+                    </li>
+					
+					  <!--li>
+                        <a href="" class="animsition-link" id="CN">
+                            <span>CN</span>
+                        </a>
+                    </li-->
+                </ul>
+            </nav>
+            <!-- END PRIMARY-MENU -->
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <!-- END HEADER-INNER -->
+</header>
+<!-- END HEADER-WRAP -->
+
+
+        
+
+        <main id="main-content">
+          
+          <div class="single-post-wrap clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 content-fixed">
+
+        <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
+          <div class="post-thumb clearfix">
+            
+            <img src="/images/201609/GIF89a.png" alt="Python日常小记 - 文字表情包制作器 for Wechat">
+            
+          </div>
+          
+          <div class="post-content" itemprop="articleBody">
+            <div class="post-date" datetime="2016-09-05T00:00:00-04:00" itemprop="datePublished">
+              Sep 5, 2016
+            </div>
+            <h1 class="post-title" itemprop="name headline">Python日常小记 - 文字表情包制作器 for Wechat</h1>
+            <div class="content-color">
+            
+            <link rel="stylesheet" href="/css/mermaid.css">
+
+<link rel="stylesheet" href="/css/mermaid.dark.css">
+
+<p>没有系统性学习过Python相关的知识，但已经用它解决了不少问题了。不得不说，如果说编程语言家庭是个Armory Pod的话，Python绝对是仓库里最趁手的一套工具包，大概就是GTA武器包水平。
+<!--more-->
+MATLAB是高价买来(租来)的24K镀金太空光学炮，只限单人使用，别人一起用会攻击自己。C语言是Lo Wang的武士刀，只有远古之神会用。Ruby是镶红钻的百变小樱魔棒。VB是究极无敌改进版玩具水枪，或者满级片手剑。Verilog……更像是放了低爆弹的金属风暴。暂时只用过这几种语言……随便tx一下。</p>
+
+<p>进入正题，今天探讨的是一个特定的应用：如何用Python写一个微信文字表情包生成脚本。</p>
+
+<h2 id="需求分析">
+<a id="需求分析" class="anchor" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>需求分析</h2>
+<ul>
+  <li>输入中文或英文，输出微信可识别的GIF表情图</li>
+  <li>可通过修改参数控制字体字号和文字颜色</li>
+  <li>输出图片需与文字宽度成正比，留白不能过多影响微信中显示效果</li>
+  <li>文字过长时提示截短或分为多行输出，限制最大字符数并限制行数为3行</li>
+  <li>*可直接将生成图片输出到系统剪贴板</li>
+</ul>
+
+<h2 id="gif相关知识">
+<a id="gif相关知识" class="anchor" href="#gif%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>GIF相关知识</h2>
+<p>GIF格式经历了1985年((⊙﹏⊙)b好久远)格式GIF87a到GIF89a的变革。现在网络上流行的GIF图片绝大多数是以后者进行编码的。</p>
+
+<p>后者相较于前者优势主要有三点：透明背景、隔行扫描和动画序列。本文中主要涉及第一点。</p>
+
+<h2 id="log">
+<a id="log" class="anchor" href="#log" aria-hidden="true"><span class="octicon octicon-link"></span></a>Log</h2>
+<h3 id="20160904-ver-01-alpha">
+<a id="20160904-ver-01-alpha" class="anchor" href="#20160904-ver-01-alpha" aria-hidden="true"><span class="octicon octicon-link"></span></a>20160904 ver 0.1 alpha</h3>
+<p>解决了最基础的需求，即输入文字输出GIF文件</p>
+
+<h3 id="编程过程及难点">
+<a id="编程过程及难点" class="anchor" href="#%E7%BC%96%E7%A8%8B%E8%BF%87%E7%A8%8B%E5%8F%8A%E9%9A%BE%E7%82%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>编程过程及难点</h3>
+<p>微信识别表情图片时，在移动端不限制文件格式，会通过色度和容差的方法去掉纯色背景，生成表情。在PC端则只支持GIF文件，会保留图片所有细节，如背景颜色等。因而，生成PC端GIF图片时，存在三个主要难点：</p>
+<ol>
+  <li>如何将文字无失真转化为图片</li>
+  <li>如何使输出GIF图片背景为透明</li>
+  <li>如何处理中文字符串(~~误~~)</li>
+</ol>
+
+<h3 id="解决方案">
+<a id="解决方案" class="anchor" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>解决方案</h3>
+<p>第一版程序写的简单，主要就是解决上述两个问题。
+首先是文字变图片。PIL库的ImageDraw提供了text方案。尽管对于小字体存在一定异常，但本案例中并无大碍。
+另外可以考虑的方案是通过一些与GUI结合的库实现，网上案例有使用pygame实现的，效果类似。</p>
+
+<p>其次是图片存成透明GIF。由于GIF格式出现较早，对于透明度和色阶的支持不如其后辈png来得好<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>&amp;<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。如今GIF仍旧能够盛行的一大因素就是其能支持简易动画，同时色彩较少的文件能有不错的文件体积。</p>
+
+<p>个人理解GIF的透明度是以牺牲某一种特定颜色为代价的。例如本例中，就将纯黑色#000设为了透明色，因而图片中所有纯黑色的地方均会被优化为透明。</p>
+
+<p>整体实现过程如下：</p>
+
+<script src="/assets/js/mermaid.min.js"></script>
+<div class="mermaid"> 
+graph TB
+	st("开始");
+	st--&gt;io{"输入需要转化的文字"}
+	io--&gt;op1["将文字转化为矢量图形"];
+	op1--&gt;op2["将矢量图形绘制到创建好的图片背景上"];
+	op2--&gt;op3["将绘制完的图形保存为GIF"];
+	op3--&gt;e("结束");
+</div>
+
+<pre><code class="language-flow">st=&gt;start: 开始
+e=&gt;end: 结束
+io=&gt;inputoutput: 输入需要转化的文字
+op1=&gt;operation: 将文字转化为矢量图形
+op2=&gt;operation: 将矢量图形绘制到创建好的图片背景上
+op3=&gt;operation: 将绘制完的图形保存为GIF
+
+st-&gt;op1-&gt;op2-&gt;op3-&gt;e
+</code></pre>
+
+<p><a href="http://knsv.github.io/mermaid/flowchart.html">mermaid syntax flowchart</a></p>
+
+<h2 id="心得体会">
+<a id="心得体会" class="anchor" href="#%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A" aria-hidden="true"><span class="octicon octicon-link"></span></a>心得体会</h2>
+<p>这个程序挺简单的，但是还是花了接近半小时调试，主要原因是Python2.7的中文匹配utf8问题和GIF格式透明度定义问题。重新定义了颜色以后果然解决。关于Python的其它体会见矫情篇文章……</p>
+
+<h2 id="最新版代码">
+<a id="最新版代码" class="anchor" href="#%E6%9C%80%E6%96%B0%E7%89%88%E4%BB%A3%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>最新版代码</h2>
+<h3 id="ver-01-alpha">
+<a id="ver-01-alpha" class="anchor" href="#ver-01-alpha" aria-hidden="true"><span class="octicon octicon-link"></span></a>ver 0.1 alpha</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">os</span><span class="p">,</span><span class="n">sys</span><span class="p">,</span><span class="n">locale</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageFont</span><span class="p">,</span> <span class="n">ImageDraw</span>
+  
+<span class="n">zihao</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="s">'1.gif'</span><span class="p">)</span>
+<span class="n">transparency</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s">'transparency'</span><span class="p">]</span>
+<span class="n">text</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">u'请输入需要转化的文字：</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'gb18030'</span><span class="p">))</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">or</span> <span class="n">locale</span><span class="o">.</span><span class="n">getpreferredencoding</span><span class="p">(</span><span class="bp">True</span><span class="p">))</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s">"RGBA"</span><span class="p">,</span> <span class="p">(</span><span class="n">zihao</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="p">,</span> <span class="n">zihao</span> <span class="o">+</span> <span class="mi">30</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">dr</span> <span class="o">=</span> <span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<span class="n">font</span> <span class="o">=</span> <span class="n">ImageFont</span><span class="o">.</span><span class="n">truetype</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s">"fonts"</span><span class="p">,</span> <span class="s">"C:/Windows/Fonts/STZHONGS.TTF"</span><span class="p">),</span> <span class="n">zihao</span><span class="p">)</span> <span class="c">#华文中宋字体</span>
+<span class="n">dr</span><span class="o">.</span><span class="n">text</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">text</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">font</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s">"#111"</span><span class="p">)</span>
+
+<span class="n">im</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">text</span> <span class="o">+</span> <span class="s">".gif"</span><span class="p">,</span><span class="n">transparency</span><span class="o">=</span><span class="n">transparency</span><span class="p">)</span>
+<span class="nb">raw_input</span><span class="p">(</span><span class="s">u'表情已生成，任意键结束！'</span><span class="p">)</span>
+</code></pre></div></div>
+<p>程序所需模板图片：(对这里有图你没看错)</p>
+
+<p><img src="/images/201609/1.gif" alt=""></p>
+
+<p>效果：</p>
+
+<p><img src="/images/201609/allemoticons.gif" alt=""></p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p><a href="http://www.cnblogs.com/susanws/p/5531163.html">JPG、PNG和GIF优化相关；七遍隔行扫描</a> <a href="#fnref:1" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:2">
+      <p><a href="http://www.pythonclub.org/modules/pil/convert-png-gif">Python透明度相关问题</a> <a href="#fnref:2" class="reversefootnote">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+            
+            </div>
+            
+<div class="entry-tags clearfix">
+
+    <div class="entry-footer clearfix">
+
+        <div class="pull-left">
+            <span>
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/#python">Python</a>
+                
+                <a href="/tags/#tools">tools</a>
+                
+                <a href="/tags/#coding">coding</a>
+                
+            </span>            
+            <span><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv">0</span> views</span>
+            <span>
+                <i class="fa fa-comments-o"></i>
+                <a href="#comments">GFW comments</a>
+				<!--被墙替换class="disqus-comment-count" data-disqus-identifier="Chen's Blog//coding/python-gif-emoticon-generator-->
+            </span>
+            <span>
+                <i class="fa fa-check-square-o"></i><span>2230 words</span>
+            </span>
+            <span>
+                <i class="fa fa-link"></i>
+                <a data-toggle="collapse" href="#share-content" aria-expanded="false" aria-controls="share-content">Share</a>
+        </div>
+        <div class="pull-right collapse in" id="share-content">
+            
+<div class="entry-share-links">
+
+    <div class="btn-group" role="group" aria-label="Share">
+        <button type="button" class="btn btn-default btn-sm btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="http://www.facebook.com/sharer.php?u=https://yo1995.github.io/coding/python-gif-emoticon-generator/" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></button>
+        
+        <button type="button" class="btn btn-default btn-sm btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="https://twitter.com/share?url=https://yo1995.github.io/coding/python-gif-emoticon-generator/&amp;text=Python日常小记 - 文字表情包制作器 for Wechat" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-weibo" data-toggle="tooltip" data-placement="top" title="新浪微博"><a href="http://service.weibo.com/share/share.php?url=https://yo1995.github.io/coding/python-gif-emoticon-generator/&title=分享%4011L23+的文章「Python日常小记 - 文字表情包制作器 for Wechat」&content=日常Python使用系列&pic=https://yo1995.github.io/images/201609/GIF89a.png" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-douban" data-toggle="tooltip" data-placement="top" title="豆瓣"><a href="https://www.douban.com/share/service?name=Python日常小记 - 文字表情包制作器 for Wechat&href=https://yo1995.github.io/coding/python-gif-emoticon-generator/&image=https://yo1995.github.io/images/201609/GIF89a.png&url=https://yo1995.github.io/coding/python-gif-emoticon-generator/&title=Python日常小记 - 文字表情包制作器 for Wechat" target="_blank"><i class="fa fa-fw">豆</i></a></button>
+
+        <a tabindex="0" class="btn btn-sm btn-weixin" role="button" data-trigger="hover" data-placement="top" id="qrcode-btn"><i class="fa fa-fw fa-weixin"></i></a>
+
+        <div id="qrcode-content" class="qrcode-hidden"><div id="qrcode"></div></div>
+        <div id="qrcode-title" class="qrcode-hidden">Scan to Read</div>
+		
+		<button type="button" class="btn btn-default btn-sm btn-email"><a href="mailto:?Subject=Python日常小记 - 文字表情包制作器 for Wechat&amp;Body=日常Python使用系列%20https://yo1995.github.io/coding/python-gif-emoticon-generator/"><i class="fa fa-fw fa-envelope-o"></i> Email</a></button>
+
+        <div class="btn-group btn-group-justified dropup" role="group">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle btn-more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-share-alt"></i><span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-google"><a href="https://plus.google.com/share?url=https://yo1995.github.io/coding/python-gif-emoticon-generator/" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google Plus</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://yo1995.github.io/coding/python-gif-emoticon-generator/" target="_blank"><i class="fa fa-fw fa-linkedin"></i> Linkedin</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-digg"><a href="http://www.digg.com/submit?url=https://yo1995.github.io/coding/python-gif-emoticon-generator/" target="_blank"><i class="fa fa-fw fa-digg"></i> Digg</a></button></li>
+
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-pinterest"><a href="https://pinterest.com/pin/create/bookmarklet/?media=https://yo1995.github.io/images/201609/GIF89a.png&url=https://yo1995.github.io/coding/python-gif-emoticon-generator/&description=Python日常小记 - 文字表情包制作器 for Wechat" target="_blank"><i class="fa fa-fw fa-pinterest-p"></i> Pinterest</a></button></li>
+                 
+                 
+
+                <li><button type="button" class="btn btn-default btn-sm btn-reddit"><a href="http://reddit.com/submit?url=https://yo1995.github.io/coding/python-gif-emoticon-generator/&amp;title=Python日常小记 - 文字表情包制作器 for Wechat" target="_blank"><i class="fa fa-fw fa-reddit-alien"></i> Reddit</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-tumblr"><a href="http://www.tumblr.com/share/link?url=https://yo1995.github.io/coding/python-gif-emoticon-generator/&amp;title=Python日常小记 - 文字表情包制作器 for Wechat" target="_blank"><i class="fa fa-fw fa-tumblr"></i> Tumblr</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-print"><a href="javascript:;" onclick="window.print()"><i class="fa fa-fw fa-print"></i> Print</a></button></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+        </div>
+    </div>  
+
+</div>
+
+          </div>
+        </article>
+        <!-- END SINGLE-POST -->
+
+        
+<div class="post-navigation clearfix">
+    <div class="row">
+
+        <div class="col-xs-6">
+            <div class="previous-post">
+                <div class="arrow">
+                    <i class="fa fa-angle-double-left"></i>
+                    
+                    <a href="/coding/NFL-album-download/" class="animsition-link" data-hover-text="Prev: Python日常小记 - NFL官网相册下载">Prev: Python日常小记 - NFL官网相册下载</a>
+                    
+                </div>
+
+            </div>
+            <!-- END PREVIOUS-POST -->
+        </div>
+        <div class="col-xs-6">
+            <div class="next-post">
+                <div class="arrow">
+                    
+                    <a href="/coding/python-understandings-101s/" class="animsition-link" data-hover-text="Next: Python日常小记 - 关于Python的碎碎念">Next: Python日常小记 - 关于Python的碎碎念</a>
+                    
+                    <i class="fa fa-angle-double-right"></i>
+                </div>
+
+            </div>
+            <!-- END NEXT-POST -->
+        </div>
+    </div>
+</div>
+<!-- END POST-NAVIGATION -->
+		<!-- 180726 add multi author support -->
+		 
+			<div class="author-info clearfix">
+    <div class="author-avatar">
+        <img class="avatar" src="/img/avatar.png" alt="Chen Ting">
+    </div>
+
+    <div class="author-description">
+        <h4 class="author-title">
+            <a href="/about/">Chen Ting <i class="fa fa-link"></i></a>
+        </h4>
+        <p class="author-bio">
+            The page aims to exhibit several activities & achievements which the author engaged in during his undergraduate & graduate period. Meanwhile, other aspects such as lifestyles, literary work, travel notes, etc. would interweave in the narration.
+        </p>
+    </div>
+	<!-- add busaunzi to see how many views and reads happens to my page. addition to tecent -->
+	<script async src="/assets/js/busuanzi.pure.mini.js"></script>
+</div>
+<!-- END AUTHOR-INFO -->
+		 
+		 
+        
+
+<div class="comments-area clearfix">
+    <div class="comment-respond">
+		<h4 class="comment-reply-title" id="comments">Leave a Comment</h4>
+		<div class="disqus-placeholder alert alert-info" style="text-align: center">
+			<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Disqus might be GFW-ed. Excited!
+		</div>
+		<script src="/assets/js/disqusloader.js"></script>
+		<div class="disqus"></div>
+		<!--
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+        this.page.url = "https://yo1995.github.io/coding/python-gif-emoticon-generator/";
+        this.page.identifier = "Chen's Blog//coding/python-gif-emoticon-generator";
+        this.page.title = "Python日常小记 - 文字表情包制作器 for Wechat";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//yo1995.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+		-->
+		<script>disqusLoader( '.disqus', { 
+			scriptUrl: '//yo1995.disqus.com/embed.js',
+			disqusConfig: function(){
+				this.callbacks.onReady = [function(){
+				var el = document.querySelector( '.disqus-placeholder' );
+				if( el.classList )
+					el.classList.add( 'is-hidden' ); // IE 10+
+				else
+					el.className += ' ' + 'is-hidden'; // IE 8-9
+				}];}
+			});
+		</script>
+       <noscript>Please conquer the GFW or enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+<!-- END COMMENTS-AREA -->
+
+
+      </div>
+
+      <div class="col-md-4 sidebar-fixed">
+    <div class="sidebar">
+        <aside class="widget-wrap widget-search">
+            <h6 class="widget-title">
+                <span>Search for a topic?</span>
+            </h6>
+			<div onclick="keyinsearch()" class="search-form text-center" id="search-container">
+				<input type="text" id="search-input" placeholder="search...">
+				<i class="fa fa-search"></i>
+				<ul id="results-container" style="list-style:square"></ul>
+			</div>
+			<!-- 180206 - update -->
+<script src="/assets/js/jekyll-search.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  function keyinsearch () {
+  SimpleJekyllSearch({
+	searchInput: document.getElementById('search-input'),
+	resultsContainer: document.getElementById('results-container'),
+	json: '/search.json',
+	searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+	noResultsText: '无结果',
+	limit: 5,
+	fuzzy: false
+  });
+  }
+</script>
+
+
+<!-- 暂时还没想好cache怎么改写，目前每次请求都是200 ！= = 不够chrome貌似是直接从本地磁盘加载的 -->
+<!--
+<form class="search-form" action="/search/" target="_blank" method="get">
+	<input type="text" placeholder="Search..." name="q">
+	<i class="fa fa-search"></i>
+</form>
+-->
+
+        </aside>
+        <!-- END WIDGET-WRAP -->		
+        <aside class="widget-wrap widget-categories">
+            <h6 class="widget-title">
+                <span>Categories</span>
+            </h6>
+            <ul>
+				
+				
+                <li><a href="/categories/#coding">Coding</a></li>
+                
+                <li><a href="/categories/#ee">EE</a></li>
+                
+                <li><a href="/categories/#games">Games</a></li>
+                
+                <li><a href="/categories/#html">Html</a></li>
+                
+                <li><a href="/categories/#life">Life</a></li>
+                
+                <li><a href="/categories/#movie">Movie</a></li>
+                
+                <li><a href="/categories/#physics">Physics</a></li>
+                
+                <li><a href="/categories/#reading">Reading</a></li>
+                
+                <li><a href="/categories/#school">School</a></li>
+                
+                <li><a href="/categories/#tools">Tools</a></li>
+                
+                <li><a href="/categories/#video">Video</a></li>
+                
+            </ul>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-recent-posts">
+            <h6 class="widget-title">
+                <span>Related Posts</span>
+            </h6>
+            <ul class="recent-posts">
+            
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/Wox-plugin-Emoji/">
+                                <img src="/images/201809/like.gif" alt="Windows快速搜索Emoji小工具">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/Wox-plugin-Emoji/">Windows快速搜索Emoji小工具</a>
+                            <span>2018/09/29</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/tools/mba-2k-output/">
+                                <img src="/images/201809/jobs-macbook-air.jpg" alt="MacBook Air 外接 2560*1080 分辨率的屏幕">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/tools/mba-2k-output/">MacBook Air 外接 2560*1080 分辨率的屏幕</a>
+                            <span>2018/09/10</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/tools/pairing-bluetooth-device-with-multiple-systems/">
+                                <img src="/images/201809/btshare.png" alt="多个系统使用同一蓝牙键盘">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/tools/pairing-bluetooth-device-with-multiple-systems/">多个系统使用同一蓝牙键盘</a>
+                            <span>2018/09/02</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                    
+
+                
+                                   
+            </ul>
+
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-tag">
+            <h6 class="widget-title">
+                <span>Tags Widget <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+
+            <div class="tag-cloud">
+                
+                <a href="/tags/#df">DF</a>
+                
+                <a href="/tags/#production">production</a>
+                
+                <a href="/tags/#education">education</a>
+                
+                <a href="/tags/#lifestyle">lifestyle</a>
+                
+                <a href="/tags/#volunteer">volunteer</a>
+                
+                <a href="/tags/#physics">physics</a>
+                
+                <a href="/tags/#lectures">lectures</a>
+                
+                <a href="/tags/#school">school</a>
+                
+                <a href="/tags/#football">football</a>
+                
+                <a href="/tags/#sports">sports</a>
+                
+                <a href="/tags/#movie">movie</a>
+                
+                <a href="/tags/#tv">TV</a>
+                
+                <a href="/tags/#life">life</a>
+                
+                <a href="/tags/#diversity">diversity</a>
+                
+                <a href="/tags/#arts">arts</a>
+                
+                <a href="/tags/#c#">C#</a>
+                
+                <a href="/tags/#innovation">innovation</a>
+                
+                <a href="/tags/#contest">contest</a>
+                
+                <a href="/tags/#project">project</a>
+                
+                <a href="/tags/#fpga">FPGA</a>
+                
+                <a href="/tags/#vlc">VLC</a>
+                
+                <a href="/tags/#blog">blog</a>
+                
+                <a href="/tags/#impact-factors">Impact Factors</a>
+                
+                <a href="/tags/#helloworld">helloworld</a>
+                
+                <a href="/tags/#jekyll">jekyll</a>
+                
+                <a href="/tags/#html">html</a>
+                
+                <a href="/tags/#css">css</a>
+                
+                <a href="/tags/#github">github</a>
+                
+                <a href="/tags/#js">js</a>
+                
+                <a href="/tags/#hexo">hexo</a>
+                
+                <a href="/tags/#semiconductor">semiconductor</a>
+                
+                <a href="/tags/#experiments">experiments</a>
+                
+                <a href="/tags/#python">Python</a>
+                
+                <a href="/tags/#image">image</a>
+                
+                <a href="/tags/#code">code</a>
+                
+                <a href="/tags/#gfw">GFW</a>
+                
+                <a href="/tags/#git">Git</a>
+                
+                <a href="/tags/#windows">Windows</a>
+                
+                <a href="/tags/#tools">tools</a>
+                
+                <a href="/tags/#shell">shell</a>
+                
+                <a href="/tags/#scripts">scripts</a>
+                
+                <a href="/tags/#thu">THU</a>
+                
+                <a href="/tags/#liquid">liquid</a>
+                
+                <a href="/tags/#coding">coding</a>
+                
+                <a href="/tags/#latex">LaTeX</a>
+                
+                <a href="/tags/#basic">basic</a>
+                
+                <a href="/tags/#review">review</a>
+                
+                <a href="/tags/#games">games</a>
+                
+                <a href="/tags/#roguelike">roguelike</a>
+                
+                <a href="/tags/#matlab">MATLAB</a>
+                
+                <a href="/tags/#chaos">chaos</a>
+                
+                <a href="/tags/#simulation">simulation</a>
+                
+                <a href="/tags/#camping">camping</a>
+                
+                <a href="/tags/#phd">PhD</a>
+                
+                <a href="/tags/#philosophy">philosophy</a>
+                
+                <a href="/tags/#reading">reading</a>
+                
+                <a href="/tags/#optics">optics</a>
+                
+                <a href="/tags/#year">year</a>
+                
+                <a href="/tags/#dream">dream</a>
+                
+                <a href="/tags/#girls">girls</a>
+                
+                <a href="/tags/#circuit">circuit</a>
+                
+                <a href="/tags/#electronics">electronics</a>
+                
+                <a href="/tags/#memory">memory</a>
+                
+                <a href="/tags/#france">France</a>
+                
+                <a href="/tags/#ingenieur">ingenieur</a>
+                
+                <a href="/tags/#bbs">bbs</a>
+                
+                <a href="/tags/#history">history</a>
+                
+                <a href="/tags/#byr">byr</a>
+                
+                <a href="/tags/#travel">travel</a>
+                
+                <a href="/tags/#tour">tour</a>
+                
+                <a href="/tags/#future">future</a>
+                
+                <a href="/tags/#graduate">graduate</a>
+                
+                <a href="/tags/#investment">investment</a>
+                
+                <a href="/tags/#love">love</a>
+                
+                <a href="/tags/#laptop">laptop</a>
+                
+                <a href="/tags/#mac">Mac</a>
+                
+                <a href="/tags/#hackintosh">hackintosh</a>
+                
+                <a href="/tags/#foudre">foudre</a>
+                
+                <a href="/tags/#law">law</a>
+                
+                <a href="/tags/#juven">juven</a>
+                
+                <a href="/tags/#ramen">ramen</a>
+                
+                <a href="/tags/#industry">industry</a>
+                
+                <a href="/tags/#alcohol">alcohol</a>
+                
+                <a href="/tags/#bar">bar</a>
+                
+                <a href="/tags/#confession">confession</a>
+                
+                <a href="/tags/#postdoc">postdoc</a>
+                
+                <a href="/tags/#nyu">NYU</a>
+                
+                <a href="/tags/#hahn">Hahn</a>
+                
+                <a href="/tags/#scholar">scholar</a>
+                
+                <a href="/tags/#academia">academia</a>
+                
+                <a href="/tags/#nba">NBA</a>
+                
+                <a href="/tags/#cool">cool</a>
+                
+                <a href="/tags/#study">study</a>
+                
+                <a href="/tags/#fourier">Fourier</a>
+                
+                <a href="/tags/#signal">signal</a>
+                
+                <a href="/tags/#theorem">theorem</a>
+                
+                <a href="/tags/#trivial">trivial</a>
+                
+                <a href="/tags/#chuapp">chuapp</a>
+                
+                <a href="/tags/#city">city</a>
+                
+                <a href="/tags/#politics">politics</a>
+                
+                <a href="/tags/#data">data</a>
+                
+                <a href="/tags/#tech">tech</a>
+                
+                <a href="/tags/#nas">NAS</a>
+                
+                <a href="/tags/#network">network</a>
+                
+                <a href="/tags/#infrastructure">infrastructure</a>
+                
+                <a href="/tags/#self-esteem">self-esteem</a>
+                
+                <a href="/tags/#confidence">confidence</a>
+                
+                <a href="/tags/#mental">mental</a>
+                
+                <a href="/tags/#value">value</a>
+                
+                <a href="/tags/#property">property</a>
+                
+                <a href="/tags/#fame">fame</a>
+                
+                <a href="/tags/#wechat">wechat</a>
+                
+                <a href="/tags/#crawler">crawler</a>
+                
+                <a href="/tags/#threading">threading</a>
+                
+                <a href="/tags/#multiprocessing">multiprocessing</a>
+                
+                <a href="/tags/#genuine">genuine</a>
+                
+                <a href="/tags/#adobe">Adobe</a>
+                
+                <a href="/tags/#codec">Codec</a>
+                
+                <a href="/tags/#software">software</a>
+                
+                <a href="/tags/#enlighten">enlighten</a>
+                
+                <a href="/tags/#friends">friends</a>
+                
+                <a href="/tags/#chance">chance</a>
+                
+                <a href="/tags/#choice">choice</a>
+                
+                <a href="/tags/#projectuniv">PROJECTUNIV</a>
+                
+                <a href="/tags/#cpp">cpp</a>
+                
+                <a href="/tags/#visualization">visualization</a>
+                
+                <a href="/tags/#gui">GUI</a>
+                
+                <a href="/tags/#gif">gif</a>
+                
+                <a href="/tags/#remastered">remastered</a>
+                
+                <a href="/tags/#exe">exe</a>
+                
+                <a href="/tags/#emoji">emoji</a>
+                
+                <a href="/tags/#gif">GIF</a>
+                
+                <a href="/tags/#video">video</a>
+                
+                <a href="/tags/#emoticon">emoticon</a>
+                
+                <a href="/tags/#pil">PIL</a>
+                
+                <a href="/tags/#swimming">swimming</a>
+                
+                <a href="/tags/#premiere">Premiere</a>
+                
+                <a href="/tags/#golf">golf</a>
+                
+                <a href="/tags/#gbbb">GBBB</a>
+                
+                <a href="/tags/#beatbox">beatbox</a>
+                
+                <a href="/tags/#loopstation">loopstation</a>
+                
+                <a href="/tags/#photo">photo</a>
+                
+                <a href="/tags/#plugin">plugin</a>
+                
+                <a href="/tags/#ae">AE</a>
+                
+                <a href="/tags/#music">music</a>
+                
+                <a href="/tags/#nature">nature</a>
+                
+                <a href="/tags/#basketball">basketball</a>
+                
+                <a href="/tags/#rdfz">RDFZ</a>
+                
+                <a href="/tags/#world">world</a>
+                
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+        <aside class="widget-wrap widget-toc">
+            <h6 class="widget-title">
+                <span>Table of Contents <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+            <div id="navbar">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#需求分析">需求分析</a></li>
+<li class="toc-entry toc-h2"><a href="#gif相关知识">GIF相关知识</a></li>
+<li class="toc-entry toc-h2"><a href="#log">Log</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#20160904-ver-01-alpha">20160904 ver 0.1 alpha</a></li>
+<li class="toc-entry toc-h3"><a href="#编程过程及难点">编程过程及难点</a></li>
+<li class="toc-entry toc-h3"><a href="#解决方案">解决方案</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#心得体会">心得体会</a></li>
+<li class="toc-entry toc-h2"><a href="#最新版代码">最新版代码</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#ver-01-alpha">ver 0.1 alpha</a></li>
+</ul>
+</li>
+</ul>
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+    </div>
+    <!-- END SIDEBAR -->
+</div>
+
+    </div>
+  </div>
+</div>
+<!-- END SINGLE-POST-WRAP -->
+
+
+        </main>
+        <!-- END MAIN -->
+
+        
+<footer>
+  <div class="footer">
+    <div class="container">
+      <div class="text-center">
+        <a href="/blog" class="logo clearfix animsition-link"><img src="/img/sig.svg" width="400" alt="Chen's Sig"></a>
+        <p class="copy">
+          Maintained by <a href="/about/">Chen Ting</a> 
+		  
+        </p>
+        <div class="icon-list">
+          <a href="https://www.linkedin.com/in/ting-chen-402bab122/" target="_blank">
+            <i class="fa fa-fw fa-linkedin"></i>
+          </a>
+          <a href="http://my.hupu.com/17573413/" target="_blank">
+            <i class="fa fa-fw fa-futbol-o"></i>
+          </a>
+          <a href="https://www.douban.com/people/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-book"></i>
+          </a>
+		   <a href="https://www.flickr.com/photos/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-flickr"></i>
+          </a>
+          <a href="https://github.com/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-github"></i>
+          </a>
+		  <a href="/feed.xml" target="_blank">
+            <i class="fa fa-fw fa-rss"></i>
+          </a>
+        </div>
+        <div class="scroll-top">go to top</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END FOOTER -->
+</footer>
+
+      </div>
+      <!-- END CONTENT -->
+    </div>
+    <!-- END ANIMSITION -->
+
+    
+<!-- SCRIPTS -->
+<script src="/assets/js/jquery-1.12.0.min.js"></script>
+<script src="/assets/js/plugins.min.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<!-- CUSTOM SCRIPT -->
+<script src="/assets/js/script.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/js/tether.min.js"></script>
+<script>document.getElementById("CN").href = "http://yo1995.coding.me" + window.location.pathname;</script>
+
+
+<script src="/assets/js/qrcode.js"></script>
+<script>
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: "https://yo1995.github.io/coding/python-gif-emoticon-generator/",
+    width: 196,
+    height: 196,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H,
+    useSVG: true
+});
+</script>
+
+
+<!-- 爱心特效 -->
+
+
+
+<script async src="/assets/js/busuanzi.pure.mini.js">
+</script>
+<!--功夫网卡住了script id="dsq-count-scr" src="//yo1995.disqus.com/count.js" async></script-->
+
+
+
+
+
+
+
+<!--script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82518311-1', 'auto');
+  ga('send', 'pageview', {
+  'page': '/coding/python-gif-emoticon-generator/',
+  'title': 'Python日常小记 - 文字表情包制作器 for Wechat'
+  });
+
+</script-->
+
+
+  </body>
+
+</html>

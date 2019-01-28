@@ -1,0 +1,101 @@
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/Josefin-Sans.eot);
+  src: local('Josefin Sans'), local('JosefinSans'), url(../fonts/Josefin-Sans.ttf) format('truetype'), url(../fonts/Josefin-Sans.eot?#iefix) format('embedded-opentype'), url(../fonts/Josefin-Sans.woff) format('woff'), url(../fonts/Josefin-Sans.svg#JosefinSans) format('svg');
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Josefin Sans SemiBold'), local('JosefinSans-SemiBold'), url(../fonts/Josefin-Sans-SemiBold.ttf) format('truetype'), url(../fonts/Josefin-Sans-SemiBold.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Josefin Sans Bold'), local('JosefinSans-Bold'), url(../fonts/Josefin-Sans-Bold.ttf) format('truetype'), url(../fonts/Josefin-Sans-Bold.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Josefin Sans Italic'), local('JosefinSans-Italic'), url(../fonts/Josefin-Sans-Italic.ttf) format('truetype'), url(../fonts/Josefin-Sans-Italic.woff) format('woff');
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Josefin Sans'), local('JosefinSans'), url(../fonts/Josefin-Sans-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Josefin Sans SemiBold'), local('JosefinSans-SemiBold'), url(../fonts/Josefin-Sans-SemiBold-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Josefin Sans Bold'), local('JosefinSans-Bold'), url(../fonts/Josefin-Sans-Bold-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Josefin Sans Italic'), local('JosefinSans-Italic'), url(../fonts/Josefin-Sans-Italic-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Josefin Sans'), local('JosefinSans'), url(../fonts/Josefin-Sans-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Josefin Sans SemiBold'), local('JosefinSans-SemiBold'), url(../fonts/Josefin-Sans-SemiBold-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Josefin Sans Bold'), local('JosefinSans-Bold'), url(../fonts/Josefin-Sans-Bold-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Josefin Sans Italic'), local('JosefinSans-Italic'), url(../fonts/Josefin-Sans-Italic-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+

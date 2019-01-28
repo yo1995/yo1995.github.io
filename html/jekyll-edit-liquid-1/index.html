@@ -1,0 +1,3463 @@
+<!DOCTYPE html>
+<html>
+
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="博客搭建过程中总会遇到几个小bug，一一解决之。附上liquid常用手册，以备不时之需。">
+  <meta name="author" content="Chen Ting">
+  <meta name="keywords" content="">
+  <meta name="theme-color" content="#272727">
+
+  <title>Jekyll 之修改 liquid 代码：去重、排序以及其它</title>
+
+  <link rel="icon" href="/img/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="canonical" href="https://yo1995.github.io/html/jekyll-edit-liquid-1/" />
+  <link rel="alternate" type="application/rss+xml" title="Chen's Blog" href="https://yo1995.github.io/feed.xml" />
+  
+  <meta property="og:site_name" content="Chen's Blog" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://yo1995.github.io/html/jekyll-edit-liquid-1/" />
+  <meta property="og:title" content="Jekyll 之修改 liquid 代码：去重、排序以及其它" />
+  <meta property="og:description" content="博客搭建过程中总会遇到几个小bug，一一解决之。附上liquid常用手册，以备不时之需。" />
+  <meta property="og:article:published_time" content="2016-08-31T00:00:00-04:00" />
+  <meta property="og:article:author" content="Chen Ting" />
+
+  <meta property="og:image" content="/images/201608/jekyll_liquid.jpg" />
+  
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <!-- PLUGINS -->
+  <link rel="stylesheet" href="/assets/css/vlthemes.css">
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">	
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  
+  
+  
+
+</head>
+<!-- 180622 - tecent analytics -->
+<script type="text/javascript" src="https://tajs.qq.com/stats?sId=65898920" charset="UTF-8"></script>
+
+
+  <body data-spy="scroll" data-target="#navbar" data-offset="100">
+
+		<!-- FRAMES -->
+		<span class="frame-line top-frame"></span>
+		<span class="frame-line right-frame"></span>
+		<span class="frame-line bottom-frame"></span>
+		<span class="frame-line left-frame"></span>
+
+    <div class="animsition">
+      <div class="content">
+
+        
+<!-- header-fixed / header-scroll-up  -->
+<div class="scroll-indicator fixedheader" style="width"></div>
+<header class="header-wrap header-fixed minimal-menu">
+    <div class="header-inner">
+        <div class="container">
+			
+            <div class="logo">
+                <a href="/blog" class="animsition-link">Ch<span>e</span>n's Blog</a>
+            </div>
+			
+
+            <a href="#" class="menu-toggle desctop-menu">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <a href="#" class="menu-toggle mobile-menu-toggle">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <nav class="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="/" class="animsition-link">
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item-has-children" class="current-menu-item">
+                        <a href="">
+                            <span>Blog</span>
+                        </a>
+						    <ul class="sub-menu">
+								<li>
+									<a href="/blog/" class="animsition-link">
+										<span>Blog Index</span>
+									</a>
+								</li>
+								<li>
+									<a href="/posts/" class="animsition-link">
+										<span>Archives</span>
+									</a>
+								</li>
+								<li>
+									<a href="/categories/" class="animsition-link">
+										<span>Categories</span>
+									</a>
+								</li>
+								<li>
+									<a href="/tags/" class="animsition-link">
+										<span>Tags</span>
+									</a>
+								</li>
+							</ul>
+                    </li>
+
+                    <li>
+                        <a href="/photos/" class="animsition-link">
+                            <span>Photos</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/about/" class="animsition-link">
+                            <span>About</span>
+                        </a>
+                    </li>
+					
+					  <!--li>
+                        <a href="" class="animsition-link" id="CN">
+                            <span>CN</span>
+                        </a>
+                    </li-->
+                </ul>
+            </nav>
+            <!-- END PRIMARY-MENU -->
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <!-- END HEADER-INNER -->
+</header>
+<!-- END HEADER-WRAP -->
+
+
+        
+
+        <main id="main-content">
+          
+          <div class="single-post-wrap clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 content-fixed">
+
+        <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
+          <div class="post-thumb clearfix">
+            
+            <img src="/images/201608/jekyll_liquid.jpg" alt="Jekyll 之修改 liquid 代码：去重、排序以及其它">
+            
+          </div>
+          
+          <div class="post-content" itemprop="articleBody">
+            <div class="post-date" datetime="2016-08-31T00:00:00-04:00" itemprop="datePublished">
+              Aug 31, 2016
+            </div>
+            <h1 class="post-title" itemprop="name headline">Jekyll 之修改 liquid 代码：去重、排序以及其它</h1>
+            <div class="content-color">
+            
+            <h2 id="遇到的小bug之一相册分类重复">
+<a id="遇到的小bug之一相册分类重复" class="anchor" href="#%E9%81%87%E5%88%B0%E7%9A%84%E5%B0%8Fbug%E4%B9%8B%E4%B8%80%E7%9B%B8%E5%86%8C%E5%88%86%E7%B1%BB%E9%87%8D%E5%A4%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a>遇到的小bug之一：相册分类重复</h2>
+<p>由于遍历相册分类时，有些相册的分类是相同的。这时生成的页面就会有多个相同的相册分类……（好像绕口令）</p>
+
+<p>其实是当时设计修改相册功能时的一个小疏漏。改之。</p>
+
+<p>原先代码：</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">photos</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">group_by</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>group<span class="w"> </span>in<span class="w"> </span>groups<span class="w"> </span><span class="p">%}</span>
+	<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>item<span class="w"> </span>in<span class="w"> </span>group.items<span class="w"> </span><span class="p">%}</span>				
+		&lt;a href="/photos/" data-filter=".f_<span class="p">{{</span><span class="w"> </span><span class="nv">item</span><span class="p">.</span><span class="nv">category</span><span class="w"> </span><span class="p">}}</span>"&gt;
+			&lt;span&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">item</span><span class="p">.</span><span class="nv">category</span><span class="w"> </span><span class="p">}}</span>&lt;/span&gt;
+		&lt;/a&gt;
+	<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+
+// in post-sidebar.html，| first
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>category<span class="w"> </span>in<span class="w"> </span>site.categories<span class="w"> </span><span class="p">%}{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+
+</code></pre></div></div>
+<p>可以看到，其实上面犯了一个比较简单的错误，就是在遍历中遍历了item项。由于具有相同分类的页面会被记为同一分类的多个item，因而遍历出来的也会重复啦。</p>
+
+<p>修改后代码：</p>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">photos</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">group_by</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>group<span class="w"> </span>in<span class="w"> </span>groups<span class="w"> </span><span class="p">%}</span>			
+	&lt;a href="/photos/" data-filter=".f_<span class="p">{{</span><span class="w"> </span><span class="nv">group</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="p">}}</span>"&gt;
+	    &lt;span&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">group</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="p">}}</span>&lt;/span&gt;
+	&lt;/a&gt;
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+
+</code></pre></div></div>
+<p>遍历一下name标签即可。</p>
+
+<h2 id="遇到的小bug之二category排序">
+<a id="遇到的小bug之二category排序" class="anchor" href="#%E9%81%87%E5%88%B0%E7%9A%84%E5%B0%8Fbug%E4%B9%8B%E4%BA%8Ccategory%E6%8E%92%E5%BA%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>遇到的小bug之二：category排序</h2>
+<p>强迫症实在不能忍按照时间顺序建立的tag标签树！必须要按首字母顺序啊，到时集齐了26个字母肯定好看！</p>
+
+<p>还是先看代码：</p>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>cat<span class="w"> </span>in<span class="w"> </span>site.categories<span class="w"> </span><span class="p">%}</span>
+## <span class="p">{{</span><span class="w"> </span><span class="nv">cat</span><span class="p">.</span><span class="nv">first</span><span class="w"> </span><span class="p">}}</span>
+&lt;p&gt;&lt;ol&gt;
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>post<span class="w"> </span>in<span class="w"> </span>site.categories[cat.first]<span class="w"> </span><span class="p">%}</span>
+&lt;li&gt;&lt;a href="<span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>"&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">}}</span>&lt;/a&gt; - <span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date</span><span class="p">:</span><span class="w"> </span><span class="s2">"%b %-d, %Y"</span><span class="w"> </span><span class="p">}}</span>&lt;/li&gt;
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+&lt;/ol&gt;&lt;/p&gt;
+&lt;div class="sep"&gt;&lt;hr&gt;&lt;/div&gt;
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+
+</code></pre></div></div>
+<p>哎呀呀，这代码看得我真的很难受诶。非要从一个生成的category列表中一个个取出第一项，这要是以后生成规则变了还不全都挂掉？</p>
+
+<p>还是用site.posts中选category项更保险吧！（虽然生成的时候会多花那么一丢丢时间）保持代码风格一致性还是很重要的（虽然并不知道自己在说什么）</p>
+
+<p>修改后的代码：</p>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">posts</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">group_by</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>group<span class="w"> </span>in<span class="w"> </span>groups<span class="w"> </span><span class="p">%}</span>
+	## <span class="p">{{</span><span class="w"> </span><span class="nv">group</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="p">}}</span>	
+	&lt;p&gt;&lt;ol&gt;	
+		<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>post<span class="w"> </span>in<span class="w"> </span>group.items<span class="w"> </span><span class="p">%}</span>
+			&lt;li&gt;&lt;a href="<span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>"&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">}}</span>&lt;/a&gt; - <span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date</span><span class="p">:</span><span class="w"> </span><span class="s2">"%b %-d, %Y"</span><span class="w"> </span><span class="p">}}</span>&lt;/li&gt;
+		<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+	&lt;/ol&gt;&lt;/p&gt;
+	&lt;div class="sep"&gt;&lt;hr&gt;&lt;/div&gt;
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+
+</code></pre></div></div>
+
+<p>对于tag也是同样的修改。另外记得把sidebar上的也给改掉啦。OK，安逸~</p>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">posts</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">group_by</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>category<span class="w"> </span>in<span class="w"> </span>groups<span class="w"> </span><span class="p">%}</span>
+&lt;li&gt;&lt;a href="/categories/#<span class="p">{{</span><span class="w"> </span><span class="nv">category</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">downcase</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">replace</span><span class="p">:</span><span class="w"> </span><span class="s1">' '</span><span class="p">,</span><span class="w"> </span><span class="s1">'-'</span><span class="w"> </span><span class="p">}}</span>"&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">category</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="p">}}</span>&lt;/a&gt;&lt;/li&gt;
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+
+</code></pre></div></div>
+
+<p>等等，不对吧……？！</p>
+
+<h2 id="遇到的小bug之三tags排序">
+<a id="遇到的小bug之三tags排序" class="anchor" href="#%E9%81%87%E5%88%B0%E7%9A%84%E5%B0%8Fbug%E4%B9%8B%E4%B8%89tags%E6%8E%92%E5%BA%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>遇到的小bug之三：tags排序</h2>
+<p>每篇文章有一个category，但是有多个tags啊，想当然就直接改了，最后的结果肯定是输出了一堆多元数组……</p>
+
+<p>这倒是难不倒我。还是来分析一下。先看看结构：</p>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">{{</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">tags</span><span class="w"> </span><span class="p">}}</span>
+
+</code></pre></div></div>
+
+<p>的确，jekyll自动生成的tags列表和category是一个格式的：没有名称，直接把tags和链接怼在一起。这可难办了，刚才category用了另外的方法逃避了这个问题，这回没辙，只能硬上了。</p>
+
+<p><del>弃了好麻烦</del></p>
+
+<p>获得一份有name的数组除了自己生成和修改以外似乎没有别的办法了。</p>
+
+<hr>
+<p class="alert alert-success">以下为手册内容</p>
+
+<p>Liquid is an open-source template language created by <a href="https://www.shopify.com/">Shopif</a> that written in Ruby. Jekyll uses it to process templates and pages on your Jekyll site. With this powerful tool, you can get complex tasks done without additional plugins.</p>
+
+<p>You can find Liquid documents at <a href="https://shopify.github.io/liquid/">https://shopify.github.io/liquid/</a>, and how Jekyll using it via <a href="https://jekyllrb.com/docs/templates/">https://jekyllrb.com/docs/templates/</a>.</p>
+
+<h2 id="liquid-basics">
+<a id="liquid-basics" class="anchor" href="#liquid-basics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Liquid Basics</h2>
+
+<p>Liquid code can be categorized into <strong><em>objects</em></strong>, <strong><em>tags</em></strong>, and <strong><em>filters</em></strong>.</p>
+
+<h4 id="objects">
+<a id="objects" class="anchor" href="#objects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objects</h4>
+
+<p><strong>Objects</strong> tell Liquid where to show content on a page and denoted by double curly braces: <code class="highlighter-rouge">{{</code> and <code class="highlighter-rouge">}}</code>.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+Jekyll 之修改 liquid 代码：去重、排序以及其它
+</code></pre></div></div>
+
+<h4 id="tags">
+<a id="tags" class="anchor" href="#tags" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tags</h4>
+
+<p><strong>Tags</strong> create the logic and control flow for templates. They are denoted by curly braces and percent signs: <code class="highlighter-rouge">{%</code> and <code class="highlighter-rouge">%}</code>.</p>
+
+<p>The markup used in tags does not produce any visible text. This means that you can assign variables and create conditions and loops without showing any of the Liquid logic on the page.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">statement</span><span class="w"> </span><span class="p">%}</span>
+  Hello, you are visiting <span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">prepend</span><span class="p">:</span><span class="w"> </span>site.url<span class="w"> </span><span class="p">}}</span>.
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+
+Output:
+  Hello, you are visiting https://yo1995.github.io/html/jekyll-edit-liquid-1/.
+</code></pre></div></div>
+
+<p>Tags can be categorized into three types (we’ll talk about them later in details):</p>
+
+<ul>
+  <li>Control flow</li>
+  <li>Iteration</li>
+  <li>Variable assignments</li>
+</ul>
+
+<h4 id="filters">
+<a id="filters" class="anchor" href="#filters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filters</h4>
+
+<p><strong>Filters</strong> change the output of a Liquid object. They are used within an output and are separated by a <code class="highlighter-rouge">|</code>.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">append</span><span class="p">:</span><span class="w"> </span><span class="s1">'.html'</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+/html/jekyll-edit-liquid-1/.html
+</code></pre></div></div>
+
+<h3 id="operators">
+<a id="operators" class="anchor" href="#operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Operators</h3>
+
+<h4 id="basic-operators">
+<a id="basic-operators" class="anchor" href="#basic-operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Operators</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td>==</td>
+      <td>equals</td>
+    </tr>
+    <tr>
+      <td>!=</td>
+      <td>does not equal</td>
+    </tr>
+    <tr>
+      <td>&gt;</td>
+      <td>greater than</td>
+    </tr>
+    <tr>
+      <td>&lt;</td>
+      <td>less than</td>
+    </tr>
+    <tr>
+      <td>&gt;=</td>
+      <td>greater than or equal to</td>
+    </tr>
+    <tr>
+      <td>&lt;=</td>
+      <td>less than or equal to</td>
+    </tr>
+    <tr>
+      <td>or</td>
+      <td>logical or</td>
+    </tr>
+    <tr>
+      <td>and</td>
+      <td>logical and</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For example:</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">product</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Awesome Shoes"</span><span class="w"> </span><span class="p">%}</span>
+  These shoes are awesome!
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<p>You can use multiple operators in a single tag:</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">product</span><span class="p">.</span><span class="nv">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Shirt"</span><span class="w"> </span><span class="nv">or</span><span class="w"> </span><span class="nv">product</span><span class="p">.</span><span class="nv">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Shoes"</span><span class="w"> </span><span class="p">%}</span>
+  This is a shirt or a pair of shoes.
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<h4 id="contains">
+<a id="contains" class="anchor" href="#contains" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contains</h4>
+
+<p><code class="highlighter-rouge">contains</code> checks for the presence of a substring inside a string:</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="ow">contains</span><span class="w"> </span><span class="s1">'Pack'</span><span class="w"> </span><span class="p">%}</span>
+  This page's title contains the word Pack.
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">contains</code> can also check for the presence of a string in an array of strings:</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">tags</span><span class="w"> </span><span class="ow">contains</span><span class="w"> </span><span class="s1">'Hello'</span><span class="w"> </span><span class="p">%}</span>
+  This page has been tagged with 'Hello'.
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<p class="alert alert-info"><code class="highlighter-rouge">contains</code> can only search strings. You cannot use it to check for an object in an array of objects.</p>
+
+<h3 id="truthy-and-falsy">
+<a id="truthy-and-falsy" class="anchor" href="#truthy-and-falsy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Truthy and Falsy</h3>
+
+<h4 id="truthy">
+<a id="truthy" class="anchor" href="#truthy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Truthy</h4>
+
+<p>All values in Liquid are <strong>truthy</strong> except <code class="highlighter-rouge">nil</code> and <code class="highlighter-rouge">false</code>. In the example below, the string “Tobi” is not a boolean, but it is truthy in a conditional:</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">tobi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Tobi"</span><span class="w"> </span><span class="p">%}</span>
+
+<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">tobi</span><span class="w"> </span><span class="p">%}</span>
+  This condition will always be true.
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<p class="alert alert-info"><code class="highlighter-rouge">strings</code>, even when empty, are truthy.</p>
+
+<h4 id="falsy">
+<a id="falsy" class="anchor" href="#falsy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Falsy</h4>
+
+<p>The falsy values in Liquid are <code class="highlighter-rouge">nil</code> and <code class="highlighter-rouge">false</code>.</p>
+
+<h3 id="object-types">
+<a id="object-types" class="anchor" href="#object-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Object Types</h3>
+
+<p>Liquid objects can have one of these types:</p>
+
+<ul>
+  <li>string</li>
+  <li>number</li>
+  <li>boolean</li>
+  <li>nil</li>
+  <li>array</li>
+</ul>
+
+<p>You can initialize Liquid variables with the <strong>assign</strong> or <strong>capture</strong> tags.</p>
+
+<h4 id="string">
+<a id="string" class="anchor" href="#string" aria-hidden="true"><span class="octicon octicon-link"></span></a>String</h4>
+
+<p>Declare a string by wrapping a variable’s value in single or double quotes:</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello World! This is Frank Lin."</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<h4 id="number">
+<a id="number" class="anchor" href="#number" aria-hidden="true"><span class="octicon octicon-link"></span></a>Number</h4>
+
+<p>Numbers include floats and integers:</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_float</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">39.756</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<h4 id="boolean">
+<a id="boolean" class="anchor" href="#boolean" aria-hidden="true"><span class="octicon octicon-link"></span></a>Boolean</h4>
+
+<p>Booleans are either <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code>. No quotations are necessary when declaring a boolean:</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">bar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<h4 id="nil">
+<a id="nil" class="anchor" href="#nil" aria-hidden="true"><span class="octicon octicon-link"></span></a>Nil</h4>
+
+<p>Nil is a special empty value that is returned when Liquid code has no results. It is <strong>not a string</strong> with the characters “nil”. Nil is treated as <code class="highlighter-rouge">false</code> in the conditions of <code class="highlighter-rouge">if</code> blocks and other Liquid tags that check the truthfulness of a statement.</p>
+
+<p>In the following example, the <code class="highlighter-rouge">page.author</code> does not exist (i.e. <code class="highlighter-rouge">{{ page.author }}</code> returns <code class="highlighter-rouge">nil</code>), Liquid will not print anything:</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">author</span><span class="w"> </span><span class="p">%}</span>
+  post by <span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">author</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">%}</span>
+ the title of this post: <span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+
+Output:
+
+ the title of this post: Jekyll 之修改 liquid 代码：去重、排序以及其它
+</code></pre></div></div>
+
+<h4 id="array">
+<a id="array" class="anchor" href="#array" aria-hidden="true"><span class="octicon octicon-link"></span></a>Array</h4>
+
+<p>Arrays hold lists of variables of any type. You cannot initialize arrays using only Liquid. You can, however, use the <code class="highlighter-rouge">split</code> filter to break a string into an array of substrings.</p>
+
+<p><strong>Accessing items in arrays</strong>:</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>tag<span class="w"> </span>in<span class="w"> </span>page.tags<span class="w"> </span><span class="p">%}</span> <span class="p">{{</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="p">}}</span> <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+
+Output:
+ jekyll  html  liquid 
+</code></pre></div></div>
+
+<p><strong>Accessing specific items in arrays</strong></p>
+
+<p>You can use square bracket <code class="highlighter-rouge">[ ]</code> notation to access a specific item in an array. Array indexing starts at zero.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">tags</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+html
+</code></pre></div></div>
+
+<h3 id="whitespace-control">
+<a id="whitespace-control" class="anchor" href="#whitespace-control" aria-hidden="true"><span class="octicon octicon-link"></span></a>Whitespace Control</h3>
+
+<p>In Liquid, you can include a hyphen in your tag syntax <code class="highlighter-rouge">{{-</code>, <code class="highlighter-rouge">-}}</code>, <code class="highlighter-rouge">{%-</code>, and <code class="highlighter-rouge">-%}</code> to strip whitespace from the left or right side of a rendered tag. Normally, even if it doesn’t output text, any line of Liquid in your template will still output <strong>a blank line</strong> in the rendered HTML:</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"tomato"</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+
+tomato
+# notice the blank line before “tomato” in the rendered result
+</code></pre></div></div>
+
+<p>By including hyphens in your <code class="highlighter-rouge">assign</code> tag, you can strip the generated whitespace from the rendered template. <strong>But it seems not work when building with Jekyll 3.2.1 locally on my Windows PC.</strong></p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="nt">-</span><span class="w"> </span>assign<span class="w"> </span><span class="na">my_variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"tomato"</span><span class="w"> </span>-<span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+# jekyll 3.2.1 | Error:  Liquid syntax error: Tag '<span class="p">{%</span><span class="nt">-</span><span class="w"> </span>assign<span class="w"> </span><span class="na">my_variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"tomato"</span><span class="w"> </span>-<span class="p">%}</span>' was not properly terminated with regexp: /\%\}/
+</code></pre></div></div>
+
+<h2 id="liquid-tags">
+<a id="liquid-tags" class="anchor" href="#liquid-tags" aria-hidden="true"><span class="octicon octicon-link"></span></a>Liquid Tags</h2>
+
+<h3 id="control-flow">
+<a id="control-flow" class="anchor" href="#control-flow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Control Flow</h3>
+
+<p>Control flow tags can change the information Liquid shows using programming logic.</p>
+
+<h4 id="case--when">
+<a id="case--when" class="anchor" href="#case--when" aria-hidden="true"><span class="octicon octicon-link"></span></a>case / when</h4>
+
+<p>Creates a switch statement to compare a variable with different values. <code class="highlighter-rouge">case</code> initializes the switch statement, and <code class="highlighter-rouge">when</code> compares its values.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'cake'</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="kr">case</span><span class="w"> </span><span class="nv">handle</span><span class="w"> </span><span class="p">%}</span>
+  <span class="p">{%</span><span class="w"> </span><span class="kr">when</span><span class="w"> </span><span class="s1">'cake'</span><span class="w"> </span><span class="p">%}</span>
+     This is a cake
+  <span class="p">{%</span><span class="w"> </span><span class="kr">when</span><span class="w"> </span><span class="s1">'cookie'</span><span class="w"> </span><span class="p">%}</span>
+     This is a cookie
+  <span class="p">{%</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">%}</span>
+     This is not a cake nor a cookie
+<span class="p">{%</span><span class="w"> </span><span class="kr">endcase</span><span class="w"> </span><span class="p">%}</span>
+
+Output:
+This is a cake
+# whitespaces were cleaned intentionally
+</code></pre></div></div>
+
+<h4 id="if">
+<a id="if" class="anchor" href="#if" aria-hidden="true"><span class="octicon octicon-link"></span></a>if</h4>
+
+<p>Executes a block of code only if a certain condition is <code class="highlighter-rouge">true</code>.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">category</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'Web'</span><span class="w"> </span><span class="p">%}</span>
+  This post is in Web.
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+
+Output:
+</code></pre></div></div>
+
+<h4 id="unless">
+<a id="unless" class="anchor" href="#unless" aria-hidden="true"><span class="octicon octicon-link"></span></a>unless</h4>
+
+<p>The opposite of <code class="highlighter-rouge">if</code> – executes a block of code only if a certain condition is not met. This would be the equivalent by using <code class="highlighter-rouge">if ... !=</code>:</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="kr">unless</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">category</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'Awesome'</span><span class="w"> </span><span class="p">%}</span>
+  This post is not awesome.
+<span class="p">{%</span><span class="w"> </span><span class="kr">endunless</span><span class="w"> </span><span class="p">%}</span>
+
+Output:
+  This post is not awesome.
+</code></pre></div></div>
+
+<h4 id="elsif--else">
+<a id="elsif--else" class="anchor" href="#elsif--else" aria-hidden="true"><span class="octicon octicon-link"></span></a>elsif / else</h4>
+
+<p>Adds more conditions within an <code class="highlighter-rouge">if</code> or <code class="highlighter-rouge">unless</code> block.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">customer</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'kevin'</span><span class="w"> </span><span class="p">%}</span>
+  Hey Kevin!
+<span class="p">{%</span><span class="w"> </span><span class="kr">elsif</span><span class="w"> </span><span class="nv">customer</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'anonymous'</span><span class="w"> </span><span class="p">%}</span>
+  Hey Anonymous!
+<span class="p">{%</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">%}</span>
+  Hi Stranger!
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<h3 id="iteration">
+<a id="iteration" class="anchor" href="#iteration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Iteration</h3>
+
+<p>Iteration tags run blocks of code repeatedly.</p>
+
+<h4 id="for">
+<a id="for" class="anchor" href="#for" aria-hidden="true"><span class="octicon octicon-link"></span></a>for</h4>
+
+<p>Repeatedly executes a block of code. For a full list of attributes available within a <code class="highlighter-rouge">for</code> loop, click to see 
+<a data-toggle="modal" data-target="#forloop"><u>forloop (object)</u></a>.</p>
+
+<!-- Modal -->
+<div class="modal fade" id="forloop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+  <h4 class="modal-title" id="myModalLabel">
+<a id="forloop-object" class="anchor" href="#forloop-object" aria-hidden="true"><span class="octicon octicon-link"></span></a>forloop (object)</h4>
+</div>
+<div class="modal-body">
+<div>
+
+          <p>The <code class="highlighter-rouge">forloop</code> object contains attributes of its parent <code class="highlighter-rouge">for</code> loop. And can only be used within <code class="highlighter-rouge">for</code> tags.</p>
+
+          <h5 id="forloopfirst">
+<a id="forloopfirst" class="anchor" href="#forloopfirst" aria-hidden="true"><span class="octicon octicon-link"></span></a>forloop.first</h5>
+          <p>Returns <code class="highlighter-rouge">true</code> if it’s the first iteration of the for loop. Returns <code class="highlighter-rouge">false</code> if it is not the first iteration.</p>
+
+          <div class="language-liquid highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>tag<span class="w"> </span>in<span class="w"> </span>page.tags<span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">forloop</span><span class="p">.</span><span class="nv">first</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">%}</span>
+    First tag
+<span class="p">{%</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">%}</span>
+    Not the first tag.
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+
+Output:
+    First tag
+    Not the first tag.
+    Not the first tag.
+</code></pre></div>          </div>
+
+          <h5 id="forloopindex">
+<a id="forloopindex" class="anchor" href="#forloopindex" aria-hidden="true"><span class="octicon octicon-link"></span></a>forloop.index</h5>
+
+          <p>Returns the current index of the for loop, starting at <strong>1</strong>. You can use <code class="highlighter-rouge">forloop.index0</code> that starting from <strong>0</strong>.</p>
+
+          <div class="language-liquid highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>tag<span class="w"> </span>in<span class="w"> </span>site.tags<span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{{</span><span class="w"> </span><span class="nv">forloop</span><span class="p">.</span><span class="nv">index0</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+
+Output:
+ 0  1  2  3  4  5  6  7  8  9  10 
+</code></pre></div>          </div>
+
+          <h5 id="forlooplast">
+<a id="forlooplast" class="anchor" href="#forlooplast" aria-hidden="true"><span class="octicon octicon-link"></span></a>forloop.last</h5>
+
+          <p>Just like <code class="highlighter-rouge">forloop.first</code>, <code class="highlighter-rouge">forloop.last</code> returns <code class="highlighter-rouge">true</code> if it’s the last iteration of the for loop. Returns <code class="highlighter-rouge">false</code> if it is not the last iteration.</p>
+
+          <h5 id="forlooplength">
+<a id="forlooplength" class="anchor" href="#forlooplength" aria-hidden="true"><span class="octicon octicon-link"></span></a>forloop.length</h5>
+
+          <p>Returns the number of iterations of the loop.</p>
+
+          <h5 id="forlooprindex">
+<a id="forlooprindex" class="anchor" href="#forlooprindex" aria-hidden="true"><span class="octicon octicon-link"></span></a>forloop.rindex</h5>
+
+          <p>Returns <code class="highlighter-rouge">forloop.index</code> in reverse order. Similarly, <code class="highlighter-rouge">forloop.rindex0</code> returns <code class="highlighter-rouge">forloop.index0</code> in reverse order.</p>
+
+          <div class="language-liquid highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>tag<span class="w"> </span>in<span class="w"> </span>site.tags<span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{{</span><span class="w"> </span><span class="nv">forloop</span><span class="p">.</span><span class="nv">rindex</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+
+Output:
+ 11  10  9  8  7  6  5  4  3  2  1 
+</code></pre></div>          </div>
+
+        </div>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>item<span class="w"> </span>in<span class="w"> </span>page.array<span class="w"> </span><span class="p">%}</span>
+  <span class="p">{{</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+# page.array = ["1", "2","3","4","5","6","7"]
+
+Output:
+ 1  2  3  4  5  6  7 
+</code></pre></div></div>
+
+<h4 id="break">
+<a id="break" class="anchor" href="#break" aria-hidden="true"><span class="octicon octicon-link"></span></a>break</h4>
+
+<p>Causes the loop to stop iterating when it encounters the <code class="highlighter-rouge">break</code> tag.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>i<span class="w"> </span>in<span class="w"> </span>(<span class="mi">1</span>..<span class="mi">10</span>)<span class="w"> </span><span class="p">%}</span>
+  <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="nt">break</span><span class="w"> </span><span class="p">%}</span>
+  <span class="p">{%</span><span class="w"> </span><span class="kr">elsif</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="nt">break</span><span class="w"> </span><span class="p">%}</span>
+  <span class="p">{%</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{{</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="p">}}</span>
+  <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+
+Output:
+ 1  2  3 
+</code></pre></div></div>
+
+<h4 id="for-parameters">
+<a id="for-parameters" class="anchor" href="#for-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>for (parameters)</h4>
+
+<p><strong>limit</strong></p>
+
+<p>Limits the loop to the specified number of iterations.</p>
+
+<p><strong>offset</strong></p>
+
+<p>Begins the loop at the specified index.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>item<span class="w"> </span>in<span class="w"> </span>page.array<span class="w"> </span><span class="na">offset</span><span class="o">:</span><span class="mi">2</span><span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="mi">4</span><span class="w"> </span><span class="p">%}</span>
+  <span class="p">{{</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+
+Output:
+ 3  4  5  6 
+</code></pre></div></div>
+
+<p><strong>range</strong></p>
+
+<p>Defines a range of numbers to loop through. The range can be defined by both literal and variable numbers.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>i<span class="w"> </span>in<span class="w"> </span>(<span class="mi">1</span>..num)<span class="w"> </span><span class="p">%}</span>
+  <span class="p">{{</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+
+Output:
+ 1  2  3  4 
+</code></pre></div></div>
+
+<p><strong>reversed</strong></p>
+
+<p>Reverses the order of the loop.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>item<span class="w"> </span>in<span class="w"> </span>page.array<span class="w"> </span>reversed<span class="w"> </span><span class="p">%}</span>
+  <span class="p">{{</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+
+Output:
+ 7  6  5  4  3  2  1 
+</code></pre></div></div>
+
+<h4 id="cycle">
+<a id="cycle" class="anchor" href="#cycle" aria-hidden="true"><span class="octicon octicon-link"></span></a>cycle</h4>
+
+<p>Loops through a group of strings and outputs them in the order that they were passed as parameters. Each time <code class="highlighter-rouge">cycle</code> is called, the next string that was passed as a parameter is output. <code class="highlighter-rouge">cycle</code> must be used within a for loop block.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">cycle</span><span class="w"> </span><span class="s1">'one'</span><span class="p">,</span><span class="w"> </span><span class="s1">'two'</span><span class="p">,</span><span class="w"> </span><span class="s1">'three'</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">cycle</span><span class="w"> </span><span class="s1">'one'</span><span class="p">,</span><span class="w"> </span><span class="s1">'two'</span><span class="p">,</span><span class="w"> </span><span class="s1">'three'</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">cycle</span><span class="w"> </span><span class="s1">'one'</span><span class="p">,</span><span class="w"> </span><span class="s1">'two'</span><span class="p">,</span><span class="w"> </span><span class="s1">'three'</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">cycle</span><span class="w"> </span><span class="s1">'one'</span><span class="p">,</span><span class="w"> </span><span class="s1">'two'</span><span class="p">,</span><span class="w"> </span><span class="s1">'three'</span><span class="w"> </span><span class="p">%}</span>
+
+Output:
+one
+two
+three
+one
+</code></pre></div></div>
+
+<p>Uses for <code class="highlighter-rouge">cycle</code> include:</p>
+<ul>
+  <li>applying odd/even classes to rows in a table</li>
+  <li>applying a unique class to the last product thumbnail in a row</li>
+</ul>
+
+<p><strong>cycle (parameters)</strong></p>
+
+<p><code class="highlighter-rouge">cycle</code> accepts a parameter called <code class="highlighter-rouge">cycle group</code> in cases where you need multiple cycle blocks in one template. If no name is supplied for the cycle group, then it is assumed that multiple calls with the same parameters are one group.</p>
+
+<h4 id="tablerow">
+<a id="tablerow" class="anchor" href="#tablerow" aria-hidden="true"><span class="octicon octicon-link"></span></a>tablerow</h4>
+
+<p>Generates an HTML table. Must be wrapped in opening <code class="highlighter-rouge">&lt;table&gt;</code> and closing <code class="highlighter-rouge">&lt;/table&gt;</code> HTML tags.</p>
+
+<pre><code class="language-liquid:">&lt;table&gt;
+{% tablerow item in page.array %}
+  {{ item }}
+{% endtablerow %}
+&lt;/table&gt;
+
+Output:
+&lt;tr class="row1"&gt;
+&lt;td class="col1"&gt;
+1
+&lt;/td&gt;&lt;td class="col2"&gt;
+2
+&lt;/td&gt;&lt;td class="col3"&gt;
+3
+&lt;/td&gt;&lt;td class="col4"&gt;
+4
+&lt;/td&gt;&lt;td class="col5"&gt;
+5
+&lt;/td&gt;&lt;td class="col6"&gt;
+6
+&lt;/td&gt;&lt;td class="col7"&gt;
+7
+&lt;/td&gt;&lt;/tr&gt;
+
+</code></pre>
+
+<h4 id="tablerow-parameters">
+<a id="tablerow-parameters" class="anchor" href="#tablerow-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>tablerow (parameters)</h4>
+
+<ol>
+  <li>
+<code class="highlighter-rouge">cols</code>: defines how many columns the tables should have.</li>
+  <li>
+<code class="highlighter-rouge">limit</code>: dxits the tablerow after a specific index.</li>
+  <li>
+<code class="highlighter-rouge">offset</code>: starts the tablerow after a specific index.</li>
+  <li>
+<code class="highlighter-rouge">range</code>: defines a range of numbers to loop through. The range can be defined by both literal and variable numbers.</li>
+</ol>
+
+<h3 id="variable">
+<a id="variable" class="anchor" href="#variable" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variable</h3>
+
+<h4 id="assign">
+<a id="assign" class="anchor" href="#assign" aria-hidden="true"><span class="octicon octicon-link"></span></a>assign</h4>
+
+<p>Creates a new variable. Wrap a variable in quotations <code class="highlighter-rouge">"</code> to save it as a string as previous examples.</p>
+
+<h4 id="capture">
+<a id="capture" class="anchor" href="#capture" aria-hidden="true"><span class="octicon octicon-link"></span></a>capture</h4>
+
+<p>Captures the string inside of the opening and closing tags and assigns it to a variable. Variables created through <code class="highlighter-rouge">{%</code> capture <code class="highlighter-rouge">%}</code> are strings.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">capture</span><span class="w"> </span><span class="na">my_variable</span><span class="w"> </span><span class="p">%}</span>I am being captured.<span class="p">{%</span><span class="w"> </span><span class="nt">endcapture</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+I am being captured.
+</code></pre></div></div>
+
+<h4 id="increment">
+<a id="increment" class="anchor" href="#increment" aria-hidden="true"><span class="octicon octicon-link"></span></a>increment</h4>
+
+<p>Creates a new number variable, and increases its value by one every time it is called. The initial value is 0.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span>my_counter<span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span>my_counter<span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span>my_counter<span class="w"> </span><span class="p">%}</span>
+
+Output:
+0
+1
+2
+</code></pre></div></div>
+
+<p>Variables created through the <code class="highlighter-rouge">increment</code> tag are independent from variables created through <code class="highlighter-rouge">assign</code> or <code class="highlighter-rouge">capture</code>.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span>var<span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span>var<span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span>var<span class="w"> </span><span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+100
+0
+1
+2
+100
+</code></pre></div></div>
+
+<h4 id="decrement">
+<a id="decrement" class="anchor" href="#decrement" aria-hidden="true"><span class="octicon octicon-link"></span></a>decrement</h4>
+
+<p>Creates a new number variable, and decreases its value by one every time it is called. The initial value is <strong>-1</strong>.</p>
+
+<p>Similar to <code class="highlighter-rouge">increment</code>, variables declared inside <code class="highlighter-rouge">decrement</code> are independent from variables created through <code class="highlighter-rouge">assign</code> or <code class="highlighter-rouge">capture</code>.</p>
+
+<h2 id="liquid-filters">
+<a id="liquid-filters" class="anchor" href="#liquid-filters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Liquid Filters</h2>
+
+<h3 id="string-1">
+<a id="string-1" class="anchor" href="#string-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>String</h3>
+
+<h4 id="append--prepend">
+<a id="append--prepend" class="anchor" href="#append--prepend" aria-hidden="true"><span class="octicon octicon-link"></span></a>append / prepend</h4>
+
+<p><code class="highlighter-rouge">append</code> concatenates two strings and returns the concatenated value, and also can be used with variables.</p>
+
+<p><code class="highlighter-rouge">prepend</code> adds the specified string to the beginning of another string.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"/index.html"</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">append</span><span class="p">:</span><span class="w"> </span>filename<span class="w"> </span><span class="p">}}</span>
+
+<span class="p">{{</span><span class="w"> </span><span class="s2">"apples, oranges, and bananas"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">prepend</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some fruit: "</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+https://yo1995.github.io/index.html
+Some fruit: apples, oranges, and bananas
+</code></pre></div></div>
+
+<h4 id="capitalize">
+<a id="capitalize" class="anchor" href="#capitalize" aria-hidden="true"><span class="octicon octicon-link"></span></a>capitalize</h4>
+
+<p>Makes the first character of a string capitalized, and only capitalizes the first character of the string, so later words are not affected:</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="s2">"this is a great title"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">capitalize</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+This is a great title
+</code></pre></div></div>
+
+<h4 id="cgi_escape">
+<a id="cgi_escape" class="anchor" href="#cgi_escape" aria-hidden="true"><span class="octicon octicon-link"></span></a>cgi_escape</h4>
+
+<p>Escape a string for use in a URL.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="s2">"foo,bar;baz?"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">cgi_escape</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+foo%2Cbar%3Bbaz%3F
+</code></pre></div></div>
+
+<h4 id="default">
+<a id="default" class="anchor" href="#default" aria-hidden="true"><span class="octicon octicon-link"></span></a>default</h4>
+
+<p>Allows you to specify a fallback in case a value doesn’t exist. <code class="highlighter-rouge">default</code> will show its value if the left side is <code class="highlighter-rouge">nil</code>, <code class="highlighter-rouge">false</code>, or <code class="highlighter-rouge">empty</code>.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">product_price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">product_price</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">default</span><span class="p">:</span><span class="w"> </span><span class="mf">2.99</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+2.99
+</code></pre></div></div>
+
+<h4 id="downcase--upcase">
+<a id="downcase--upcase" class="anchor" href="#downcase--upcase" aria-hidden="true"><span class="octicon octicon-link"></span></a>downcase / upcase</h4>
+
+<p>Makes each character in a string lowercase (or upcase). It has no effect on strings which are already all lowercase (or upcase).</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="s2">"Frank Lin"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">downcase</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="s2">"Frank Lin"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">upcase</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+frank lin
+FRANK LIN
+</code></pre></div></div>
+
+<h4 id="escape--escape_once">
+<a id="escape--escape_once" class="anchor" href="#escape--escape_once" aria-hidden="true"><span class="octicon octicon-link"></span></a>escape / escape_once</h4>
+
+<p><code class="highlighter-rouge">escape</code> works to escapes a string by replacing characters with escape sequences (so that the string can be used in a URL, for example). It doesn’t change strings that don’t have anything to escape.</p>
+
+<p><code class="highlighter-rouge">escape_once</code> can be used to escapes a string without changing existing escaped entities.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="s2">"Have you read 'James &amp; the Giant Peach'?"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">escape</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="s2">"1 &lt; 2 &amp; 3"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">escape_once</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+Have you read &amp;#39;James &amp;amp; the Giant Peach&amp;#39;?
+1 &amp;lt; 2 &amp;amp; 3
+</code></pre></div></div>
+
+<h4 id="lstrip--rstrip">
+<a id="lstrip--rstrip" class="anchor" href="#lstrip--rstrip" aria-hidden="true"><span class="octicon octicon-link"></span></a>lstrip / rstrip</h4>
+
+<p><code class="highlighter-rouge">lstrip</code> removes all whitespaces (tabs, spaces, and newlines) from the beginning of a string. The filter does not affect spaces between words. <code class="highlighter-rouge">rstrip</code> removes all whitespace from the right side of a string.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="s2">"          So much room for activities!          "</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">lstrip</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="s2">"          So much room for activities!          "</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">rstrip</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+So much room for activities!          
+          So much room for activities!
+</code></pre></div></div>
+
+<h4 id="markdownify">
+<a id="markdownify" class="anchor" href="#markdownify" aria-hidden="true"><span class="octicon octicon-link"></span></a>markdownify</h4>
+
+<p>Convert a Markdown-formatted string into HTML.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="s2">"Hello **Jekyll**"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">markdownify</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+&lt;p&gt;Hello &lt;strong&gt;Jekyll&lt;/strong&gt;&lt;/p&gt;
+
+</code></pre></div></div>
+
+<h4 id="newline_to_br">
+<a id="newline_to_br" class="anchor" href="#newline_to_br" aria-hidden="true"><span class="octicon octicon-link"></span></a>newline_to_br</h4>
+
+<p>Replaces every newline (<code class="highlighter-rouge">\n</code>) with an HTML line break (<code class="highlighter-rouge">&lt;br&gt;</code>).</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">capture</span><span class="w"> </span><span class="na">string_with_newlines</span><span class="w"> </span><span class="p">%}</span>
+Hello
+there
+<span class="p">{%</span><span class="w"> </span><span class="nt">endcapture</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">string_with_newlines</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">newline_to_br</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+Hello&lt;br /&gt;
+there&lt;br /&gt;
+
+</code></pre></div></div>
+
+<h4 id="number_of_words">
+<a id="number_of_words" class="anchor" href="#number_of_words" aria-hidden="true"><span class="octicon octicon-link"></span></a>number_of_words</h4>
+
+<p>Count the number of words in a string.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="s2">"Hello Jekyll!"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">number_of_words</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+2
+</code></pre></div></div>
+
+<h4 id="remove--remove_first">
+<a id="remove--remove_first" class="anchor" href="#remove--remove_first" aria-hidden="true"><span class="octicon octicon-link"></span></a>remove / remove_first</h4>
+
+<p>Use <code class="highlighter-rouge">remove</code> to remove every occurrence of the specified substring from a string.</p>
+
+<p><code class="highlighter-rouge">remove_first</code> only removes the first occurrence of the specified substring from a string.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="s2">"I strained to see the train through the rain"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">remove</span><span class="p">:</span><span class="w"> </span><span class="s2">"rain"</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="s2">"I strained to see the train through the rain"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">remove_first</span><span class="p">:</span><span class="w"> </span><span class="s2">"rain"</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+I sted to see the t through the 
+I sted to see the train through the rain
+</code></pre></div></div>
+
+<h4 id="replace--replace_first">
+<a id="replace--replace_first" class="anchor" href="#replace--replace_first" aria-hidden="true"><span class="octicon octicon-link"></span></a>replace / replace_first</h4>
+
+<p>Use <code class="highlighter-rouge">replace</code> to replace every occurrence of an argument in a string with the second argument.</p>
+
+<p>And <code class="highlighter-rouge">replace_first</code> only replaces the first occurrence of the first argument in a string with the second argument.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="s2">"Take my protein pills and put my helmet on"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">"my"</span><span class="p">,</span><span class="w"> </span><span class="s2">"your"</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Take my protein pills and put my helmet on"</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">my_string</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">replace_first</span><span class="p">:</span><span class="w"> </span><span class="s2">"my"</span><span class="p">,</span><span class="w"> </span><span class="s2">"your"</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+Take your protein pills and put your helmet on
+Take your protein pills and put my helmet on
+</code></pre></div></div>
+
+<h4 id="size">
+<a id="size" class="anchor" href="#size" aria-hidden="true"><span class="octicon octicon-link"></span></a>size</h4>
+
+<p>Returns the number of characters in a string or the number of items in an array. <code class="highlighter-rouge">size</code> can also be used with dot notation (for example, <code class="highlighter-rouge">{{ my_string.size }}</code>). This allows you to use <code class="highlighter-rouge">size</code> inside tags such as conditionals.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">size</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"apples, oranges, peaches, plums"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">size</span><span class="w"> </span><span class="p">}}</span>
+
+<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">pages</span><span class="p">.</span><span class="nv">size</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">%}</span>
+  This site has more than 10 pages!
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+
+Output:
+28
+4
+This site has more than 10 pages!
+</code></pre></div></div>
+
+<h4 id="slice">
+<a id="slice" class="anchor" href="#slice" aria-hidden="true"><span class="octicon octicon-link"></span></a>slice</h4>
+
+<p>Returns a substring of 1 character beginning at the index specified by the argument passed in. An optional second argument specifies the length of the substring to be returned.</p>
+
+<p>String indices are numbered starting from 0. If the first parameter is a negative number, the indices are counted from the end of the string:</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="s2">"Liquid"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slice</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="s2">"Liquid"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slice</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="s2">"Liquid"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slice</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="s2">"Liquid"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slice</span><span class="p">:</span><span class="w"> </span>-<span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+L
+q
+quid
+ui
+</code></pre></div></div>
+
+<h4 id="slugify">
+<a id="slugify" class="anchor" href="#slugify" aria-hidden="true"><span class="octicon octicon-link"></span></a>slugify</h4>
+
+<p>Convert a string into a lowercase URL slug.</p>
+
+<p>The slugify filter accepts an option:</p>
+
+<ul>
+  <li>
+<code class="highlighter-rouge">none</code>: no characters</li>
+  <li>
+<code class="highlighter-rouge">raw</code>: spaces</li>
+  <li>
+<code class="highlighter-rouge">default</code>: spaces and non-alphaunmeric characters</li>
+  <li>
+<code class="highlighter-rouge">pretty</code>: spaces and non-alphaunmeric characters except for <code class="highlighter-rouge">._~!$&amp;'()+,;=@</code>
+</li>
+</ul>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="s2">"The _config.yml file"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slugify</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="s2">"The _config.yml file"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slugify</span><span class="p">:</span><span class="w"> </span><span class="s1">'pretty'</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+the-config-yml-file
+the-_config.yml-file
+</code></pre></div></div>
+
+<h4 id="smartify">
+<a id="smartify" class="anchor" href="#smartify" aria-hidden="true"><span class="octicon octicon-link"></span></a>smartify</h4>
+
+<p>Convert quotes into smart quotes with SmartyPants.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="s1">'Use "Jekyll" --- the static generator...'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">smartify</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+Use “Jekyll” — the static generator…
+</code></pre></div></div>
+
+<h4 id="split">
+<a id="split" class="anchor" href="#split" aria-hidden="true"><span class="octicon octicon-link"></span></a>split</h4>
+
+<p>Divides an input string into an array using the argument as a separator. <code class="highlighter-rouge">split</code> is commonly used to convert comma-separated items from a string to an array.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="s2">"a~b"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="s2">"~"</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+ab
+</code></pre></div></div>
+
+<h4 id="strip">
+<a id="strip" class="anchor" href="#strip" aria-hidden="true"><span class="octicon octicon-link"></span></a>strip</h4>
+
+<p>Removes all whitespace (tabs, spaces, and newlines) from both the left and right side of a string. It does not affect spaces between words.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="s2">"          So much room for activities!          "</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">strip</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+So much room for activities!
+</code></pre></div></div>
+
+<h4 id="strip_html">
+<a id="strip_html" class="anchor" href="#strip_html" aria-hidden="true"><span class="octicon octicon-link"></span></a>strip_html</h4>
+
+<p>Removes any HTML tags from a string.</p>
+
+<h4 id="strip_newlines">
+<a id="strip_newlines" class="anchor" href="#strip_newlines" aria-hidden="true"><span class="octicon octicon-link"></span></a>strip_newlines</h4>
+
+<p>Removes any newline characters (line breaks) from a string.</p>
+
+<h4 id="truncate--truncatewords">
+<a id="truncate--truncatewords" class="anchor" href="#truncate--truncatewords" aria-hidden="true"><span class="octicon octicon-link"></span></a>truncate / truncatewords</h4>
+
+<p><code class="highlighter-rouge">truncate</code> shortens a string down to the number of characters passed as a parameter. If the number of characters specified is less than the length of the string, an ellipsis (…) is appended to the string and is included in the character count.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">truncate</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+Ground control to...
+</code></pre></div></div>
+
+<p><strong>Custom Ellipsis</strong></p>
+
+<p><code class="highlighter-rouge">truncate</code> takes an optional second parameter that specifies the sequence of characters to be appended to the truncated string. By default this is an ellipsis (…), but you can specify a different sequence. The length of the second parameter counts against the number of characters specified by the first parameter.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">truncate</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="s2">", and so on"</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+Ground control, and so on
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">truncatewords</code> shortens a string down to the number of words passed as the argument. If the specified number of words is less than the number of words in the string, an ellipsis (…) is appended to the string. And Custom ellipsis can be also applied as <code class="highlighter-rouge">truncate</code>.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">truncatewords</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+Ground control to...
+</code></pre></div></div>
+
+<h4 id="uri_escape--xml_escape">
+<a id="uri_escape--xml_escape" class="anchor" href="#uri_escape--xml_escape" aria-hidden="true"><span class="octicon octicon-link"></span></a>uri_escape / xml_escape</h4>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="s2">"foo, bar \baz?"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">uri_escape</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="s2">"&lt;p&gt;Hi Jekyll&lt;/p&gt;"</span><span class="p">|</span><span class="w"> </span><span class="nf">xml_escape</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+foo,%20bar%20%5Cbaz?
+&amp;lt;p&amp;gt;Hi Jekyll&amp;lt;/p&amp;gt;
+</code></pre></div></div>
+
+<h4 id="url_encode">
+<a id="url_encode" class="anchor" href="#url_encode" aria-hidden="true"><span class="octicon octicon-link"></span></a>url_encode</h4>
+
+<p>Converts any URL-unsafe characters in a string into percent-encoded characters.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="s2">"franklin@flinhong.com"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">url_encode</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="s2">"Frank Lin"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">url_encode</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+franklin%40flinhong.com
+Frank+Lin
+</code></pre></div></div>
+
+<h3 id="integer">
+<a id="integer" class="anchor" href="#integer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Integer</h3>
+
+<h4 id="abs">
+<a id="abs" class="anchor" href="#abs" aria-hidden="true"><span class="octicon octicon-link"></span></a>abs</h4>
+
+<p>Returns the absolute value of a number, and also work on a string if the string only contains a number.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="err">-</span><span class="mi">17</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">abs</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="s2">"-19.86"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">abs</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+17
+19.86
+</code></pre></div></div>
+
+<h4 id="ceil">
+<a id="ceil" class="anchor" href="#ceil" aria-hidden="true"><span class="octicon octicon-link"></span></a>ceil</h4>
+
+<p>Rounds the input up to the nearest whole number. Liquid tries to convert the input to a number before the filter is applied.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="mf">183.357</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">ceil</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="s2">"3.5"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">ceil</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+184
+4
+</code></pre></div></div>
+
+<h4 id="divided_by--times">
+<a id="divided_by--times" class="anchor" href="#divided_by--times" aria-hidden="true"><span class="octicon octicon-link"></span></a>divided_by / times</h4>
+
+<p><code class="highlighter-rouge">divided_by</code> divides a number by the specified number. The result is rounded down to the nearest integer (that is, the floor) if the divisor is an integer.</p>
+
+<p><code class="highlighter-rouge">divided_by</code> produces a result of the same type as the divisor — that is, if you divide by an integer, the result will be an integer. If you divide by a float (a number with a decimal in it), the result will be a float.</p>
+
+<p><code class="highlighter-rouge">times</code> multiplies a number by another number.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">divided_by</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">divided_by</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">divided_by</span><span class="p">:</span><span class="w"> </span><span class="mf">7.0</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">times</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="mf">183.357</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">times</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+4
+1
+2.857142857142857
+6
+2200.284
+</code></pre></div></div>
+
+<h4 id="floor">
+<a id="floor" class="anchor" href="#floor" aria-hidden="true"><span class="octicon octicon-link"></span></a>floor</h4>
+
+<p>Rounds a number down to the nearest whole number. Liquid tries to convert the input to a number before the filter is applied.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="mf">1.2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">floor</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="s2">"3.5"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">floor</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="mf">183.357</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">floor</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+1
+3
+183
+</code></pre></div></div>
+
+<h4 id="minus--plus">
+<a id="minus--plus" class="anchor" href="#minus--plus" aria-hidden="true"><span class="octicon octicon-link"></span></a>minus / plus</h4>
+
+<p>Subtracts (adds) a number from another number.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">minus</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="mf">183.357</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">minus</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">plus</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+2
+171.357
+5
+</code></pre></div></div>
+
+<h4 id="modulo">
+<a id="modulo" class="anchor" href="#modulo" aria-hidden="true"><span class="octicon octicon-link"></span></a>modulo</h4>
+
+<p>Returns the remainder of a division operation.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">modulo</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="mf">183.357</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">modulo</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+1
+3.357
+</code></pre></div></div>
+
+<h4 id="round">
+<a id="round" class="anchor" href="#round" aria-hidden="true"><span class="octicon octicon-link"></span></a>round</h4>
+
+<p>Rounds an input number to the nearest integer or, if a number is specified as an argument, to that number of decimal places.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="mf">1.2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">round</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="mf">2.7</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">round</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="mf">183.357</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">round</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+1
+3
+183.36
+</code></pre></div></div>
+
+<h3 id="array-1">
+<a id="array-1" class="anchor" href="#array-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Array</h3>
+
+<h4 id="array_to_sentence_string">
+<a id="array_to_sentence_string" class="anchor" href="#array_to_sentence_string" aria-hidden="true"><span class="octicon octicon-link"></span></a>array_to_sentence_string</h4>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">array_to_sentence_string</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+1, 2, 3, 4, 5, 6, and 7
+</code></pre></div></div>
+
+<h4 id="first--last">
+<a id="first--last" class="anchor" href="#first--last" aria-hidden="true"><span class="octicon octicon-link"></span></a>first / last</h4>
+
+<p>Returns the first (or last) item of an array.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"apples, oranges, peaches, plums"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="p">.</span><span class="nv">first</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="p">.</span><span class="nv">last</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+apples
+plums
+</code></pre></div></div>
+
+<h4 id="group_by">
+<a id="group_by" class="anchor" href="#group_by" aria-hidden="true"><span class="octicon octicon-link"></span></a>group_by</h4>
+
+<p>Group an array’s items by a given property.</p>
+
+<h4 id="join">
+<a id="join" class="anchor" href="#join" aria-hidden="true"><span class="octicon octicon-link"></span></a>join</h4>
+
+<p>Combines the items in an array into a single string using the argument as a separator.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">beatles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"John, Paul, George, Ringo"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">beatles</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s2">" and "</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+John and Paul and George and Ringo
+</code></pre></div></div>
+
+<h4 id="jsonify">
+<a id="jsonify" class="anchor" href="#jsonify" aria-hidden="true"><span class="octicon octicon-link"></span></a>jsonify</h4>
+
+<p>Convert Hash or Array to JSON.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+["1","2","3","4","5","6","7"]
+</code></pre></div></div>
+
+<h4 id="map-extract">
+<a id="map-extract" class="anchor" href="#map-extract" aria-hidden="true"><span class="octicon octicon-link"></span></a>map (extract)</h4>
+
+<p>Creates an array of values by extracting the values of a named property from another object.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">all_categories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">posts</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">map</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>item<span class="w"> </span>in<span class="w"> </span>all_categories<span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="mi">3</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<h4 id="push">
+<a id="push" class="anchor" href="#push" aria-hidden="true"><span class="octicon octicon-link"></span></a>push</h4>
+
+<p>Adds an object to a array.</p>
+
+<p>Creates an array of values by extracting the values of a named property from another object.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"a,b,c"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="s2">","</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">push</span><span class="p">:</span><span class="w"> </span><span class="s1">'d'</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">array_to_sentence_string</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+a, b, c, and d
+</code></pre></div></div>
+
+<h4 id="reverse">
+<a id="reverse" class="anchor" href="#reverse" aria-hidden="true"><span class="octicon octicon-link"></span></a>reverse</h4>
+
+<p>Reverses the order of the items in an array. Although <code class="highlighter-rouge">reverse</code> cannot reverse a string, but you can split a string into an array, reverse the array, and rejoin it by chaining together filters:</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"apples, oranges, peaches, plums"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">reverse</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">}}</span>
+
+<span class="p">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">reverse</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">" "</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">reverse</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s2">" "</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+plums, peaches, oranges, apples
+
+.moT rojaM ot lortnoc dnuorG
+Tom. Major to control Ground
+</code></pre></div></div>
+
+<h4 id="size-1">
+<a id="size-1" class="anchor" href="#size-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>size</h4>
+
+<p>Return the size of an array or string.</p>
+
+<h4 id="sort">
+<a id="sort" class="anchor" href="#sort" aria-hidden="true"><span class="octicon octicon-link"></span></a>sort</h4>
+
+<p>Sorts items in an array by a property of an item in the array. The order of the sorted array is case-sensitive.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"zebra, octopus, giraffe, Octopus"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+
+Octopus, giraffe, octopus, zebra
+</code></pre></div></div>
+
+<h4 id="uniq">
+<a id="uniq" class="anchor" href="#uniq" aria-hidden="true"><span class="octicon octicon-link"></span></a>uniq</h4>
+
+<p>Removes any duplicate elements in an array.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ants, bugs, bees, bugs, ants"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">uniq</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+ants, bugs, bees
+</code></pre></div></div>
+
+<h4 id="where">
+<a id="where" class="anchor" href="#where" aria-hidden="true"><span class="octicon octicon-link"></span></a>where</h4>
+
+<p>Select all the objects in an array where the key has the given value.</p>
+
+<h3 id="date">
+<a id="date" class="anchor" href="#date" aria-hidden="true"><span class="octicon octicon-link"></span></a>date</h3>
+
+<p>Converts a timestamp into another date format. The format for this syntax is the same as <a href="http://strftime.net/">strftime</a>. It also works on strings if they contain well-formatted dates:</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date</span><span class="p">:</span><span class="w"> </span><span class="s2">"%a, %b %d, %y"</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="s2">"August 20, 2016"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date</span><span class="p">:</span><span class="w"> </span><span class="s2">"%b %d, %y"</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+Wed, Aug 31, 16
+Aug 20, 16
+</code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td>%a</td>
+      <td>Abbreviated weekday</td>
+      <td>Sun</td>
+    </tr>
+    <tr>
+      <td>%A</td>
+      <td>Full weekday name</td>
+      <td>Sunday</td>
+    </tr>
+    <tr>
+      <td>%b</td>
+      <td>Abbreviated month name</td>
+      <td>Jan</td>
+    </tr>
+    <tr>
+      <td>%B</td>
+      <td>Full month name</td>
+      <td>January</td>
+    </tr>
+    <tr>
+      <td>%c</td>
+      <td>Preferred local date and time representation</td>
+      <td>Fri Jan 29 11:16:09 2016</td>
+    </tr>
+    <tr>
+      <td>%d</td>
+      <td>Day of the month, zero-padded</td>
+      <td>05</td>
+    </tr>
+    <tr>
+      <td>%-d</td>
+      <td>Day of the month</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>%D</td>
+      <td>Formats the date</td>
+      <td>29/01/16</td>
+    </tr>
+    <tr>
+      <td>%e</td>
+      <td>Day of the month</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>%F</td>
+      <td>Returns the date in ISO 8601 format</td>
+      <td>2016-01-29</td>
+    </tr>
+    <tr>
+      <td>%H</td>
+      <td>Hour of the day, 24-hour clock</td>
+      <td>07</td>
+    </tr>
+    <tr>
+      <td>%I</td>
+      <td>Hour of the day, 12-hour clock</td>
+      <td>07</td>
+    </tr>
+    <tr>
+      <td>%j</td>
+      <td>Day of the year</td>
+      <td>017</td>
+    </tr>
+    <tr>
+      <td>%k</td>
+      <td>Hour of the day, 24-hour clock</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>%m</td>
+      <td>Month of the year</td>
+      <td>04</td>
+    </tr>
+    <tr>
+      <td>%M</td>
+      <td>Minute of the hour</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>%p</td>
+      <td>Meridian indicator uppercase</td>
+      <td>AM</td>
+    </tr>
+    <tr>
+      <td>%P</td>
+      <td>Meridian indicator lowercase</td>
+      <td>pm</td>
+    </tr>
+    <tr>
+      <td>%r</td>
+      <td>12-hour time</td>
+      <td>01:31:43 PM</td>
+    </tr>
+    <tr>
+      <td>%R</td>
+      <td>24-hour time</td>
+      <td>18:09</td>
+    </tr>
+    <tr>
+      <td>%T</td>
+      <td>24-hour time with seconds</td>
+      <td>18:09:13</td>
+    </tr>
+    <tr>
+      <td>%s</td>
+      <td>Number of seconds since 1970-01-01 00:00:00 UTC</td>
+      <td>1452355261</td>
+    </tr>
+    <tr>
+      <td>%S</td>
+      <td>Second of the minute</td>
+      <td>05</td>
+    </tr>
+    <tr>
+      <td>%U</td>
+      <td>Week number of the current year, starting with the first Sunday as the first day of the first week</td>
+      <td>03</td>
+    </tr>
+    <tr>
+      <td>%W</td>
+      <td>Week number of the current year, starting with the first Monday as the first day of the first week</td>
+      <td>09</td>
+    </tr>
+    <tr>
+      <td>%w</td>
+      <td>Day of the week. Sunday is 0</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>%x</td>
+      <td>Preferred representation for the date</td>
+      <td>05/11/15</td>
+    </tr>
+    <tr>
+      <td>%X</td>
+      <td>Preferred representation for the time</td>
+      <td>17:15:31</td>
+    </tr>
+    <tr>
+      <td>%y</td>
+      <td>Year without a century</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>%Y</td>
+      <td>Year with century</td>
+      <td>2016</td>
+    </tr>
+    <tr>
+      <td>%Z</td>
+      <td>Time zone name (PST)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>%%</td>
+      <td>Literal % character</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Besides, <code class="highlighter-rouge">date_to_long_string</code> convert a date to long format; <code class="highlighter-rouge">date_to_long_rfc822</code> convert a Date into RFC-822 format; <code class="highlighter-rouge">date_to_string</code> convert a date to short format and <code class="highlighter-rouge">date_to_xmlschema</code> convert a Date into ISO 8601 format.</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
+<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date_to_long_string</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date_to_rfc822</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date_to_string</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date_to_xmlschema</span><span class="w"> </span><span class="p">}}</span>
+
+Output:
+31 August 2016
+Wed, 31 Aug 2016 00:00:00 -0400
+31 Aug 2016
+2016-08-31T00:00:00-04:00
+</code></pre></div></div>
+
+            
+            </div>
+            
+<div class="entry-tags clearfix">
+
+    <div class="entry-footer clearfix">
+
+        <div class="pull-left">
+            <span>
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/#jekyll">jekyll</a>
+                
+                <a href="/tags/#html">html</a>
+                
+                <a href="/tags/#liquid">liquid</a>
+                
+            </span>            
+            <span><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv">0</span> views</span>
+            <span>
+                <i class="fa fa-comments-o"></i>
+                <a href="#comments">GFW comments</a>
+				<!--被墙替换class="disqus-comment-count" data-disqus-identifier="Chen's Blog//html/jekyll-edit-liquid-1-->
+            </span>
+            <span>
+                <i class="fa fa-check-square-o"></i><span>27256 words</span>
+            </span>
+            <span>
+                <i class="fa fa-link"></i>
+                <a data-toggle="collapse" href="#share-content" aria-expanded="false" aria-controls="share-content">Share</a>
+        </div>
+        <div class="pull-right collapse in" id="share-content">
+            
+<div class="entry-share-links">
+
+    <div class="btn-group" role="group" aria-label="Share">
+        <button type="button" class="btn btn-default btn-sm btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="http://www.facebook.com/sharer.php?u=https://yo1995.github.io/html/jekyll-edit-liquid-1/" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></button>
+        
+        <button type="button" class="btn btn-default btn-sm btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="https://twitter.com/share?url=https://yo1995.github.io/html/jekyll-edit-liquid-1/&amp;text=Jekyll 之修改 liquid 代码：去重、排序以及其它" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-weibo" data-toggle="tooltip" data-placement="top" title="新浪微博"><a href="http://service.weibo.com/share/share.php?url=https://yo1995.github.io/html/jekyll-edit-liquid-1/&title=分享%4011L23+的文章「Jekyll 之修改 liquid 代码：去重、排序以及其它」&content=博客搭建过程中总会遇到几个小bug，一一解决之。附上liquid常用手册，以备不时之需。&pic=https://yo1995.github.io/images/201608/jekyll_liquid.jpg" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-douban" data-toggle="tooltip" data-placement="top" title="豆瓣"><a href="https://www.douban.com/share/service?name=Jekyll 之修改 liquid 代码：去重、排序以及其它&href=https://yo1995.github.io/html/jekyll-edit-liquid-1/&image=https://yo1995.github.io/images/201608/jekyll_liquid.jpg&url=https://yo1995.github.io/html/jekyll-edit-liquid-1/&title=Jekyll 之修改 liquid 代码：去重、排序以及其它" target="_blank"><i class="fa fa-fw">豆</i></a></button>
+
+        <a tabindex="0" class="btn btn-sm btn-weixin" role="button" data-trigger="hover" data-placement="top" id="qrcode-btn"><i class="fa fa-fw fa-weixin"></i></a>
+
+        <div id="qrcode-content" class="qrcode-hidden"><div id="qrcode"></div></div>
+        <div id="qrcode-title" class="qrcode-hidden">Scan to Read</div>
+		
+		<button type="button" class="btn btn-default btn-sm btn-email"><a href="mailto:?Subject=Jekyll 之修改 liquid 代码：去重、排序以及其它&amp;Body=博客搭建过程中总会遇到几个小bug，一一解决之。附上liquid常用手册，以备不时之需。%20https://yo1995.github.io/html/jekyll-edit-liquid-1/"><i class="fa fa-fw fa-envelope-o"></i> Email</a></button>
+
+        <div class="btn-group btn-group-justified dropup" role="group">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle btn-more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-share-alt"></i><span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-google"><a href="https://plus.google.com/share?url=https://yo1995.github.io/html/jekyll-edit-liquid-1/" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google Plus</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://yo1995.github.io/html/jekyll-edit-liquid-1/" target="_blank"><i class="fa fa-fw fa-linkedin"></i> Linkedin</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-digg"><a href="http://www.digg.com/submit?url=https://yo1995.github.io/html/jekyll-edit-liquid-1/" target="_blank"><i class="fa fa-fw fa-digg"></i> Digg</a></button></li>
+
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-pinterest"><a href="https://pinterest.com/pin/create/bookmarklet/?media=https://yo1995.github.io/images/201608/jekyll_liquid.jpg&url=https://yo1995.github.io/html/jekyll-edit-liquid-1/&description=Jekyll 之修改 liquid 代码：去重、排序以及其它" target="_blank"><i class="fa fa-fw fa-pinterest-p"></i> Pinterest</a></button></li>
+                 
+                 
+
+                <li><button type="button" class="btn btn-default btn-sm btn-reddit"><a href="http://reddit.com/submit?url=https://yo1995.github.io/html/jekyll-edit-liquid-1/&amp;title=Jekyll 之修改 liquid 代码：去重、排序以及其它" target="_blank"><i class="fa fa-fw fa-reddit-alien"></i> Reddit</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-tumblr"><a href="http://www.tumblr.com/share/link?url=https://yo1995.github.io/html/jekyll-edit-liquid-1/&amp;title=Jekyll 之修改 liquid 代码：去重、排序以及其它" target="_blank"><i class="fa fa-fw fa-tumblr"></i> Tumblr</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-print"><a href="javascript:;" onclick="window.print()"><i class="fa fa-fw fa-print"></i> Print</a></button></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+        </div>
+    </div>  
+
+</div>
+
+          </div>
+        </article>
+        <!-- END SINGLE-POST -->
+
+        
+<div class="post-navigation clearfix">
+    <div class="row">
+
+        <div class="col-xs-6">
+            <div class="previous-post">
+                <div class="arrow">
+                    <i class="fa fa-angle-double-left"></i>
+                    
+                    <a href="/life/tsinghua-thoughts/" class="animsition-link" data-hover-text="Prev: 有关T大的一些链接 + 自己的一些反省">Prev: 有关T大的一些链接 + 自己的一些反省</a>
+                    
+                </div>
+
+            </div>
+            <!-- END PREVIOUS-POST -->
+        </div>
+        <div class="col-xs-6">
+            <div class="next-post">
+                <div class="arrow">
+                    
+                    <a href="/life/talk-about-blogging-again/" class="animsition-link" data-hover-text="Next: 再谈独立博客">Next: 再谈独立博客</a>
+                    
+                    <i class="fa fa-angle-double-right"></i>
+                </div>
+
+            </div>
+            <!-- END NEXT-POST -->
+        </div>
+    </div>
+</div>
+<!-- END POST-NAVIGATION -->
+		<!-- 180726 add multi author support -->
+		 
+			<div class="author-info clearfix">
+    <div class="author-avatar">
+        <img class="avatar" src="/img/avatar.png" alt="Chen Ting">
+    </div>
+
+    <div class="author-description">
+        <h4 class="author-title">
+            <a href="/about/">Chen Ting <i class="fa fa-link"></i></a>
+        </h4>
+        <p class="author-bio">
+            The page aims to exhibit several activities & achievements which the author engaged in during his undergraduate & graduate period. Meanwhile, other aspects such as lifestyles, literary work, travel notes, etc. would interweave in the narration.
+        </p>
+    </div>
+	<!-- add busaunzi to see how many views and reads happens to my page. addition to tecent -->
+	<script async src="/assets/js/busuanzi.pure.mini.js"></script>
+</div>
+<!-- END AUTHOR-INFO -->
+		 
+		 
+        
+
+<div class="comments-area clearfix">
+    <div class="comment-respond">
+		<h4 class="comment-reply-title" id="comments">Leave a Comment</h4>
+		<div class="disqus-placeholder alert alert-info" style="text-align: center">
+			<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Disqus might be GFW-ed. Excited!
+		</div>
+		<script src="/assets/js/disqusloader.js"></script>
+		<div class="disqus"></div>
+		<!--
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+        this.page.url = "https://yo1995.github.io/html/jekyll-edit-liquid-1/";
+        this.page.identifier = "Chen's Blog//html/jekyll-edit-liquid-1";
+        this.page.title = "Jekyll 之修改 liquid 代码：去重、排序以及其它";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//yo1995.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+		-->
+		<script>disqusLoader( '.disqus', { 
+			scriptUrl: '//yo1995.disqus.com/embed.js',
+			disqusConfig: function(){
+				this.callbacks.onReady = [function(){
+				var el = document.querySelector( '.disqus-placeholder' );
+				if( el.classList )
+					el.classList.add( 'is-hidden' ); // IE 10+
+				else
+					el.className += ' ' + 'is-hidden'; // IE 8-9
+				}];}
+			});
+		</script>
+       <noscript>Please conquer the GFW or enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+<!-- END COMMENTS-AREA -->
+
+
+      </div>
+
+      <div class="col-md-4 sidebar-fixed">
+    <div class="sidebar">
+        <aside class="widget-wrap widget-search">
+            <h6 class="widget-title">
+                <span>Search for a topic?</span>
+            </h6>
+			<div onclick="keyinsearch()" class="search-form text-center" id="search-container">
+				<input type="text" id="search-input" placeholder="search...">
+				<i class="fa fa-search"></i>
+				<ul id="results-container" style="list-style:square"></ul>
+			</div>
+			<!-- 180206 - update -->
+<script src="/assets/js/jekyll-search.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  function keyinsearch () {
+  SimpleJekyllSearch({
+	searchInput: document.getElementById('search-input'),
+	resultsContainer: document.getElementById('results-container'),
+	json: '/search.json',
+	searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+	noResultsText: '无结果',
+	limit: 5,
+	fuzzy: false
+  });
+  }
+</script>
+
+
+<!-- 暂时还没想好cache怎么改写，目前每次请求都是200 ！= = 不够chrome貌似是直接从本地磁盘加载的 -->
+<!--
+<form class="search-form" action="/search/" target="_blank" method="get">
+	<input type="text" placeholder="Search..." name="q">
+	<i class="fa fa-search"></i>
+</form>
+-->
+
+        </aside>
+        <!-- END WIDGET-WRAP -->		
+        <aside class="widget-wrap widget-categories">
+            <h6 class="widget-title">
+                <span>Categories</span>
+            </h6>
+            <ul>
+				
+				
+                <li><a href="/categories/#coding">Coding</a></li>
+                
+                <li><a href="/categories/#ee">EE</a></li>
+                
+                <li><a href="/categories/#games">Games</a></li>
+                
+                <li><a href="/categories/#html">Html</a></li>
+                
+                <li><a href="/categories/#life">Life</a></li>
+                
+                <li><a href="/categories/#movie">Movie</a></li>
+                
+                <li><a href="/categories/#physics">Physics</a></li>
+                
+                <li><a href="/categories/#reading">Reading</a></li>
+                
+                <li><a href="/categories/#school">School</a></li>
+                
+                <li><a href="/categories/#tools">Tools</a></li>
+                
+                <li><a href="/categories/#video">Video</a></li>
+                
+            </ul>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-recent-posts">
+            <h6 class="widget-title">
+                <span>Related Posts</span>
+            </h6>
+            <ul class="recent-posts">
+            
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/games/Bejeweled-like-game/">
+                                <img src="/images/201806/3cover.jpg" alt="由爱消除乐园引发的几点思考">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/games/Bejeweled-like-game/">由爱消除乐园引发的几点思考</a>
+                            <span>2018/06/21</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                
+                
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/html/coding-net-backup/">
+                                <img src="/images/201608/codingnet.png" alt="Coding.net mirror for the blog">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/html/coding-net-backup/">Coding.net mirror for the blog</a>
+                            <span>2016/08/28</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/html/googleapis-substitution/">
+                                <img src="/images/201608/Great-Wall-of-China-illustration.jpg" alt="Google Fonts and substitution">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/html/googleapis-substitution/">Google Fonts and substitution</a>
+                            <span>2016/08/27</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                    
+
+                
+                                   
+            </ul>
+
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-tag">
+            <h6 class="widget-title">
+                <span>Tags Widget <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+
+            <div class="tag-cloud">
+                
+                <a href="/tags/#df">DF</a>
+                
+                <a href="/tags/#production">production</a>
+                
+                <a href="/tags/#education">education</a>
+                
+                <a href="/tags/#lifestyle">lifestyle</a>
+                
+                <a href="/tags/#volunteer">volunteer</a>
+                
+                <a href="/tags/#physics">physics</a>
+                
+                <a href="/tags/#lectures">lectures</a>
+                
+                <a href="/tags/#school">school</a>
+                
+                <a href="/tags/#football">football</a>
+                
+                <a href="/tags/#sports">sports</a>
+                
+                <a href="/tags/#movie">movie</a>
+                
+                <a href="/tags/#tv">TV</a>
+                
+                <a href="/tags/#life">life</a>
+                
+                <a href="/tags/#diversity">diversity</a>
+                
+                <a href="/tags/#arts">arts</a>
+                
+                <a href="/tags/#c#">C#</a>
+                
+                <a href="/tags/#innovation">innovation</a>
+                
+                <a href="/tags/#contest">contest</a>
+                
+                <a href="/tags/#project">project</a>
+                
+                <a href="/tags/#fpga">FPGA</a>
+                
+                <a href="/tags/#vlc">VLC</a>
+                
+                <a href="/tags/#blog">blog</a>
+                
+                <a href="/tags/#impact-factors">Impact Factors</a>
+                
+                <a href="/tags/#helloworld">helloworld</a>
+                
+                <a href="/tags/#jekyll">jekyll</a>
+                
+                <a href="/tags/#html">html</a>
+                
+                <a href="/tags/#css">css</a>
+                
+                <a href="/tags/#github">github</a>
+                
+                <a href="/tags/#js">js</a>
+                
+                <a href="/tags/#hexo">hexo</a>
+                
+                <a href="/tags/#semiconductor">semiconductor</a>
+                
+                <a href="/tags/#experiments">experiments</a>
+                
+                <a href="/tags/#python">Python</a>
+                
+                <a href="/tags/#image">image</a>
+                
+                <a href="/tags/#code">code</a>
+                
+                <a href="/tags/#gfw">GFW</a>
+                
+                <a href="/tags/#git">Git</a>
+                
+                <a href="/tags/#windows">Windows</a>
+                
+                <a href="/tags/#tools">tools</a>
+                
+                <a href="/tags/#shell">shell</a>
+                
+                <a href="/tags/#scripts">scripts</a>
+                
+                <a href="/tags/#thu">THU</a>
+                
+                <a href="/tags/#liquid">liquid</a>
+                
+                <a href="/tags/#coding">coding</a>
+                
+                <a href="/tags/#latex">LaTeX</a>
+                
+                <a href="/tags/#basic">basic</a>
+                
+                <a href="/tags/#review">review</a>
+                
+                <a href="/tags/#games">games</a>
+                
+                <a href="/tags/#roguelike">roguelike</a>
+                
+                <a href="/tags/#matlab">MATLAB</a>
+                
+                <a href="/tags/#chaos">chaos</a>
+                
+                <a href="/tags/#simulation">simulation</a>
+                
+                <a href="/tags/#camping">camping</a>
+                
+                <a href="/tags/#phd">PhD</a>
+                
+                <a href="/tags/#philosophy">philosophy</a>
+                
+                <a href="/tags/#reading">reading</a>
+                
+                <a href="/tags/#optics">optics</a>
+                
+                <a href="/tags/#year">year</a>
+                
+                <a href="/tags/#dream">dream</a>
+                
+                <a href="/tags/#girls">girls</a>
+                
+                <a href="/tags/#circuit">circuit</a>
+                
+                <a href="/tags/#electronics">electronics</a>
+                
+                <a href="/tags/#memory">memory</a>
+                
+                <a href="/tags/#france">France</a>
+                
+                <a href="/tags/#ingenieur">ingenieur</a>
+                
+                <a href="/tags/#bbs">bbs</a>
+                
+                <a href="/tags/#history">history</a>
+                
+                <a href="/tags/#byr">byr</a>
+                
+                <a href="/tags/#travel">travel</a>
+                
+                <a href="/tags/#tour">tour</a>
+                
+                <a href="/tags/#future">future</a>
+                
+                <a href="/tags/#graduate">graduate</a>
+                
+                <a href="/tags/#investment">investment</a>
+                
+                <a href="/tags/#love">love</a>
+                
+                <a href="/tags/#laptop">laptop</a>
+                
+                <a href="/tags/#mac">Mac</a>
+                
+                <a href="/tags/#hackintosh">hackintosh</a>
+                
+                <a href="/tags/#foudre">foudre</a>
+                
+                <a href="/tags/#law">law</a>
+                
+                <a href="/tags/#juven">juven</a>
+                
+                <a href="/tags/#ramen">ramen</a>
+                
+                <a href="/tags/#industry">industry</a>
+                
+                <a href="/tags/#alcohol">alcohol</a>
+                
+                <a href="/tags/#bar">bar</a>
+                
+                <a href="/tags/#confession">confession</a>
+                
+                <a href="/tags/#postdoc">postdoc</a>
+                
+                <a href="/tags/#nyu">NYU</a>
+                
+                <a href="/tags/#hahn">Hahn</a>
+                
+                <a href="/tags/#scholar">scholar</a>
+                
+                <a href="/tags/#academia">academia</a>
+                
+                <a href="/tags/#nba">NBA</a>
+                
+                <a href="/tags/#cool">cool</a>
+                
+                <a href="/tags/#study">study</a>
+                
+                <a href="/tags/#fourier">Fourier</a>
+                
+                <a href="/tags/#signal">signal</a>
+                
+                <a href="/tags/#theorem">theorem</a>
+                
+                <a href="/tags/#trivial">trivial</a>
+                
+                <a href="/tags/#chuapp">chuapp</a>
+                
+                <a href="/tags/#city">city</a>
+                
+                <a href="/tags/#politics">politics</a>
+                
+                <a href="/tags/#data">data</a>
+                
+                <a href="/tags/#tech">tech</a>
+                
+                <a href="/tags/#nas">NAS</a>
+                
+                <a href="/tags/#network">network</a>
+                
+                <a href="/tags/#infrastructure">infrastructure</a>
+                
+                <a href="/tags/#self-esteem">self-esteem</a>
+                
+                <a href="/tags/#confidence">confidence</a>
+                
+                <a href="/tags/#mental">mental</a>
+                
+                <a href="/tags/#value">value</a>
+                
+                <a href="/tags/#property">property</a>
+                
+                <a href="/tags/#fame">fame</a>
+                
+                <a href="/tags/#wechat">wechat</a>
+                
+                <a href="/tags/#crawler">crawler</a>
+                
+                <a href="/tags/#threading">threading</a>
+                
+                <a href="/tags/#multiprocessing">multiprocessing</a>
+                
+                <a href="/tags/#genuine">genuine</a>
+                
+                <a href="/tags/#adobe">Adobe</a>
+                
+                <a href="/tags/#codec">Codec</a>
+                
+                <a href="/tags/#software">software</a>
+                
+                <a href="/tags/#enlighten">enlighten</a>
+                
+                <a href="/tags/#friends">friends</a>
+                
+                <a href="/tags/#chance">chance</a>
+                
+                <a href="/tags/#choice">choice</a>
+                
+                <a href="/tags/#projectuniv">PROJECTUNIV</a>
+                
+                <a href="/tags/#cpp">cpp</a>
+                
+                <a href="/tags/#visualization">visualization</a>
+                
+                <a href="/tags/#gui">GUI</a>
+                
+                <a href="/tags/#gif">gif</a>
+                
+                <a href="/tags/#remastered">remastered</a>
+                
+                <a href="/tags/#exe">exe</a>
+                
+                <a href="/tags/#emoji">emoji</a>
+                
+                <a href="/tags/#gif">GIF</a>
+                
+                <a href="/tags/#video">video</a>
+                
+                <a href="/tags/#emoticon">emoticon</a>
+                
+                <a href="/tags/#pil">PIL</a>
+                
+                <a href="/tags/#swimming">swimming</a>
+                
+                <a href="/tags/#premiere">Premiere</a>
+                
+                <a href="/tags/#golf">golf</a>
+                
+                <a href="/tags/#gbbb">GBBB</a>
+                
+                <a href="/tags/#beatbox">beatbox</a>
+                
+                <a href="/tags/#loopstation">loopstation</a>
+                
+                <a href="/tags/#photo">photo</a>
+                
+                <a href="/tags/#plugin">plugin</a>
+                
+                <a href="/tags/#ae">AE</a>
+                
+                <a href="/tags/#music">music</a>
+                
+                <a href="/tags/#nature">nature</a>
+                
+                <a href="/tags/#basketball">basketball</a>
+                
+                <a href="/tags/#rdfz">RDFZ</a>
+                
+                <a href="/tags/#world">world</a>
+                
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+        <aside class="widget-wrap widget-toc">
+            <h6 class="widget-title">
+                <span>Table of Contents <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+            <div id="navbar">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#遇到的小bug之一相册分类重复">遇到的小bug之一：相册分类重复</a></li>
+<li class="toc-entry toc-h2"><a href="#遇到的小bug之二category排序">遇到的小bug之二：category排序</a></li>
+<li class="toc-entry toc-h2"><a href="#遇到的小bug之三tags排序">遇到的小bug之三：tags排序</a></li>
+<li class="toc-entry toc-h2"><a href="#liquid-basics">Liquid Basics</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#objects">Objects</a></li>
+<li class="toc-entry toc-h4"><a href="#tags">Tags</a></li>
+<li class="toc-entry toc-h4"><a href="#filters">Filters</a></li>
+<li class="toc-entry toc-h3"><a href="#operators">Operators</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#basic-operators">Basic Operators</a></li>
+<li class="toc-entry toc-h4"><a href="#contains">Contains</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#truthy-and-falsy">Truthy and Falsy</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#truthy">Truthy</a></li>
+<li class="toc-entry toc-h4"><a href="#falsy">Falsy</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#object-types">Object Types</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#string">String</a></li>
+<li class="toc-entry toc-h4"><a href="#number">Number</a></li>
+<li class="toc-entry toc-h4"><a href="#boolean">Boolean</a></li>
+<li class="toc-entry toc-h4"><a href="#nil">Nil</a></li>
+<li class="toc-entry toc-h4"><a href="#array">Array</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#whitespace-control">Whitespace Control</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#liquid-tags">Liquid Tags</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#control-flow">Control Flow</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#case--when">case / when</a></li>
+<li class="toc-entry toc-h4"><a href="#if">if</a></li>
+<li class="toc-entry toc-h4"><a href="#unless">unless</a></li>
+<li class="toc-entry toc-h4"><a href="#elsif--else">elsif / else</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#iteration">Iteration</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#for">for</a></li>
+<li class="toc-entry toc-h4"><a href="#forloop-object">forloop (object)</a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#forloopfirst">forloop.first</a></li>
+<li class="toc-entry toc-h5"><a href="#forloopindex">forloop.index</a></li>
+<li class="toc-entry toc-h5"><a href="#forlooplast">forloop.last</a></li>
+<li class="toc-entry toc-h5"><a href="#forlooplength">forloop.length</a></li>
+<li class="toc-entry toc-h5"><a href="#forlooprindex">forloop.rindex</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h4"><a href="#break">break</a></li>
+<li class="toc-entry toc-h4"><a href="#for-parameters">for (parameters)</a></li>
+<li class="toc-entry toc-h4"><a href="#cycle">cycle</a></li>
+<li class="toc-entry toc-h4"><a href="#tablerow">tablerow</a></li>
+<li class="toc-entry toc-h4"><a href="#tablerow-parameters">tablerow (parameters)</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#variable">Variable</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#assign">assign</a></li>
+<li class="toc-entry toc-h4"><a href="#capture">capture</a></li>
+<li class="toc-entry toc-h4"><a href="#increment">increment</a></li>
+<li class="toc-entry toc-h4"><a href="#decrement">decrement</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#liquid-filters">Liquid Filters</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#string-1">String</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#append--prepend">append / prepend</a></li>
+<li class="toc-entry toc-h4"><a href="#capitalize">capitalize</a></li>
+<li class="toc-entry toc-h4"><a href="#cgi_escape">cgi_escape</a></li>
+<li class="toc-entry toc-h4"><a href="#default">default</a></li>
+<li class="toc-entry toc-h4"><a href="#downcase--upcase">downcase / upcase</a></li>
+<li class="toc-entry toc-h4"><a href="#escape--escape_once">escape / escape_once</a></li>
+<li class="toc-entry toc-h4"><a href="#lstrip--rstrip">lstrip / rstrip</a></li>
+<li class="toc-entry toc-h4"><a href="#markdownify">markdownify</a></li>
+<li class="toc-entry toc-h4"><a href="#newline_to_br">newline_to_br</a></li>
+<li class="toc-entry toc-h4"><a href="#number_of_words">number_of_words</a></li>
+<li class="toc-entry toc-h4"><a href="#remove--remove_first">remove / remove_first</a></li>
+<li class="toc-entry toc-h4"><a href="#replace--replace_first">replace / replace_first</a></li>
+<li class="toc-entry toc-h4"><a href="#size">size</a></li>
+<li class="toc-entry toc-h4"><a href="#slice">slice</a></li>
+<li class="toc-entry toc-h4"><a href="#slugify">slugify</a></li>
+<li class="toc-entry toc-h4"><a href="#smartify">smartify</a></li>
+<li class="toc-entry toc-h4"><a href="#split">split</a></li>
+<li class="toc-entry toc-h4"><a href="#strip">strip</a></li>
+<li class="toc-entry toc-h4"><a href="#strip_html">strip_html</a></li>
+<li class="toc-entry toc-h4"><a href="#strip_newlines">strip_newlines</a></li>
+<li class="toc-entry toc-h4"><a href="#truncate--truncatewords">truncate / truncatewords</a></li>
+<li class="toc-entry toc-h4"><a href="#uri_escape--xml_escape">uri_escape / xml_escape</a></li>
+<li class="toc-entry toc-h4"><a href="#url_encode">url_encode</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#integer">Integer</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#abs">abs</a></li>
+<li class="toc-entry toc-h4"><a href="#ceil">ceil</a></li>
+<li class="toc-entry toc-h4"><a href="#divided_by--times">divided_by / times</a></li>
+<li class="toc-entry toc-h4"><a href="#floor">floor</a></li>
+<li class="toc-entry toc-h4"><a href="#minus--plus">minus / plus</a></li>
+<li class="toc-entry toc-h4"><a href="#modulo">modulo</a></li>
+<li class="toc-entry toc-h4"><a href="#round">round</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#array-1">Array</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#array_to_sentence_string">array_to_sentence_string</a></li>
+<li class="toc-entry toc-h4"><a href="#first--last">first / last</a></li>
+<li class="toc-entry toc-h4"><a href="#group_by">group_by</a></li>
+<li class="toc-entry toc-h4"><a href="#join">join</a></li>
+<li class="toc-entry toc-h4"><a href="#jsonify">jsonify</a></li>
+<li class="toc-entry toc-h4"><a href="#map-extract">map (extract)</a></li>
+<li class="toc-entry toc-h4"><a href="#push">push</a></li>
+<li class="toc-entry toc-h4"><a href="#reverse">reverse</a></li>
+<li class="toc-entry toc-h4"><a href="#size-1">size</a></li>
+<li class="toc-entry toc-h4"><a href="#sort">sort</a></li>
+<li class="toc-entry toc-h4"><a href="#uniq">uniq</a></li>
+<li class="toc-entry toc-h4"><a href="#where">where</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#date">date</a></li>
+</ul>
+</li>
+</ul>
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+    </div>
+    <!-- END SIDEBAR -->
+</div>
+
+    </div>
+  </div>
+</div>
+<!-- END SINGLE-POST-WRAP -->
+
+
+        </main>
+        <!-- END MAIN -->
+
+        
+<footer>
+  <div class="footer">
+    <div class="container">
+      <div class="text-center">
+        <a href="/blog" class="logo clearfix animsition-link"><img src="/img/sig.svg" width="400" alt="Chen's Sig"></a>
+        <p class="copy">
+          Maintained by <a href="/about/">Chen Ting</a> 
+		  
+        </p>
+        <div class="icon-list">
+          <a href="https://www.linkedin.com/in/ting-chen-402bab122/" target="_blank">
+            <i class="fa fa-fw fa-linkedin"></i>
+          </a>
+          <a href="http://my.hupu.com/17573413/" target="_blank">
+            <i class="fa fa-fw fa-futbol-o"></i>
+          </a>
+          <a href="https://www.douban.com/people/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-book"></i>
+          </a>
+		   <a href="https://www.flickr.com/photos/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-flickr"></i>
+          </a>
+          <a href="https://github.com/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-github"></i>
+          </a>
+		  <a href="/feed.xml" target="_blank">
+            <i class="fa fa-fw fa-rss"></i>
+          </a>
+        </div>
+        <div class="scroll-top">go to top</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END FOOTER -->
+</footer>
+
+      </div>
+      <!-- END CONTENT -->
+    </div>
+    <!-- END ANIMSITION -->
+
+    
+<!-- SCRIPTS -->
+<script src="/assets/js/jquery-1.12.0.min.js"></script>
+<script src="/assets/js/plugins.min.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<!-- CUSTOM SCRIPT -->
+<script src="/assets/js/script.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/js/tether.min.js"></script>
+<script>document.getElementById("CN").href = "http://yo1995.coding.me" + window.location.pathname;</script>
+
+
+<script src="/assets/js/qrcode.js"></script>
+<script>
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: "https://yo1995.github.io/html/jekyll-edit-liquid-1/",
+    width: 196,
+    height: 196,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H,
+    useSVG: true
+});
+</script>
+
+
+<!-- 爱心特效 -->
+
+
+
+<script async src="/assets/js/busuanzi.pure.mini.js">
+</script>
+<!--功夫网卡住了script id="dsq-count-scr" src="//yo1995.disqus.com/count.js" async></script-->
+
+
+
+
+
+
+
+<!--script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82518311-1', 'auto');
+  ga('send', 'pageview', {
+  'page': '/html/jekyll-edit-liquid-1/',
+  'title': 'Jekyll 之修改 liquid 代码：去重、排序以及其它'
+  });
+
+</script-->
+
+
+  </body>
+
+</html>

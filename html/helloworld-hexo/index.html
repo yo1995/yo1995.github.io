@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html>
+
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="记录使用hexo与自定义的相关历程。Record the process of the development of the page.">
+  <meta name="author" content="Chen Ting">
+  <meta name="keywords" content="">
+  <meta name="theme-color" content="#272727">
+
+  <title>Hello World &amp; hexo notes</title>
+
+  <link rel="icon" href="/img/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="canonical" href="https://yo1995.github.io/html/helloworld-hexo/" />
+  <link rel="alternate" type="application/rss+xml" title="Chen's Blog" href="https://yo1995.github.io/feed.xml" />
+  
+  <meta property="og:site_name" content="Chen's Blog" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://yo1995.github.io/html/helloworld-hexo/" />
+  <meta property="og:title" content="Hello World & hexo notes" />
+  <meta property="og:description" content="记录使用hexo与自定义的相关历程。Record the process of the development of the page." />
+  <meta property="og:article:published_time" content="2016-08-16T00:00:00-04:00" />
+  <meta property="og:article:author" content="Chen Ting" />
+
+  <meta property="og:image" content="/images/201608/jekyll-vs-hexo.jpg" />
+  
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <!-- PLUGINS -->
+  <link rel="stylesheet" href="/assets/css/vlthemes.css">
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">	
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  
+  
+  
+
+</head>
+<!-- 180622 - tecent analytics -->
+<script type="text/javascript" src="https://tajs.qq.com/stats?sId=65898920" charset="UTF-8"></script>
+
+
+  <body data-spy="scroll" data-target="#navbar" data-offset="100">
+
+		<!-- FRAMES -->
+		<span class="frame-line top-frame"></span>
+		<span class="frame-line right-frame"></span>
+		<span class="frame-line bottom-frame"></span>
+		<span class="frame-line left-frame"></span>
+
+    <div class="animsition">
+      <div class="content">
+
+        
+<!-- header-fixed / header-scroll-up  -->
+<div class="scroll-indicator fixedheader" style="width"></div>
+<header class="header-wrap header-fixed minimal-menu">
+    <div class="header-inner">
+        <div class="container">
+			
+            <div class="logo">
+                <a href="/blog" class="animsition-link">Ch<span>e</span>n's Blog</a>
+            </div>
+			
+
+            <a href="#" class="menu-toggle desctop-menu">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <a href="#" class="menu-toggle mobile-menu-toggle">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <nav class="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="/" class="animsition-link">
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item-has-children" class="current-menu-item">
+                        <a href="">
+                            <span>Blog</span>
+                        </a>
+						    <ul class="sub-menu">
+								<li>
+									<a href="/blog/" class="animsition-link">
+										<span>Blog Index</span>
+									</a>
+								</li>
+								<li>
+									<a href="/posts/" class="animsition-link">
+										<span>Archives</span>
+									</a>
+								</li>
+								<li>
+									<a href="/categories/" class="animsition-link">
+										<span>Categories</span>
+									</a>
+								</li>
+								<li>
+									<a href="/tags/" class="animsition-link">
+										<span>Tags</span>
+									</a>
+								</li>
+							</ul>
+                    </li>
+
+                    <li>
+                        <a href="/photos/" class="animsition-link">
+                            <span>Photos</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/about/" class="animsition-link">
+                            <span>About</span>
+                        </a>
+                    </li>
+					
+					  <!--li>
+                        <a href="" class="animsition-link" id="CN">
+                            <span>CN</span>
+                        </a>
+                    </li-->
+                </ul>
+            </nav>
+            <!-- END PRIMARY-MENU -->
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <!-- END HEADER-INNER -->
+</header>
+<!-- END HEADER-WRAP -->
+
+
+        
+
+        <main id="main-content">
+          
+          <div class="single-post-wrap clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 content-fixed">
+
+        <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
+          <div class="post-thumb clearfix">
+            
+            <img src="/images/201608/jekyll-vs-hexo.jpg" alt="Hello World & hexo notes">
+            
+          </div>
+          
+          <div class="post-content" itemprop="articleBody">
+            <div class="post-date" datetime="2016-08-16T00:00:00-04:00" itemprop="datePublished">
+              Aug 16, 2016
+            </div>
+            <h1 class="post-title" itemprop="name headline">Hello World & hexo notes</h1>
+            <div class="content-color">
+            
+            <p><a href="https://yo1995.github.io/cht">戳这里！</a></p>
+
+<h1 id="原模板自带简介">
+<a id="原模板自带简介" class="anchor" href="#%E5%8E%9F%E6%A8%A1%E6%9D%BF%E8%87%AA%E5%B8%A6%E7%AE%80%E4%BB%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>原模板自带简介</h1>
+<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+
+<h2 id="quick-start">
+<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick Start</h2>
+
+<h3 id="create-a-new-post">
+<a id="create-a-new-post" class="anchor" href="#create-a-new-post" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create a new post</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hexo new <span class="s2">"My New Post"</span>
+</code></pre></div></div>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+
+<h3 id="run-server">
+<a id="run-server" class="anchor" href="#run-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Run server</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hexo server
+</code></pre></div></div>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+
+<h3 id="generate-static-files">
+<a id="generate-static-files" class="anchor" href="#generate-static-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Generate static files</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hexo generate
+</code></pre></div></div>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+
+<h3 id="deploy-to-remote-sites">
+<a id="deploy-to-remote-sites" class="anchor" href="#deploy-to-remote-sites" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deploy to remote sites</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hexo deploy
+</code></pre></div></div>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
+
+<hr>
+<h1 id="以下为个人记录">
+<a id="以下为个人记录" class="anchor" href="#%E4%BB%A5%E4%B8%8B%E4%B8%BA%E4%B8%AA%E4%BA%BA%E8%AE%B0%E5%BD%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>以下为个人记录</h1>
+
+<h2 id="常规操作类">
+<a id="常规操作类" class="anchor" href="#%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a>常规操作类</h2>
+<h3 id="生成并部署">
+<a id="生成并部署" class="anchor" href="#%E7%94%9F%E6%88%90%E5%B9%B6%E9%83%A8%E7%BD%B2" aria-hidden="true"><span class="octicon octicon-link"></span></a>生成并部署</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hexo generate <span class="nt">--deploy</span>
+</code></pre></div></div>
+
+<h3 id="清空本地生成">
+<a id="清空本地生成" class="anchor" href="#%E6%B8%85%E7%A9%BA%E6%9C%AC%E5%9C%B0%E7%94%9F%E6%88%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>清空本地生成</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>hexo clean
+</code></pre></div></div>
+<h3 id="字号">
+<a id="字号" class="anchor" href="#%E5%AD%97%E5%8F%B7" aria-hidden="true"><span class="octicon octicon-link"></span></a>字号</h3>
+<p>调整_variables.styl文件</p>
+
+<h2 id="图片视频类">
+<a id="图片视频类" class="anchor" href="#%E5%9B%BE%E7%89%87%E8%A7%86%E9%A2%91%E7%B1%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a>图片视频类</h2>
+<h3 id="视频iframe标签或者video标签">
+<a id="视频iframe标签或者video标签" class="anchor" href="#%E8%A7%86%E9%A2%91iframe%E6%A0%87%E7%AD%BE%E6%88%96%E8%80%85video%E6%A0%87%E7%AD%BE" aria-hidden="true"><span class="octicon octicon-link"></span></a>视频：iframe标签、或者video标签：</h3>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;embed</span> <span class="na">type=</span><span class="s">"video/mp4"</span> <span class="na">allowscriptaccess=</span><span class="s">"always"</span> <span class="na">allowfullscreen=</span><span class="s">"true"</span> <span class="na">wmode=</span><span class="s">"transparent"</span> <span class="na">quality=</span><span class="s">"high"</span> <span class="na">height=</span><span class="s">"300"</span> <span class="na">width=</span><span class="s">"480"</span> <span class="na">src=</span><span class="s">"http://7.com/3.mp4"</span><span class="nt">/&gt;</span>
+
+<span class="nt">&lt;iframe</span> <span class="na">height=</span><span class="s">498</span> <span class="na">width=</span><span class="s">510</span> <span class="na">src=</span><span class="s">" "</span> <span class="na">frameborder=</span><span class="s">0</span> <span class="na">allowfullscreen</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+
+<span class="nt">&lt;video</span> <span class="na">width=</span><span class="s">"498"</span> <span class="na">height=</span><span class="s">"510 "</span> <span class="na">src=</span><span class="s">" "</span> <span class="na">poster=</span><span class="s">" "</span> <span class="na">autoplay=</span><span class="s">"autoplay"</span><span class="nt">&gt;&lt;/video&gt;</span>
+
+<span class="nt">&lt;embed</span> <span class="na">src=</span><span class="s">"/cht/css/images/banner-flash.swf"</span> <span class="na">allowFullScreen=</span><span class="s">"true"</span> <span class="na">quality=</span><span class="s">"high"</span> <span class="na">width=</span><span class="s">"480"</span> <span class="na">height=</span><span class="s">"400"</span> <span class="na">align=</span><span class="s">"middle"</span> <span class="na">allowScriptAccess=</span><span class="s">"always"</span> <span class="na">type=</span><span class="s">"application/x-shockwave-flash"</span><span class="nt">&gt;&lt;/embed&gt;</span>
+
+</code></pre></div></div>
+
+<h3 id="加入置顶功能">
+<a id="加入置顶功能" class="anchor" href="#%E5%8A%A0%E5%85%A5%E7%BD%AE%E9%A1%B6%E5%8A%9F%E8%83%BD" aria-hidden="true"><span class="octicon octicon-link"></span></a>加入置顶功能</h3>
+<p>node_modules/hexo-generator-index/lib/generator.js</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'use strict'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">pagination</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'hexo-pagination'</span><span class="p">);</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">locals</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">config</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">posts</span> <span class="o">=</span> <span class="nx">locals</span><span class="p">.</span><span class="nx">posts</span><span class="p">;</span>
+    <span class="nx">posts</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="nx">posts</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">top</span> <span class="o">&amp;&amp;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">top</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 两篇文章top都有定义</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">top</span> <span class="o">==</span> <span class="nx">b</span><span class="p">.</span><span class="nx">top</span><span class="p">)</span> <span class="k">return</span> <span class="nx">b</span><span class="p">.</span><span class="nx">date</span> <span class="o">-</span> <span class="nx">a</span><span class="p">.</span><span class="nx">date</span><span class="p">;</span> <span class="c1">// 若top值一样则按照文章日期降序排</span>
+            <span class="k">else</span> <span class="k">return</span> <span class="nx">b</span><span class="p">.</span><span class="nx">top</span> <span class="o">-</span> <span class="nx">a</span><span class="p">.</span><span class="nx">top</span><span class="p">;</span> <span class="c1">// 否则按照top值降序排</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">top</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">b</span><span class="p">.</span><span class="nx">top</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">a</span><span class="p">.</span><span class="nx">top</span> <span class="o">&amp;&amp;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">top</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">return</span> <span class="nx">b</span><span class="p">.</span><span class="nx">date</span> <span class="o">-</span> <span class="nx">a</span><span class="p">.</span><span class="nx">date</span><span class="p">;</span> <span class="c1">// 都没定义按照文章日期降序排</span>
+    <span class="p">});</span>
+  <span class="kd">var</span> <span class="nx">paginationDir</span> <span class="o">=</span> <span class="nx">config</span><span class="p">.</span><span class="nx">pagination_dir</span> <span class="o">||</span> <span class="s1">'page'</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">pagination</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span> <span class="nx">posts</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">perPage</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">index_generator</span><span class="p">.</span><span class="nx">per_page</span><span class="p">,</span>
+    <span class="na">layout</span><span class="p">:</span> <span class="p">[</span><span class="s1">'index'</span><span class="p">,</span> <span class="s1">'archive'</span><span class="p">],</span>
+    <span class="na">format</span><span class="p">:</span> <span class="nx">paginationDir</span> <span class="o">+</span> <span class="s1">'/%d/'</span><span class="p">,</span>
+    <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">__index</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="加入gallery功能每次更新文件时需运行">
+<a id="加入gallery功能每次更新文件时需运行" class="anchor" href="#%E5%8A%A0%E5%85%A5gallery%E5%8A%9F%E8%83%BD%E6%AF%8F%E6%AC%A1%E6%9B%B4%E6%96%B0%E6%96%87%E4%BB%B6%E6%97%B6%E9%9C%80%E8%BF%90%E8%A1%8C" aria-hidden="true"><span class="octicon octicon-link"></span></a>加入gallery功能，每次更新文件时需运行</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python pcp.py
+node tool.js
+<span class="nb">cd </span>photos/page-backup
+git add <span class="nb">.</span>
+git commit <span class="nt">-m</span> <span class="s1">'upload'</span>
+git status <span class="nt">-s</span>
+git push
+</code></pre></div></div>
+
+<h3 id="关于asset-img文件夹的解决方案之一">
+<a id="关于asset-img文件夹的解决方案之一" class="anchor" href="#%E5%85%B3%E4%BA%8Easset-img%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E4%B9%8B%E4%B8%80" aria-hidden="true"><span class="octicon octicon-link"></span></a>关于asset-img文件夹的解决方案之一</h3>
+<p><a href="http://www.tuicool.com/articles/umEBVfI">http://www.tuicool.com/articles/umEBVfI</a>
+目前自己解决的办法是放到css/thumbnail绝对路径下，肯定没错就是有点不优雅</p>
+
+<h3 id="增加swf-flash文件作为banner功能">
+<a id="增加swf-flash文件作为banner功能" class="anchor" href="#%E5%A2%9E%E5%8A%A0swf-flash%E6%96%87%E4%BB%B6%E4%BD%9C%E4%B8%BAbanner%E5%8A%9F%E8%83%BD" aria-hidden="true"><span class="octicon octicon-link"></span></a>增加swf-flash文件作为banner功能：</h3>
+<p>·添加post/swf.ejs文件</p>
+<pre><code class="language-ejs">&lt;a href="&lt;%- url_for((post.link ? post.link : post.title)) %&gt;" target="_blank" itemprop="url" class="flash"&gt;&lt;/a&gt;
+	&lt;embed src="&lt;%- post.swf %&gt;" allowFullScreen="true" quality="best" width="100%" height="100%" align="middle" allowScriptAccess="always" scale="noborder" type="application/x-shockwave-flash" class="flash-banner"&gt;&lt;/embed&gt;
+</code></pre>
+<p>·修改article.ejs文件:</p>
+<pre><code class="language-ejs">		&lt;% if (post.swf) { %&gt;
+            &lt;%- partial('post/swf') %&gt;
+        &lt;% } %&gt;
+</code></pre>
+
+<h2 id="front-matter相关修改">
+<a id="front-matter相关修改" class="anchor" href="#front-matter%E7%9B%B8%E5%85%B3%E4%BF%AE%E6%94%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>front-matter相关修改</h2>
+<h3 id="noshare属性">
+<a id="noshare属性" class="anchor" href="#noshare%E5%B1%9E%E6%80%A7" aria-hidden="true"><span class="octicon octicon-link"></span></a>noshare属性</h3>
+<pre><code class="language-ejs">&lt;% if (!post.noshare) { %&gt;
+&lt;% } %&gt;
+</code></pre>
+<p>这样加入noshare属性并设置为true即可关闭分享功能</p>
+
+<h3 id="关于faviconico">
+<a id="关于faviconico" class="anchor" href="#%E5%85%B3%E4%BA%8Efaviconico" aria-hidden="true"><span class="octicon octicon-link"></span></a>关于favicon.ico</h3>
+<p>这年代缩略图标各家差别太大</p>
+
+<p>为了适配安卓和苹果，找到了一个好用的网站：<a href="http://realfavicongenerator.net/">http://realfavicongenerator.net/</a>
+可以生成对应的html代码和图片文件。
+有兴趣可以把本网站“添加到主屏幕”试试;-)
+对了，还要修改_config.yml ，以及head.ejs文件相应位置哦</p>
+
+<h3 id="fancybox">
+<a id="fancybox" class="anchor" href="#fancybox" aria-hidden="true"><span class="octicon octicon-link"></span></a>fancybox</h3>
+<p><a href="http://fancyapps.com/fancybox/#docs">http://fancyapps.com/fancybox/#docs</a>
+有众多属性可以使用，还可以点击播放swf</p>
+
+<h3 id="题外话关于pip">
+<a id="题外话关于pip" class="anchor" href="#%E9%A2%98%E5%A4%96%E8%AF%9D%E5%85%B3%E4%BA%8Epip" aria-hidden="true"><span class="octicon octicon-link"></span></a>题外话：关于pip</h3>
+<p>easy_install -U pip</p>
+
+            
+            </div>
+            
+<div class="entry-tags clearfix">
+
+    <div class="entry-footer clearfix">
+
+        <div class="pull-left">
+            <span>
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/#helloworld">helloworld</a>
+                
+                <a href="/tags/#jekyll">jekyll</a>
+                
+                <a href="/tags/#html">html</a>
+                
+                <a href="/tags/#css">css</a>
+                
+                <a href="/tags/#github">github</a>
+                
+                <a href="/tags/#js">js</a>
+                
+            </span>            
+            <span><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv">0</span> views</span>
+            <span>
+                <i class="fa fa-comments-o"></i>
+                <a href="#comments">GFW comments</a>
+				<!--被墙替换class="disqus-comment-count" data-disqus-identifier="Chen's Blog//html/helloworld-hexo-->
+            </span>
+            <span>
+                <i class="fa fa-check-square-o"></i><span>3110 words</span>
+            </span>
+            <span>
+                <i class="fa fa-link"></i>
+                <a data-toggle="collapse" href="#share-content" aria-expanded="false" aria-controls="share-content">Share</a>
+        </div>
+        <div class="pull-right collapse in" id="share-content">
+            
+<div class="entry-share-links">
+
+    <div class="btn-group" role="group" aria-label="Share">
+        <button type="button" class="btn btn-default btn-sm btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="http://www.facebook.com/sharer.php?u=https://yo1995.github.io/html/helloworld-hexo/" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></button>
+        
+        <button type="button" class="btn btn-default btn-sm btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="https://twitter.com/share?url=https://yo1995.github.io/html/helloworld-hexo/&amp;text=Hello World & hexo notes" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-weibo" data-toggle="tooltip" data-placement="top" title="新浪微博"><a href="http://service.weibo.com/share/share.php?url=https://yo1995.github.io/html/helloworld-hexo/&title=分享%4011L23+的文章「Hello World & hexo notes」&content=记录使用hexo与自定义的相关历程。Record the process of the dev...&pic=https://yo1995.github.io/images/201608/jekyll-vs-hexo.jpg" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-douban" data-toggle="tooltip" data-placement="top" title="豆瓣"><a href="https://www.douban.com/share/service?name=Hello World & hexo notes&href=https://yo1995.github.io/html/helloworld-hexo/&image=https://yo1995.github.io/images/201608/jekyll-vs-hexo.jpg&url=https://yo1995.github.io/html/helloworld-hexo/&title=Hello World & hexo notes" target="_blank"><i class="fa fa-fw">豆</i></a></button>
+
+        <a tabindex="0" class="btn btn-sm btn-weixin" role="button" data-trigger="hover" data-placement="top" id="qrcode-btn"><i class="fa fa-fw fa-weixin"></i></a>
+
+        <div id="qrcode-content" class="qrcode-hidden"><div id="qrcode"></div></div>
+        <div id="qrcode-title" class="qrcode-hidden">Scan to Read</div>
+		
+		<button type="button" class="btn btn-default btn-sm btn-email"><a href="mailto:?Subject=Hello World & hexo notes&amp;Body=记录使用hexo与自定义的相关历程。Record the process of the development of the page.%20https://yo1995.github.io/html/helloworld-hexo/"><i class="fa fa-fw fa-envelope-o"></i> Email</a></button>
+
+        <div class="btn-group btn-group-justified dropup" role="group">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle btn-more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-share-alt"></i><span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-google"><a href="https://plus.google.com/share?url=https://yo1995.github.io/html/helloworld-hexo/" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google Plus</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://yo1995.github.io/html/helloworld-hexo/" target="_blank"><i class="fa fa-fw fa-linkedin"></i> Linkedin</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-digg"><a href="http://www.digg.com/submit?url=https://yo1995.github.io/html/helloworld-hexo/" target="_blank"><i class="fa fa-fw fa-digg"></i> Digg</a></button></li>
+
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-pinterest"><a href="https://pinterest.com/pin/create/bookmarklet/?media=https://yo1995.github.io/images/201608/jekyll-vs-hexo.jpg&url=https://yo1995.github.io/html/helloworld-hexo/&description=Hello World & hexo notes" target="_blank"><i class="fa fa-fw fa-pinterest-p"></i> Pinterest</a></button></li>
+                 
+                 
+
+                <li><button type="button" class="btn btn-default btn-sm btn-reddit"><a href="http://reddit.com/submit?url=https://yo1995.github.io/html/helloworld-hexo/&amp;title=Hello World & hexo notes" target="_blank"><i class="fa fa-fw fa-reddit-alien"></i> Reddit</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-tumblr"><a href="http://www.tumblr.com/share/link?url=https://yo1995.github.io/html/helloworld-hexo/&amp;title=Hello World & hexo notes" target="_blank"><i class="fa fa-fw fa-tumblr"></i> Tumblr</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-print"><a href="javascript:;" onclick="window.print()"><i class="fa fa-fw fa-print"></i> Print</a></button></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+        </div>
+    </div>  
+
+</div>
+
+          </div>
+        </article>
+        <!-- END SINGLE-POST -->
+
+        
+<div class="post-navigation clearfix">
+    <div class="row">
+
+        <div class="col-xs-6">
+            <div class="previous-post">
+                <div class="arrow">
+                    <i class="fa fa-angle-double-left"></i>
+                    
+                    <a href="/physics/no-longer-if-support-for-asm/" class="animsition-link" data-hover-text="Prev: ASM no longer supports impact factors">Prev: ASM no longer supports impact factors</a>
+                    
+                </div>
+
+            </div>
+            <!-- END PREVIOUS-POST -->
+        </div>
+        <div class="col-xs-6">
+            <div class="next-post">
+                <div class="arrow">
+                    
+                    <a href="/html/the-evolution-of-the-album-page/" class="animsition-link" data-hover-text="Next: Hexo - 相册解决方案 - Icarus主题">Next: Hexo - 相册解决方案 - Icarus主题</a>
+                    
+                    <i class="fa fa-angle-double-right"></i>
+                </div>
+
+            </div>
+            <!-- END NEXT-POST -->
+        </div>
+    </div>
+</div>
+<!-- END POST-NAVIGATION -->
+		<!-- 180726 add multi author support -->
+		 
+			<div class="author-info clearfix">
+    <div class="author-avatar">
+        <img class="avatar" src="/img/avatar.png" alt="Chen Ting">
+    </div>
+
+    <div class="author-description">
+        <h4 class="author-title">
+            <a href="/about/">Chen Ting <i class="fa fa-link"></i></a>
+        </h4>
+        <p class="author-bio">
+            The page aims to exhibit several activities & achievements which the author engaged in during his undergraduate & graduate period. Meanwhile, other aspects such as lifestyles, literary work, travel notes, etc. would interweave in the narration.
+        </p>
+    </div>
+	<!-- add busaunzi to see how many views and reads happens to my page. addition to tecent -->
+	<script async src="/assets/js/busuanzi.pure.mini.js"></script>
+</div>
+<!-- END AUTHOR-INFO -->
+		 
+		 
+        
+
+<div class="comments-area clearfix">
+    <div class="comment-respond">
+		<h4 class="comment-reply-title" id="comments">Leave a Comment</h4>
+		<div class="disqus-placeholder alert alert-info" style="text-align: center">
+			<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Disqus might be GFW-ed. Excited!
+		</div>
+		<script src="/assets/js/disqusloader.js"></script>
+		<div class="disqus"></div>
+		<!--
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+        this.page.url = "https://yo1995.github.io/html/helloworld-hexo/";
+        this.page.identifier = "Chen's Blog//html/helloworld-hexo";
+        this.page.title = "Hello World & hexo notes";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//yo1995.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+		-->
+		<script>disqusLoader( '.disqus', { 
+			scriptUrl: '//yo1995.disqus.com/embed.js',
+			disqusConfig: function(){
+				this.callbacks.onReady = [function(){
+				var el = document.querySelector( '.disqus-placeholder' );
+				if( el.classList )
+					el.classList.add( 'is-hidden' ); // IE 10+
+				else
+					el.className += ' ' + 'is-hidden'; // IE 8-9
+				}];}
+			});
+		</script>
+       <noscript>Please conquer the GFW or enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+<!-- END COMMENTS-AREA -->
+
+
+      </div>
+
+      <div class="col-md-4 sidebar-fixed">
+    <div class="sidebar">
+        <aside class="widget-wrap widget-search">
+            <h6 class="widget-title">
+                <span>Search for a topic?</span>
+            </h6>
+			<div onclick="keyinsearch()" class="search-form text-center" id="search-container">
+				<input type="text" id="search-input" placeholder="search...">
+				<i class="fa fa-search"></i>
+				<ul id="results-container" style="list-style:square"></ul>
+			</div>
+			<!-- 180206 - update -->
+<script src="/assets/js/jekyll-search.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  function keyinsearch () {
+  SimpleJekyllSearch({
+	searchInput: document.getElementById('search-input'),
+	resultsContainer: document.getElementById('results-container'),
+	json: '/search.json',
+	searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+	noResultsText: '无结果',
+	limit: 5,
+	fuzzy: false
+  });
+  }
+</script>
+
+
+<!-- 暂时还没想好cache怎么改写，目前每次请求都是200 ！= = 不够chrome貌似是直接从本地磁盘加载的 -->
+<!--
+<form class="search-form" action="/search/" target="_blank" method="get">
+	<input type="text" placeholder="Search..." name="q">
+	<i class="fa fa-search"></i>
+</form>
+-->
+
+        </aside>
+        <!-- END WIDGET-WRAP -->		
+        <aside class="widget-wrap widget-categories">
+            <h6 class="widget-title">
+                <span>Categories</span>
+            </h6>
+            <ul>
+				
+				
+                <li><a href="/categories/#coding">Coding</a></li>
+                
+                <li><a href="/categories/#ee">EE</a></li>
+                
+                <li><a href="/categories/#games">Games</a></li>
+                
+                <li><a href="/categories/#html">Html</a></li>
+                
+                <li><a href="/categories/#life">Life</a></li>
+                
+                <li><a href="/categories/#movie">Movie</a></li>
+                
+                <li><a href="/categories/#physics">Physics</a></li>
+                
+                <li><a href="/categories/#reading">Reading</a></li>
+                
+                <li><a href="/categories/#school">School</a></li>
+                
+                <li><a href="/categories/#tools">Tools</a></li>
+                
+                <li><a href="/categories/#video">Video</a></li>
+                
+            </ul>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-recent-posts">
+            <h6 class="widget-title">
+                <span>Related Posts</span>
+            </h6>
+            <ul class="recent-posts">
+            
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/threebody-visualization/">
+                                <img src="/images/201807/Planets12.jpg" alt="三体小记">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/threebody-visualization/">三体小记</a>
+                            <span>2018/07/12</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/games/Bejeweled-like-game/">
+                                <img src="/images/201806/3cover.jpg" alt="由爱消除乐园引发的几点思考">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/games/Bejeweled-like-game/">由爱消除乐园引发的几点思考</a>
+                            <span>2018/06/21</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/python-fengyue/">
+                                <img src="/images/201803/clouds.jpg" alt="Python日常小记 - 《风月》">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/python-fengyue/">Python日常小记 - 《风月》</a>
+                            <span>2018/03/19</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                    
+
+                
+                                   
+            </ul>
+
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-tag">
+            <h6 class="widget-title">
+                <span>Tags Widget <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+
+            <div class="tag-cloud">
+                
+                <a href="/tags/#df">DF</a>
+                
+                <a href="/tags/#production">production</a>
+                
+                <a href="/tags/#education">education</a>
+                
+                <a href="/tags/#lifestyle">lifestyle</a>
+                
+                <a href="/tags/#volunteer">volunteer</a>
+                
+                <a href="/tags/#physics">physics</a>
+                
+                <a href="/tags/#lectures">lectures</a>
+                
+                <a href="/tags/#school">school</a>
+                
+                <a href="/tags/#football">football</a>
+                
+                <a href="/tags/#sports">sports</a>
+                
+                <a href="/tags/#movie">movie</a>
+                
+                <a href="/tags/#tv">TV</a>
+                
+                <a href="/tags/#life">life</a>
+                
+                <a href="/tags/#diversity">diversity</a>
+                
+                <a href="/tags/#arts">arts</a>
+                
+                <a href="/tags/#c#">C#</a>
+                
+                <a href="/tags/#innovation">innovation</a>
+                
+                <a href="/tags/#contest">contest</a>
+                
+                <a href="/tags/#project">project</a>
+                
+                <a href="/tags/#fpga">FPGA</a>
+                
+                <a href="/tags/#vlc">VLC</a>
+                
+                <a href="/tags/#blog">blog</a>
+                
+                <a href="/tags/#impact-factors">Impact Factors</a>
+                
+                <a href="/tags/#helloworld">helloworld</a>
+                
+                <a href="/tags/#jekyll">jekyll</a>
+                
+                <a href="/tags/#html">html</a>
+                
+                <a href="/tags/#css">css</a>
+                
+                <a href="/tags/#github">github</a>
+                
+                <a href="/tags/#js">js</a>
+                
+                <a href="/tags/#hexo">hexo</a>
+                
+                <a href="/tags/#semiconductor">semiconductor</a>
+                
+                <a href="/tags/#experiments">experiments</a>
+                
+                <a href="/tags/#python">Python</a>
+                
+                <a href="/tags/#image">image</a>
+                
+                <a href="/tags/#code">code</a>
+                
+                <a href="/tags/#gfw">GFW</a>
+                
+                <a href="/tags/#git">Git</a>
+                
+                <a href="/tags/#windows">Windows</a>
+                
+                <a href="/tags/#tools">tools</a>
+                
+                <a href="/tags/#shell">shell</a>
+                
+                <a href="/tags/#scripts">scripts</a>
+                
+                <a href="/tags/#thu">THU</a>
+                
+                <a href="/tags/#liquid">liquid</a>
+                
+                <a href="/tags/#coding">coding</a>
+                
+                <a href="/tags/#latex">LaTeX</a>
+                
+                <a href="/tags/#basic">basic</a>
+                
+                <a href="/tags/#review">review</a>
+                
+                <a href="/tags/#games">games</a>
+                
+                <a href="/tags/#roguelike">roguelike</a>
+                
+                <a href="/tags/#matlab">MATLAB</a>
+                
+                <a href="/tags/#chaos">chaos</a>
+                
+                <a href="/tags/#simulation">simulation</a>
+                
+                <a href="/tags/#camping">camping</a>
+                
+                <a href="/tags/#phd">PhD</a>
+                
+                <a href="/tags/#philosophy">philosophy</a>
+                
+                <a href="/tags/#reading">reading</a>
+                
+                <a href="/tags/#optics">optics</a>
+                
+                <a href="/tags/#year">year</a>
+                
+                <a href="/tags/#dream">dream</a>
+                
+                <a href="/tags/#girls">girls</a>
+                
+                <a href="/tags/#circuit">circuit</a>
+                
+                <a href="/tags/#electronics">electronics</a>
+                
+                <a href="/tags/#memory">memory</a>
+                
+                <a href="/tags/#france">France</a>
+                
+                <a href="/tags/#ingenieur">ingenieur</a>
+                
+                <a href="/tags/#bbs">bbs</a>
+                
+                <a href="/tags/#history">history</a>
+                
+                <a href="/tags/#byr">byr</a>
+                
+                <a href="/tags/#travel">travel</a>
+                
+                <a href="/tags/#tour">tour</a>
+                
+                <a href="/tags/#future">future</a>
+                
+                <a href="/tags/#graduate">graduate</a>
+                
+                <a href="/tags/#investment">investment</a>
+                
+                <a href="/tags/#love">love</a>
+                
+                <a href="/tags/#laptop">laptop</a>
+                
+                <a href="/tags/#mac">Mac</a>
+                
+                <a href="/tags/#hackintosh">hackintosh</a>
+                
+                <a href="/tags/#foudre">foudre</a>
+                
+                <a href="/tags/#law">law</a>
+                
+                <a href="/tags/#juven">juven</a>
+                
+                <a href="/tags/#ramen">ramen</a>
+                
+                <a href="/tags/#industry">industry</a>
+                
+                <a href="/tags/#alcohol">alcohol</a>
+                
+                <a href="/tags/#bar">bar</a>
+                
+                <a href="/tags/#confession">confession</a>
+                
+                <a href="/tags/#postdoc">postdoc</a>
+                
+                <a href="/tags/#nyu">NYU</a>
+                
+                <a href="/tags/#hahn">Hahn</a>
+                
+                <a href="/tags/#scholar">scholar</a>
+                
+                <a href="/tags/#academia">academia</a>
+                
+                <a href="/tags/#nba">NBA</a>
+                
+                <a href="/tags/#cool">cool</a>
+                
+                <a href="/tags/#study">study</a>
+                
+                <a href="/tags/#fourier">Fourier</a>
+                
+                <a href="/tags/#signal">signal</a>
+                
+                <a href="/tags/#theorem">theorem</a>
+                
+                <a href="/tags/#trivial">trivial</a>
+                
+                <a href="/tags/#chuapp">chuapp</a>
+                
+                <a href="/tags/#city">city</a>
+                
+                <a href="/tags/#politics">politics</a>
+                
+                <a href="/tags/#data">data</a>
+                
+                <a href="/tags/#tech">tech</a>
+                
+                <a href="/tags/#nas">NAS</a>
+                
+                <a href="/tags/#network">network</a>
+                
+                <a href="/tags/#infrastructure">infrastructure</a>
+                
+                <a href="/tags/#self-esteem">self-esteem</a>
+                
+                <a href="/tags/#confidence">confidence</a>
+                
+                <a href="/tags/#mental">mental</a>
+                
+                <a href="/tags/#value">value</a>
+                
+                <a href="/tags/#property">property</a>
+                
+                <a href="/tags/#fame">fame</a>
+                
+                <a href="/tags/#wechat">wechat</a>
+                
+                <a href="/tags/#crawler">crawler</a>
+                
+                <a href="/tags/#threading">threading</a>
+                
+                <a href="/tags/#multiprocessing">multiprocessing</a>
+                
+                <a href="/tags/#genuine">genuine</a>
+                
+                <a href="/tags/#adobe">Adobe</a>
+                
+                <a href="/tags/#codec">Codec</a>
+                
+                <a href="/tags/#software">software</a>
+                
+                <a href="/tags/#enlighten">enlighten</a>
+                
+                <a href="/tags/#friends">friends</a>
+                
+                <a href="/tags/#chance">chance</a>
+                
+                <a href="/tags/#choice">choice</a>
+                
+                <a href="/tags/#projectuniv">PROJECTUNIV</a>
+                
+                <a href="/tags/#cpp">cpp</a>
+                
+                <a href="/tags/#visualization">visualization</a>
+                
+                <a href="/tags/#gui">GUI</a>
+                
+                <a href="/tags/#gif">gif</a>
+                
+                <a href="/tags/#remastered">remastered</a>
+                
+                <a href="/tags/#exe">exe</a>
+                
+                <a href="/tags/#emoji">emoji</a>
+                
+                <a href="/tags/#gif">GIF</a>
+                
+                <a href="/tags/#video">video</a>
+                
+                <a href="/tags/#emoticon">emoticon</a>
+                
+                <a href="/tags/#pil">PIL</a>
+                
+                <a href="/tags/#swimming">swimming</a>
+                
+                <a href="/tags/#premiere">Premiere</a>
+                
+                <a href="/tags/#golf">golf</a>
+                
+                <a href="/tags/#gbbb">GBBB</a>
+                
+                <a href="/tags/#beatbox">beatbox</a>
+                
+                <a href="/tags/#loopstation">loopstation</a>
+                
+                <a href="/tags/#photo">photo</a>
+                
+                <a href="/tags/#plugin">plugin</a>
+                
+                <a href="/tags/#ae">AE</a>
+                
+                <a href="/tags/#music">music</a>
+                
+                <a href="/tags/#nature">nature</a>
+                
+                <a href="/tags/#basketball">basketball</a>
+                
+                <a href="/tags/#rdfz">RDFZ</a>
+                
+                <a href="/tags/#world">world</a>
+                
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+        <aside class="widget-wrap widget-toc">
+            <h6 class="widget-title">
+                <span>Table of Contents <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+            <div id="navbar">
+                <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#原模板自带简介">原模板自带简介</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#quick-start">Quick Start</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#create-a-new-post">Create a new post</a></li>
+<li class="toc-entry toc-h3"><a href="#run-server">Run server</a></li>
+<li class="toc-entry toc-h3"><a href="#generate-static-files">Generate static files</a></li>
+<li class="toc-entry toc-h3"><a href="#deploy-to-remote-sites">Deploy to remote sites</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#以下为个人记录">以下为个人记录</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#常规操作类">常规操作类</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#生成并部署">生成并部署</a></li>
+<li class="toc-entry toc-h3"><a href="#清空本地生成">清空本地生成</a></li>
+<li class="toc-entry toc-h3"><a href="#字号">字号</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#图片视频类">图片视频类</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#视频iframe标签或者video标签">视频：iframe标签、或者video标签：</a></li>
+<li class="toc-entry toc-h3"><a href="#加入置顶功能">加入置顶功能</a></li>
+<li class="toc-entry toc-h3"><a href="#加入gallery功能每次更新文件时需运行">加入gallery功能，每次更新文件时需运行</a></li>
+<li class="toc-entry toc-h3"><a href="#关于asset-img文件夹的解决方案之一">关于asset-img文件夹的解决方案之一</a></li>
+<li class="toc-entry toc-h3"><a href="#增加swf-flash文件作为banner功能">增加swf-flash文件作为banner功能：</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#front-matter相关修改">front-matter相关修改</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#noshare属性">noshare属性</a></li>
+<li class="toc-entry toc-h3"><a href="#关于faviconico">关于favicon.ico</a></li>
+<li class="toc-entry toc-h3"><a href="#fancybox">fancybox</a></li>
+<li class="toc-entry toc-h3"><a href="#题外话关于pip">题外话：关于pip</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+    </div>
+    <!-- END SIDEBAR -->
+</div>
+
+    </div>
+  </div>
+</div>
+<!-- END SINGLE-POST-WRAP -->
+
+
+        </main>
+        <!-- END MAIN -->
+
+        
+<footer>
+  <div class="footer">
+    <div class="container">
+      <div class="text-center">
+        <a href="/blog" class="logo clearfix animsition-link"><img src="/img/sig.svg" width="400" alt="Chen's Sig"></a>
+        <p class="copy">
+          Maintained by <a href="/about/">Chen Ting</a> 
+		  
+        </p>
+        <div class="icon-list">
+          <a href="https://www.linkedin.com/in/ting-chen-402bab122/" target="_blank">
+            <i class="fa fa-fw fa-linkedin"></i>
+          </a>
+          <a href="http://my.hupu.com/17573413/" target="_blank">
+            <i class="fa fa-fw fa-futbol-o"></i>
+          </a>
+          <a href="https://www.douban.com/people/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-book"></i>
+          </a>
+		   <a href="https://www.flickr.com/photos/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-flickr"></i>
+          </a>
+          <a href="https://github.com/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-github"></i>
+          </a>
+		  <a href="/feed.xml" target="_blank">
+            <i class="fa fa-fw fa-rss"></i>
+          </a>
+        </div>
+        <div class="scroll-top">go to top</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END FOOTER -->
+</footer>
+
+      </div>
+      <!-- END CONTENT -->
+    </div>
+    <!-- END ANIMSITION -->
+
+    
+<!-- SCRIPTS -->
+<script src="/assets/js/jquery-1.12.0.min.js"></script>
+<script src="/assets/js/plugins.min.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<!-- CUSTOM SCRIPT -->
+<script src="/assets/js/script.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/js/tether.min.js"></script>
+<script>document.getElementById("CN").href = "http://yo1995.coding.me" + window.location.pathname;</script>
+
+
+<script src="/assets/js/qrcode.js"></script>
+<script>
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: "https://yo1995.github.io/html/helloworld-hexo/",
+    width: 196,
+    height: 196,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H,
+    useSVG: true
+});
+</script>
+
+
+<!-- 爱心特效 -->
+
+
+
+<script async src="/assets/js/busuanzi.pure.mini.js">
+</script>
+<!--功夫网卡住了script id="dsq-count-scr" src="//yo1995.disqus.com/count.js" async></script-->
+
+
+
+
+
+
+
+<!--script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82518311-1', 'auto');
+  ga('send', 'pageview', {
+  'page': '/html/helloworld-hexo/',
+  'title': 'Hello World & hexo notes'
+  });
+
+</script-->
+
+
+  </body>
+
+</html>

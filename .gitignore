@@ -1,0 +1,10 @@
+_site
+public
+.sass-cache
+.jekyll-metadata
+mypac.pac
+Gemfile
+Gemfile.lock
+*.lnk
+*.dat
+*.sh

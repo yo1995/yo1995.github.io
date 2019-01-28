@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html>
+
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="回顾多年以来废寝忘食的网络爬图事业。">
+  <meta name="author" content="Chen Ting">
+  <meta name="keywords" content="">
+  <meta name="theme-color" content="#272727">
+
+  <title>BR图片下载器</title>
+
+  <link rel="icon" href="/img/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="canonical" href="https://yo1995.github.io/coding/Ultimate-NBA-Downloader/" />
+  <link rel="alternate" type="application/rss+xml" title="Chen's Blog" href="https://yo1995.github.io/feed.xml" />
+  
+  <meta property="og:site_name" content="Chen's Blog" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://yo1995.github.io/coding/Ultimate-NBA-Downloader/" />
+  <meta property="og:title" content="BR图片下载器" />
+  <meta property="og:description" content="回顾多年以来废寝忘食的网络爬图事业。" />
+  <meta property="og:article:published_time" content="2018-05-28T00:00:00-04:00" />
+  <meta property="og:article:author" content="Chen Ting" />
+
+  <meta property="og:image" content="/images/201805/BR_Logo.png" />
+  
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <!-- PLUGINS -->
+  <link rel="stylesheet" href="/assets/css/vlthemes.css">
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">	
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  
+  
+  
+
+</head>
+<!-- 180622 - tecent analytics -->
+<script type="text/javascript" src="https://tajs.qq.com/stats?sId=65898920" charset="UTF-8"></script>
+
+
+  <body data-spy="scroll" data-target="#navbar" data-offset="100">
+
+		<!-- FRAMES -->
+		<span class="frame-line top-frame"></span>
+		<span class="frame-line right-frame"></span>
+		<span class="frame-line bottom-frame"></span>
+		<span class="frame-line left-frame"></span>
+
+    <div class="animsition">
+      <div class="content">
+
+        
+<!-- header-fixed / header-scroll-up  -->
+<div class="scroll-indicator fixedheader" style="width"></div>
+<header class="header-wrap header-fixed minimal-menu">
+    <div class="header-inner">
+        <div class="container">
+			
+            <div class="logo">
+                <a href="/blog" class="animsition-link">Ch<span>e</span>n's Blog</a>
+            </div>
+			
+
+            <a href="#" class="menu-toggle desctop-menu">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <a href="#" class="menu-toggle mobile-menu-toggle">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <nav class="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="/" class="animsition-link">
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item-has-children">
+                        <a href="">
+                            <span>Blog</span>
+                        </a>
+						    <ul class="sub-menu">
+								<li>
+									<a href="/blog/" class="animsition-link">
+										<span>Blog Index</span>
+									</a>
+								</li>
+								<li>
+									<a href="/posts/" class="animsition-link">
+										<span>Archives</span>
+									</a>
+								</li>
+								<li>
+									<a href="/categories/" class="animsition-link">
+										<span>Categories</span>
+									</a>
+								</li>
+								<li>
+									<a href="/tags/" class="animsition-link">
+										<span>Tags</span>
+									</a>
+								</li>
+							</ul>
+                    </li>
+
+                    <li>
+                        <a href="/photos/" class="animsition-link">
+                            <span>Photos</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/about/" class="animsition-link">
+                            <span>About</span>
+                        </a>
+                    </li>
+					
+					  <!--li>
+                        <a href="" class="animsition-link" id="CN">
+                            <span>CN</span>
+                        </a>
+                    </li-->
+                </ul>
+            </nav>
+            <!-- END PRIMARY-MENU -->
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <!-- END HEADER-INNER -->
+</header>
+<!-- END HEADER-WRAP -->
+
+
+        
+
+        <main id="main-content">
+          
+          <div class="single-post-wrap clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 content-fixed">
+
+        <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
+          <div class="post-thumb clearfix">
+            
+            <img src="/images/201805/BR_Logo.png" alt="BR图片下载器">
+            
+          </div>
+          
+          <div class="post-content" itemprop="articleBody">
+            <div class="post-date" datetime="2018-05-28T00:00:00-04:00" itemprop="datePublished">
+              May 28, 2018
+            </div>
+            <h1 class="post-title" itemprop="name headline">BR图片下载器</h1>
+            <div class="content-color">
+            
+            <p><img src="https://raw.githubusercontent.com/yo1995/Ultimate-NBA-Downloader/master/features-gif/poster.jpg" alt="Cover"></p>
+
+<p><a href="https://github.com/yo1995/Ultimate-NBA-Downloader">Ultimate-NBA-Downloader</a>，一包从小到大始终舍不得丢弃的玩具大杂烩。</p>
+
+<h2 id="历史回顾">
+<a id="历史回顾" class="anchor" href="#%E5%8E%86%E5%8F%B2%E5%9B%9E%E9%A1%BE" aria-hidden="true"><span class="octicon octicon-link"></span></a>历史回顾</h2>
+
+<p>对于常年混迹于体育类论坛、热爱体育的爱好者而言，搜集各类体育图片永远是一个无法避开的话题。当你看到网页上体育摄影所呈现出来的力量的美、决定胜负的精彩瞬间、令人黯然神伤的历史时刻、运动的人与自然所呈现的大和谐之时，右手根本停不下来——是的，右键，另存为，桌面。</p>
+
+<p>自从互联网摆脱了电话线时代对于多媒体的掣肘，各式各样的多媒体表现形式层出不穷。图像、音频、视频、全景图、全景视频，甚至VR视频接踵而至，让人们能够足不出户便领略全世界各类体育活动、体育赛事的精彩瞬间。尤其是以美利坚为首的商业体育大国，这些多媒体手段极大地丰富了其宣传的手段，推进了其在全世界传播的进程。</p>
+
+<p>对我个人而言，从最初的F1与勒芒赛车爱好者，到后来的NBA、NFL球迷，再到环法拥趸与迈入综合体育的大门，一路走来收图始终是一项不可忽视的重要任务。坦率地讲，个人自我感觉有点收图强迫症，每次看到体育运动的精彩瞬间，必定搜索枯“网”把各大站点搜个底儿掉，以寻找那爿封印了世间绝妙一瞬的精致容器。正如我喜欢拍人物与新闻题材的照片一般，收集这些体育图片就像收集时间的脚印，每每翻到它们时，脑海中或多或少会想起那些令人心潮澎湃感慨万千的时刻。想想当时的心情，想想当时的生活，别有一番滋味。对于那些最为精彩的体育时刻，看到一张好的照片，就像浑身过电打鸡血一样，一下子涌上许多肾上腺素，精神顿时抖擞起来。</p>
+
+<p>如何才能更为高效地收集那些图片呢？从小到大我从未停止过自己的尝试。翻开往事的相册，抖落历史的尘埃，回忆起那些年扒图的日子吧。</p>
+
+<h3 id="手抓图时代">
+<a id="手抓图时代" class="anchor" href="#%E6%89%8B%E6%8A%93%E5%9B%BE%E6%97%B6%E4%BB%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a>手抓图时代</h3>
+
+<p>抓图，自然是在家里开通互联网以后的事情了。在那以前，我的所有互联网需求都在三个地方解决：爹的办公室、姐的笔记本、哥的写字台。</p>
+
+<p>小时候最喜欢在各种汽车网站上搜集赛车的图片。那时候还没有高清大图的概念，凡是喜欢的汽车图，统统保存到本地。直到后来整理文件时自己才意识到，当时存了多少乱七八糟的图。</p>
+
+<p><img src="/images/201805/PORSCHE356CABRIO.jpg" alt=""></p>
+
+<p>在那时，谷歌还没有封禁，首页大大的标志还是衬线字体的图片格式。搜图的一大途径就是打开谷歌图片，输入关键字，然后一张一张点进去看。嗬！我甚至能一下午都重复这同一件事儿。另一大途径就是百度图片了，不过我时常会被百度图片首页导流的“美女”标签代跑，一下午在电脑前的时光就此蹉跎……</p>
+
+<p>家里很早就有电脑，但直到一段时间后才用上Windows XP。在那之前由于只有Windows 98 的安装盘，很长时间重装系统都是重装Windows 98 + Office 97的组合的。记不清是哪个版本的Excel里面还有个赛车小游戏。直到XP时代，电脑上的多媒体应用才多了起来，在Winamp、RealMediaPlayer和豪杰超级解霸的统治下诞生了千千静听与暴风影音这样的软件。头一次我发现电脑能够打开很多格式的视频了，听音乐也不用忍受难看的方块界面了，甚至vba模拟器可以跑到10倍速了。电脑全面进入酷睿与双核的时代，我也慢慢长大了。</p>
+
+<h3 id="工具箱时代">
+<a id="工具箱时代" class="anchor" href="#%E5%B7%A5%E5%85%B7%E7%AE%B1%E6%97%B6%E4%BB%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a>工具箱时代</h3>
+
+<p>进入XP时代，乃至整个中学阶段，几乎都是IE 6陪我走过的。要不是新时代互联网浪潮的推动，我还不愿意换掉它哩。IE 6真的很经典，速度并不慢，虽说功能简单但用着顺手。后来发现了它的升级版——世界之窗。调用IE 内核用得飞起。当时的一大乐趣，就是到网上踅摸各类css模板，把自己的百度空间打扮的漂漂亮亮的，然后等着同学路过踩踩。</p>
+
+<p>IE时代的各类浏览器辅助层出不穷，除了那些流氓的BHO插件栏以外，更多的是直接封装好的可执行文件，多是以易语言、VB6.0、按键精灵等奇形怪状的工具编纂而成的。犹记得被百度工具栏和AOL工具栏统治的四上巴浏览器框架、3721与hao123统治的浏览器首页。丁香鱼盗版瑞星是装机必备，同样还有暴风影音与EasyRecovery——当然，还有迅雷。当时的桌面上永远不变的是“网络图片”、“网络视频”、“全页保存”三大巨头，逻辑分区里还有“游戏截图”和“游戏录像”两大悍将。对于多媒体文件的掌控欲一下子膨胀到无以复加。截止到我把中学用的台式机重装Windows 7时，桌面上随手收集的图片视频文件多达10014个，242个文件夹，占用7.12G磁盘空间。</p>
+
+<p><img src="/images/201805/356-nbo1.jpg" alt=""></p>
+
+<p>仍旧很喜欢搜集汽车图片，但随着知识的增长，买下一辆自己的356的希望越来越渺茫。😭 <img class="emoji" title=":cry:" alt=":cry:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f622.png" height="20" width="20"></p>
+
+<p><img src="/images/201805/jordan-rookie.jpg" alt=""></p>
+
+<p><img src="/images/201805/lebron_james_witness.jpg" alt=""></p>
+
+<p>开始爱好搜集篮球图片，从第一个认识的篮球运动员乔丹，到喜欢的球星小皇帝詹姆斯，逐渐胃口越来越大。</p>
+
+<p>这个时候搜集图片不再全靠邮件另存为了。对于贴吧，我用过“绿易贴吧工具箱”；对于虎扑，我用过“虎扑相册下载工具”；对于其它满页是图的网站，我则使用世界之窗自带的全页图片嗅探筛选插件，只需点击记下，就可以选中页面中所有尺寸符合条件的图片，然后一件把这些图片保存到本地。不得不说，这个功能我非常喜欢，甚至直到如今Chrome中我还保留了类似的“Fatkun批量下载”插件。</p>
+
+<p>通过最初级的自动化，我的存图大业比过去顺利得多，效率得到极大提升。然而，这样保存下来的图片有些问题，一是质量参差不齐，毕竟各个站点默认的图片分辨率不尽相同；二是文件名十分混乱——有些站点用图片原名作为路径还好，更多的像贴吧等论坛，图片文件名从来都是长串乱码，让人很难整理。最开始我还妄图手工分类整理，但面对指数增加的文件数量，最后只得作罢。期间，我想出各种歪招儿野路子来应对各种不同的情况，此处不表。总之，到最后装Windows 7的时候，我痛下决心，一定要改善这种刀耕火种的野蛮存图方法，让其变得可控而优雅。</p>
+
+<h3 id="f12时代">
+<a id="f12时代" class="anchor" href="#f12%E6%97%B6%E4%BB%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a>F12时代</h3>
+
+<p>送走IE 9，迎来Chrome 36的最大收获，是我懂得了不用右键“查看网页源代码”，直接轻触F12即可打开控制台。我的抓图事业，也一步迈进了现代化的新时代。首先映入我眼帘的便是Flickr。右键无法保存？没关系，F12→Ctrl-F→jpg即可。Flickr上的图片质量大多非常不错，甚至有很多都是相机原图。在那短暂的年月里，我凭借F12存了不少图片。</p>
+
+<p>另一大利器便是谷歌以图搜图与tineye为首的反向搜图引擎。过去，只能看见什么图存什么图；而现在，可以想要什么图去找什么图。只要找到任何分辨率版本，以图搜图总能得到不错的结果。凭借这两项“颠覆性”的新技术，我的存图武器库极大地丰富了。</p>
+
+<p><img src="/images/201805/yayoi-kusama-infinity-mirrors-exhibit-the-broad-museum-los-angeles-01.jpg" alt=""></p>
+
+<p>Flickr的图片质量一般都很不错，这套Broad Museum图集存下来的原图平均20MB以上</p>
+
+<p><img src="/images/201805/151104130258-magic-johnson-michael-jordan-larry-bird-1992-dream-team-usa.jpg" alt=""></p>
+
+<p>这张图稀有性不算强，却在我的存图生涯里具有里程碑式的意义。拿到这张图的大约9年以前，我得到过同一张图片的印刷版海报。现在，终于拿到了版权原图，不禁有些感慨。</p>
+
+<p>当然，仅靠F12还不能完全概括这一时期的手段。还有两大方法在此提及一下。</p>
+
+<h4 id="restful-请求法">
+<a id="restful-请求法" class="anchor" href="#restful-%E8%AF%B7%E6%B1%82%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>“RESTful” 请求法</h4>
+
+<p>标题或许起得不对，但我想表达的是一种存图的方法，即获取图片可见链接后反推原始链接。思路不一而足，但思想都是统一的——倘若对方服务器上存有原图，且作为资源而非动作存在，那么一定能通过某种参数获得该图。所谓动作，囊括登录、验证、购买等行为。无需动作就能看到的图片，就有可能想办法找到原图。</p>
+
+<p>最简单的情况便是直接出原图，这种情况多出现于静态网页——有时候会用缩略图占位，点击放大即可得到原图。稍复杂一些的是后端压缩后传输，再复杂的可伴随timestamp、cookie、token、key的验证。更复杂的就需要随机应变了——毕竟，如果对方不想让你访问某个路径，他有千百种方法设下层层阻拦，最简单的一个密码就能挡住绝大部分尝试。最开始，我还十分幼稚地试图找到gettyimages等图片提供商服务中的漏洞，后来一想才明白完全是做无用功。拿到的图片的价值越多付出的代价一定也就越多，要能拿到getty的图估计就能去getty工作了……</p>
+
+<h4 id="信息流异步加载与定制化排版">
+<a id="信息流异步加载与定制化排版" class="anchor" href="#%E4%BF%A1%E6%81%AF%E6%B5%81%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD%E4%B8%8E%E5%AE%9A%E5%88%B6%E5%8C%96%E6%8E%92%E7%89%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>信息流、异步加载与定制化排版</h4>
+
+<p>另一个问题是如何定位自己想要的图片。最简单的情况当然是图片直接存在列表或固定位置里，一张一张取出来就是了。比较复杂的情况有：图片异步加载、图片分布在不同的元素中、图片移步加载且分散在各处。对于前者我学会了selenium，对于后者我还在学习正则表达式。更加综合的情况我就要衡量一下自己付出的时间获得的图片价值是否对等了——毕竟，时间值钱！</p>
+
+<p>因此，现在我已经懒到，不是唾手可得的图片不存的地步了。又是压缩又是重编码，那我干脆不存了，费大力气存下来收获微乎其微。而且，还有那么多大门敞开的图床等着我搜刮呢！</p>
+
+<h3 id="bs4时代">
+<a id="bs4时代" class="anchor" href="#bs4%E6%97%B6%E4%BB%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a>bs4时代</h3>
+
+<p>稍稍懂了一点Python的皮毛，我就迫不及待地开始了爬图大业。Python写起来快，可用的各类库多，什么需求都能实现，不可谓不爽。bs4解析页面，找到想要的东西也比以前右键点点点畅快了许多。这时我的爬图方法逐渐分化为两大类：单发与周期。</p>
+
+<p>所谓单发，就是随机在一个网页上看到几张十几张图片，想要挑挑拣拣地保存下来。这时候右键另存为嫌慢、编脚本又嫌重用性太差。于是便诞生了<a href="https://github.com/yo1995/Daily_GUI_Tools/tree/master/nba_link_converter">抓图器</a>这个项目。它强调看到一张图点一两下就能存下来的方便，也注重适配各种情况奇形怪状的包含图片地址的HTML元素。最终希望达到的目标是，看到一张图，无论来自什么网站，只要符合我之前见过的情况之一，就能被下载下来。</p>
+
+<p>所谓周期，就是每天每周从固定网站下载图片。很多新闻、门户网站的更新是具有规律性与周期性的，踩准鼓点便能源源不断地收获图片。这种需求强调稳定性，无需多么高效，但需要完善的异常处理。同时，还需要更好的筛选能力，毕竟一下子保存大量图片，其中一定不乏食之无味弃之可惜的个体。节省存储空间，如何筛掉这些图便是亟待解决的问题。</p>
+
+<p>快速可重开发性——写一个结构清晰的脚本，遇到类似网站能够快速套用。比如对于FIFA和UEFA两个网站而言。</p>
+
+<p>后向兼容性——尽可能想象可能遇到的情况，减少迭代次数。</p>
+
+<h2 id="开发过程简记">
+<a id="开发过程简记" class="anchor" href="#%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E7%AE%80%E8%AE%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>开发过程简记</h2>
+
+<p>写需求，分析逻辑，码码码，分块测试，码码，并行，测试，码，输入输出，git push</p>
+
+<p>开发的时候每解决一个新问题都有一点新收获，最后汇总好基本没再返工就直接跑通了。看来码之前设计好还是很重要的。</p>
+
+<h3 id="执行逻辑">
+<a id="执行逻辑" class="anchor" href="#%E6%89%A7%E8%A1%8C%E9%80%BB%E8%BE%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>执行逻辑</h3>
+
+<p>现在我习惯于在开发前先把整体逻辑描述一遍，这样在写程序时就不用切换思路去考虑如何设计了。诚然，这样写出来的程序再改进或者添加新功能并不方便，但同时也不必害怕逻辑错乱还得修修补补。</p>
+
+<p>直接把逻辑文档贴上来，不再整理。本来还想画个类UML图，后来发现项目逻辑不复杂没必要……</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. 首先从新闻链接总表links_all.csv中读取前两个键值e.g.2709309, 2774742等等；超过1024条后将源文件命名为links_all_date.csv，取源文件首行存入新的links_all.csv，然后继续；在主函数中写
+
+2. 将从第一页开始今日读取的链接写入[date]links_temp.csv的头部，直到读取到上一个遍历过的键值或超过5页（一天最多两页，可设定双重兜底以防删除或变更，即每次判断两次），则进入下载步骤  // 此处不采用内存栈存储是为了后面报错中断方便；
+dict？json？
+如果网页更新了怎么办？直接跳过；
+每打开一个新的页面，重做已有key，后面文件重复会筛掉；
+
+3. 从[date]links_temp.txt第一行开始读取，打开链接，找到页面中符合正则的图片地址并计数判断&gt;8，遍历并改变图片地址，（open双重测试），错误的话写入[日期]logging并打印文章链接 - 图片链接到输出，并更改报错全局变量error为真，读取写入的文件的大小，若小于1280x800则删除（可加flag），并map(名称，大小)，图片总数++；
+// 此处不考虑去重，因为文件名相同可能内容不同；
+
+	- 文件夹名：
+	若单页面图片超过8张：./[日期]/[序号键值]标题/[序号键值](顺序)图片；否则直接写入./[日期]/[序号键值](顺序)图片
+	还是先都存到同一个文件夹里，后期再进行分类。
+
+	- 链接文件格式：
+	文件名：/[序号键值].txt
+	内容：链接 - 标题 - 日期 - 序号键值 - 链接 - 空行 结束
+	存储路径
+
+	- 文件名：
+	// 删除crop_exact以及相关
+	[序号键值](序号)文件名乱码.jpg
+
+遍历完成后新闻链接写入[date]links_all.txt，pop[date]links_temp.txt头部
+
+4. 当达到文件末尾或超过链接总数时结束程序，判断报错变量，如果为真则将将报错信息读取并发送邮件；如果为假则发送成功通知邮件，遍历下载链接总数/图片总数，最大最小文件，总文件大小
+
+最后处理所有报错异常进log
+</code></pre></div></div>
+
+<h3 id="模块设计">
+<a id="模块设计" class="anchor" href="#%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>模块设计</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BR-py3.py - main
+	|-------- links_temp-------- get_article_links
+			|-------- get_picture_links
+			|-------- check_n_save_pictures
+</code></pre></div></div>
+
+<p>最主要的步骤就是从文章链接中获取图片链接，以及下载图片。这两个步骤没有顺序关系，因而都可以并行化。</p>
+
+<h4 id="数据库之殇">
+<a id="数据库之殇" class="anchor" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8B%E6%AE%87" aria-hidden="true"><span class="octicon octicon-link"></span></a>数据库之殇</h4>
+
+<p>最开始的想法是用自己最熟悉最擅长的……文本文件。后来想象了一下呈现的结果，一定特别难看，于是作罢。又想用个轻量级数据库，但觉得大材小用，况且数据库呈现起来也不方便。最熟悉的accessdb就别说了……等以后学习数据库的时候再学吧。</p>
+
+<p>最最轻量级的数据库应该就是json文件了，但json也不好美观地呈现。因此想到了csv。用Excel打开，用notepad也能打开，增删查改都不麻烦。就它了。</p>
+
+<h3 id="多线程与多进程的执念">
+<a id="多线程与多进程的执念" class="anchor" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%89%A7%E5%BF%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>多线程与多进程的执念</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>CPU密集型操作</td>
+      <td>IO密集型操作</td>
+      <td>网络请求密集型操作</td>
+    </tr>
+    <tr>
+      <td>线性操作</td>
+      <td>94.918s</td>
+      <td>22.461s</td>
+      <td>7.329s</td>
+    </tr>
+    <tr>
+      <td>多线程操作</td>
+      <td>101.170s</td>
+      <td>24.860s</td>
+      <td>0.505s</td>
+    </tr>
+    <tr>
+      <td>多进程操作</td>
+      <td>53.889s</td>
+      <td>12.784s</td>
+      <td>0.504s</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>参考了<a href="https://segmentfault.com/a/1190000007495352">这篇文章</a>，发现HTTP请求适合Python多线程，下载图片适合多进程。当然，对于C++而言都是多线程了。</p>
+
+<p>其实，如果顺序下载的话并不会慢太多，因为速度慢的主要原因是端到端带宽不够，就算请求都发出了下载图片一样只能跑满带宽而已。不知道是GFW的缘故还是节点问题。</p>
+
+<h3 id="文档与发布">
+<a id="文档与发布" class="anchor" href="#%E6%96%87%E6%A1%A3%E4%B8%8E%E5%8F%91%E5%B8%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>文档与发布</h3>
+
+<p>写程序的时候注释的比较详细，因此就没有再认真写文档。不过这篇博客以及README应该就足以应对大部分需求了。</p>
+
+<p>pip freeze由于没有建venv没法直接导出本项目的依赖。安装了pipreqs还挺方便。其实可以进一步减少依赖库的使用。</p>
+
+<h2 id="使用">
+<a id="使用" class="anchor" href="#%E4%BD%BF%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用</h2>
+
+<p>没有耕坏的田，只有累死的牛。不是图太少，而是盘太小。这便是我运行脚本存10页图后的感想。</p>
+
+<p>难以想象BR的盈利能否负担其数据开支。一年光是图片的存储开销就有数百吉比特，流量一定是几十倍于这个数值。要知道，BYR14年总共积累的数据还不到1T！</p>
+
+<p>同样的，还有USAToday等等一系列媒体的图片每天在源源不断地发布，这令我陷入了疑虑——存那么多图究竟有意义吗？</p>
+
+<p>这或许是我第一次对自己存图的行为产生了怀疑。正如我立志为NBA2k11写外挂后再也没玩儿过一样。写好了脚本，收图癖也治好了。</p>
+
+<h2 id="后记">
+<a id="后记" class="anchor" href="#%E5%90%8E%E8%AE%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>后记</h2>
+
+<p>希望这不是我收图的终点，但目前看来我是不打算再扩大收图范围了。毕竟，买硬盘也是钱啊！收了大把的图，根本不看就堆到硬盘里占空间，怎么看都是毫无意义的事情。</p>
+
+<p>后记随便写一点，以后要有新的想法再更新啦。</p>
+
+<h3 id="人脸识别">
+<a id="人脸识别" class="anchor" href="#%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB" aria-hidden="true"><span class="octicon octicon-link"></span></a>人脸识别</h3>
+
+<p>收获了巨量（数十吉比特）的图片后，我开始初步构想能用这些图片做些什么了。最朴素、最基础的想法当然是做一点无监督学习对图片进行自动分类。需求很简单：从图片中标出人脸，对人脸进行识别并分类。或者，我也可以标注出一点数据集，先把詹姆斯的图片挑出来？</p>
+
+<h3 id="开坑能力">
+<a id="开坑能力" class="anchor" href="#%E5%BC%80%E5%9D%91%E8%83%BD%E5%8A%9B" aria-hidden="true"><span class="octicon octicon-link"></span></a>开坑能力</h3>
+
+<p><del>狂立flag</del>开学前刷好题学好编程，写完外挂，剪点视频，搞完蜡烛，如果可能再玩玩小车。哦，对了，再试试找个女生尬聊。</p>
+
+            
+            </div>
+            
+<div class="entry-tags clearfix">
+
+    <div class="entry-footer clearfix">
+
+        <div class="pull-left">
+            <span>
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/#crawler">crawler</a>
+                
+                <a href="/tags/#python">Python</a>
+                
+                <a href="/tags/#threading">threading</a>
+                
+                <a href="/tags/#multiprocessing">multiprocessing</a>
+                
+                <a href="/tags/#nba">NBA</a>
+                
+            </span>            
+            <span><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv">0</span> views</span>
+            <span>
+                <i class="fa fa-comments-o"></i>
+                <a href="#comments">GFW comments</a>
+				<!--被墙替换class="disqus-comment-count" data-disqus-identifier="Chen's Blog//coding/Ultimate-NBA-Downloader-->
+            </span>
+            <span>
+                <i class="fa fa-check-square-o"></i><span>6478 words</span>
+            </span>
+            <span>
+                <i class="fa fa-link"></i>
+                <a data-toggle="collapse" href="#share-content" aria-expanded="false" aria-controls="share-content">Share</a>
+        </span>
+</div>
+        <div class="pull-right collapse in" id="share-content">
+            
+<div class="entry-share-links">
+
+    <div class="btn-group" role="group" aria-label="Share">
+        <button type="button" class="btn btn-default btn-sm btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="http://www.facebook.com/sharer.php?u=https://yo1995.github.io/coding/Ultimate-NBA-Downloader/" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></button>
+        
+        <button type="button" class="btn btn-default btn-sm btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="https://twitter.com/share?url=https://yo1995.github.io/coding/Ultimate-NBA-Downloader/&amp;text=BR%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD%E5%99%A8" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-weibo" data-toggle="tooltip" data-placement="top" title="新浪微博"><a href="http://service.weibo.com/share/share.php?url=https://yo1995.github.io/coding/Ultimate-NBA-Downloader/&amp;title=%E5%88%86%E4%BA%AB%4011L23+%E7%9A%84%E6%96%87%E7%AB%A0%E3%80%8CBR%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD%E5%99%A8%E3%80%8D&amp;content=%E5%9B%9E%E9%A1%BE%E5%A4%9A%E5%B9%B4%E4%BB%A5%E6%9D%A5%E5%BA%9F%E5%AF%9D%E5%BF%98%E9%A3%9F%E7%9A%84%E7%BD%91%E7%BB%9C%E7%88%AC%E5%9B%BE%E4%BA%8B%E4%B8%9A%E3%80%82&amp;pic=https://yo1995.github.io/images/201805/BR_Logo.png" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-douban" data-toggle="tooltip" data-placement="top" title="豆瓣"><a href="https://www.douban.com/share/service?name=BR%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD%E5%99%A8&amp;href=https://yo1995.github.io/coding/Ultimate-NBA-Downloader/&amp;image=https://yo1995.github.io/images/201805/BR_Logo.png&amp;url=https://yo1995.github.io/coding/Ultimate-NBA-Downloader/&amp;title=BR%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD%E5%99%A8" target="_blank"><i class="fa fa-fw">豆</i></a></button>
+
+        <a tabindex="0" class="btn btn-sm btn-weixin" role="button" data-trigger="hover" data-placement="top" id="qrcode-btn"><i class="fa fa-fw fa-weixin"></i></a>
+
+        <div id="qrcode-content" class="qrcode-hidden"><div id="qrcode"></div></div>
+        <div id="qrcode-title" class="qrcode-hidden">Scan to Read</div>
+		
+		<button type="button" class="btn btn-default btn-sm btn-email"><a href="mailto:?Subject=BR%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD%E5%99%A8&amp;Body=%E5%9B%9E%E9%A1%BE%E5%A4%9A%E5%B9%B4%E4%BB%A5%E6%9D%A5%E5%BA%9F%E5%AF%9D%E5%BF%98%E9%A3%9F%E7%9A%84%E7%BD%91%E7%BB%9C%E7%88%AC%E5%9B%BE%E4%BA%8B%E4%B8%9A%E3%80%82%20https://yo1995.github.io/coding/Ultimate-NBA-Downloader/"><i class="fa fa-fw fa-envelope-o"></i> Email</a></button>
+
+        <div class="btn-group btn-group-justified dropup" role="group">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle btn-more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-share-alt"></i><span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-google"><a href="https://plus.google.com/share?url=https://yo1995.github.io/coding/Ultimate-NBA-Downloader/" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google Plus</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://yo1995.github.io/coding/Ultimate-NBA-Downloader/" target="_blank"><i class="fa fa-fw fa-linkedin"></i> Linkedin</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-digg"><a href="http://www.digg.com/submit?url=https://yo1995.github.io/coding/Ultimate-NBA-Downloader/" target="_blank"><i class="fa fa-fw fa-digg"></i> Digg</a></button></li>
+
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-pinterest"><a href="https://pinterest.com/pin/create/bookmarklet/?media=https://yo1995.github.io/images/201805/BR_Logo.png&amp;url=https://yo1995.github.io/coding/Ultimate-NBA-Downloader/&amp;description=BR%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD%E5%99%A8" target="_blank"><i class="fa fa-fw fa-pinterest-p"></i> Pinterest</a></button></li>
+                 
+                 
+
+                <li><button type="button" class="btn btn-default btn-sm btn-reddit"><a href="http://reddit.com/submit?url=https://yo1995.github.io/coding/Ultimate-NBA-Downloader/&amp;title=BR%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD%E5%99%A8" target="_blank"><i class="fa fa-fw fa-reddit-alien"></i> Reddit</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-tumblr"><a href="http://www.tumblr.com/share/link?url=https://yo1995.github.io/coding/Ultimate-NBA-Downloader/&amp;title=BR%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD%E5%99%A8" target="_blank"><i class="fa fa-fw fa-tumblr"></i> Tumblr</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-print"><a href="javascript:;" onclick="window.print()"><i class="fa fa-fw fa-print"></i> Print</a></button></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+        </div>
+    </div>  
+
+</div>
+
+          </div>
+        </article>
+        <!-- END SINGLE-POST -->
+
+        
+<div class="post-navigation clearfix">
+    <div class="row">
+
+        <div class="col-xs-6">
+            <div class="previous-post">
+                <div class="arrow">
+                    <i class="fa fa-angle-double-left"></i>
+                    
+                    <a href="/coding/master-of-arithmetic-game/" class="animsition-link" data-hover-text="Prev: 如何玩坏微信小游戏">Prev: 如何玩坏微信小游戏</a>
+                    
+                </div>
+
+            </div>
+            <!-- END PREVIOUS-POST -->
+        </div>
+        <div class="col-xs-6">
+            <div class="next-post">
+                <div class="arrow">
+                    
+                    <a href="/tools/shrink-Mac-partition/" class="animsition-link" data-hover-text="Next: 调整Mac分区大小">Next: 调整Mac分区大小</a>
+                    
+                    <i class="fa fa-angle-double-right"></i>
+                </div>
+
+            </div>
+            <!-- END NEXT-POST -->
+        </div>
+    </div>
+</div>
+<!-- END POST-NAVIGATION -->
+		<!-- 180726 add multi author support -->
+		 
+			<div class="author-info clearfix">
+    <div class="author-avatar">
+        <img class="avatar" src="/img/avatar.png" alt="Chen Ting">
+    </div>
+
+    <div class="author-description">
+        <h4 class="author-title">
+            <a href="/about/">Chen Ting <i class="fa fa-link"></i></a>
+        </h4>
+        <p class="author-bio">
+            The page aims to exhibit several activities &amp; achievements which the author engaged in during his undergraduate &amp; graduate period. Meanwhile, other aspects such as lifestyles, literary work, travel notes, etc. would interweave in the narration.
+        </p>
+    </div>
+	<!-- add busaunzi to see how many views and reads happens to my page. addition to tecent -->
+	<script async src="/assets/js/busuanzi.pure.mini.js"></script>
+</div>
+<!-- END AUTHOR-INFO -->
+		 
+		 
+        
+
+<div class="comments-area clearfix">
+    <div class="comment-respond">
+		<h4 class="comment-reply-title" id="comments">Leave a Comment</h4>
+		<div class="disqus-placeholder alert alert-info" style="text-align: center">
+			<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Disqus might be GFW-ed. Excited!
+		</div>
+		<script src="/assets/js/disqusloader.js"></script>
+		<div class="disqus"></div>
+		<!--
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+        this.page.url = "https://yo1995.github.io/coding/Ultimate-NBA-Downloader/";
+        this.page.identifier = "Chen's Blog//coding/Ultimate-NBA-Downloader";
+        this.page.title = "BR图片下载器";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//yo1995.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+		-->
+		<script>disqusLoader( '.disqus', { 
+			scriptUrl: '//yo1995.disqus.com/embed.js',
+			disqusConfig: function(){
+				this.callbacks.onReady = [function(){
+				var el = document.querySelector( '.disqus-placeholder' );
+				if( el.classList )
+					el.classList.add( 'is-hidden' ); // IE 10+
+				else
+					el.className += ' ' + 'is-hidden'; // IE 8-9
+				}];}
+			});
+		</script>
+       <noscript>Please conquer the GFW or enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    </div>
+</div>
+<!-- END COMMENTS-AREA -->
+
+
+      </div>
+
+      <div class="col-md-4 sidebar-fixed">
+    <div class="sidebar">
+        <aside class="widget-wrap widget-search">
+            <h6 class="widget-title">
+                <span>Search for a topic?</span>
+            </h6>
+			<div onclick="keyinsearch()" class="search-form text-center" id="search-container">
+				<input type="text" id="search-input" placeholder="search...">
+				<i class="fa fa-search"></i>
+				<ul id="results-container" style="list-style:square"></ul>
+			</div>
+			<!-- 180206 - update -->
+<script src="/assets/js/jekyll-search.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  function keyinsearch () {
+  SimpleJekyllSearch({
+	searchInput: document.getElementById('search-input'),
+	resultsContainer: document.getElementById('results-container'),
+	json: '/search.json',
+	searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+	noResultsText: '无结果',
+	limit: 5,
+	fuzzy: false
+  });
+  }
+</script>
+
+
+<!-- 暂时还没想好cache怎么改写，目前每次请求都是200 ！= = 不够chrome貌似是直接从本地磁盘加载的 -->
+<!--
+<form class="search-form" action="/search/" target="_blank" method="get">
+	<input type="text" placeholder="Search..." name="q">
+	<i class="fa fa-search"></i>
+</form>
+-->
+
+        </aside>
+        <!-- END WIDGET-WRAP -->		
+        <aside class="widget-wrap widget-categories">
+            <h6 class="widget-title">
+                <span>Categories</span>
+            </h6>
+            <ul>
+				
+				
+                <li><a href="/categories/#coding">Coding</a></li>
+                
+                <li><a href="/categories/#ee">EE</a></li>
+                
+                <li><a href="/categories/#games">Games</a></li>
+                
+                <li><a href="/categories/#html">Html</a></li>
+                
+                <li><a href="/categories/#life">Life</a></li>
+                
+                <li><a href="/categories/#movie">Movie</a></li>
+                
+                <li><a href="/categories/#physics">Physics</a></li>
+                
+                <li><a href="/categories/#reading">Reading</a></li>
+                
+                <li><a href="/categories/#school">School</a></li>
+                
+                <li><a href="/categories/#tools">Tools</a></li>
+                
+                <li><a href="/categories/#video">Video</a></li>
+                
+            </ul>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-recent-posts">
+            <h6 class="widget-title">
+                <span>Related Posts</span>
+            </h6>
+            <ul class="recent-posts">
+            
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/tools/youget-in-windows/">
+                                <img src="/images/201807/you-get-logo.png" alt="Windows 下运行 you-get 获取视频">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/tools/youget-in-windows/">Windows 下运行 you-get 获取视频</a>
+                            <span>2018/07/30</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/nba2k11-shotchart-project/">
+                                <img src="/images/201807/nba2k11.jpg" alt="NBA2K11 投篮点辅助">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/nba2k11-shotchart-project/">NBA2K11 投篮点辅助</a>
+                            <span>2018/07/06</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/master-of-arithmetic-game/">
+                                <img src="/images/201805/tyt.jpg" alt="如何玩坏微信小游戏">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/master-of-arithmetic-game/">如何玩坏微信小游戏</a>
+                            <span>2018/05/10</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                    
+
+                
+                                   
+            </ul>
+
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-tag">
+            <h6 class="widget-title">
+                <span>Tags Widget <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+
+            <div class="tag-cloud">
+                
+                <a href="/tags/#df">DF</a>
+                
+                <a href="/tags/#production">production</a>
+                
+                <a href="/tags/#education">education</a>
+                
+                <a href="/tags/#lifestyle">lifestyle</a>
+                
+                <a href="/tags/#volunteer">volunteer</a>
+                
+                <a href="/tags/#physics">physics</a>
+                
+                <a href="/tags/#lectures">lectures</a>
+                
+                <a href="/tags/#school">school</a>
+                
+                <a href="/tags/#football">football</a>
+                
+                <a href="/tags/#sports">sports</a>
+                
+                <a href="/tags/#movie">movie</a>
+                
+                <a href="/tags/#tv">TV</a>
+                
+                <a href="/tags/#life">life</a>
+                
+                <a href="/tags/#diversity">diversity</a>
+                
+                <a href="/tags/#arts">arts</a>
+                
+                <a href="/tags/#c#">C#</a>
+                
+                <a href="/tags/#innovation">innovation</a>
+                
+                <a href="/tags/#contest">contest</a>
+                
+                <a href="/tags/#project">project</a>
+                
+                <a href="/tags/#fpga">FPGA</a>
+                
+                <a href="/tags/#vlc">VLC</a>
+                
+                <a href="/tags/#blog">blog</a>
+                
+                <a href="/tags/#impact-factors">Impact Factors</a>
+                
+                <a href="/tags/#helloworld">helloworld</a>
+                
+                <a href="/tags/#jekyll">jekyll</a>
+                
+                <a href="/tags/#html">html</a>
+                
+                <a href="/tags/#css">css</a>
+                
+                <a href="/tags/#github">github</a>
+                
+                <a href="/tags/#js">js</a>
+                
+                <a href="/tags/#hexo">hexo</a>
+                
+                <a href="/tags/#semiconductor">semiconductor</a>
+                
+                <a href="/tags/#experiments">experiments</a>
+                
+                <a href="/tags/#python">Python</a>
+                
+                <a href="/tags/#image">image</a>
+                
+                <a href="/tags/#code">code</a>
+                
+                <a href="/tags/#gfw">GFW</a>
+                
+                <a href="/tags/#git">Git</a>
+                
+                <a href="/tags/#windows">Windows</a>
+                
+                <a href="/tags/#tools">tools</a>
+                
+                <a href="/tags/#shell">shell</a>
+                
+                <a href="/tags/#scripts">scripts</a>
+                
+                <a href="/tags/#thu">THU</a>
+                
+                <a href="/tags/#liquid">liquid</a>
+                
+                <a href="/tags/#coding">coding</a>
+                
+                <a href="/tags/#latex">LaTeX</a>
+                
+                <a href="/tags/#basic">basic</a>
+                
+                <a href="/tags/#review">review</a>
+                
+                <a href="/tags/#games">games</a>
+                
+                <a href="/tags/#roguelike">roguelike</a>
+                
+                <a href="/tags/#matlab">MATLAB</a>
+                
+                <a href="/tags/#chaos">chaos</a>
+                
+                <a href="/tags/#simulation">simulation</a>
+                
+                <a href="/tags/#camping">camping</a>
+                
+                <a href="/tags/#phd">PhD</a>
+                
+                <a href="/tags/#philosophy">philosophy</a>
+                
+                <a href="/tags/#reading">reading</a>
+                
+                <a href="/tags/#optics">optics</a>
+                
+                <a href="/tags/#year">year</a>
+                
+                <a href="/tags/#dream">dream</a>
+                
+                <a href="/tags/#girls">girls</a>
+                
+                <a href="/tags/#circuit">circuit</a>
+                
+                <a href="/tags/#electronics">electronics</a>
+                
+                <a href="/tags/#memory">memory</a>
+                
+                <a href="/tags/#france">France</a>
+                
+                <a href="/tags/#ingenieur">ingenieur</a>
+                
+                <a href="/tags/#bbs">bbs</a>
+                
+                <a href="/tags/#history">history</a>
+                
+                <a href="/tags/#byr">byr</a>
+                
+                <a href="/tags/#travel">travel</a>
+                
+                <a href="/tags/#tour">tour</a>
+                
+                <a href="/tags/#future">future</a>
+                
+                <a href="/tags/#graduate">graduate</a>
+                
+                <a href="/tags/#investment">investment</a>
+                
+                <a href="/tags/#love">love</a>
+                
+                <a href="/tags/#laptop">laptop</a>
+                
+                <a href="/tags/#mac">Mac</a>
+                
+                <a href="/tags/#hackintosh">hackintosh</a>
+                
+                <a href="/tags/#foudre">foudre</a>
+                
+                <a href="/tags/#law">law</a>
+                
+                <a href="/tags/#juven">juven</a>
+                
+                <a href="/tags/#ramen">ramen</a>
+                
+                <a href="/tags/#industry">industry</a>
+                
+                <a href="/tags/#alcohol">alcohol</a>
+                
+                <a href="/tags/#bar">bar</a>
+                
+                <a href="/tags/#confession">confession</a>
+                
+                <a href="/tags/#postdoc">postdoc</a>
+                
+                <a href="/tags/#nyu">NYU</a>
+                
+                <a href="/tags/#hahn">Hahn</a>
+                
+                <a href="/tags/#scholar">scholar</a>
+                
+                <a href="/tags/#academia">academia</a>
+                
+                <a href="/tags/#nba">NBA</a>
+                
+                <a href="/tags/#cool">cool</a>
+                
+                <a href="/tags/#study">study</a>
+                
+                <a href="/tags/#fourier">Fourier</a>
+                
+                <a href="/tags/#signal">signal</a>
+                
+                <a href="/tags/#theorem">theorem</a>
+                
+                <a href="/tags/#trivial">trivial</a>
+                
+                <a href="/tags/#chuapp">chuapp</a>
+                
+                <a href="/tags/#city">city</a>
+                
+                <a href="/tags/#politics">politics</a>
+                
+                <a href="/tags/#data">data</a>
+                
+                <a href="/tags/#tech">tech</a>
+                
+                <a href="/tags/#nas">NAS</a>
+                
+                <a href="/tags/#network">network</a>
+                
+                <a href="/tags/#infrastructure">infrastructure</a>
+                
+                <a href="/tags/#self-esteem">self-esteem</a>
+                
+                <a href="/tags/#confidence">confidence</a>
+                
+                <a href="/tags/#mental">mental</a>
+                
+                <a href="/tags/#value">value</a>
+                
+                <a href="/tags/#property">property</a>
+                
+                <a href="/tags/#fame">fame</a>
+                
+                <a href="/tags/#wechat">wechat</a>
+                
+                <a href="/tags/#crawler">crawler</a>
+                
+                <a href="/tags/#threading">threading</a>
+                
+                <a href="/tags/#multiprocessing">multiprocessing</a>
+                
+                <a href="/tags/#genuine">genuine</a>
+                
+                <a href="/tags/#adobe">Adobe</a>
+                
+                <a href="/tags/#codec">Codec</a>
+                
+                <a href="/tags/#software">software</a>
+                
+                <a href="/tags/#enlighten">enlighten</a>
+                
+                <a href="/tags/#friends">friends</a>
+                
+                <a href="/tags/#chance">chance</a>
+                
+                <a href="/tags/#choice">choice</a>
+                
+                <a href="/tags/#projectuniv">PROJECTUNIV</a>
+                
+                <a href="/tags/#cpp">cpp</a>
+                
+                <a href="/tags/#visualization">visualization</a>
+                
+                <a href="/tags/#gui">GUI</a>
+                
+                <a href="/tags/#gif">gif</a>
+                
+                <a href="/tags/#remastered">remastered</a>
+                
+                <a href="/tags/#exe">exe</a>
+                
+                <a href="/tags/#emoji">emoji</a>
+                
+                <a href="/tags/#gif">GIF</a>
+                
+                <a href="/tags/#video">video</a>
+                
+                <a href="/tags/#emoticon">emoticon</a>
+                
+                <a href="/tags/#pil">PIL</a>
+                
+                <a href="/tags/#swimming">swimming</a>
+                
+                <a href="/tags/#premiere">Premiere</a>
+                
+                <a href="/tags/#golf">golf</a>
+                
+                <a href="/tags/#gbbb">GBBB</a>
+                
+                <a href="/tags/#beatbox">beatbox</a>
+                
+                <a href="/tags/#loopstation">loopstation</a>
+                
+                <a href="/tags/#photo">photo</a>
+                
+                <a href="/tags/#plugin">plugin</a>
+                
+                <a href="/tags/#ae">AE</a>
+                
+                <a href="/tags/#music">music</a>
+                
+                <a href="/tags/#nature">nature</a>
+                
+                <a href="/tags/#basketball">basketball</a>
+                
+                <a href="/tags/#rdfz">RDFZ</a>
+                
+                <a href="/tags/#world">world</a>
+                
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+        <aside class="widget-wrap widget-toc">
+            <h6 class="widget-title">
+                <span>Table of Contents <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+            <div id="navbar">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2">
+<a href="#%E5%8E%86%E5%8F%B2%E5%9B%9E%E9%A1%BE">历史回顾</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#%E6%89%8B%E6%8A%93%E5%9B%BE%E6%97%B6%E4%BB%A3">手抓图时代</a></li>
+<li class="toc-entry toc-h3"><a href="#%E5%B7%A5%E5%85%B7%E7%AE%B1%E6%97%B6%E4%BB%A3">工具箱时代</a></li>
+<li class="toc-entry toc-h3">
+<a href="#f12%E6%97%B6%E4%BB%A3">F12时代</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#restful-%E8%AF%B7%E6%B1%82%E6%B3%95">“RESTful” 请求法</a></li>
+<li class="toc-entry toc-h4"><a href="#%E4%BF%A1%E6%81%AF%E6%B5%81%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD%E4%B8%8E%E5%AE%9A%E5%88%B6%E5%8C%96%E6%8E%92%E7%89%88">信息流、异步加载与定制化排版</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#bs4%E6%97%B6%E4%BB%A3">bs4时代</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E7%AE%80%E8%AE%B0">开发过程简记</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#%E6%89%A7%E8%A1%8C%E9%80%BB%E8%BE%91">执行逻辑</a></li>
+<li class="toc-entry toc-h3">
+<a href="#%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1">模块设计</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%8B%E6%AE%87">数据库之殇</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%89%A7%E5%BF%B5">多线程与多进程的执念</a></li>
+<li class="toc-entry toc-h3"><a href="#%E6%96%87%E6%A1%A3%E4%B8%8E%E5%8F%91%E5%B8%83">文档与发布</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#%E4%BD%BF%E7%94%A8">使用</a></li>
+<li class="toc-entry toc-h2">
+<a href="#%E5%90%8E%E8%AE%B0">后记</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB">人脸识别</a></li>
+<li class="toc-entry toc-h3"><a href="#%E5%BC%80%E5%9D%91%E8%83%BD%E5%8A%9B">开坑能力</a></li>
+</ul>
+</li>
+</ul>
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+    </div>
+    <!-- END SIDEBAR -->
+</div>
+
+    </div>
+  </div>
+</div>
+<!-- END SINGLE-POST-WRAP -->
+
+
+        </main>
+        <!-- END MAIN -->
+
+        
+<footer>
+  <div class="footer">
+    <div class="container">
+      <div class="text-center">
+        <a href="/blog" class="logo clearfix animsition-link"><img src="/img/sig.svg" width="400" alt="Chen's Sig"></a>
+        <p class="copy">
+          Maintained by <a href="/about/">Chen Ting</a> 
+		  
+        </p>
+        <div class="icon-list">
+          <a href="https://www.linkedin.com/in/ting-chen-402bab122/" target="_blank">
+            <i class="fa fa-fw fa-linkedin"></i>
+          </a>
+          <a href="http://my.hupu.com/17573413/" target="_blank">
+            <i class="fa fa-fw fa-futbol-o"></i>
+          </a>
+          <a href="https://www.douban.com/people/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-book"></i>
+          </a>
+		   <a href="https://www.flickr.com/photos/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-flickr"></i>
+          </a>
+          <a href="https://github.com/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-github"></i>
+          </a>
+		  <a href="/feed.xml" target="_blank">
+            <i class="fa fa-fw fa-rss"></i>
+          </a>
+        </div>
+        <div class="scroll-top">go to top</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END FOOTER -->
+</footer>
+
+      </div>
+      <!-- END CONTENT -->
+    </div>
+    <!-- END ANIMSITION -->
+
+    
+<!-- SCRIPTS -->
+<script src="/assets/js/jquery-1.12.0.min.js"></script>
+<script src="/assets/js/plugins.min.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<!-- CUSTOM SCRIPT -->
+<script src="/assets/js/script.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/js/tether.min.js"></script>
+<script>document.getElementById("CN").href = "http://yo1995.coding.me" + window.location.pathname;</script>
+
+
+<script src="/assets/js/qrcode.js"></script>
+<script>
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: "https://yo1995.github.io/coding/Ultimate-NBA-Downloader/",
+    width: 196,
+    height: 196,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H,
+    useSVG: true
+});
+</script>
+
+
+<!-- 爱心特效 -->
+
+
+
+<script async src="/assets/js/busuanzi.pure.mini.js">
+</script>
+<!--功夫网卡住了script id="dsq-count-scr" src="//yo1995.disqus.com/count.js" async></script-->
+
+
+
+
+
+
+
+<!--script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82518311-1', 'auto');
+  ga('send', 'pageview', {
+  'page': '/coding/Ultimate-NBA-Downloader/',
+  'title': 'BR图片下载器'
+  });
+
+</script-->
+
+
+  </body>
+
+</html>

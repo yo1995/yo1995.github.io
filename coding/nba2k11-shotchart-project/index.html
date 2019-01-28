@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html>
+
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="以此延续我对NBA 2K11的莫名热情">
+  <meta name="author" content="Chen Ting">
+  <meta name="keywords" content="">
+  <meta name="theme-color" content="#272727">
+
+  <title>NBA2K11 投篮点辅助</title>
+
+  <link rel="icon" href="/img/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="canonical" href="https://yo1995.github.io/coding/nba2k11-shotchart-project/" />
+  <link rel="alternate" type="application/rss+xml" title="Chen's Blog" href="https://yo1995.github.io/feed.xml" />
+  
+  <meta property="og:site_name" content="Chen's Blog" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://yo1995.github.io/coding/nba2k11-shotchart-project/" />
+  <meta property="og:title" content="NBA2K11 投篮点辅助" />
+  <meta property="og:description" content="以此延续我对NBA 2K11的莫名热情" />
+  <meta property="og:article:published_time" content="2018-07-06T00:00:00-04:00" />
+  <meta property="og:article:author" content="Chen Ting" />
+
+  <meta property="og:image" content="/images/201807/nba2k11.jpg" />
+  
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <!-- PLUGINS -->
+  <link rel="stylesheet" href="/assets/css/vlthemes.css">
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">	
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  
+  
+  
+
+</head>
+<!-- 180622 - tecent analytics -->
+<script type="text/javascript" src="https://tajs.qq.com/stats?sId=65898920" charset="UTF-8"></script>
+
+
+  <body data-spy="scroll" data-target="#navbar" data-offset="100">
+
+		<!-- FRAMES -->
+		<span class="frame-line top-frame"></span>
+		<span class="frame-line right-frame"></span>
+		<span class="frame-line bottom-frame"></span>
+		<span class="frame-line left-frame"></span>
+
+    <div class="animsition">
+      <div class="content">
+
+        
+<!-- header-fixed / header-scroll-up  -->
+<div class="scroll-indicator fixedheader" style="width"></div>
+<header class="header-wrap header-fixed minimal-menu">
+    <div class="header-inner">
+        <div class="container">
+			
+            <div class="logo">
+                <a href="/blog" class="animsition-link">Ch<span>e</span>n's Blog</a>
+            </div>
+			
+
+            <a href="#" class="menu-toggle desctop-menu">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <a href="#" class="menu-toggle mobile-menu-toggle">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <nav class="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="/" class="animsition-link">
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item-has-children">
+                        <a href="">
+                            <span>Blog</span>
+                        </a>
+						    <ul class="sub-menu">
+								<li>
+									<a href="/blog/" class="animsition-link">
+										<span>Blog Index</span>
+									</a>
+								</li>
+								<li>
+									<a href="/posts/" class="animsition-link">
+										<span>Archives</span>
+									</a>
+								</li>
+								<li>
+									<a href="/categories/" class="animsition-link">
+										<span>Categories</span>
+									</a>
+								</li>
+								<li>
+									<a href="/tags/" class="animsition-link">
+										<span>Tags</span>
+									</a>
+								</li>
+							</ul>
+                    </li>
+
+                    <li>
+                        <a href="/photos/" class="animsition-link">
+                            <span>Photos</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/about/" class="animsition-link">
+                            <span>About</span>
+                        </a>
+                    </li>
+					
+					  <!--li>
+                        <a href="" class="animsition-link" id="CN">
+                            <span>CN</span>
+                        </a>
+                    </li-->
+                </ul>
+            </nav>
+            <!-- END PRIMARY-MENU -->
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <!-- END HEADER-INNER -->
+</header>
+<!-- END HEADER-WRAP -->
+
+
+        
+
+        <main id="main-content">
+          
+          <div class="single-post-wrap clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 content-fixed">
+
+        <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
+          <div class="post-thumb clearfix">
+            
+            <img src="/images/201807/nba2k11.jpg" alt="NBA2K11 投篮点辅助">
+            
+          </div>
+          
+          <div class="post-content" itemprop="articleBody">
+            <div class="post-date" datetime="2018-07-06T00:00:00-04:00" itemprop="datePublished">
+              Jul 6, 2018
+            </div>
+            <h1 class="post-title" itemprop="name headline">NBA2K11 投篮点辅助</h1>
+            <div class="content-color">
+            
+            <p>如果浪费时间阅读制作这个插件的目的，而希望直接了解制作思路，可以<a href="/coding/nba2k11-shotchart-project/#1-%E7%A0%B4%E9%A2%98">跳转到下一段</a></p>
+
+<p>反之，容许我简单回顾一下自己的PC游戏情结中最重要的一些节点。</p>
+
+<p>因为是一边看世界杯一边写成，词句难免疏漏，还请见谅。</p>
+
+<h2 id="0-缘起">
+<a id="0-缘起" class="anchor" href="#0-%E7%BC%98%E8%B5%B7" aria-hidden="true"><span class="octicon octicon-link"></span></a>0. 缘起</h2>
+
+<p>从小到大，我的游戏生涯绝大部分是在PC上度过的，而玩儿过的游戏多是单机游戏。国内特殊的游戏环境与时代因素造就了21世纪初如我这般的PC单机玩家。当然，并不是没玩过网游，早在2006年就注册了盛大的“泡泡堂”；也并非与主机绝缘，2010年也曾凭借PSP3000体验了一把怪猎和FIFA的乐趣。但总体来讲，有无数年少的深夜是荧光谱陪伴我度过的。</p>
+
+<p>从Windows 98到2000，到XP到7，再到如今的10，每次更新系统，我都有一个古怪而固执的举动：向新电脑里拷入我最熟悉的几款游戏。在不同的年纪有不同的选择，或许也反映了兴趣与喜好的演变。</p>
+
+<h3 id="nfs-porsche-unleashed-porsche-2000">
+<a id="nfs-porsche-unleashed-porsche-2000" class="anchor" href="#nfs-porsche-unleashed-porsche-2000" aria-hidden="true"><span class="octicon octicon-link"></span></a>NFS Porsche Unleashed/ Porsche 2000</h3>
+
+<p>从1999年第一次玩电脑游戏开始，极品飞车系列一直是我的游戏启蒙。在那时，电脑的性能不高，赛车游戏作为相对画质最好的3D游戏，自然能够吸引我的目光。玩过的第一个版本应该是极品飞车3，接下来在Windows 2000上玩遍了极品飞车2/3/4/5.如今依旧能够记得，当时由于极品飞车4存在一些兼容性问题，屡屡重装删除才能够勉强运行，也是吃了不少苦头。直到2008年，我依旧在玩极品飞车2-6的几款作品。至于后来极品飞车9、13、14等作品都是浅尝辄止罢了——后面几作甚至没有专门花时间刷过圈速。</p>
+
+<p><img src="/images/201807/nfs5.png" alt=""></p>
+
+<p>另一个能够凸显我对极品飞车执念的事情便是我第一次在淘宝网购的经历。人生第一次和马云产生业务竟是这样一个契机。在那时，我已经收集齐了极品飞车5的大部分版本：美版、欧版、精简版、绿色版、完全版、光盘镜像、PS2版、GBA版……许多版本甚至都是我忍耐着10KB/s的网速从电驴上拖下来的。收藏了这么多版本，要是没有一个实体卡带为其盖棺定论，未免有些遗憾。于是，我的注意力集中到了当时初露峥嵘的淘宝网。</p>
+
+<p>在上淘宝之前，我已经是中国亚马逊的老客户了。那时网购可选项不多：eBay易趣、joyo卓越、亚马逊、淘宝，大概能叫得上名的就这几家。因为亚马逊一直支持货到付款，所以最开始听取了甜姐的建议注册了亚马逊。白白浪费掉的金钱数额不低，以此为代价积累了不少网购经验。</p>
+
+<p>2009年，我的第一笔淘宝订单，便是极品飞车5的国行光盘。说是国行，实际上是国内发行代理。那时EA还叫电子艺界，以至于直到2007年我才知道EA既做体育游戏又做极品飞车。为了买到这张实体光盘，不惜用花费充值卡的方式充值支付宝账户。花了将近90块钱才拿到这张盘，自然非常珍惜，当然都是后话。</p>
+
+<p><img src="/images/201807/nfs2.jpg" alt="主界面"></p>
+
+<p><img src="/images/201807/nfs2sen20.png" alt="隐藏模式"></p>
+
+<p><img src="/images/201807/nfs2sen25.png" alt="神车"></p>
+
+<p>开始喜欢玩极品飞车3，因为警匪追逐模式，因为丰富的跑车目录以及千变万化的路旁风景。同时，游戏的平衡性很不错，隐藏模式等附加内容又让其可玩性得到极大的提升。2006年夏天和哥一起在笔记本上玩极品飞车3同屏双人模式，玩儿坏了一套塑料桌椅，不失为童年别样的回忆。</p>
+
+<p>后来则主攻极品飞车5，有很多的原因，最主要还是基于对保时捷的热爱。最引以为傲的是比利牛斯赛道跑到两分钟以内，与世界纪录仅差不到10秒(ಥ_ಥ)。极品飞车5几乎从未缺席我的每一台电脑每一块硬盘。自始至终大概玩了将近16年，直到现在我的电脑硬盘里仍旧保留着一份游戏拷贝。</p>
+
+<p>玩一款游戏，从最初的刚入门玩儿基本模式，到后面玩儿高级模式，再到后来玩极限操作。所有的可游玩内容全都精通、所有游戏内元素全部了解后，对于赛车游戏而言能做的大概只有周而复始挑战圈速记录了。极品飞车5在可玩性上一个重大提升便是引入了赛车物理调整系统。虽然与专业赛车模拟如GPL、LFS、RF、GTR等同期游戏无法相比，但依旧引人入胜。加之生涯模式收集与金钱系统的融合、试车手模式闯关与剧情的结合，还有那个时代少见的编写完善的局域网对战功能，都极大地延长了其寿命。但无论如何，大概玩到2008年的时候，我有点厌倦了，于是开始了我第一次制作游戏补丁的尝试。</p>
+
+<video src="/images/201807/batmobile.mp4" controls="controls" preload="auto" poster="/images/201807/batmobile.jpg" width="600px">Your browser does not support the video element.</video>
+
+<p>极品飞车5在发售时就有补丁更新的设计。游戏本体内存在GT2、GT3与959三款可以通过补丁升级的车型，因此自己修改补丁时时常用这些车型的槽位来放自己的文件。我<a href="http://www.nfscars.net">借鉴了</a>许多模型的经验，做了一个超重蝙蝠车的补丁，甚至还通过贴吧“发行”了5、6份拷贝。具体来讲就是下载模型，调整相关物理参数，修改贴图，修改成现有模型的ID，然后封装成安装包。当时直接做成一个可执行文件用于分发，做完以后还是很有成就感的！调整完参数后的蝙蝠车神挡杀神佛挡杀佛，不仅极速超快，而且得益于近5吨的车重，在于其他物体碰撞时能够直接看出动量守恒<img class="emoji" title=":joy:" alt=":joy:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png" height="20" width="20"></p>
+
+<h3 id="visualboyadvance">
+<a id="visualboyadvance" class="anchor" href="#visualboyadvance" aria-hidden="true"><span class="octicon octicon-link"></span></a>VisualBoyAdvance</h3>
+
+<p>除了极品飞车情结外，小时候另一大单机游戏主题便是小游戏，其中又以GBA模拟器为最盛。凡是我用过的存储介质，无一例外会拷贝一份vbalink1.73的模拟器程序。从奔腾2与98系统的老古董电脑，到当时最先进的酷睿2双核电脑，我的GBA模拟器如病毒般传遍四方。至于后来的NDS模拟器，玩起来发现太卡以至于装了人生第一台自己的台式机也是后话了。</p>
+
+<p><img src="/images/201807/flash.png" alt="部分收藏"></p>
+
+<p>除了GBA模拟器，还有许多各式各样的小游戏曾经出现在我的童年中。除了三维弹球和扫雷，当时小学的Windows XP系统中充斥着大量未知来源的小游戏。exe类的代表是皮卡丘打排球和桌面破坏王；flash类的代表则是是男人就下一百层与猫狗大战。为了得到这些我当时看来极为有趣的flash小游戏，我斥巨资30元买了一整盒3.5寸软盘，每节课的自由上机时间不厌其烦地插入软盘，一个一个地把大小在1M左右的游戏拷走——毕竟，1.44M只能拷贝一个游戏！因为有一次拷了个1.3M的游戏，回家发现无法读取，后来保险起见每张磁盘不写入超过1.2M。为了达到这个目标，还自学了zip分卷的操作方法。嗬！现在哪儿能想象1M大小的分卷？恐怕只能在一些超级古老的论坛系统的附件限制上找到吧。</p>
+
+<p><img src="/images/201807/vba.png" alt="星之卡比"></p>
+
+<p>对于GBA模拟器，玩儿通了各代口袋妖怪后的选择，便是使用修改器、自制金手指。这部分似乎没留下来什么遗迹，因为对于不同的ROM文件金手指的偏移量不同。（很久以后才知道金手指与内存息息相关）当时真的以为金手指就是神奇代码，还曾好奇这些乱七八糟的数据人们是怎么找到的。至于许多玩家津津乐道的“BABA”、“whosyourdaddy”等作弊梗，我都不曾了解。</p>
+
+<p>最后一次玩GBA模拟器竟然是几年前，看科在树莓派上搞了个复古模拟器大合集，不禁手痒痒起来。最后竟选择了《牧场物语：女生版》并玩儿了大概半年时间。玩儿到最后才知道山洞里挖矿还有玄机，不禁哑然失笑。打开了刷资源的金手指的潘多拉魔盒，游戏自然也就没有玩儿下去的动力了。大好年华真的是白白浪费在每天收菜卖菜的无聊操作中了。</p>
+
+<h3 id="绿娃传奇">
+<a id="绿娃传奇" class="anchor" href="#%E7%BB%BF%E5%A8%83%E4%BC%A0%E5%A5%87" aria-hidden="true"><span class="octicon octicon-link"></span></a>绿娃传奇</h3>
+
+<p><img src="/images/201807/lvwa.png" alt=""></p>
+
+<p>一款并非畅销的、不太知名的国产游戏，却阴差阳错地成为了我童年单机游戏史的重要组成部分。现在看来，虽然这款游戏无论画面还是剧情都难称水平一流，但贵在扎实，让我了解了一款角色扮演游戏的必要构成因素。直到现在依旧还在对应贴吧有一席之地。</p>
+
+<p>通关以后除了探究游戏中所有可获得物品、所有剧情分支以外，我还尝试修改游戏的二进制文件，以编辑游戏内容。同时，还花了半个暑假时间试图借助RPG Maker来制作自己的故事续集，只可惜三分钟热度又一次烂尾了。</p>
+
+<h3 id="nba-2k11">
+<a id="nba-2k11" class="anchor" href="#nba-2k11" aria-hidden="true"><span class="octicon octicon-link"></span></a>NBA 2K11</h3>
+
+<p><img src="/images/201807/nba2k11.jpg" alt=""></p>
+
+<p>本文的主角。我于篮球游戏结缘还得感谢肌猛。2009年初夏的操场上，我贪婪地汲取着有关美式球类运动的知识。在那年我看了人生第一场超级碗直播，我第一次启动NBA LIVE 08并玩儿遍了NBA LIVE系列。我在NBA 2K9发售前夕第一次体验到等待游戏发售时那种坐立难安的兴奋。在接下来的世界杯年，我接触了更多的EA SPORTS 特讷给慕的作品。FIFA、RWC、Tiger Woods、Madden，当时的EA SPORTS可谓如日中天。而正如我过去回顾的那样，自从2K9发售以来，篮球游戏市场一夜之间被颠覆了。那是我第一次理解“次时代”含义的时刻。</p>
+
+<p>平心而论，2K11我至今未能真正意义上精通：无论是游戏模式，还是各项挑战，还是高级摇杆控制，教练模式等等，有很多项目我都未曾涉及。但玩儿2K11的这些年里，我的目标逐渐清晰：让乔丹模式中的乔丹成为真正的篮球上帝。</p>
+
+<p>篮球游戏中出现乔丹的官方授权，并非首次，2K11却是次时代的第一次。在过去，篮球游戏中想玩儿到乔丹，无非自己安装补丁或是自建人物捏脸——但无论如何都算不上真正的乔丹。2K11以乔丹为卖点，囊括了80、90年代诸多经典球队名单和球星，在当时也算一项创举。自此之后，NBA 2K系列蒸蒸日上，NBA LIVE湮没在历史的尘埃之中。</p>
+
+<p>最开始玩儿2K无非装面补、装画质提升插件、改球员名单球员数据等等。但在2K11上投入了几百小时游戏时间后，我自觉不能就此罢手，于是就有了这个小小的项目。</p>
+
+<h3 id="扫雷">
+<a id="扫雷" class="anchor" href="#%E6%89%AB%E9%9B%B7" aria-hidden="true"><span class="octicon octicon-link"></span></a>扫雷</h3>
+
+<p><img src="/images/201807/winmine.gif" alt=""></p>
+
+<p>直到大学我才真正理解扫雷的快乐。过程不再赘述，最疯狂的大概是2017年春天那些天天从早到晚在实验室扫雷的日子。一边跑仿真，一边玩儿扫雷，我愣是从扫雷门外汉稍稍入门了！总共玩儿了将近2000把高级扫雷，把时间提高到6-36-121，回想起来总有种亏欠自己的感觉。后来还玩儿了Arbiter，但实力和手感早已不在，大概扫雷只是我游戏历程中的一颗流星吧。</p>
+
+<h3 id="cs16">
+<a id="cs16" class="anchor" href="#cs16" aria-hidden="true"><span class="octicon octicon-link"></span></a>CS1.6</h3>
+
+<p>同样是失意北七家后沾染的习惯。偏爱单机打BOT比局域网更甚。水平没有什么提高，却为平淡的生活增添了几分色彩。可惜终究不得门道，直到这次顺手做了个瞄点外挂才找回了点感觉。</p>
+
+<hr>
+
+<p>倘若未来能够有机会，希望能够与单机游戏再续前缘。有太多的故事串联了一路的回忆。而现在，往后稍稍吧——</p>
+
+<p>这次，我是认真的。</p>
+
+<h4 id="180708-如何正确面对转码这件事">
+<a id="180708-如何正确面对转码这件事" class="anchor" href="#180708-%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E9%9D%A2%E5%AF%B9%E8%BD%AC%E7%A0%81%E8%BF%99%E4%BB%B6%E4%BA%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>180708 如何正确面对转码这件事</h4>
+
+<p>Again, Encore une fois, Una otra vez. 我又一次在洪水般涌来的信息面前迷失了自我。</p>
+
+<p>我到底想干什么？这似乎是困扰我，令我癫狂，令我忘乎所以的心结之一。</p>
+
+<p>我想干的事情实在太多了。上九天揽月,下五洋捉鳖，驾一叶之扁舟，举匏樽以相属。可我的能力太小，胃口又不小，现在的我似乎忘记了当初极力远离智能手机的初衷。没能把持住，结果便可知：我的信息流更加碎片化了。</p>
+
+<p>我喜爱编程吗？怎么能说不爱呢？可我爱编程并不是为了以它为生。我喜爱这项挑战，更多的是因为它成本极低却囊括世间万物。正如舞文弄墨一般，一支笔，一张纸，则物与我皆无尽也。世间万物，古今苍穹，一切的一切都可以绘制其中。而计算机语言，其信息量似乎比我的母语更甚。喜怒哀乐挥洒在黑黝黝的命令行间，回首望去，也无风雨也无晴。</p>
+
+<p>《我的世界》这款游戏走红的原因与之类似——毋需繁复的专业知识，每个人都能绘制自己心中的仙那都。计算机语言有一点门槛，但入门相比于数学与物理而言几近忽略不计。数学是我从未试图挑战的，物理是我与之交手落了下风落荒而逃的。而计算机，那深不见底的屏幕背板中究竟藏着些什么秘密呢？</p>
+
+<p>异教徒歌颂科学，把科学奉为神灵。哦天啊，它们的神把色子藏在了时间深处，故作深沉地悲悯地聆听圣徒的祷告。</p>
+
+<p>现在，我愿把编程想象为写作。或许我真的没有才能，或许我自始至终无法写出自己的B树，但或许在这五彩斑斓的黑色旷野中却能铸就《静静的顿河》？</p>
+
+<p>我永远不相信机器将看穿一切。人的创造力，人最根本的差异性来源于那一颗颗基本粒子在无垠的深海翱翔。故人常言“灵感的火花”，此言得之。那是灵感的火花，灵感的电子云，灵感的递质。天才奇怪的陋习似乎不无道理。嘿嘿。</p>
+
+<hr>
+
+<h2 id="1-破题">
+<a id="1-破题" class="anchor" href="#1-%E7%A0%B4%E9%A2%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 破题</h2>
+
+<h3 id="想法来源">
+<a id="想法来源" class="anchor" href="#%E6%83%B3%E6%B3%95%E6%9D%A5%E6%BA%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>想法来源</h3>
+
+<p><a href="http://graphics.latimes.com/kobe-every-shot-ever/">Every shot Kobe Bryant ever took. All 30,699 of them</a></p>
+
+<p><img src="http://staticcdn.latimes.com/media/catalog/product/cache/5/image/9df78eab33525d08d6e5fb8d27136e95/k/o/kobe-shot-chart_1_1.jpg" alt=""></p>
+
+<p>科比-布莱恩特，一位标志性的NBA球员。真的非常令人敬佩。</p>
+
+<p>看到《洛杉矶时报》网站发布的这张图片，我当时就有一种冲动：为了纪念我的单机篮球生涯，我也要把数据汇总成这样一张图。</p>
+
+<p>有意义吗？或许有，但也是很多年以后了。按照我玩2K的平均进度，2K11乔丹模式我玩儿了将近6年，一共不到6个赛季。我是不会为了赶进度而狂玩儿游戏的，那样根本没意思；或许有一天我会对NBA 2K11感到厌倦，这个项目的数据源也会就此截止。但是，我希望在这款游戏仍旧存留在我电脑上的时间里，把这件小事继续下去。</p>
+
+<p>立下一个小小的flag，希望完全按照自己的想法来做，不要抄模板不要面向SF编程。</p>
+
+<p>那么，想办法开动吧。</p>
+
+<h3 id="如何确定问题规模">
+<a id="如何确定问题规模" class="anchor" href="#%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E9%97%AE%E9%A2%98%E8%A7%84%E6%A8%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>如何确定问题规模</h3>
+
+<p>这件事情可难可易。就说最简单的，从内存读取数据写入外存，整个程序的骨架不过如此，倘若想写大概两三天就能搞定。可我还是想做得完善些。</p>
+
+<p>想复杂？单单在游戏中绘制自定义图形就是不可逾越的难关。在项目开始时，我甚至不知道该怎么描述这个问题，连搜索引擎的关键词都不知道。还有钩子函数、虚函数表、DirectX绘制流程、Windows下C++编程，我几乎一概不知。草草学了半年C++，就想打肿脸充胖子？有时候我就是这么痴人说梦。</p>
+
+<p>既然难以一下子确定问题规模，不如来设想一下需求与应用场景吧。就拿最熟悉的ScriptHookV来说，热键激活菜单、键盘控制菜单层级、菜单要美化、功能要完善、还不能过于占用资源——没错，我就要实现一个类似的破产版程序。写下需求和基本操作逻辑，啥也不说了，开干。</p>
+
+<h3 id="执拗">
+<a id="执拗" class="anchor" href="#%E6%89%A7%E6%8B%97" aria-hidden="true"><span class="octicon octicon-link"></span></a>执拗</h3>
+
+<p>无数次陷入泥潭，心累得再也不想打开VS；可想想自己扔掉的时间，实在舍不得把它丢弃。有时候自己就是无法践行沉没成本理论，总是不惜血本也要让自己满意满足。庆幸的是，至今这种放手一搏从未失手；不幸的是，生活的推进愈发依赖这种短效手段，就像沾染毒瘾的人无法戒断对于瞬间刺激的依赖。我也试过停手，但一停下仿佛万劫不复，令我心悸。挺累的，真的，还是自己逼的，打碎牙往肚里吞。</p>
+
+<p>这种执拗依我看并非好事。或许2018年会在我人生旅途中消失佚散。或许。</p>
+
+<hr>
+
+<h2 id="2-承题">
+<a id="2-承题" class="anchor" href="#2-%E6%89%BF%E9%A2%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 承题</h2>
+
+<h3 id="directx-hook">
+<a id="directx-hook" class="anchor" href="#directx-hook" aria-hidden="true"><span class="octicon octicon-link"></span></a>DirectX Hook</h3>
+
+<h4 id="vtabledetour">
+<a id="vtabledetour" class="anchor" href="#vtabledetour" aria-hidden="true"><span class="octicon octicon-link"></span></a>Vtable、Detour</h4>
+
+<h4 id="present">
+<a id="present" class="anchor" href="#present" aria-hidden="true"><span class="octicon octicon-link"></span></a>Present</h4>
+
+<h4 id="endscene">
+<a id="endscene" class="anchor" href="#endscene" aria-hidden="true"><span class="octicon octicon-link"></span></a>EndScene</h4>
+
+<h3 id="d3d-draw-functions">
+<a id="d3d-draw-functions" class="anchor" href="#d3d-draw-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>D3D Draw Functions</h3>
+
+<h4 id="textlinerectcircle">
+<a id="textlinerectcircle" class="anchor" href="#textlinerectcircle" aria-hidden="true"><span class="octicon octicon-link"></span></a>Text/Line/Rect/Circle</h4>
+
+<h4 id="in-game-shot-chart">
+<a id="in-game-shot-chart" class="anchor" href="#in-game-shot-chart" aria-hidden="true"><span class="octicon octicon-link"></span></a>In-game shot-chart</h4>
+
+<h3 id="memcpy">
+<a id="memcpy" class="anchor" href="#memcpy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Memcpy</h3>
+
+<h4 id="assembly">
+<a id="assembly" class="anchor" href="#assembly" aria-hidden="true"><span class="octicon octicon-link"></span></a>assembly</h4>
+
+<h4 id="cheatengine">
+<a id="cheatengine" class="anchor" href="#cheatengine" aria-hidden="true"><span class="octicon octicon-link"></span></a>cheatengine</h4>
+
+<h4 id="toggle-logics">
+<a id="toggle-logics" class="anchor" href="#toggle-logics" aria-hidden="true"><span class="octicon octicon-link"></span></a>toggle logics</h4>
+
+<h3 id="keyboard">
+<a id="keyboard" class="anchor" href="#keyboard" aria-hidden="true"><span class="octicon octicon-link"></span></a>Keyboard</h3>
+
+<h4 id="keyboardhookll">
+<a id="keyboardhookll" class="anchor" href="#keyboardhookll" aria-hidden="true"><span class="octicon octicon-link"></span></a>KeyboardHookLL</h4>
+
+<h4 id="asyncstate">
+<a id="asyncstate" class="anchor" href="#asyncstate" aria-hidden="true"><span class="octicon octicon-link"></span></a>AsyncState</h4>
+
+<h3 id="data-serialization">
+<a id="data-serialization" class="anchor" href="#data-serialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data serialization</h3>
+
+<h3 id="injection">
+<a id="injection" class="anchor" href="#injection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Injection</h3>
+
+<h4 id="d3d9dll-hijacking">
+<a id="d3d9dll-hijacking" class="anchor" href="#d3d9dll-hijacking" aria-hidden="true"><span class="octicon octicon-link"></span></a>d3d9.dll hijacking</h4>
+
+<h3 id="misc">
+<a id="misc" class="anchor" href="#misc" aria-hidden="true"><span class="octicon octicon-link"></span></a>Misc</h3>
+
+<p>技术相关的描述放到项目介绍里了，这里列个关键词提纲备忘。</p>
+
+<hr>
+
+<h2 id="3-入手">
+<a id="3-入手" class="anchor" href="#3-%E5%85%A5%E6%89%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. 入手</h2>
+
+<h3 id="查资料">
+<a id="查资料" class="anchor" href="#%E6%9F%A5%E8%B5%84%E6%96%99" aria-hidden="true"><span class="octicon octicon-link"></span></a>查资料</h3>
+
+<p><a href="https://www.zhihu.com/question/33954551">第一个查到的链接</a></p>
+
+<p>第一大难关，便是如何入手。怎么描述问题？从未学过图形编程的我百爪挠心。在游戏中绘制图形？在全屏游戏中创建修改器？思来想去我想到了Fraps，毕竟它能在任何图形程序中显示帧率，肯定与我的需求有共通之处。从Fraps入手，我第一次了解了D3D Hook这件事。</p>
+
+<p>一段时间后我确定了mpgh和uc两个论坛作为主要资料收集地。这两个论坛算是规模相对较大的游戏修改器、作弊器、增强补丁开发者的集散地，有不少面对新手的资源。着实费了一番功夫搜集我需要的资料，发现我的需求并非太过困难但也并不容易。很多人都是做个可执行程序的修改器或是命令行的外挂罢了，像我如此执迷于图形化和尽可能隐藏细节的需求不太多。</p>
+
+<p>关键词越查越明白，原理也从最开始的一无所知到后来的一知半解。每次看到新的代码片段时都像发现了新大陆，不得不说，这个项目对我这样的新手并不友善。</p>
+
+<h3 id="论坛风气">
+<a id="论坛风气" class="anchor" href="#%E8%AE%BA%E5%9D%9B%E9%A3%8E%E6%B0%94" aria-hidden="true"><span class="octicon octicon-link"></span></a>论坛风气</h3>
+
+<p>在漫漫爬帖路上曾经看到一个老鸟的发言（大意）：“不要试图东粘西贴地写游戏相关程序。它不像是教程或是简单的代码片段。你正试图做的是非常严肃的计算机图形编程。如果你贸然挺进，一定会陷入无穷无尽的问题深渊……”</p>
+
+<p><a href="https://www.unknowncheats.me/forum/programming-for-beginners/257420-started-video-game-hacking-ultimate-answer.html">如何开始修改器制作之旅</a></p>
+
+<p>不得不说，这两个论坛对于纯菜鸟，纯新手来说还是比较友善的。就像LeetCode的代码提交量曲线一样，总有千军万马曾经倒在第一关上。无数“无脑”、甚至有些幼稚的问题你都能在论坛上找到专业人士的悉心回答。但正像编译器常常给出的报错信息那样，作为新手我们甚至连报错信息的句意都读不懂。因而，总会有老鸟掩面菜鸟抓狂的争执产生。我的项目关注的领域的帖子中出现的总是那几个头像，久而久之我也对这几个大佬的风格有了几分印象——有极为和蔼可亲如Rehabman的，也有穷尽尖酸刻薄来攻击伸手党如……的。大多数老手都会给出简明扼要但技术性准确无误的答案，只不过新手根本意识不到他们在说什么，帖子烂尾，我的心也一沉。</p>
+
+<p>更有趣的大概是吵架帖了，类似<a href="https://www.unknowncheats.me/forum/direct3d/66353-d3d9-menu-crashes-2.html">这个</a>。随便截几个老鸟顿首的跟帖：</p>
+
+<blockquote>
+  <p>…make me want to just slaughter innocent babies.</p>
+</blockquote>
+
+<p>顿起杀意的</p>
+
+<blockquote>
+  <p>And yeah you’re a little kiddie and I will slap you down If I got a chance..?</p>
+</blockquote>
+
+<p>关爱智障的</p>
+
+<blockquote>
+  <p>… maybe learn a bit about coding instead of blindly pasting everything together…</p>
+</blockquote>
+
+<p>冷酷无情的</p>
+
+<p>还有更多的不和谐的就不放了，类似的帖子每天都在上演，在我做这件事的10年前就曾上演。我不禁哑然：究竟是怎样一种精神支撑这些无私奉献的高手能够坚守到现在依旧在奉献的？或许这便是歪果仁可爱的一点吧。</p>
+
+<p>无论如何，大浪淘沙，我还是收获了不少有用的信息。从最初的东拼西凑，到后来的择木而栖，我逐渐明白了入门帖中这句话的含义：</p>
+
+<blockquote>
+  <p>You simply have to acknowledge it and be realistic on what’s beyond your reach consequently.</p>
+</blockquote>
+
+<p>是啊，承认自己的弱菜才能有提高啊！</p>
+
+<h3 id="放弃">
+<a id="放弃" class="anchor" href="#%E6%94%BE%E5%BC%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>放弃</h3>
+
+<p>当我百试调参而不得时，每一分每一秒都想放弃，承认自己太差从头来过。但我还是坚持了下来。我想我还是有点喜欢编程的。或许只是我真的不够聪明。</p>
+
+<h3 id="重要突破">
+<a id="重要突破" class="anchor" href="#%E9%87%8D%E8%A6%81%E7%AA%81%E7%A0%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>重要突破</h3>
+
+<p>第一次把例程跑出来时得到的满足感，几乎与我第一次以10Hz频率可见光传输信息时感同身受。</p>
+
+<p><img src="https://github.com/yo1995/nba2k-shotchart-project/blob/master/Progress_notes/injectd3d11.png?raw=true" alt=""></p>
+
+<p>一下子压力就减轻了。后面的过程也类似，想过放弃，但最后还是得到了差强人意的结果。还要啥自行车儿啊！编程，真的让人很容易满足。</p>
+
+<hr>
+
+<h2 id="4-起股">
+<a id="4-起股" class="anchor" href="#4-%E8%B5%B7%E8%82%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. 起股</h2>
+
+<p>真正开始写自己的代码了。遇到的问题之多超乎我的想象。可以说，我变过的任何Python和MATLAB程序都没有遇到过这么多奇奇怪怪的问题。好想说再也不搞Windows编程了，但VS冷不丁来一个热吻又总是动摇我的决心。</p>
+
+<h3 id="vc-编译的种种">
+<a id="vc-编译的种种" class="anchor" href="#vc-%E7%BC%96%E8%AF%91%E7%9A%84%E7%A7%8D%E7%A7%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a>VC++ 编译的种种</h3>
+
+<p>接触C编程以来用过的编译器：MinGW、Cygwin、gcc、g++、VC++。从图形化到命令行再到图形化，第一次惊异于VC++选项之浩如烟海。</p>
+
+<p>包含、依赖、引用、链接……g++几行命令，在VS中是无尽的属性页。</p>
+
+<p>从愤怒到平静，从拒绝到接受，仅从几个瞬间便窥见了VC++的强大，并愈发觉得自己亟待提高。</p>
+
+<h3 id="dll与exe不同">
+<a id="dll与exe不同" class="anchor" href="#dll%E4%B8%8Eexe%E4%B8%8D%E5%90%8C" aria-hidden="true"><span class="octicon octicon-link"></span></a>dll与exe不同</h3>
+
+<p>同样是第一次以静态库和动态库作为目标生成程序。第一次不再把整个程序编译成一个单独的exe文件，并稍稍对二者的区别有了<a href="https://blog.csdn.net/m1654399928/article/details/9121627">一定</a>的了解。</p>
+
+<p>把需要的函数分门别类，而非一股脑搅成一锅粥。随着对于编程的逐渐学习，越来越明白这一点的重要性。或许以后还需要更多地学习一些编程规范，让自己写出来的程序可维护性更强。</p>
+
+<h3 id="项目与单个c文件的差异">
+<a id="项目与单个c文件的差异" class="anchor" href="#%E9%A1%B9%E7%9B%AE%E4%B8%8E%E5%8D%95%E4%B8%AAc%E6%96%87%E4%BB%B6%E7%9A%84%E5%B7%AE%E5%BC%82" aria-hidden="true"><span class="octicon octicon-link"></span></a>项目与单个c++文件的差异</h3>
+
+<p>在Linux上编程时，很多时候就是几个头文件和几个源代码文件便组成了一个小的项目。而用了VS之后，发现它对项目、解决方案的规划处理都比较系统，熟悉以后还是挺方便的。对于练习算法而言，或许VS太沉重了，创建一个解决方案的功夫用gcc都跑完了。但对于一个会花费数天时间研究的小项目来讲，项目文件工程文件创建好能够使后面的工作更为流畅。</p>
+
+<hr>
+
+<h2 id="5-中股">
+<a id="5-中股" class="anchor" href="#5-%E4%B8%AD%E8%82%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. 中股</h2>
+
+<h3 id="重构代码悖论">
+<a id="重构代码悖论" class="anchor" href="#%E9%87%8D%E6%9E%84%E4%BB%A3%E7%A0%81%E6%82%96%E8%AE%BA" aria-hidden="true"><span class="octicon octicon-link"></span></a>重构代码悖论</h3>
+
+<p>在写的过程中，我至少有三次想整体重构代码。</p>
+
+<p>第一次是在我把D3D Hook单独作为一个项目打包时，突然觉得没多少代码还给分成两段，就好像语句通顺的话在中央，插入一个逗号一样令人难受。后来说服自己：后面的代码质量估计也不会太高，没必要为了写出优美代码浪费太多时间。</p>
+
+<p>第二次是在调用绘图函数时，发现前面的CreateDevice逻辑出问题了，导致占用资源很多。往上叭叽了好几个补丁仍旧非常纠结于难受，差点就要推倒重来了。后来屏气凝神，重读代码，把逻辑捋顺了才作罢。</p>
+
+<p>第三次是当我放弃治疗狂用全局变量时的自暴自弃。很多整型数、布尔值、甚至字符串都没必要用全局变量，加之有所耳闻的RAII模型，完全不必像C语言那样步步惊心地管理内存。但惯于MATLAB和Python的写法，总是对先声明后使用感到有些别扭。索性放纵一把，反正也没想再维护了。一步到位干脆彻底。</p>
+
+<p>在第一次系统学习数据结构时，杨俊老师曾经语重心长地提醒我们，要注意自己的代码风格，不要丢科班出身的脸。其中重要一条便是全局变量的使用。在过去的绝大部分程序中，我对全局变量都是非常谨慎的，想出一切办法避免其出现在我的代码中。然而，先有数字信号处理、计算物理，后有labview、自学Python，各种全局变量飞来飞去……搞得自己有点把持不住了。在用Windows API的时候，看到那么多奇怪的全局变量用法，自欺欺人自我安慰官方也用全局变量嘛
+——于是一下子没把持住用了一堆，自觉恬不知耻，十分惭愧。</p>
+
+<h3 id="自信心的毁灭与重建">
+<a id="自信心的毁灭与重建" class="anchor" href="#%E8%87%AA%E4%BF%A1%E5%BF%83%E7%9A%84%E6%AF%81%E7%81%AD%E4%B8%8E%E9%87%8D%E5%BB%BA" aria-hidden="true"><span class="octicon octicon-link"></span></a>自信心的毁灭与重建</h3>
+
+<p>稍微有些偏门的方向，查资料时最能体会到那种被轰杀至渣的绝望感。高手们的云淡风轻，似乎穷尽自己的精力都难以望其项背。想到自己花一星期写出的代码人家一天就能写完，自卑和自我怀疑难免涌上心头。</p>
+
+<p>虽说不情不愿，但我还是想先编程算了。就算我无法企及ACM、IOI甚至科班出身的同侪，但我也并不打算从事程序员的行业。每每感到疑惑时，我只好这么安慰自己。十万小时原理于我去做程序员这件事上，或许不会发生吧。</p>
+
+<p>总是恨自己没有专心致志做喜欢的事。可转念一想自己喜欢的事情很多都并非回报优厚，利润颇丰。前些日子会晤寒江雪，真的羡慕那样的生活啊。可我……唉！这大抵便是所谓“缺乏魄力”的最真实的展现！</p>
+
+<p>编吧，大不了空有一身本领和满嘴牢骚，做个小市民。反正我也难得真正的快乐了。</p>
+
+<hr>
+
+<h2 id="6-后股">
+<a id="6-后股" class="anchor" href="#6-%E5%90%8E%E8%82%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. 后股</h2>
+
+<h3 id="测试测试与测试">
+<a id="测试测试与测试" class="anchor" href="#%E6%B5%8B%E8%AF%95%E6%B5%8B%E8%AF%95%E4%B8%8E%E6%B5%8B%E8%AF%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>测试、测试与测试</h3>
+
+<p>莫名其妙的时间bug：当我测试时遇到一个奇怪的问题：当我投篮时数据能够正确记录，但扣篮的数据则随机丢失。单从表面上看，肯定与程序的循环条件有关系。百思不得其解，做了不少傻事儿浪费了许多时间，才不情愿地承认在最初的逻辑设计上除了问题。</p>
+
+<p>如何牺牲最少性能实现所需的一切功能？优化逻辑呗。干掉了不需要的绘图句柄、删除了多余的函数声明、“去耦合”地捋顺各个函数之间的关系。写着、改着，代码又变成了C with Class的风格。唉，真遗憾没有系统学过C++呀。</p>
+
+<h3 id="优雅与实用">
+<a id="优雅与实用" class="anchor" href="#%E4%BC%98%E9%9B%85%E4%B8%8E%E5%AE%9E%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>优雅与实用</h3>
+
+<p>倘若时间富裕，我总喜欢尽可能把代码美化一下。时间越紧，我的编程陋习则体现得越甚。只能尴尬地美其名曰实用主义咯。哼。</p>
+
+<hr>
+
+<h2 id="7-束股">
+<a id="7-束股" class="anchor" href="#7-%E6%9D%9F%E8%82%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. 束股</h2>
+
+<p>写代码什么时候最有成就感？挥斥方遒一遍AC，挥毫泼墨直接bugfree？那必然醍醐灌顶，神清气爽。</p>
+
+<p>但水平低的时候更常见的是费劲巴哈呼哧带喘地努出来一堆烂代码，然后一运行233 errors 4396 warnings。当整个程序最终debug完成时候心情“蹭”地一下回复正常，还是会有点小暗爽的。</p>
+
+<p>测试无误，打包发布。第一次用到repo的release功能，有点仪式感，虽然知道永远也不会有人来下载……</p>
+
+<p>效果参见以下链接</p>
+
+<p>https://yo1995.github.io/nba2k-shotchart-project/temp-plot.html</p>
+
+<p>https://yo1995.github.io/nba2k-shotchart-project/jordan-plot.html</p>
+
+<hr>
+
+<h2 id="后记">
+<a id="后记" class="anchor" href="#%E5%90%8E%E8%AE%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>后记</h2>
+
+<ul>
+  <li>努力与回报</li>
+</ul>
+
+<p>努力是不一定有回报的，但总体来讲期望是正的。这不假，但总归希望自己幸运些，再幸运些，在某些关键节骨眼儿上超过期望，哪怕未来再用失望找补回来呢？越是这么想，胃口也越高，调门儿高了，自然曲高和寡。预期高了，心摔下来更狠，碎也碎得均匀。</p>
+
+<ul>
+  <li>前途与快乐</li>
+</ul>
+
+<p>不止一位敬重的前辈告诫我，要追寻自己喜爱的事业。话虽这样说，但我怎么就那么畏手畏脚呢？</p>
+
+<p>在大四那一段时间，全身心投入到物理的世界的感觉，还是很不错的。窥世间百态于方寸之间，物理真是令人着迷的学科。当然，看了那么多文献，自知之明让我不会以物理为生。自知没有天赋，索性把一切的祝福送给有天赋的人，把我的梦想托付给遥远的繁星。</p>
+
+<p>我还喜欢什么？鼓捣电路板似乎也不错，但毕竟基础太薄弱了。倘若大二下学期那些电路板我一股脑扎进去，没准毕业时也能有所收获。可三心二意，最终也只学了个马马虎虎，有心杀敌无力回天。</p>
+
+<p>创作？哈，在这些领域我不止一次证明过自己。可越是自证，越是犹疑。内心强大的人无需靠别人的评价而生。我试图摆脱评价，却发现自己慌了。没办法，有这瓷器活儿没这慧根儿。或许只有我的欲望彻底得到满足或彻底死去，这种潜能才能被激发出来吧。</p>
+
+<p>我渴望交流，我渴望把自己的精力投入文明的历程。夏花一瞬对于永恒的数理而言犹如沧海之一粟，但我似乎并不像过去那么追逐永恒、亘古的绝对了。人生在世何尝不是一种美妙？每一分每一秒运转的世间万物何尝不是宇宙最美丽的奇迹？甘愿把短暂的时间奉献给纷繁的生命。</p>
+
+<ul>
+  <li>人生的十字路口</li>
+</ul>
+
+<p>十字路口，两条切向一条法向。难以回头，也不该回头做鸵鸟逃兵。多数人顺着惯性向前狂奔，极少数机缘巧合如旅行者一号飞出黄道。</p>
+
+<p>不可能永远静止在十字路口中央。曾看过诸如“太阳突然消失，行星会发生什么”之类的假象。拜托，别想着眼前的苟且，大概率一辈子都被死死粘在十字路口中央了。静止与停歇是大千世界最不可能的对立面，是古怪的永恒，是不可到达的奇点。哪怕只是丝毫片刻停歇，都会切身感受到时空从身边飞逝而过的那种孤星般的苍凉、暗淡与空谷低徊的窒息静谧之音。</p>
+
+<p>哦谢特，我在说什么？！本该是项目感想总结书，又让我写成了弃妇怨！</p>
+
+            
+            </div>
+            
+<div class="entry-tags clearfix">
+
+    <div class="entry-footer clearfix">
+
+        <div class="pull-left">
+            <span>
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/#cpp">cpp</a>
+                
+                <a href="/tags/#python">Python</a>
+                
+                <a href="/tags/#games">games</a>
+                
+                <a href="/tags/#project">project</a>
+                
+                <a href="/tags/#nba">NBA</a>
+                
+                <a href="/tags/#coding">coding</a>
+                
+            </span>            
+            <span><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv">0</span> views</span>
+            <span>
+                <i class="fa fa-comments-o"></i>
+                <a href="#comments">GFW comments</a>
+				<!--被墙替换class="disqus-comment-count" data-disqus-identifier="Chen's Blog//coding/nba2k11-shotchart-project-->
+            </span>
+            <span>
+                <i class="fa fa-check-square-o"></i><span>10451 words</span>
+            </span>
+            <span>
+                <i class="fa fa-link"></i>
+                <a data-toggle="collapse" href="#share-content" aria-expanded="false" aria-controls="share-content">Share</a>
+        </span>
+</div>
+        <div class="pull-right collapse in" id="share-content">
+            
+<div class="entry-share-links">
+
+    <div class="btn-group" role="group" aria-label="Share">
+        <button type="button" class="btn btn-default btn-sm btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="http://www.facebook.com/sharer.php?u=https://yo1995.github.io/coding/nba2k11-shotchart-project/" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></button>
+        
+        <button type="button" class="btn btn-default btn-sm btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="https://twitter.com/share?url=https://yo1995.github.io/coding/nba2k11-shotchart-project/&amp;text=NBA2K11%20%E6%8A%95%E7%AF%AE%E7%82%B9%E8%BE%85%E5%8A%A9" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-weibo" data-toggle="tooltip" data-placement="top" title="新浪微博"><a href="http://service.weibo.com/share/share.php?url=https://yo1995.github.io/coding/nba2k11-shotchart-project/&amp;title=%E5%88%86%E4%BA%AB%4011L23+%E7%9A%84%E6%96%87%E7%AB%A0%E3%80%8CNBA2K11%20%E6%8A%95%E7%AF%AE%E7%82%B9%E8%BE%85%E5%8A%A9%E3%80%8D&amp;content=%E4%BB%A5%E6%AD%A4%E5%BB%B6%E7%BB%AD%E6%88%91%E5%AF%B9NBA%202K11%E7%9A%84%E8%8E%AB%E5%90%8D%E7%83%AD%E6%83%85&amp;pic=https://yo1995.github.io/images/201807/nba2k11.jpg" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-douban" data-toggle="tooltip" data-placement="top" title="豆瓣"><a href="https://www.douban.com/share/service?name=NBA2K11%20%E6%8A%95%E7%AF%AE%E7%82%B9%E8%BE%85%E5%8A%A9&amp;href=https://yo1995.github.io/coding/nba2k11-shotchart-project/&amp;image=https://yo1995.github.io/images/201807/nba2k11.jpg&amp;url=https://yo1995.github.io/coding/nba2k11-shotchart-project/&amp;title=NBA2K11%20%E6%8A%95%E7%AF%AE%E7%82%B9%E8%BE%85%E5%8A%A9" target="_blank"><i class="fa fa-fw">豆</i></a></button>
+
+        <a tabindex="0" class="btn btn-sm btn-weixin" role="button" data-trigger="hover" data-placement="top" id="qrcode-btn"><i class="fa fa-fw fa-weixin"></i></a>
+
+        <div id="qrcode-content" class="qrcode-hidden"><div id="qrcode"></div></div>
+        <div id="qrcode-title" class="qrcode-hidden">Scan to Read</div>
+		
+		<button type="button" class="btn btn-default btn-sm btn-email"><a href="mailto:?Subject=NBA2K11%20%E6%8A%95%E7%AF%AE%E7%82%B9%E8%BE%85%E5%8A%A9&amp;Body=%E4%BB%A5%E6%AD%A4%E5%BB%B6%E7%BB%AD%E6%88%91%E5%AF%B9NBA%202K11%E7%9A%84%E8%8E%AB%E5%90%8D%E7%83%AD%E6%83%85%20https://yo1995.github.io/coding/nba2k11-shotchart-project/"><i class="fa fa-fw fa-envelope-o"></i> Email</a></button>
+
+        <div class="btn-group btn-group-justified dropup" role="group">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle btn-more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-share-alt"></i><span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-google"><a href="https://plus.google.com/share?url=https://yo1995.github.io/coding/nba2k11-shotchart-project/" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google Plus</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://yo1995.github.io/coding/nba2k11-shotchart-project/" target="_blank"><i class="fa fa-fw fa-linkedin"></i> Linkedin</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-digg"><a href="http://www.digg.com/submit?url=https://yo1995.github.io/coding/nba2k11-shotchart-project/" target="_blank"><i class="fa fa-fw fa-digg"></i> Digg</a></button></li>
+
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-pinterest"><a href="https://pinterest.com/pin/create/bookmarklet/?media=https://yo1995.github.io/images/201807/nba2k11.jpg&amp;url=https://yo1995.github.io/coding/nba2k11-shotchart-project/&amp;description=NBA2K11%20%E6%8A%95%E7%AF%AE%E7%82%B9%E8%BE%85%E5%8A%A9" target="_blank"><i class="fa fa-fw fa-pinterest-p"></i> Pinterest</a></button></li>
+                 
+                 
+
+                <li><button type="button" class="btn btn-default btn-sm btn-reddit"><a href="http://reddit.com/submit?url=https://yo1995.github.io/coding/nba2k11-shotchart-project/&amp;title=NBA2K11%20%E6%8A%95%E7%AF%AE%E7%82%B9%E8%BE%85%E5%8A%A9" target="_blank"><i class="fa fa-fw fa-reddit-alien"></i> Reddit</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-tumblr"><a href="http://www.tumblr.com/share/link?url=https://yo1995.github.io/coding/nba2k11-shotchart-project/&amp;title=NBA2K11%20%E6%8A%95%E7%AF%AE%E7%82%B9%E8%BE%85%E5%8A%A9" target="_blank"><i class="fa fa-fw fa-tumblr"></i> Tumblr</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-print"><a href="javascript:;" onclick="window.print()"><i class="fa fa-fw fa-print"></i> Print</a></button></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+        </div>
+    </div>  
+
+</div>
+
+          </div>
+        </article>
+        <!-- END SINGLE-POST -->
+
+        
+<div class="post-navigation clearfix">
+    <div class="row">
+
+        <div class="col-xs-6">
+            <div class="previous-post">
+                <div class="arrow">
+                    <i class="fa fa-angle-double-left"></i>
+                    
+                    <a href="/school/gaokao-and-my-choice/" class="animsition-link" data-hover-text="Prev: 又是高考出分时">Prev: 又是高考出分时</a>
+                    
+                </div>
+
+            </div>
+            <!-- END PREVIOUS-POST -->
+        </div>
+        <div class="col-xs-6">
+            <div class="next-post">
+                <div class="arrow">
+                    
+                    <a href="/coding/threebody-visualization/" class="animsition-link" data-hover-text="Next: 三体小记">Next: 三体小记</a>
+                    
+                    <i class="fa fa-angle-double-right"></i>
+                </div>
+
+            </div>
+            <!-- END NEXT-POST -->
+        </div>
+    </div>
+</div>
+<!-- END POST-NAVIGATION -->
+		<!-- 180726 add multi author support -->
+		 
+			<div class="author-info clearfix">
+    <div class="author-avatar">
+        <img class="avatar" src="/img/avatar.png" alt="Chen Ting">
+    </div>
+
+    <div class="author-description">
+        <h4 class="author-title">
+            <a href="/about/">Chen Ting <i class="fa fa-link"></i></a>
+        </h4>
+        <p class="author-bio">
+            The page aims to exhibit several activities &amp; achievements which the author engaged in during his undergraduate &amp; graduate period. Meanwhile, other aspects such as lifestyles, literary work, travel notes, etc. would interweave in the narration.
+        </p>
+    </div>
+	<!-- add busaunzi to see how many views and reads happens to my page. addition to tecent -->
+	<script async src="/assets/js/busuanzi.pure.mini.js"></script>
+</div>
+<!-- END AUTHOR-INFO -->
+		 
+		 
+        
+
+<div class="comments-area clearfix">
+    <div class="comment-respond">
+		<h4 class="comment-reply-title" id="comments">Leave a Comment</h4>
+		<div class="disqus-placeholder alert alert-info" style="text-align: center">
+			<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Disqus might be GFW-ed. Excited!
+		</div>
+		<script src="/assets/js/disqusloader.js"></script>
+		<div class="disqus"></div>
+		<!--
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+        this.page.url = "https://yo1995.github.io/coding/nba2k11-shotchart-project/";
+        this.page.identifier = "Chen's Blog//coding/nba2k11-shotchart-project";
+        this.page.title = "NBA2K11 投篮点辅助";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//yo1995.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+		-->
+		<script>disqusLoader( '.disqus', { 
+			scriptUrl: '//yo1995.disqus.com/embed.js',
+			disqusConfig: function(){
+				this.callbacks.onReady = [function(){
+				var el = document.querySelector( '.disqus-placeholder' );
+				if( el.classList )
+					el.classList.add( 'is-hidden' ); // IE 10+
+				else
+					el.className += ' ' + 'is-hidden'; // IE 8-9
+				}];}
+			});
+		</script>
+       <noscript>Please conquer the GFW or enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    </div>
+</div>
+<!-- END COMMENTS-AREA -->
+
+
+      </div>
+
+      <div class="col-md-4 sidebar-fixed">
+    <div class="sidebar">
+        <aside class="widget-wrap widget-search">
+            <h6 class="widget-title">
+                <span>Search for a topic?</span>
+            </h6>
+			<div onclick="keyinsearch()" class="search-form text-center" id="search-container">
+				<input type="text" id="search-input" placeholder="search...">
+				<i class="fa fa-search"></i>
+				<ul id="results-container" style="list-style:square"></ul>
+			</div>
+			<!-- 180206 - update -->
+<script src="/assets/js/jekyll-search.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  function keyinsearch () {
+  SimpleJekyllSearch({
+	searchInput: document.getElementById('search-input'),
+	resultsContainer: document.getElementById('results-container'),
+	json: '/search.json',
+	searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+	noResultsText: '无结果',
+	limit: 5,
+	fuzzy: false
+  });
+  }
+</script>
+
+
+<!-- 暂时还没想好cache怎么改写，目前每次请求都是200 ！= = 不够chrome貌似是直接从本地磁盘加载的 -->
+<!--
+<form class="search-form" action="/search/" target="_blank" method="get">
+	<input type="text" placeholder="Search..." name="q">
+	<i class="fa fa-search"></i>
+</form>
+-->
+
+        </aside>
+        <!-- END WIDGET-WRAP -->		
+        <aside class="widget-wrap widget-categories">
+            <h6 class="widget-title">
+                <span>Categories</span>
+            </h6>
+            <ul>
+				
+				
+                <li><a href="/categories/#coding">Coding</a></li>
+                
+                <li><a href="/categories/#ee">EE</a></li>
+                
+                <li><a href="/categories/#games">Games</a></li>
+                
+                <li><a href="/categories/#html">Html</a></li>
+                
+                <li><a href="/categories/#life">Life</a></li>
+                
+                <li><a href="/categories/#movie">Movie</a></li>
+                
+                <li><a href="/categories/#physics">Physics</a></li>
+                
+                <li><a href="/categories/#reading">Reading</a></li>
+                
+                <li><a href="/categories/#school">School</a></li>
+                
+                <li><a href="/categories/#tools">Tools</a></li>
+                
+                <li><a href="/categories/#video">Video</a></li>
+                
+            </ul>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-recent-posts">
+            <h6 class="widget-title">
+                <span>Related Posts</span>
+            </h6>
+            <ul class="recent-posts">
+            
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/Wox-plugin-Emoji/">
+                                <img src="/images/201809/like.gif" alt="Windows快速搜索Emoji小工具">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/Wox-plugin-Emoji/">Windows快速搜索Emoji小工具</a>
+                            <span>2018/09/29</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/ultimate-emoticon-generator-2/">
+                                <img src="/images/201808/emoticon-2.gif" alt="终极表情包生成器 - 2">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/ultimate-emoticon-generator-2/">终极表情包生成器 - 2</a>
+                            <span>2018/08/07</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/ultimate-emoticon-generator-1/">
+                                <img src="/images/201808/emoticon-1.gif" alt="终极表情包生成器 - 1">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/ultimate-emoticon-generator-1/">终极表情包生成器 - 1</a>
+                            <span>2018/08/06</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                    
+
+                
+                                   
+            </ul>
+
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-tag">
+            <h6 class="widget-title">
+                <span>Tags Widget <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+
+            <div class="tag-cloud">
+                
+                <a href="/tags/#df">DF</a>
+                
+                <a href="/tags/#production">production</a>
+                
+                <a href="/tags/#education">education</a>
+                
+                <a href="/tags/#lifestyle">lifestyle</a>
+                
+                <a href="/tags/#volunteer">volunteer</a>
+                
+                <a href="/tags/#physics">physics</a>
+                
+                <a href="/tags/#lectures">lectures</a>
+                
+                <a href="/tags/#school">school</a>
+                
+                <a href="/tags/#football">football</a>
+                
+                <a href="/tags/#sports">sports</a>
+                
+                <a href="/tags/#movie">movie</a>
+                
+                <a href="/tags/#tv">TV</a>
+                
+                <a href="/tags/#life">life</a>
+                
+                <a href="/tags/#diversity">diversity</a>
+                
+                <a href="/tags/#arts">arts</a>
+                
+                <a href="/tags/#c#">C#</a>
+                
+                <a href="/tags/#innovation">innovation</a>
+                
+                <a href="/tags/#contest">contest</a>
+                
+                <a href="/tags/#project">project</a>
+                
+                <a href="/tags/#fpga">FPGA</a>
+                
+                <a href="/tags/#vlc">VLC</a>
+                
+                <a href="/tags/#blog">blog</a>
+                
+                <a href="/tags/#impact-factors">Impact Factors</a>
+                
+                <a href="/tags/#helloworld">helloworld</a>
+                
+                <a href="/tags/#jekyll">jekyll</a>
+                
+                <a href="/tags/#html">html</a>
+                
+                <a href="/tags/#css">css</a>
+                
+                <a href="/tags/#github">github</a>
+                
+                <a href="/tags/#js">js</a>
+                
+                <a href="/tags/#hexo">hexo</a>
+                
+                <a href="/tags/#semiconductor">semiconductor</a>
+                
+                <a href="/tags/#experiments">experiments</a>
+                
+                <a href="/tags/#python">Python</a>
+                
+                <a href="/tags/#image">image</a>
+                
+                <a href="/tags/#code">code</a>
+                
+                <a href="/tags/#gfw">GFW</a>
+                
+                <a href="/tags/#git">Git</a>
+                
+                <a href="/tags/#windows">Windows</a>
+                
+                <a href="/tags/#tools">tools</a>
+                
+                <a href="/tags/#shell">shell</a>
+                
+                <a href="/tags/#scripts">scripts</a>
+                
+                <a href="/tags/#thu">THU</a>
+                
+                <a href="/tags/#liquid">liquid</a>
+                
+                <a href="/tags/#coding">coding</a>
+                
+                <a href="/tags/#latex">LaTeX</a>
+                
+                <a href="/tags/#basic">basic</a>
+                
+                <a href="/tags/#review">review</a>
+                
+                <a href="/tags/#games">games</a>
+                
+                <a href="/tags/#roguelike">roguelike</a>
+                
+                <a href="/tags/#matlab">MATLAB</a>
+                
+                <a href="/tags/#chaos">chaos</a>
+                
+                <a href="/tags/#simulation">simulation</a>
+                
+                <a href="/tags/#camping">camping</a>
+                
+                <a href="/tags/#phd">PhD</a>
+                
+                <a href="/tags/#philosophy">philosophy</a>
+                
+                <a href="/tags/#reading">reading</a>
+                
+                <a href="/tags/#optics">optics</a>
+                
+                <a href="/tags/#year">year</a>
+                
+                <a href="/tags/#dream">dream</a>
+                
+                <a href="/tags/#girls">girls</a>
+                
+                <a href="/tags/#circuit">circuit</a>
+                
+                <a href="/tags/#electronics">electronics</a>
+                
+                <a href="/tags/#memory">memory</a>
+                
+                <a href="/tags/#france">France</a>
+                
+                <a href="/tags/#ingenieur">ingenieur</a>
+                
+                <a href="/tags/#bbs">bbs</a>
+                
+                <a href="/tags/#history">history</a>
+                
+                <a href="/tags/#byr">byr</a>
+                
+                <a href="/tags/#travel">travel</a>
+                
+                <a href="/tags/#tour">tour</a>
+                
+                <a href="/tags/#future">future</a>
+                
+                <a href="/tags/#graduate">graduate</a>
+                
+                <a href="/tags/#investment">investment</a>
+                
+                <a href="/tags/#love">love</a>
+                
+                <a href="/tags/#laptop">laptop</a>
+                
+                <a href="/tags/#mac">Mac</a>
+                
+                <a href="/tags/#hackintosh">hackintosh</a>
+                
+                <a href="/tags/#foudre">foudre</a>
+                
+                <a href="/tags/#law">law</a>
+                
+                <a href="/tags/#juven">juven</a>
+                
+                <a href="/tags/#ramen">ramen</a>
+                
+                <a href="/tags/#industry">industry</a>
+                
+                <a href="/tags/#alcohol">alcohol</a>
+                
+                <a href="/tags/#bar">bar</a>
+                
+                <a href="/tags/#confession">confession</a>
+                
+                <a href="/tags/#postdoc">postdoc</a>
+                
+                <a href="/tags/#nyu">NYU</a>
+                
+                <a href="/tags/#hahn">Hahn</a>
+                
+                <a href="/tags/#scholar">scholar</a>
+                
+                <a href="/tags/#academia">academia</a>
+                
+                <a href="/tags/#nba">NBA</a>
+                
+                <a href="/tags/#cool">cool</a>
+                
+                <a href="/tags/#study">study</a>
+                
+                <a href="/tags/#fourier">Fourier</a>
+                
+                <a href="/tags/#signal">signal</a>
+                
+                <a href="/tags/#theorem">theorem</a>
+                
+                <a href="/tags/#trivial">trivial</a>
+                
+                <a href="/tags/#chuapp">chuapp</a>
+                
+                <a href="/tags/#city">city</a>
+                
+                <a href="/tags/#politics">politics</a>
+                
+                <a href="/tags/#data">data</a>
+                
+                <a href="/tags/#tech">tech</a>
+                
+                <a href="/tags/#nas">NAS</a>
+                
+                <a href="/tags/#network">network</a>
+                
+                <a href="/tags/#infrastructure">infrastructure</a>
+                
+                <a href="/tags/#self-esteem">self-esteem</a>
+                
+                <a href="/tags/#confidence">confidence</a>
+                
+                <a href="/tags/#mental">mental</a>
+                
+                <a href="/tags/#value">value</a>
+                
+                <a href="/tags/#property">property</a>
+                
+                <a href="/tags/#fame">fame</a>
+                
+                <a href="/tags/#wechat">wechat</a>
+                
+                <a href="/tags/#crawler">crawler</a>
+                
+                <a href="/tags/#threading">threading</a>
+                
+                <a href="/tags/#multiprocessing">multiprocessing</a>
+                
+                <a href="/tags/#genuine">genuine</a>
+                
+                <a href="/tags/#adobe">Adobe</a>
+                
+                <a href="/tags/#codec">Codec</a>
+                
+                <a href="/tags/#software">software</a>
+                
+                <a href="/tags/#enlighten">enlighten</a>
+                
+                <a href="/tags/#friends">friends</a>
+                
+                <a href="/tags/#chance">chance</a>
+                
+                <a href="/tags/#choice">choice</a>
+                
+                <a href="/tags/#projectuniv">PROJECTUNIV</a>
+                
+                <a href="/tags/#cpp">cpp</a>
+                
+                <a href="/tags/#visualization">visualization</a>
+                
+                <a href="/tags/#gui">GUI</a>
+                
+                <a href="/tags/#gif">gif</a>
+                
+                <a href="/tags/#remastered">remastered</a>
+                
+                <a href="/tags/#exe">exe</a>
+                
+                <a href="/tags/#emoji">emoji</a>
+                
+                <a href="/tags/#gif">GIF</a>
+                
+                <a href="/tags/#video">video</a>
+                
+                <a href="/tags/#emoticon">emoticon</a>
+                
+                <a href="/tags/#pil">PIL</a>
+                
+                <a href="/tags/#swimming">swimming</a>
+                
+                <a href="/tags/#premiere">Premiere</a>
+                
+                <a href="/tags/#golf">golf</a>
+                
+                <a href="/tags/#gbbb">GBBB</a>
+                
+                <a href="/tags/#beatbox">beatbox</a>
+                
+                <a href="/tags/#loopstation">loopstation</a>
+                
+                <a href="/tags/#photo">photo</a>
+                
+                <a href="/tags/#plugin">plugin</a>
+                
+                <a href="/tags/#ae">AE</a>
+                
+                <a href="/tags/#music">music</a>
+                
+                <a href="/tags/#nature">nature</a>
+                
+                <a href="/tags/#basketball">basketball</a>
+                
+                <a href="/tags/#rdfz">RDFZ</a>
+                
+                <a href="/tags/#world">world</a>
+                
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+        <aside class="widget-wrap widget-toc">
+            <h6 class="widget-title">
+                <span>Table of Contents <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+            <div id="navbar">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2">
+<a href="#0-%E7%BC%98%E8%B5%B7">0. 缘起</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#nfs-porsche-unleashed-porsche-2000">NFS Porsche Unleashed/ Porsche 2000</a></li>
+<li class="toc-entry toc-h3"><a href="#visualboyadvance">VisualBoyAdvance</a></li>
+<li class="toc-entry toc-h3"><a href="#%E7%BB%BF%E5%A8%83%E4%BC%A0%E5%A5%87">绿娃传奇</a></li>
+<li class="toc-entry toc-h3"><a href="#nba-2k11">NBA 2K11</a></li>
+<li class="toc-entry toc-h3"><a href="#%E6%89%AB%E9%9B%B7">扫雷</a></li>
+<li class="toc-entry toc-h3">
+<a href="#cs16">CS1.6</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#180708-%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E9%9D%A2%E5%AF%B9%E8%BD%AC%E7%A0%81%E8%BF%99%E4%BB%B6%E4%BA%8B">180708 如何正确面对转码这件事</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#1-%E7%A0%B4%E9%A2%98">1. 破题</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#%E6%83%B3%E6%B3%95%E6%9D%A5%E6%BA%90">想法来源</a></li>
+<li class="toc-entry toc-h3"><a href="#%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E9%97%AE%E9%A2%98%E8%A7%84%E6%A8%A1">如何确定问题规模</a></li>
+<li class="toc-entry toc-h3"><a href="#%E6%89%A7%E6%8B%97">执拗</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#2-%E6%89%BF%E9%A2%98">2. 承题</a>
+<ul>
+<li class="toc-entry toc-h3">
+<a href="#directx-hook">DirectX Hook</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#vtabledetour">Vtable、Detour</a></li>
+<li class="toc-entry toc-h4"><a href="#present">Present</a></li>
+<li class="toc-entry toc-h4"><a href="#endscene">EndScene</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3">
+<a href="#d3d-draw-functions">D3D Draw Functions</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#textlinerectcircle">Text/Line/Rect/Circle</a></li>
+<li class="toc-entry toc-h4"><a href="#in-game-shot-chart">In-game shot-chart</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3">
+<a href="#memcpy">Memcpy</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#assembly">assembly</a></li>
+<li class="toc-entry toc-h4"><a href="#cheatengine">cheatengine</a></li>
+<li class="toc-entry toc-h4"><a href="#toggle-logics">toggle logics</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3">
+<a href="#keyboard">Keyboard</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#keyboardhookll">KeyboardHookLL</a></li>
+<li class="toc-entry toc-h4"><a href="#asyncstate">AsyncState</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#data-serialization">Data serialization</a></li>
+<li class="toc-entry toc-h3">
+<a href="#injection">Injection</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#d3d9dll-hijacking">d3d9.dll hijacking</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#misc">Misc</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#3-%E5%85%A5%E6%89%8B">3. 入手</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#%E6%9F%A5%E8%B5%84%E6%96%99">查资料</a></li>
+<li class="toc-entry toc-h3"><a href="#%E8%AE%BA%E5%9D%9B%E9%A3%8E%E6%B0%94">论坛风气</a></li>
+<li class="toc-entry toc-h3"><a href="#%E6%94%BE%E5%BC%83">放弃</a></li>
+<li class="toc-entry toc-h3"><a href="#%E9%87%8D%E8%A6%81%E7%AA%81%E7%A0%B4">重要突破</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#4-%E8%B5%B7%E8%82%A1">4. 起股</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#vc-%E7%BC%96%E8%AF%91%E7%9A%84%E7%A7%8D%E7%A7%8D">VC++ 编译的种种</a></li>
+<li class="toc-entry toc-h3"><a href="#dll%E4%B8%8Eexe%E4%B8%8D%E5%90%8C">dll与exe不同</a></li>
+<li class="toc-entry toc-h3"><a href="#%E9%A1%B9%E7%9B%AE%E4%B8%8E%E5%8D%95%E4%B8%AAc%E6%96%87%E4%BB%B6%E7%9A%84%E5%B7%AE%E5%BC%82">项目与单个c++文件的差异</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#5-%E4%B8%AD%E8%82%A1">5. 中股</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#%E9%87%8D%E6%9E%84%E4%BB%A3%E7%A0%81%E6%82%96%E8%AE%BA">重构代码悖论</a></li>
+<li class="toc-entry toc-h3"><a href="#%E8%87%AA%E4%BF%A1%E5%BF%83%E7%9A%84%E6%AF%81%E7%81%AD%E4%B8%8E%E9%87%8D%E5%BB%BA">自信心的毁灭与重建</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#6-%E5%90%8E%E8%82%A1">6. 后股</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#%E6%B5%8B%E8%AF%95%E6%B5%8B%E8%AF%95%E4%B8%8E%E6%B5%8B%E8%AF%95">测试、测试与测试</a></li>
+<li class="toc-entry toc-h3"><a href="#%E4%BC%98%E9%9B%85%E4%B8%8E%E5%AE%9E%E7%94%A8">优雅与实用</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#7-%E6%9D%9F%E8%82%A1">7. 束股</a></li>
+<li class="toc-entry toc-h2"><a href="#%E5%90%8E%E8%AE%B0">后记</a></li>
+</ul>
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+    </div>
+    <!-- END SIDEBAR -->
+</div>
+
+    </div>
+  </div>
+</div>
+<!-- END SINGLE-POST-WRAP -->
+
+
+        </main>
+        <!-- END MAIN -->
+
+        
+<footer>
+  <div class="footer">
+    <div class="container">
+      <div class="text-center">
+        <a href="/blog" class="logo clearfix animsition-link"><img src="/img/sig.svg" width="400" alt="Chen's Sig"></a>
+        <p class="copy">
+          Maintained by <a href="/about/">Chen Ting</a> 
+		  
+        </p>
+        <div class="icon-list">
+          <a href="https://www.linkedin.com/in/ting-chen-402bab122/" target="_blank">
+            <i class="fa fa-fw fa-linkedin"></i>
+          </a>
+          <a href="http://my.hupu.com/17573413/" target="_blank">
+            <i class="fa fa-fw fa-futbol-o"></i>
+          </a>
+          <a href="https://www.douban.com/people/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-book"></i>
+          </a>
+		   <a href="https://www.flickr.com/photos/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-flickr"></i>
+          </a>
+          <a href="https://github.com/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-github"></i>
+          </a>
+		  <a href="/feed.xml" target="_blank">
+            <i class="fa fa-fw fa-rss"></i>
+          </a>
+        </div>
+        <div class="scroll-top">go to top</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END FOOTER -->
+</footer>
+
+      </div>
+      <!-- END CONTENT -->
+    </div>
+    <!-- END ANIMSITION -->
+
+    
+<!-- SCRIPTS -->
+<script src="/assets/js/jquery-1.12.0.min.js"></script>
+<script src="/assets/js/plugins.min.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<!-- CUSTOM SCRIPT -->
+<script src="/assets/js/script.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/js/tether.min.js"></script>
+<script>document.getElementById("CN").href = "http://yo1995.coding.me" + window.location.pathname;</script>
+
+
+<script src="/assets/js/qrcode.js"></script>
+<script>
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: "https://yo1995.github.io/coding/nba2k11-shotchart-project/",
+    width: 196,
+    height: 196,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H,
+    useSVG: true
+});
+</script>
+
+
+<!-- 爱心特效 -->
+
+
+
+<script async src="/assets/js/busuanzi.pure.mini.js">
+</script>
+<!--功夫网卡住了script id="dsq-count-scr" src="//yo1995.disqus.com/count.js" async></script-->
+
+
+
+
+
+
+
+<!--script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82518311-1', 'auto');
+  ga('send', 'pageview', {
+  'page': '/coding/nba2k11-shotchart-project/',
+  'title': 'NBA2K11 投篮点辅助'
+  });
+
+</script-->
+
+
+  </body>
+
+</html>

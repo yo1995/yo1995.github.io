@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html>
+
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="回忆起被写数字支配的恐惧。">
+  <meta name="author" content="Chen Ting">
+  <meta name="keywords" content="">
+  <meta name="theme-color" content="#272727">
+
+  <title>如何玩坏微信小游戏</title>
+
+  <link rel="icon" href="/img/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="canonical" href="https://yo1995.github.io/coding/master-of-arithmetic-game/" />
+  <link rel="alternate" type="application/rss+xml" title="Chen's Blog" href="https://yo1995.github.io/feed.xml" />
+  
+  <meta property="og:site_name" content="Chen's Blog" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://yo1995.github.io/coding/master-of-arithmetic-game/" />
+  <meta property="og:title" content="如何玩坏微信小游戏" />
+  <meta property="og:description" content="回忆起被写数字支配的恐惧。" />
+  <meta property="og:article:published_time" content="2018-05-10T00:00:00-04:00" />
+  <meta property="og:article:author" content="Chen Ting" />
+
+  <meta property="og:image" content="/images/201805/tyt.jpg" />
+  
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <!-- PLUGINS -->
+  <link rel="stylesheet" href="/assets/css/vlthemes.css">
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">	
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  
+  
+  
+
+</head>
+<!-- 180622 - tecent analytics -->
+<script type="text/javascript" src="https://tajs.qq.com/stats?sId=65898920" charset="UTF-8"></script>
+
+
+  <body data-spy="scroll" data-target="#navbar" data-offset="100">
+
+		<!-- FRAMES -->
+		<span class="frame-line top-frame"></span>
+		<span class="frame-line right-frame"></span>
+		<span class="frame-line bottom-frame"></span>
+		<span class="frame-line left-frame"></span>
+
+    <div class="animsition">
+      <div class="content">
+
+        
+<!-- header-fixed / header-scroll-up  -->
+<div class="scroll-indicator fixedheader" style="width"></div>
+<header class="header-wrap header-fixed minimal-menu">
+    <div class="header-inner">
+        <div class="container">
+			
+            <div class="logo">
+                <a href="/blog" class="animsition-link">Ch<span>e</span>n's Blog</a>
+            </div>
+			
+
+            <a href="#" class="menu-toggle desctop-menu">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <a href="#" class="menu-toggle mobile-menu-toggle">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <nav class="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="/" class="animsition-link">
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item-has-children" class="current-menu-item">
+                        <a href="">
+                            <span>Blog</span>
+                        </a>
+						    <ul class="sub-menu">
+								<li>
+									<a href="/blog/" class="animsition-link">
+										<span>Blog Index</span>
+									</a>
+								</li>
+								<li>
+									<a href="/posts/" class="animsition-link">
+										<span>Archives</span>
+									</a>
+								</li>
+								<li>
+									<a href="/categories/" class="animsition-link">
+										<span>Categories</span>
+									</a>
+								</li>
+								<li>
+									<a href="/tags/" class="animsition-link">
+										<span>Tags</span>
+									</a>
+								</li>
+							</ul>
+                    </li>
+
+                    <li>
+                        <a href="/photos/" class="animsition-link">
+                            <span>Photos</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/about/" class="animsition-link">
+                            <span>About</span>
+                        </a>
+                    </li>
+					
+					  <!--li>
+                        <a href="" class="animsition-link" id="CN">
+                            <span>CN</span>
+                        </a>
+                    </li-->
+                </ul>
+            </nav>
+            <!-- END PRIMARY-MENU -->
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <!-- END HEADER-INNER -->
+</header>
+<!-- END HEADER-WRAP -->
+
+
+        
+
+        <main id="main-content">
+          
+          <div class="single-post-wrap clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 content-fixed">
+
+        <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
+          <div class="post-thumb clearfix">
+            
+            <img src="/images/201805/tyt.jpg" alt="如何玩坏微信小游戏">
+            
+          </div>
+          
+          <div class="post-content" itemprop="articleBody">
+            <div class="post-date" datetime="2018-05-10T00:00:00-04:00" itemprop="datePublished">
+              May 10, 2018
+            </div>
+            <h1 class="post-title" itemprop="name headline">如何玩坏微信小游戏</h1>
+            <div class="content-color">
+            
+            <h2 id="起因">
+<a id="起因" class="anchor" href="#%E8%B5%B7%E5%9B%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>起因</h2>
+
+<p>微信小游戏有多火，毋需多言。从上线的第一天引爆朋友圈和群聊，到将近一个月持续热度的『跳一跳』风靡全国，再到最强『弹一弹』与『最强球球』再次点燃全场。更不乏『天天爱消除』、『头脑王者』等一系列全明星级别的现象级应用作为陪衬穿插其中。窥一斑而知全豹，仅看小游戏的受欢迎程度，便可知腾讯的实力雄厚。甚至令人后怕——一家企业能够很大程度上控制一个普通人的空闲时间，让这些时间产生价值，从中牟利；甚至还会有意无意地在期末考试期间发布爆款小游戏，实在免不了让我杨毅一番。控制了人的时间，就是控制了社会生产力，既羡慕又害怕，只是祈祷大企业不作恶显然是天方夜谭。</p>
+
+<p>在小程序功能发布不久时，恰巧有机会尝试小程序的开发平台，其是基于wxml/wxss的一种网页应用。显然是面向轻量化、注重社交属性的应用。体验了一款叫做『小船分账』的小程序，整体的操作逻辑非常清晰。由于时间关系最后还是没有深入了解小程序，直到今天突发奇想。</p>
+
+<p>随着一波『最强大脑』、『最强弹一弹』、『最强投篮』、『欢乐球球』、『欢乐斗地主』、『欢乐坦克大战』的刷屏，我也陷入了每天吸一下小程序的怪圈。今天玩儿完『加减大师』这个小游戏后不免生出几分惆怅：这TM也太难了！或许人的反馈系统就是不适合这类高频度低难度的操作。回想起一个猩猩做记忆测试的视频，经过几年的训练它们完全能够碾压人类。更别提机器在这种任务中所展现出的统治力了。<del>说了这么多就是想给自己写挂找个借口</del></p>
+
+<p>事不宜迟放狗搜索。果然已经有人在一两个星期前做过类似的工作了。去粗取精，我也来搞个小游戏外挂吧！</p>
+
+<h2 id="思路">
+<a id="思路" class="anchor" href="#%E6%80%9D%E8%B7%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a>思路</h2>
+
+<p>从最初跳一跳火热时层出不穷的外挂看，真是八仙过海各显神通。从简单粗暴的直接改请求数据，到杀鸡用牛刀的模式识别辅助，再到工科浪漫的机械臂全自动控制系统，每个人都有自己的思路。同样的，对于这个任务，我也考虑了多种方案。</p>
+
+<h3 id="仿生">
+<a id="仿生" class="anchor" href="#%E4%BB%BF%E7%94%9F" aria-hidden="true"><span class="octicon octicon-link"></span></a>仿生</h3>
+
+<p>首先映入我脑海的就是猩猩。在屡战屡败倒在胜利大门之前时，我发扬了从自身找问题的优良传统，企图以更多次的尝试来攻破难关。直到我又一次悲伤地意识到，以人力撼动概率论是多么的可笑才收手。自然，我想到了OpenCV+机械臂这一万能无敌挂，但只是想想罢了。就像自动化测试中使用Selenium一样，让计算机模仿人的行为去做原本更适合计算机的工作，肯定会使效率大幅度下降。机械臂不可取，那么自然会想到Selenium。</p>
+
+<h3 id="模拟点击">
+<a id="模拟点击" class="anchor" href="#%E6%A8%A1%E6%8B%9F%E7%82%B9%E5%87%BB" aria-hidden="true"><span class="octicon octicon-link"></span></a>模拟点击</h3>
+
+<p>模拟点击是自动化测试中不可少的一部分。想在这个游戏中开挂，自然是追求以最快速度选择正确答案。算数简直是计算机最擅长的工作了，问题便集中在如何让计算机得到所需算的数。</p>
+
+<p>在此有两位长者校友<del><a href="https://github.com/1033020837/WechatGameScript">亦可</a><a href="https://github.com/clouduan/WechatGameAutoPlayer">赛艇</a></del>提供了他们的思路，也是最常见的解决这类问题的思路：让计算机“看”懂问题。通过截屏、分析图像中的数字和算符得到算式，然后算出结果比较后得出结论，最后点击对应的按钮。为了使程序的效率提高，最需要优化的便是“看”的过程——毕竟计算机并不擅长看人眼看到的世界。他们分别通过识别模型的学习与建立、分割像素点以寻找对应的数字来实现。同时，借助高效的投屏协议使计算机能够更快地看到屏幕上的图像。总之，他们的结果很不错，也初步达成了开挂的目的。</p>
+
+<p>本来我就准备搭建环境开始开挂了，结果却遇到了棘手的问题：iOS并不支持投屏的反馈操作！也就是说，投屏到电脑确实能够获得当前的手机画面，但并不能通过鼠标和键盘对手机进行操作。而Android系统则没有这样的限制。归根到底还是iOS的权限限制带来的麻烦。我的解决思路当然是想办法攻破iOS的权限，于是找来越狱的iPad，鼓捣半天发现还是不能伪装成手机版的微信客户端。倒是顺道解决了一个问题，在微信APP根目录的info.plist里面设置UI适配类型，限制为1即可变为手机版的UI。手头没有安卓设备，我几乎已经放弃了，直到看到<a href="https://github.com/DengMr/jjds">另一个</a>repo得到了启发，从而重燃希望。</p>
+
+<h3 id="构造请求">
+<a id="构造请求" class="anchor" href="#%E6%9E%84%E9%80%A0%E8%AF%B7%E6%B1%82" aria-hidden="true"><span class="octicon octicon-link"></span></a>构造请求</h3>
+
+<p>这个po主的思路变了，既然无法让程序操控手机，那么还是由人来操作，但让计算机代替人的思考，只留下反应的时间，从而提高效率。看了他的JavaScript思路很明确了，就是劫持请求，由计算机给出答案，再让人不用动脑直接点击。但是js那一套我是见的不多了，还是Python搞起比较合适。</p>
+
+<p>学习了一个以后发现逻辑很简单，对是对，错是错。使用mitmproxy库作为中间的代理服务器，劫持并分析请求的内容。改变请求从而使操作变骚。具体参见<a href="https://github.com/yo1995/Daily_Python_Tasks/tree/master/Tool_master_of_arithmetic">代码</a></p>
+
+<h2 id="崩坏">
+<a id="崩坏" class="anchor" href="#%E5%B4%A9%E5%9D%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>崩坏</h2>
+
+<p>挂写好了，一切顺利。效果如下。</p>
+
+<p><img src="/images/201805/preview.png" alt=""></p>
+
+<p>有了挂再也不怕做错了，轻松通关。据说通关有奖品？</p>
+
+<p><img src="/images/201805/prize.png" alt=""></p>
+
+<p><img src="/images/201805/prize_acquired.png" alt=""></p>
+
+<h3 id="没有条件创造条件">
+<a id="没有条件创造条件" class="anchor" href="#%E6%B2%A1%E6%9C%89%E6%9D%A1%E4%BB%B6%E5%88%9B%E9%80%A0%E6%9D%A1%E4%BB%B6" aria-hidden="true"><span class="octicon octicon-link"></span></a>没有条件？创造条件！</h3>
+
+<p>坑爹的是，前几天看的时候通关还有奖品呢，今天打开一看居然不再给奖品了。通关以后奖品数确实变成了1，但找遍界面竟然摘不到兑换入口。看来是被玩儿坏了！但是我还是不死心，既然是刚刚变成不能兑换，那么兑换页面的后台应该还没有下线。不如……不如……霸王硬上弓？！</p>
+
+<h3 id="从报错信息探求程序逻辑">
+<a id="从报错信息探求程序逻辑" class="anchor" href="#%E4%BB%8E%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF%E6%8E%A2%E6%B1%82%E7%A8%8B%E5%BA%8F%E9%80%BB%E8%BE%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>从报错信息探求程序逻辑</h3>
+
+<p>很轻松地找到了兑换页面的地址：/send_gift。幸运的是，报错代码直接给出，方便分析表单的逻辑。哈，只是简单填入几个值POST一下就可以了。看来为了换娃娃绕了很多弯路啊！</p>
+
+<p><img src="/images/201805/php_logic.png" alt=""></p>
+
+<p>话不多说，从代理服务器拿到token，通过Chrome Postman插件构造请求，直接把表单送出去了。顺带还学习了一个iPhone的<a href="Mozilla/5.0%20(iPhone;%20CPU%20iPhone%20OS%2010_3_3%20like%20Mac%20OS%20X)%20AppleWebKit/603.3.8%20(KHTML,%20like%20Gecko)%20Mobile/14G60%20MicroMessenger/6.6.6%20NetType/WIFI%20Language/zh_CN">UA格式</a>，岂不美哉。</p>
+
+<h3 id="死皮赖脸post个form">
+<a id="死皮赖脸post个form" class="anchor" href="#%E6%AD%BB%E7%9A%AE%E8%B5%96%E8%84%B8post%E4%B8%AAform" aria-hidden="true"><span class="octicon octicon-link"></span></a>死皮赖脸POST个form</h3>
+
+<p>搞到这里，小程序的逻辑可谓一览无余。能不能得到娃娃完全就看对方够不够意思了。感觉自己甚至有点不要脸……如果想的话，完全可以拿个十个八个token填上不同的信息去刷表单。话说回来，用姓名地址手机号码换个娃娃真的值吗？在这个数据就是金钱的年代，宝贵的个人信息拿给人家去换一个不知道拿不拿得到的娃娃，简直亏大了好伐！</p>
+
+<h2 id="结语">
+<a id="结语" class="anchor" href="#%E7%BB%93%E8%AF%AD" aria-hidden="true"><span class="octicon octicon-link"></span></a>结语</h2>
+
+<p>俗话讲得好：“占小便宜吃大亏”。为了一个虚无缥缈的“通关虚荣感”花费一晚上时间，真的是不值当的。试想，这一晚上时间不算精力，光是金钱成本都有近50元。最后换来的仅仅是一个不知道是否存在的娃娃，以及一堆复用性不高的菜鸡代码。亏了，亏了！本可以刷题的时间就这么白白扔掉了。</p>
+
+<p>之前有过类似精力的便是2014年的钱宝网。当时在好几个贴吧看到说这个网站免费发钱，可以白撸个U盘。本着不采白不采的想法，花了一大晚上注册俩邮箱填了两份信息，换来个U盘。当时觉得挺值，现在想想有点感叹。每个人都会有这样的阶段：看到一点点蝇头小利不费吹灰之力便可以得到，好像发现新大陆一般飞蛾扑火。或许我还没有完全脱离这个阶段，还会花费大把时间从事没有价值的活动。唉，真希望自己能够理性克制一点！</p>
+
+<p>为了纪念一晚上的瞎忙活，恶狠狠地气鼓鼓地选了个小猪佩奇，也不知道能不能送到。毕竟
+<img src="/images/201805/piggy.gif" alt=""></p>
+
+<h2 id="参考">
+<a id="参考" class="anchor" href="#%E5%8F%82%E8%80%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>参考</h2>
+
+<p>https://gist.github.com/ImSingee/81e578392231541336acb7fc3c73019f</p>
+
+            
+            </div>
+            
+<div class="entry-tags clearfix">
+
+    <div class="entry-footer clearfix">
+
+        <div class="pull-left">
+            <span>
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/#wechat">wechat</a>
+                
+                <a href="/tags/#python">Python</a>
+                
+                <a href="/tags/#games">games</a>
+                
+            </span>            
+            <span><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv">0</span> views</span>
+            <span>
+                <i class="fa fa-comments-o"></i>
+                <a href="#comments">GFW comments</a>
+				<!--被墙替换class="disqus-comment-count" data-disqus-identifier="Chen's Blog//coding/master-of-arithmetic-game-->
+            </span>
+            <span>
+                <i class="fa fa-check-square-o"></i><span>2737 words</span>
+            </span>
+            <span>
+                <i class="fa fa-link"></i>
+                <a data-toggle="collapse" href="#share-content" aria-expanded="false" aria-controls="share-content">Share</a>
+        </div>
+        <div class="pull-right collapse in" id="share-content">
+            
+<div class="entry-share-links">
+
+    <div class="btn-group" role="group" aria-label="Share">
+        <button type="button" class="btn btn-default btn-sm btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="http://www.facebook.com/sharer.php?u=https://yo1995.github.io/coding/master-of-arithmetic-game/" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></button>
+        
+        <button type="button" class="btn btn-default btn-sm btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="https://twitter.com/share?url=https://yo1995.github.io/coding/master-of-arithmetic-game/&amp;text=如何玩坏微信小游戏" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-weibo" data-toggle="tooltip" data-placement="top" title="新浪微博"><a href="http://service.weibo.com/share/share.php?url=https://yo1995.github.io/coding/master-of-arithmetic-game/&title=分享%4011L23+的文章「如何玩坏微信小游戏」&content=回忆起被写数字支配的恐惧。&pic=https://yo1995.github.io/images/201805/tyt.jpg" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-douban" data-toggle="tooltip" data-placement="top" title="豆瓣"><a href="https://www.douban.com/share/service?name=如何玩坏微信小游戏&href=https://yo1995.github.io/coding/master-of-arithmetic-game/&image=https://yo1995.github.io/images/201805/tyt.jpg&url=https://yo1995.github.io/coding/master-of-arithmetic-game/&title=如何玩坏微信小游戏" target="_blank"><i class="fa fa-fw">豆</i></a></button>
+
+        <a tabindex="0" class="btn btn-sm btn-weixin" role="button" data-trigger="hover" data-placement="top" id="qrcode-btn"><i class="fa fa-fw fa-weixin"></i></a>
+
+        <div id="qrcode-content" class="qrcode-hidden"><div id="qrcode"></div></div>
+        <div id="qrcode-title" class="qrcode-hidden">Scan to Read</div>
+		
+		<button type="button" class="btn btn-default btn-sm btn-email"><a href="mailto:?Subject=如何玩坏微信小游戏&amp;Body=回忆起被写数字支配的恐惧。%20https://yo1995.github.io/coding/master-of-arithmetic-game/"><i class="fa fa-fw fa-envelope-o"></i> Email</a></button>
+
+        <div class="btn-group btn-group-justified dropup" role="group">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle btn-more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-share-alt"></i><span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-google"><a href="https://plus.google.com/share?url=https://yo1995.github.io/coding/master-of-arithmetic-game/" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google Plus</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://yo1995.github.io/coding/master-of-arithmetic-game/" target="_blank"><i class="fa fa-fw fa-linkedin"></i> Linkedin</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-digg"><a href="http://www.digg.com/submit?url=https://yo1995.github.io/coding/master-of-arithmetic-game/" target="_blank"><i class="fa fa-fw fa-digg"></i> Digg</a></button></li>
+
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-pinterest"><a href="https://pinterest.com/pin/create/bookmarklet/?media=https://yo1995.github.io/images/201805/tyt.jpg&url=https://yo1995.github.io/coding/master-of-arithmetic-game/&description=如何玩坏微信小游戏" target="_blank"><i class="fa fa-fw fa-pinterest-p"></i> Pinterest</a></button></li>
+                 
+                 
+
+                <li><button type="button" class="btn btn-default btn-sm btn-reddit"><a href="http://reddit.com/submit?url=https://yo1995.github.io/coding/master-of-arithmetic-game/&amp;title=如何玩坏微信小游戏" target="_blank"><i class="fa fa-fw fa-reddit-alien"></i> Reddit</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-tumblr"><a href="http://www.tumblr.com/share/link?url=https://yo1995.github.io/coding/master-of-arithmetic-game/&amp;title=如何玩坏微信小游戏" target="_blank"><i class="fa fa-fw fa-tumblr"></i> Tumblr</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-print"><a href="javascript:;" onclick="window.print()"><i class="fa fa-fw fa-print"></i> Print</a></button></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+        </div>
+    </div>  
+
+</div>
+
+          </div>
+        </article>
+        <!-- END SINGLE-POST -->
+
+        
+<div class="post-navigation clearfix">
+    <div class="row">
+
+        <div class="col-xs-6">
+            <div class="previous-post">
+                <div class="arrow">
+                    <i class="fa fa-angle-double-left"></i>
+                    
+                    <a href="/life/random-thoughts-on-property/" class="animsition-link" data-hover-text="Prev: Random thoughts on property">Prev: Random thoughts on property</a>
+                    
+                </div>
+
+            </div>
+            <!-- END PREVIOUS-POST -->
+        </div>
+        <div class="col-xs-6">
+            <div class="next-post">
+                <div class="arrow">
+                    
+                    <a href="/coding/Ultimate-NBA-Downloader/" class="animsition-link" data-hover-text="Next: BR图片下载器">Next: BR图片下载器</a>
+                    
+                    <i class="fa fa-angle-double-right"></i>
+                </div>
+
+            </div>
+            <!-- END NEXT-POST -->
+        </div>
+    </div>
+</div>
+<!-- END POST-NAVIGATION -->
+		<!-- 180726 add multi author support -->
+		 
+			<div class="author-info clearfix">
+    <div class="author-avatar">
+        <img class="avatar" src="/img/avatar.png" alt="Chen Ting">
+    </div>
+
+    <div class="author-description">
+        <h4 class="author-title">
+            <a href="/about/">Chen Ting <i class="fa fa-link"></i></a>
+        </h4>
+        <p class="author-bio">
+            The page aims to exhibit several activities & achievements which the author engaged in during his undergraduate & graduate period. Meanwhile, other aspects such as lifestyles, literary work, travel notes, etc. would interweave in the narration.
+        </p>
+    </div>
+	<!-- add busaunzi to see how many views and reads happens to my page. addition to tecent -->
+	<script async src="/assets/js/busuanzi.pure.mini.js"></script>
+</div>
+<!-- END AUTHOR-INFO -->
+		 
+		 
+        
+
+<div class="comments-area clearfix">
+    <div class="comment-respond">
+		<h4 class="comment-reply-title" id="comments">Leave a Comment</h4>
+		<div class="disqus-placeholder alert alert-info" style="text-align: center">
+			<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Disqus might be GFW-ed. Excited!
+		</div>
+		<script src="/assets/js/disqusloader.js"></script>
+		<div class="disqus"></div>
+		<!--
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+        this.page.url = "https://yo1995.github.io/coding/master-of-arithmetic-game/";
+        this.page.identifier = "Chen's Blog//coding/master-of-arithmetic-game";
+        this.page.title = "如何玩坏微信小游戏";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//yo1995.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+		-->
+		<script>disqusLoader( '.disqus', { 
+			scriptUrl: '//yo1995.disqus.com/embed.js',
+			disqusConfig: function(){
+				this.callbacks.onReady = [function(){
+				var el = document.querySelector( '.disqus-placeholder' );
+				if( el.classList )
+					el.classList.add( 'is-hidden' ); // IE 10+
+				else
+					el.className += ' ' + 'is-hidden'; // IE 8-9
+				}];}
+			});
+		</script>
+       <noscript>Please conquer the GFW or enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+<!-- END COMMENTS-AREA -->
+
+
+      </div>
+
+      <div class="col-md-4 sidebar-fixed">
+    <div class="sidebar">
+        <aside class="widget-wrap widget-search">
+            <h6 class="widget-title">
+                <span>Search for a topic?</span>
+            </h6>
+			<div onclick="keyinsearch()" class="search-form text-center" id="search-container">
+				<input type="text" id="search-input" placeholder="search...">
+				<i class="fa fa-search"></i>
+				<ul id="results-container" style="list-style:square"></ul>
+			</div>
+			<!-- 180206 - update -->
+<script src="/assets/js/jekyll-search.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  function keyinsearch () {
+  SimpleJekyllSearch({
+	searchInput: document.getElementById('search-input'),
+	resultsContainer: document.getElementById('results-container'),
+	json: '/search.json',
+	searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+	noResultsText: '无结果',
+	limit: 5,
+	fuzzy: false
+  });
+  }
+</script>
+
+
+<!-- 暂时还没想好cache怎么改写，目前每次请求都是200 ！= = 不够chrome貌似是直接从本地磁盘加载的 -->
+<!--
+<form class="search-form" action="/search/" target="_blank" method="get">
+	<input type="text" placeholder="Search..." name="q">
+	<i class="fa fa-search"></i>
+</form>
+-->
+
+        </aside>
+        <!-- END WIDGET-WRAP -->		
+        <aside class="widget-wrap widget-categories">
+            <h6 class="widget-title">
+                <span>Categories</span>
+            </h6>
+            <ul>
+				
+				
+                <li><a href="/categories/#coding">Coding</a></li>
+                
+                <li><a href="/categories/#ee">EE</a></li>
+                
+                <li><a href="/categories/#games">Games</a></li>
+                
+                <li><a href="/categories/#html">Html</a></li>
+                
+                <li><a href="/categories/#life">Life</a></li>
+                
+                <li><a href="/categories/#movie">Movie</a></li>
+                
+                <li><a href="/categories/#physics">Physics</a></li>
+                
+                <li><a href="/categories/#reading">Reading</a></li>
+                
+                <li><a href="/categories/#school">School</a></li>
+                
+                <li><a href="/categories/#tools">Tools</a></li>
+                
+                <li><a href="/categories/#video">Video</a></li>
+                
+            </ul>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-recent-posts">
+            <h6 class="widget-title">
+                <span>Related Posts</span>
+            </h6>
+            <ul class="recent-posts">
+            
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/tools/youget-in-windows/">
+                                <img src="/images/201807/you-get-logo.png" alt="Windows 下运行 you-get 获取视频">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/tools/youget-in-windows/">Windows 下运行 you-get 获取视频</a>
+                            <span>2018/07/30</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/nba2k11-shotchart-project/">
+                                <img src="/images/201807/nba2k11.jpg" alt="NBA2K11 投篮点辅助">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/nba2k11-shotchart-project/">NBA2K11 投篮点辅助</a>
+                            <span>2018/07/06</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/games/Bejeweled-like-game/">
+                                <img src="/images/201806/3cover.jpg" alt="由爱消除乐园引发的几点思考">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/games/Bejeweled-like-game/">由爱消除乐园引发的几点思考</a>
+                            <span>2018/06/21</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                    
+
+                
+                                   
+            </ul>
+
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-tag">
+            <h6 class="widget-title">
+                <span>Tags Widget <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+
+            <div class="tag-cloud">
+                
+                <a href="/tags/#df">DF</a>
+                
+                <a href="/tags/#production">production</a>
+                
+                <a href="/tags/#education">education</a>
+                
+                <a href="/tags/#lifestyle">lifestyle</a>
+                
+                <a href="/tags/#volunteer">volunteer</a>
+                
+                <a href="/tags/#physics">physics</a>
+                
+                <a href="/tags/#lectures">lectures</a>
+                
+                <a href="/tags/#school">school</a>
+                
+                <a href="/tags/#football">football</a>
+                
+                <a href="/tags/#sports">sports</a>
+                
+                <a href="/tags/#movie">movie</a>
+                
+                <a href="/tags/#tv">TV</a>
+                
+                <a href="/tags/#life">life</a>
+                
+                <a href="/tags/#diversity">diversity</a>
+                
+                <a href="/tags/#arts">arts</a>
+                
+                <a href="/tags/#c#">C#</a>
+                
+                <a href="/tags/#innovation">innovation</a>
+                
+                <a href="/tags/#contest">contest</a>
+                
+                <a href="/tags/#project">project</a>
+                
+                <a href="/tags/#fpga">FPGA</a>
+                
+                <a href="/tags/#vlc">VLC</a>
+                
+                <a href="/tags/#blog">blog</a>
+                
+                <a href="/tags/#impact-factors">Impact Factors</a>
+                
+                <a href="/tags/#helloworld">helloworld</a>
+                
+                <a href="/tags/#jekyll">jekyll</a>
+                
+                <a href="/tags/#html">html</a>
+                
+                <a href="/tags/#css">css</a>
+                
+                <a href="/tags/#github">github</a>
+                
+                <a href="/tags/#js">js</a>
+                
+                <a href="/tags/#hexo">hexo</a>
+                
+                <a href="/tags/#semiconductor">semiconductor</a>
+                
+                <a href="/tags/#experiments">experiments</a>
+                
+                <a href="/tags/#python">Python</a>
+                
+                <a href="/tags/#image">image</a>
+                
+                <a href="/tags/#code">code</a>
+                
+                <a href="/tags/#gfw">GFW</a>
+                
+                <a href="/tags/#git">Git</a>
+                
+                <a href="/tags/#windows">Windows</a>
+                
+                <a href="/tags/#tools">tools</a>
+                
+                <a href="/tags/#shell">shell</a>
+                
+                <a href="/tags/#scripts">scripts</a>
+                
+                <a href="/tags/#thu">THU</a>
+                
+                <a href="/tags/#liquid">liquid</a>
+                
+                <a href="/tags/#coding">coding</a>
+                
+                <a href="/tags/#latex">LaTeX</a>
+                
+                <a href="/tags/#basic">basic</a>
+                
+                <a href="/tags/#review">review</a>
+                
+                <a href="/tags/#games">games</a>
+                
+                <a href="/tags/#roguelike">roguelike</a>
+                
+                <a href="/tags/#matlab">MATLAB</a>
+                
+                <a href="/tags/#chaos">chaos</a>
+                
+                <a href="/tags/#simulation">simulation</a>
+                
+                <a href="/tags/#camping">camping</a>
+                
+                <a href="/tags/#phd">PhD</a>
+                
+                <a href="/tags/#philosophy">philosophy</a>
+                
+                <a href="/tags/#reading">reading</a>
+                
+                <a href="/tags/#optics">optics</a>
+                
+                <a href="/tags/#year">year</a>
+                
+                <a href="/tags/#dream">dream</a>
+                
+                <a href="/tags/#girls">girls</a>
+                
+                <a href="/tags/#circuit">circuit</a>
+                
+                <a href="/tags/#electronics">electronics</a>
+                
+                <a href="/tags/#memory">memory</a>
+                
+                <a href="/tags/#france">France</a>
+                
+                <a href="/tags/#ingenieur">ingenieur</a>
+                
+                <a href="/tags/#bbs">bbs</a>
+                
+                <a href="/tags/#history">history</a>
+                
+                <a href="/tags/#byr">byr</a>
+                
+                <a href="/tags/#travel">travel</a>
+                
+                <a href="/tags/#tour">tour</a>
+                
+                <a href="/tags/#future">future</a>
+                
+                <a href="/tags/#graduate">graduate</a>
+                
+                <a href="/tags/#investment">investment</a>
+                
+                <a href="/tags/#love">love</a>
+                
+                <a href="/tags/#laptop">laptop</a>
+                
+                <a href="/tags/#mac">Mac</a>
+                
+                <a href="/tags/#hackintosh">hackintosh</a>
+                
+                <a href="/tags/#foudre">foudre</a>
+                
+                <a href="/tags/#law">law</a>
+                
+                <a href="/tags/#juven">juven</a>
+                
+                <a href="/tags/#ramen">ramen</a>
+                
+                <a href="/tags/#industry">industry</a>
+                
+                <a href="/tags/#alcohol">alcohol</a>
+                
+                <a href="/tags/#bar">bar</a>
+                
+                <a href="/tags/#confession">confession</a>
+                
+                <a href="/tags/#postdoc">postdoc</a>
+                
+                <a href="/tags/#nyu">NYU</a>
+                
+                <a href="/tags/#hahn">Hahn</a>
+                
+                <a href="/tags/#scholar">scholar</a>
+                
+                <a href="/tags/#academia">academia</a>
+                
+                <a href="/tags/#nba">NBA</a>
+                
+                <a href="/tags/#cool">cool</a>
+                
+                <a href="/tags/#study">study</a>
+                
+                <a href="/tags/#fourier">Fourier</a>
+                
+                <a href="/tags/#signal">signal</a>
+                
+                <a href="/tags/#theorem">theorem</a>
+                
+                <a href="/tags/#trivial">trivial</a>
+                
+                <a href="/tags/#chuapp">chuapp</a>
+                
+                <a href="/tags/#city">city</a>
+                
+                <a href="/tags/#politics">politics</a>
+                
+                <a href="/tags/#data">data</a>
+                
+                <a href="/tags/#tech">tech</a>
+                
+                <a href="/tags/#nas">NAS</a>
+                
+                <a href="/tags/#network">network</a>
+                
+                <a href="/tags/#infrastructure">infrastructure</a>
+                
+                <a href="/tags/#self-esteem">self-esteem</a>
+                
+                <a href="/tags/#confidence">confidence</a>
+                
+                <a href="/tags/#mental">mental</a>
+                
+                <a href="/tags/#value">value</a>
+                
+                <a href="/tags/#property">property</a>
+                
+                <a href="/tags/#fame">fame</a>
+                
+                <a href="/tags/#wechat">wechat</a>
+                
+                <a href="/tags/#crawler">crawler</a>
+                
+                <a href="/tags/#threading">threading</a>
+                
+                <a href="/tags/#multiprocessing">multiprocessing</a>
+                
+                <a href="/tags/#genuine">genuine</a>
+                
+                <a href="/tags/#adobe">Adobe</a>
+                
+                <a href="/tags/#codec">Codec</a>
+                
+                <a href="/tags/#software">software</a>
+                
+                <a href="/tags/#enlighten">enlighten</a>
+                
+                <a href="/tags/#friends">friends</a>
+                
+                <a href="/tags/#chance">chance</a>
+                
+                <a href="/tags/#choice">choice</a>
+                
+                <a href="/tags/#projectuniv">PROJECTUNIV</a>
+                
+                <a href="/tags/#cpp">cpp</a>
+                
+                <a href="/tags/#visualization">visualization</a>
+                
+                <a href="/tags/#gui">GUI</a>
+                
+                <a href="/tags/#gif">gif</a>
+                
+                <a href="/tags/#remastered">remastered</a>
+                
+                <a href="/tags/#exe">exe</a>
+                
+                <a href="/tags/#emoji">emoji</a>
+                
+                <a href="/tags/#gif">GIF</a>
+                
+                <a href="/tags/#video">video</a>
+                
+                <a href="/tags/#emoticon">emoticon</a>
+                
+                <a href="/tags/#pil">PIL</a>
+                
+                <a href="/tags/#swimming">swimming</a>
+                
+                <a href="/tags/#premiere">Premiere</a>
+                
+                <a href="/tags/#golf">golf</a>
+                
+                <a href="/tags/#gbbb">GBBB</a>
+                
+                <a href="/tags/#beatbox">beatbox</a>
+                
+                <a href="/tags/#loopstation">loopstation</a>
+                
+                <a href="/tags/#photo">photo</a>
+                
+                <a href="/tags/#plugin">plugin</a>
+                
+                <a href="/tags/#ae">AE</a>
+                
+                <a href="/tags/#music">music</a>
+                
+                <a href="/tags/#nature">nature</a>
+                
+                <a href="/tags/#basketball">basketball</a>
+                
+                <a href="/tags/#rdfz">RDFZ</a>
+                
+                <a href="/tags/#world">world</a>
+                
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+        <aside class="widget-wrap widget-toc">
+            <h6 class="widget-title">
+                <span>Table of Contents <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+            <div id="navbar">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#起因">起因</a></li>
+<li class="toc-entry toc-h2"><a href="#思路">思路</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#仿生">仿生</a></li>
+<li class="toc-entry toc-h3"><a href="#模拟点击">模拟点击</a></li>
+<li class="toc-entry toc-h3"><a href="#构造请求">构造请求</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#崩坏">崩坏</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#没有条件创造条件">没有条件？创造条件！</a></li>
+<li class="toc-entry toc-h3"><a href="#从报错信息探求程序逻辑">从报错信息探求程序逻辑</a></li>
+<li class="toc-entry toc-h3"><a href="#死皮赖脸post个form">死皮赖脸POST个form</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#结语">结语</a></li>
+<li class="toc-entry toc-h2"><a href="#参考">参考</a></li>
+</ul>
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+    </div>
+    <!-- END SIDEBAR -->
+</div>
+
+    </div>
+  </div>
+</div>
+<!-- END SINGLE-POST-WRAP -->
+
+
+        </main>
+        <!-- END MAIN -->
+
+        
+<footer>
+  <div class="footer">
+    <div class="container">
+      <div class="text-center">
+        <a href="/blog" class="logo clearfix animsition-link"><img src="/img/sig.svg" width="400" alt="Chen's Sig"></a>
+        <p class="copy">
+          Maintained by <a href="/about/">Chen Ting</a> 
+		  
+        </p>
+        <div class="icon-list">
+          <a href="https://www.linkedin.com/in/ting-chen-402bab122/" target="_blank">
+            <i class="fa fa-fw fa-linkedin"></i>
+          </a>
+          <a href="http://my.hupu.com/17573413/" target="_blank">
+            <i class="fa fa-fw fa-futbol-o"></i>
+          </a>
+          <a href="https://www.douban.com/people/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-book"></i>
+          </a>
+		   <a href="https://www.flickr.com/photos/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-flickr"></i>
+          </a>
+          <a href="https://github.com/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-github"></i>
+          </a>
+		  <a href="/feed.xml" target="_blank">
+            <i class="fa fa-fw fa-rss"></i>
+          </a>
+        </div>
+        <div class="scroll-top">go to top</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END FOOTER -->
+</footer>
+
+      </div>
+      <!-- END CONTENT -->
+    </div>
+    <!-- END ANIMSITION -->
+
+    
+<!-- SCRIPTS -->
+<script src="/assets/js/jquery-1.12.0.min.js"></script>
+<script src="/assets/js/plugins.min.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<!-- CUSTOM SCRIPT -->
+<script src="/assets/js/script.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/js/tether.min.js"></script>
+<script>document.getElementById("CN").href = "http://yo1995.coding.me" + window.location.pathname;</script>
+
+
+<script src="/assets/js/qrcode.js"></script>
+<script>
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: "https://yo1995.github.io/coding/master-of-arithmetic-game/",
+    width: 196,
+    height: 196,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H,
+    useSVG: true
+});
+</script>
+
+
+<!-- 爱心特效 -->
+
+
+
+<script async src="/assets/js/busuanzi.pure.mini.js">
+</script>
+<!--功夫网卡住了script id="dsq-count-scr" src="//yo1995.disqus.com/count.js" async></script-->
+
+
+
+
+
+
+
+<!--script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82518311-1', 'auto');
+  ga('send', 'pageview', {
+  'page': '/coding/master-of-arithmetic-game/',
+  'title': '如何玩坏微信小游戏'
+  });
+
+</script-->
+
+
+  </body>
+
+</html>

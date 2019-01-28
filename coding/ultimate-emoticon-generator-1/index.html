@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html>
+
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="斗图之魂不死！">
+  <meta name="author" content="Chen Ting">
+  <meta name="keywords" content="">
+  <meta name="theme-color" content="#272727">
+
+  <title>终极表情包生成器 - 1</title>
+
+  <link rel="icon" href="/img/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="canonical" href="https://yo1995.github.io/coding/ultimate-emoticon-generator-1/" />
+  <link rel="alternate" type="application/rss+xml" title="Chen's Blog" href="https://yo1995.github.io/feed.xml" />
+  
+  <meta property="og:site_name" content="Chen's Blog" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://yo1995.github.io/coding/ultimate-emoticon-generator-1/" />
+  <meta property="og:title" content="终极表情包生成器 - 1" />
+  <meta property="og:description" content="斗图之魂不死！" />
+  <meta property="og:article:published_time" content="2018-08-06T00:00:00-04:00" />
+  <meta property="og:article:author" content="Chen Ting" />
+
+  <meta property="og:image" content="/images/201808/emoticon-1.gif" />
+  
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <!-- PLUGINS -->
+  <link rel="stylesheet" href="/assets/css/vlthemes.css">
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">	
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  
+  
+  
+
+</head>
+<!-- 180622 - tecent analytics -->
+<script type="text/javascript" src="https://tajs.qq.com/stats?sId=65898920" charset="UTF-8"></script>
+
+
+  <body data-spy="scroll" data-target="#navbar" data-offset="100">
+
+		<!-- FRAMES -->
+		<span class="frame-line top-frame"></span>
+		<span class="frame-line right-frame"></span>
+		<span class="frame-line bottom-frame"></span>
+		<span class="frame-line left-frame"></span>
+
+    <div class="animsition">
+      <div class="content">
+
+        
+<!-- header-fixed / header-scroll-up  -->
+<div class="scroll-indicator fixedheader" style="width"></div>
+<header class="header-wrap header-fixed minimal-menu">
+    <div class="header-inner">
+        <div class="container">
+			
+            <div class="logo">
+                <a href="/blog" class="animsition-link">Ch<span>e</span>n's Blog</a>
+            </div>
+			
+
+            <a href="#" class="menu-toggle desctop-menu">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <a href="#" class="menu-toggle mobile-menu-toggle">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <nav class="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="/" class="animsition-link">
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item-has-children" class="current-menu-item">
+                        <a href="">
+                            <span>Blog</span>
+                        </a>
+						    <ul class="sub-menu">
+								<li>
+									<a href="/blog/" class="animsition-link">
+										<span>Blog Index</span>
+									</a>
+								</li>
+								<li>
+									<a href="/posts/" class="animsition-link">
+										<span>Archives</span>
+									</a>
+								</li>
+								<li>
+									<a href="/categories/" class="animsition-link">
+										<span>Categories</span>
+									</a>
+								</li>
+								<li>
+									<a href="/tags/" class="animsition-link">
+										<span>Tags</span>
+									</a>
+								</li>
+							</ul>
+                    </li>
+
+                    <li>
+                        <a href="/photos/" class="animsition-link">
+                            <span>Photos</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/about/" class="animsition-link">
+                            <span>About</span>
+                        </a>
+                    </li>
+					
+					  <!--li>
+                        <a href="" class="animsition-link" id="CN">
+                            <span>CN</span>
+                        </a>
+                    </li-->
+                </ul>
+            </nav>
+            <!-- END PRIMARY-MENU -->
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <!-- END HEADER-INNER -->
+</header>
+<!-- END HEADER-WRAP -->
+
+
+        
+
+        <main id="main-content">
+          
+          <div class="single-post-wrap clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 content-fixed">
+
+        <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
+          <div class="post-thumb clearfix">
+            
+            <img src="/images/201808/emoticon-1.gif" alt="终极表情包生成器 - 1">
+            
+          </div>
+          
+          <div class="post-content" itemprop="articleBody">
+            <div class="post-date" datetime="2018-08-06T00:00:00-04:00" itemprop="datePublished">
+              Aug 6, 2018
+            </div>
+            <h1 class="post-title" itemprop="name headline">终极表情包生成器 - 1</h1>
+            <div class="content-color">
+            
+            <h2 id="缘起">
+<a id="缘起" class="anchor" href="#%E7%BC%98%E8%B5%B7" aria-hidden="true"><span class="octicon octicon-link"></span></a>缘起</h2>
+
+<p>说起斗图，自己也算身经百战了。初中贴吧方兴未艾之时，我也曾干过天天爬楼收图分类重命名的蠢事儿。现在想来，毫无意义且浪费了大把宝贵的时间。随着年龄增长，对斗图的兴趣变淡了<del>斗不过小伙子了</del>，因而也就慢慢退出了江湖。</p>
+
+<p>然而，微信的兴起再次点燃了斗图魂！瞬息万变的局势，对手难以预测的招数，语义情感分析的烧脑与反攻裉节儿的酣畅淋漓，都让人欲罢不能。为了更好的斗图，在“表情君”等公众号还未出现前，自己就曾制作了个极为简陋的文字表情包生成器。大概是2014年，自从开始大量发文字表情包之后，各类表情公众号也如雨后春笋般接连生根发芽。也不知道我制作的表情是否在其中起到了推波助澜的作用……</p>
+
+<p><img src="/images/201808/bedstand.jpg" alt="grass 🤦‍"></p>
+
+<p>之后便是亚洲微笑三巨头和学友熊猫人统治的时代了。随着微信表情平台的开放，斗图的选择多了很多，最初的9GAG和千压绿图熊猫人的风格和质量差强人意，自然退居二线。加之同学多喜爱萌贱类表情，像神经蛙、颜团子、蛋黄猫等表情逐渐占据上风。自从微信可以直接搜索表情后，发自制表情的机会越来越少了。除非是真的在乎，想要摆开架势斗上一斗的好友，否则难得花费时间和精力去做表情了。就像最近正火的skr和diss track一般，无非是看得起才会绞尽脑汁相互调戏。15到17年做过的精品表情屈指可数，每一个表情背后都能讲出故事。</p>
+
+<p>什么时候有了总结斗图生涯的想法呢？大概是换了电脑又不想再装UIead GIF Animator的时候产生的。GIF89a从诞生至今已逾20年，web2.0时代却依旧在依赖如此古拙的格式，实属特别。自从开始写一点代码以来，自己逐渐开始用视频取代GIF，一段h264/mp4或webm无论呈现效果、文件大小还是兼容性都优于古老的GIF，为何还要折腾自己呢？这样的想法愈发强烈，直到17年年底达到最盛：我要用一个终极表情包生成器，来为我的web1.0斗图岁月画上圆满句号。</p>
+
+<h2 id="起手">
+<a id="起手" class="anchor" href="#%E8%B5%B7%E6%89%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>起手</h2>
+
+<p>最初是想花几天时间集中编写，制作为一个作品的。但由于手腕摔断了一下子打乱了计划，便搁置了。直到再一次因为不想面对现实的压力和趣味性的缺乏，才捡起来这个想法。</p>
+
+<p>最初是想开发C#的GUI程序，或是web based服务，可能会用到opencv，输出为可选的各种主流格式，添加apng支持等等。同时，当时看到了某些人脸识别企业搞出来的动态人脸熊猫人，感觉这种骚操作也应该模仿一下，同样加入了开发列表中。</p>
+
+<h2 id="最初设计">
+<a id="最初设计" class="anchor" href="#%E6%9C%80%E5%88%9D%E8%AE%BE%E8%AE%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>最初设计</h2>
+
+<p>这里把最初的想法随便一贴，就当回顾啦。</p>
+
+<h3 id="第一步">
+<a id="第一步" class="anchor" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>第一步</h3>
+
+<p>将图片/视频文件拖拽到程序图标/主窗口上，获取文件路径</p>
+
+<h3 id="第二步1若为图片则自动识别图片格式">
+<a id="第二步1若为图片则自动识别图片格式" class="anchor" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A51%E8%8B%A5%E4%B8%BA%E5%9B%BE%E7%89%87%E5%88%99%E8%87%AA%E5%8A%A8%E8%AF%86%E5%88%AB%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>第二步1：若为图片，则自动识别图片格式</h3>
+
+<ul>
+  <li>jpg文件转化为RGB矩阵</li>
+  <li>png转化为RGBA</li>
+  <li>tiff转化为RGBA</li>
+  <li>GIF转化为RGB</li>
+</ul>
+
+<h3 id="第二步2若为视频则调用相关解码器进行解码并">
+<a id="第二步2若为视频则调用相关解码器进行解码并" class="anchor" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A52%E8%8B%A5%E4%B8%BA%E8%A7%86%E9%A2%91%E5%88%99%E8%B0%83%E7%94%A8%E7%9B%B8%E5%85%B3%E8%A7%A3%E7%A0%81%E5%99%A8%E8%BF%9B%E8%A1%8C%E8%A7%A3%E7%A0%81%E5%B9%B6" aria-hidden="true"><span class="octicon octicon-link"></span></a>第二步2：若为视频，则调用相关解码器进行解码，并</h3>
+
+<ul>
+  <li>简单模式：输入图片、视频，20容差匹配全序列/第一帧中最大色块，输出默认gif图像</li>
+  <li>黑白边框模式：先裁剪图片至最小非匹配色度边缘，然后使用非连续色度</li>
+  <li>gif去底色</li>
+  <li>图像序列转表情包模式：输入图像序列（Windows默认遍历序列/按编号拖拽改变序列排序），转为默认gif动图</li>
+  <li>高级转换模式：选取选定帧需替换的色度，替换为透明背景，并选择是否裁切至合适范围，转为自定义gif动图，可更改色阶和抖动以减小大小（输出文件大小估计：关键帧预渲染平均估计文件大小）</li>
+  <li>高级转换模式2：涂抹选定中心可匹配区域，非匹配区域内的直接置空，匹配区域内使用简单模式</li>
+  <li>文字表情包模式：输入文字序列，转化为默认黑体文字表情包gif静态图</li>
+  <li>高级文字模式：卡通文字模板/可选字体/可选特效（视频/flash/gif素材），覆叠在文字图层上；文字运动特效 - 加入正弦波动，下落，浮现等类似ppt特效的预置选项，或按帧数的函数运动轨迹</li>
+  <li>面部识别模式：停止你的性幻想</li>
+</ul>
+
+<h3 id="第三步子模块">
+<a id="第三步子模块" class="anchor" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%E5%AD%90%E6%A8%A1%E5%9D%97" aria-hidden="true"><span class="octicon octicon-link"></span></a>第三步子模块</h3>
+
+<p>色度键处理，快速选择背景色并去除</p>
+
+<p>动态图加2px白边抑制抖动</p>
+
+<h3 id="第四步-保存文件">
+<a id="第四步-保存文件" class="anchor" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6" aria-hidden="true"><span class="octicon octicon-link"></span></a>第四步 保存文件</h3>
+
+<p>图片直接保存成gif透明度文件，后续可以选择GIF优化算法
+视频保存成png然后FFmpeg合成为webm/webp/apng/gif/MP4 h264</p>
+
+<h3 id="其他">
+<a id="其他" class="anchor" href="#%E5%85%B6%E4%BB%96" aria-hidden="true"><span class="octicon octicon-link"></span></a>其他</h3>
+
+<p>限制gif输出帧数/限制gif文件大小，后期加抖动和劣化为可发送的表情/768kb/限制图片尺寸：1000*1000最大/自动裁切至最小边框宽度/加文字/加动态文字/拖拽上传 实现/svg一键制作压缩功能/</p>
+
+<h2 id="实现">
+<a id="实现" class="anchor" href="#%E5%AE%9E%E7%8E%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>实现</h2>
+
+<p>参考<a href="https://github.com/yo1995/Ultimate-emoticon-generator/tree/master/Animoji-to-GIF">repo</a>中的描述。基本是按照上面的想法目录实现的，只不过为了快点得到结果简化了一些步骤。得到的一些结果可以参考results和outputs中的图像。</p>
+
+<h3 id="关于各种动态图像格式">
+<a id="关于各种动态图像格式" class="anchor" href="#%E5%85%B3%E4%BA%8E%E5%90%84%E7%A7%8D%E5%8A%A8%E6%80%81%E5%9B%BE%E5%83%8F%E6%A0%BC%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>关于各种动态图像格式</h3>
+
+<p><a href="https://blog.ibireme.com/2015/11/02/mobile_image_benchmark/">移动端图片格式调研</a></p>
+
+<p>本想自己写一个动态图像对比的情况的，但看了上面的链接，自觉没有博主了解那么深入，索性贴上链接再补充一两句。</p>
+
+<p><img src="/images/201808/gif-internals.png" alt="GIF89a"></p>
+
+<p>GIF的最大优势，在于需要极小文件体积的时候它真的能做到很小。譬如各种计算机算法的图形化展示——排序算法、涂色算法、二叉树、迷宫算法等等。它们的特点是仅需要少于8个颜色，甚至4个颜色即可说明问题，而动态本身的意义是体现变化趋势而非呈现图像效果。正如本repo中迷宫生成的子repo，GIF完全可以自己控制输出流从而达到极小的输出体积。由于GIF标准里没有冗长的元数据头部或是复杂的映射关系，在小尺寸动画中存在一定优势。同样地，APNG在这些方面也具有与GIF相似的优势。</p>
+
+<p>而webp则更像是webm，或是h264/mp4的简化版。NBA动图、明星表情包、搞笑短视频才是它们的天下。实际上，我觉得动态图本该归为两个阵营：animated graph/diagram 和 short video clip.前者用静态图像压缩算法辅以各种像素映射关系的优化，后者用视频压缩算法辅以关键帧的优化。通用编码一般都会造成无法达到最优的质量体积比。</p>
+
+<p>对于简笔画型的表情包而言，自然是偏向静态图片的一类编码格式更为适宜。当然，凭借谷歌的实力，未来图像格式究竟鹿死谁手还不好说。就算有一天GIF寿终正寝，在互联网的当下，大概我们仍旧看不到1995年的PNG格式走向终结了。</p>
+
+<h3 id="论熊猫人为何在web20时代凭借gif成功">
+<a id="论熊猫人为何在web20时代凭借gif成功" class="anchor" href="#%E8%AE%BA%E7%86%8A%E7%8C%AB%E4%BA%BA%E4%B8%BA%E4%BD%95%E5%9C%A8web20%E6%97%B6%E4%BB%A3%E5%87%AD%E5%80%9Fgif%E6%88%90%E5%8A%9F" aria-hidden="true"><span class="octicon octicon-link"></span></a>论熊猫人为何在web2.0时代凭借GIF成功</h3>
+
+<ul>
+  <li>
+    <p>颜色少：体积小，与GIF相辅相成</p>
+  </li>
+  <li>
+    <p>对比强：抓人眼球，毋需思考</p>
+  </li>
+  <li>
+    <p>客制化自由度高：甚至用画图都能随便撸出一个表达自己心情的表情</p>
+  </li>
+</ul>
+
+<h2 id="总结">
+<a id="总结" class="anchor" href="#%E6%80%BB%E7%BB%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结</h2>
+
+<p>有时候编程会沉浸在自己的想象中，充耳不闻天下事。像苹果，早已抛弃GIF转投APNG的怀抱，而腾讯阿里等则多管齐下webp，BGP，GIF一把抓。或许只有如我这样裹足不前的古董才会偏执地纠结于那个属于黄金时代的过往辉煌吧。</p>
+
+<h2 id="开发随记">
+<a id="开发随记" class="anchor" href="#%E5%BC%80%E5%8F%91%E9%9A%8F%E8%AE%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>开发随记</h2>
+
+<p>以下为开发过程中简单记录内容</p>
+
+<h3 id="pyqt-安装与配置">
+<a id="pyqt-安装与配置" class="anchor" href="#pyqt-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE" aria-hidden="true"><span class="octicon octicon-link"></span></a>PyQt 安装与配置</h3>
+
+<ol>
+  <li>
+    <p>打开PyCharm，设置，解释器，添加新的依赖库</p>
+
+    <p>pip install pyqt5
+ pip install pyqt5-tools</p>
+  </li>
+</ol>
+
+<p>其中第一个是PyQt的总库，<a href="https://github.com/altendky/pyqt5-tools">第二个</a>包含了对QtDesigner的配置。</p>
+
+<ol>
+  <li>
+    <p>在PyCharm中配置external tools以实现界面编辑，程序路径为</p>
+
+    <p>Program: C:\Program Files\Python36\Lib\site-packages\pyqt5-tools\designer.exe
+ Working Directory: $ProjectFileDir$</p>
+  </li>
+  <li>
+    <p>设置Qt .ui界面文件转换为.py文件的命令 PyUICon</p>
+
+    <p>Program: C:\Program Files\Python36\python.exe
+ Parameters: -m PyQt5.uic.pyuic $ProjectFileDir$$FileName$ -o $ProjectFileDir$$FileNameWithoutExtension$.py</p>
+
+    <p>注：我的习惯是把文件全扔在项目文件夹的根目录下。可根据个人喜好自行定制上面的命令。</p>
+  </li>
+</ol>
+
+<p>每次绘制界面并保存为.ui文件后手动执行PyUICon即可，并在.py文件中import对应界面</p>
+
+<h3 id="tqdm">
+<a id="tqdm" class="anchor" href="#tqdm" aria-hidden="true"><span class="octicon octicon-link"></span></a>tqdm</h3>
+
+<p>一个轻量化的命令行进度条，可以插入运行较慢的程序</p>
+
+<h3 id="grayconnectedfloodfill">
+<a id="grayconnectedfloodfill" class="anchor" href="#grayconnectedfloodfill" aria-hidden="true"><span class="octicon octicon-link"></span></a>grayconnected/floodfill</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">color_diff</span><span class="p">(</span><span class="n">rgba1</span><span class="p">,</span> <span class="n">rgba2</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">rgba1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">rgba2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rgba1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">rgba2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rgba1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">rgba2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rgba1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">rgba2</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">euc_length</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rgba1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">rgba2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rgba1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">rgba2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rgba1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">rgba2</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rgba1</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">-</span><span class="n">rgba2</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+    <span class="k">except</span> <span class="nb">IndexError</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">euc_length</span>
+
+<span class="k">def</span> <span class="nf">flood_fill</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">xy</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">pixel</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">xy</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">background</span> <span class="o">=</span> <span class="n">pixel</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">color_diff</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">thresh</span><span class="p">:</span>
+            <span class="k">return</span>  <span class="c"># seed point already has fill color</span>
+        <span class="n">pixel</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">except</span> <span class="p">(</span><span class="nb">ValueError</span><span class="p">,</span> <span class="nb">IndexError</span><span class="p">):</span>
+        <span class="k">return</span>  <span class="c"># seed point outside image</span>
+    <span class="n">edge</span> <span class="o">=</span> <span class="p">{(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)}</span>
+    <span class="n">full_edge</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">edge</span><span class="p">:</span>
+        <span class="n">new_edge</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">:</span>  <span class="c"># 4 adjacent method</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="n">full_edge</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">p</span> <span class="o">=</span> <span class="n">pixel</span><span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span>
+                <span class="k">except</span> <span class="nb">IndexError</span><span class="p">:</span>
+                    <span class="k">pass</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">color_diff</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">thresh</span><span class="p">:</span>
+                        <span class="n">pixel</span><span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+                        <span class="n">new_edge</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+                        <span class="n">full_edge</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+        <span class="n">edge</span> <span class="o">=</span> <span class="n">new_edge</span>
+</code></pre></div></div>
+
+<p>实现以后发现效率还是有些低，或许是Python本身的限制吧。本想用Cython，但觉得编译的开销抵不上优化出的一点点时间，放弃了。</p>
+
+<h3 id="whats-in-a-gif">
+<a id="whats-in-a-gif" class="anchor" href="#whats-in-a-gif" aria-hidden="true"><span class="octicon octicon-link"></span></a>what’s in a GIF</h3>
+
+<p>http://www.matthewflickinger.com/lab/whatsinagif/bits_and_bytes.asp</p>
+
+<p>https://www.jayxon.com/gif-apng-webp/</p>
+
+<h3 id="optimize-transparency">
+<a id="optimize-transparency" class="anchor" href="#optimize-transparency" aria-hidden="true"><span class="octicon octicon-link"></span></a>optimize transparency</h3>
+
+<p>默认支持256色。对于本身色彩数不到256的动态图，如果需要缩减颜色，则需要提供关于透明度下标的设置。</p>
+
+<p>http://www.pythonclub.org/modules/pil/convert-png-gif</p>
+
+<p>use single palette</p>
+
+<h3 id="windows复制路径小贴士">
+<a id="windows复制路径小贴士" class="anchor" href="#windows%E5%A4%8D%E5%88%B6%E8%B7%AF%E5%BE%84%E5%B0%8F%E8%B4%B4%E5%A3%AB" aria-hidden="true"><span class="octicon octicon-link"></span></a>Windows复制路径小贴士</h3>
+
+<ol>
+  <li>
+    <p>按住 SHIFT + 鼠标右键，可以看到多了一项 “复制到路径” 选项。</p>
+  </li>
+  <li>
+    <p>只要点击 “复制到路径”，路径就复制到剪贴板中了, 然后就可以粘贴了。</p>
+  </li>
+</ol>
+
+<h3 id="issues-about-pil-gif-dither-rgb-rgba-p-and-convert">
+<a id="issues-about-pil-gif-dither-rgb-rgba-p-and-convert" class="anchor" href="#issues-about-pil-gif-dither-rgb-rgba-p-and-convert" aria-hidden="true"><span class="octicon octicon-link"></span></a>Issues about PIL GIF dither RGB RGBA P and convert</h3>
+
+<p>每一帧用local palette，如果转为通用的palette，那么有的index原来对应有颜色，现在变成没有颜色了</p>
+
+<p>三步走：</p>
+
+<p>视频</p>
+
+<p>palette相同的GIF</p>
+
+<p>palette变化的GIF</p>
+
+<h3 id="人脸识别clm">
+<a id="人脸识别clm" class="anchor" href="#%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%ABclm" aria-hidden="true"><span class="octicon octicon-link"></span></a>人脸识别：CLM</h3>
+
+<p>人脸三维建模的难点：如何控制模型各个部位随关键点改变。</p>
+
+<p>三维建模：Unity和特征点的映射</p>
+
+<p>三维的缺失：噘嘴</p>
+
+<p>输出成流媒体还是坐标点序列，后期渲染？</p>
+
+<h4 id="animoji-的鼻子也能动">
+<a id="animoji-的鼻子也能动" class="anchor" href="#animoji-%E7%9A%84%E9%BC%BB%E5%AD%90%E4%B9%9F%E8%83%BD%E5%8A%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Animoji 的鼻子也能动……</h4>
+
+<p>除了面部识别还有物理模型……耳朵还能动……这个真的学不来……眼眶肌肉还能动……阿西吧不干了爱谁谁吧！</p>
+
+            
+            </div>
+            
+<div class="entry-tags clearfix">
+
+    <div class="entry-footer clearfix">
+
+        <div class="pull-left">
+            <span>
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/#emoji">emoji</a>
+                
+                <a href="/tags/#gif">GIF</a>
+                
+                <a href="/tags/#coding">coding</a>
+                
+                <a href="/tags/#video">video</a>
+                
+                <a href="/tags/#emoticon">emoticon</a>
+                
+            </span>            
+            <span><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv">0</span> views</span>
+            <span>
+                <i class="fa fa-comments-o"></i>
+                <a href="#comments">GFW comments</a>
+				<!--被墙替换class="disqus-comment-count" data-disqus-identifier="Chen's Blog//coding/ultimate-emoticon-generator-1-->
+            </span>
+            <span>
+                <i class="fa fa-check-square-o"></i><span>5324 words</span>
+            </span>
+            <span>
+                <i class="fa fa-link"></i>
+                <a data-toggle="collapse" href="#share-content" aria-expanded="false" aria-controls="share-content">Share</a>
+        </div>
+        <div class="pull-right collapse in" id="share-content">
+            
+<div class="entry-share-links">
+
+    <div class="btn-group" role="group" aria-label="Share">
+        <button type="button" class="btn btn-default btn-sm btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="http://www.facebook.com/sharer.php?u=https://yo1995.github.io/coding/ultimate-emoticon-generator-1/" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></button>
+        
+        <button type="button" class="btn btn-default btn-sm btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="https://twitter.com/share?url=https://yo1995.github.io/coding/ultimate-emoticon-generator-1/&amp;text=终极表情包生成器 - 1" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-weibo" data-toggle="tooltip" data-placement="top" title="新浪微博"><a href="http://service.weibo.com/share/share.php?url=https://yo1995.github.io/coding/ultimate-emoticon-generator-1/&title=分享%4011L23+的文章「终极表情包生成器 - 1」&content=斗图之魂不死！&pic=https://yo1995.github.io/images/201808/emoticon-1.gif" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-douban" data-toggle="tooltip" data-placement="top" title="豆瓣"><a href="https://www.douban.com/share/service?name=终极表情包生成器 - 1&href=https://yo1995.github.io/coding/ultimate-emoticon-generator-1/&image=https://yo1995.github.io/images/201808/emoticon-1.gif&url=https://yo1995.github.io/coding/ultimate-emoticon-generator-1/&title=终极表情包生成器 - 1" target="_blank"><i class="fa fa-fw">豆</i></a></button>
+
+        <a tabindex="0" class="btn btn-sm btn-weixin" role="button" data-trigger="hover" data-placement="top" id="qrcode-btn"><i class="fa fa-fw fa-weixin"></i></a>
+
+        <div id="qrcode-content" class="qrcode-hidden"><div id="qrcode"></div></div>
+        <div id="qrcode-title" class="qrcode-hidden">Scan to Read</div>
+		
+		<button type="button" class="btn btn-default btn-sm btn-email"><a href="mailto:?Subject=终极表情包生成器 - 1&amp;Body=斗图之魂不死！%20https://yo1995.github.io/coding/ultimate-emoticon-generator-1/"><i class="fa fa-fw fa-envelope-o"></i> Email</a></button>
+
+        <div class="btn-group btn-group-justified dropup" role="group">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle btn-more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-share-alt"></i><span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-google"><a href="https://plus.google.com/share?url=https://yo1995.github.io/coding/ultimate-emoticon-generator-1/" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google Plus</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://yo1995.github.io/coding/ultimate-emoticon-generator-1/" target="_blank"><i class="fa fa-fw fa-linkedin"></i> Linkedin</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-digg"><a href="http://www.digg.com/submit?url=https://yo1995.github.io/coding/ultimate-emoticon-generator-1/" target="_blank"><i class="fa fa-fw fa-digg"></i> Digg</a></button></li>
+
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-pinterest"><a href="https://pinterest.com/pin/create/bookmarklet/?media=https://yo1995.github.io/images/201808/emoticon-1.gif&url=https://yo1995.github.io/coding/ultimate-emoticon-generator-1/&description=终极表情包生成器 - 1" target="_blank"><i class="fa fa-fw fa-pinterest-p"></i> Pinterest</a></button></li>
+                 
+                 
+
+                <li><button type="button" class="btn btn-default btn-sm btn-reddit"><a href="http://reddit.com/submit?url=https://yo1995.github.io/coding/ultimate-emoticon-generator-1/&amp;title=终极表情包生成器 - 1" target="_blank"><i class="fa fa-fw fa-reddit-alien"></i> Reddit</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-tumblr"><a href="http://www.tumblr.com/share/link?url=https://yo1995.github.io/coding/ultimate-emoticon-generator-1/&amp;title=终极表情包生成器 - 1" target="_blank"><i class="fa fa-fw fa-tumblr"></i> Tumblr</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-print"><a href="javascript:;" onclick="window.print()"><i class="fa fa-fw fa-print"></i> Print</a></button></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+        </div>
+    </div>  
+
+</div>
+
+          </div>
+        </article>
+        <!-- END SINGLE-POST -->
+
+        
+<div class="post-navigation clearfix">
+    <div class="row">
+
+        <div class="col-xs-6">
+            <div class="previous-post">
+                <div class="arrow">
+                    <i class="fa fa-angle-double-left"></i>
+                    
+                    <a href="/tools/youget-in-windows/" class="animsition-link" data-hover-text="Prev: Windows 下运行 you-get 获取视频">Prev: Windows 下运行 you-get 获取视频</a>
+                    
+                </div>
+
+            </div>
+            <!-- END PREVIOUS-POST -->
+        </div>
+        <div class="col-xs-6">
+            <div class="next-post">
+                <div class="arrow">
+                    
+                    <a href="/coding/ultimate-emoticon-generator-2/" class="animsition-link" data-hover-text="Next: 终极表情包生成器 - 2">Next: 终极表情包生成器 - 2</a>
+                    
+                    <i class="fa fa-angle-double-right"></i>
+                </div>
+
+            </div>
+            <!-- END NEXT-POST -->
+        </div>
+    </div>
+</div>
+<!-- END POST-NAVIGATION -->
+		<!-- 180726 add multi author support -->
+		 
+			<div class="author-info clearfix">
+    <div class="author-avatar">
+        <img class="avatar" src="/img/avatar.png" alt="Chen Ting">
+    </div>
+
+    <div class="author-description">
+        <h4 class="author-title">
+            <a href="/about/">Chen Ting <i class="fa fa-link"></i></a>
+        </h4>
+        <p class="author-bio">
+            The page aims to exhibit several activities & achievements which the author engaged in during his undergraduate & graduate period. Meanwhile, other aspects such as lifestyles, literary work, travel notes, etc. would interweave in the narration.
+        </p>
+    </div>
+	<!-- add busaunzi to see how many views and reads happens to my page. addition to tecent -->
+	<script async src="/assets/js/busuanzi.pure.mini.js"></script>
+</div>
+<!-- END AUTHOR-INFO -->
+		 
+		 
+        
+
+<div class="comments-area clearfix">
+    <div class="comment-respond">
+		<h4 class="comment-reply-title" id="comments">Leave a Comment</h4>
+		<div class="disqus-placeholder alert alert-info" style="text-align: center">
+			<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Disqus might be GFW-ed. Excited!
+		</div>
+		<script src="/assets/js/disqusloader.js"></script>
+		<div class="disqus"></div>
+		<!--
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+        this.page.url = "https://yo1995.github.io/coding/ultimate-emoticon-generator-1/";
+        this.page.identifier = "Chen's Blog//coding/ultimate-emoticon-generator-1";
+        this.page.title = "终极表情包生成器 - 1";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//yo1995.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+		-->
+		<script>disqusLoader( '.disqus', { 
+			scriptUrl: '//yo1995.disqus.com/embed.js',
+			disqusConfig: function(){
+				this.callbacks.onReady = [function(){
+				var el = document.querySelector( '.disqus-placeholder' );
+				if( el.classList )
+					el.classList.add( 'is-hidden' ); // IE 10+
+				else
+					el.className += ' ' + 'is-hidden'; // IE 8-9
+				}];}
+			});
+		</script>
+       <noscript>Please conquer the GFW or enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+<!-- END COMMENTS-AREA -->
+
+
+      </div>
+
+      <div class="col-md-4 sidebar-fixed">
+    <div class="sidebar">
+        <aside class="widget-wrap widget-search">
+            <h6 class="widget-title">
+                <span>Search for a topic?</span>
+            </h6>
+			<div onclick="keyinsearch()" class="search-form text-center" id="search-container">
+				<input type="text" id="search-input" placeholder="search...">
+				<i class="fa fa-search"></i>
+				<ul id="results-container" style="list-style:square"></ul>
+			</div>
+			<!-- 180206 - update -->
+<script src="/assets/js/jekyll-search.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  function keyinsearch () {
+  SimpleJekyllSearch({
+	searchInput: document.getElementById('search-input'),
+	resultsContainer: document.getElementById('results-container'),
+	json: '/search.json',
+	searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+	noResultsText: '无结果',
+	limit: 5,
+	fuzzy: false
+  });
+  }
+</script>
+
+
+<!-- 暂时还没想好cache怎么改写，目前每次请求都是200 ！= = 不够chrome貌似是直接从本地磁盘加载的 -->
+<!--
+<form class="search-form" action="/search/" target="_blank" method="get">
+	<input type="text" placeholder="Search..." name="q">
+	<i class="fa fa-search"></i>
+</form>
+-->
+
+        </aside>
+        <!-- END WIDGET-WRAP -->		
+        <aside class="widget-wrap widget-categories">
+            <h6 class="widget-title">
+                <span>Categories</span>
+            </h6>
+            <ul>
+				
+				
+                <li><a href="/categories/#coding">Coding</a></li>
+                
+                <li><a href="/categories/#ee">EE</a></li>
+                
+                <li><a href="/categories/#games">Games</a></li>
+                
+                <li><a href="/categories/#html">Html</a></li>
+                
+                <li><a href="/categories/#life">Life</a></li>
+                
+                <li><a href="/categories/#movie">Movie</a></li>
+                
+                <li><a href="/categories/#physics">Physics</a></li>
+                
+                <li><a href="/categories/#reading">Reading</a></li>
+                
+                <li><a href="/categories/#school">School</a></li>
+                
+                <li><a href="/categories/#tools">Tools</a></li>
+                
+                <li><a href="/categories/#video">Video</a></li>
+                
+            </ul>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-recent-posts">
+            <h6 class="widget-title">
+                <span>Related Posts</span>
+            </h6>
+            <ul class="recent-posts">
+            
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/Wox-plugin-Emoji/">
+                                <img src="/images/201809/like.gif" alt="Windows快速搜索Emoji小工具">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/Wox-plugin-Emoji/">Windows快速搜索Emoji小工具</a>
+                            <span>2018/09/29</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/video/GBBB-highlight-1/">
+                                <img src="/images/201809/sbx.jpg" alt="GBBB - My favs">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/video/GBBB-highlight-1/">GBBB - My favs</a>
+                            <span>2018/09/05</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/video/volumax-notes/">
+                                <img src="/images/201808/Preview_Volumax_VPro.jpg" alt="VoluMax 小记">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/video/volumax-notes/">VoluMax 小记</a>
+                            <span>2018/08/23</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                    
+
+                
+                                   
+            </ul>
+
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-tag">
+            <h6 class="widget-title">
+                <span>Tags Widget <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+
+            <div class="tag-cloud">
+                
+                <a href="/tags/#df">DF</a>
+                
+                <a href="/tags/#production">production</a>
+                
+                <a href="/tags/#education">education</a>
+                
+                <a href="/tags/#lifestyle">lifestyle</a>
+                
+                <a href="/tags/#volunteer">volunteer</a>
+                
+                <a href="/tags/#physics">physics</a>
+                
+                <a href="/tags/#lectures">lectures</a>
+                
+                <a href="/tags/#school">school</a>
+                
+                <a href="/tags/#football">football</a>
+                
+                <a href="/tags/#sports">sports</a>
+                
+                <a href="/tags/#movie">movie</a>
+                
+                <a href="/tags/#tv">TV</a>
+                
+                <a href="/tags/#life">life</a>
+                
+                <a href="/tags/#diversity">diversity</a>
+                
+                <a href="/tags/#arts">arts</a>
+                
+                <a href="/tags/#c#">C#</a>
+                
+                <a href="/tags/#innovation">innovation</a>
+                
+                <a href="/tags/#contest">contest</a>
+                
+                <a href="/tags/#project">project</a>
+                
+                <a href="/tags/#fpga">FPGA</a>
+                
+                <a href="/tags/#vlc">VLC</a>
+                
+                <a href="/tags/#blog">blog</a>
+                
+                <a href="/tags/#impact-factors">Impact Factors</a>
+                
+                <a href="/tags/#helloworld">helloworld</a>
+                
+                <a href="/tags/#jekyll">jekyll</a>
+                
+                <a href="/tags/#html">html</a>
+                
+                <a href="/tags/#css">css</a>
+                
+                <a href="/tags/#github">github</a>
+                
+                <a href="/tags/#js">js</a>
+                
+                <a href="/tags/#hexo">hexo</a>
+                
+                <a href="/tags/#semiconductor">semiconductor</a>
+                
+                <a href="/tags/#experiments">experiments</a>
+                
+                <a href="/tags/#python">Python</a>
+                
+                <a href="/tags/#image">image</a>
+                
+                <a href="/tags/#code">code</a>
+                
+                <a href="/tags/#gfw">GFW</a>
+                
+                <a href="/tags/#git">Git</a>
+                
+                <a href="/tags/#windows">Windows</a>
+                
+                <a href="/tags/#tools">tools</a>
+                
+                <a href="/tags/#shell">shell</a>
+                
+                <a href="/tags/#scripts">scripts</a>
+                
+                <a href="/tags/#thu">THU</a>
+                
+                <a href="/tags/#liquid">liquid</a>
+                
+                <a href="/tags/#coding">coding</a>
+                
+                <a href="/tags/#latex">LaTeX</a>
+                
+                <a href="/tags/#basic">basic</a>
+                
+                <a href="/tags/#review">review</a>
+                
+                <a href="/tags/#games">games</a>
+                
+                <a href="/tags/#roguelike">roguelike</a>
+                
+                <a href="/tags/#matlab">MATLAB</a>
+                
+                <a href="/tags/#chaos">chaos</a>
+                
+                <a href="/tags/#simulation">simulation</a>
+                
+                <a href="/tags/#camping">camping</a>
+                
+                <a href="/tags/#phd">PhD</a>
+                
+                <a href="/tags/#philosophy">philosophy</a>
+                
+                <a href="/tags/#reading">reading</a>
+                
+                <a href="/tags/#optics">optics</a>
+                
+                <a href="/tags/#year">year</a>
+                
+                <a href="/tags/#dream">dream</a>
+                
+                <a href="/tags/#girls">girls</a>
+                
+                <a href="/tags/#circuit">circuit</a>
+                
+                <a href="/tags/#electronics">electronics</a>
+                
+                <a href="/tags/#memory">memory</a>
+                
+                <a href="/tags/#france">France</a>
+                
+                <a href="/tags/#ingenieur">ingenieur</a>
+                
+                <a href="/tags/#bbs">bbs</a>
+                
+                <a href="/tags/#history">history</a>
+                
+                <a href="/tags/#byr">byr</a>
+                
+                <a href="/tags/#travel">travel</a>
+                
+                <a href="/tags/#tour">tour</a>
+                
+                <a href="/tags/#future">future</a>
+                
+                <a href="/tags/#graduate">graduate</a>
+                
+                <a href="/tags/#investment">investment</a>
+                
+                <a href="/tags/#love">love</a>
+                
+                <a href="/tags/#laptop">laptop</a>
+                
+                <a href="/tags/#mac">Mac</a>
+                
+                <a href="/tags/#hackintosh">hackintosh</a>
+                
+                <a href="/tags/#foudre">foudre</a>
+                
+                <a href="/tags/#law">law</a>
+                
+                <a href="/tags/#juven">juven</a>
+                
+                <a href="/tags/#ramen">ramen</a>
+                
+                <a href="/tags/#industry">industry</a>
+                
+                <a href="/tags/#alcohol">alcohol</a>
+                
+                <a href="/tags/#bar">bar</a>
+                
+                <a href="/tags/#confession">confession</a>
+                
+                <a href="/tags/#postdoc">postdoc</a>
+                
+                <a href="/tags/#nyu">NYU</a>
+                
+                <a href="/tags/#hahn">Hahn</a>
+                
+                <a href="/tags/#scholar">scholar</a>
+                
+                <a href="/tags/#academia">academia</a>
+                
+                <a href="/tags/#nba">NBA</a>
+                
+                <a href="/tags/#cool">cool</a>
+                
+                <a href="/tags/#study">study</a>
+                
+                <a href="/tags/#fourier">Fourier</a>
+                
+                <a href="/tags/#signal">signal</a>
+                
+                <a href="/tags/#theorem">theorem</a>
+                
+                <a href="/tags/#trivial">trivial</a>
+                
+                <a href="/tags/#chuapp">chuapp</a>
+                
+                <a href="/tags/#city">city</a>
+                
+                <a href="/tags/#politics">politics</a>
+                
+                <a href="/tags/#data">data</a>
+                
+                <a href="/tags/#tech">tech</a>
+                
+                <a href="/tags/#nas">NAS</a>
+                
+                <a href="/tags/#network">network</a>
+                
+                <a href="/tags/#infrastructure">infrastructure</a>
+                
+                <a href="/tags/#self-esteem">self-esteem</a>
+                
+                <a href="/tags/#confidence">confidence</a>
+                
+                <a href="/tags/#mental">mental</a>
+                
+                <a href="/tags/#value">value</a>
+                
+                <a href="/tags/#property">property</a>
+                
+                <a href="/tags/#fame">fame</a>
+                
+                <a href="/tags/#wechat">wechat</a>
+                
+                <a href="/tags/#crawler">crawler</a>
+                
+                <a href="/tags/#threading">threading</a>
+                
+                <a href="/tags/#multiprocessing">multiprocessing</a>
+                
+                <a href="/tags/#genuine">genuine</a>
+                
+                <a href="/tags/#adobe">Adobe</a>
+                
+                <a href="/tags/#codec">Codec</a>
+                
+                <a href="/tags/#software">software</a>
+                
+                <a href="/tags/#enlighten">enlighten</a>
+                
+                <a href="/tags/#friends">friends</a>
+                
+                <a href="/tags/#chance">chance</a>
+                
+                <a href="/tags/#choice">choice</a>
+                
+                <a href="/tags/#projectuniv">PROJECTUNIV</a>
+                
+                <a href="/tags/#cpp">cpp</a>
+                
+                <a href="/tags/#visualization">visualization</a>
+                
+                <a href="/tags/#gui">GUI</a>
+                
+                <a href="/tags/#gif">gif</a>
+                
+                <a href="/tags/#remastered">remastered</a>
+                
+                <a href="/tags/#exe">exe</a>
+                
+                <a href="/tags/#emoji">emoji</a>
+                
+                <a href="/tags/#gif">GIF</a>
+                
+                <a href="/tags/#video">video</a>
+                
+                <a href="/tags/#emoticon">emoticon</a>
+                
+                <a href="/tags/#pil">PIL</a>
+                
+                <a href="/tags/#swimming">swimming</a>
+                
+                <a href="/tags/#premiere">Premiere</a>
+                
+                <a href="/tags/#golf">golf</a>
+                
+                <a href="/tags/#gbbb">GBBB</a>
+                
+                <a href="/tags/#beatbox">beatbox</a>
+                
+                <a href="/tags/#loopstation">loopstation</a>
+                
+                <a href="/tags/#photo">photo</a>
+                
+                <a href="/tags/#plugin">plugin</a>
+                
+                <a href="/tags/#ae">AE</a>
+                
+                <a href="/tags/#music">music</a>
+                
+                <a href="/tags/#nature">nature</a>
+                
+                <a href="/tags/#basketball">basketball</a>
+                
+                <a href="/tags/#rdfz">RDFZ</a>
+                
+                <a href="/tags/#world">world</a>
+                
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+        <aside class="widget-wrap widget-toc">
+            <h6 class="widget-title">
+                <span>Table of Contents <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+            <div id="navbar">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#缘起">缘起</a></li>
+<li class="toc-entry toc-h2"><a href="#起手">起手</a></li>
+<li class="toc-entry toc-h2"><a href="#最初设计">最初设计</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#第一步">第一步</a></li>
+<li class="toc-entry toc-h3"><a href="#第二步1若为图片则自动识别图片格式">第二步1：若为图片，则自动识别图片格式</a></li>
+<li class="toc-entry toc-h3"><a href="#第二步2若为视频则调用相关解码器进行解码并">第二步2：若为视频，则调用相关解码器进行解码，并</a></li>
+<li class="toc-entry toc-h3"><a href="#第三步子模块">第三步子模块</a></li>
+<li class="toc-entry toc-h3"><a href="#第四步-保存文件">第四步 保存文件</a></li>
+<li class="toc-entry toc-h3"><a href="#其他">其他</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#实现">实现</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#关于各种动态图像格式">关于各种动态图像格式</a></li>
+<li class="toc-entry toc-h3"><a href="#论熊猫人为何在web20时代凭借gif成功">论熊猫人为何在web2.0时代凭借GIF成功</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#总结">总结</a></li>
+<li class="toc-entry toc-h2"><a href="#开发随记">开发随记</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#pyqt-安装与配置">PyQt 安装与配置</a></li>
+<li class="toc-entry toc-h3"><a href="#tqdm">tqdm</a></li>
+<li class="toc-entry toc-h3"><a href="#grayconnectedfloodfill">grayconnected/floodfill</a></li>
+<li class="toc-entry toc-h3"><a href="#whats-in-a-gif">what’s in a GIF</a></li>
+<li class="toc-entry toc-h3"><a href="#optimize-transparency">optimize transparency</a></li>
+<li class="toc-entry toc-h3"><a href="#windows复制路径小贴士">Windows复制路径小贴士</a></li>
+<li class="toc-entry toc-h3"><a href="#issues-about-pil-gif-dither-rgb-rgba-p-and-convert">Issues about PIL GIF dither RGB RGBA P and convert</a></li>
+<li class="toc-entry toc-h3"><a href="#人脸识别clm">人脸识别：CLM</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#animoji-的鼻子也能动">Animoji 的鼻子也能动……</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+    </div>
+    <!-- END SIDEBAR -->
+</div>
+
+    </div>
+  </div>
+</div>
+<!-- END SINGLE-POST-WRAP -->
+
+
+        </main>
+        <!-- END MAIN -->
+
+        
+<footer>
+  <div class="footer">
+    <div class="container">
+      <div class="text-center">
+        <a href="/blog" class="logo clearfix animsition-link"><img src="/img/sig.svg" width="400" alt="Chen's Sig"></a>
+        <p class="copy">
+          Maintained by <a href="/about/">Chen Ting</a> 
+		  
+        </p>
+        <div class="icon-list">
+          <a href="https://www.linkedin.com/in/ting-chen-402bab122/" target="_blank">
+            <i class="fa fa-fw fa-linkedin"></i>
+          </a>
+          <a href="http://my.hupu.com/17573413/" target="_blank">
+            <i class="fa fa-fw fa-futbol-o"></i>
+          </a>
+          <a href="https://www.douban.com/people/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-book"></i>
+          </a>
+		   <a href="https://www.flickr.com/photos/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-flickr"></i>
+          </a>
+          <a href="https://github.com/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-github"></i>
+          </a>
+		  <a href="/feed.xml" target="_blank">
+            <i class="fa fa-fw fa-rss"></i>
+          </a>
+        </div>
+        <div class="scroll-top">go to top</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END FOOTER -->
+</footer>
+
+      </div>
+      <!-- END CONTENT -->
+    </div>
+    <!-- END ANIMSITION -->
+
+    
+<!-- SCRIPTS -->
+<script src="/assets/js/jquery-1.12.0.min.js"></script>
+<script src="/assets/js/plugins.min.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<!-- CUSTOM SCRIPT -->
+<script src="/assets/js/script.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/js/tether.min.js"></script>
+<script>document.getElementById("CN").href = "http://yo1995.coding.me" + window.location.pathname;</script>
+
+
+<script src="/assets/js/qrcode.js"></script>
+<script>
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: "https://yo1995.github.io/coding/ultimate-emoticon-generator-1/",
+    width: 196,
+    height: 196,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H,
+    useSVG: true
+});
+</script>
+
+
+<!-- 爱心特效 -->
+
+
+
+<script async src="/assets/js/busuanzi.pure.mini.js">
+</script>
+<!--功夫网卡住了script id="dsq-count-scr" src="//yo1995.disqus.com/count.js" async></script-->
+
+
+
+
+
+
+
+<!--script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82518311-1', 'auto');
+  ga('send', 'pageview', {
+  'page': '/coding/ultimate-emoticon-generator-1/',
+  'title': '终极表情包生成器 - 1'
+  });
+
+</script-->
+
+
+  </body>
+
+</html>
