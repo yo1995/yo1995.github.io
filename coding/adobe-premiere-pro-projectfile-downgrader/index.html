@@ -180,7 +180,13 @@
             <h1 class="post-title" itemprop="name headline">Pr工程文件版本转换器</h1>
             <div class="content-color">
             
-            <p>自从决心开始学习Pr以来，遇上了不少问题。例如<a href="https://yo1995.github.io/video/genuine-Adobe-software-subscription/">这个</a>以及<a href="https://yo1995.github.io/video/Dolby-Codec-must-be-installed/">这个</a>。用了Pr以后最直观的感受就是——风扇转的好快！甚至毋需素材代理，预览都能十分流畅，比会声会影强了不少。当然，许多转场特效的设置也更加复杂，操作上没有原来那么熟练，但总之用起来还是挺舒坦的。以后逐渐只用会声会影剪辑低帧率的小片子了。</p>
+            <p>编译后的文件在released目录下。</p>
+
+<p>具体请参考<a href="https://github.com/yo1995/Daily_GUI_Tools/tree/master/Tool_Premiere_prproj_downgrader">此repo中的内容</a>。</p>
+
+<hr>
+
+<p>自从决心开始学习Pr以来，遇上了不少问题。例如<a href="https://yo1995.github.io/video/genuine-Adobe-software-subscription/">这个</a>以及<a href="https://yo1995.github.io/video/Dolby-Codec-must-be-installed/">这个</a>。用了Pr以后最直观的感受就是——风扇转的好快！甚至毋需素材代理，预览都能十分流畅，比会声会影强了不少。当然，许多转场特效的设置也更加复杂，操作上没有原来那么熟练，但总之用起来还是挺舒坦的。以后逐渐只用会声会影剪辑低帧率的小片子了。</p>
 
 <p>然而，有得必有失，首先便是Adobe严格的版权控制。非正版的Adobe套件使用体验真的不如正版，总有莫名其妙的问题困扰盗版用户。或许是Adobe官方负优化盗版了吧。另外就是版本兼容性。尽管Ps能够将PSD文件导出为近10年兼容的各代版本，但似乎这只是Ps和Acrobat的特权罢了。诸如Ae、Pr、Au等软件的前向工程文件兼容性几乎为零。也就是说，新版本的工程文件放到老版本基本没法打开了。不少用户都抱怨这个问题，而我也遇到了同样的困境。</p>
 
@@ -195,8 +201,6 @@
 <a id="版本兼容问题的原理" class="anchor" href="#%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%E7%9A%84%E5%8E%9F%E7%90%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>版本兼容问题的原理</h2>
 
 <p>很多用户对版本不兼容给出的解决方案是将工程导出为XML文件。然而，通用XML文件有时会损失不少Pr特有的功能，不够理想。另一种方法是直接改动工程文件内的版本号，让软件误以为对应正确的（较旧的）版本，从而读取。例如<a href="http://www.gfxtr1.com/Tutorials/Magazines/2017-09-25/6457.html">PR工程版本转换攻略</a>中所提到，.prproj文件实际上就是XML+gzip。了解到这一流程后，我们自然能够改动版本。</p>
-
-<p>具体请参考<a href="https://github.com/yo1995/Daily_GUI_Tools/tree/master/Tool_Premiere_prproj_downgrader">此repo中的内容</a>。</p>
 
 <h2 id="后续改进">
 <a id="后续改进" class="anchor" href="#%E5%90%8E%E7%BB%AD%E6%94%B9%E8%BF%9B" aria-hidden="true"><span class="octicon octicon-link"></span></a>后续改进</h2>
@@ -244,7 +248,7 @@
 				<!--被墙替换class="disqus-comment-count" data-disqus-identifier="Chen's Blog//coding/adobe-premiere-pro-projectfile-downgrader-->
             </span>
             <span>
-                <i class="fa fa-check-square-o"></i><span>1000 words</span>
+                <i class="fa fa-check-square-o"></i><span>1019 words</span>
             </span>
             <span>
                 <i class="fa fa-link"></i>
@@ -493,6 +497,28 @@
                     
                 
                     
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/lg-ultrafine-brightness/">
+                                <img src="/images/201904/lg.png" alt="LG UltraFine brightness adjustment tool for Windows">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/lg-ultrafine-brightness/">LG UltraFine brightness adjustment tool for Windows</a>
+                            <span>2019/04/07</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
                 
                     
                     
@@ -609,28 +635,6 @@
                         <div class="recent-post-content">
                             <a class="animsition-link" href="/video/thoughts-on-AE-downgrading/">关于AE项目文件降级的一些想法</a>
                             <span>2018/10/02</span>
-                        </div>
-                    </li>
-                    
-                    
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                    
-                    <li>
-                        <figure>
-                            <a class="animsition-link" href="/coding/Wox-plugin-Emoji/">
-                                <img src="/images/201809/like.gif" alt="Windows快速搜索Emoji小工具">
-                            </a>
-                        </figure>
-                        <div class="recent-post-content">
-                            <a class="animsition-link" href="/coding/Wox-plugin-Emoji/">Windows快速搜索Emoji小工具</a>
-                            <span>2018/09/29</span>
                         </div>
                     </li>
                     
@@ -947,6 +951,8 @@
                 <a href="/tags/#universe">universe</a>
                 
                 <a href="/tags/#youtube">youtube</a>
+                
+                <a href="/tags/#tool">tool</a>
                 
             </div>
         </aside>

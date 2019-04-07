@@ -5,9 +5,62 @@
     <description></description>
     <link>https://yo1995.github.io/</link>
     <atom:link href="https://yo1995.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 23 Feb 2019 00:53:15 -0500</pubDate>
-    <lastBuildDate>Sat, 23 Feb 2019 00:53:15 -0500</lastBuildDate>
+    <pubDate>Sun, 07 Apr 2019 16:45:16 -0400</pubDate>
+    <lastBuildDate>Sun, 07 Apr 2019 16:45:16 -0400</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
+    
+      <item>
+        <title>LG UltraFine brightness adjustment tool for Windows</title>
+        <description>&lt;p&gt;Please refer to &lt;a href=&quot;https://github.com/yo1995/Daily_GUI_Tools/tree/master/Tool_LG-Ultrafine-brightness&quot;&gt;This link&lt;/a&gt; for English description and download.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;调节-lg-ultrafine-5k-显示器-亮度-的-windows-小工具&quot;&gt;调节 LG UltraFine 5K 显示器 亮度 的 Windows 小工具&lt;/h2&gt;
+
+&lt;p&gt;在学校有一点好，就是可以蹭Ric大佬的高端显示器。1300刀的显示器！跟当年爹的“特丽珑”一个价位啊……&lt;br /&gt;
+LG UltraFine 5K系列，专门为MacBook Pro打造，加上一台仍旧不太过时的Mac Pro，简直是多媒体生产力爆表的利器。让我这个没怎么用过高端电脑的无产阶级啧啧称奇——第一次用上了Pr和Ae双开不卡的电脑！&lt;/p&gt;
+
+&lt;p&gt;只因为在人群中多看了它一眼，这块显示屏便成了我赖在学校不走的最好原因。本以为笔记本的这块100%AdobeRGB 4K屏就已经相当出众，无论是色彩还是细腻程度，都已经让我非常满意。但看过了5K屏以后，感觉无论21寸iMac，还是常见的Windows笔记本FHD雾面屏，还是家里的Dell P2417H写码屏，都仅可算得上差强人意。真的，5K屏真的太出众了！我的许多拍摄的桌面背景图分辨率只有3648@10MP，在这块屏上凑近了看，甚至能看出些微的模糊和Bayer pattern来。等啥时候有钱了，拍照片分辨率争取也升到24MP……从信号采集到重建到可视化到存储，一条龙升级起来估计得花不少钱……&lt;/p&gt;
+
+&lt;p&gt;除了编程和剪视频，平常还常用这块屏接XPS做作业用。&lt;br /&gt;
+先说优点：这块屏自带一个全功能USB-C口，支持显示、充电和数据，以及三个数据口。如此一来，无论是新款MacBook Pro，还是XPS，都可以实现仅用一条显示器电源线和一条双端USB-C公线即插即用。这样一来，桌面真的非常简洁，让人强迫症得到极大的满足。同时，也免去了天天背着笔记本适配器跑的麻烦。&lt;br /&gt;
+再说缺点：对于最新版Mac而言，几乎没有缺点。唯一的不足在于用时间长了有点烧屏的倾向，最好时常切换下桌面防止留下损伤。这个问题看网上(burn-in)似乎也有类似的。其次便是Windows适配性了。这块屏原本是专门为Mac定制的，在&lt;a href=&quot;https://www.apple.com/shop/product/HKN62LL/A/lg-ultrafine-5k-display&quot;&gt;苹果官网&lt;/a&gt;上出售，没有为Windows定制的驱动。同时，这又是一块全软驱，无实体按键的显示器。所有调节功能均通过软件实现。遇上Windows通用驱动，许多功能便没法使用，比如——调节亮度。&lt;/p&gt;
+
+&lt;p&gt;上网一搜有两种解决方案：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;用一个叫做&lt;a href=&quot;https://www.nelsonpires.com/software/dimmer/&quot;&gt;Dimmer&lt;/a&gt;的小工具，添加一个全屏黑块遮罩层，通过调节黑块透明度实现亮度调节。一听就是凑合事儿的玩意，pass&lt;/li&gt;
+  &lt;li&gt;自制简易程序正确地调用亮度调节函数。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;这个小工具就是上面链接中的工具啦。&lt;/p&gt;
+
+&lt;h2 id=&quot;其他&quot;&gt;其他&lt;/h2&gt;
+
+&lt;p&gt;其实一直很疑惑显示器实体键的逻辑。像笔记本屏幕很早（上世纪末）就是完全软件调节的了，为什么台式机屏幕仍旧要做成带有实体键的设计呢？一种答案或许是为了连接其他不支持软件调节的设备，如老式游戏机、嵌入式开发板等等。但事实上，较为高端的桌面显示器出现在那些场景的可能少之又少，就像现代显示器没必要为了兼容性保留VGA接口一样。&lt;/p&gt;
+
+&lt;p&gt;另一个答案或许就是今天这种情况了。显示器生产厂家擅长硬件，不专精软件。全软件调节意味着需要维护一个驱动团队来适配市面上所有常用系统。这样显然不利于成本控制。苹果的解决方案是保持封闭与自洽，而Windows在这方面要想更进一步，还有很漫长的路要走……&lt;/p&gt;
+
+&lt;p&gt;又想起了前几天官方推送升级后蓝屏的无奈与气愤……&lt;/p&gt;
+
+&lt;p&gt;还有Windows10发售至今仍旧没有良好解决的系统分辨率和缩放适配问题……&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 07 Apr 2019 00:00:00 -0400</pubDate>
+        <link>https://yo1995.github.io/coding/lg-ultrafine-brightness/</link>
+        <guid isPermaLink="true">https://yo1995.github.io/coding/lg-ultrafine-brightness/</guid>
+        
+        <category>tool</category>
+        
+        <category>plugin</category>
+        
+        <category>coding</category>
+        
+        <category>cpp</category>
+        
+        
+        <category>Coding</category>
+        
+      </item>
     
       <item>
         <title>Do what I can't</title>
@@ -63,6 +116,8 @@
 &lt;p&gt;知识……唉，今天肖老师戳了我的痛处。易正磊学长和田文静学姐双双博士博后；418、419寝室15人有10人行将踏上博士的冒险。而我，只好在岸边谷底为他们加油。多希望有一天我能一刀999级搞定全套满级装备跟着王石一起攀上珠峰！嗨呀，又开始纠结器材而不注重内容了！&lt;/p&gt;
 
 &lt;p&gt;女孩……人生三大错觉？但我真的觉得收到了积极的信号。&lt;/p&gt;
+
+&lt;p&gt;当然，大四男子铁三！&lt;/p&gt;
 </description>
         <pubDate>Thu, 21 Feb 2019 00:00:00 -0500</pubDate>
         <link>https://yo1995.github.io/video/do-what-i-cant/</link>
@@ -1783,45 +1838,6 @@ Que será, será…
         
         
         <category>Life</category>
-        
-      </item>
-    
-      <item>
-        <title>关于AE项目文件降级的一些想法</title>
-        <description>&lt;p&gt;之前在做Pr版本降级的时候也考虑过如何制作针对AE项目文件的版本降级。不同于Pr，AE项目文件并未压缩，但时间轴等项目信息也并非明文键值存储。通过比较不同版本的项目文件我发现，不仅在文件头尾存在一定的差异，文件中部也有细微的不同。由于无法得知文件数据的具体编码格式，只好考虑其他的想法。&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;使用原生的降级功能&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;AE每个版本都带有原生的降级功能，如AE CC 2017可以降级项目文件至CC2015，CC原版可以降级至CS6等等。然而，这种降级非常受限，如果想跨版本降级则需要下载安装多个版本的AE，不太方便。不过，这倒是为从业者提供了一个机会：版本文件代降级……&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;使用XML导出&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;XML文件是明文存储的，无论哪个版本都可以方便读取。这种方案的不便之处在于有时一些特效或转换无法正确存储到文件，导致其他版本导入时丢失特效。作为一种备选方案，还是可以考虑采用的。&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;设计基于各版本降级相关dll的降级软件&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;之前在考虑这个方案，但觉得收益太低便没有实现。理论上来讲，各版本降级相关函数应该始终存在同一个dll中，只要找到其中一个的定义和调用方法，便能任意降级到其他版本。而且，观察项目文件结构，这个降级函数应该只是类似于字符串替换处理的函数，同时增加转换后的标识符，应该不会太过复杂。但由于需要逆向二进制文件，或者想办法找到函数原型，这个方案显然比较复杂。不过连amtlib的流程图都能被人分析出来，这个无足轻重的功能应该也不算太困难。可能需要IDA或是类似的逆向工程工具来分析一下。&lt;/p&gt;
-
-&lt;p&gt;由于自己暂时没有这个需求，因而只是将一些思路总结在这里，仅供参考。&lt;/p&gt;
-</description>
-        <pubDate>Tue, 02 Oct 2018 00:00:00 -0400</pubDate>
-        <link>https://yo1995.github.io/video/thoughts-on-AE-downgrading/</link>
-        <guid isPermaLink="true">https://yo1995.github.io/video/thoughts-on-AE-downgrading/</guid>
-        
-        <category>ae</category>
-        
-        <category>adobe</category>
-        
-        <category>software</category>
-        
-        
-        <category>Video</category>
         
       </item>
     
