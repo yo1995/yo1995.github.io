@@ -6,12 +6,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="与君共勉">
+  <meta name="description" content="简单记录部署Kitura和Nginx环境的过程">
   <meta name="author" content="Chen Ting">
   <meta name="keywords" content="">
   <meta name="theme-color" content="#272727">
 
-  <title>敬告青年</title>
+  <title>Kitura deployment notes</title>
 
   <link rel="icon" href="/img/favicons/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
@@ -19,18 +19,18 @@
   <link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
   <link rel="manifest" href="/img/favicons/manifest.json">
   <link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="canonical" href="https://yo1995.github.io/reading/a-la-jeunesse/" />
+  <link rel="canonical" href="https://yo1995.github.io/coding/kitura-deployment/" />
   <link rel="alternate" type="application/rss+xml" title="Chen's Blog" href="https://yo1995.github.io/feed.xml" />
   
   <meta property="og:site_name" content="Chen's Blog" />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://yo1995.github.io/reading/a-la-jeunesse/" />
-  <meta property="og:title" content="敬告青年" />
-  <meta property="og:description" content="与君共勉" />
-  <meta property="og:article:published_time" content="2016-05-04T00:00:00-04:00" />
+  <meta property="og:url" content="https://yo1995.github.io/coding/kitura-deployment/" />
+  <meta property="og:title" content="Kitura deployment notes" />
+  <meta property="og:description" content="简单记录部署Kitura和Nginx环境的过程" />
+  <meta property="og:article:published_time" content="2019-06-19T00:00:00-04:00" />
   <meta property="og:article:author" content="Chen Ting" />
 
-  <meta property="og:image" content="/images/201605/jeunesse.jpg" />
+  <meta property="og:image" content="/images/201906/swift.png" />
   
 
   <!-- BOOTSTRAP -->
@@ -169,85 +169,150 @@
         <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
           <div class="post-thumb clearfix">
             
-            <img src="/images/201605/jeunesse.jpg" alt="敬告青年">
+            <img src="/images/201906/swift.png" alt="Kitura deployment notes">
             
           </div>
           
           <div class="post-content" itemprop="articleBody">
-            <div class="post-date" datetime="2016-05-04T00:00:00-04:00" itemprop="datePublished">
-              May 4, 2016
+            <div class="post-date" datetime="2019-06-19T00:00:00-04:00" itemprop="datePublished">
+              Jun 19, 2019
             </div>
-            <h1 class="post-title" itemprop="name headline">敬告青年</h1>
+            <h1 class="post-title" itemprop="name headline">Kitura deployment notes</h1>
             <div class="content-color">
             
-            <p>La Jeunesse, or New Youth, was one of the most influential magazines in modern China. Chen Duxiu, editor-in-chief of the magazine, introduced many new ideas such as individualism, democracy and humanism.</p>
+            <h2 id="背景">
+<a id="背景" class="anchor" href="#%E8%83%8C%E6%99%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a>背景</h2>
 
-<p>在一个迫切需要变革的时代里，这篇文章洋溢着陈独秀对青年的殷殷期许，让懵懂的青年们“如清夜闻钟，如当头一棒”。</p>
+<p>Ric前些阵子提出想部署一个纯Swift的开发环境，即macOS/iOS客户端用Swift写，后台服务器也用Swift起。这样的好处在于开发者只用掌握一门语言，即可完成“全栈”——整个应用的开发流程。</p>
 
-<p>“予所欲涕泣陈词者，惟属望于新鲜活泼之青年，有以自觉而奋斗耳！”</p>
+<p>事不宜迟，我马上去调研有哪些较为成熟的后端方案。首先映入眼帘的是<a href="https://github.com/IBM-Swift/Kitura">Kitura</a>/<a href="https://github.com/vapor/vapor">Vapor</a>/<a href="https://github.com/PerfectlySoft/Perfect">Perfect</a>三驾马车。其中Kitura是IBM牵头的，其他二者为第三方为主导。更新频率方面，Vapor最快最勤，亲身践行了Swift官方跨大版本该API的“优良传统”，每次升级有很多部分推倒重来；Kitura有如IBM的一贯作风，稳健迟缓，据说后向兼容性能够保持到初代；Perfect虽说有一点中文支持，但更新频率赶不上二者，直到Swift5.1发布时依旧只停留在4.1的支持。</p>
+
+<p>最开始我是选择了Kitura的，无它，相信大品牌<del>名字读起来带感</del>。它的文档也是比较全面而克制的，简洁而富有表达力，花了半小时就配好了环境。一切顺利，我想先试试官方提到的几个亮点功能吧，结果随便安装了个Markdown，发现渲染效果不堪直视——连表格和任务清单都无法渲染。这让我这个GitLab中度用户非常不爽，遂弃而转向Vapor。</p>
+
+<p>Vapor的安装稍微多花一点时间，原因是其初始的“内置电池”，自带功能比较多，在3409这台Core Duo E8400的老机器上编译花了不少时间。加上后端Swift暂时还通过一个叫做SPM的工具管理，原理类似Carthage，不如CocoaPods可以直接引入二进制文件那么快。在等的过程中，我便熟悉了一下Vapor的文档。</p>
+
+<p>作为一个只用过Python Web后端的菜鸟选手，我对服务器的认识主要来源于Django。Django的文档既清晰又极具操作性，每次忘记一些概念，开个项目一试就弄清了，非常适合学生做点自用的小服务器。上次Livid还说Django是“重量级”的服务，我倒不觉得。较之LAMP、Nginx，Django的部署可谓相当轻松了。</p>
+
+<p>不过在看文档的过程中，还是有些隐忧。相比于Kitura，Vapor的“跑路”可能性更大。项目的姊妹云服务标价没啥竞争力，整个网站也有点买模板的感觉，Ubuntu的文档不如Kitura详细。语法也没有其那么标准易于理解。无论如何，还是先部署一个试试。</p>
 
 <hr>
 
-<p>窃以少年老成，中国称人之语也；年长而勿衰(Keep young while growing old)英美人相勖之辞也。此亦东西民族涉想不同、现象趋异之一端欤？青年如初春，如朝日，如百卉之萌动，如利刃之新发于硎，人生最可宝贵之时期也。</p>
+<h2 id="安装swift环境">
+<a id="安装swift环境" class="anchor" href="#%E5%AE%89%E8%A3%85swift%E7%8E%AF%E5%A2%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装Swift环境</h2>
 
-<p>青年之于社会，犹新鲜活泼细胞之在人身。新陈代谢，陈腐朽败者无时不在天然淘汰之途，与新鲜活泼者以空间之位置及时间之生命。人身遵新陈代谢之道则健康，陈腐朽败之细胞充塞人身则人身死；社会遵新陈代谢之道则隆盛，陈腐朽败之分子充塞社会则社会亡。</p>
+<p>从<a href="https://swift.org/download/">官网</a>下载，检查签名然后解压。如果不直接放进系统的bin的话，需要设置环境变量：</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>/path/to/usr/bin:<span class="s2">"</span><span class="k">${</span><span class="nv">PATH</span><span class="k">}</span><span class="s2">"</span>
+</code></pre></div></div>
+<p>执行或者将其加入<code class="highlighter-rouge">~/.bashrc</code>即可。</p>
 
-<p>准斯以谈，吾国之社会，其隆盛耶？抑将亡耶？非予之所忍言者。彼陈腐朽败之分子，一听其天然之淘汰，雅不愿以如流之岁月，与之说短道长，希冀其脱胎换骨也。予所欲涕泣陈词者，惟属望于新鲜活泼之青年，有以自觉而奋斗耳！</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>swift <span class="nt">--version</span>
+</code></pre></div></div>
+<p>以检查环境是否正确，Swift程序可以找到。</p>
 
-<p>自觉者何？自觉其新鲜活泼之价值与责任，而自视不可卑也。奋斗者何？奋其智能，力排陈腐朽败者以去，视之若仇敌，若洪水猛兽，而不可与为邻，而不为其菌毒所传染也。</p>
+<h2 id="安装vapor环境">
+<a id="安装vapor环境" class="anchor" href="#%E5%AE%89%E8%A3%85vapor%E7%8E%AF%E5%A2%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装Vapor环境</h2>
 
-<p>呜呼！吾国之青年，其果能语于此乎！吾见夫青年其年龄，而老年其身体者十之五焉；青年其年龄或身体，而老年其脑神经者十之九焉。华其发，泽其容，直其腰，广其膈，非不俨然青年也，及叩其头脑中所涉想，所怀抱，无一不与彼陈腐朽败者为一丘之貉，其始也未尝不新鲜活泼，浸假而为陈腐朽败分子所同化者，有之，浸假而畏陈腐朽败分子势力之庞大，瞻顾依回，不敢明目张胆作顽狠之抗斗者，有之。充塞社会之空气，无往而非陈腐朽败焉，求些少之新鲜活泼者，以慰吾人窒息之绝望，亦杳不可得。</p>
+<p>目前2019年6月19日最新版本的环境是Vapor4，但仅支持Swift5.1.由于Swift官网发布版还在5.0.1版，因此就退而求其次选了Vapor3。等秋季开始时再看是否需要升级。</p>
 
-<p>循斯现象，于人身则必死，于社会则必亡。欲救此病，非太息咨嗟之所能济，是在一二敏于自觉、勇于奋斗之青年，发挥人间固有之智能，抉择人间种种之思想，——孰为新鲜活泼而适于今世之争存，孰为陈腐朽败而不容留置于脑里，——利刃断铁，快刀理麻，决不作牵就依违之想，自度度人，社会庶几其有清宁之日也。青年乎！其有以此自任者乎？若夫明其是非，以供抉择，谨陈六义，幸平心察之。</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">eval</span> <span class="s2">"</span><span class="k">$(</span>curl <span class="nt">-sL</span> https://apt.vapor.sh<span class="k">)</span><span class="s2">"</span>
+<span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>vapor
+<span class="nv">$ </span>vapor <span class="nt">--help</span>
+</code></pre></div></div>
 
-<h2 id="一-自主的而非奴隶的">
-<a id="一-自主的而非奴隶的" class="anchor" href="#%E4%B8%80-%E8%87%AA%E4%B8%BB%E7%9A%84%E8%80%8C%E9%9D%9E%E5%A5%B4%E9%9A%B6%E7%9A%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>一 自主的而非奴隶的</h2>
+<p>检查vapor环境正确。</p>
 
-<p>等一人也，各有自主之权，绝无奴隶他人之权利，亦绝无以奴自处之义务。奴隶云者，古之昏弱对于强暴之横夺，而失其自由权利者之称也。自人权平等之说兴，奴隶之名，非血气所忍受．世称近世欧洲历史为“解放历史”——破坏君权，求政治之解放也；否认教权，求宗教之解放也；均产说兴，求经济之解放也；女子参政运动，求男权之解放也。</p>
+<p>然后通过</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>vapor new &lt;your-project-name&gt;
+</code></pre></div></div>
+<p>创建一个APP。与Django的startproject过程一样，都会创建一个包含设置、路由以及MVC的项目。不同的是，Vapor把文件夹都默认好了，只要把对应模块放进去即可。</p>
 
-<p>解放云者，脱离夫奴隶之羁绊，以完其自主自由之人格之谓也。我有手足，自谋温饱；我有口舌，自陈好恶；我有心思，自崇所信；绝不认他人之越俎，亦不应主我而奴他人；盖自认为独立自主之人格以上，一切操行，一切权利，一切信仰，唯有听命各自固有之智能，断无盲从隶属他人之理。非然者，忠孝节义，奴隶之道德也(德国大哲尼采Nietzsche)别道德为二类；有独立心而勇敢者曰贵族道德(Moralyty of Noble)，谦逊而服从者曰奴隶道德(Morality of Slave)；轻刑薄赋，奴隶之幸福也；称颂功德，奴隶之文章也；拜爵赐第，奴隶之光荣也；丰碑高墓，奴隶之纪念物也；以其是非荣辱，听命他人，不以自身为本位，则个人独立平等之人格，消灭无存，其一切善恶行为，势不能诉之自身意志而课以功过；谓之奴隶，谁曰不宜？立德立功，首当辨此。</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>vapor build
+<span class="nv">$ </span>vapor run
+</code></pre></div></div>
+<p>或直接运行run也会增量编译。</p>
 
-<h2 id="二-进步的而非保守的">
-<a id="二-进步的而非保守的" class="anchor" href="#%E4%BA%8C-%E8%BF%9B%E6%AD%A5%E7%9A%84%E8%80%8C%E9%9D%9E%E4%BF%9D%E5%AE%88%E7%9A%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>二 进步的而非保守的</h2>
+<p>默认编译是Debug的scheme，可通过<code class="highlighter-rouge">vapor run--env production</code>设为禁用debug输出等等。
+最后编译运行，即可在<code class="highlighter-rouge">http://localhost:8080</code>看到It works的字样。</p>
 
-<p>人生如逆水行舟，不进则退，中国之恒言也。自宇宙之根本大法言之，森罗万象，无日不在演进之途，万无保守现状之理；特以俗见拘牵，谓有二境，此法兰西当代大哲柏格森(H．Bergson)之“创造进化论”(L’Evolution Creatrice)所以风靡一世也。以人事之进化言之，笃古不变之族，日就衰亡；日新求进之民，方兴未已；存亡之数，可以逆睹。矧在吾国，大梦未觉，固步自封，精之政教文章，粗之布帛水火，无一不相形丑拙，而可与当世争衡？</p>
+<h2 id="配置nginx代理">
+<a id="配置nginx代理" class="anchor" href="#%E9%85%8D%E7%BD%AEnginx%E4%BB%A3%E7%90%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>配置Nginx代理</h2>
 
-<p>举凡残民害理之妖言，率能征之故训，而不可谓诬，谬种流传，岂自今始！固有之伦理、法律、学术、礼俗，无一非封建制度之遣，持较皙种之所为，以并世之人，而思想差迟，几及千载；尊重廿四朝之历史性，而不作改进之图，则驱吾民于二十世纪之世界以外，纳之奴隶牛马黑暗沟中而已，复何说哉！于此而言保守，诚不知为何项制度文物，可以适用生存于今世。吾宁忍过去国粹之消亡，而不忍现在及将来之民族，不适世界之生存而归削灭也。</p>
+<p>本以为应该没啥问题，结果栽了大跟头。先说说桌子下这台Core Duo的主机。估计有年头了，CPU E8400，至少也是08或09年的机器了。内存2G、硬盘20G，由工院IT支持部门的小哥维护，通过netID登录，网卡注册到devices页面。这网络配置跟散落在学校各处的iMac估计很类似。然而最初我并未意识到这点，仍以为这是台空白的，完全由自己掌控的电脑。</p>
 
-<p>呜呼！巴比伦人往矣，其文明尚有何等之效用耶？“皮之不存，毛将焉傅？”世界进化，駸駸未有已焉。其不能善变而与之俱进者，将见其不适环境之争存，而退归天然淘汰已耳，保守云乎哉！</p>
+<p>于是就一步步来呗，按照一个教程安装了个Supervisor，后来觉得还是直接用screen留着会话，每次连上去看log比较简单，于是又改了回来。</p>
 
-<h2 id="三-进取的而非退隐的">
-<a id="三-进取的而非退隐的" class="anchor" href="#%E4%B8%89-%E8%BF%9B%E5%8F%96%E7%9A%84%E8%80%8C%E9%9D%9E%E9%80%80%E9%9A%90%E7%9A%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>三 进取的而非退隐的</h2>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>supervisorctl status
+</code></pre></div></div>
+<p>的效果与</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>screen <span class="nt">-ls</span>
+</code></pre></div></div>
+<p>并不一样，一个是监控进程状态，另一个是监控会话状态。</p>
 
-<p>当此恶流奔进之时，得一二自好之士，洁身引退，岂非希世懿德。然欲以化民成俗，请于百尺竿头，再进一步。夫生存竞争，势所不免，一息尚存，即无守退安隐之余地。排万难而前行，乃人生之天职。以善意解之，退隐为高人出世之行；以恶意解之，退隐为弱者不适竞争之现象。欧俗以横厉无前为上德，亚洲以闲逸恬淡为美风，东西民族强弱之原因，斯其一矣。此退隐主义之根本缺点也。</p>
+<p>然后第二部分教程让改防火墙。这也很正常，毕竟Windows每次做些跟网络有关的实验也需要关。</p>
 
-<p>若夫吾国之俗，习为委靡，苟取利禄者，不在论列之数；自好之士，希声隐沦，食粟衣帛，无益于世，世以雅人名士目之，实与游惰无择也。人心秽浊，不以此辈而有所补救，而国民抗往之风，植产之习，于焉以斩。人之生也，应战胜恶社会，而不可为恶社会所征服；应超出恶社会，进冒险苦斗之兵，而不可逃遁恶社会，作退避安闲之想。呜呼！欧罗巴铁骑，入汝室矣，将高卧白云何处也？吾愿青年之为孔、墨，而不愿其为巢、由；吾愿青年之为托尔斯泰与达噶尔(印度隐遁诗人，R.Tagore)，不若其为哥伦布与安重根。</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>ufw <span class="nb">enable</span>
+<span class="nv">$ </span><span class="nb">sudo </span>ufw allow ssh
+<span class="nv">$ </span><span class="nb">sudo </span>ufw allow http
+<span class="nv">$ </span><span class="nb">sudo </span>ufw status
+</code></pre></div></div>
 
-<h2 id="四-世界的而非锁国的">
-<a id="四-世界的而非锁国的" class="anchor" href="#%E5%9B%9B-%E4%B8%96%E7%95%8C%E7%9A%84%E8%80%8C%E9%9D%9E%E9%94%81%E5%9B%BD%E7%9A%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>四 世界的而非锁国的</h2>
+<p>此处ufw是<code class="highlighter-rouge">Uncomplicated Firewall</code>的简称，是Ubuntu的简化版iptables，也就是这段网上看来的描述坑了我两三个小时的时间。</p>
 
-<p>并吾国而存立于大地者，大小凡四十余国，强半与吾有通商往来之谊。加之海陆交通，朝夕千里，古之所谓绝国，今视之若在户庭。举凡一国之经济政治状态有所变更，其影响率被于世界，不啻牵一发而动全身也。立国于今之世，其兴废存亡，视其国之内政者半，影响于国外者恒亦半焉。以吾国近事证之：日本勃兴，以促吾革命维新之局；欧洲战起，日本乃有对我之要求；此非其彰彰者耶？投一国于世界潮流之中，笃旧者固速其危亡，善变者反因以竞进。</p>
+<p>把ufw打开，允许22和80端口，这都很容易理解。然后配置nginx，因为暂时没有域名，所以直接搞</p>
 
-<p>吾国自通海以来，自悲观者言之，失地偿金，国力索矣；自乐观者言之，倘无甲午庚于两次之福音，至今犹在八股垂发时代．居今日而言锁国闭关之策，匪独力所不能，亦且势所不利。万邦并立，动辄相关，无论其国若何富强，亦不能漠视外情，自为风气。各国之制度文物，形式虽不必尽同，但不思驱其国于危亡者，其遵循共同原则之精神，渐趋一致，潮流所及，莫之能违。于此而执特别历史国情之说，以冀抗此潮流，是犹有锁国之精神，而无世界之智识。国民而无世界知识，其国将何以图存于世界之中？语云：“闭户造车，出门未必合辙。”今之造车者，不但闭户，且欲以“周礼”“考工”之制，行之欧美康庄，其患将不止不合辙已也！</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>nano /etc/nginx/sites-available/default
+</code></pre></div></div>
+<p>即可，指定80端口（上面防火墙允许了的），然后映射到本地的8080端口。</p>
 
-<h2 id="五-实利的而非虚文的">
-<a id="五-实利的而非虚文的" class="anchor" href="#%E4%BA%94-%E5%AE%9E%E5%88%A9%E7%9A%84%E8%80%8C%E9%9D%9E%E8%99%9A%E6%96%87%E7%9A%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>五 实利的而非虚文的</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        location / {
+           proxy_pass http://127.0.0.1:8080;
+       }
+}
+</code></pre></div></div>
 
-<p>自约翰弥尔(J. S．Mill) “实利主义”唱道于英，孔特 (Comte)之“实验哲学”唱道于法，欧洲社会之制度，人心之思想，为之一变。最近德意志科学大兴，物质文明，造乎其极，制度人心，为之再变。举凡政治之所营，教育之所期，文学技术之昕风尚，万马奔驰，无不齐集于厚生利用之一途。一切虚文空想之无裨于现实生活者，吐弃殆尽。当代大哲，若德意志之倭根(R．Eueken)，若法兰西之柏格森，虽不以现时物质文明为美备，咸揭橥生活(英文曰 Life，德文曰Leben，法文曰La vie)问题，为立言之的。生活神圣，正以此次战争，血染其鲜明之旗帜。欧人空想虚文之梦，势将觉悟无遗。</p>
+<p>一切都是简单直观，不应该有任何问题。然而一刷新我傻了：<code class="highlighter-rouge">Connection Refused.</code></p>
 
-<p>夫利用厚生，崇实际而薄虚玄，本吾国初民之俗；而今日之社会制度，人心思想，悉自周、汉两代而来，——周礼崇尚虚文，汉则罢黜百家而尊儒重道。——名教之所昭垂，人心之所祈向，无一不与社会现实生活背道而驰。倘不改弦而更张之，则国力莫由昭苏，社会永无宁日。祀天神而拯水旱，诵“孝经”以退黄巾，人非童昏，知其妄也。物之不切于实用者，虽金玉圭璋，不如布粟粪土。若事之无利于个人或社会现实生活者，皆虚文也，诳人之事也。诳人之事，虽祖宗之所遗留，圣贤之所垂教，政府之所提倡，社会之所崇尚，皆一文不值也！</p>
+<p>不死心，换了两台设备测，结果一台是timeout另一台也是refused。这让我顿生疑虑。一般而言我见过的refused都因为服务器配置了规则禁止连接，但怎么又会timeout呢？难道是nginx根本没起来？</p>
 
-<h2 id="六-科学的而非想象的">
-<a id="六-科学的而非想象的" class="anchor" href="#%E5%85%AD-%E7%A7%91%E5%AD%A6%E7%9A%84%E8%80%8C%E9%9D%9E%E6%83%B3%E8%B1%A1%E7%9A%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>六 科学的而非想象的</h2>
+<p>花了半小时了解如何获取nginx运行状态：</p>
 
-<p>科学者何？吾人对于事物之概念，综合客观之现象，诉之主观之理性，而不矛盾之谓也。想象者何？既超脱客观之现象，复抛弃主观之理性，恁空构造，有假定而无实证，不可以人间已有之智灵，明其理由，道其法则者也。在昔蒙昧之世，当今浅化之民，有想象而无科学。宗教美文，皆想象时代之产物。近代欧汾之所以优越他族者，科学之兴，其功不在人权说下，若舟车之有两轮焉。今且日新月异，举凡一事之兴，一物之细，罔不诉之科学法则，以定其得失从违；其效将使人间之思想云为，一遵理性而迷信斩焉，而无知妄作之风息焉。</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>service nginx status
+<span class="nv">$ </span><span class="nb">sudo </span>lsof <span class="nt">-i</span> TCP:80
+<span class="nv">$ </span>systemctl <span class="nt">-q</span> is-active nginx <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"It is active"</span>
+</code></pre></div></div>
 
-<p>国人而欲脱蒙昧时代，羞为浅化之民也，则急起直追，当以科学与人权并重。士不知科学，故袭阴阳家符瑞五行之说，惑世诬民，地气风水之谈，乞灵枯骨。农不知科学，故无择种去虫之术。工不知科学，故货弃于地，战斗生事之所需，一一仰给于异国。商不知科学，故惟识罔取近利，未来之胜算，无容心焉。医不知科学，既不解人身之构造，复不事药性之分析，苗毒传染，更无闻焉；惟知附会五行生克寒热阴阳之说，袭古方以投药饵，其术殆与矢人同科；其想象之最神奇者，莫如“气”之一说，其说且通于力士羽流之术；试遍索宇宙间，诚不知此“气”之果为何物也！</p>
+<p>检查了一圈发现，似乎问题不在它身上。当时还在用Supervisor，又花了半小时研究如何检查它的状态，发现除了写了个typo以外并没有什么问题。题外话：自己打字不好速度快容易错的毛病，在开始学编程后被急剧放大，经常因为打错字怀疑人生，打错字挥泪重启服务器的举动不知一次出现——循环条件错死循环、内核变量地址错kernel panic，如此种种，累觉不爱。吭哧吭哧又浪费半小时，排除了它的嫌疑。</p>
 
-<p>凡此无常识之思惟，无理由之信仰，欲根治之，厥为科学。夫以科学说明真理，事事求诸证实，较之想象武断之所为，其步度诚缓，然其步步皆踏实地，不若幻想突飞者之终无寸进也。宇宙间之事理无穷，科学领土内之膏腴待辟者，正自广阔。</p>
+<p>冷静下来一想，本地既然能够访问，那说明跟Swift和Vapor都没有关系。但是localhost能够访问127.0.0.1却不能，这又是为什么呢？感觉自己逐渐抓住了重点，于是去看hosts，看ufw的设置，C(4,2)一番穷举测试发现并没有什么用。时间不知不觉地流逝，只好一边吃差强人意的速冻盒饭一边调试。怎么设置ufw都没用，真的有些气馁了。还能有啥原因呢？</p>
 
-<p><strong>青年勉乎哉！</strong></p>
+<p>最后只能硬着头皮用关键字搜，搜到了关于<a href="https://serverfault.com/questions/129086/how-to-start-stop-iptables-on-ubuntu">iptables</a>的操作。先是看到了个<a href="https://serverfault.com/questions/670575/failed-to-connect-to-127-0-0-1-port-80">类似的问题</a>，然后开始现场学<a href="https://www.howtogeek.com/177621/the-beginners-guide-to-iptables-the-linux-firewall/">如何改iptables</a>。最后打开这台主机的iptables一看，唉呀妈呀这是turd mountain啊！</p>
 
+<p>130多行的规则，清晰地划分了学院各个子网的访问权限，其中INPUT部分的<code class="highlighter-rouge">-A INPUT -j drop</code>赫然在目。就是这句话浪费了我人生中宝贵的两个半小时。之前一直以为这是台人畜无害的干净主机，甚至连git和nginx都没装过。谁曾想，没装过nginx却把防火墙规则配了一溜够，真是披着羊皮的狼！</p>
+
+<p>试了试发现靠前的条目优先级高于靠后的条目，于是加了一句<code class="highlighter-rouge">-A INPUT -s 10.0.0.0/8 -p tcp -m tcp --dport 80 -j ACCEPT</code>
+解决问题。按理说，我是不应该配置这台主机的网络的，但阴差阳错又折腾得够呛。除了新知道一个词iptables以外，大半天时间全无收获，非常烦躁。</p>
+
+<hr>
+
+<h2 id="后记">
+<a id="后记" class="anchor" href="#%E5%90%8E%E8%AE%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>后记</h2>
+
+<p>越多地经历这样的情景，越让我觉得刷题有些可取之处。至少刷题时大脑能一直保持活动，时间不算浪费。而这种环境问题自己去找答案除了浪费时间毫无意义。最开始本想找个docker直接配好，结果这种小众的东西并没有人做高度定制化的docker，只有官方的两个镜像孤零零地挂在hub上。</p>
+
+<p>又想到可能会要用CUDA，干脆别折腾了，花点钱买AWS算了。</p>
+
+<p>吐槽完了，接着说Vapor，看它文档的功能还挺多挺全，而且Swift的Foundation并不比Python自带的库弱。尤其是宣传的性能Swift甚至能追上Go，令人很心动。之前看了几行go的代码，真的是难受啊，比C还难看。</p>
+
+<p>自己没想过成为一个程序员大牛，只希望能用计算机语言在最短的时间创造最大的快捷、便利、快乐与幸福，这便是我在计算机领域的理想。Swift、Python、MATLAB、Verilog加之MSVC家族，自下而上，由内到外，基本已经能满足我能想到的大部分设想。或许没必要再纠结于编译原理，本身就是门外汉，何必与专业人士比拼他们的强项呢？</p>
+
+<p>看着时长横跨17-19年的人生“或许是第一篇也是最后一篇”论文，从科研的急先锋跌至吊车尾，从编程的门外汉闯进疯人院……今天在和Millie录像时突然回首这两年，变化实在不小。或许在法国的平行世界中，我的变化更大？驾驶帆船乘风破浪在芒什海峡？摇车登上阿尔普迪埃？……</p>
+
+<p>兜兜转转多年后，还是踏进了编程的世界，不知压箱底的辛文送的Java教材会作何感想。</p>
+
+<p>满纸荒唐言，一把辛酸泪。😢</p>
 
             
             </div>
@@ -260,19 +325,21 @@
             <span>
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/#reading">reading</a>
+                <a href="/tags/#swift">swift</a>
                 
-                <a href="/tags/#projectuniv">projectuniv</a>
+                <a href="/tags/#mac">mac</a>
+                
+                <a href="/tags/#coding">coding</a>
                 
             </span>            
             <span><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv">0</span> views</span>
             <span>
                 <i class="fa fa-comments-o"></i>
                 <a href="#comments">GFW comments</a>
-				<!--被墙替换class="disqus-comment-count" data-disqus-identifier="Chen's Blog//reading/a-la-jeunesse-->
+				<!--被墙替换class="disqus-comment-count" data-disqus-identifier="Chen's Blog//coding/kitura-deployment-->
             </span>
             <span>
-                <i class="fa fa-check-square-o"></i><span>4205 words</span>
+                <i class="fa fa-check-square-o"></i><span>4060 words</span>
             </span>
             <span>
                 <i class="fa fa-link"></i>
@@ -283,40 +350,40 @@
 <div class="entry-share-links">
 
     <div class="btn-group" role="group" aria-label="Share">
-        <button type="button" class="btn btn-default btn-sm btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="http://www.facebook.com/sharer.php?u=https://yo1995.github.io/reading/a-la-jeunesse/" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></button>
+        <button type="button" class="btn btn-default btn-sm btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="http://www.facebook.com/sharer.php?u=https://yo1995.github.io/coding/kitura-deployment/" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></button>
         
-        <button type="button" class="btn btn-default btn-sm btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="https://twitter.com/share?url=https://yo1995.github.io/reading/a-la-jeunesse/&amp;text=敬告青年" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></button>
+        <button type="button" class="btn btn-default btn-sm btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="https://twitter.com/share?url=https://yo1995.github.io/coding/kitura-deployment/&amp;text=Kitura deployment notes" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></button>
 
-        <button type="button" class="btn btn-default btn-sm btn-weibo" data-toggle="tooltip" data-placement="top" title="新浪微博"><a href="http://service.weibo.com/share/share.php?url=https://yo1995.github.io/reading/a-la-jeunesse/&title=分享%4011L23+的文章「敬告青年」&content=与君共勉&pic=https://yo1995.github.io/images/201605/jeunesse.jpg" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></button>
+        <button type="button" class="btn btn-default btn-sm btn-weibo" data-toggle="tooltip" data-placement="top" title="新浪微博"><a href="http://service.weibo.com/share/share.php?url=https://yo1995.github.io/coding/kitura-deployment/&title=分享%4011L23+的文章「Kitura deployment notes」&content=简单记录部署Kitura和Nginx环境的过程&pic=https://yo1995.github.io/images/201906/swift.png" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></button>
 
-        <button type="button" class="btn btn-default btn-sm btn-douban" data-toggle="tooltip" data-placement="top" title="豆瓣"><a href="https://www.douban.com/share/service?name=敬告青年&href=https://yo1995.github.io/reading/a-la-jeunesse/&image=https://yo1995.github.io/images/201605/jeunesse.jpg&url=https://yo1995.github.io/reading/a-la-jeunesse/&title=敬告青年" target="_blank"><i class="fa fa-fw">豆</i></a></button>
+        <button type="button" class="btn btn-default btn-sm btn-douban" data-toggle="tooltip" data-placement="top" title="豆瓣"><a href="https://www.douban.com/share/service?name=Kitura deployment notes&href=https://yo1995.github.io/coding/kitura-deployment/&image=https://yo1995.github.io/images/201906/swift.png&url=https://yo1995.github.io/coding/kitura-deployment/&title=Kitura deployment notes" target="_blank"><i class="fa fa-fw">豆</i></a></button>
 
         <a tabindex="0" class="btn btn-sm btn-weixin" role="button" data-trigger="hover" data-placement="top" id="qrcode-btn"><i class="fa fa-fw fa-weixin"></i></a>
 
         <div id="qrcode-content" class="qrcode-hidden"><div id="qrcode"></div></div>
         <div id="qrcode-title" class="qrcode-hidden">Scan to Read</div>
 		
-		<button type="button" class="btn btn-default btn-sm btn-email"><a href="mailto:?Subject=敬告青年&amp;Body=与君共勉%20https://yo1995.github.io/reading/a-la-jeunesse/"><i class="fa fa-fw fa-envelope-o"></i> Email</a></button>
+		<button type="button" class="btn btn-default btn-sm btn-email"><a href="mailto:?Subject=Kitura deployment notes&amp;Body=简单记录部署Kitura和Nginx环境的过程%20https://yo1995.github.io/coding/kitura-deployment/"><i class="fa fa-fw fa-envelope-o"></i> Email</a></button>
 
         <div class="btn-group btn-group-justified dropup" role="group">
             <button type="button" class="btn btn-default btn-sm dropdown-toggle btn-more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-share-alt"></i><span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
                 
-                <li><button type="button" class="btn btn-default btn-sm btn-google"><a href="https://plus.google.com/share?url=https://yo1995.github.io/reading/a-la-jeunesse/" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google Plus</a></button></li>
+                <li><button type="button" class="btn btn-default btn-sm btn-google"><a href="https://plus.google.com/share?url=https://yo1995.github.io/coding/kitura-deployment/" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google Plus</a></button></li>
 
-                <li><button type="button" class="btn btn-default btn-sm btn-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://yo1995.github.io/reading/a-la-jeunesse/" target="_blank"><i class="fa fa-fw fa-linkedin"></i> Linkedin</a></button></li>
+                <li><button type="button" class="btn btn-default btn-sm btn-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://yo1995.github.io/coding/kitura-deployment/" target="_blank"><i class="fa fa-fw fa-linkedin"></i> Linkedin</a></button></li>
 
-                <li><button type="button" class="btn btn-default btn-sm btn-digg"><a href="http://www.digg.com/submit?url=https://yo1995.github.io/reading/a-la-jeunesse/" target="_blank"><i class="fa fa-fw fa-digg"></i> Digg</a></button></li>
+                <li><button type="button" class="btn btn-default btn-sm btn-digg"><a href="http://www.digg.com/submit?url=https://yo1995.github.io/coding/kitura-deployment/" target="_blank"><i class="fa fa-fw fa-digg"></i> Digg</a></button></li>
 
                 
-                <li><button type="button" class="btn btn-default btn-sm btn-pinterest"><a href="https://pinterest.com/pin/create/bookmarklet/?media=https://yo1995.github.io/images/201605/jeunesse.jpg&url=https://yo1995.github.io/reading/a-la-jeunesse/&description=敬告青年" target="_blank"><i class="fa fa-fw fa-pinterest-p"></i> Pinterest</a></button></li>
+                <li><button type="button" class="btn btn-default btn-sm btn-pinterest"><a href="https://pinterest.com/pin/create/bookmarklet/?media=https://yo1995.github.io/images/201906/swift.png&url=https://yo1995.github.io/coding/kitura-deployment/&description=Kitura deployment notes" target="_blank"><i class="fa fa-fw fa-pinterest-p"></i> Pinterest</a></button></li>
                  
                  
 
-                <li><button type="button" class="btn btn-default btn-sm btn-reddit"><a href="http://reddit.com/submit?url=https://yo1995.github.io/reading/a-la-jeunesse/&amp;title=敬告青年" target="_blank"><i class="fa fa-fw fa-reddit-alien"></i> Reddit</a></button></li>
+                <li><button type="button" class="btn btn-default btn-sm btn-reddit"><a href="http://reddit.com/submit?url=https://yo1995.github.io/coding/kitura-deployment/&amp;title=Kitura deployment notes" target="_blank"><i class="fa fa-fw fa-reddit-alien"></i> Reddit</a></button></li>
 
-                <li><button type="button" class="btn btn-default btn-sm btn-tumblr"><a href="http://www.tumblr.com/share/link?url=https://yo1995.github.io/reading/a-la-jeunesse/&amp;title=敬告青年" target="_blank"><i class="fa fa-fw fa-tumblr"></i> Tumblr</a></button></li>
+                <li><button type="button" class="btn btn-default btn-sm btn-tumblr"><a href="http://www.tumblr.com/share/link?url=https://yo1995.github.io/coding/kitura-deployment/&amp;title=Kitura deployment notes" target="_blank"><i class="fa fa-fw fa-tumblr"></i> Tumblr</a></button></li>
 
                 <li><button type="button" class="btn btn-default btn-sm btn-print"><a href="javascript:;" onclick="window.print()"><i class="fa fa-fw fa-print"></i> Print</a></button></li>
 
@@ -344,7 +411,7 @@
                 <div class="arrow">
                     <i class="fa fa-angle-double-left"></i>
                     
-                    <a href="/video/taiwan/" class="animsition-link" data-hover-text="Prev: 转山·观海·单车·台湾">Prev: 转山·观海·单车·台湾</a>
+                    <a href="/life/life-notes-190609/" class="animsition-link" data-hover-text="Prev: 生活点滴随记 - 190609">Prev: 生活点滴随记 - 190609</a>
                     
                 </div>
 
@@ -355,7 +422,7 @@
             <div class="next-post">
                 <div class="arrow">
                     
-                    <a href="/school/innovation-program-second-year/" class="animsition-link" data-hover-text="Next: 大创简记">Next: 大创简记</a>
+                    <a href="/blog/" class="animsition-link" data-hover-text="Blog Archive">Blog Archive</a>
                     
                     <i class="fa fa-angle-double-right"></i>
                 </div>
@@ -401,9 +468,9 @@
         <div id="disqus_thread"></div>
         <script>
         var disqus_config = function () {
-        this.page.url = "https://yo1995.github.io/reading/a-la-jeunesse/";
-        this.page.identifier = "Chen's Blog//reading/a-la-jeunesse";
-        this.page.title = "敬告青年";
+        this.page.url = "https://yo1995.github.io/coding/kitura-deployment/";
+        this.page.identifier = "Chen's Blog//coding/kitura-deployment";
+        this.page.title = "Kitura deployment notes";
         };
         (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -517,38 +584,8 @@
                 
                 
                     
-                
                     
-                
                     
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
                 
                 
                 
@@ -567,14 +604,17 @@
                 
                     
                 
+                
+                
+                
+                    
+                
                     
                 
                     
                 
                 
                 
-                
-                    
                 
                     
                 
@@ -584,13 +624,13 @@
                     
                     <li>
                         <figure>
-                            <a class="animsition-link" href="/video/do-what-i-cant/">
-                                <img src="/images/201902/casey.png" alt="Do what I can't">
+                            <a class="animsition-link" href="/coding/ece650-homework-review/">
+                                <img src="/images/201904/rootkit-512.png" alt="650 作业回顾">
                             </a>
                         </figure>
                         <div class="recent-post-content">
-                            <a class="animsition-link" href="/video/do-what-i-cant/">Do what I can't</a>
-                            <span>2019/02/21</span>
+                            <a class="animsition-link" href="/coding/ece650-homework-review/">650 作业回顾</a>
+                            <span>2019/04/16</span>
                         </div>
                     </li>
                     
@@ -603,163 +643,16 @@
                     
                 
                     
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                    
                     
                     <li>
                         <figure>
-                            <a class="animsition-link" href="/video/volumax-notes/">
-                                <img src="/images/201808/Preview_Volumax_VPro.jpg" alt="VoluMax 小记">
+                            <a class="animsition-link" href="/coding/lg-ultrafine-brightness/">
+                                <img src="/images/201904/lg.png" alt="LG UltraFine brightness adjustment tool for Windows">
                             </a>
                         </figure>
                         <div class="recent-post-content">
-                            <a class="animsition-link" href="/video/volumax-notes/">VoluMax 小记</a>
-                            <span>2018/08/23</span>
+                            <a class="animsition-link" href="/coding/lg-ultrafine-brightness/">LG UltraFine brightness adjustment tool for Windows</a>
+                            <span>2019/04/07</span>
                         </div>
                     </li>
                     
@@ -810,6 +703,26 @@
                 
                     
                 
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
                     
                 
                 
@@ -829,6 +742,27 @@
                     
                 
                     
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
                 
                     
                 
@@ -838,13 +772,13 @@
                     
                     <li>
                         <figure>
-                            <a class="animsition-link" href="/coding/adobe-premiere-pro-projectfile-downgrader/">
-                                <img src="/images/201807/pr-logo.png" alt="Pr工程文件版本转换器">
+                            <a class="animsition-link" href="/coding/Wox-plugin-Emoji/">
+                                <img src="/images/201809/like.gif" alt="Windows快速搜索Emoji小工具">
                             </a>
                         </figure>
                         <div class="recent-post-content">
-                            <a class="animsition-link" href="/coding/adobe-premiere-pro-projectfile-downgrader/">Pr工程文件版本转换器</a>
-                            <span>2018/07/21</span>
+                            <a class="animsition-link" href="/coding/Wox-plugin-Emoji/">Windows快速搜索Emoji小工具</a>
+                            <span>2018/09/29</span>
                         </div>
                     </li>
                     
@@ -1176,12 +1110,11 @@
             </h6>
             <div id="navbar">
                 <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#一-自主的而非奴隶的">一 自主的而非奴隶的</a></li>
-<li class="toc-entry toc-h2"><a href="#二-进步的而非保守的">二 进步的而非保守的</a></li>
-<li class="toc-entry toc-h2"><a href="#三-进取的而非退隐的">三 进取的而非退隐的</a></li>
-<li class="toc-entry toc-h2"><a href="#四-世界的而非锁国的">四 世界的而非锁国的</a></li>
-<li class="toc-entry toc-h2"><a href="#五-实利的而非虚文的">五 实利的而非虚文的</a></li>
-<li class="toc-entry toc-h2"><a href="#六-科学的而非想象的">六 科学的而非想象的</a></li>
+<li class="toc-entry toc-h2"><a href="#背景">背景</a></li>
+<li class="toc-entry toc-h2"><a href="#安装swift环境">安装Swift环境</a></li>
+<li class="toc-entry toc-h2"><a href="#安装vapor环境">安装Vapor环境</a></li>
+<li class="toc-entry toc-h2"><a href="#配置nginx代理">配置Nginx代理</a></li>
+<li class="toc-entry toc-h2"><a href="#后记">后记</a></li>
 </ul>
             </div>
         </aside>
@@ -1259,7 +1192,7 @@
 <script src="/assets/js/qrcode.js"></script>
 <script>
 var qrcode = new QRCode(document.getElementById("qrcode"), {
-    text: "https://yo1995.github.io/reading/a-la-jeunesse/",
+    text: "https://yo1995.github.io/coding/kitura-deployment/",
     width: 196,
     height: 196,
     colorDark : "#000000",
@@ -1292,8 +1225,8 @@ var qrcode = new QRCode(document.getElementById("qrcode"), {
 
   ga('create', 'UA-82518311-1', 'auto');
   ga('send', 'pageview', {
-  'page': '/reading/a-la-jeunesse/',
-  'title': '敬告青年'
+  'page': '/coding/kitura-deployment/',
+  'title': 'Kitura deployment notes'
   });
 
 </script-->
