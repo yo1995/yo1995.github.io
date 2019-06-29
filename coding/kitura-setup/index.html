@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html>
+
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="继续记录搭建Kitura服务的过程与踩过的坑">
+  <meta name="author" content="Chen Ting">
+  <meta name="keywords" content="">
+  <meta name="theme-color" content="#272727">
+
+  <title>Kitura 配置小感</title>
+
+  <link rel="icon" href="/img/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="canonical" href="https://yo1995.github.io/coding/kitura-setup/" />
+  <link rel="alternate" type="application/rss+xml" title="Chen's Blog" href="https://yo1995.github.io/feed.xml" />
+  
+  <meta property="og:site_name" content="Chen's Blog" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://yo1995.github.io/coding/kitura-setup/" />
+  <meta property="og:title" content="Kitura 配置小感" />
+  <meta property="og:description" content="继续记录搭建Kitura服务的过程与踩过的坑" />
+  <meta property="og:article:published_time" content="2019-06-27T00:00:00-04:00" />
+  <meta property="og:article:author" content="Chen Ting" />
+
+  <meta property="og:image" content="/images/201906/kitura.png" />
+  
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <!-- PLUGINS -->
+  <link rel="stylesheet" href="/assets/css/vlthemes.css">
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">	
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  
+  
+  
+
+</head>
+<!-- 180622 - tecent analytics -->
+<script type="text/javascript" src="https://tajs.qq.com/stats?sId=65898920" charset="UTF-8"></script>
+
+
+  <body data-spy="scroll" data-target="#navbar" data-offset="100">
+
+		<!-- FRAMES -->
+		<span class="frame-line top-frame"></span>
+		<span class="frame-line right-frame"></span>
+		<span class="frame-line bottom-frame"></span>
+		<span class="frame-line left-frame"></span>
+
+    <div class="animsition">
+      <div class="content">
+
+        
+<!-- header-fixed / header-scroll-up  -->
+<div class="scroll-indicator fixedheader" style="width"></div>
+<header class="header-wrap header-fixed minimal-menu">
+    <div class="header-inner">
+        <div class="container">
+			
+            <div class="logo">
+                <a href="/blog" class="animsition-link">Ch<span>e</span>n's Blog</a>
+            </div>
+			
+
+            <a href="#" class="menu-toggle desctop-menu">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <a href="#" class="menu-toggle mobile-menu-toggle">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <nav class="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="/" class="animsition-link">
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item-has-children" class="current-menu-item">
+                        <a href="">
+                            <span>Blog</span>
+                        </a>
+						    <ul class="sub-menu">
+								<li>
+									<a href="/blog/" class="animsition-link">
+										<span>Blog Index</span>
+									</a>
+								</li>
+								<li>
+									<a href="/posts/" class="animsition-link">
+										<span>Archives</span>
+									</a>
+								</li>
+								<li>
+									<a href="/categories/" class="animsition-link">
+										<span>Categories</span>
+									</a>
+								</li>
+								<li>
+									<a href="/tags/" class="animsition-link">
+										<span>Tags</span>
+									</a>
+								</li>
+							</ul>
+                    </li>
+
+                    <li>
+                        <a href="/photos/" class="animsition-link">
+                            <span>Photos</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/about/" class="animsition-link">
+                            <span>About</span>
+                        </a>
+                    </li>
+					
+					  <!--li>
+                        <a href="" class="animsition-link" id="CN">
+                            <span>CN</span>
+                        </a>
+                    </li-->
+                </ul>
+            </nav>
+            <!-- END PRIMARY-MENU -->
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <!-- END HEADER-INNER -->
+</header>
+<!-- END HEADER-WRAP -->
+
+
+        
+
+        <main id="main-content">
+          
+          <div class="single-post-wrap clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 content-fixed">
+
+        <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
+          <div class="post-thumb clearfix">
+            
+            <img src="/images/201906/kitura.png" alt="Kitura 配置小感">
+            
+          </div>
+          
+          <div class="post-content" itemprop="articleBody">
+            <div class="post-date" datetime="2019-06-27T00:00:00-04:00" itemprop="datePublished">
+              Jun 27, 2019
+            </div>
+            <h1 class="post-title" itemprop="name headline">Kitura 配置小感</h1>
+            <div class="content-color">
+            
+            <p><a href="/coding/kitura-deployment">上回</a>说到，环境基本配好，HTTP服务器使用NGINX，所有路由由Kitura自行调配。跑通官方示例项目后，就该正式做Ric的需求了。</p>
+
+<p>当初接触Server Side Swift也是因为Ric突发奇想，希望在内网服务器上搭一个纯Swift的后台服务，从而实现从客户端到后台一门语言通吃的效果。实际上，安卓开发通过Java很早就能做到跨平台通吃的效果，不过Java的历史包袱比较沉重，之前和彭大哥做项目时候就曾了解到这一点。Windows平台上，C#似乎也有这方面的野心，但多年来UWP程序不温不火，轻量级应用又有Electron-Vue这样的前端框架异军突起，很难找到一款能够在Windows上完成原型并方便地跨平台的MSVC系工具。<br>
+一般来说，做什么工作就得选什么工具，工具不好用会浪费不少时间。这次配置编写这台服务器的服务时就体会到了这一点。原谅我水平不济，所有后台服务都想和Django比一比，比完后总会得出结论——Django真是好用啊！无论是数据库模型，还是默认的HTTP服务器，还是Python强大三方库社区的加持，还是验证管理会话安全等中间件……都非常适合对配置服务器或后台服务一知半解的小白——无需懂得太多，只需关注服务逻辑，就能很快搭出原型。想要用Kitura实现许多在Django里面半天就能搞定的功能，可算得上大费周章。</p>
+
+<h2 id="第一个服务---emoji-server">
+<a id="第一个服务---emoji-server" class="anchor" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1---emoji-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>第一个服务 - Emoji Server</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
+├── [1.6K]  Package.swift
+├── [4.0K]  public
+│   ├── [4.0K]  css
+│   │   ├── [5.1K]  emoji.css
+│   │   ├── [3.2K]  emoji.css.map
+│   │   ├── [ 17K]  github-markdown.css
+│   │   └── [1.6K]  index.css
+│   ├── [4.0K]  img
+│   │   ├── [  49]  blank.gif
+│   │   ├── [722K]  emoji_spritesheet_0.png
+│   │   ├── [531K]  emoji_spritesheet_1.png
+│   │   ├── [956K]  emoji_spritesheet_2.png
+│   │   ├── [402K]  emoji_spritesheet_3.png
+│   │   ├── [531K]  emoji_spritesheet_4.png
+│   │   ├── [3.2K]  IconsetSmiles_1x.png
+│   │   ├── [6.8K]  IconsetSmiles.png
+│   │   ├── [ 13K]  IconsetW_1x.png
+│   │   ├── [ 26K]  IconsetW.png
+│   │   └── [5.5K]  plusSign.jpg
+│   └── [4.0K]  js
+│       ├── [126K]  config.js
+│       ├── [2.9K]  emoji-picker.coffee
+│       ├── [3.8K]  emoji-picker.js
+│       ├── [3.0K]  emoji-picker.js.map
+│       ├── [ 24K]  jquery.emojiarea.js
+│       └── [5.4K]  util.js
+├── [8.0K]  README.md
+├── [4.0K]  Sources
+│   ├── [4.0K]  Application
+│   │   ├── [2.9K]  Application.swift
+│   │   ├── [1.9K]  InitializationError.swift
+│   │   ├── [2.3K]  Metrics.swift
+│   │   ├── [4.0K]  Models
+│   │   │   ├── [5.4K]  JournalEntry.swift
+│   │   │   ├── [3.1K]  Persistence.swift
+│   │   │   └── [2.2K]  UserAuth.swift
+│   │   └── [4.0K]  Routes
+│   │       ├── [2.9K]  EntryRoutes.swift
+│   │       ├── [2.0K]  HealthRoutes.swift
+│   │       ├── [ 919]  MarkdownRoutes.swift
+│   │       ├── [ 543]  NotFoundRoutes.swift
+│   │       ├── [2.3K]  UserRoutes.swift
+│   │       └── [4.9K]  WebClientRoutes.swift
+│   └── [4.0K]  EmojiJournalServer
+│       └── [1.9K]  main.swift
+├── [4.0K]  Tests
+│   ├── [4.0K]  ApplicationTests
+│   │   └── [4.3K]  RouteTests.swift
+│   └── [ 102]  LinuxMain.swift
+└── [4.0K]  Views
+    ├── [4.0K]  docs
+    │   ├── [ 252]  404.md
+    │   ├── [ 18K]  564.md
+    │   ├── [ 632]  doc2.md
+    │   └── [2.5K]  index.md
+    └── [4.3K]  home.stencil
+</code></pre></div></div>
+
+<p>基于网上的教程，搭起了<a href="https://github.com/yo1995/Daily_Swift_Tasks/tree/master/Kitura_EmojiServer">第一个服务</a>进行测试。再次赞美Kitura，其结构设计的比较合理，MVC各个模块分割清晰，静态文件服务也很方便配置。第一个服务搭起来没有太大的困难，在解决了一些依赖的版本冲突和PostgreSQL安装配置问题后，整个服务运行的很良好。</p>
+
+<p>Kitura自带的OpenAPI组件能够自动生成所有Codable Routes的API示例界面与测试功能。因此，所有基于RESTful的API全都能够在一个界面上看到和管理，非常方便，省去了用Postman一个个测试的麻烦。在此基础上，我又改进和新加了几个功能，从而完成了EmojiJournal使其真正能够使用。直到这时，我还觉得搭服务简直轻而易举，甚至一度认为Kitura跟Django的易用性差不多了。</p>
+
+<p>高兴的太早了。</p>
+
+<h2 id="第二个服务--ece564-server">
+<a id="第二个服务--ece564-server" class="anchor" href="#%E7%AC%AC%E4%BA%8C%E4%B8%AA%E6%9C%8D%E5%8A%A1--ece564-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>第二个服务- ECE564 Server</h2>
+
+<p>给Ric简单介绍完，他觉得看起来不错，于是我便着手开始搭建ECE564的服务器。这个服务的内容其实也很简单——CRUD数据库操作封装成RESTful API，加以简单的展示和管理界面，再加上一个文件传输存储服务便大功告成。实际上，日常大多数API服务器的工作也就是这些，如果没有高并发分布式等需求，大可以把这次的服务器当做一个范本，以后再起服务器时就不用费尽周折再配置了。在这里不得不再次说，Django真的非常方便。上述功能Django的默认组件基本都已经囊括，无需用户再去调研该引入哪些依赖。</p>
+
+<h3 id="api">
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h3>
+
+<p>Kitura的API可分为两种：Codable Route、Raw Route。<br>
+Raw Route顾名思义就是原始数据相关的API，相当于中间件仅将请求封装成一个对象而已，很多parse、decode的工作需要自行完成。在处理文件上传时，由于请求一般为form-data或者binary，所以需要用到原始路由。<br>
+Codable Route高度整合了Swift 4引入的Codable protocol，也继承了JSON的简洁与易用的特点，将较为简单的请求和响应均封装为JSON字符串进行传输。像查找数据库相关的操作，由于不需要传输二进制文件，因此可以全部写成Codable路由。另外，借助Swift的Completion Handler的概念，写起异步阻塞来轻而易举。或许是我才疏学浅，反正从正经下决心学习编程以来，Swift的线程相关的操作是最直观、封装程度最好、可预期性最强的语言。在写C/C++的socket时经常弄乱，最后把整个请求搞成全线性阻塞的导致性能极差，还有select以后处理不好，真的很纠结；写Python和Django时虽说有了请求中间件的封装方便了许多，但上次为了保持文件和数据库同步时先存再取改完再存的窒息操作仍历历在目……甚至直到大四上学期，我还搞不懂线程和进程、多线程和超线程、同步和异步这一大套之间的联系。直到现在，写了很多Swift之后，我才稍稍有了点得心应手的感觉，不得不赞美Swift简明清晰的语法。</p>
+
+<p>写好API准备测试，遇到了前所未有的挑战——当我将人员条目的模型创建好数据库，POST完准备读取时，无论怎么尝试都是500.当时真是汗刷地一下就下来了。完全不合理啊，于是我左改又改，首先通过其他服务确定HTTP服务器没有问题，然后再看路由也没有走错，但始终无法解决问题。带着疑惑与不解，灰溜溜地十二点回家。</p>
+
+<p>第二天重整旗鼓，梳理思路，先从最小可运行的实例开始慢慢往上加东西。当我在模型加入5个成员时，没有问题；当我加到8个，便再次500……我还以为每一行数据大小有限制呢，研究了半天pq似乎真的有限制，但我实在不敢相信区区几个字符就能溢出。</p>
+
+<p>然后开始从8个减到6个，依旧500，再减到5个，瞬间恢复。其间不知道DROP TABLE多少次，直到我看到struct里成员的命名才发现端倪：全小写时就能工作，加入camelCase的命名就炸……赶忙谷歌一搜，果然——pq列名称只能小写！</p>
+
+<p>后来复盘时分析为什么花了将近6个小时才发现这个问题，原因大致有如下几个：</p>
+<ul>
+  <li>第一次学pq时用的是C++，C++约定的变量名称是snake的，一般不包含大写字母，因此没有被这个问题困扰过；</li>
+  <li>之后用Django时Python也是snake的，而且用的是SQLite，便以为所有数据库在这方面应该没啥区别；</li>
+  <li>示例程序里非数据库的struct中有使用camelCase的变量名，而存进数据库的模型中变量个数又很少，导致我想当然认为没有区别；</li>
+  <li>认为ORM在模型映射的过程中应该会代为解决这些问题，用户毋需关心。</li>
+</ul>
+
+<p>总之，一个非常弱的小问题浪费了大量时间，令我很难过😢。</p>
+
+<h3 id="前端">
+<a id="前端" class="anchor" href="#%E5%89%8D%E7%AB%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a>前端</h3>
+
+<p>为了使数据库展示较为美观，也是受了Django自带管理界面的影响，我决定也部署一个类似的数据库管理前端界面。</p>
+
+<p>对于pq，官方推荐的自然是pqAdmin 4了。Mac上安装时自带就是这个工具，自然我也先尝试使用它。</p>
+
+<p>安装好以后，在MobaXterm上输入<code class="highlighter-rouge">pqadmin4</code>后，过了一会居然直接弹出一个Ubuntu FireFox的图形界面来，让我相当差异。之前见过的类似情景无非gedit跳出个编辑器，这一下搞出个浏览器，让我重新认识了terminal的功能。但是实在不好用，而且在Mac上不知道为什么<code class="highlighter-rouge">ssh -X</code>并不能实现类似的效果。<br>
+尝试将pqadmin设置成headless的，无果；以<code class="highlighter-rouge">pqadmin server mode</code>/<code class="highlighter-rouge">pqadmin remote</code>查询了一大堆帖子，还是设置不好通过HTTP服务从外部访问。甚至还有一种说法在某个版本前，pdadmin必须代理在域名根目录下才能运行。价值pqadmin的界面实在不好用，遂弃之。</p>
+
+<p>pqadmin在我看来就是web1.0时代人们对互联网服务的理解——桌面应用的翻版，功能庞杂而缺少设计感，大量的文字和元素充斥着页面，想看一下数据库中某张表的数据需要点击十余次鼠标，或在键盘输入SQL命令才能实现。因此只得放弃这个方案。<br>
+接着在GitHub一搜，有个叫pqweb的项目星很多。部署了一下一测试，意外的好用！一个界面，一次登录，查看所有数据库中所有的表；不提供鼠标编辑，但可以执行SQL；表结构、约束关系、历史记录、连接状态一应俱全，非常紧凑。一下子就决定用它了。<br>
+唯一的问题是Windows端必须得开cmd输入正确参数才能连上数据库，没有默认的WebUI，稍显不足。</p>
+
+<p>为了不重复造轮子，就没有做前端的增加数据功能。毕竟这个服务器是给学生在客户端发请求用的，再搞个网页端的编辑功能有些画蛇添足。况且，我不太会搞前端的设计，尤其是js那一大套……</p>
+
+<p>做了个卡片式的条目展示，这时候RESTful API的优势就显现出来了——ajax发个REST请求，直接就返回JSON，在页面上更新，逻辑非常清晰。但是改CSS和js还是费了不少劲，由于对于前端不太了解，想实现任何功能都要去查如何调库，费了半天劲才写出二三十行代码的感觉很不爽。</p>
+
+<h3 id="匿名请求">
+<a id="匿名请求" class="anchor" href="#%E5%8C%BF%E5%90%8D%E8%AF%B7%E6%B1%82" aria-hidden="true"><span class="octicon octicon-link"></span></a>匿名请求</h3>
+
+<p>最初我是想在访问数据库的过程中加入登录验证的。但后来一想初学者可能弄不清这些复杂的逻辑，遂重新写了匿名请求的API。同时，还怕他们搞不清PUT和POST的区别，于是把PUT的功能也揉进POST里面了。希望我多费点儿时间能让他们少点纠结吧。</p>
+
+<p>如何厘清匿名时哪些数据可写可改可删，哪些数据可查还是有点复杂。最后我设计的是</p>
+<ul>
+  <li>所有数据可通过id查询，通过netID进行过滤，或者直接查询所有数据；</li>
+  <li>所有匿名上传数据可通过id匿名删除和修改</li>
+  <li>可匿名增加数据，在数据库里上传者的字段设为一个统一的匿名用户，如果增加时id与已有条目重复则变为修改；如果违反netID的UNIQUE约束则禁止增加。</li>
+  <li>登录后的用户可以任意操作本账号对应的条目</li>
+</ul>
+
+<p>如此一来，登录和匿名的范围就基本分清了。</p>
+
+<h3 id="头像图片文件上传">
+<a id="头像图片文件上传" class="anchor" href="#%E5%A4%B4%E5%83%8F%E5%9B%BE%E7%89%87%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>头像图片文件上传</h3>
+
+<p>对于文件上传，最初我是有些纠结的。去年当我初学时，Ric的设计是一切基于JSON，所有都是字符。这样一来，上传文件就变成了先把文件数据转为base64，然后填到JSON字段里POST。虽说这样避免了表单操作，但却增添了后台的难度。究竟应该把这个base64存在数据库里，还是解码后存成文件？返回响应时是把二进制文件传回去，还是再转为base64传回去，还是直接返回一个链接？<br>
+把二进制文件存在数据库里的坏处就在于无端增大了每个条目的大小，且使条目占用空间不可控，必须的按照最大的文件分配。去年采用的就是这样的方案，每次从服务器GET的时候都要等三五秒，体验不太好，因此这次轮到我设计时想做一些改变。<br>
+一般而言，图片文件等二进制文件都该存在静态文件区，数据库中只存相对路径。请求时返回路径就行。这次我也是如此实现的。</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">Avatar</span> <span class="p">:</span> <span class="kt">Model</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+    <span class="k">var</span> <span class="nv">netid</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="k">var</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">String</span>
+    <span class="k">var</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">Int</span>  <span class="c1">// size in bytes</span>
+    <span class="k">var</span> <span class="nv">md5</span><span class="p">:</span> <span class="kt">String</span>
+<span class="p">}</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">router</span><span class="o">.</span><span class="nf">all</span><span class="p">(</span><span class="s">"/avatar"</span><span class="p">,</span> <span class="nv">middleware</span><span class="p">:</span> <span class="kt">BodyParser</span><span class="p">())</span>
+
+<span class="k">guard</span> <span class="k">let</span> <span class="nv">multipartBody</span><span class="p">:</span> <span class="p">[</span><span class="kt">Part</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">?</span><span class="o">.</span><span class="n">asMultiPart</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nf">next</span><span class="p">()</span>
+    <span class="k">try</span> <span class="n">response</span><span class="o">.</span><span class="nf">status</span><span class="p">(</span><span class="o">.</span><span class="n">noContent</span><span class="p">)</span><span class="o">.</span><span class="nf">end</span><span class="p">()</span>
+    <span class="k">return</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>通过Kitura自带的中间件分析请求，解码为multipart/form-data类型，然后将其中字段读出。md5校验后将文件存储到静态文件目录，并计算文件大小，最终存入数据库。对于重复处理，我的标准是基于netID进行判断——如果不存在则为创建；如果存在则为更新。理论上来说，每次新增或者更新前应该先把之前的文件删掉，但为了图省事暂时直接覆盖。这样会引入一个问题，就是对于同一个netID如果用户上传与上次图片文件类型不同，数据库中现有文件将无法追踪，只能手动删除。不过因为应用规模很小，到时手动清理或许比先删再加处理错误更简单。</p>
+
+<p>经过测试，文件上传一切正常，整个项目也终于成了气候。下周一看看Ric怎么说吧。</p>
+
+<h3 id="示例文件编写">
+<a id="示例文件编写" class="anchor" href="#%E7%A4%BA%E4%BE%8B%E6%96%87%E4%BB%B6%E7%BC%96%E5%86%99" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例文件编写</h3>
+
+<p>为了做得稍微圆满一些，我给所有需要用到的API编写了示例代码，GET/POST/PUT/DELETE分别存在playground文件中。</p>
+
+<p>在写参考代码时才发现playground的window机制竟然也很hacky——是用一个iPad simulator精简后实现的。当代码崩溃时，能够看到一个iPad模拟器满桌面全是没有图标的应用😂。同时估计也是相同原因，playground的window还写死为768*1024的大小，导致许多和UI有关的测试都不太方便。Playground还是适合作为一个类似于Jupyter Notebook的工具来使用。</p>
+
+<h2 id="总结">
+<a id="总结" class="anchor" href="#%E6%80%BB%E7%BB%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结</h2>
+
+<p>这篇文章特地没有涉及许多技术细节，因为这次写的代码自我感觉非常良好，代码的“自明性”很高，直接看代码就能读懂逻辑，用不着记录太多细节。希望以后翻到这篇文章时不要被打脸🤣。</p>
+
+<p>总体来说，搭建一个常规的后台服务，在2019年已经不是什么难事。几乎任何流行的主流互联网语言都具备这种能力，而且造好的轮子很多，只需自己实现“胶合”代码、业务逻辑即可快速建立原型。这在Web1.0时代是难以想象的。跟彭哥讨论项目时，他讲过当初在IBM做JavaEE时配置环境、部署应用是一件非常重量级的任务。几十兆的jar包搭配着WSGI、xml、SOAP等初代互联网协议栈，以及缺乏趁手的版本管理工具、API管理工具等困难，诸多因素混合在一起导致传统应用十分臃肿而错综复杂。而如今，对于Kitura、对于Django，只需一杯茶的功夫，一个后台服务就能冉冉升起，真让我觉得赶上了学编程的好时机。</p>
+
+<h3 id="20190628-tree">
+<a id="20190628-tree" class="anchor" href="#20190628-tree" aria-hidden="true"><span class="octicon octicon-link"></span></a>20190628 Tree</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
+├── [9.2K]  Package.resolved
+├── [1.6K]  Package.swift
+├── [4.0K]  public
+│   ├── [4.0K]  avatars
+│   │   ├── [ 11K]  ece564.png
+│   │   └── [ 67K]  tc233.png
+│   ├── [4.0K]  css
+│   │   ├── [5.1K]  emoji.css
+│   │   ├── [ 17K]  github-markdown.css
+│   │   └── [1.7K]  index.css
+│   ├── [4.0K]  img
+│   │   ├── [  49]  blank.gif
+│   │   ├── [3.2K]  IconsetSmiles_1x.png
+│   │   ├── [6.8K]  IconsetSmiles.png
+│   │   ├── [ 13K]  IconsetW_1x.png
+│   │   └── [ 26K]  IconsetW.png
+│   └── [4.0K]  js
+│       └── [5.4K]  util.js
+├── [4.0K]  Sources
+│   ├── [4.0K]  Application
+│   │   ├── [1.2K]  Application.swift
+│   │   ├── [ 247]  InitializationError.swift
+│   │   ├── [ 717]  Metrics.swift
+│   │   ├── [4.0K]  Models
+│   │   │   ├── [ 265]  DukePersonAvatar.swift
+│   │   │   ├── [9.7K]  DukePersonEntry.swift
+│   │   │   ├── [2.3K]  Persistence.swift
+│   │   │   └── [ 870]  UserAuth.swift
+│   │   ├── [4.0K]  Routes
+│   │   │   ├── [5.5K]  AnonymousRoutes.swift
+│   │   │   ├── [ 11K]  AvatarRoutes.swift
+│   │   │   ├── [1.7K]  EntryRoutes.swift
+│   │   │   ├── [ 390]  HealthRoutes.swift
+│   │   │   ├── [ 919]  MarkdownRoutes.swift
+│   │   │   ├── [ 543]  NotFoundRoutes.swift
+│   │   │   ├── [ 713]  UserRoutes.swift
+│   │   │   └── [3.8K]  WebClientRoutes.swift
+│   │   └── [1.6K]  Utils.swift
+│   └── [4.0K]  ECE564Server
+│       └── [ 227]  main.swift
+├── [4.0K]  Tests
+│   ├── [4.0K]  ApplicationTests
+│   │   └── [4.3K]  RouteTests.swift
+│   └── [ 102]  LinuxMain.swift
+└── [4.0K]  Views
+    ├── [4.0K]  docs
+    │   ├── [ 367]  404.md
+    │   └── [2.1K]  index.md
+    └── [5.3K]  home.stencil
+
+14 directories, 35 files
+</code></pre></div></div>
+
+<h2 id="参考链接">
+<a id="参考链接" class="anchor" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>参考链接</h2>
+
+<ul>
+  <li>
+    <p><a href="https://gitlab.oit.duke.edu/tc233/ece564_2019fall_prep">项目地址</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/IBM-Swift/Kitura/pull/1260">Multipart Doc revision</a></p>
+  </li>
+  <li>
+    <p><a href="//%20https://github.com/vapor/vapor/issues/730">Write file to disk on Ubuntu</a></p>
+  </li>
+  <li>
+    <p><a href="//%20https://stackoverflow.com/questions/26707352/how-to-split-filename-from-file-extension-in-swift">File name extensions</a></p>
+  </li>
+  <li>
+    <p><a href="https://ibm-swift.github.io/Kitura/Classes/BodyParser.html">Kitura Raw BodyParser</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/IBM-Swift/Swift-Kuery-ORM/issues/89">PQ field limitations</a>
+need to serialize array into string due to ORM limitations</p>
+  </li>
+  <li>
+    <p><a href="https://stackoverflow.com/questions/28268145/get-file-size-in-swift">Swift get file size</a></p>
+  </li>
+  <li>
+    <p><a href="https://stackoverflow.com/questions/42935148/swift-calculate-md5-checksum-for-large-files">Swift md5</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/IBM-Swift/BlueCryptor">Swift CommonCryptos for Ubuntu - BlueCryptor</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/yo1995/Daily_Swift_Tasks/blob/master/Kitura_EmojiServer">EmojiServer</a></p>
+  </li>
+  <li>
+    <p><a href="https://stackoverflow.com/questions/47076329/swift-string-escaping-when-serializing-to-json-using-codable">Replace backslash</a></p>
+  </li>
+</ul>
+
+            
+            </div>
+            
+<div class="entry-tags clearfix">
+
+    <div class="entry-footer clearfix">
+
+        <div class="pull-left">
+            <span>
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/#swift">swift</a>
+                
+                <a href="/tags/#mac">mac</a>
+                
+                <a href="/tags/#coding">coding</a>
+                
+            </span>            
+            <span><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv">0</span> views</span>
+            <span>
+                <i class="fa fa-comments-o"></i>
+                <a href="#comments">GFW comments</a>
+				<!--被墙替换class="disqus-comment-count" data-disqus-identifier="Chen's Blog//coding/kitura-setup-->
+            </span>
+            <span>
+                <i class="fa fa-check-square-o"></i><span>9183 words</span>
+            </span>
+            <span>
+                <i class="fa fa-link"></i>
+                <a data-toggle="collapse" href="#share-content" aria-expanded="false" aria-controls="share-content">Share</a>
+        </div>
+        <div class="pull-right collapse in" id="share-content">
+            
+<div class="entry-share-links">
+
+    <div class="btn-group" role="group" aria-label="Share">
+        <button type="button" class="btn btn-default btn-sm btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="http://www.facebook.com/sharer.php?u=https://yo1995.github.io/coding/kitura-setup/" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></button>
+        
+        <button type="button" class="btn btn-default btn-sm btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="https://twitter.com/share?url=https://yo1995.github.io/coding/kitura-setup/&amp;text=Kitura 配置小感" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-weibo" data-toggle="tooltip" data-placement="top" title="新浪微博"><a href="http://service.weibo.com/share/share.php?url=https://yo1995.github.io/coding/kitura-setup/&title=分享%4011L23+的文章「Kitura 配置小感」&content=继续记录搭建Kitura服务的过程与踩过的坑&pic=https://yo1995.github.io/images/201906/kitura.png" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-douban" data-toggle="tooltip" data-placement="top" title="豆瓣"><a href="https://www.douban.com/share/service?name=Kitura 配置小感&href=https://yo1995.github.io/coding/kitura-setup/&image=https://yo1995.github.io/images/201906/kitura.png&url=https://yo1995.github.io/coding/kitura-setup/&title=Kitura 配置小感" target="_blank"><i class="fa fa-fw">豆</i></a></button>
+
+        <a tabindex="0" class="btn btn-sm btn-weixin" role="button" data-trigger="hover" data-placement="top" id="qrcode-btn"><i class="fa fa-fw fa-weixin"></i></a>
+
+        <div id="qrcode-content" class="qrcode-hidden"><div id="qrcode"></div></div>
+        <div id="qrcode-title" class="qrcode-hidden">Scan to Read</div>
+		
+		<button type="button" class="btn btn-default btn-sm btn-email"><a href="mailto:?Subject=Kitura 配置小感&amp;Body=继续记录搭建Kitura服务的过程与踩过的坑%20https://yo1995.github.io/coding/kitura-setup/"><i class="fa fa-fw fa-envelope-o"></i> Email</a></button>
+
+        <div class="btn-group btn-group-justified dropup" role="group">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle btn-more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-share-alt"></i><span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-google"><a href="https://plus.google.com/share?url=https://yo1995.github.io/coding/kitura-setup/" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google Plus</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://yo1995.github.io/coding/kitura-setup/" target="_blank"><i class="fa fa-fw fa-linkedin"></i> Linkedin</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-digg"><a href="http://www.digg.com/submit?url=https://yo1995.github.io/coding/kitura-setup/" target="_blank"><i class="fa fa-fw fa-digg"></i> Digg</a></button></li>
+
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-pinterest"><a href="https://pinterest.com/pin/create/bookmarklet/?media=https://yo1995.github.io/images/201906/kitura.png&url=https://yo1995.github.io/coding/kitura-setup/&description=Kitura 配置小感" target="_blank"><i class="fa fa-fw fa-pinterest-p"></i> Pinterest</a></button></li>
+                 
+                 
+
+                <li><button type="button" class="btn btn-default btn-sm btn-reddit"><a href="http://reddit.com/submit?url=https://yo1995.github.io/coding/kitura-setup/&amp;title=Kitura 配置小感" target="_blank"><i class="fa fa-fw fa-reddit-alien"></i> Reddit</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-tumblr"><a href="http://www.tumblr.com/share/link?url=https://yo1995.github.io/coding/kitura-setup/&amp;title=Kitura 配置小感" target="_blank"><i class="fa fa-fw fa-tumblr"></i> Tumblr</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-print"><a href="javascript:;" onclick="window.print()"><i class="fa fa-fw fa-print"></i> Print</a></button></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+        </div>
+    </div>  
+
+</div>
+
+          </div>
+        </article>
+        <!-- END SINGLE-POST -->
+
+        
+<div class="post-navigation clearfix">
+    <div class="row">
+
+        <div class="col-xs-6">
+            <div class="previous-post">
+                <div class="arrow">
+                    <i class="fa fa-angle-double-left"></i>
+                    
+                    <a href="/coding/kitura-deployment/" class="animsition-link" data-hover-text="Prev: Kitura deployment notes">Prev: Kitura deployment notes</a>
+                    
+                </div>
+
+            </div>
+            <!-- END PREVIOUS-POST -->
+        </div>
+        <div class="col-xs-6">
+            <div class="next-post">
+                <div class="arrow">
+                    
+                    <a href="/blog/" class="animsition-link" data-hover-text="Blog Archive">Blog Archive</a>
+                    
+                    <i class="fa fa-angle-double-right"></i>
+                </div>
+
+            </div>
+            <!-- END NEXT-POST -->
+        </div>
+    </div>
+</div>
+<!-- END POST-NAVIGATION -->
+		<!-- 180726 add multi author support -->
+		 
+			<div class="author-info clearfix">
+    <div class="author-avatar">
+        <img class="avatar" src="/img/avatar.png" alt="Chen Ting">
+    </div>
+
+    <div class="author-description">
+        <h4 class="author-title">
+            <a href="/about/">Chen Ting <i class="fa fa-link"></i></a>
+        </h4>
+        <p class="author-bio">
+            The page aims to exhibit several activities & achievements which the author engaged in during his undergraduate & graduate period. Meanwhile, other aspects such as lifestyles, literary work, travel notes, etc. would interweave in the narration.
+        </p>
+    </div>
+	<!-- add busaunzi to see how many views and reads happens to my page. addition to tecent -->
+	<script async src="/assets/js/busuanzi.pure.mini.js"></script>
+</div>
+<!-- END AUTHOR-INFO -->
+		 
+		 
+        
+
+<div class="comments-area clearfix">
+    <div class="comment-respond">
+		<h4 class="comment-reply-title" id="comments">Leave a Comment</h4>
+		<div class="disqus-placeholder alert alert-info" style="text-align: center">
+			<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Disqus might be GFW-ed. Excited!
+		</div>
+		<script src="/assets/js/disqusloader.js"></script>
+		<div class="disqus"></div>
+		<!--
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+        this.page.url = "https://yo1995.github.io/coding/kitura-setup/";
+        this.page.identifier = "Chen's Blog//coding/kitura-setup";
+        this.page.title = "Kitura 配置小感";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//yo1995.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+		-->
+		<script>disqusLoader( '.disqus', { 
+			scriptUrl: '//yo1995.disqus.com/embed.js',
+			disqusConfig: function(){
+				this.callbacks.onReady = [function(){
+				var el = document.querySelector( '.disqus-placeholder' );
+				if( el.classList )
+					el.classList.add( 'is-hidden' ); // IE 10+
+				else
+					el.className += ' ' + 'is-hidden'; // IE 8-9
+				}];}
+			});
+		</script>
+       <noscript>Please conquer the GFW or enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+<!-- END COMMENTS-AREA -->
+
+
+      </div>
+
+      <div class="col-md-4 sidebar-fixed">
+    <div class="sidebar">
+        <aside class="widget-wrap widget-search">
+            <h6 class="widget-title">
+                <span>Search for a topic?</span>
+            </h6>
+			<div onclick="keyinsearch()" class="search-form text-center" id="search-container">
+				<input type="text" id="search-input" placeholder="search...">
+				<i class="fa fa-search"></i>
+				<ul id="results-container" style="list-style:square"></ul>
+			</div>
+			<!-- 180206 - update -->
+<script src="/assets/js/jekyll-search.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  function keyinsearch () {
+  SimpleJekyllSearch({
+	searchInput: document.getElementById('search-input'),
+	resultsContainer: document.getElementById('results-container'),
+	json: '/search.json',
+	searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+	noResultsText: '无结果',
+	limit: 5,
+	fuzzy: false
+  });
+  }
+</script>
+
+
+<!-- 暂时还没想好cache怎么改写，目前每次请求都是200 ！= = 不够chrome貌似是直接从本地磁盘加载的 -->
+<!--
+<form class="search-form" action="/search/" target="_blank" method="get">
+	<input type="text" placeholder="Search..." name="q">
+	<i class="fa fa-search"></i>
+</form>
+-->
+
+        </aside>
+        <!-- END WIDGET-WRAP -->		
+        <aside class="widget-wrap widget-categories">
+            <h6 class="widget-title">
+                <span>Categories</span>
+            </h6>
+            <ul>
+				
+				
+                <li><a href="/categories/#coding">Coding</a></li>
+                
+                <li><a href="/categories/#ee">EE</a></li>
+                
+                <li><a href="/categories/#games">Games</a></li>
+                
+                <li><a href="/categories/#html">Html</a></li>
+                
+                <li><a href="/categories/#life">Life</a></li>
+                
+                <li><a href="/categories/#movie">Movie</a></li>
+                
+                <li><a href="/categories/#physics">Physics</a></li>
+                
+                <li><a href="/categories/#reading">Reading</a></li>
+                
+                <li><a href="/categories/#school">School</a></li>
+                
+                <li><a href="/categories/#society">Society</a></li>
+                
+                <li><a href="/categories/#tools">Tools</a></li>
+                
+                <li><a href="/categories/#video">Video</a></li>
+                
+            </ul>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-recent-posts">
+            <h6 class="widget-title">
+                <span>Related Posts</span>
+            </h6>
+            <ul class="recent-posts">
+            
+                
+                
+                
+                
+                    
+                    
+                    
+                
+                
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/kitura-deployment/">
+                                <img src="/images/201906/swift.png" alt="Kitura deployment notes">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/kitura-deployment/">Kitura deployment notes</a>
+                            <span>2019/06/19</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/ece650-homework-review/">
+                                <img src="/images/201904/rootkit-512.png" alt="650 作业回顾">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/ece650-homework-review/">650 作业回顾</a>
+                            <span>2019/04/16</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/lg-ultrafine-brightness/">
+                                <img src="/images/201904/lg.png" alt="LG UltraFine brightness adjustment tool for Windows">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/lg-ultrafine-brightness/">LG UltraFine brightness adjustment tool for Windows</a>
+                            <span>2019/04/07</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                    
+
+                
+                                   
+            </ul>
+
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-tag">
+            <h6 class="widget-title">
+                <span>Tags Widget <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+
+            <div class="tag-cloud">
+                
+                <a href="/tags/#df">df</a>
+                
+                <a href="/tags/#production">production</a>
+                
+                <a href="/tags/#education">education</a>
+                
+                <a href="/tags/#lifestyle">lifestyle</a>
+                
+                <a href="/tags/#volunteer">volunteer</a>
+                
+                <a href="/tags/#physics">physics</a>
+                
+                <a href="/tags/#lectures">lectures</a>
+                
+                <a href="/tags/#school">school</a>
+                
+                <a href="/tags/#football">football</a>
+                
+                <a href="/tags/#sports">sports</a>
+                
+                <a href="/tags/#movie">movie</a>
+                
+                <a href="/tags/#tv">tv</a>
+                
+                <a href="/tags/#life">life</a>
+                
+                <a href="/tags/#diversity">diversity</a>
+                
+                <a href="/tags/#arts">arts</a>
+                
+                <a href="/tags/#reading">reading</a>
+                
+                <a href="/tags/#projectuniv">projectuniv</a>
+                
+                <a href="/tags/#innovation">innovation</a>
+                
+                <a href="/tags/#project">project</a>
+                
+                <a href="/tags/#fpga">fpga</a>
+                
+                <a href="/tags/#science">science</a>
+                
+                <a href="/tags/#blog">blog</a>
+                
+                <a href="/tags/#helloworld">helloworld</a>
+                
+                <a href="/tags/#jekyll">jekyll</a>
+                
+                <a href="/tags/#html">html</a>
+                
+                <a href="/tags/#css">css</a>
+                
+                <a href="/tags/#github">github</a>
+                
+                <a href="/tags/#js">js</a>
+                
+                <a href="/tags/#hexo">hexo</a>
+                
+                <a href="/tags/#semiconductor">semiconductor</a>
+                
+                <a href="/tags/#experiments">experiments</a>
+                
+                <a href="/tags/#python">python</a>
+                
+                <a href="/tags/#image">image</a>
+                
+                <a href="/tags/#code">code</a>
+                
+                <a href="/tags/#gfw">gfw</a>
+                
+                <a href="/tags/#windows">windows</a>
+                
+                <a href="/tags/#tools">tools</a>
+                
+                <a href="/tags/#shell">shell</a>
+                
+                <a href="/tags/#scripts">scripts</a>
+                
+                <a href="/tags/#thu">thu</a>
+                
+                <a href="/tags/#liquid">liquid</a>
+                
+                <a href="/tags/#coding">coding</a>
+                
+                <a href="/tags/#latex">latex</a>
+                
+                <a href="/tags/#basic">basic</a>
+                
+                <a href="/tags/#review">review</a>
+                
+                <a href="/tags/#games">games</a>
+                
+                <a href="/tags/#roguelike">roguelike</a>
+                
+                <a href="/tags/#matlab">matlab</a>
+                
+                <a href="/tags/#chaos">chaos</a>
+                
+                <a href="/tags/#simulation">simulation</a>
+                
+                <a href="/tags/#camping">camping</a>
+                
+                <a href="/tags/#phd">phd</a>
+                
+                <a href="/tags/#philosophy">philosophy</a>
+                
+                <a href="/tags/#optics">optics</a>
+                
+                <a href="/tags/#year">year</a>
+                
+                <a href="/tags/#dream">dream</a>
+                
+                <a href="/tags/#girls">girls</a>
+                
+                <a href="/tags/#circuit">circuit</a>
+                
+                <a href="/tags/#electronics">electronics</a>
+                
+                <a href="/tags/#memory">memory</a>
+                
+                <a href="/tags/#france">France</a>
+                
+                <a href="/tags/#ingenieur">ingenieur</a>
+                
+                <a href="/tags/#bbs">bbs</a>
+                
+                <a href="/tags/#history">history</a>
+                
+                <a href="/tags/#byr">byr</a>
+                
+                <a href="/tags/#travel">travel</a>
+                
+                <a href="/tags/#tour">tour</a>
+                
+                <a href="/tags/#future">future</a>
+                
+                <a href="/tags/#graduate">graduate</a>
+                
+                <a href="/tags/#investment">investment</a>
+                
+                <a href="/tags/#love">love</a>
+                
+                <a href="/tags/#laptop">laptop</a>
+                
+                <a href="/tags/#mac">mac</a>
+                
+                <a href="/tags/#hackintosh">hackintosh</a>
+                
+                <a href="/tags/#foudre">foudre</a>
+                
+                <a href="/tags/#law">law</a>
+                
+                <a href="/tags/#juven">juven</a>
+                
+                <a href="/tags/#ramen">ramen</a>
+                
+                <a href="/tags/#industry">industry</a>
+                
+                <a href="/tags/#alcohol">alcohol</a>
+                
+                <a href="/tags/#bar">bar</a>
+                
+                <a href="/tags/#confession">confession</a>
+                
+                <a href="/tags/#postdoc">postdoc</a>
+                
+                <a href="/tags/#nyu">nyu</a>
+                
+                <a href="/tags/#hahn">hahn</a>
+                
+                <a href="/tags/#scholar">scholar</a>
+                
+                <a href="/tags/#academia">academia</a>
+                
+                <a href="/tags/#nba">nba</a>
+                
+                <a href="/tags/#cool">cool</a>
+                
+                <a href="/tags/#study">study</a>
+                
+                <a href="/tags/#fourier">fourier</a>
+                
+                <a href="/tags/#signal">signal</a>
+                
+                <a href="/tags/#theorem">theorem</a>
+                
+                <a href="/tags/#trivial">trivial</a>
+                
+                <a href="/tags/#chuapp">chuapp</a>
+                
+                <a href="/tags/#city">city</a>
+                
+                <a href="/tags/#politics">politics</a>
+                
+                <a href="/tags/#data">data</a>
+                
+                <a href="/tags/#tech">tech</a>
+                
+                <a href="/tags/#nas">nas</a>
+                
+                <a href="/tags/#network">network</a>
+                
+                <a href="/tags/#infrastructure">infrastructure</a>
+                
+                <a href="/tags/#self-esteem">self-esteem</a>
+                
+                <a href="/tags/#confidence">confidence</a>
+                
+                <a href="/tags/#mental">mental</a>
+                
+                <a href="/tags/#value">value</a>
+                
+                <a href="/tags/#property">property</a>
+                
+                <a href="/tags/#fame">fame</a>
+                
+                <a href="/tags/#wechat">wechat</a>
+                
+                <a href="/tags/#crawler">crawler</a>
+                
+                <a href="/tags/#threading">threading</a>
+                
+                <a href="/tags/#multiprocessing">multiprocessing</a>
+                
+                <a href="/tags/#genuine">genuine</a>
+                
+                <a href="/tags/#adobe">adobe</a>
+                
+                <a href="/tags/#codec">codec</a>
+                
+                <a href="/tags/#software">software</a>
+                
+                <a href="/tags/#enlighten">enlighten</a>
+                
+                <a href="/tags/#friends">friends</a>
+                
+                <a href="/tags/#chance">chance</a>
+                
+                <a href="/tags/#choice">choice</a>
+                
+                <a href="/tags/#cpp">cpp</a>
+                
+                <a href="/tags/#visualization">visualization</a>
+                
+                <a href="/tags/#c#">c#</a>
+                
+                <a href="/tags/#gui">gui</a>
+                
+                <a href="/tags/#gif">gif</a>
+                
+                <a href="/tags/#remastered">remastered</a>
+                
+                <a href="/tags/#exe">exe</a>
+                
+                <a href="/tags/#emoji">emoji</a>
+                
+                <a href="/tags/#video">video</a>
+                
+                <a href="/tags/#emoticon">emoticon</a>
+                
+                <a href="/tags/#pil">pil</a>
+                
+                <a href="/tags/#swimming">swimming</a>
+                
+                <a href="/tags/#premiere">premiere</a>
+                
+                <a href="/tags/#golf">golf</a>
+                
+                <a href="/tags/#beatbox">beatbox</a>
+                
+                <a href="/tags/#loopstation">loopstation</a>
+                
+                <a href="/tags/#photo">photo</a>
+                
+                <a href="/tags/#plugin">plugin</a>
+                
+                <a href="/tags/#ae">ae</a>
+                
+                <a href="/tags/#music">music</a>
+                
+                <a href="/tags/#nature">nature</a>
+                
+                <a href="/tags/#basketball">basketball</a>
+                
+                <a href="/tags/#rdfz">rdfz</a>
+                
+                <a href="/tags/#world">world</a>
+                
+                <a href="/tags/#society">society</a>
+                
+                <a href="/tags/#discrimination">discrimination</a>
+                
+                <a href="/tags/#universe">universe</a>
+                
+                <a href="/tags/#youtube">youtube</a>
+                
+                <a href="/tags/#marriage">marriage</a>
+                
+                <a href="/tags/#swift">swift</a>
+                
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+        <aside class="widget-wrap widget-toc">
+            <h6 class="widget-title">
+                <span>Table of Contents <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+            <div id="navbar">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#第一个服务---emoji-server">第一个服务 - Emoji Server</a></li>
+<li class="toc-entry toc-h2"><a href="#第二个服务--ece564-server">第二个服务- ECE564 Server</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#api">API</a></li>
+<li class="toc-entry toc-h3"><a href="#前端">前端</a></li>
+<li class="toc-entry toc-h3"><a href="#匿名请求">匿名请求</a></li>
+<li class="toc-entry toc-h3"><a href="#头像图片文件上传">头像图片文件上传</a></li>
+<li class="toc-entry toc-h3"><a href="#示例文件编写">示例文件编写</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#总结">总结</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#20190628-tree">20190628 Tree</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#参考链接">参考链接</a></li>
+</ul>
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+    </div>
+    <!-- END SIDEBAR -->
+</div>
+
+    </div>
+  </div>
+</div>
+<!-- END SINGLE-POST-WRAP -->
+
+
+        </main>
+        <!-- END MAIN -->
+
+        
+<footer>
+  <div class="footer">
+    <div class="container">
+      <div class="text-center">
+        <a href="/blog" class="logo clearfix animsition-link"><img src="/img/sig.svg" width="400" alt="Chen's Sig"></a>
+        <p class="copy">
+          Maintained by <a href="/about/">Chen Ting</a> 
+		  
+        </p>
+        <div class="icon-list">
+          <a href="https://www.linkedin.com/in/ting-chen-402bab122/" target="_blank">
+            <i class="fa fa-fw fa-linkedin"></i>
+          </a>
+          <a href="http://my.hupu.com/17573413/" target="_blank">
+            <i class="fa fa-fw fa-futbol-o"></i>
+          </a>
+          <a href="https://www.douban.com/people/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-book"></i>
+          </a>
+		   <a href="https://www.flickr.com/photos/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-flickr"></i>
+          </a>
+          <a href="https://github.com/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-github"></i>
+          </a>
+		  <a href="/feed.xml" target="_blank">
+            <i class="fa fa-fw fa-rss"></i>
+          </a>
+        </div>
+        <div class="scroll-top">go to top</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END FOOTER -->
+</footer>
+
+      </div>
+      <!-- END CONTENT -->
+    </div>
+    <!-- END ANIMSITION -->
+
+    
+<!-- SCRIPTS -->
+<script src="/assets/js/jquery-1.12.0.min.js"></script>
+<script src="/assets/js/plugins.min.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<!-- CUSTOM SCRIPT -->
+<script src="/assets/js/script.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/js/tether.min.js"></script>
+<script>document.getElementById("CN").href = "http://yo1995.coding.me" + window.location.pathname;</script>
+
+
+<script src="/assets/js/qrcode.js"></script>
+<script>
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: "https://yo1995.github.io/coding/kitura-setup/",
+    width: 196,
+    height: 196,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H,
+    useSVG: true
+});
+</script>
+
+
+<!-- 爱心特效 -->
+
+
+
+<script async src="/assets/js/busuanzi.pure.mini.js">
+</script>
+<!--功夫网卡住了script id="dsq-count-scr" src="//yo1995.disqus.com/count.js" async></script-->
+
+
+
+
+
+
+
+<!--script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82518311-1', 'auto');
+  ga('send', 'pageview', {
+  'page': '/coding/kitura-setup/',
+  'title': 'Kitura 配置小感'
+  });
+
+</script-->
+
+
+  </body>
+
+</html>

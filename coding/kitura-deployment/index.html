@@ -239,7 +239,7 @@
 
 <p>本以为应该没啥问题，结果栽了大跟头。先说说桌子下这台Core Duo的主机。估计有年头了，CPU E8400，至少也是08或09年的机器了。内存2G、硬盘20G，由工院IT支持部门的小哥维护，通过netID登录，网卡注册到devices页面。这网络配置跟散落在学校各处的iMac估计很类似。然而最初我并未意识到这点，仍以为这是台空白的，完全由自己掌控的电脑。</p>
 
-<p>于是就一步步来呗，按照一个教程安装了个Supervisor，后来觉得还是直接用screen留着会话，每次连上去看log比较简单，于是又改了回来。</p>
+<p>于是就一步步来呗，按照一个<a href="https://medium.com/@ahmedraad/how-to-deploy-vapor-app-on-ubuntu-16-04-and-run-it-in-production-eef18f7b4f05">教程</a>安装了个Supervisor，后来觉得还是直接用screen留着会话，每次连上去看log比较简单，于是又改了回来。</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>supervisorctl status
 </code></pre></div></div>
@@ -265,11 +265,11 @@
 <p>即可，指定80端口（上面防火墙允许了的），然后映射到本地的8080端口。</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
-        location / {
-           proxy_pass http://127.0.0.1:8080;
-       }
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+    }
 }
 </code></pre></div></div>
 
@@ -277,11 +277,13 @@
 
 <p>不死心，换了两台设备测，结果一台是timeout另一台也是refused。这让我顿生疑虑。一般而言我见过的refused都因为服务器配置了规则禁止连接，但怎么又会timeout呢？难道是nginx根本没起来？</p>
 
-<p>花了半小时了解如何获取nginx运行状态：</p>
+<p>花了半小时了解如何获取nginx运行状态，以及<a href="https://www.keycdn.com/support/nginx-commands">常见nginx操作</a>：</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>service nginx status
+<span class="nv">$ </span>systemctl status nginx.service
 <span class="nv">$ </span><span class="nb">sudo </span>lsof <span class="nt">-i</span> TCP:80
 <span class="nv">$ </span>systemctl <span class="nt">-q</span> is-active nginx <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"It is active"</span>
+<span class="nv">$ </span>systemctl restart nginx
 </code></pre></div></div>
 
 <p>检查了一圈发现，似乎问题不在它身上。当时还在用Supervisor，又花了半小时研究如何检查它的状态，发现除了写了个typo以外并没有什么问题。题外话：自己打字不好速度快容易错的毛病，在开始学编程后被急剧放大，经常因为打错字怀疑人生，打错字挥泪重启服务器的举动不知一次出现——循环条件错死循环、内核变量地址错kernel panic，如此种种，累觉不爱。吭哧吭哧又浪费半小时，排除了它的嫌疑。</p>
@@ -314,6 +316,43 @@
 
 <p>满纸荒唐言，一把辛酸泪。😢</p>
 
+<hr>
+
+<h2 id="190623-补充">
+<a id="190623-补充" class="anchor" href="#190623-%E8%A1%A5%E5%85%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>190623 补充</h2>
+
+<ul>
+  <li>关于 WebSocket 的设置</li>
+</ul>
+
+<p>环境搭好了以后主要通过两个项目来入门学习后端的配置与编写服务。一个是<a href="https://github.com/IBM-Swift/Kitura-Sample">Kitura-Sample</a>，也就是Kitura官方教程汇总的一个repo。其中有一些问题已经通过issue反馈给了项目管理员。不得不说，正规军的响应速度、解答的耐心程度都值得称道，让我对IBM这家公司路转粉。</p>
+
+<p>在当前的项目中，有一个基于 WebSocket 的在线聊天室的实现。后端代码虽然简单但不失为一个好的脚手架，况且Swift原生的类似程序很少，值得继续探究。但当我想登入聊天室测试一下时，奇怪的事情发生了：<code class="highlighter-rouge">WebSocket connection failed: Error during WebSocket handshake: Unexpected response code: 302</code></p>
+
+<p>按理说302并非一个错误代码，可为什么无法建立连接呢？分别试了防火墙端口、路由路径以及npm依赖重装以后仍旧没有解决。在<a href="https://stackoverflow.com/questions/41381444/websocket-connection-failed-error-during-websocket-handshake-unexpected-respon">SO的帖子</a>上却看到了真正的原因。似乎是因为 Nginx 需要对 WebSocket 的 Upgrade header 做出<a href="https://www.nginx.com/blog/websocket-nginx/">具体设置</a>以实现长时间连接不断线的功能。</p>
+
+<p>因此，上面的有关Nginx的配置需要增添为：</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>nano /etc/nginx/sites-available/default
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header Host $http_host;
+    }
+}
+</code></pre></div></div>
+
+<p>当然，最后两条和 WebSocket 无关，主要是把请求头补齐信息更全……</p>
+
+
             
             </div>
             
@@ -339,7 +378,7 @@
 				<!--被墙替换class="disqus-comment-count" data-disqus-identifier="Chen's Blog//coding/kitura-deployment-->
             </span>
             <span>
-                <i class="fa fa-check-square-o"></i><span>4060 words</span>
+                <i class="fa fa-check-square-o"></i><span>5068 words</span>
             </span>
             <span>
                 <i class="fa fa-link"></i>
@@ -422,7 +461,7 @@
             <div class="next-post">
                 <div class="arrow">
                     
-                    <a href="/blog/" class="animsition-link" data-hover-text="Blog Archive">Blog Archive</a>
+                    <a href="/coding/kitura-setup/" class="animsition-link" data-hover-text="Next: Kitura 配置小感">Next: Kitura 配置小感</a>
                     
                     <i class="fa fa-angle-double-right"></i>
                 </div>
@@ -585,6 +624,24 @@
                 
                     
                     
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/kitura-setup/">
+                                <img src="/images/201906/kitura.png" alt="Kitura 配置小感">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/kitura-setup/">Kitura 配置小感</a>
+                            <span>2019/06/27</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                    
                     
                 
                 
@@ -653,132 +710,6 @@
                         <div class="recent-post-content">
                             <a class="animsition-link" href="/coding/lg-ultrafine-brightness/">LG UltraFine brightness adjustment tool for Windows</a>
                             <span>2019/04/07</span>
-                        </div>
-                    </li>
-                    
-                    
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                
-                
-                
-                
-                    
-                
-                    
-                
-                    
-                    
-                    <li>
-                        <figure>
-                            <a class="animsition-link" href="/coding/Wox-plugin-Emoji/">
-                                <img src="/images/201809/like.gif" alt="Windows快速搜索Emoji小工具">
-                            </a>
-                        </figure>
-                        <div class="recent-post-content">
-                            <a class="animsition-link" href="/coding/Wox-plugin-Emoji/">Windows快速搜索Emoji小工具</a>
-                            <span>2018/09/29</span>
                         </div>
                     </li>
                     
@@ -1115,6 +1046,7 @@
 <li class="toc-entry toc-h2"><a href="#安装vapor环境">安装Vapor环境</a></li>
 <li class="toc-entry toc-h2"><a href="#配置nginx代理">配置Nginx代理</a></li>
 <li class="toc-entry toc-h2"><a href="#后记">后记</a></li>
+<li class="toc-entry toc-h2"><a href="#190623-补充">190623 补充</a></li>
 </ul>
             </div>
         </aside>
