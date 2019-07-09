@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html>
+
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="将文件转为二维码GIF">
+  <meta name="author" content="Chen Ting">
+  <meta name="keywords" content="">
+  <meta name="theme-color" content="#272727">
+
+  <title>GIF 与 QRcode 玩具二则</title>
+
+  <link rel="icon" href="/img/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="canonical" href="https://yo1995.github.io/coding/file-to-GIF/" />
+  <link rel="alternate" type="application/rss+xml" title="Chen's Blog" href="https://yo1995.github.io/feed.xml" />
+  
+  <meta property="og:site_name" content="Chen's Blog" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://yo1995.github.io/coding/file-to-GIF/" />
+  <meta property="og:title" content="GIF 与 QRcode 玩具二则" />
+  <meta property="og:description" content="将文件转为二维码GIF" />
+  <meta property="og:article:published_time" content="2019-07-09T00:00:00-04:00" />
+  <meta property="og:article:author" content="Chen Ting" />
+
+  <meta property="og:image" content="/images/201907/qrquine.png" />
+  
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <!-- PLUGINS -->
+  <link rel="stylesheet" href="/assets/css/vlthemes.css">
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">	
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  
+  
+  
+
+</head>
+<!-- 180622 - tecent analytics -->
+<script type="text/javascript" src="https://tajs.qq.com/stats?sId=65898920" charset="UTF-8"></script>
+
+
+  <body data-spy="scroll" data-target="#navbar" data-offset="100">
+
+		<!-- FRAMES -->
+		<span class="frame-line top-frame"></span>
+		<span class="frame-line right-frame"></span>
+		<span class="frame-line bottom-frame"></span>
+		<span class="frame-line left-frame"></span>
+
+    <div class="animsition">
+      <div class="content">
+
+        
+<!-- header-fixed / header-scroll-up  -->
+<div class="scroll-indicator fixedheader" style="width"></div>
+<header class="header-wrap header-fixed minimal-menu">
+    <div class="header-inner">
+        <div class="container">
+			
+            <div class="logo">
+                <a href="/blog" class="animsition-link">Ch<span>e</span>n's Blog</a>
+            </div>
+			
+
+            <a href="#" class="menu-toggle desctop-menu">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <a href="#" class="menu-toggle mobile-menu-toggle">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <nav class="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="/" class="animsition-link">
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item-has-children" class="current-menu-item">
+                        <a href="">
+                            <span>Blog</span>
+                        </a>
+						    <ul class="sub-menu">
+								<li>
+									<a href="/blog/" class="animsition-link">
+										<span>Blog Index</span>
+									</a>
+								</li>
+								<li>
+									<a href="/posts/" class="animsition-link">
+										<span>Archives</span>
+									</a>
+								</li>
+								<li>
+									<a href="/categories/" class="animsition-link">
+										<span>Categories</span>
+									</a>
+								</li>
+								<li>
+									<a href="/tags/" class="animsition-link">
+										<span>Tags</span>
+									</a>
+								</li>
+							</ul>
+                    </li>
+
+                    <li>
+                        <a href="/photos/" class="animsition-link">
+                            <span>Photos</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/about/" class="animsition-link">
+                            <span>About</span>
+                        </a>
+                    </li>
+					
+					  <!--li>
+                        <a href="" class="animsition-link" id="CN">
+                            <span>CN</span>
+                        </a>
+                    </li-->
+                </ul>
+            </nav>
+            <!-- END PRIMARY-MENU -->
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <!-- END HEADER-INNER -->
+</header>
+<!-- END HEADER-WRAP -->
+
+
+        
+
+        <main id="main-content">
+          
+          <div class="single-post-wrap clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 content-fixed">
+
+        <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
+          <div class="post-thumb clearfix">
+            
+            <img src="/images/201907/qrquine.png" alt="GIF 与 QRcode 玩具二则">
+            
+          </div>
+          
+          <div class="post-content" itemprop="articleBody">
+            <div class="post-date" datetime="2019-07-09T00:00:00-04:00" itemprop="datePublished">
+              Jul 9, 2019
+            </div>
+            <h1 class="post-title" itemprop="name headline">GIF 与 QRcode 玩具二则</h1>
+            <div class="content-color">
+            
+            <h1 id="seo">
+<a id="seo" class="anchor" href="#seo" aria-hidden="true"><span class="octicon octicon-link"></span></a>SEO</h1>
+
+<p>文件转GIF<br>
+文件转动图 分享<br>
+个性化二维码<br>
+彩色二维码<br>
+动图二维码<br>
+动态二维码<br>
+Animated QRcode
+File to GIF</p>
+
+<p>搞一堆关键词蜜罐看有没有和我一样无聊的人掉进来……</p>
+
+<p><a href="https://github.com/yo1995/QRcode_Playground">链接</a></p>
+
+<h2 id="引子">
+<a id="引子" class="anchor" href="#%E5%BC%95%E5%AD%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>引子</h2>
+
+<p>七月九号上午在看虎扑和 V2EX 的时候，突然想到了一个点子：是否可以把文件转化为 GIF 然后放在互联网的图床上进行分享呢？</p>
+
+<p>当今互联网时代，GIF 的历史使命尚未完成。由于其悠久的历史，几乎所有终端、设备、服务都会想方设法对齐进行兼容。就连最赶时髦的苹果，也不得不顺从民意，在 iOS 11 加入了相册对 GIF 动图预览的支持。可以预见，在下一个一统江湖的多媒体格式到来前，GIF 仍将在互联网的舞台中留存多日。</p>
+
+<p>GIF 的一大好处——各大图床为了保持最佳兼容性，一般对较小的 GIF 文件不会压缩。一些技术上较为保守的网站，如虎扑，甚至对任何 GIF 都不做处理直接存储。这便给了一些“巨大GIF”党可乘之机——在虎扑上，有个叫 iameasy81 的用户疯狂上传 400*400@50fps 的巨型 GIF 文件，动辄二三十兆，每次加载时都让我怀疑人生，还以为中美光缆阻塞了。</p>
+
+<p>当然，大多数平台不太愿意处理 GIF 文件，而是选择直接存储的原因，在于 GIF 优化是一个复杂且耗费算力的问题。由于 GIF89a 标准最初设计上较为简单，并没有类似 AVC 这样可以轻松指定画面质量、文件大小的特性，因而想将一张 GIF 压缩到指定尺寸，实际上是一个类似于猜+试的过程。同时，因为 GIF 标准存在许多变数，如局部色板、抖动、色板继承、颜色丢弃、透明色映射等等问题，倘若压缩程序写得不好，很有可能反而把一张精心优化过的 GIF 越压越大。因此，许多图床和文件存储选择睁一只眼闭一只眼，直接不修改存储 GIF，而这便是令我我产生这个想法的一大原因。</p>
+
+<p>事不宜迟，本想先把手头的活干完再来做这件事，但越想越觉得有意思且很容易实现，便立即开始写码。</p>
+
+<h2 id="二维码">
+<a id="二维码" class="anchor" href="#%E4%BA%8C%E7%BB%B4%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>二维码</h2>
+
+<p>二维码是日本人在九十年代发明的，最初为了提高工业工程的效率，后来演变为我们在电子支付、内容分享中日常用到的样子。二维码的本质就是讲字符串转为一张图像，然后接收端再通过模式识别解码图像，得到原来的字符串。二维码最初设计时便有了许多复杂的设计，如版本号，对应二维码的矩阵大小，从 21 * 21 到 177 * 177；定位图样，方便模式识别时确定旋转和对齐方向；纠错等级，分别有低中高最高。而且，最好的是——二维码的编码是定长码，这样等长字符串编码生成的二维码版本一定相同。为了找到一个合适的矩阵尺寸，我先用一些在线二维码生成器进行了简单的试验。</p>
+
+<p><img src="/images/201907/128-0.jpg" alt="128个零"></p>
+
+<p>当我用全零字符串填充二维码时，如上图一样奇特的现象出现了——二维码的右半部分出现了规则的明暗相间的方块，好像一个棋盘。这是容易解释的，因为 0 对应的编码较为特殊，重复的相同字符造成了重复的图案。</p>
+
+<p>看到这个二维码，我突然想到之前见过的许多异形二维码，如三维棱台、圆角、艺术化等变化。上 GitHub 一搜，果然让我找到很多现成的库。其中，以 Halftone QRCodes 和 QArt 二维码最为抓人眼球。前者能够生成抖动的黑白 GIF二维码，且每一帧都能扫出相同的内容；后者能够将彩色图片作为背景嵌入二维码，也能支持动态图。事不宜迟，我便先开始尝试做动态二维码。</p>
+
+<h2 id="个性二维码生成">
+<a id="个性二维码生成" class="anchor" href="#%E4%B8%AA%E6%80%A7%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%94%9F%E6%88%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>个性二维码生成</h2>
+
+<p><img src="/images/201907/worship.gif" alt="膜"> + 孙辰表示不服 = <img src="/images/201907/bufu.gif" alt="孙辰表示不服"></p>
+
+<p>重构了 CuteR 这个对 qrcode 进行封装的 Python 库。改进了坐标变换与并行执行的能力。通过给定输入字符串与输入的背景 GIF，即可得到输出的动态二维码。输出后再通过 gifsicle 进行优化压缩，得到最终的图像。示例参照上面的图像。</p>
+
+<h2 id="文件转二维码-gif">
+<a id="文件转二维码-gif" class="anchor" href="#%E6%96%87%E4%BB%B6%E8%BD%AC%E4%BA%8C%E7%BB%B4%E7%A0%81-gif" aria-hidden="true"><span class="octicon octicon-link"></span></a>文件转二维码 GIF</h2>
+
+<h3 id="逻辑">
+<a id="逻辑" class="anchor" href="#%E9%80%BB%E8%BE%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>逻辑</h3>
+
+<ul>
+  <li>编码</li>
+</ul>
+
+<p>首先将文件转为对应的 base64 字符串表示，然后将字符串按照 150 字符左右的长度分割，并将每个分割后的子串编码为二维码。接着把二维码转为 GIF 的一帧，并拼接得到输出 GIF。</p>
+
+<ul>
+  <li>解码</li>
+</ul>
+
+<p>将 GIF 文件按帧读取，对每一帧进行二维码解码，再将解码后得到的字符串进行拼接，并 base64 解码得到文件的二进制表达，存储到相应路径。</p>
+
+<h3 id="改进">
+<a id="改进" class="anchor" href="#%E6%94%B9%E8%BF%9B" aria-hidden="true"><span class="octicon octicon-link"></span></a>改进</h3>
+
+<p>逻辑比较清晰和简单，改进主要存在于几方面。</p>
+
+<ol>
+  <li>输出 GIF 的大小
+由于 PIL 库默认的 GIF 支持很差，经过编码，13KB 的原文件竟然变成了 500KB 的 GIF。这样的倍率显然是不可以接受的。仔细一想，GIF 每一帧都是二维码，最简单的二维码应该只有黑白两种颜色，且其最小尺寸可以设置为二维码每一小方格为 1 像素时对应的尺寸。如此一来，我可以按照这个原则编码出每一帧都完全符合 GIF 规范时最小的数据帧。</li>
+</ol>
+
+<p>将 GIF 设为全局色板模式，且色板只有两个颜色。每一帧的间隔相等，取消单帧色板，并将 LZW 压缩中的码长也设为最小的 2bits。这样，生成的 GIF 文件称得上几近最小。当然，通过取消帧间丢弃的方法或许还能减小尺寸，但目测很有可能产生副作用——因为多加一种透明色相当于所有索引值都必须多 1bit，忽略头部中丢弃方法、延迟时间的字段，只有两帧间变化不到 50% 时才可能有提升。</p>
+
+<p>基于<a href="https://github.com/yo1995/Ultimate-emoticon-generator">之前项目</a>中的 GIF 编码器，为这个 GIF 输出渲染重新定制了一个尽可能优化的版本。默认输出为二维码线宽 1px 的图像，在解码时再用最近邻方法放大为 2 倍以方便识别。</p>
+
+<p>测试结果：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">原文件</th>
+      <th style="text-align: center">仅优化 GIF 渲染</th>
+      <th style="text-align: center">未优化</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">111284(110KB)</td>
+      <td style="text-align: center">387615(388KB)</td>
+      <td style="text-align: center">2149022(2.2MB)</td>
+    </tr>
+  </tbody>
+</table>
+
+<ol>
+  <li>线性改为并行
+多帧图像处理是天生就适用于多线程的场景之一。如果不计帧间关系，每一帧都是独立的问题；就算考虑帧间关系，也只用同时处理两帧。将字符串通过 Python 的 multiprocessing 库异步生成二维码矩阵后渲染为图像，然后最后装配，能够大幅提升编码速度。</li>
+</ol>
+
+<p>测试结果：</p>
+
+<p>对于同一个 111KB 原文件的测试结果，共生成 1238 帧：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">并行</th>
+      <th style="text-align: center">线性</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">10.25s</td>
+      <td style="text-align: center">39.18s</td>
+    </tr>
+  </tbody>
+</table>
+
+<ol>
+  <li>每帧字符串长度与字符串码表
+根据二维码的标准，大于等于 version 7 的二维码需要预留区域存放版本信息。因此，为了使输出 GIF 文件最小，应尽可能在每一帧中装入最多的字符。</li>
+</ol>
+
+<p>二维码的数字和英文字符码长不等，而 base64 编码后的字符串数字和字符的分配与二进制文件的字节有关，并不固定。测试中选择分割字符串长度在 125-134 之间能够编码到 version 6.根据参考资料中的数据来看，应该还能放更多，官网给出的数字+字母的数据是 195。而我实测只能放进 134 个字符。看了下 qrcode 库的源码，大概是其把所有数据都当成二进制字节进行处理以增强兼容性了。按照给的数据计算，如果是 base64 的数字+英文字符放进 195 个，而字节放进 134 个的话，相对能多放 45% 的字符；而二进制字节编码为 base64 后只增加 33%，似乎是一个不错的 trade-off。</p>
+
+<p>base64 编码由于把每三个字节编组后转为四个字节，在编码过程中就会使数据增加 33% 左右。根据二维码的特点，存在三种可能：数字编码，如 base8 或 base10；数字-字母编码，如 base64；二进制编码。我估计后两种的编码效率更高些。</p>
+
+<p>目前，我把 base64 和 base32 的编码方式都实现了。相对而言 base32 的效率稍高。参见下表的效率对比。两种编码方式均为最优 GIF 渲染。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">原文件 111284(110KB)</th>
+      <th style="text-align: center">base32</th>
+      <th style="text-align: center">base64</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">version 6</td>
+      <td style="text-align: center">311562(312KBKB)</td>
+      <td style="text-align: center">377123(377KBKB)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">version 40</td>
+      <td style="text-align: center">204870(205KB)</td>
+      <td style="text-align: center">248118(248KB)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>可见，目前最优情况 version 40 与 base32 编码搭配时，文件大小相对于原文件为 1.84 倍。考虑到 base32 编码效率约为 1.6 倍（5 字节转化为 8 字节），二维码最低纠错 7% 以后，理论上可以得到的最小值已经是 1.712 倍。这样看来，整个方法的各部分表现已经较为优秀。<del>写了半天忍不住自夸</del></p>
+
+<h2 id="总结">
+<a id="总结" class="anchor" href="#%E6%80%BB%E7%BB%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结</h2>
+
+<p><img src="/images/201907/ECE564.png" alt="测试文件"> -&gt; <img src="/images/201907/b32_v40_4295.gif" alt="编码后GIF"></p>
+
+<p>总体而言，若想实现这种转换，且不考虑对于人所持设备的兼容性的话，使用最大的二维码版本与最低的纠错参数时，可以达到膨胀率最低。如果需要考虑中途由人来识别，如设计一个 app 录像得到所有帧，再在手机里转为文件的话，尽量取被录制的二维码较小的版本可以更好保证识别率。</p>
+
+<p>最开始想到这个想法的时候，并不确定其可行性有多少。因为平时一直觉得 GIF 本来就挺大了，再加上二维码的冗余以及定位孔占据的位置，最后的结果一定不理想。结果编写测试完毕后，发现还是有一定可用性的。例如对于网上最常见的 5MB 图床来讲，将近可以放下两张软盘所能存储的内容，还是很客观的——要知道，哪怕到现在，我自己写过的所有文本文件加起来也只是在兆的量级而已。</p>
+
+<p>这个项目到此就告一段落了。目前看起来没有什么太大的应用，因为自己不会 js，没法把这样的编码解码器部署到前端供别人使用。同时，这种工具得有一定的用户规模，一传十十传百才能发挥实力。然而，如果这个工具流行起来，估计许多图床就会改变策略，禁止纯二维码动图的上传了，毕竟这种功能是游走在用户协议边缘的灰色地带的。</p>
+
+<p>写了一天代码，查了一天文档，自认为整体做得还算满意。未来有空封装为二进制文件。</p>
+
+<h2 id="参考">
+<a id="参考" class="anchor" href="#%E5%8F%82%E8%80%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>参考</h2>
+
+<ul>
+  <li>
+    <p><a href="https://www.qrcode.com/en/about/version.html">官网</a></p>
+  </li>
+  <li>
+    <p><a href="https://coolshell.cn/articles/10590.html">二维码的生成细节和原理</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/kciter/qart.js">qart.js</a></p>
+  </li>
+  <li>
+    <p><a href="http://cgv.cs.nthu.edu.tw/Projects/Recreational_Graphics/Halftone_QRCodes/">Halftone QRCodes</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/chinuno-usami/CuteR">CuteR</a></p>
+  </li>
+  <li>
+    <p><a href="https://www.zhihu.com/question/22088907">为什么 GIF 格式迟迟没有被取代？</a></p>
+  </li>
+  <li>
+    <p><a href="https://cloud.tencent.com/developer/article/1004763">浓缩的才是精华：浅析 GIF 格式图片的存储和压缩</a></p>
+  </li>
+  <li>
+    <p><a href="https://blog.qr4.nl/page/QR-Code-Data-Capacity.aspx">QR Code Data Capacity</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.ruanyifeng.com/blog/2008/06/base64.html">base64 标准</a></p>
+  </li>
+  <li>
+    <p><a href="https://tech.codeyellow.nl/blog/qr-encoding/">qrcode base45</a></p>
+  </li>
+  <li>
+    <p><a href="https://docs.python.org/3/library/base64.html">Python base64 base32</a></p>
+  </li>
+</ul>
+
+            
+            </div>
+            
+<div class="entry-tags clearfix">
+
+    <div class="entry-footer clearfix">
+
+        <div class="pull-left">
+            <span>
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/#gif">gif</a>
+                
+                <a href="/tags/#codec">codec</a>
+                
+                <a href="/tags/#coding">coding</a>
+                
+                <a href="/tags/#python">python</a>
+                
+                <a href="/tags/#image">image</a>
+                
+            </span>            
+            <span><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv">0</span> views</span>
+            <span>
+                <i class="fa fa-comments-o"></i>
+                <a href="#comments">GFW comments</a>
+				<!--被墙替换class="disqus-comment-count" data-disqus-identifier="Chen's Blog//coding/file-to-GIF-->
+            </span>
+            <span>
+                <i class="fa fa-check-square-o"></i><span>4251 words</span>
+            </span>
+            <span>
+                <i class="fa fa-link"></i>
+                <a data-toggle="collapse" href="#share-content" aria-expanded="false" aria-controls="share-content">Share</a>
+        </div>
+        <div class="pull-right collapse in" id="share-content">
+            
+<div class="entry-share-links">
+
+    <div class="btn-group" role="group" aria-label="Share">
+        <button type="button" class="btn btn-default btn-sm btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="http://www.facebook.com/sharer.php?u=https://yo1995.github.io/coding/file-to-GIF/" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></button>
+        
+        <button type="button" class="btn btn-default btn-sm btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="https://twitter.com/share?url=https://yo1995.github.io/coding/file-to-GIF/&amp;text=GIF 与 QRcode 玩具二则" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-weibo" data-toggle="tooltip" data-placement="top" title="新浪微博"><a href="http://service.weibo.com/share/share.php?url=https://yo1995.github.io/coding/file-to-GIF/&title=分享%4011L23+的文章「GIF 与 QRcode 玩具二则」&content=将文件转为二维码GIF&pic=https://yo1995.github.io/images/201907/qrquine.png" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-douban" data-toggle="tooltip" data-placement="top" title="豆瓣"><a href="https://www.douban.com/share/service?name=GIF 与 QRcode 玩具二则&href=https://yo1995.github.io/coding/file-to-GIF/&image=https://yo1995.github.io/images/201907/qrquine.png&url=https://yo1995.github.io/coding/file-to-GIF/&title=GIF 与 QRcode 玩具二则" target="_blank"><i class="fa fa-fw">豆</i></a></button>
+
+        <a tabindex="0" class="btn btn-sm btn-weixin" role="button" data-trigger="hover" data-placement="top" id="qrcode-btn"><i class="fa fa-fw fa-weixin"></i></a>
+
+        <div id="qrcode-content" class="qrcode-hidden"><div id="qrcode"></div></div>
+        <div id="qrcode-title" class="qrcode-hidden">Scan to Read</div>
+		
+		<button type="button" class="btn btn-default btn-sm btn-email"><a href="mailto:?Subject=GIF 与 QRcode 玩具二则&amp;Body=将文件转为二维码GIF%20https://yo1995.github.io/coding/file-to-GIF/"><i class="fa fa-fw fa-envelope-o"></i> Email</a></button>
+
+        <div class="btn-group btn-group-justified dropup" role="group">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle btn-more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-share-alt"></i><span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-google"><a href="https://plus.google.com/share?url=https://yo1995.github.io/coding/file-to-GIF/" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google Plus</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://yo1995.github.io/coding/file-to-GIF/" target="_blank"><i class="fa fa-fw fa-linkedin"></i> Linkedin</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-digg"><a href="http://www.digg.com/submit?url=https://yo1995.github.io/coding/file-to-GIF/" target="_blank"><i class="fa fa-fw fa-digg"></i> Digg</a></button></li>
+
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-pinterest"><a href="https://pinterest.com/pin/create/bookmarklet/?media=https://yo1995.github.io/images/201907/qrquine.png&url=https://yo1995.github.io/coding/file-to-GIF/&description=GIF 与 QRcode 玩具二则" target="_blank"><i class="fa fa-fw fa-pinterest-p"></i> Pinterest</a></button></li>
+                 
+                 
+
+                <li><button type="button" class="btn btn-default btn-sm btn-reddit"><a href="http://reddit.com/submit?url=https://yo1995.github.io/coding/file-to-GIF/&amp;title=GIF 与 QRcode 玩具二则" target="_blank"><i class="fa fa-fw fa-reddit-alien"></i> Reddit</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-tumblr"><a href="http://www.tumblr.com/share/link?url=https://yo1995.github.io/coding/file-to-GIF/&amp;title=GIF 与 QRcode 玩具二则" target="_blank"><i class="fa fa-fw fa-tumblr"></i> Tumblr</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-print"><a href="javascript:;" onclick="window.print()"><i class="fa fa-fw fa-print"></i> Print</a></button></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+        </div>
+    </div>  
+
+</div>
+
+          </div>
+        </article>
+        <!-- END SINGLE-POST -->
+
+        
+<div class="post-navigation clearfix">
+    <div class="row">
+
+        <div class="col-xs-6">
+            <div class="previous-post">
+                <div class="arrow">
+                    <i class="fa fa-angle-double-left"></i>
+                    
+                    <a href="/coding/kitura-setup/" class="animsition-link" data-hover-text="Prev: Kitura 配置小感">Prev: Kitura 配置小感</a>
+                    
+                </div>
+
+            </div>
+            <!-- END PREVIOUS-POST -->
+        </div>
+        <div class="col-xs-6">
+            <div class="next-post">
+                <div class="arrow">
+                    
+                    <a href="/blog/" class="animsition-link" data-hover-text="Blog Archive">Blog Archive</a>
+                    
+                    <i class="fa fa-angle-double-right"></i>
+                </div>
+
+            </div>
+            <!-- END NEXT-POST -->
+        </div>
+    </div>
+</div>
+<!-- END POST-NAVIGATION -->
+		<!-- 180726 add multi author support -->
+		 
+			<div class="author-info clearfix">
+    <div class="author-avatar">
+        <img class="avatar" src="/img/avatar.png" alt="Chen Ting">
+    </div>
+
+    <div class="author-description">
+        <h4 class="author-title">
+            <a href="/about/">Chen Ting <i class="fa fa-link"></i></a>
+        </h4>
+        <p class="author-bio">
+            The page aims to exhibit several activities & achievements which the author engaged in during his undergraduate & graduate period. Meanwhile, other aspects such as lifestyles, literary work, travel notes, etc. would interweave in the narration.
+        </p>
+    </div>
+	<!-- add busaunzi to see how many views and reads happens to my page. addition to tecent -->
+	<script async src="/assets/js/busuanzi.pure.mini.js"></script>
+</div>
+<!-- END AUTHOR-INFO -->
+		 
+		 
+        
+
+<div class="comments-area clearfix">
+    <div class="comment-respond">
+		<h4 class="comment-reply-title" id="comments">Leave a Comment</h4>
+		<div class="disqus-placeholder alert alert-info" style="text-align: center">
+			<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Disqus might be GFW-ed. Excited!
+		</div>
+		<script src="/assets/js/disqusloader.js"></script>
+		<div class="disqus"></div>
+		<!--
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+        this.page.url = "https://yo1995.github.io/coding/file-to-GIF/";
+        this.page.identifier = "Chen's Blog//coding/file-to-GIF";
+        this.page.title = "GIF 与 QRcode 玩具二则";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//yo1995.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+		-->
+		<script>disqusLoader( '.disqus', { 
+			scriptUrl: '//yo1995.disqus.com/embed.js',
+			disqusConfig: function(){
+				this.callbacks.onReady = [function(){
+				var el = document.querySelector( '.disqus-placeholder' );
+				if( el.classList )
+					el.classList.add( 'is-hidden' ); // IE 10+
+				else
+					el.className += ' ' + 'is-hidden'; // IE 8-9
+				}];}
+			});
+		</script>
+       <noscript>Please conquer the GFW or enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+<!-- END COMMENTS-AREA -->
+
+
+      </div>
+
+      <div class="col-md-4 sidebar-fixed">
+    <div class="sidebar">
+        <aside class="widget-wrap widget-search">
+            <h6 class="widget-title">
+                <span>Search for a topic?</span>
+            </h6>
+			<div onclick="keyinsearch()" class="search-form text-center" id="search-container">
+				<input type="text" id="search-input" placeholder="search...">
+				<i class="fa fa-search"></i>
+				<ul id="results-container" style="list-style:square"></ul>
+			</div>
+			<!-- 180206 - update -->
+<script src="/assets/js/jekyll-search.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  function keyinsearch () {
+  SimpleJekyllSearch({
+	searchInput: document.getElementById('search-input'),
+	resultsContainer: document.getElementById('results-container'),
+	json: '/search.json',
+	searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+	noResultsText: '无结果',
+	limit: 5,
+	fuzzy: false
+  });
+  }
+</script>
+
+
+<!-- 暂时还没想好cache怎么改写，目前每次请求都是200 ！= = 不够chrome貌似是直接从本地磁盘加载的 -->
+<!--
+<form class="search-form" action="/search/" target="_blank" method="get">
+	<input type="text" placeholder="Search..." name="q">
+	<i class="fa fa-search"></i>
+</form>
+-->
+
+        </aside>
+        <!-- END WIDGET-WRAP -->		
+        <aside class="widget-wrap widget-categories">
+            <h6 class="widget-title">
+                <span>Categories</span>
+            </h6>
+            <ul>
+				
+				
+                <li><a href="/categories/#coding">Coding</a></li>
+                
+                <li><a href="/categories/#ee">EE</a></li>
+                
+                <li><a href="/categories/#games">Games</a></li>
+                
+                <li><a href="/categories/#html">Html</a></li>
+                
+                <li><a href="/categories/#life">Life</a></li>
+                
+                <li><a href="/categories/#movie">Movie</a></li>
+                
+                <li><a href="/categories/#physics">Physics</a></li>
+                
+                <li><a href="/categories/#reading">Reading</a></li>
+                
+                <li><a href="/categories/#school">School</a></li>
+                
+                <li><a href="/categories/#society">Society</a></li>
+                
+                <li><a href="/categories/#tools">Tools</a></li>
+                
+                <li><a href="/categories/#video">Video</a></li>
+                
+            </ul>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-recent-posts">
+            <h6 class="widget-title">
+                <span>Related Posts</span>
+            </h6>
+            <ul class="recent-posts">
+            
+                
+                
+                
+                
+                    
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/kitura-setup/">
+                                <img src="/images/201906/kitura.png" alt="Kitura 配置小感">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/kitura-setup/">Kitura 配置小感</a>
+                            <span>2019/06/27</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/kitura-deployment/">
+                                <img src="/images/201906/swift.png" alt="Kitura deployment notes">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/kitura-deployment/">Kitura deployment notes</a>
+                            <span>2019/06/19</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/ece650-homework-review/">
+                                <img src="/images/201904/rootkit-512.png" alt="650 作业回顾">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/ece650-homework-review/">650 作业回顾</a>
+                            <span>2019/04/16</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                    
+
+                
+                                   
+            </ul>
+
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-tag">
+            <h6 class="widget-title">
+                <span>Tags Widget <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+
+            <div class="tag-cloud">
+                
+                <a href="/tags/#df">df</a>
+                
+                <a href="/tags/#production">production</a>
+                
+                <a href="/tags/#education">education</a>
+                
+                <a href="/tags/#lifestyle">lifestyle</a>
+                
+                <a href="/tags/#volunteer">volunteer</a>
+                
+                <a href="/tags/#physics">physics</a>
+                
+                <a href="/tags/#lectures">lectures</a>
+                
+                <a href="/tags/#school">school</a>
+                
+                <a href="/tags/#football">football</a>
+                
+                <a href="/tags/#sports">sports</a>
+                
+                <a href="/tags/#movie">movie</a>
+                
+                <a href="/tags/#tv">tv</a>
+                
+                <a href="/tags/#life">life</a>
+                
+                <a href="/tags/#diversity">diversity</a>
+                
+                <a href="/tags/#arts">arts</a>
+                
+                <a href="/tags/#reading">reading</a>
+                
+                <a href="/tags/#projectuniv">projectuniv</a>
+                
+                <a href="/tags/#innovation">innovation</a>
+                
+                <a href="/tags/#project">project</a>
+                
+                <a href="/tags/#fpga">fpga</a>
+                
+                <a href="/tags/#science">science</a>
+                
+                <a href="/tags/#blog">blog</a>
+                
+                <a href="/tags/#helloworld">helloworld</a>
+                
+                <a href="/tags/#jekyll">jekyll</a>
+                
+                <a href="/tags/#html">html</a>
+                
+                <a href="/tags/#css">css</a>
+                
+                <a href="/tags/#github">github</a>
+                
+                <a href="/tags/#js">js</a>
+                
+                <a href="/tags/#hexo">hexo</a>
+                
+                <a href="/tags/#semiconductor">semiconductor</a>
+                
+                <a href="/tags/#experiments">experiments</a>
+                
+                <a href="/tags/#python">python</a>
+                
+                <a href="/tags/#image">image</a>
+                
+                <a href="/tags/#code">code</a>
+                
+                <a href="/tags/#gfw">gfw</a>
+                
+                <a href="/tags/#windows">windows</a>
+                
+                <a href="/tags/#tools">tools</a>
+                
+                <a href="/tags/#shell">shell</a>
+                
+                <a href="/tags/#scripts">scripts</a>
+                
+                <a href="/tags/#thu">thu</a>
+                
+                <a href="/tags/#liquid">liquid</a>
+                
+                <a href="/tags/#coding">coding</a>
+                
+                <a href="/tags/#latex">latex</a>
+                
+                <a href="/tags/#basic">basic</a>
+                
+                <a href="/tags/#review">review</a>
+                
+                <a href="/tags/#games">games</a>
+                
+                <a href="/tags/#roguelike">roguelike</a>
+                
+                <a href="/tags/#matlab">matlab</a>
+                
+                <a href="/tags/#chaos">chaos</a>
+                
+                <a href="/tags/#simulation">simulation</a>
+                
+                <a href="/tags/#camping">camping</a>
+                
+                <a href="/tags/#phd">phd</a>
+                
+                <a href="/tags/#philosophy">philosophy</a>
+                
+                <a href="/tags/#optics">optics</a>
+                
+                <a href="/tags/#year">year</a>
+                
+                <a href="/tags/#dream">dream</a>
+                
+                <a href="/tags/#girls">girls</a>
+                
+                <a href="/tags/#circuit">circuit</a>
+                
+                <a href="/tags/#electronics">electronics</a>
+                
+                <a href="/tags/#memory">memory</a>
+                
+                <a href="/tags/#france">France</a>
+                
+                <a href="/tags/#ingenieur">ingenieur</a>
+                
+                <a href="/tags/#bbs">bbs</a>
+                
+                <a href="/tags/#history">history</a>
+                
+                <a href="/tags/#byr">byr</a>
+                
+                <a href="/tags/#travel">travel</a>
+                
+                <a href="/tags/#tour">tour</a>
+                
+                <a href="/tags/#future">future</a>
+                
+                <a href="/tags/#graduate">graduate</a>
+                
+                <a href="/tags/#investment">investment</a>
+                
+                <a href="/tags/#love">love</a>
+                
+                <a href="/tags/#laptop">laptop</a>
+                
+                <a href="/tags/#mac">mac</a>
+                
+                <a href="/tags/#hackintosh">hackintosh</a>
+                
+                <a href="/tags/#foudre">foudre</a>
+                
+                <a href="/tags/#law">law</a>
+                
+                <a href="/tags/#juven">juven</a>
+                
+                <a href="/tags/#ramen">ramen</a>
+                
+                <a href="/tags/#industry">industry</a>
+                
+                <a href="/tags/#alcohol">alcohol</a>
+                
+                <a href="/tags/#bar">bar</a>
+                
+                <a href="/tags/#confession">confession</a>
+                
+                <a href="/tags/#postdoc">postdoc</a>
+                
+                <a href="/tags/#nyu">nyu</a>
+                
+                <a href="/tags/#hahn">hahn</a>
+                
+                <a href="/tags/#scholar">scholar</a>
+                
+                <a href="/tags/#academia">academia</a>
+                
+                <a href="/tags/#nba">nba</a>
+                
+                <a href="/tags/#cool">cool</a>
+                
+                <a href="/tags/#study">study</a>
+                
+                <a href="/tags/#fourier">fourier</a>
+                
+                <a href="/tags/#signal">signal</a>
+                
+                <a href="/tags/#theorem">theorem</a>
+                
+                <a href="/tags/#trivial">trivial</a>
+                
+                <a href="/tags/#chuapp">chuapp</a>
+                
+                <a href="/tags/#city">city</a>
+                
+                <a href="/tags/#politics">politics</a>
+                
+                <a href="/tags/#data">data</a>
+                
+                <a href="/tags/#tech">tech</a>
+                
+                <a href="/tags/#nas">nas</a>
+                
+                <a href="/tags/#network">network</a>
+                
+                <a href="/tags/#infrastructure">infrastructure</a>
+                
+                <a href="/tags/#self-esteem">self-esteem</a>
+                
+                <a href="/tags/#confidence">confidence</a>
+                
+                <a href="/tags/#mental">mental</a>
+                
+                <a href="/tags/#value">value</a>
+                
+                <a href="/tags/#property">property</a>
+                
+                <a href="/tags/#fame">fame</a>
+                
+                <a href="/tags/#wechat">wechat</a>
+                
+                <a href="/tags/#crawler">crawler</a>
+                
+                <a href="/tags/#threading">threading</a>
+                
+                <a href="/tags/#multiprocessing">multiprocessing</a>
+                
+                <a href="/tags/#genuine">genuine</a>
+                
+                <a href="/tags/#adobe">adobe</a>
+                
+                <a href="/tags/#codec">codec</a>
+                
+                <a href="/tags/#software">software</a>
+                
+                <a href="/tags/#enlighten">enlighten</a>
+                
+                <a href="/tags/#friends">friends</a>
+                
+                <a href="/tags/#chance">chance</a>
+                
+                <a href="/tags/#choice">choice</a>
+                
+                <a href="/tags/#cpp">cpp</a>
+                
+                <a href="/tags/#visualization">visualization</a>
+                
+                <a href="/tags/#c#">c#</a>
+                
+                <a href="/tags/#gui">gui</a>
+                
+                <a href="/tags/#gif">gif</a>
+                
+                <a href="/tags/#remastered">remastered</a>
+                
+                <a href="/tags/#exe">exe</a>
+                
+                <a href="/tags/#emoji">emoji</a>
+                
+                <a href="/tags/#video">video</a>
+                
+                <a href="/tags/#emoticon">emoticon</a>
+                
+                <a href="/tags/#pil">pil</a>
+                
+                <a href="/tags/#swimming">swimming</a>
+                
+                <a href="/tags/#premiere">premiere</a>
+                
+                <a href="/tags/#golf">golf</a>
+                
+                <a href="/tags/#beatbox">beatbox</a>
+                
+                <a href="/tags/#loopstation">loopstation</a>
+                
+                <a href="/tags/#photo">photo</a>
+                
+                <a href="/tags/#plugin">plugin</a>
+                
+                <a href="/tags/#ae">ae</a>
+                
+                <a href="/tags/#music">music</a>
+                
+                <a href="/tags/#nature">nature</a>
+                
+                <a href="/tags/#basketball">basketball</a>
+                
+                <a href="/tags/#rdfz">rdfz</a>
+                
+                <a href="/tags/#world">world</a>
+                
+                <a href="/tags/#society">society</a>
+                
+                <a href="/tags/#discrimination">discrimination</a>
+                
+                <a href="/tags/#universe">universe</a>
+                
+                <a href="/tags/#youtube">youtube</a>
+                
+                <a href="/tags/#marriage">marriage</a>
+                
+                <a href="/tags/#swift">swift</a>
+                
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+        <aside class="widget-wrap widget-toc">
+            <h6 class="widget-title">
+                <span>Table of Contents <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+            <div id="navbar">
+                <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#seo">SEO</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#引子">引子</a></li>
+<li class="toc-entry toc-h2"><a href="#二维码">二维码</a></li>
+<li class="toc-entry toc-h2"><a href="#个性二维码生成">个性二维码生成</a></li>
+<li class="toc-entry toc-h2"><a href="#文件转二维码-gif">文件转二维码 GIF</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#逻辑">逻辑</a></li>
+<li class="toc-entry toc-h3"><a href="#改进">改进</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#总结">总结</a></li>
+<li class="toc-entry toc-h2"><a href="#参考">参考</a></li>
+</ul>
+</li>
+</ul>
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+    </div>
+    <!-- END SIDEBAR -->
+</div>
+
+    </div>
+  </div>
+</div>
+<!-- END SINGLE-POST-WRAP -->
+
+
+        </main>
+        <!-- END MAIN -->
+
+        
+<footer>
+  <div class="footer">
+    <div class="container">
+      <div class="text-center">
+        <a href="/blog" class="logo clearfix animsition-link"><img src="/img/sig.svg" width="400" alt="Chen's Sig"></a>
+        <p class="copy">
+          Maintained by <a href="/about/">Chen Ting</a> 
+		  
+        </p>
+        <div class="icon-list">
+          <a href="https://www.linkedin.com/in/ting-chen-402bab122/" target="_blank">
+            <i class="fa fa-fw fa-linkedin"></i>
+          </a>
+          <a href="http://my.hupu.com/17573413/" target="_blank">
+            <i class="fa fa-fw fa-futbol-o"></i>
+          </a>
+          <a href="https://www.douban.com/people/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-book"></i>
+          </a>
+		   <a href="https://www.flickr.com/photos/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-flickr"></i>
+          </a>
+          <a href="https://github.com/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-github"></i>
+          </a>
+		  <a href="/feed.xml" target="_blank">
+            <i class="fa fa-fw fa-rss"></i>
+          </a>
+        </div>
+        <div class="scroll-top">go to top</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END FOOTER -->
+</footer>
+
+      </div>
+      <!-- END CONTENT -->
+    </div>
+    <!-- END ANIMSITION -->
+
+    
+<!-- SCRIPTS -->
+<script src="/assets/js/jquery-1.12.0.min.js"></script>
+<script src="/assets/js/plugins.min.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<!-- CUSTOM SCRIPT -->
+<script src="/assets/js/script.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/js/tether.min.js"></script>
+<script>document.getElementById("CN").href = "http://yo1995.coding.me" + window.location.pathname;</script>
+
+
+<script src="/assets/js/qrcode.js"></script>
+<script>
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: "https://yo1995.github.io/coding/file-to-GIF/",
+    width: 196,
+    height: 196,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H,
+    useSVG: true
+});
+</script>
+
+
+<!-- 爱心特效 -->
+
+
+
+<script async src="/assets/js/busuanzi.pure.mini.js">
+</script>
+<!--功夫网卡住了script id="dsq-count-scr" src="//yo1995.disqus.com/count.js" async></script-->
+
+
+
+
+
+
+
+<!--script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82518311-1', 'auto');
+  ga('send', 'pageview', {
+  'page': '/coding/file-to-GIF/',
+  'title': 'GIF 与 QRcode 玩具二则'
+  });
+
+</script-->
+
+
+  </body>
+
+</html>

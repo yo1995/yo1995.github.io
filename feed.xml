@@ -5,9 +5,230 @@
     <description></description>
     <link>https://yo1995.github.io/</link>
     <atom:link href="https://yo1995.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 28 Jun 2019 22:42:08 -0400</pubDate>
-    <lastBuildDate>Fri, 28 Jun 2019 22:42:08 -0400</lastBuildDate>
+    <pubDate>Tue, 09 Jul 2019 17:06:10 -0400</pubDate>
+    <lastBuildDate>Tue, 09 Jul 2019 17:06:10 -0400</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
+    
+      <item>
+        <title>GIF 与 QRcode 玩具二则</title>
+        <description>&lt;h1 id=&quot;seo&quot;&gt;SEO&lt;/h1&gt;
+
+&lt;p&gt;文件转GIF&lt;br /&gt;
+文件转动图 分享&lt;br /&gt;
+个性化二维码&lt;br /&gt;
+彩色二维码&lt;br /&gt;
+动图二维码&lt;br /&gt;
+动态二维码&lt;br /&gt;
+Animated QRcode
+File to GIF&lt;/p&gt;
+
+&lt;p&gt;搞一堆关键词蜜罐看有没有和我一样无聊的人掉进来……&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/yo1995/QRcode_Playground&quot;&gt;链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;引子&quot;&gt;引子&lt;/h2&gt;
+
+&lt;p&gt;七月九号上午在看虎扑和 V2EX 的时候，突然想到了一个点子：是否可以把文件转化为 GIF 然后放在互联网的图床上进行分享呢？&lt;/p&gt;
+
+&lt;p&gt;当今互联网时代，GIF 的历史使命尚未完成。由于其悠久的历史，几乎所有终端、设备、服务都会想方设法对齐进行兼容。就连最赶时髦的苹果，也不得不顺从民意，在 iOS 11 加入了相册对 GIF 动图预览的支持。可以预见，在下一个一统江湖的多媒体格式到来前，GIF 仍将在互联网的舞台中留存多日。&lt;/p&gt;
+
+&lt;p&gt;GIF 的一大好处——各大图床为了保持最佳兼容性，一般对较小的 GIF 文件不会压缩。一些技术上较为保守的网站，如虎扑，甚至对任何 GIF 都不做处理直接存储。这便给了一些“巨大GIF”党可乘之机——在虎扑上，有个叫 iameasy81 的用户疯狂上传 400*400@50fps 的巨型 GIF 文件，动辄二三十兆，每次加载时都让我怀疑人生，还以为中美光缆阻塞了。&lt;/p&gt;
+
+&lt;p&gt;当然，大多数平台不太愿意处理 GIF 文件，而是选择直接存储的原因，在于 GIF 优化是一个复杂且耗费算力的问题。由于 GIF89a 标准最初设计上较为简单，并没有类似 AVC 这样可以轻松指定画面质量、文件大小的特性，因而想将一张 GIF 压缩到指定尺寸，实际上是一个类似于猜+试的过程。同时，因为 GIF 标准存在许多变数，如局部色板、抖动、色板继承、颜色丢弃、透明色映射等等问题，倘若压缩程序写得不好，很有可能反而把一张精心优化过的 GIF 越压越大。因此，许多图床和文件存储选择睁一只眼闭一只眼，直接不修改存储 GIF，而这便是令我我产生这个想法的一大原因。&lt;/p&gt;
+
+&lt;p&gt;事不宜迟，本想先把手头的活干完再来做这件事，但越想越觉得有意思且很容易实现，便立即开始写码。&lt;/p&gt;
+
+&lt;h2 id=&quot;二维码&quot;&gt;二维码&lt;/h2&gt;
+
+&lt;p&gt;二维码是日本人在九十年代发明的，最初为了提高工业工程的效率，后来演变为我们在电子支付、内容分享中日常用到的样子。二维码的本质就是讲字符串转为一张图像，然后接收端再通过模式识别解码图像，得到原来的字符串。二维码最初设计时便有了许多复杂的设计，如版本号，对应二维码的矩阵大小，从 21 * 21 到 177 * 177；定位图样，方便模式识别时确定旋转和对齐方向；纠错等级，分别有低中高最高。而且，最好的是——二维码的编码是定长码，这样等长字符串编码生成的二维码版本一定相同。为了找到一个合适的矩阵尺寸，我先用一些在线二维码生成器进行了简单的试验。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/201907/128-0.jpg&quot; alt=&quot;128个零&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;当我用全零字符串填充二维码时，如上图一样奇特的现象出现了——二维码的右半部分出现了规则的明暗相间的方块，好像一个棋盘。这是容易解释的，因为 0 对应的编码较为特殊，重复的相同字符造成了重复的图案。&lt;/p&gt;
+
+&lt;p&gt;看到这个二维码，我突然想到之前见过的许多异形二维码，如三维棱台、圆角、艺术化等变化。上 GitHub 一搜，果然让我找到很多现成的库。其中，以 Halftone QRCodes 和 QArt 二维码最为抓人眼球。前者能够生成抖动的黑白 GIF二维码，且每一帧都能扫出相同的内容；后者能够将彩色图片作为背景嵌入二维码，也能支持动态图。事不宜迟，我便先开始尝试做动态二维码。&lt;/p&gt;
+
+&lt;h2 id=&quot;个性二维码生成&quot;&gt;个性二维码生成&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/201907/worship.gif&quot; alt=&quot;膜&quot; /&gt; + 孙辰表示不服 = &lt;img src=&quot;/images/201907/bufu.gif&quot; alt=&quot;孙辰表示不服&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;重构了 CuteR 这个对 qrcode 进行封装的 Python 库。改进了坐标变换与并行执行的能力。通过给定输入字符串与输入的背景 GIF，即可得到输出的动态二维码。输出后再通过 gifsicle 进行优化压缩，得到最终的图像。示例参照上面的图像。&lt;/p&gt;
+
+&lt;h2 id=&quot;文件转二维码-gif&quot;&gt;文件转二维码 GIF&lt;/h2&gt;
+
+&lt;h3 id=&quot;逻辑&quot;&gt;逻辑&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;编码&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;首先将文件转为对应的 base64 字符串表示，然后将字符串按照 150 字符左右的长度分割，并将每个分割后的子串编码为二维码。接着把二维码转为 GIF 的一帧，并拼接得到输出 GIF。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;解码&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;将 GIF 文件按帧读取，对每一帧进行二维码解码，再将解码后得到的字符串进行拼接，并 base64 解码得到文件的二进制表达，存储到相应路径。&lt;/p&gt;
+
+&lt;h3 id=&quot;改进&quot;&gt;改进&lt;/h3&gt;
+
+&lt;p&gt;逻辑比较清晰和简单，改进主要存在于几方面。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;输出 GIF 的大小
+由于 PIL 库默认的 GIF 支持很差，经过编码，13KB 的原文件竟然变成了 500KB 的 GIF。这样的倍率显然是不可以接受的。仔细一想，GIF 每一帧都是二维码，最简单的二维码应该只有黑白两种颜色，且其最小尺寸可以设置为二维码每一小方格为 1 像素时对应的尺寸。如此一来，我可以按照这个原则编码出每一帧都完全符合 GIF 规范时最小的数据帧。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;将 GIF 设为全局色板模式，且色板只有两个颜色。每一帧的间隔相等，取消单帧色板，并将 LZW 压缩中的码长也设为最小的 2bits。这样，生成的 GIF 文件称得上几近最小。当然，通过取消帧间丢弃的方法或许还能减小尺寸，但目测很有可能产生副作用——因为多加一种透明色相当于所有索引值都必须多 1bit，忽略头部中丢弃方法、延迟时间的字段，只有两帧间变化不到 50% 时才可能有提升。&lt;/p&gt;
+
+&lt;p&gt;基于&lt;a href=&quot;https://github.com/yo1995/Ultimate-emoticon-generator&quot;&gt;之前项目&lt;/a&gt;中的 GIF 编码器，为这个 GIF 输出渲染重新定制了一个尽可能优化的版本。默认输出为二维码线宽 1px 的图像，在解码时再用最近邻方法放大为 2 倍以方便识别。&lt;/p&gt;
+
+&lt;p&gt;测试结果：&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;原文件&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;仅优化 GIF 渲染&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;未优化&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;111284(110KB)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;387615(388KB)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2149022(2.2MB)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;线性改为并行
+多帧图像处理是天生就适用于多线程的场景之一。如果不计帧间关系，每一帧都是独立的问题；就算考虑帧间关系，也只用同时处理两帧。将字符串通过 Python 的 multiprocessing 库异步生成二维码矩阵后渲染为图像，然后最后装配，能够大幅提升编码速度。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;测试结果：&lt;/p&gt;
+
+&lt;p&gt;对于同一个 111KB 原文件的测试结果，共生成 1238 帧：&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;并行&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;线性&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;10.25s&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;39.18s&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;每帧字符串长度与字符串码表
+根据二维码的标准，大于等于 version 7 的二维码需要预留区域存放版本信息。因此，为了使输出 GIF 文件最小，应尽可能在每一帧中装入最多的字符。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;二维码的数字和英文字符码长不等，而 base64 编码后的字符串数字和字符的分配与二进制文件的字节有关，并不固定。测试中选择分割字符串长度在 125-134 之间能够编码到 version 6.根据参考资料中的数据来看，应该还能放更多，官网给出的数字+字母的数据是 195。而我实测只能放进 134 个字符。看了下 qrcode 库的源码，大概是其把所有数据都当成二进制字节进行处理以增强兼容性了。按照给的数据计算，如果是 base64 的数字+英文字符放进 195 个，而字节放进 134 个的话，相对能多放 45% 的字符；而二进制字节编码为 base64 后只增加 33%，似乎是一个不错的 trade-off。&lt;/p&gt;
+
+&lt;p&gt;base64 编码由于把每三个字节编组后转为四个字节，在编码过程中就会使数据增加 33% 左右。根据二维码的特点，存在三种可能：数字编码，如 base8 或 base10；数字-字母编码，如 base64；二进制编码。我估计后两种的编码效率更高些。&lt;/p&gt;
+
+&lt;p&gt;目前，我把 base64 和 base32 的编码方式都实现了。相对而言 base32 的效率稍高。参见下表的效率对比。两种编码方式均为最优 GIF 渲染。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;原文件 111284(110KB)&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;base32&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;base64&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;version 6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;311562(312KBKB)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;377123(377KBKB)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;version 40&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;204870(205KB)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;248118(248KB)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;可见，目前最优情况 version 40 与 base32 编码搭配时，文件大小相对于原文件为 1.84 倍。考虑到 base32 编码效率约为 1.6 倍（5 字节转化为 8 字节），二维码最低纠错 7% 以后，理论上可以得到的最小值已经是 1.712 倍。这样看来，整个方法的各部分表现已经较为优秀。&lt;del&gt;写了半天忍不住自夸&lt;/del&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;总结&quot;&gt;总结&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/201907/ECE564.png&quot; alt=&quot;测试文件&quot; /&gt; -&amp;gt; &lt;img src=&quot;/images/201907/b32_v40_4295.gif&quot; alt=&quot;编码后GIF&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;总体而言，若想实现这种转换，且不考虑对于人所持设备的兼容性的话，使用最大的二维码版本与最低的纠错参数时，可以达到膨胀率最低。如果需要考虑中途由人来识别，如设计一个 app 录像得到所有帧，再在手机里转为文件的话，尽量取被录制的二维码较小的版本可以更好保证识别率。&lt;/p&gt;
+
+&lt;p&gt;最开始想到这个想法的时候，并不确定其可行性有多少。因为平时一直觉得 GIF 本来就挺大了，再加上二维码的冗余以及定位孔占据的位置，最后的结果一定不理想。结果编写测试完毕后，发现还是有一定可用性的。例如对于网上最常见的 5MB 图床来讲，将近可以放下两张软盘所能存储的内容，还是很客观的——要知道，哪怕到现在，我自己写过的所有文本文件加起来也只是在兆的量级而已。&lt;/p&gt;
+
+&lt;p&gt;这个项目到此就告一段落了。目前看起来没有什么太大的应用，因为自己不会 js，没法把这样的编码解码器部署到前端供别人使用。同时，这种工具得有一定的用户规模，一传十十传百才能发挥实力。然而，如果这个工具流行起来，估计许多图床就会改变策略，禁止纯二维码动图的上传了，毕竟这种功能是游走在用户协议边缘的灰色地带的。&lt;/p&gt;
+
+&lt;p&gt;写了一天代码，查了一天文档，自认为整体做得还算满意。未来有空封装为二进制文件。&lt;/p&gt;
+
+&lt;h2 id=&quot;参考&quot;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.qrcode.com/en/about/version.html&quot;&gt;官网&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://coolshell.cn/articles/10590.html&quot;&gt;二维码的生成细节和原理&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/kciter/qart.js&quot;&gt;qart.js&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://cgv.cs.nthu.edu.tw/Projects/Recreational_Graphics/Halftone_QRCodes/&quot;&gt;Halftone QRCodes&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/chinuno-usami/CuteR&quot;&gt;CuteR&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.zhihu.com/question/22088907&quot;&gt;为什么 GIF 格式迟迟没有被取代？&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://cloud.tencent.com/developer/article/1004763&quot;&gt;浓缩的才是精华：浅析 GIF 格式图片的存储和压缩&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://blog.qr4.nl/page/QR-Code-Data-Capacity.aspx&quot;&gt;QR Code Data Capacity&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2008/06/base64.html&quot;&gt;base64 标准&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://tech.codeyellow.nl/blog/qr-encoding/&quot;&gt;qrcode base45&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://docs.python.org/3/library/base64.html&quot;&gt;Python base64 base32&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 09 Jul 2019 00:00:00 -0400</pubDate>
+        <link>https://yo1995.github.io/coding/file-to-GIF/</link>
+        <guid isPermaLink="true">https://yo1995.github.io/coding/file-to-GIF/</guid>
+        
+        <category>gif</category>
+        
+        <category>codec</category>
+        
+        <category>coding</category>
+        
+        <category>python</category>
+        
+        <category>image</category>
+        
+        
+        <category>Coding</category>
+        
+      </item>
     
       <item>
         <title>Kitura 配置小感</title>
@@ -1234,203 +1455,6 @@ LG UltraFine 5K系列，专门为MacBook Pro打造，加上一台仍旧不太过
         
         
         <category>Movie</category>
-        
-      </item>
-    
-      <item>
-        <title>三件小事</title>
-        <description>&lt;p&gt;小事不小。在这些夹杂着历史与民族情绪的事件中，才会体会到个体与独立的公民相对于一个民族、一个国家的渺小。也正是因为这样，团结一致，共御外敌才显得尤为重要。正所谓“帝国主义亡我之心不死”，“科学没有国界，科学家有国籍”，如何真正为中华民族伟大复兴贡献一份力量，真的是每一个华夏儿女应该思考和念念不忘的问题。&lt;/p&gt;
-
-&lt;p&gt;有时候总会调侃“爱国不等于爱党”。平常说说还觉得自己很前卫似的。反华势力就那么气焰嚣张地站在你面前时，自己才知道一个强有力的政府与军队结合的体制有多么重要。唉。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;megan-neely与杜克生统&quot;&gt;Megan Neely与杜克生统&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/201901/megan.jpg&quot; alt=&quot;Megan Neely&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;事情源于周五下午一位松惠同学爆料到学生群聊中的截图。刚开始我还不以为然，并不觉得有多么歧视。转发给几个朋友看都觉得是歧视，加之群里大家一讨论，愈发觉得这种根深蒂固的隐性歧视十分可恶而可怖。大家张罗着写请愿书请求学校彻查，捯饬了一整宿还是没法统一声音；相对的，好几个有“公报私仇”的证人证言早早地联系了媒体，让那些白左外屁股媒体bbc、nytimes、fox之类的避重就轻牵强附会地一报道，得嘞，又成了挑拨中美关系的优质素材。&lt;/p&gt;
-
-&lt;p&gt;在这件事情中，有许多值得反思的地方，也有许多令我气愤不已的荒诞插曲。先说荒诞，毕竟生活比剧本来得更为离奇动人。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/201901/cheat.png&quot; alt=&quot;组团作弊&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;消息刚发出来，就有生统的同学出来转移注意力。只是这个洗地的操作真的让人啧啧称奇。用网络语言来讲，这就是“极限一换一”。自爆牺牲一堆不相关的清白的同专业同学的名誉，以换取人们对犯错者的同情，真的是令人窒息的操作。&lt;/p&gt;
-
-&lt;p&gt;消息发出来一段时间以后，来了一个自称“毕业学姐”的人物参与讨论。她似乎总想借着大家对Neely女士的群情激奋来达到一些自己的目的，总想引着大家去人身攻击，捋掉她的职位。尽管松惠同学最后把她请出了群聊，但她的目的还是达到了——学校大周六都没闲着直接革职DGS。然而，歧视的核心两位生统faculty教授，并没有受到任何的牵连。&lt;/p&gt;
-
-&lt;p&gt;再后来，法学院JD的同学搬来救兵，闻博老学姐自然也伸出援手。只不过她的诉求比一般学校里的同学更多，je vais dire - plus combatif.看了她的文稿后其实我挺赞同她的立场的，但或许是表述方式太过激进，或许是学校里同学不够深入理解美式议程文化体制，最后群里变成了叽叽喳喳的大乱斗。最后以法学院多位同学被请出群聊告终。&lt;/p&gt;
-
-&lt;p&gt;再说愤怒。不团结，学校避重就轻，缺乏民主教育。&lt;/p&gt;
-
-&lt;p&gt;首先想提到的就是这件事情发酵后事件核心同学的不团结。在此之前，我一直以为网络上、文化轶闻中提到的中国人不团结、“聚是一坨屎，散是满天星”的说辞纯属胡扯，但经历了这样一件不大不小的事件后似乎觉得有些道理了。事件刚爆出时，起草请愿书、关注事件的同学不过二三十人，我也趁机写了一点自己的立场在请愿书里。当时有明确的几个带头人来推进这件事，包括Joyce学姐、松惠同学以及法学院William同学等等。但是随着事件发酵，越来越多的围观群众想要看个热闹，插一句。这一插不要紧，大家各自诉求的不同便暴露无遗。最主要的部分由生统的同学构成。他们的目标很明确：合理处理Neely，找到背后歧视的faculty，敦促学校加强反歧视普及教育以及公平性监督机制。第二大的群体由其余大部分研究生院中国学生构成，由CSSA牵头，主要诉求集中在保障国际学生权利、工作环境强制英语非法、敦促研究生院提供更加公平包容的环境等等。剩下的则是各执一词了，在聊天讨论最热烈的时候每分钟都有好几个不同的意见蹦出来和大家大吵一架然后向着人身攻击的方向发展，不得不由主要推动者出面调停。也有许多看不下去的群众出来和稀泥，这一和到不要紧，本来清清楚楚的理儿一下子就搅混了，这下真是有理都说不清。或许这是学校最希望看到的，学生内部消耗掉斗争的意志，他们只需要草草打扫战场即可，轻轻松松摆平一个棘手的难题。&lt;/p&gt;
-
-&lt;p&gt;有时不免猜测，倘若是非洲黑人或是拉美人、甚至穆斯林受到了这样的歧视，那学校早炸锅了。得亏是钱多事儿少不敢吱扭的中国人，让学校的财路不至于收到太大影响。拿Neely开刀打个障眼法，事情就摆平了。真是轻松写意。&lt;/p&gt;
-
-&lt;p&gt;不团结不仅体现在诉求不同于立场冲突上，还存在于各种细节中。按理说，遇到这样的事儿，最重要的是内部团结，大家齐心协力找出重点来倒逼学校作为。但是许多人想借此谋求私利，也有人看热闹不嫌事儿大、给人添乱事不关己。真的很心疼熬夜写请愿书的几位法学院同学，写了半天被人劈头盖脸一顿反问，搁谁谁受得了？本来是一个促进校内国人交流团结的很好的契机，最后又变成各自为战，我想每一个参与者都脱不了干系，我也一样。&lt;/p&gt;
-
-&lt;p&gt;再说民主。总觉得中国是搞不了西方民主的，因为数千年中华文明已经探求出了、或曰深入骨髓地习得了一套自有的体质。各朝各代有不同的称谓，正如当今称为中国特色社会主义、过去叫做中央集权、三省六部等等一样。中华民族需要强有力的主旋律、而非西方小国寡民、独立自主式的民主。这种特质的形成牵扯到的因素太多太多，其中一个便是人口与资源分配、或“人民日益增长的物质文化需要同落后的社会生产之间的矛盾”。西方社会长期处于资源过剩、营养充足的环境中，产生的民主与中国也自然会有差异。现代经济学也有诸多参数来描述社会资源分配的状况。不得不说，中国的方差不小、基数更大，在世界范围内比较似乎只有现代印度能够相提并论。看看印度的现状，烂泥扶不上墙，不提也罢。&lt;/p&gt;
-
-&lt;p&gt;西方民主有较为完善的议事体系。而绝大多数在国内完成初中高等教育的学生并没有系统地接触过“西方的那一套理论”。有些接受过西方中高等教育的华人同胞也并未完全脱离中国传统的思维，导致这样的需要完全西式民主的场合下出现很多啼笑皆非的场面。这怪不到大家头上来，多经历才会更理解西方文明。&lt;/p&gt;
-
-&lt;p&gt;中华文化特有的慎独、自省特质。二者在西方文明中是极其高端难能可贵、通常只有接受过最高教育的“文化人”才有的品质，但在中华文明的宝库中只是最不值得一提的常见品格罢了。从小到大的传承，我们便懂得遇事先反思、有则改之无则加勉、举头三尺有神明等等先辈的经验。我前面写得一堆一堆的东西，也是在想方设法反思我们究竟有哪些地方做的还不够好。然而，在西方的逻辑里，事情本不该是这样的！接受一般教育的人没那么多内心戏，个人利益至上、直白坦率表达自己观点是他们崇尚的观念。一般人不会先反思自己有哪些需要提高改进的地方，而是直截了当指明他人的错误。这种略带“攻击性”的文化特质也让西方文化在世界上所向披靡，甚至差点击垮古老的中华文明。在这件事中，中国同学在公共场合不注意音量、大声说中文确实值得反思和自律，但远远轮不到仰仗学生过活的faculty来指指点点、甚至以未来相要挟威胁恐吓中国学生。这种根深蒂固的、来自教育水平不足的自大与歧视，是引起我愤怒的另一大原因。&lt;/p&gt;
-
-&lt;p&gt;最后是学校的应对。我是不相信学校真的会支持中国学生这样的弱势群体，满足我们的诉求，检举背后歧视者。但我也不曾预料，学校一拖再拖，似乎想通过冷处理的方式尽可能避免影响，最后不了了之。学校这样的应对，加之同学们各执己见，搞得最后好像中国学生瞎胡闹被学校冷静应对正确处理了一样。毕竟，美国私校总还是美国人的学校，不可能指望人家把屁股歪到中国来。就算是冷处理，学费一分不少赚，每年大批钱串子送上门来，西方媒体再粉饰搅浑一番，真的跟啥事儿没有一样。该歧视还是歧视，该赚钱还是赚钱。&lt;/p&gt;
-
-&lt;p&gt;可能这是我在judge，是极其主观而武断的评价，但我还是觉得在意识形态方面，当今的西方文化是不具有进步性的。往好了说，意识形态滴水不漏稳如泰山，改朝换代社会依旧能够平稳运行；往坏了讲，世界文明灯塔所能照亮的范围，万世囿于无故事王国。他们能够意识到错误，但总是试图打补丁、掩饰、顾左右而言他，而非真正鼓起勇气去剜去痼疾与脓疮。我来到这个国家，就是想学习更为先进的思想；但我所看到的，不免令人失望。最后的愤恨，便来自这花了大价钱却求知不得的慨叹。&lt;/p&gt;
-
-&lt;h2 id=&quot;uyghur&quot;&gt;Uyghur&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/201901/Turkistan.jpg&quot; alt=&quot;反华势力&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;安拉对于说谎者没有足够的惩罚。但看看下面这些吧！&lt;/p&gt;
-
-&lt;p&gt;作恶不悔改的人——置于火狱。&lt;/p&gt;
-
-&lt;p&gt;不信道的人——永居火狱。&lt;/p&gt;
-
-&lt;p&gt;背叛正教——他的善功在今世和后世完全无效。这等人，是火狱的居民，他们将永居其中。&lt;/p&gt;
-
-&lt;p&gt;在学校亲眼看到反华势力、东突厥斯坦分裂团体的拙劣表演，以及学校所谓“穆斯林生活与伊斯兰学习中心”的大力支持，真的让我对杜克所代表的西方教育感到反胃。&lt;/p&gt;
-
-&lt;p&gt;我相信，在场听演讲的许多民族学生、异见人士，对于安拉的著作的了解甚至不及我一个dahriya。安拉对于说谎者的惩罚是远不及背叛者的，因此或许今天出席的人们并不会收到他的责难。蒙昧者被迷雾蒙蔽了双眼，安拉并不会因此惩罚他们。但背叛者在安拉面前撒谎、歪曲事实、避重就轻，按照安拉的著作似乎也能逃过一劫。&lt;/p&gt;
-
-&lt;p&gt;但那些叛逃到美国，在kāfir的土地上为己私利消费安拉的takfīr，送你们一句话。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;بَلَى مَن كَسَبَ سَيِّئَةً وَأَحَاطَتْ بِهِ خَطِيـئَتُهُ فَأُوْلَـئِكَ أَصْحَابُ النَّارِ هُمْ فِيهَا خَالِدُونَ&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;我并不稀得谈境外反华势力、轮子或是美帝亡我之心。倘若自己的民族自信心强大，又怎么需要嘲笑荒诞不经的叨扰以飨欲壑呢？我只是想表达（再次表达）我对西方diversity supremacy的失望与厌恶。倘若杜克社群准则成立，那么我有充足的理由与证据控诉在场的任何组织者违反了准则，因为撒谎是这份准则决不能允许的行为。但在这点上，显然，学校是双标的猪猡。&lt;/p&gt;
-
-&lt;p&gt;我尊重在场人的权利，因而我给他们打了码。但他们在肆意侵犯我的权利，而学校作为政务行为主体毫无作为。这令我心寒。&lt;/p&gt;
-
-&lt;p&gt;在教育方面，我是迷途的羔羊。高中的阴差阳错后，我再无母校。人失了根便是浮萍。漫无目的的游荡中，一切声音随风而逝。&lt;/p&gt;
-
-&lt;p&gt;只希望那溪边的少年，能够瞥见那爿愤恨、屈辱而无能为力的泡沫，让真气与正气在心中留得久些、再久些。&lt;/p&gt;
-
-&lt;h2 id=&quot;lgbt-center&quot;&gt;LGBT Center&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/201901/LGBTQ.jpg&quot; alt=&quot;pride&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;在谈到对于“多样性”的态度时，美本的索老师的观点，我认为比我更客观而可取，特地备份于此。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;我觉得，不支持不反对才是正确态度
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;所有出生自带的东西都不能成为被攻击的点，因为当事人没法改变
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;但是也没必要非得把某些团体强调得不行
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;多数派的人总有看不惯少数派的人从而攻击他们的，所以少数派的人也总有因为怕被人攻击就先攻击多数派的。
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;所有事物都很难达到最合适的中间状态
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;因为总是有人想不明白，想不明白的人就会极端，不管往哪个极端
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;多种声音挺好，总比一种声音好
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;文明都有自我修复的机制
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;而我就比较极端。我认为，对于这样的非主流群体，我们应该做到不关注、不抵制、不宣传。当然，更为保守的观点肯定也有，但这是我目前能够做到的最大的妥协了。&lt;/p&gt;
-
-&lt;p&gt;这便是我痛恨学校隔三差五发pride parade宣传邮件的原因。&lt;/p&gt;
-
-&lt;p&gt;凭什么为了保障少数群体的权益，就要牺牲掉多数群体的利益？&lt;/p&gt;
-
-&lt;p&gt;凭什么为了维持学校所谓的“多样性”，就要设置不公平的录取标准来强行找平？&lt;/p&gt;
-
-&lt;p&gt;凭什么明目张胆地歧视东亚拉美非洲文化，还能腆着脸宣扬自己的民主与平等？&lt;/p&gt;
-
-&lt;p&gt;凭什么体味儿那么重还不搞好个人卫生？&lt;/p&gt;
-
-&lt;p&gt;不行了，再说下去该被开除了，毕竟我说的太不“多元”了。政治正确难得用对地方。算了，反正西方自有它的一套，自己跟自己玩儿去吧。&lt;/p&gt;
-
-&lt;p&gt;Shame on myself. Shame on you Blue Devil!&lt;/p&gt;
-
-&lt;p&gt;正如我反对去北邮一样，我会从此反对来杜克。我以北邮人和蓝魔的身份而骄傲，但我以北邮和杜克的校舍为耻。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;另外，有些没有接受过系统的思政教育、主观臆测键盘侠的歪果仁，就不要妄议国是了吧。说的就是你@cirosantilli&lt;/p&gt;
-
-&lt;p&gt;编程随想虽说是黑，但黑得有理有据，想驳倒得费一番脑筋；这种sb真的懒得回复，batch report robot举报到你不能自理。&lt;/p&gt;
-
-&lt;p&gt;再另，突然觉得当一个人有能耐的时候，用脚投票就已经有足够影响力了。但在那之前，喊得再大声也没卵子用。好在，我的脚不小😁&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;1月29日补遗&quot;&gt;1月29日补遗&lt;/h2&gt;
-
-&lt;p&gt;说实话，只有真正亲眼见证敌对反华势力在你面前大言不惭地讲述谎言、恣意抹黑中国人民与政府时，才会真切地体会到拥有一个强大而稳定的体制是多么的重要。意识形态的斗争是永不停歇的，而树立民族自信心、加强意识形态教育的主要受众与生力军应当是我们青年人。&lt;/p&gt;
-
-&lt;p&gt;昨天激动地写了很多，这里不再重复了。在昨天，我所在的外国学校竟然在图书馆举办了“东突厥斯坦”反华势力的演讲。当我眼睁睁地看着“蓝星月”旗帜就那样耀武扬威似的悬挂在本应象征着自由之思想、平等之权利的图书馆中时，心中的悲愤久久不能平息。对于一个时代而言，我作为一个个体实在是太渺小了。对于国家、民族、政治这样的宏大概念，个人同样微不足道。但这便是我们甘愿保持沉默，不再发声的理由吗？我不这么认为。&lt;/p&gt;
-
-&lt;p&gt;以前在国内时有时会调侃“爱国不等于爱党”，自己也一直因为思想觉悟不够先进而没有申请入党。诚然，我们的国家、我们的政体以及实际执政党并非无可指摘，仍有许多可以改变与提高的方面。但不可否认的是，当前的体制促成了一个统一、团结、民族融合的现代社会。一些接受了更高教育的人在接触了西方文化与意识形态后大力吹捧他们所宣传的普世价值、平等与民主概念；殊不知，这些精致包装好的饴饵并非看上去那么美好与理想。当你真正开始试图接触融入参与甚至改变西方意识形态时，才会切实地体会到它并非如宣传得那样高端大气上档次，而是存在诸多不可弥合的本质上的不兼容性与缺陷的。不再展开。&lt;/p&gt;
-
-&lt;p&gt;当挥舞着西方普世观念的“异见者”堂而皇之地在庙堂之内讲述谎言，试图蛊惑人心时，我真的觉得我们的民族、我们的国家的意识形态宣传与扩张实在太过欠缺。武断而论，许多西方人那一套墨守成规的价值观还停留在幼发拉底河发家时候的水准。没有接触过其他的观点，自然很难客观地行使公民权力，他们的所谓平等多元包容完全囿于自己局限的文化圈子之中。虽然我自己有足够的民族自信与意识形态自信去面对这些政治杂音，但我愈发希望中华儿女皆能逐渐建立起充足的、澎湃的民族自信，继而在世界舞台上改变西方文明主导的、落后的价值观与历史遗老。西方的价值观宣传是侵略性的、攻城略地的；而我们的意识形态工作则应该是自信的、以更高生产力取代低生产力的带有进步性的扩张。只有这样，才能如那句俗话所讲，“屹立于世界民族之林”。&lt;/p&gt;
-
-&lt;p&gt;抱歉说了很多，第一次亲眼看到“三股势力”出现在生活中自己的价值确实会有些收到冲击。但经历了这些，有理有据地按照自己所接受过的思政教育、客观地反击那些谎言时，是能够感受到自己的民族自信心得到提升的。仅供参考。&lt;/p&gt;
-
-&lt;h2 id=&quot;义愤填膺&quot;&gt;义愤填膺&lt;/h2&gt;
-
-&lt;p&gt;何为义愤？当被侵犯着与你无亲无故，施暴者与你并无瓜葛，而胸中的怒火就那么冉冉升起时，这便是义愤。&lt;/p&gt;
-
-&lt;p&gt;何为义愤？当你作为一个庞大公民团体中微不足道的一份子，却能感受到整个群体所拥有的通感、内心相连共斥外敌之时，这便是义愤。&lt;/p&gt;
-
-&lt;p&gt;当敌人堂而皇之地以谎言污蔑你的团体时；&lt;/p&gt;
-
-&lt;p&gt;当为虎作伥者混淆是非，企图拉不明所以者下水、掩人耳目时；&lt;/p&gt;
-
-&lt;p&gt;当自恃客观公正者矫揉造作、有失公允地拉偏架时——&lt;/p&gt;
-
-&lt;p&gt;我的内心便会燃起熊熊烈火，人民的公愤倾泻于我。我便会斗志昂扬、一往无前。&lt;/p&gt;
-
-&lt;p&gt;那团火！请你经久不衰地燃烧！直至生命的尽头。&lt;/p&gt;
-
-&lt;p&gt;那平地一声惊雷起，炸一声——&lt;/p&gt;
-
-&lt;p&gt;我的祖国！&lt;/p&gt;
-</description>
-        <pubDate>Mon, 28 Jan 2019 00:00:00 -0500</pubDate>
-        <link>https://yo1995.github.io/society/shameful-acts/</link>
-        <guid isPermaLink="true">https://yo1995.github.io/society/shameful-acts/</guid>
-        
-        <category>society</category>
-        
-        <category>diversity</category>
-        
-        <category>politics</category>
-        
-        <category>discrimination</category>
-        
-        <category>diversity</category>
-        
-        
-        <category>Society</category>
         
       </item>
     
