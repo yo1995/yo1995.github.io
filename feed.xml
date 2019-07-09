@@ -5,8 +5,8 @@
     <description></description>
     <link>https://yo1995.github.io/</link>
     <atom:link href="https://yo1995.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 09 Jul 2019 17:06:10 -0400</pubDate>
-    <lastBuildDate>Tue, 09 Jul 2019 17:06:10 -0400</lastBuildDate>
+    <pubDate>Tue, 09 Jul 2019 17:13:10 -0400</pubDate>
+    <lastBuildDate>Tue, 09 Jul 2019 17:13:10 -0400</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -75,95 +75,98 @@ File to GIF&lt;/p&gt;
 &lt;p&gt;逻辑比较清晰和简单，改进主要存在于几方面。&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;输出 GIF 的大小
-由于 PIL 库默认的 GIF 支持很差，经过编码，13KB 的原文件竟然变成了 500KB 的 GIF。这样的倍率显然是不可以接受的。仔细一想，GIF 每一帧都是二维码，最简单的二维码应该只有黑白两种颜色，且其最小尺寸可以设置为二维码每一小方格为 1 像素时对应的尺寸。如此一来，我可以按照这个原则编码出每一帧都完全符合 GIF 规范时最小的数据帧。&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;输出 GIF 的大小&lt;/p&gt;
+
+    &lt;p&gt;由于 PIL 库默认的 GIF 支持很差，经过编码，13KB 的原文件竟然变成了 500KB 的 GIF。这样的倍率显然是不可以接受的。仔细一想，GIF 每一帧都是二维码，最简单的二维码应该只有黑白两种颜色，且其最小尺寸可以设置为二维码每一小方格为 1 像素时对应的尺寸。如此一来，我可以按照这个原则编码出每一帧都完全符合 GIF 规范时最小的数据帧。&lt;/p&gt;
+
+    &lt;p&gt;将 GIF 设为全局色板模式，且色板只有两个颜色。每一帧的间隔相等，取消单帧色板，并将 LZW 压缩中的码长也设为最小的 2bits。这样，生成的 GIF 文件称得上几近最小。当然，通过取消帧间丢弃的方法或许还能减小尺寸，但目测很有可能产生副作用——因为多加一种透明色相当于所有索引值都必须多 1bit，忽略头部中丢弃方法、延迟时间的字段，只有两帧间变化不到 50% 时才可能有提升。&lt;/p&gt;
+
+    &lt;p&gt;基于&lt;a href=&quot;https://github.com/yo1995/Ultimate-emoticon-generator&quot;&gt;之前项目&lt;/a&gt;中的 GIF 编码器，为这个 GIF 输出渲染重新定制了一个尽可能优化的版本。默认输出为二维码线宽 1px 的图像，在解码时再用最近邻方法放大为 2 倍以方便识别。&lt;/p&gt;
+
+    &lt;p&gt;测试结果：&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;原文件&lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;仅优化 GIF 渲染&lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;未优化&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;111284(110KB)&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;387615(388KB)&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;2149022(2.2MB)&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;线性改为并行&lt;/p&gt;
+
+    &lt;p&gt;多帧图像处理是天生就适用于多线程的场景之一。如果不计帧间关系，每一帧都是独立的问题；就算考虑帧间关系，也只用同时处理两帧。将字符串通过 Python 的 multiprocessing 库异步生成二维码矩阵后渲染为图像，然后最后装配，能够大幅提升编码速度。&lt;/p&gt;
+
+    &lt;p&gt;测试结果：&lt;/p&gt;
+
+    &lt;p&gt;对于同一个 111KB 原文件的测试结果，共生成 1238 帧：&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;并行&lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;线性&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;10.25s&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;39.18s&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;每帧字符串长度与字符串码表&lt;/p&gt;
+
+    &lt;p&gt;根据二维码的标准，大于等于 version 7 的二维码需要预留区域存放版本信息。因此，为了使输出 GIF 文件最小，应尽可能在每一帧中装入最多的字符。&lt;/p&gt;
+
+    &lt;p&gt;二维码的数字和英文字符码长不等，而 base64 编码后的字符串数字和字符的分配与二进制文件的字节有关，并不固定。测试中选择分割字符串长度在 125-134 之间能够编码到 version 6.根据参考资料中的数据来看，应该还能放更多，官网给出的数字+字母的数据是 195。而我实测只能放进 134 个字符。看了下 qrcode 库的源码，大概是其把所有数据都当成二进制字节进行处理以增强兼容性了。按照给的数据计算，如果是 base64 的数字+英文字符放进 195 个，而字节放进 134 个的话，相对能多放 45% 的字符；而二进制字节编码为 base64 后只增加 33%，似乎是一个不错的 trade-off。&lt;/p&gt;
+
+    &lt;p&gt;base64 编码由于把每三个字节编组后转为四个字节，在编码过程中就会使数据增加 33% 左右。根据二维码的特点，存在三种可能：数字编码，如 base8 或 base10；数字-字母编码，如 base64；二进制编码。我估计后两种的编码效率更高些。&lt;/p&gt;
+
+    &lt;p&gt;目前，我把 base64 和 base32 的编码方式都实现了。相对而言 base32 的效率稍高。参见下表的效率对比。两种编码方式均为最优 GIF 渲染。&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;原文件 111284(110KB)&lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;base32&lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;base64&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;version 6&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;311562(312KBKB)&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;377123(377KBKB)&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;version 40&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;204870(205KB)&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;248118(248KB)&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+
+    &lt;p&gt;可见，目前最优情况 version 40 与 base32 编码搭配时，文件大小相对于原文件为 1.84 倍。考虑到 base32 编码效率约为 1.6 倍（5 字节转化为 8 字节），二维码最低纠错 7% 以后，理论上可以得到的最小值已经是 1.712 倍。这样看来，整个方法的各部分表现已经较为优秀。&lt;del&gt;写了半天忍不住自夸&lt;/del&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
-
-&lt;p&gt;将 GIF 设为全局色板模式，且色板只有两个颜色。每一帧的间隔相等，取消单帧色板，并将 LZW 压缩中的码长也设为最小的 2bits。这样，生成的 GIF 文件称得上几近最小。当然，通过取消帧间丢弃的方法或许还能减小尺寸，但目测很有可能产生副作用——因为多加一种透明色相当于所有索引值都必须多 1bit，忽略头部中丢弃方法、延迟时间的字段，只有两帧间变化不到 50% 时才可能有提升。&lt;/p&gt;
-
-&lt;p&gt;基于&lt;a href=&quot;https://github.com/yo1995/Ultimate-emoticon-generator&quot;&gt;之前项目&lt;/a&gt;中的 GIF 编码器，为这个 GIF 输出渲染重新定制了一个尽可能优化的版本。默认输出为二维码线宽 1px 的图像，在解码时再用最近邻方法放大为 2 倍以方便识别。&lt;/p&gt;
-
-&lt;p&gt;测试结果：&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;原文件&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;仅优化 GIF 渲染&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;未优化&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;111284(110KB)&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;387615(388KB)&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;2149022(2.2MB)&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;线性改为并行
-多帧图像处理是天生就适用于多线程的场景之一。如果不计帧间关系，每一帧都是独立的问题；就算考虑帧间关系，也只用同时处理两帧。将字符串通过 Python 的 multiprocessing 库异步生成二维码矩阵后渲染为图像，然后最后装配，能够大幅提升编码速度。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;测试结果：&lt;/p&gt;
-
-&lt;p&gt;对于同一个 111KB 原文件的测试结果，共生成 1238 帧：&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;并行&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;线性&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;10.25s&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;39.18s&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;每帧字符串长度与字符串码表
-根据二维码的标准，大于等于 version 7 的二维码需要预留区域存放版本信息。因此，为了使输出 GIF 文件最小，应尽可能在每一帧中装入最多的字符。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;二维码的数字和英文字符码长不等，而 base64 编码后的字符串数字和字符的分配与二进制文件的字节有关，并不固定。测试中选择分割字符串长度在 125-134 之间能够编码到 version 6.根据参考资料中的数据来看，应该还能放更多，官网给出的数字+字母的数据是 195。而我实测只能放进 134 个字符。看了下 qrcode 库的源码，大概是其把所有数据都当成二进制字节进行处理以增强兼容性了。按照给的数据计算，如果是 base64 的数字+英文字符放进 195 个，而字节放进 134 个的话，相对能多放 45% 的字符；而二进制字节编码为 base64 后只增加 33%，似乎是一个不错的 trade-off。&lt;/p&gt;
-
-&lt;p&gt;base64 编码由于把每三个字节编组后转为四个字节，在编码过程中就会使数据增加 33% 左右。根据二维码的特点，存在三种可能：数字编码，如 base8 或 base10；数字-字母编码，如 base64；二进制编码。我估计后两种的编码效率更高些。&lt;/p&gt;
-
-&lt;p&gt;目前，我把 base64 和 base32 的编码方式都实现了。相对而言 base32 的效率稍高。参见下表的效率对比。两种编码方式均为最优 GIF 渲染。&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;原文件 111284(110KB)&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;base32&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;base64&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;version 6&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;311562(312KBKB)&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;377123(377KBKB)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;version 40&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;204870(205KB)&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;248118(248KB)&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;可见，目前最优情况 version 40 与 base32 编码搭配时，文件大小相对于原文件为 1.84 倍。考虑到 base32 编码效率约为 1.6 倍（5 字节转化为 8 字节），二维码最低纠错 7% 以后，理论上可以得到的最小值已经是 1.712 倍。这样看来，整个方法的各部分表现已经较为优秀。&lt;del&gt;写了半天忍不住自夸&lt;/del&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;总结&quot;&gt;总结&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/201907/ECE564.png&quot; alt=&quot;测试文件&quot; /&gt; -&amp;gt; &lt;img src=&quot;/images/201907/b32_v40_4295.gif&quot; alt=&quot;编码后GIF&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/201907/ECE564.png&quot; alt=&quot;测试文件 110KB&quot; /&gt; -&amp;gt; &lt;img src=&quot;/images/201907/b32_v40_4295.gif&quot; alt=&quot;编码后GIF 205KB&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;总体而言，若想实现这种转换，且不考虑对于人所持设备的兼容性的话，使用最大的二维码版本与最低的纠错参数时，可以达到膨胀率最低。如果需要考虑中途由人来识别，如设计一个 app 录像得到所有帧，再在手机里转为文件的话，尽量取被录制的二维码较小的版本可以更好保证识别率。&lt;/p&gt;
 
