@@ -267,13 +267,13 @@ Codable Route高度整合了Swift 4引入的Codable protocol，也继承了JSON�
 
 <p>写好API准备测试，遇到了前所未有的挑战——当我将人员条目的模型创建好数据库，POST完准备读取时，无论怎么尝试都是500.当时真是汗刷地一下就下来了。完全不合理啊，于是我左改又改，首先通过其他服务确定HTTP服务器没有问题，然后再看路由也没有走错，但始终无法解决问题。带着疑惑与不解，灰溜溜地十二点回家。</p>
 
-<p>第二天重整旗鼓，梳理思路，先从最小可运行的实例开始慢慢往上加东西。当我在模型加入5个成员时，没有问题；当我加到8个，便再次500……我还以为每一行数据大小有限制呢，研究了半天pq似乎真的有限制，但我实在不敢相信区区几个字符就能溢出。</p>
+<p>第二天重整旗鼓，梳理思路，先从最小可运行的实例开始慢慢往上加东西。当我在模型加入5个成员时，没有问题；当我加到8个，便再次500……我还以为每一行数据大小有限制呢，研究了半天PostgreSQL似乎真的有限制，但我实在不敢相信区区几个字符就能溢出。</p>
 
-<p>然后开始从8个减到6个，依旧500，再减到5个，瞬间恢复。其间不知道DROP TABLE多少次，直到我看到struct里成员的命名才发现端倪：全小写时就能工作，加入camelCase的命名就炸……赶忙谷歌一搜，果然——pq列名称只能小写！</p>
+<p>然后开始从8个减到6个，依旧500，再减到5个，瞬间恢复。其间不知道DROP TABLE多少次，直到我看到struct里成员的命名才发现端倪：全小写时就能工作，加入camelCase的命名就炸……赶忙谷歌一搜，果然——pg列名称只能小写！</p>
 
 <p>后来复盘时分析为什么花了将近6个小时才发现这个问题，原因大致有如下几个：</p>
 <ul>
-  <li>第一次学pq时用的是C++，C++约定的变量名称是snake的，一般不包含大写字母，因此没有被这个问题困扰过；</li>
+  <li>第一次学pg时用的是C++，C++约定的变量名称是snake的，一般不包含大写字母，因此没有被这个问题困扰过；</li>
   <li>之后用Django时Python也是snake的，而且用的是SQLite，便以为所有数据库在这方面应该没啥区别；</li>
   <li>示例程序里非数据库的struct中有使用camelCase的变量名，而存进数据库的模型中变量个数又很少，导致我想当然认为没有区别；</li>
   <li>认为ORM在模型映射的过程中应该会代为解决这些问题，用户毋需关心。</li>
@@ -286,13 +286,13 @@ Codable Route高度整合了Swift 4引入的Codable protocol，也继承了JSON�
 
 <p>为了使数据库展示较为美观，也是受了Django自带管理界面的影响，我决定也部署一个类似的数据库管理前端界面。</p>
 
-<p>对于pq，官方推荐的自然是pqAdmin 4了。Mac上安装时自带就是这个工具，自然我也先尝试使用它。</p>
+<p>对于pg，官方推荐的自然是pgAdmin 4了。Mac上安装时自带就是这个工具，自然我也先尝试使用它。</p>
 
-<p>安装好以后，在MobaXterm上输入<code class="highlighter-rouge">pqadmin4</code>后，过了一会居然直接弹出一个Ubuntu FireFox的图形界面来，让我相当差异。之前见过的类似情景无非gedit跳出个编辑器，这一下搞出个浏览器，让我重新认识了terminal的功能。但是实在不好用，而且在Mac上不知道为什么<code class="highlighter-rouge">ssh -X</code>并不能实现类似的效果。<br>
-尝试将pqadmin设置成headless的，无果；以<code class="highlighter-rouge">pqadmin server mode</code>/<code class="highlighter-rouge">pqadmin remote</code>查询了一大堆帖子，还是设置不好通过HTTP服务从外部访问。甚至还有一种说法在某个版本前，pdadmin必须代理在域名根目录下才能运行。价值pqadmin的界面实在不好用，遂弃之。</p>
+<p>安装好以后，在MobaXterm上输入<code class="highlighter-rouge">pgadmin4</code>后，过了一会居然直接弹出一个Ubuntu FireFox的图形界面来，让我相当差异。之前见过的类似情景无非gedit跳出个编辑器，这一下搞出个浏览器，让我重新认识了terminal的功能。但是实在不好用，而且在Mac上不知道为什么<code class="highlighter-rouge">ssh -X</code>并不能实现类似的效果。<br>
+尝试将pgadmin设置成headless的，无果；以<code class="highlighter-rouge">pgadmin server mode</code>/<code class="highlighter-rouge">pgadmin remote</code>查询了一大堆帖子，还是设置不好通过HTTP服务从外部访问。甚至还有一种说法在某个版本前，pgadmin必须代理在域名根目录下才能运行。鉴于pgadmin的界面实在不好用，遂弃之。</p>
 
-<p>pqadmin在我看来就是web1.0时代人们对互联网服务的理解——桌面应用的翻版，功能庞杂而缺少设计感，大量的文字和元素充斥着页面，想看一下数据库中某张表的数据需要点击十余次鼠标，或在键盘输入SQL命令才能实现。因此只得放弃这个方案。<br>
-接着在GitHub一搜，有个叫pqweb的项目星很多。部署了一下一测试，意外的好用！一个界面，一次登录，查看所有数据库中所有的表；不提供鼠标编辑，但可以执行SQL；表结构、约束关系、历史记录、连接状态一应俱全，非常紧凑。一下子就决定用它了。<br>
+<p>pgadmin在我看来就是web1.0时代人们对互联网服务的理解——桌面应用的翻版，功能庞杂而缺少设计感，大量的文字和元素充斥着页面，想看一下数据库中某张表的数据需要点击十余次鼠标，或在键盘输入SQL命令才能实现。因此只得放弃这个方案。<br>
+接着在GitHub一搜，有个叫pgweb的项目星很多。部署了一下一测试，意外的好用！一个界面，一次登录，查看所有数据库中所有的表；不提供鼠标编辑，但可以执行SQL；表结构、约束关系、历史记录、连接状态一应俱全，非常紧凑。一下子就决定用它了。<br>
 唯一的问题是Windows端必须得开cmd输入正确参数才能连上数据库，没有默认的WebUI，稍显不足。</p>
 
 <p>为了不重复造轮子，就没有做前端的增加数据功能。毕竟这个服务器是给学生在客户端发请求用的，再搞个网页端的编辑功能有些画蛇添足。况且，我不太会搞前端的设计，尤其是js那一大套……</p>
@@ -478,7 +478,7 @@ need to serialize array into string due to ORM limitations</p>
 				<!--被墙替换class="disqus-comment-count" data-disqus-identifier="Chen's Blog//coding/kitura-setup-->
             </span>
             <span>
-                <i class="fa fa-check-square-o"></i><span>9183 words</span>
+                <i class="fa fa-check-square-o"></i><span>9191 words</span>
             </span>
             <span>
                 <i class="fa fa-link"></i>
