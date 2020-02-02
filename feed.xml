@@ -5,8 +5,8 @@
     <description></description>
     <link>https://yo1995.github.io/</link>
     <atom:link href="https://yo1995.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 02 Feb 2020 00:32:15 -0500</pubDate>
-    <lastBuildDate>Sun, 02 Feb 2020 00:32:15 -0500</lastBuildDate>
+    <pubDate>Sun, 02 Feb 2020 00:43:14 -0500</pubDate>
+    <lastBuildDate>Sun, 02 Feb 2020 00:43:14 -0500</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -758,6 +758,8 @@ California dreamin’ on such a winter’s day.&lt;/p&gt;
 
 &lt;p&gt;待我们毕业后的第二年，杨老师顺利评上副教授。以他的年纪在北邮，真的是广阔天地大有可为。我由衷希望杨老师在教职的路上一帆风顺，收获多多！&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&quot;/images/201704/yang.JPG&quot; alt=&quot;杨辉老师&quot; /&gt;&lt;/p&gt;
+
 &lt;p&gt;最先见到杨老师是在叶培大选导师的过程中。我和孙辰并不感冒理论物理研究，也不想长材料做器件，索性找了做光网络、偏软件的导师。杨老师研究很多跟SDN、PON、协议层面的内容。当时我俩也啥都不懂，就愣头青似的每次组会去跟着听。当时的组会也是挺无聊的。先说国家项目标书写得怎么样了，然后各人汇报仿真和实验的进展，最后安排下两周的进度。没人有空带我们两个小白，也没人在组会说任何技术实现细节。&lt;/p&gt;
 
 &lt;p&gt;我们一寻思这样也不行呀，于是在小半年后大创开题时，跟杨老师商量了可见光通信的项目。杨老师说先把硬件平台搭出来，然后再看有没有SDN做点协议层的可能。没想到，光是做物理层，便花了大半年的时间，当物理层终于能稳定工作时，离结题也只有一个月了。最后只能草草做了简单的示例应用了事。在这一点上，我还是有些亏欠孙辰的。&lt;/p&gt;
@@ -769,6 +771,8 @@ California dreamin’ on such a winter’s day.&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;其他&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/201704/xiao.jpg&quot; alt=&quot;肖老师&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;肖老师、杨老师等物理实验中心的老师当然是非常重要，还有徐坤老师。上完唐为华老师的《光电子学》，我发现这玩意还没FPGA吸引我呢。于是硕士、可能的博士期间做光电的念头便打消了。&lt;/p&gt;
 
@@ -789,6 +793,8 @@ California dreamin’ on such a winter’s day.&lt;/p&gt;
 &lt;p&gt;在来到学校之前，既听前辈说过要充分利用学校的就业指导中心，又听其他人说过学校没用，刷题才是王道。带着几分犹疑，我的第一次就业指导并不顺利。除了徒增焦虑外，没有收获任何有用的信息。&lt;/p&gt;
 
 &lt;p&gt;2018年秋天，基本已经下定决心转码，但具体方向还是没有想好，抱着走一步看一步，随大流刷题上岸是上策的想法懒散地进入了秋招阶段。在秋天，刷题题数不过四五十道，自知完全不够通过大厂代码面试。但仍旧怀着一丝侥幸，去招聘会投了几家C++、偏硬件或者做游戏的公司。其中最抱希望的是赛灵思。那年不知为何，几乎从不来杜克的Xilinx突然出现在学校范围的招聘会上，且并未参与工学院专门的TechConnect招聘会。死马当活马医，没准有一点儿运气呢？于是我便在Wilson晃悠半天，把嘴皮子说顺溜以后来到了赛灵思的摊位前。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/202001/xilinx-cf.jpg&quot; alt=&quot;赛灵思摊位&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;两个人站在摊位上，一个看起来是人事，另外一个是华人面孔的大爷。问好之后大爷直截了当地问我会不会讲中文，我一惊，但还是转为中文聊起来。大爷说他们组今年恰好有实习的空位，但偏向做信号处理的博士研究生来做。我忙不迭递上了正反两面满满当当的简历，夸夸其谈自己从物理到FPGA信号处理、再到C++和硬件编程的经历来。恰巧我的简历上有FPGA和LabVIEW的相关项目，和他当前做的内容非常接近。自我感觉聊得不错，还留下了邮箱，会后赶忙发了follow up。希望越大，失望越大，把它当做救命稻草，结果到了一月份大爷委婉地表示不考虑了，秋季找实习宣告失败。这都是后话了。&lt;/p&gt;
 
@@ -820,13 +826,15 @@ California dreamin’ on such a winter’s day.&lt;/p&gt;
   &lt;li&gt;Ric Telford&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;20200201 我突然想，和Ric的故事应该专门再单独写一篇来讲。因为我从物理系学生到Swift程序员的转变，几乎完全是和Ric强相关的。&lt;/p&gt;
+&lt;p&gt;20200201 突然想，和Ric的故事应该专门再单独写一篇来讲。因为我从物理系学生到Swift程序员的转变，几乎完全是和Ric强相关的。&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Drew Hilton&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;在&lt;a href=&quot;/school/graduation-one-last-dance/#%E5%92%8Cdrew%E7%9A%84%E4%B8%89%E6%AC%A1%E5%AF%B9%E8%A7%86&quot;&gt;毕业的文章&lt;/a&gt;里提到过Drew。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/201704/drew.jpg&quot; alt=&quot;2017年3月15日第一次见到Drew&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Drew当然教给我C++和编程的基础知识。但我和Drew的关系一直很微妙。我始终不是一个全身心投入的编程学习者，也并非立志成为优秀的程序员。而Drew，似乎比较看不起编程技术一般，又不以精通编程为目标的学生。&lt;/p&gt;
 
@@ -875,6 +883,8 @@ California dreamin’ on such a winter’s day.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://www.douban.com/note/749704983/&quot;&gt;任务列表 ≠ 计划&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Debbie老师给我的最大馈赠，是时间管理和任务分级两大法宝。在2019年年初，整个寒假我都在浑浑噩噩地迷茫中度过，除了花了十来小时简单重构代码外什么也没做成。痛定思痛，趁着开学前的松散时光，我决定去拜访ARC。去ARC之前最常和Mary聊天，聊到我心结终于打开后便不再去CAPS。临走前，Mary推荐我去看看ARC是否有帮助。我想，这也是一条对我至关重要的信息。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/202001/arc.jpg&quot; alt=&quot;爆分&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;两张表，记录了我一年以来从拖延到守时的缓慢进化。曾经看游讴韩她们用日历和日程工具用的得心应手，我自己还以为只要决定用工具，自然会减少拖延。经过一年的磨炼，我才明白，做到有计划地生活，还真不是件容易的事情！这么长时间过去了，我也只能说自己拥有了高效利用起一天70%左右时间的能力，距离真正严格守时、遵守计划自律的生活还有不小的距离。&lt;/p&gt;
 
