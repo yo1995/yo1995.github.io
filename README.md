@@ -4,7 +4,7 @@ Jekyll rendered files.
 
 This repository aims to exhibit some of my previous works and thoughts. Currently it seems to contain more life-related blog posts than tech reviews.
 
-The blog was not fully tunned to the maximum performence, hence could be a little bit slow. Will optimize it if I have adequate reasons to do it. (e.g. want more fame/ want a front-end job/ become a ecrivan/ want to rebuild a new version, etc. :joy:)
+The blog was not fully tuned for the maximum performance, hence could be slow during loading. Will optimize if I have adequate reasons to do it. (e.g. `want more fame`/`want a front-end job`/`become an ecrivan`/`want to rebuild a new version`, etc. :joy:)
 
 ### Some references - Keep growing~
 

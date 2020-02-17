@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html>
+
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="A story with Prof. Ric Telford.">
+  <meta name="author" content="Chen Ting">
+  <meta name="keywords" content="">
+  <meta name="theme-color" content="#272727">
+
+  <title>3409与Swift转码</title>
+
+  <link rel="icon" href="/img/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="canonical" href="https://yo1995.github.io/school/ric-story/" />
+  <link rel="alternate" type="application/rss+xml" title="Chen's Blog" href="https://yo1995.github.io/feed.xml" />
+  
+  <meta property="og:site_name" content="Chen's Blog" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://yo1995.github.io/school/ric-story/" />
+  <meta property="og:title" content="3409与Swift转码" />
+  <meta property="og:description" content="A story with Prof. Ric Telford." />
+  <meta property="og:article:published_time" content="2020-02-02T00:00:00-08:00" />
+  <meta property="og:article:author" content="Chen Ting" />
+
+  <meta property="og:image" content="/images/202002/macairs.jpg" />
+  
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <!-- PLUGINS -->
+  <link rel="stylesheet" href="/assets/css/vlthemes.css">
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">	
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  
+  
+  
+
+</head>
+<!-- 180622 - tecent analytics -->
+<script type="text/javascript" src="https://tajs.qq.com/stats?sId=65898920" charset="UTF-8"></script>
+
+
+  <body data-spy="scroll" data-target="#navbar" data-offset="100">
+
+		<!-- FRAMES -->
+		<span class="frame-line top-frame"></span>
+		<span class="frame-line right-frame"></span>
+		<span class="frame-line bottom-frame"></span>
+		<span class="frame-line left-frame"></span>
+
+    <div class="animsition">
+      <div class="content">
+
+        
+<!-- header-fixed / header-scroll-up  -->
+<div class="scroll-indicator fixedheader" style="width"></div>
+<header class="header-wrap header-fixed minimal-menu">
+    <div class="header-inner">
+        <div class="container">
+			
+            <div class="logo">
+                <a href="/blog" class="animsition-link">Ch<span>e</span>n's Blog</a>
+            </div>
+			
+
+            <a href="#" class="menu-toggle desctop-menu">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <a href="#" class="menu-toggle mobile-menu-toggle">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <nav class="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="/" class="animsition-link">
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item-has-children" class="current-menu-item">
+                        <a href="">
+                            <span>Blog</span>
+                        </a>
+						    <ul class="sub-menu">
+								<li>
+									<a href="/blog/" class="animsition-link">
+										<span>Blog Index</span>
+									</a>
+								</li>
+								<li>
+									<a href="/posts/" class="animsition-link">
+										<span>Archives</span>
+									</a>
+								</li>
+								<li>
+									<a href="/categories/" class="animsition-link">
+										<span>Categories</span>
+									</a>
+								</li>
+								<li>
+									<a href="/tags/" class="animsition-link">
+										<span>Tags</span>
+									</a>
+								</li>
+							</ul>
+                    </li>
+
+                    <li>
+                        <a href="/photos/" class="animsition-link">
+                            <span>Photos</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/about/" class="animsition-link">
+                            <span>About</span>
+                        </a>
+                    </li>
+					
+					  <!--li>
+                        <a href="" class="animsition-link" id="CN">
+                            <span>CN</span>
+                        </a>
+                    </li-->
+                </ul>
+            </nav>
+            <!-- END PRIMARY-MENU -->
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <!-- END HEADER-INNER -->
+</header>
+<!-- END HEADER-WRAP -->
+
+
+        
+
+        <main id="main-content">
+          
+          <div class="single-post-wrap clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 content-fixed">
+
+        <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
+          <div class="post-thumb clearfix">
+            
+            <img src="/images/202002/macairs.jpg" alt="3409与Swift转码">
+            
+          </div>
+          
+          <div class="post-content" itemprop="articleBody">
+            <div class="post-date" datetime="2020-02-02T00:00:00-08:00" itemprop="datePublished">
+              Feb 2, 2020
+            </div>
+            <h1 class="post-title" itemprop="name headline">3409与Swift转码</h1>
+            <div class="content-color">
+            
+            <p>突然想，和Ric的故事应该专门再单独写一篇来讲。因为我从物理系学生，到Swift程序员的转变，完全是和Ric强相关的。</p>
+
+<h2 id="转码">
+<a id="转码" class="anchor" href="#%E8%BD%AC%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>转码</h2>
+
+<p>2017年3月15日，是脑中转码念头诞生的日子。在那天，见到了项目主管Drew。他在项目安利的宣讲会上，花了长篇大论介绍ECE的软件方向优势。彼时，我仍以为写写MATLAB和LabVIEW也算写代码。直到2018年，一切才迎来转变。</p>
+
+<p>三年秋招分成了三个不同的部分。第一年秋招，拿着申请硕士的简历便去投，上面满是光电子和半导体所的经验。在2017年的TechConnect上真是胡言乱语，一门心思把光电子学往信号处理上靠。最后也只是记下了几个网申链接和二维码照片。完全没有概念自己能做什么，况且还找了宫老师的实验室，抱着大不了读博的想法耽误了许久。</p>
+
+<p>第二年秋招，简历自然丰富了许多，尤其是学了第一门正经编程语言C++后对编程世界有了基本的了解。虽然MSVC++并不好用，但依旧靠它编了不少程序。于是，第二年变成了带有信号处理背景的C++程序员。可到了招聘会我就傻眼了——企业都在用C++做的事情，为什么我一点儿都看不懂呢？在那时，我甚至还未完全理解线程和进程的概念，甚至没写过一行socket相关代码，对Linux的了解仅限于ls -ahl。以这种水平，我竟然也大言不惭地侃侃而谈起来。可以想见的是，回复依旧寥寥。唯一有希望的就是Xilinx的赵大爷。或许还是我学历不够，最后没能成行，也断了我继续读博搞信号处理的念想。</p>
+
+<p>第三年秋招，目标一下就变得极为明确。而这一年的转变就是我和Ric故事的戏核。终于，在TechConnect上联系的公司不再杳无音信。有好几家公司都跟进了，但最后依旧只有两家和我契合度很高的公司走到了最后。好在，最终上岸了。</p>
+
+<hr>
+
+<h2 id="初识">
+<a id="初识" class="anchor" href="#%E5%88%9D%E8%AF%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>初识</h2>
+
+<p>初识Ric是在2018年8月。我的第二份I20表格直到6月初才姗姗来迟寄到我的手里，而我的面签距离机票日期仅有不到两周。抱着侥幸心理，我想，总不能连续两次签证被check吧。想什么来什么，怕什么来什么，还真就被check了。幸亏提前有点儿预感，买的机票只损失一千块的改签费，还是比直接买八月底热门时间的便宜。于是，返回美国继续学业的日期被推迟到了8月下旬。</p>
+
+<p>本来我都计划的好好的，七月初到了加拿大找孙辰玩儿一周，然后到独自一人的公寓闭门刷一个月题，为找工作做准备。这一下子计划全乱了，刷题的动力也飘忽不定。接下来的几周里，自己确实做了几道题，但距离当初设定的一周30题左右的数量相去甚远。怀着侥幸心理，还是心安理得地放空自己玩儿了半天，便回到了学校。</p>
+
+<p>由于I20拿到时，选课系统已经开了一个月，所有秋季的热门课程早已爆满。我面临着没课可上的局面。最后大致选定了几个备选方案：NLP、iOS、算法、并行计算、还有另外一个信号的课，记不清了。我想着，60人以上的大课，总还是有机会走后门，通过Tony或者任课老师特事特办给个code挤进去的；冷门小课排waitlist或许也能有戏？事实证明，我的这两个推断都成真了。</p>
+
+<p>夏天有一段时间，学院规定算法课只允许硕士一年级的学生选，其它学生需要向Drew解释为什么上这门课。于是我第一件事就是向Drew寻求帮助，让他把我塞进去。Drew7月份让小秘发给我一个code，我当时还以为这就妥了，就没放在心上，想着到了学校听两节再选这课呗。结果8月23号一看，我靠！permission code还带过期的！选不进去了！赶忙求爷爷告奶奶让系里帮帮忙，小秘装聋作哑没理我。直到开课后第一周作业都布置了，我还没选进去，当晚老师发邮件给wl的学生说你们不要选了，坐不下了。心灰意冷差点就选了并行计算课之时，小秘极为高冷地给我发了一封不到10个单词和一个code的邮件。最后一秒侥幸上车！我也能学算法了！</p>
+
+<p>事实证明，这个极限操作也极大地影响了我找工作。如果没上算法课，我可能还对几大常考算法没有任何概念。上了算法课，既让我学了很多算法基础的诸如渐进复杂度分析法、有限状态机、大欧米伽表示法等等内容，也让我接触到经典背包问题、NP问题、？？？arbitrage等等内容。这些基础算法开阔了我的视野，也大致摸清了自己哪方面算法能力还有待提升。</p>
+
+<p>NLP课则是直接和Patrick说情，他强行扩充课容量把我塞进去的。就凭这点，我就不能怨他给我两个B。Patrick是个好朋友，年轻有为，但不是这篇文章的重点，暂时略过。</p>
+
+<p>最后则是iOS。当时的打算是2018年秋天，上一门信号，一门编程，一门综合；一个难，一个中等，一个水课。如果不选iOS，那么“恰好”符合这个计划——并行难，算法中，NLP水。事实证明NLP并不水，但Patrick讲课方式有待商榷。后来变为iOS后，“难”课的位子自然留给了它，我也以对待一门难课的思想准备来聚精会神地钻研它的内容。</p>
+
+<p>第一次见到Ric是在ECE564的课上。之前没听说过这个老师，也不知道他讲得怎么样。据上过他春季ECE651软件工程课的同学反馈说课堂效果极差，差点被投诉到学院取消这门课。没抱太大希望，却获得意外之喜——我发现，这个老师说话节奏慢，发音吐字清晰，也比较幽默，不像工程师那样硬核，更像是父辈大爷给你讲故事。另外这门课吸引我的点：能够从学校借苹果电脑和苹果手机用来写程序和测试；上课能够学一门正经的、现代的面向对象的编程语言。仅从前两节课上对于Swift的了解，我便大致断定它比C++要好写多了。事实证明，这个判断再正确不过了。</p>
+
+<p>可是，当时他课上人数众多，30的课容量报了35个人。因为教室只能坐36人，他让我等等看有没有人退课。到了第二周末，最后退到32人，他也大笔一挥地让我留在了课里。于是乎，2018年秋天的三门课，都是以阴差阳错却有惊无险的方式选上的。</p>
+
+<hr>
+
+<h2 id="留下印象">
+<a id="留下印象" class="anchor" href="#%E7%95%99%E4%B8%8B%E5%8D%B0%E8%B1%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>留下印象</h2>
+
+<p>564这门课只讲iOS，iOS里主讲iPhone应用设计，只用Swift编APP。局限在一个特定的点有些好处：能够深究这个特定领域的内容，精力不用分散到学习其他不相干的库和工具上。</p>
+
+<p>前几周都是编程基础，留的作业也只是手动画frame来编写简易的图形化界面程序。前三次作业我甚至都有一次没拿到满分50分。整个课的安排是这样的：前六次个人作业，完成一个类似于团队人员名单管理的应用；后面一个半月3至5人组成团队，做自己想做的应用。每次个人作业满分50分，分为45分基础分和5分加分。考虑到自己把564当做“难”课，我对自己的要求便是每次作业尽量拿到满分，期末看是否能够争取达到A+的分数。</p>
+
+<p>作业说难不难，简单却也并不简单。尤其是三门课同时进行，时间安排不好就会顾此失彼。由此想到本科生都是一学期五门课左右，压力之大可想而知。第三次作业就因为时间没安排好，只完成了规定的内容，拿到了45分基础分。当时的助教Nirah是个不错的小伙子，本科是Rutgers学CS的，当时已经拿到了苹果MLE的return offer。羡慕之余也总想着和他套近乎，毕竟苹果是家不错的公司！</p>
+
+<p><img src="/images/2019rev/animation.png" alt="动画"></p>
+
+<p>和他套近乎，自然也就和Ric熟络起来。尤其是第四次，设计一个矢量动画页面的作业上，我搞了个骚操作、至今被后人奉为“太骚了”的作品。那次课Ric在当场展示作业时候选了我的，大家看到我的动画后都哄堂大笑，气氛其乐融融。我想，那一刻或许是将我踢向Swift开发职业道路的一脚助攻。</p>
+
+<p>我所喜爱的工程师岗位，我做编程的原因，是为大众铺路、提高别人工作的效率、解决别人的问题，以至于为朋友带来快乐。第一次，我发现自己写的程序能够让现场的三十人心情愉悦一阵子，这种满足感是写多少C++命令行程序都换不来的。Ric的笑容很温暖，也很具有感染力，典型的美国南方大爷，不像新英格兰人那种高冷的、皮笑肉不笑的笑容。</p>
+
+<p>自此之后，我知道Ric认识我了。Ting不再是一个随机的中国学生的名字，而是那个“特别”的、满脑子都是点子的学生。同样地，圆圆也给Ric留下了深刻印象，同样也给我留下印象。我们或许是一类人，我们写程序是为了讲述故事、传递情感，而不是让计算机命令式地告诉你一个问题的精确解。那时我也发现，写程序不一定非得如何天赋溢出、与生俱来；写好自己的程序，总会有些价值。</p>
+
+<hr>
+
+<h2 id="加深印象">
+<a id="加深印象" class="anchor" href="#%E5%8A%A0%E6%B7%B1%E5%8D%B0%E8%B1%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>加深印象</h2>
+
+<p>个人作业收尾部分，作为做的比较好的代表，我的作业在课上被展示给大家。那时有了一点信心，因为我发现，如果大家都是零基础开始学同一个内容的话，我用“难课”的心态去应对时，能超出常人许多。况且，我的OOP经验远比在场的其他人少很多，可反倒是我的程序表现得最好。或许他们算法能力比我强、计算机基础知识比我扎实、代码风格和习惯比我好，但至少在某些方面，我也有优势。这让我的信心死灰复燃。</p>
+
+<p>转码这条路看来能走通，但依旧需要大量的投入。首先就是上面提到的计算机基础。没有接受过系统的CS教育，很多东西都是两眼一抹黑，写一个类的时候怎么写更优雅、更易维护，完全没概念。一千行的VC写了不知多少个，只要有东西全往类里塞。这边是C++“百尺竿头更进一步”的心态遗老。</p>
+
+<p><a href="/images/201905/globalvariable.png">百尺竿头更进一步</a></p>
+
+<p>作业做得好，得到Ric赏识。可小组项目的另外两个队员有些不给力。彭大哥虽然在IBM干了多年，可净是CRUD的重复劳动。尽管system design有着充足的经验，但真到真刀真枪写起来的时候总是掉链子。况且，外企多年的温水煮青蛙让他连Git都用不熟练，做不到agile development。最后没法子，只好让他们各自在不同的文件里操作，根源上避免合并时的冲突。Ryan则是典型的江南区阔少，明显不差钱，读杜克CS纯粹为了有个好名头，以后回家接班。他号称喜欢前端设计，我便放心地把界面部分交由他来负责。结果两周后他表示没做完。好在我又有备用方案，探讨一番后决定将我俩的成果糅合起来，作为最终项目的界面设计。</p>
+
+<p>队友拖油瓶并不妨碍我的一人一城。一个人扛起一支队，老詹做了太多次，我为啥不能干一次呢？还有涛兄NLP带飞和Monica算法作业的异性鼓励100%加成，那时我的代码无论数量还是质量都在突飞猛进。</p>
+
+<p>也别管是熬夜还是单干吧，总之在Ric放羊式项目进度管理的背景下，我硬是扛起了大旗，爱上了Gitlab的使用逻辑。开了40个issue，直到结题时完成了三十多个。绿块（灰块）几乎填满了历史图的每一个日子。期末展示那天，当我演示“文字表情包”功能时，终于看到了冬日大家脸上久违的笑容。男生是“呵呵草”的笑容，女生是“捂嘴笑”的笑容。我知道，这些努力没有白费。</p>
+
+<p>Ric表示下学期愿意收几个学生继续帮他写APP，做项目，说的时候眼睛看着我。心领神会，下课便鼓起勇气跟他表明意愿。于是在2018年底，终于拿了SSN，开始了正经写码营生的活计。</p>
+
+<hr>
+
+<h2 id="临门一脚">
+<a id="临门一脚" class="anchor" href="#%E4%B8%B4%E9%97%A8%E4%B8%80%E8%84%9A" aria-hidden="true"><span class="octicon octicon-link"></span></a>临门一脚</h2>
+
+<p>还得感谢彭大哥。看他辛辛苦苦的用Java刷题时痛苦的模样，我逃也似的避之不及，决心永远不写Java项目。曾多次提到他对我至关重要的帮助，这里干脆补足细节。</p>
+
+<p>有一天，上课前我们闲聊面试和投递情况。他表示有过去IBM经历加持，收面试比较容易，但因为有点走上管理岗的后遗症，写码水平有些退化。便聊到写码，他的主业是JavaEE/J2EE，接着写码还打算做这个方向。于是便是那个至关重要的问题：</p>
+
+<p>“你打算做什么方向？”</p>
+
+<p>“我……”支支吾吾答不出来。</p>
+
+<p>“你这不行呀，没主意的话咋准备呢？”当头一棒。“我觉得你iOS就写得不错，你考虑考虑做iOS？”</p>
+
+<p>彭大哥的湖南口音说到iOS时抑扬顿挫，爱欧埃思。我的思绪却飞到了远方。</p>
+
+<p>写Swift做iOS不是不行，而且我也很喜欢做这件事情。但是就像邓以诚、白可、邹邹、于博，无数同学朋友说的一样，读了半天研究生出来干高中生就能干的事情，不觉得亏吗？学了那么多年的知识都喂了狗吗？</p>
+
+<p>沉没成本无法割舍的心态非常常见。读博要不要quit要不要转码；温水煮青蛙要不要创业、回国、挑战自我；一泡污工厂混吃等死要不要考个公务员。问题的答案反映了一个人的未来规划与人生观。对我而言，从最初认为转码低贱，到后来发现转码具有可行性，转变的发生是艰难而曲折的。</p>
+
+<p>写代码，尤其是写自己喜欢的语言和喜欢的代码，是一种不错的营生手段：薪资合理、具有发展性、挑战性无上限、既不会因为把热爱的兴趣变成职业而折损热情，又不会因为不喜欢而缺乏上进心。对软件代码有点兴趣，但并非生活的全部。这就像上班工作于人生中的定位一样。</p>
+
+<p>上班远非生活的全部，但人需要工作才能保持和社会不脱节。富有的人无需从事折损精气神的工作，也可以随性安排工作强度、工作内容，这是最佳；暖饱的人无需担忧基本生存，但仍需要收入可观的工作支持更高的追求，写代码在这个层面是件还行的活计；生存线上挣扎的人急需面包，不得不耗费一定气力与热情来换取更多的金钱，稍稍不妙但仍可怀有希望。目前自己处在生存之上，暖饱未满的阶级，选择写码是可行的、有益的。</p>
+
+<p>于是我决心，在之后的为Ric工作的阶段，慢慢体会Swift和苹果领导的软件开发是否符合上面的要求，是不是一个较好的编程领域。如今事实证明，还是比较适合我自己的。</p>
+
+<hr>
+
+<h2 id="寂静的春天">
+<a id="寂静的春天" class="anchor" href="#%E5%AF%82%E9%9D%99%E7%9A%84%E6%98%A5%E5%A4%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>寂静的春天</h2>
+
+<p>来到中心后第一件接手的任务就是FitnessFinder，一个为医学院客户开发的业余活动推荐APP。客户之一Tori是个漂亮的小姐姐，在读MD；另一个负责人是Kim，曾是美国奥运预备役选手，退役下来在杜克继续搞体育。和她们交流，让我更多地看到了学校其他部分在发生着什么。</p>
+
+<p>最初的设计图非常草率，原型版本APP也十分简陋。给客户展示后她们比较不满意，提出了很多的意见。将意见一条一条具体化后开发变得好办起来。选型三方库，发现了许多合适的轮子。组装起来的第二版原型就比较令人满意了。当然，这个过程绝非说起来这么简单。2019年2月底，纽约回来后绝望地发现自己还没实习，而学弟学妹纷纷亚麻上岸了。选型又没选好，根本不知道项目下一步该走向何方。采用“穷夯”调研和“头脑风暴”的策略后，我和圆圆终于敲定了一款合适的轮子，决定无论如何也以这个轮子为基础，不再改变方案了。后面的事情便顺利起来。</p>
+
+<p>3月和4月是埋头3409写代码的日子。Ric时不常过来看看，更多时候是我们及时将进展汇报给他。第三个开发周期结束时，APP给客户展示后她们表示基本满意了，准备开始小范围测试，并录入真实活动和地点数据。于是又当起“全干”工程师，以仅有的一点点Django经验，用默认模板搭起了一个数据库录入界面。其间还遭受字节跳动大哥的“dequeueReusableCell”的疯狂鄙视和Philip Lam的温暖鼓励。总之，一个春天过去，从前到后从数据库到UI全程走了一遍，现代软件开发的流程算是有了个大致的印象。时间便来到了毕业季。</p>
+
+<hr>
+
+<h2 id="毕业季与暑假">
+<a id="毕业季与暑假" class="anchor" href="#%E6%AF%95%E4%B8%9A%E5%AD%A3%E4%B8%8E%E6%9A%91%E5%81%87" aria-hidden="true"><span class="octicon octicon-link"></span></a>毕业季与暑假</h2>
+
+<p>除了日常伤春悲秋、自怨自艾、顾影自怜等矫揉造作的矫情外，代码还是照样写。FF的工作进入收尾阶段，这个项目居然成了中心并行的四五个项目中，唯一一个按时交付的！Ric最初给客户的承诺都是一学期结束交付样品，结果25Live、HHC、Sakai都存在着各种各样的问题。这让我信心倍增——看来我还不算差！</p>
+
+<p>到这时，我的简历终于能够单独靠Swift项目撑满了。可在这个时间点找实习实在是不现实。可我真的不好意思开口让Ric帮忙，而且明知道这时候没实习名额了谁也帮不上忙。最后谈起实习这件事时场面一度非常尴尬，Ric明白我能做很多，但事实就是这样。他最后承诺帮我想办法在暑假在学校搞个全职的坑位，在学院会计走个过场，假装当做“实习”来做。</p>
+
+<p>不得不再次感谢Ric。如果没有他搭的这把手，可能我的暑假又要荒废过去了。回国，耽误耽误签证，水水刷题，啥都没干一暑假后再后悔已经是家常便饭了。好在，学校的环境督促我专注于继续写代码这件事。加上两个月整的独自占用2B2B，让我的暑假生活变得十分自律而充满节奏。</p>
+
+<p>我知道，要求Ric在学校放假期间常来学校是不太现实的，也就没抱太大希望他能帮我多少。没曾想，Ric还挺上心，一周至少来看我一次，让我每周都能和活人说上话儿，聊聊工作和生活。真的非常感激！他完全不必这么做。</p>
+
+<p>暑假最初，Ric为难地表示他手里只有3000刀的funding，让我省着点报时间。接着安排的几个任务是重构清理25Live、清理上课例程、编写登录模块。估摸着他觉得这几个项目就能写俩月时间，没曾想我花了一个月左右就全搞定了，还是悠着点儿每周只工作20小时左右完成的。总共开了不到1000刀薪水就把任务全完成了，连我自己都感到惊讶。</p>
+
+<p>6月中旬的一天Ric突然跑到3409，撸起袖子加油干，花了一个上午我们一起把屋内设备进行了精简和重构。除了空间变大了、变得整洁了，我还得到了几个意外之喜——翻出一台Echo，之后的每天我都可以Alexa start my day和机器人聊天儿了；翻出一台Linux主机，开启了Server-side Swift的大业；翻出了12个iPod，开了另一个项目<a href="https://www.youtube.com/watch?v=uOLu2c8BNTE">iPodClustr</a>。这样，Ric又给我额外安排了几个开放结局的项目：564课程服务器用Swift来写；写个APP把一群iPod无线组网；看看Swift还能做些什么，到时候讲次课。可以说，这些“命主题‘作文’”使我如虎添翼，废寝忘食地走向自学成才的道路。</p>
+
+<hr>
+
+<h2 id="秋季">
+<a id="秋季" class="anchor" href="#%E7%A7%8B%E5%AD%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a>秋季</h2>
+
+<p>硕果累累的暑假，该找工作了。</p>
+
+<p>先是去罗德岛，然后是父母来东岸玩儿，刷题真的就一点都不靠谱。只能硬着头皮找纯Swift的入门级别工作。真是难啊！</p>
+
+<p>在Search Work Team上我不止一次在Carey和Scarlett面前提到Ric，说到她们耳朵都起茧子了。也不知道是冥冥中的暗示还是Carey背后帮我了一把，Ric竟然特地来找我聊找工作的事情。他表示会尽可能帮助在IBM和苹果方面找找关系，但也别奢求太多。</p>
+
+<p>没想到，IBM的HR居然真的找上门来，还是通过很直接的由上至下的关系找来。结果跟Ric一说他还不知情，还以为他的电话石沉大海了呢。可知IBM的管理层级有多么复杂……</p>
+
+<p>当时挺想去IBM的，直到现在都还在想这件事。原因在于苹果把一些服务“外包”给了IBM，比如CoreML的后台。Kitura也算个明星项目，而IBM研究院更是组织了Swift@IBM的组，专门给苹果当靠山<del>廉价劳动力</del>。另外，IBM在分布式和运维等领域也颇有建树。在之前的文章也提到过。</p>
+
+<p>除了时不常的关切，Ric还大手一挥把许多更加细枝末节的事情交给我们自己处理。7月时候他曾经想让我插手一些Swift和Python的医用混编，但被我用“时间不一定够”<del>不好提钱</del>的理由搪塞过去。后来，便有些零七八碎的小事，填满了整个秋季学期几乎每一周的20小时限额。这小半年比暑假前的大半年挣得多多了！Ric心里有数，知道之前有些亏待，便任由我赖在3409混工时。当然我也没闲着，所有事情基本都妥帖地处理掉了，让2019年秋季的564成为了近期质量最好的一节课。</p>
+
+<p>最后一学期，代码不再像暑假时那么枝繁叶茂地野蛮生长。更多的学习到了项目管理、如何安排分配任务、如何与人沟通。和Ric的交流不再是掰扯实现细节，更多的是对于设计的理解。对我来说，这样的补足是很重要的，甚至在后来的现场表演中也受益于这些漫无目的的交流。</p>
+
+<hr>
+
+<h2 id="尾声">
+<a id="尾声" class="anchor" href="#%E5%B0%BE%E5%A3%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>尾声</h2>
+
+<p>和Ric认识后的一整年，我从一个信号处理爱好者、预计的光电甚至超材料入坑博，变成了全校iOS界家喻户晓的专业户。当然，Trevor让我见识到了牛的美国本科生有多牛，但我们之间的差距也不再是一条鸿沟。花了一年时间学习编程，我居然能看到顶尖美国CS专业本科生的尾灯了！让我深感荣幸。</p>
+
+<p>想起过去青年文摘上的一句话：“我比你只笨四年”。虽然我不聪明也不笨，但转码前真的隔行如隔山，肯定是看不到任嘉毅的尾灯的。如今，虽然和他们还有距离，但至少我们都在一个时区了。假以时日，我们或许能够重新站到同一条起跑线上来。</p>
+
+<p>“一步错步步错”的魔咒，笼罩了我7年。直到前两天，我还感慨“这么多年过去了，还是觉得没考上清华真是sb[大哭]”。或许我永远无法与过去握手言和，但“笃信命运，从不服输”的心态正在让我的生活一点点走上正轨。</p>
+
+<p>Ric作为这个转变过程的经历者、见证者、参与者，真的帮助了我太多太多。我只能不计成本地回报他，以感谢这份久旱逢甘霖、他乡遇故知的恩情。</p>
+
+<hr>
+
+<h2 id="补遗---赵浩鸿">
+<a id="补遗---赵浩鸿" class="anchor" href="#%E8%A1%A5%E9%81%97---%E8%B5%B5%E6%B5%A9%E9%B8%BF" aria-hidden="true"><span class="octicon octicon-link"></span></a>补遗 - 赵浩鸿</h2>
+
+<pre><code class="language-txt">如何看待我自己，不要骗自己，你会开心吗？
+帮家人规划计划能力；教同学讲解能力；
+和赵浩鸿的一些午饭。科比与NBA、走了真不适应、人际关系与代码实力。
+</code></pre>
+
+<p>有些赵浩鸿参与的片段，但记得不甚清晰。等什么时候被浪花带到岸边，再一一拾起吧。</p>
+
+
+            
+            </div>
+            
+<div class="entry-tags clearfix">
+
+    <div class="entry-footer clearfix">
+
+        <div class="pull-left">
+            <span>
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/#review">review</a>
+                
+                <a href="/tags/#career">career</a>
+                
+                <a href="/tags/#job">job</a>
+                
+                <a href="/tags/#coding">coding</a>
+                
+                <a href="/tags/#swift">swift</a>
+                
+                <a href="/tags/#project">project</a>
+                
+                <a href="/tags/#future">future</a>
+                
+                <a href="/tags/#graduate">graduate</a>
+                
+            </span>            
+            <span><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv">0</span> views</span>
+            <span>
+                <i class="fa fa-comments-o"></i>
+                <a href="#comments">GFW comments</a>
+				<!--被墙替换class="disqus-comment-count" data-disqus-identifier="Chen's Blog//school/ric-story-->
+            </span>
+            <span>
+                <i class="fa fa-check-square-o"></i><span>8206 words</span>
+            </span>
+            <span>
+                <i class="fa fa-link"></i>
+                <a data-toggle="collapse" href="#share-content" aria-expanded="false" aria-controls="share-content">Share</a>
+        </div>
+        <div class="pull-right collapse in" id="share-content">
+            
+<div class="entry-share-links">
+
+    <div class="btn-group" role="group" aria-label="Share">
+        <button type="button" class="btn btn-default btn-sm btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="http://www.facebook.com/sharer.php?u=https://yo1995.github.io/school/ric-story/" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></button>
+        
+        <button type="button" class="btn btn-default btn-sm btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="https://twitter.com/share?url=https://yo1995.github.io/school/ric-story/&amp;text=3409与Swift转码" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-weibo" data-toggle="tooltip" data-placement="top" title="新浪微博"><a href="http://service.weibo.com/share/share.php?url=https://yo1995.github.io/school/ric-story/&title=分享%4011L23+的文章「3409与Swift转码」&content=A story with Prof. Ric Telford.&pic=https://yo1995.github.io/images/202002/macairs.jpg" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-douban" data-toggle="tooltip" data-placement="top" title="豆瓣"><a href="https://www.douban.com/share/service?name=3409与Swift转码&href=https://yo1995.github.io/school/ric-story/&image=https://yo1995.github.io/images/202002/macairs.jpg&url=https://yo1995.github.io/school/ric-story/&title=3409与Swift转码" target="_blank"><i class="fa fa-fw">豆</i></a></button>
+
+        <a tabindex="0" class="btn btn-sm btn-weixin" role="button" data-trigger="hover" data-placement="top" id="qrcode-btn"><i class="fa fa-fw fa-weixin"></i></a>
+
+        <div id="qrcode-content" class="qrcode-hidden"><div id="qrcode"></div></div>
+        <div id="qrcode-title" class="qrcode-hidden">Scan to Read</div>
+		
+		<button type="button" class="btn btn-default btn-sm btn-email"><a href="mailto:?Subject=3409与Swift转码&amp;Body=A story with Prof. Ric Telford.%20https://yo1995.github.io/school/ric-story/"><i class="fa fa-fw fa-envelope-o"></i> Email</a></button>
+
+        <div class="btn-group btn-group-justified dropup" role="group">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle btn-more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-share-alt"></i><span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-google"><a href="https://plus.google.com/share?url=https://yo1995.github.io/school/ric-story/" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google Plus</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://yo1995.github.io/school/ric-story/" target="_blank"><i class="fa fa-fw fa-linkedin"></i> Linkedin</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-digg"><a href="http://www.digg.com/submit?url=https://yo1995.github.io/school/ric-story/" target="_blank"><i class="fa fa-fw fa-digg"></i> Digg</a></button></li>
+
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-pinterest"><a href="https://pinterest.com/pin/create/bookmarklet/?media=https://yo1995.github.io/images/202002/macairs.jpg&url=https://yo1995.github.io/school/ric-story/&description=3409与Swift转码" target="_blank"><i class="fa fa-fw fa-pinterest-p"></i> Pinterest</a></button></li>
+                 
+                 
+
+                <li><button type="button" class="btn btn-default btn-sm btn-reddit"><a href="http://reddit.com/submit?url=https://yo1995.github.io/school/ric-story/&amp;title=3409与Swift转码" target="_blank"><i class="fa fa-fw fa-reddit-alien"></i> Reddit</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-tumblr"><a href="http://www.tumblr.com/share/link?url=https://yo1995.github.io/school/ric-story/&amp;title=3409与Swift转码" target="_blank"><i class="fa fa-fw fa-tumblr"></i> Tumblr</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-print"><a href="javascript:;" onclick="window.print()"><i class="fa fa-fw fa-print"></i> Print</a></button></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+        </div>
+    </div>  
+
+</div>
+
+          </div>
+        </article>
+        <!-- END SINGLE-POST -->
+
+        
+<div class="post-navigation clearfix">
+    <div class="row">
+
+        <div class="col-xs-6">
+            <div class="previous-post">
+                <div class="arrow">
+                    <i class="fa fa-angle-double-left"></i>
+                    
+                    <a href="/school/shaopeng-dmv/" class="animsition-link" data-hover-text="Prev: 2019年，亏欠张少鹏太多">Prev: 2019年，亏欠张少鹏太多</a>
+                    
+                </div>
+
+            </div>
+            <!-- END PREVIOUS-POST -->
+        </div>
+        <div class="col-xs-6">
+            <div class="next-post">
+                <div class="arrow">
+                    
+                    <a href="/life/first-dateish-dinner/" class="animsition-link" data-hover-text="Next: 晚餐">Next: 晚餐</a>
+                    
+                    <i class="fa fa-angle-double-right"></i>
+                </div>
+
+            </div>
+            <!-- END NEXT-POST -->
+        </div>
+    </div>
+</div>
+<!-- END POST-NAVIGATION -->
+		<!-- 180726 add multi author support -->
+		 
+			<div class="author-info clearfix">
+    <div class="author-avatar">
+        <img class="avatar" src="/img/avatar.png" alt="Chen Ting">
+    </div>
+
+    <div class="author-description">
+        <h4 class="author-title">
+            <a href="/about/">Chen Ting <i class="fa fa-link"></i></a>
+        </h4>
+        <p class="author-bio">
+            The page aims to exhibit several activities & achievements which the author engaged in during his undergraduate & graduate period. Meanwhile, other aspects such as lifestyles, literary work, travel notes, etc. would interweave in the narration.
+        </p>
+    </div>
+	<!-- add busaunzi to see how many views and reads happens to my page. addition to tecent -->
+	<script async src="/assets/js/busuanzi.pure.mini.js"></script>
+</div>
+<!-- END AUTHOR-INFO -->
+		 
+		 
+        
+
+<div class="comments-area clearfix">
+    <div class="comment-respond">
+		<h4 class="comment-reply-title" id="comments">Leave a Comment</h4>
+		<div class="disqus-placeholder alert alert-info" style="text-align: center">
+			<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Disqus might be GFW-ed. Excited!
+		</div>
+		<script src="/assets/js/disqusloader.js"></script>
+		<div class="disqus"></div>
+		<!--
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+        this.page.url = "https://yo1995.github.io/school/ric-story/";
+        this.page.identifier = "Chen's Blog//school/ric-story";
+        this.page.title = "3409与Swift转码";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//yo1995.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+		-->
+		<script>disqusLoader( '.disqus', { 
+			scriptUrl: '//yo1995.disqus.com/embed.js',
+			disqusConfig: function(){
+				this.callbacks.onReady = [function(){
+				var el = document.querySelector( '.disqus-placeholder' );
+				if( el.classList )
+					el.classList.add( 'is-hidden' ); // IE 10+
+				else
+					el.className += ' ' + 'is-hidden'; // IE 8-9
+				}];}
+			});
+		</script>
+       <noscript>Please conquer the GFW or enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+<!-- END COMMENTS-AREA -->
+
+
+      </div>
+
+      <div class="col-md-4 sidebar-fixed">
+    <div class="sidebar">
+        <aside class="widget-wrap widget-search">
+            <h6 class="widget-title">
+                <span>Search for a topic?</span>
+            </h6>
+			<div onclick="keyinsearch()" class="search-form text-center" id="search-container">
+				<input type="text" id="search-input" placeholder="search...">
+				<i class="fa fa-search"></i>
+				<ul id="results-container" style="list-style:square"></ul>
+			</div>
+			<!-- 180206 - update -->
+<script src="/assets/js/jekyll-search.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  function keyinsearch () {
+  SimpleJekyllSearch({
+	searchInput: document.getElementById('search-input'),
+	resultsContainer: document.getElementById('results-container'),
+	json: '/search.json',
+	searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+	noResultsText: '无结果',
+	limit: 5,
+	fuzzy: false
+  });
+  }
+</script>
+
+
+<!-- 暂时还没想好cache怎么改写，目前每次请求都是200 ！= = 不够chrome貌似是直接从本地磁盘加载的 -->
+<!--
+<form class="search-form" action="/search/" target="_blank" method="get">
+	<input type="text" placeholder="Search..." name="q">
+	<i class="fa fa-search"></i>
+</form>
+-->
+
+        </aside>
+        <!-- END WIDGET-WRAP -->		
+        <aside class="widget-wrap widget-categories">
+            <h6 class="widget-title">
+                <span>Categories</span>
+            </h6>
+            <ul>
+				
+				
+                <li><a href="/categories/#coding">Coding</a></li>
+                
+                <li><a href="/categories/#ee">EE</a></li>
+                
+                <li><a href="/categories/#games">Games</a></li>
+                
+                <li><a href="/categories/#html">Html</a></li>
+                
+                <li><a href="/categories/#life">Life</a></li>
+                
+                <li><a href="/categories/#movie">Movie</a></li>
+                
+                <li><a href="/categories/#physics">Physics</a></li>
+                
+                <li><a href="/categories/#reading">Reading</a></li>
+                
+                <li><a href="/categories/#school">School</a></li>
+                
+                <li><a href="/categories/#society">Society</a></li>
+                
+                <li><a href="/categories/#tools">Tools</a></li>
+                
+                <li><a href="/categories/#video">Video</a></li>
+                
+            </ul>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-recent-posts">
+            <h6 class="widget-title">
+                <span>Related Posts</span>
+            </h6>
+            <ul class="recent-posts">
+            
+                
+                
+                
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/school/after-graduation-2/">
+                                <img src="/images/202002/last-dinner-nc.jpg" alt="他们毕业了 - 2">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/school/after-graduation-2/">他们毕业了 - 2</a>
+                            <span>2020/02/14</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/school/departing-duke-1/">
+                                <img src="/images/202001/depart1.jpg" alt="离校前的随想 - 1">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/school/departing-duke-1/">离校前的随想 - 1</a>
+                            <span>2020/01/19</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/job-hunting-103/">
+                                <img src="/images/201701/books.jpg" alt="求职这件事 - 补遗2">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/job-hunting-103/">求职这件事 - 补遗2</a>
+                            <span>2020/01/09</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                    
+
+                
+                                   
+            </ul>
+
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-tag">
+            <h6 class="widget-title">
+                <span>Tags Widget <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+
+            <div class="tag-cloud">
+                
+                <a href="/tags/#df">df</a>
+                
+                <a href="/tags/#production">production</a>
+                
+                <a href="/tags/#life">life</a>
+                
+                <a href="/tags/#love">love</a>
+                
+                <a href="/tags/#girls">girls</a>
+                
+                <a href="/tags/#exam">exam</a>
+                
+                <a href="/tags/#review">review</a>
+                
+                <a href="/tags/#year">year</a>
+                
+                <a href="/tags/#education">education</a>
+                
+                <a href="/tags/#lifestyle">lifestyle</a>
+                
+                <a href="/tags/#volunteer">volunteer</a>
+                
+                <a href="/tags/#physics">physics</a>
+                
+                <a href="/tags/#lectures">lectures</a>
+                
+                <a href="/tags/#school">school</a>
+                
+                <a href="/tags/#football">football</a>
+                
+                <a href="/tags/#sports">sports</a>
+                
+                <a href="/tags/#movie">movie</a>
+                
+                <a href="/tags/#tv">tv</a>
+                
+                <a href="/tags/#innovation">innovation</a>
+                
+                <a href="/tags/#project">project</a>
+                
+                <a href="/tags/#fpga">fpga</a>
+                
+                <a href="/tags/#science">science</a>
+                
+                <a href="/tags/#diversity">diversity</a>
+                
+                <a href="/tags/#arts">arts</a>
+                
+                <a href="/tags/#reading">reading</a>
+                
+                <a href="/tags/#projectuniv">projectuniv</a>
+                
+                <a href="/tags/#blog">blog</a>
+                
+                <a href="/tags/#helloworld">helloworld</a>
+                
+                <a href="/tags/#jekyll">jekyll</a>
+                
+                <a href="/tags/#html">html</a>
+                
+                <a href="/tags/#css">css</a>
+                
+                <a href="/tags/#github">github</a>
+                
+                <a href="/tags/#js">js</a>
+                
+                <a href="/tags/#hexo">hexo</a>
+                
+                <a href="/tags/#semiconductor">semiconductor</a>
+                
+                <a href="/tags/#experiments">experiments</a>
+                
+                <a href="/tags/#python">python</a>
+                
+                <a href="/tags/#image">image</a>
+                
+                <a href="/tags/#coding">coding</a>
+                
+                <a href="/tags/#gfw">gfw</a>
+                
+                <a href="/tags/#windows">windows</a>
+                
+                <a href="/tags/#tools">tools</a>
+                
+                <a href="/tags/#shell">shell</a>
+                
+                <a href="/tags/#scripts">scripts</a>
+                
+                <a href="/tags/#thu">thu</a>
+                
+                <a href="/tags/#liquid">liquid</a>
+                
+                <a href="/tags/#latex">latex</a>
+                
+                <a href="/tags/#basic">basic</a>
+                
+                <a href="/tags/#games">games</a>
+                
+                <a href="/tags/#roguelike">roguelike</a>
+                
+                <a href="/tags/#matlab">matlab</a>
+                
+                <a href="/tags/#chaos">chaos</a>
+                
+                <a href="/tags/#simulation">simulation</a>
+                
+                <a href="/tags/#camping">camping</a>
+                
+                <a href="/tags/#phd">phd</a>
+                
+                <a href="/tags/#philosophy">philosophy</a>
+                
+                <a href="/tags/#optics">optics</a>
+                
+                <a href="/tags/#dream">dream</a>
+                
+                <a href="/tags/#circuit">circuit</a>
+                
+                <a href="/tags/#electronics">electronics</a>
+                
+                <a href="/tags/#memory">memory</a>
+                
+                <a href="/tags/#france">France</a>
+                
+                <a href="/tags/#ingenieur">ingenieur</a>
+                
+                <a href="/tags/#bbs">bbs</a>
+                
+                <a href="/tags/#history">history</a>
+                
+                <a href="/tags/#byr">byr</a>
+                
+                <a href="/tags/#travel">travel</a>
+                
+                <a href="/tags/#tour">tour</a>
+                
+                <a href="/tags/#future">future</a>
+                
+                <a href="/tags/#graduate">graduate</a>
+                
+                <a href="/tags/#investment">investment</a>
+                
+                <a href="/tags/#laptop">laptop</a>
+                
+                <a href="/tags/#mac">mac</a>
+                
+                <a href="/tags/#hackintosh">hackintosh</a>
+                
+                <a href="/tags/#foudre">foudre</a>
+                
+                <a href="/tags/#law">law</a>
+                
+                <a href="/tags/#juven">juven</a>
+                
+                <a href="/tags/#ramen">ramen</a>
+                
+                <a href="/tags/#industry">industry</a>
+                
+                <a href="/tags/#alcohol">alcohol</a>
+                
+                <a href="/tags/#bar">bar</a>
+                
+                <a href="/tags/#confession">confession</a>
+                
+                <a href="/tags/#postdoc">postdoc</a>
+                
+                <a href="/tags/#nyu">nyu</a>
+                
+                <a href="/tags/#hahn">hahn</a>
+                
+                <a href="/tags/#scholar">scholar</a>
+                
+                <a href="/tags/#academia">academia</a>
+                
+                <a href="/tags/#nba">nba</a>
+                
+                <a href="/tags/#cool">cool</a>
+                
+                <a href="/tags/#study">study</a>
+                
+                <a href="/tags/#fourier">fourier</a>
+                
+                <a href="/tags/#signal">signal</a>
+                
+                <a href="/tags/#theorem">theorem</a>
+                
+                <a href="/tags/#trivial">trivial</a>
+                
+                <a href="/tags/#chuapp">chuapp</a>
+                
+                <a href="/tags/#city">city</a>
+                
+                <a href="/tags/#politics">politics</a>
+                
+                <a href="/tags/#data">data</a>
+                
+                <a href="/tags/#tech">tech</a>
+                
+                <a href="/tags/#nas">nas</a>
+                
+                <a href="/tags/#network">network</a>
+                
+                <a href="/tags/#infrastructure">infrastructure</a>
+                
+                <a href="/tags/#self-esteem">self-esteem</a>
+                
+                <a href="/tags/#confidence">confidence</a>
+                
+                <a href="/tags/#mental">mental</a>
+                
+                <a href="/tags/#value">value</a>
+                
+                <a href="/tags/#property">property</a>
+                
+                <a href="/tags/#fame">fame</a>
+                
+                <a href="/tags/#wechat">wechat</a>
+                
+                <a href="/tags/#crawler">crawler</a>
+                
+                <a href="/tags/#threading">threading</a>
+                
+                <a href="/tags/#multiprocessing">multiprocessing</a>
+                
+                <a href="/tags/#genuine">genuine</a>
+                
+                <a href="/tags/#adobe">adobe</a>
+                
+                <a href="/tags/#codec">codec</a>
+                
+                <a href="/tags/#software">software</a>
+                
+                <a href="/tags/#enlighten">enlighten</a>
+                
+                <a href="/tags/#friends">friends</a>
+                
+                <a href="/tags/#chance">chance</a>
+                
+                <a href="/tags/#choice">choice</a>
+                
+                <a href="/tags/#cpp">cpp</a>
+                
+                <a href="/tags/#visualization">visualization</a>
+                
+                <a href="/tags/#c#">c#</a>
+                
+                <a href="/tags/#gui">gui</a>
+                
+                <a href="/tags/#gif">gif</a>
+                
+                <a href="/tags/#remastered">remastered</a>
+                
+                <a href="/tags/#exe">exe</a>
+                
+                <a href="/tags/#emoji">emoji</a>
+                
+                <a href="/tags/#video">video</a>
+                
+                <a href="/tags/#emoticon">emoticon</a>
+                
+                <a href="/tags/#pil">pil</a>
+                
+                <a href="/tags/#swimming">swimming</a>
+                
+                <a href="/tags/#premiere">premiere</a>
+                
+                <a href="/tags/#golf">golf</a>
+                
+                <a href="/tags/#beatbox">beatbox</a>
+                
+                <a href="/tags/#loopstation">loopstation</a>
+                
+                <a href="/tags/#photo">photo</a>
+                
+                <a href="/tags/#plugin">plugin</a>
+                
+                <a href="/tags/#ae">ae</a>
+                
+                <a href="/tags/#music">music</a>
+                
+                <a href="/tags/#nature">nature</a>
+                
+                <a href="/tags/#basketball">basketball</a>
+                
+                <a href="/tags/#rdfz">rdfz</a>
+                
+                <a href="/tags/#world">world</a>
+                
+                <a href="/tags/#society">society</a>
+                
+                <a href="/tags/#discrimination">discrimination</a>
+                
+                <a href="/tags/#universe">universe</a>
+                
+                <a href="/tags/#youtube">youtube</a>
+                
+                <a href="/tags/#marriage">marriage</a>
+                
+                <a href="/tags/#swift">swift</a>
+                
+                <a href="/tags/#food">food</a>
+                
+                <a href="/tags/#cycling">cycling</a>
+                
+                <a href="/tags/#homework">homework</a>
+                
+                <a href="/tags/#museum">museum</a>
+                
+                <a href="/tags/#honesty">honesty</a>
+                
+                <a href="/tags/#comparison">comparison</a>
+                
+                <a href="/tags/#job">job</a>
+                
+                <a href="/tags/#writing">writing</a>
+                
+                <a href="/tags/#career">career</a>
+                
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+        <aside class="widget-wrap widget-toc">
+            <h6 class="widget-title">
+                <span>Table of Contents <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+            <div id="navbar">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#转码">转码</a></li>
+<li class="toc-entry toc-h2"><a href="#初识">初识</a></li>
+<li class="toc-entry toc-h2"><a href="#留下印象">留下印象</a></li>
+<li class="toc-entry toc-h2"><a href="#加深印象">加深印象</a></li>
+<li class="toc-entry toc-h2"><a href="#临门一脚">临门一脚</a></li>
+<li class="toc-entry toc-h2"><a href="#寂静的春天">寂静的春天</a></li>
+<li class="toc-entry toc-h2"><a href="#毕业季与暑假">毕业季与暑假</a></li>
+<li class="toc-entry toc-h2"><a href="#秋季">秋季</a></li>
+<li class="toc-entry toc-h2"><a href="#尾声">尾声</a></li>
+<li class="toc-entry toc-h2"><a href="#补遗---赵浩鸿">补遗 - 赵浩鸿</a></li>
+</ul>
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+		
+    </div>
+    <!-- END SIDEBAR -->
+</div>
+
+    </div>
+  </div>
+</div>
+<!-- END SINGLE-POST-WRAP -->
+
+
+        </main>
+        <!-- END MAIN -->
+
+        
+<footer>
+  <div class="footer">
+    <div class="container">
+      <div class="text-center">
+        <a href="/blog" class="logo clearfix animsition-link"><img src="/img/sig.svg" width="400" alt="Chen's Sig"></a>
+        <p class="copy">
+          Maintained by <a href="/about/">Chen Ting</a> 
+		  
+        </p>
+        <div class="icon-list">
+          <a href="https://www.linkedin.com/in/ting-chen-402bab122/" target="_blank">
+            <i class="fa fa-fw fa-linkedin"></i>
+          </a>
+          <a href="http://my.hupu.com/17573413/" target="_blank">
+            <i class="fa fa-fw fa-futbol-o"></i>
+          </a>
+          <a href="https://www.douban.com/people/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-book"></i>
+          </a>
+		   <a href="https://www.flickr.com/photos/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-flickr"></i>
+          </a>
+          <a href="https://github.com/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-github"></i>
+          </a>
+		  <a href="/feed.xml" target="_blank">
+            <i class="fa fa-fw fa-rss"></i>
+          </a>
+        </div>
+        <div class="scroll-top">go to top</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END FOOTER -->
+</footer>
+
+      </div>
+      <!-- END CONTENT -->
+    </div>
+    <!-- END ANIMSITION -->
+
+    
+<!-- SCRIPTS -->
+<script src="/assets/js/jquery-1.12.0.min.js"></script>
+<script src="/assets/js/plugins.min.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<!-- CUSTOM SCRIPT -->
+<script src="/assets/js/script.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/js/tether.min.js"></script>
+<script>document.getElementById("CN").href = "http://yo1995.coding.me" + window.location.pathname;</script>
+
+
+<script src="/assets/js/qrcode.js"></script>
+<script>
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: "https://yo1995.github.io/school/ric-story/",
+    width: 196,
+    height: 196,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H,
+    useSVG: true
+});
+</script>
+
+
+<!-- 爱心特效 -->
+
+
+
+<script async src="/assets/js/busuanzi.pure.mini.js">
+</script>
+<!--功夫网卡住了script id="dsq-count-scr" src="//yo1995.disqus.com/count.js" async></script-->
+
+
+
+
+
+
+
+<!--script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82518311-1', 'auto');
+  ga('send', 'pageview', {
+  'page': '/school/ric-story/',
+  'title': '3409与Swift转码'
+  });
+
+</script-->
+
+
+  </body>
+
+</html>
