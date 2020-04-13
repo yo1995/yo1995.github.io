@@ -5,8 +5,8 @@
     <description></description>
     <link>https://yo1995.github.io/</link>
     <atom:link href="https://yo1995.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 19 Feb 2020 14:45:50 -0800</pubDate>
-    <lastBuildDate>Wed, 19 Feb 2020 14:45:50 -0800</lastBuildDate>
+    <pubDate>Sun, 12 Apr 2020 22:41:48 -0700</pubDate>
+    <lastBuildDate>Sun, 12 Apr 2020 22:41:48 -0700</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -196,15 +196,15 @@
         <link>https://yo1995.github.io/school/itacwg102-pyq/</link>
         <guid isPermaLink="true">https://yo1995.github.io/school/itacwg102-pyq/</guid>
         
-        <category>life</category>
+        <category>lifestyle</category>
         
-        <category>enlighten</category>
+        <category>education</category>
         
-        <category>friends</category>
+        <category>friend</category>
         
-        <category>girls</category>
+        <category>girl</category>
         
-        <category>foudre</category>
+        <category>love</category>
         
         
         <category>School</category>
@@ -212,7 +212,7 @@
       </item>
     
       <item>
-        <title>《Introduction to Awkward Chatting with Girls 101》- 03</title>
+        <title>《Introduction to Awkwardly Chatting with Girls 101》- 03</title>
         <description>&lt;p&gt;&lt;a href=&quot;/school/itacwg101-01/&quot;&gt;课号101-01&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/school/itacwg101-02/&quot;&gt;课号101-02&lt;/a&gt;&lt;/p&gt;
@@ -305,13 +305,13 @@
         <link>https://yo1995.github.io/school/itacwg101-03/</link>
         <guid isPermaLink="true">https://yo1995.github.io/school/itacwg101-03/</guid>
         
-        <category>life</category>
+        <category>lifestyle</category>
         
-        <category>friends</category>
+        <category>friend</category>
         
-        <category>girls</category>
+        <category>girl</category>
         
-        <category>foudre</category>
+        <category>love</category>
         
         
         <category>School</category>
@@ -536,11 +536,11 @@
         <link>https://yo1995.github.io/school/after-graduation-2/</link>
         <guid isPermaLink="true">https://yo1995.github.io/school/after-graduation-2/</guid>
         
-        <category>life</category>
+        <category>lifestyle</category>
         
-        <category>graduate</category>
+        <category>education</category>
         
-        <category>friends</category>
+        <category>friend</category>
         
         
         <category>School</category>
@@ -929,11 +929,15 @@ California dreamin’ on such a winter’s day.&lt;/p&gt;
         <link>https://yo1995.github.io/life/first-dateish-dinner/</link>
         <guid isPermaLink="true">https://yo1995.github.io/life/first-dateish-dinner/</guid>
         
-        <category>life</category>
+        <category>lifestyle</category>
         
         <category>love</category>
         
-        <category>girls</category>
+        <category>girl</category>
+        
+        <category>dream</category>
+        
+        <category>future</category>
         
         
         <category>Life</category>
@@ -1114,9 +1118,7 @@ California dreamin’ on such a winter’s day.&lt;/p&gt;
         
         <category>career</category>
         
-        <category>job</category>
-        
-        <category>coding</category>
+        <category>programming</category>
         
         <category>swift</category>
         
@@ -1124,7 +1126,7 @@ California dreamin’ on such a winter’s day.&lt;/p&gt;
         
         <category>future</category>
         
-        <category>graduate</category>
+        <category>education</category>
         
         
         <category>School</category>
@@ -1238,11 +1240,11 @@ California dreamin’ on such a winter’s day.&lt;/p&gt;
         <link>https://yo1995.github.io/school/shaopeng-dmv/</link>
         <guid isPermaLink="true">https://yo1995.github.io/school/shaopeng-dmv/</guid>
         
-        <category>school</category>
+        <category>education</category>
         
-        <category>genuine</category>
+        <category>review</category>
         
-        <category>friends</category>
+        <category>friend</category>
         
         
         <category>School</category>
@@ -1345,11 +1347,13 @@ California dreamin’ on such a winter’s day.&lt;/p&gt;
         <link>https://yo1995.github.io/life/ziweiiii/</link>
         <guid isPermaLink="true">https://yo1995.github.io/life/ziweiiii/</guid>
         
-        <category>love</category>
+        <category>friend</category>
         
-        <category>girls</category>
+        <category>girl</category>
         
-        <category>France</category>
+        <category>world</category>
+        
+        <category>lifestyle</category>
         
         
         <category>Life</category>
@@ -1432,15 +1436,13 @@ California dreamin’ on such a winter’s day.&lt;/p&gt;
         <link>https://yo1995.github.io/society/lou-2/</link>
         <guid isPermaLink="true">https://yo1995.github.io/society/lou-2/</guid>
         
-        <category>society</category>
-        
-        <category>diversity</category>
-        
         <category>politics</category>
         
-        <category>discrimination</category>
+        <category>education</category>
         
-        <category>phd</category>
+        <category>career</category>
+        
+        <category>lifestyle</category>
         
         
         <category>Society</category>
@@ -1614,15 +1616,13 @@ California dreamin’ on such a winter’s day.&lt;/p&gt;
         <link>https://yo1995.github.io/society/lou/</link>
         <guid isPermaLink="true">https://yo1995.github.io/society/lou/</guid>
         
-        <category>society</category>
-        
-        <category>diversity</category>
-        
         <category>politics</category>
         
-        <category>discrimination</category>
+        <category>education</category>
         
-        <category>phd</category>
+        <category>career</category>
+        
+        <category>lifestyle</category>
         
         
         <category>Society</category>
@@ -1744,11 +1744,13 @@ California dreamin’ on such a winter’s day.&lt;/p&gt;
         <link>https://yo1995.github.io/life/foudre-2/</link>
         <guid isPermaLink="true">https://yo1995.github.io/life/foudre-2/</guid>
         
-        <category>life</category>
+        <category>lifestyle</category>
         
         <category>love</category>
         
-        <category>girls</category>
+        <category>girl</category>
+        
+        <category>dream</category>
         
         
         <category>Life</category>
