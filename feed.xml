@@ -5,8 +5,8 @@
     <description></description>
     <link>https://yo1995.github.io/</link>
     <atom:link href="https://yo1995.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 15 May 2020 11:34:23 -0700</pubDate>
-    <lastBuildDate>Fri, 15 May 2020 11:34:23 -0700</lastBuildDate>
+    <pubDate>Sun, 17 May 2020 18:20:55 -0700</pubDate>
+    <lastBuildDate>Sun, 17 May 2020 18:20:55 -0700</lastBuildDate>
     <generator>Jekyll v3.7.2</generator>
     
       <item>
@@ -214,7 +214,7 @@ Where do I start…&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/school/after-graduation-2/#补遗---游泳是单身运动&quot;&gt;// 日常无锡妹结尾&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;PS 突然觉得玩地图也挺好玩的&lt;/p&gt;
+&lt;p&gt;P.S.突然觉得摆弄地图也挺好玩的 可能会多花点时间在上面&lt;/p&gt;
 </description>
         <pubDate>Tue, 12 May 2020 00:00:00 -0700</pubDate>
         <link>https://yo1995.github.io/life/roads-in-america-1/</link>
@@ -386,14 +386,23 @@ Where do I start…&lt;/p&gt;
 
 &lt;p&gt;纯发牢骚和发泄，勿扩散以伤及无辜。&lt;/p&gt;
 
-&lt;p&gt;嘿！正巧，落笔这篇牢骚的日子是2020年五四青年节。那么就愿自己“摆脱冷气，只是向上走，不必听自暴自弃者流的话”。😤&lt;/p&gt;
+&lt;p&gt;嘿！正巧，落笔这篇牢骚的日子是2020年五四青年节。那么就愿自己“摆脱冷气，只是向上走，不必听自暴自弃者的话”。😤&lt;/p&gt;
 
 &lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;相关阅读&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;/reading/a-la-jeunesse/&quot;&gt;ref：《敬告青年》&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://bbs.byr.cn/article/Peking/262799&quot;&gt;ref&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://bbs.byr.cn/article/Peking/262350&quot;&gt;原帖&lt;/a&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;/reading/a-la-jeunesse/&quot;&gt;《敬告青年》&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://bbs.byr.cn/article/Peking/262799&quot;&gt;引用帖&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://bbs.byr.cn/article/Peking/262350&quot;&gt;原帖&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -945,11 +954,24 @@ Where do I start…&lt;/p&gt;
     
       <item>
         <title>《Introduction to Girls Fishing 102》</title>
-        <description>&lt;p&gt;&lt;a href=&quot;/school/itacwg101-01/&quot;&gt;101-01 尬聊101&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/school/itacwg101-02/&quot;&gt;101-02 尬聊配比学&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/school/itacwg101-03/&quot;&gt;101-03 一见倾心&lt;/a&gt;&lt;/p&gt;
+        <description>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;相关阅读&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;/school/itacwg101-01/&quot;&gt;101-01 尬聊101&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;/school/itacwg101-02/&quot;&gt;101-02 尬聊配比学&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;/school/itacwg101-03/&quot;&gt;101-03 一见倾心&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;hr /&gt;
 
@@ -1147,11 +1169,12 @@ Where do I start…&lt;/p&gt;
     
       <item>
         <title>《Introduction to Awkwardly Chatting with Girls 101》- 03</title>
-        <description>&lt;p&gt;&lt;a href=&quot;/school/itacwg101-01/&quot;&gt;课号101-01&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/school/itacwg101-02/&quot;&gt;课号101-02&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
+        <description>&lt;p&gt;|相关阅读|
+|:—:|
+|&lt;a href=&quot;/school/itacwg101-01/&quot;&gt;课号101-01&lt;/a&gt;|
+|&lt;a href=&quot;/school/itacwg101-02/&quot;&gt;课号101-02&lt;/a&gt;|
+|&lt;a href=&quot;/life/life-notes-1111/#我的聊天到底出了什么问题--尬聊101习题课系列&quot;&gt;课号101-习题课&lt;/a&gt;|
+—&lt;/p&gt;
 
 &lt;audio src=&quot;/music/ywqx.mp3&quot; autoplay=&quot;autoplay&quot; loop=&quot;loop&quot; controls=&quot;controls&quot;&gt;Your browser does not support the audio element.&lt;/audio&gt;
 
