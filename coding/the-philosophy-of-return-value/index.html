@@ -295,8 +295,8 @@ completionHandler: @escaping (URL?, URLResponse?, Error?) -&gt; Void) -&gt; URLS
 
 <p>大家会心一笑。后来我才知道Java连malloc都不用，更别提指针了。当然这些都是后话。</p>
 
-<h2 id="第三阶段">
-<a id="第三阶段" class="anchor" href="#%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>第三阶段</h2>
+<h3 id="第三阶段">
+<a id="第三阶段" class="anchor" href="#%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>第三阶段</h3>
 
 <p>2019年6月的某一天，是我视作正式“转码”的日子——那天，我打开LeetCode，做了第一道题：Two Sum。第一次提交的代码——</p>
 
@@ -411,6 +411,8 @@ completionHandler: @escaping (URL?, URLResponse?, Error?) -&gt; Void) -&gt; URLS
 
 <p>希望自己的编程维生的生涯，在必须触碰Java前结束。</p>
 
+<p><a href="/zhuism/puisque-courir/">?</a></p>
+
 <hr>
 
 <h2 id="附录关于返回值的胡比聊天">
@@ -419,14 +421,17 @@ completionHandler: @escaping (URL?, URLResponse?, Error?) -&gt; Void) -&gt; URLS
 <details>
 
 - Ting
+
 &gt; Do we ever use `@inout` in production?
 
 File related wrapper functions (such as this link) in both Cocoa and iOS Foundation sometimes deals with reference or pointers, probably due to legacy interface in OS 9 era <img class="emoji" title=":confused:" alt=":confused:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f615.png" height="20" width="20">. But this is gonna got "fixed" by newly introduced https://developer.apple.com/documentation/system in next Swift release <img class="emoji" title=":smirk_cat:" alt=":smirk_cat:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f63c.png" height="20" width="20">.
 
 - markd
+
 the reason C / objc needs to do that is that you can't have more than one return value (can't stuff them into a tuple because the language doesn't have tuples).  So fileExists(atPath:isDirectory:) is a direct wrapper around the objc version, which is returning both a Bool (does it exist) and another Bool (OBTW is this a directory)
 
 - Ting
+
 Actually thinking more on this topic, I recalled a longtime intriguing question back when I started to learn programming with C - what should a function return? Really like to hear some thoughts! <img class="emoji" title=":pray:" alt=":pray:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f64f.png" height="20" width="20">
 
 When I learned C for the first time, I tend to go "intuitively", sth like `int add(int a, int b) { return a + b }`
@@ -438,36 +443,40 @@ I’d like to learn from veterans that how do industries design APIs through the
 
 The 👆 ObjC API mixes return value with param pointers, whereas system level libs like socket related stuff mostly return errno.
 
+- markd
+
 back in the Olden Days, the pointer-related calls were much more popular, because of the way memory worked with function calls.
-white_check_markeyesraised_hands
 
-- markd
 if you had a big struct, a doThingWith(hundredByteStructure) would copy a hundred bytes to the stack. And if you had  hundredByteStructure = doThingWith(hundredByteStructure), that's another hundred bytes copied
-white_check_markeyesraised_hands
 
 - markd
+
 so you'd use pointers doThingWith(&amp;hundredByteStructure), and you're only pushing four bytes on to the stack, with a slight runtime penalty of indirecting through the pointer
-white_check_markeyesraised_hands
 
 - markd
+
 and good observation of the calls that return errno - to return anything else, you have to pass something in by reference, which requires pointering it too.
 white_check_markeyesraised_hands
 
 - markd
+
 Unix APIs typically do the errno thing. Sockets is very weird.  It does object-oriented style polymorphism via opaque pointers
 white_check_markeyesraised_hands
 
 - markd
+
 but for the most part, objc / Cocoa / Apple calls return a value.  Some classes of calls that need an extra error return will take an NSError by pointer to fill in. Letting you ignore the error if you choose.  Swift's way of interfacing with those are pretty elegant
 
 - Mikey Ward (BNR)
-What he said. <img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"> Mark’s a trustable resource on that stuff. But yeah, when an ObjC method wanted to give you back two pieces of data, usually either a boolean or status code indicating success failure, and a data structure containing the body of output, the method would usually return the bool or int code, since that’s small data, and use its out parameter to give you a handle to the larger data structure. A cool side effect here is that it was returning to you information that you needed first - knowledge of where you had succeeded, or an error code - and then you could use that to decide whether to bother reading through the outparameter’d pointer to read the larger payload. No sense in trying to read data you know won’t be there, you know? 
+
+What he said. <img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"> Mark’s a trustable resource on that stuff. But yeah, when an ObjC method wanted to give you back two pieces of data, usually either a boolean or status code indicating success failure, and a data structure containing the body of output, the method would usually return the bool or int code, since that’s small data, and use its out parameter to give you a handle to the larger data structure. A cool side effect here is that it was returning to you information that you needed first - knowledge of where you had succeeded, or an error code - and then you could use that to decide whether to bother reading through the outparameter's pointer to read the larger payload. No sense in trying to read data you know won't be there, you know? 
 
 - Mikey Ward (BNR)
+
 In Swift, however, it is generally more idiomatic to define a custom type (struct/class/enum) to encapsulate everything you want the caller to know about the results of the function call. We’ll see examples of doing this throughout the week.
-white_check_markeyesraised_hands
 
 - Ting
+
 Thanks Mark and Mikey for the details. Quite informative! <img class="emoji" title=":smile:" alt=":smile:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png" height="20" width="20">
 I guess part of the reasons we are moving towards a more value-based programming style are because - 1. computers are faster and memory is larger nowadays, which allows some overhead and 2. multithreading is less error-prone with each “task” having its own copy of data on stack. Is that correct?
 Powerful struct and enums in Swift are really big reasons for me to pick Swift as my go-to OOP language… <img class="emoji" title=":smirk_cat:" alt=":smirk_cat:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f63c.png" height="20" width="20">
@@ -501,7 +510,7 @@ Powerful struct and enums in Swift are really big reasons for me to pick Swift a
 				<!--被墙替换class="disqus-comment-count" data-disqus-identifier="Chen's Blog//coding/the-philosophy-of-return-value-->
             </span>
             <span>
-                <i class="fa fa-check-square-o"></i><span>10232 words</span>
+                <i class="fa fa-check-square-o"></i><span>10105 words</span>
             </span>
             <span>
                 <i class="fa fa-link"></i>
@@ -1107,9 +1116,9 @@ Powerful struct and enums in Swift are really big reasons for me to pick Swift a
 <ul>
 <li class="toc-entry toc-h3"><a href="#%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5">第一阶段</a></li>
 <li class="toc-entry toc-h3"><a href="#%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5">第二阶段</a></li>
+<li class="toc-entry toc-h3"><a href="#%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5">第三阶段</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5">第三阶段</a></li>
 <li class="toc-entry toc-h2"><a href="#%E5%86%8D%E7%9C%8B%E4%B8%8A%E9%9D%A2%E7%9A%84%E5%87%BD%E6%95%B0">再看上面的函数</a></li>
 <li class="toc-entry toc-h2"><a href="#%E7%9E%8E%E6%AF%94%E6%8B%9F">瞎比拟</a></li>
 <li class="toc-entry toc-h2"><a href="#%E9%99%84%E5%BD%95%E5%85%B3%E4%BA%8E%E8%BF%94%E5%9B%9E%E5%80%BC%E7%9A%84%E8%83%A1%E6%AF%94%E8%81%8A%E5%A4%A9">附录：关于返回值的胡比聊天</a></li>
