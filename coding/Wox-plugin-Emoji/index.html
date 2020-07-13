@@ -183,7 +183,7 @@
             <p><a href="https://github.com/yo1995/Wox.Plugin.Emoji">Repo参考</a></p>
 
 <h2 id="起因">
-<a id="起因" class="anchor" href="#%E8%B5%B7%E5%9B%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>起因</h2>
+<a class="anchor" href="#%E8%B5%B7%E5%9B%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>起因</h2>
 
 <p>在Windows下输入Emoji表情符号向来不是一件很简单的事。最开始我主要依赖于搜狗输入法自带的表情搜索功能，但搜狗默认是将表情符号输出为GIF图片写入剪贴板，并不适合已经全面支持Emoji的Windows10系统。微信PC客户端添加了有限的Emoji表情支持，且强制将Emoji转化为存在的Apple版本对应符号的图片。这样一来，较新的版本的Emoji如Emoji 5.0以及Emoji 11.0就不能很好地得到支持了。由于各大网站对Emoji的支持逐渐普及，如何更好输入这些表情符号自然成了一个小的需求。</p>
 
@@ -198,12 +198,12 @@
 <p>这些链接分别介绍了这个问题产生的原因，以及几种可行的解决方法。下面是我在修改插件和递PR前的一些总结。</p>
 
 <h3 id="problem-analysis">
-<a id="problem-analysis" class="anchor" href="#problem-analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Problem analysis</h3>
+<a class="anchor" href="#problem-analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Problem analysis</h3>
 
 <p>On Windows, Emoji characters, which is represented in Unicode, are displayed with the font Segoe UI Symbol. As a font, it does support a font color attribute, but can only have one single font color. However, for Emoji icons, it can have multiple colors. Therefore, the sketch icon cannot be in colored format due to compatibility issues. Some softwares such as Chrome, Outlook do support colored Emojis, but they are in-built rendered. Hence we need to associate each Emoji character with an svg or png icon.</p>
 
 <h3 id="solutions">
-<a id="solutions" class="anchor" href="#solutions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Solutions</h3>
+<a class="anchor" href="#solutions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Solutions</h3>
 
 <ol>
   <li>use svg or png to display</li>
@@ -211,7 +211,7 @@
 </ol>
 
 <h3 id="download-emojis">
-<a id="download-emojis" class="anchor" href="#download-emojis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download emojis</h3>
+<a class="anchor" href="#download-emojis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download emojis</h3>
 
 <ol>
   <li>download the full emoji list within April 2018 Microsoft update. total number: 2873</li>
@@ -222,12 +222,12 @@
 </ol>
 
 <h2 id="遇到的困难与问题">
-<a id="遇到的困难与问题" class="anchor" href="#%E9%81%87%E5%88%B0%E7%9A%84%E5%9B%B0%E9%9A%BE%E4%B8%8E%E9%97%AE%E9%A2%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>遇到的困难与问题</h2>
+<a class="anchor" href="#%E9%81%87%E5%88%B0%E7%9A%84%E5%9B%B0%E9%9A%BE%E4%B8%8E%E9%97%AE%E9%A2%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>遇到的困难与问题</h2>
 
 <p>过程中确实遇到了一些想吐槽的问题，记录如下</p>
 
 <h3 id="给这帮人的目录结构跪下了">
-<a id="给这帮人的目录结构跪下了" class="anchor" href="#%E7%BB%99%E8%BF%99%E5%B8%AE%E4%BA%BA%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E8%B7%AA%E4%B8%8B%E4%BA%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>给这帮人的目录结构跪下了</h3>
+<a class="anchor" href="#%E7%BB%99%E8%BF%99%E5%B8%AE%E4%BA%BA%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E8%B7%AA%E4%B8%8B%E4%BA%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>给这帮人的目录结构跪下了</h3>
 
 <ul>
   <li>
@@ -245,14 +245,14 @@
 </ul>
 
 <h3 id="方案1还是方案2">
-<a id="方案1还是方案2" class="anchor" href="#%E6%96%B9%E6%A1%881%E8%BF%98%E6%98%AF%E6%96%B9%E6%A1%882" aria-hidden="true"><span class="octicon octicon-link"></span></a>方案1还是方案2</h3>
+<a class="anchor" href="#%E6%96%B9%E6%A1%881%E8%BF%98%E6%98%AF%E6%96%B9%E6%A1%882" aria-hidden="true"><span class="octicon octicon-link"></span></a>方案1还是方案2</h3>
 
 <p>方案1是通过字体原生地解决这个问题，而方案2则是通过添加图标来变相解决这个问题。首先当然考虑的是方案1，但正如上面分析可知，Windows下仅有少数应用或场景支持彩色显示的Emoji字体。而更多的则采用了兼容性较好的线框显示。令人意外的是，在Windows 10桌面上Emoji文件名字符串就能以彩色显示，但文件夹里却显示为黑白。同样地，在Chrome、Edge、Outlook等软件中能够彩色显示，而Word却只能显示为黑白。这些表现不禁让人非常困惑，到底哪些软件能支持彩色显示？又为什么会出现这种差异？另外，在Wox里，如果希望展示为彩色显示，自然需要更改显示字体。但经过尝试发现，Wox既没有提供更改字体的API，改变字体后显示的图标同样是黑白线框的。因此方案1未能成行。</p>
 
 <p>方案2比较简单，就是将展示结果中的图标换成对应的Emoji图案的图像文件。但是这里又产生了一点小的曲折：如何映射Emoji和图像文件呢？最简单的想法便是将图像文件全部对应命名为Emoji字符，这样输入字符即可找到图像，非常简洁。然而，这种方法对于Emoji 1.0之前便已存在于Unicode中的那些符号字符而言会出现问题，大致是由于其编码长度不同，在解析过程中可能会被当成1或两个字符，具体也可参考readme中的介绍。对此我的应对方式是分别对两类Emoji进行不同的命名，将无法直接命名为Emoji字符的图像转而命名为其Unicode编码，再在插件中进行判断，从而实现了显示。</p>
 
 <h2 id="版本号之殇">
-<a id="版本号之殇" class="anchor" href="#%E7%89%88%E6%9C%AC%E5%8F%B7%E4%B9%8B%E6%AE%87" aria-hidden="true"><span class="octicon octicon-link"></span></a>版本号之殇</h2>
+<a class="anchor" href="#%E7%89%88%E6%9C%AC%E5%8F%B7%E4%B9%8B%E6%AE%87" aria-hidden="true"><span class="octicon octicon-link"></span></a>版本号之殇</h2>
 
 <p><img src="/images/201809/emoji-version-number.png" alt="Emoji versions"></p>
 

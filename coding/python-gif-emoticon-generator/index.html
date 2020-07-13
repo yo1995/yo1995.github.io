@@ -187,7 +187,7 @@
 <p>进入正题，今天探讨的是一个特定的应用：如何用Python写一个微信文字表情包生成脚本。</p>
 
 <h2 id="需求分析">
-<a id="需求分析" class="anchor" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>需求分析</h2>
+<a class="anchor" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>需求分析</h2>
 <ul>
   <li>输入中文或英文，输出微信可识别的GIF表情图</li>
   <li>可通过修改参数控制字体字号和文字颜色</li>
@@ -197,34 +197,34 @@
 </ul>
 
 <h2 id="gif相关知识">
-<a id="gif相关知识" class="anchor" href="#gif%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>GIF相关知识</h2>
+<a class="anchor" href="#gif%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>GIF相关知识</h2>
 
 <p>GIF格式经历了1985年((⊙﹏⊙)b好久远)格式GIF87a到GIF89a的变革。现在网络上流行的GIF图片绝大多数是以后者进行编码的。</p>
 
 <p>后者相较于前者优势主要有三点：透明背景、隔行扫描和动画序列。本文中主要涉及第一点。</p>
 
 <h2 id="log">
-<a id="log" class="anchor" href="#log" aria-hidden="true"><span class="octicon octicon-link"></span></a>Log</h2>
+<a class="anchor" href="#log" aria-hidden="true"><span class="octicon octicon-link"></span></a>Log</h2>
 <h3 id="20160904-ver-01-alpha">
-<a id="20160904-ver-01-alpha" class="anchor" href="#20160904-ver-01-alpha" aria-hidden="true"><span class="octicon octicon-link"></span></a>20160904 ver 0.1 alpha</h3>
+<a class="anchor" href="#20160904-ver-01-alpha" aria-hidden="true"><span class="octicon octicon-link"></span></a>20160904 ver 0.1 alpha</h3>
 <p>解决了最基础的需求，即输入文字输出GIF文件</p>
 
 <h3 id="编程过程及难点">
-<a id="编程过程及难点" class="anchor" href="#%E7%BC%96%E7%A8%8B%E8%BF%87%E7%A8%8B%E5%8F%8A%E9%9A%BE%E7%82%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>编程过程及难点</h3>
+<a class="anchor" href="#%E7%BC%96%E7%A8%8B%E8%BF%87%E7%A8%8B%E5%8F%8A%E9%9A%BE%E7%82%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>编程过程及难点</h3>
 <p>微信识别表情图片时，在移动端不限制文件格式，会通过色度和容差的方法去掉纯色背景，生成表情。在PC端则只支持GIF文件，会保留图片所有细节，如背景颜色等。因而，生成PC端GIF图片时，存在三个主要难点：</p>
 <ol>
   <li>如何将文字无失真转化为图片</li>
   <li>如何使输出GIF图片背景为透明</li>
-  <li>如何处理中文字符串(~~误~~)</li>
+  <li>如何处理中文字符串(<del>误</del>)</li>
 </ol>
 
 <h3 id="解决方案">
-<a id="解决方案" class="anchor" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>解决方案</h3>
+<a class="anchor" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>解决方案</h3>
 <p>第一版程序写的简单，主要就是解决上述两个问题。
 首先是文字变图片。PIL库的ImageDraw提供了text方案。尽管对于小字体存在一定异常，但本案例中并无大碍。
 另外可以考虑的方案是通过一些与GUI结合的库实现，网上案例有使用pygame实现的，效果类似。</p>
 
-<p>其次是图片存成透明GIF。由于GIF格式出现较早，对于透明度和色阶的支持不如其后辈png来得好<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>&amp;<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>。如今GIF仍旧能够盛行的一大因素就是其能支持简易动画，同时色彩较少的文件能有不错的文件体积。</p>
+<p>其次是图片存成透明GIF。由于GIF格式出现较早，对于透明度和色阶的支持不如其后辈png来得好<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup>&amp;<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote">2</a></sup>。如今GIF仍旧能够盛行的一大因素就是其能支持简易动画，同时色彩较少的文件能有不错的文件体积。</p>
 
 <p>个人理解GIF的透明度是以牺牲某一种特定颜色为代价的。例如本例中，就将纯黑色#000设为了透明色，因而图片中所有纯黑色的地方均会被优化为透明。</p>
 
@@ -254,28 +254,28 @@ st-&gt;op1-&gt;op2-&gt;op3-&gt;e
 <p><a href="http://knsv.github.io/mermaid/flowchart.html">mermaid syntax flowchart</a></p>
 
 <h2 id="心得体会">
-<a id="心得体会" class="anchor" href="#%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A" aria-hidden="true"><span class="octicon octicon-link"></span></a>心得体会</h2>
+<a class="anchor" href="#%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A" aria-hidden="true"><span class="octicon octicon-link"></span></a>心得体会</h2>
 <p>这个程序挺简单的，但是还是花了接近半小时调试，主要原因是Python2.7的中文匹配utf8问题和GIF格式透明度定义问题。重新定义了颜色以后果然解决。关于Python的其它体会见矫情篇文章……</p>
 
 <h2 id="最新版代码">
-<a id="最新版代码" class="anchor" href="#%E6%9C%80%E6%96%B0%E7%89%88%E4%BB%A3%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>最新版代码</h2>
+<a class="anchor" href="#%E6%9C%80%E6%96%B0%E7%89%88%E4%BB%A3%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>最新版代码</h2>
 <h3 id="ver-01-alpha">
-<a id="ver-01-alpha" class="anchor" href="#ver-01-alpha" aria-hidden="true"><span class="octicon octicon-link"></span></a>ver 0.1 alpha</h3>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -*- coding: utf-8 -*-</span>
-
+<a class="anchor" href="#ver-01-alpha" aria-hidden="true"><span class="octicon octicon-link"></span></a>ver 0.1 alpha</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># -*- coding: utf-8 -*-
+</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="p">,</span><span class="n">sys</span><span class="p">,</span><span class="n">locale</span>
 <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageFont</span><span class="p">,</span> <span class="n">ImageDraw</span>
   
 <span class="n">zihao</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="s">'1.gif'</span><span class="p">)</span>
-<span class="n">transparency</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s">'transparency'</span><span class="p">]</span>
-<span class="n">text</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">u'请输入需要转化的文字：</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'gb18030'</span><span class="p">))</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">or</span> <span class="n">locale</span><span class="o">.</span><span class="n">getpreferredencoding</span><span class="p">(</span><span class="bp">True</span><span class="p">))</span>
-<span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s">"RGBA"</span><span class="p">,</span> <span class="p">(</span><span class="n">zihao</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="p">,</span> <span class="n">zihao</span> <span class="o">+</span> <span class="mi">30</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-<span class="n">dr</span> <span class="o">=</span> <span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-<span class="n">font</span> <span class="o">=</span> <span class="n">ImageFont</span><span class="o">.</span><span class="n">truetype</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s">"fonts"</span><span class="p">,</span> <span class="s">"C:/Windows/Fonts/STZHONGS.TTF"</span><span class="p">),</span> <span class="n">zihao</span><span class="p">)</span> <span class="c">#华文中宋字体</span>
-<span class="n">dr</span><span class="o">.</span><span class="n">text</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">text</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">font</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s">"#111"</span><span class="p">)</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="p">.</span><span class="nb">open</span><span class="p">(</span><span class="s">'1.gif'</span><span class="p">)</span>
+<span class="n">transparency</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">info</span><span class="p">[</span><span class="s">'transparency'</span><span class="p">]</span>
+<span class="n">text</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">u'请输入需要转化的文字：</span><span class="se">\n</span><span class="s">'</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'gb18030'</span><span class="p">)).</span><span class="n">decode</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">encoding</span> <span class="ow">or</span> <span class="n">locale</span><span class="p">.</span><span class="n">getpreferredencoding</span><span class="p">(</span><span class="bp">True</span><span class="p">))</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="s">"RGBA"</span><span class="p">,</span> <span class="p">(</span><span class="n">zihao</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="p">,</span> <span class="n">zihao</span> <span class="o">+</span> <span class="mi">30</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">dr</span> <span class="o">=</span> <span class="n">ImageDraw</span><span class="p">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<span class="n">font</span> <span class="o">=</span> <span class="n">ImageFont</span><span class="p">.</span><span class="n">truetype</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="s">"fonts"</span><span class="p">,</span> <span class="s">"C:/Windows/Fonts/STZHONGS.TTF"</span><span class="p">),</span> <span class="n">zihao</span><span class="p">)</span> <span class="c1">#华文中宋字体
+</span><span class="n">dr</span><span class="p">.</span><span class="n">text</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">text</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">font</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s">"#111"</span><span class="p">)</span>
 
-<span class="n">im</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">text</span> <span class="o">+</span> <span class="s">".gif"</span><span class="p">,</span><span class="n">transparency</span><span class="o">=</span><span class="n">transparency</span><span class="p">)</span>
+<span class="n">im</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="n">text</span> <span class="o">+</span> <span class="s">".gif"</span><span class="p">,</span><span class="n">transparency</span><span class="o">=</span><span class="n">transparency</span><span class="p">)</span>
 <span class="nb">raw_input</span><span class="p">(</span><span class="s">u'表情已生成，任意键结束！'</span><span class="p">)</span>
 </code></pre></div></div>
 <p>程序所需模板图片：(对这里有图你没看错)</p>
@@ -286,13 +286,13 @@ st-&gt;op1-&gt;op2-&gt;op3-&gt;e
 
 <p><img src="/images/201609/allemoticons.gif" alt=""></p>
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1">
-      <p><a href="http://www.cnblogs.com/susanws/p/5531163.html">JPG、PNG和GIF优化相关；七遍隔行扫描</a> <a href="#fnref:1" class="reversefootnote">↩</a></p>
+    <li id="fn:1" role="doc-endnote">
+      <p><a href="http://www.cnblogs.com/susanws/p/5531163.html">JPG、PNG和GIF优化相关；七遍隔行扫描</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:2">
-      <p><a href="http://www.pythonclub.org/modules/pil/convert-png-gif">Python透明度相关问题</a> <a href="#fnref:2" class="reversefootnote">↩</a></p>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="http://www.pythonclub.org/modules/pil/convert-png-gif">Python透明度相关问题</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
   </ol>
 </div>
@@ -324,7 +324,7 @@ st-&gt;op1-&gt;op2-&gt;op3-&gt;e
 				<!--被墙替换class="disqus-comment-count" data-disqus-identifier="Chen's Blog//coding/python-gif-emoticon-generator-->
             </span>
             <span>
-                <i class="fa fa-check-square-o"></i><span>2229 words</span>
+                <i class="fa fa-check-square-o"></i><span>2225 words</span>
             </span>
             <span>
                 <i class="fa fa-link"></i>

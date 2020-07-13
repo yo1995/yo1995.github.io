@@ -5,9 +5,9 @@
     <description></description>
     <link>https://yo1995.github.io/</link>
     <atom:link href="https://yo1995.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 12 Jul 2020 00:14:43 -0700</pubDate>
-    <lastBuildDate>Sun, 12 Jul 2020 00:14:43 -0700</lastBuildDate>
-    <generator>Jekyll v3.7.2</generator>
+    <pubDate>Sun, 12 Jul 2020 21:01:51 -0700</pubDate>
+    <lastBuildDate>Sun, 12 Jul 2020 21:01:51 -0700</lastBuildDate>
+    <generator>Jekyll v4.1.1</generator>
     
       <item>
         <title>再论返回值</title>
@@ -44,7 +44,7 @@ int getaddrinfo(const char *node, const char *service,
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;a href=&quot;https://man7.org/linux/man-pages/man3/getaddrinfo.3.html&quot;&gt;man7&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;HANDLE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CreateThread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;HANDLE&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;CreateThread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;LPSECURITY_ATTRIBUTES&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;lpThreadAttributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;SIZE_T&lt;/span&gt;                  &lt;span class=&quot;n&quot;&gt;dwStackSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;LPTHREAD_START_ROUTINE&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;lpStartAddress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
@@ -102,7 +102,7 @@ completionHandler: @escaping (URL?, URLResponse?, Error?) -&amp;gt; Void) -&amp;
 &lt;pre&gt;&lt;code class=&quot;language-C&quot;&gt;void foo()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;完全就是用一个函数把一坨逻辑打包装起来，在需要的时候调用罢了。现在看来，这种所有语句全都堆在&lt;code class=&quot;highlighter-rouge&quot;&gt;main.c&lt;/code&gt;里面的程序，完全可以用&lt;code class=&quot;highlighter-rouge&quot;&gt;goto&lt;/code&gt;甚至汇编的&lt;code class=&quot;highlighter-rouge&quot;&gt;je&lt;/code&gt;来实现。那时对于返回值基本相当于没有概念。&lt;/p&gt;
+&lt;p&gt;完全就是用一个函数把一坨逻辑打包装起来，在需要的时候调用罢了。现在看来，这种所有语句全都堆在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.c&lt;/code&gt;里面的程序，完全可以用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;goto&lt;/code&gt;甚至汇编的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;je&lt;/code&gt;来实现。那时对于返回值基本相当于没有概念。&lt;/p&gt;
 
 &lt;h3 id=&quot;第二阶段&quot;&gt;第二阶段&lt;/h3&gt;
 
@@ -127,7 +127,7 @@ completionHandler: @escaping (URL?, URLResponse?, Error?) -&amp;gt; Void) -&amp;
 &lt;p&gt;2019年6月的某一天，是我视作正式“转码”的日子——那天，我打开LeetCode，做了第一道题：Two Sum。第一次提交的代码——&lt;/p&gt;
 
 &lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;nl&quot;&gt;public:&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;twoSum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
         &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -164,7 +164,7 @@ completionHandler: @escaping (URL?, URLResponse?, Error?) -&amp;gt; Void) -&amp;
 
 &lt;ul&gt;
   &lt;li&gt;开始写稍微复杂的C程序时，光是读man page就要读到头痛。无数的自定义结构体、传来传去的指针、未定义的返回错误代码。再加上字符串……还是只让C做它的本职工作好了。&lt;/li&gt;
-  &lt;li&gt;写奇怪的平台限定C++程序时：啥啥啥，这些玩意都是啥？如果MATLAB程序的库函数返回一个“handle”、句柄，大部分时候权当做空气无视掉。返回值看不懂不如看看参数。这些参数又是啥？没一个基础值类型，也不是标准库的数据结构。不如再来个&lt;code class=&quot;highlighter-rouge&quot;&gt;LPCWSTR const wchar_t*&lt;/code&gt;图一乐。&lt;/li&gt;
+  &lt;li&gt;写奇怪的平台限定C++程序时：啥啥啥，这些玩意都是啥？如果MATLAB程序的库函数返回一个“handle”、句柄，大部分时候权当做空气无视掉。返回值看不懂不如看看参数。这些参数又是啥？没一个基础值类型，也不是标准库的数据结构。不如再来个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LPCWSTR const wchar_t*&lt;/code&gt;图一乐。&lt;/li&gt;
   &lt;li&gt;C#终于回到了人类世界。真的，第一次写C#程序时，虽然完全不懂它的语法，但还是莫名地有了被微软温柔以待的感觉。风格沿袭C语言，而变得简明。不再纠结写点还是箭头，自动补全也比Sublime手撸C++畅快了许多。虽然文本编辑器也能补全，但预置没法一键查文档，查调用，还是比不上“宇宙第一”IDE来得方便。&lt;/li&gt;
   &lt;li&gt;Swift终于让我确信自己不是智障，甚至有了些自信。清晰、简明、一眼看去便知函数在做什么；返回值、参数、异步调用赫然在目，寥寥数语便能安全地把远隔重洋的数据下载到本地。这种对于程序运行结果的完全掌控感，是其他语言难以简单获得的。&lt;/li&gt;
 &lt;/ul&gt;
@@ -325,7 +325,7 @@ Powerful struct and enums in Swift are really big reasons for me to pick Swift a
     
       <item>
         <title>生活点滴随记 - 200703 - 鸡毛蒜皮</title>
-        <description>&lt;p&gt;周五视频完，&lt;del&gt;满~~脑&lt;/del&gt;门~~子里一堆念头，水一篇。&lt;/p&gt;
+        <description>&lt;p&gt;周五视频完，&lt;del&gt;满&lt;/del&gt;脑&lt;del&gt;门&lt;/del&gt;子里一堆念头，水一篇。&lt;/p&gt;
 
 &lt;h2 id=&quot;大学之旅般的奇幻冒险与尴尬处境&quot;&gt;《大学之旅》般的奇幻冒险与尴尬处境&lt;/h2&gt;
 

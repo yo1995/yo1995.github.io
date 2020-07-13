@@ -181,7 +181,7 @@
             <div class="content-color">
             
             <h1 id="概述">
-<a id="概述" class="anchor" href="#%E6%A6%82%E8%BF%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>概述</h1>
+<a class="anchor" href="#%E6%A6%82%E8%BF%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>概述</h1>
 
 <p>作为2016年年度笔记本，xps15很大程度上推动了Windows笔记本的发展，为今后的产品设计提供了一个十分优秀的模板。优秀的模具设计，对于性能和便携性的良好融合使其成为当下不可多得的风向标式产品。</p>
 
@@ -190,14 +190,14 @@
 <p>在中文网络中相关教程与步骤较少，特在此记录我的流程以方便他人查询。由于笔记本电脑配置各异，无法保证本文中涉及的方法具有普遍性。另外，由于hackintosh本身违反苹果用户协议，故本教程中所涉及内容仅供研究学习使用。</p>
 
 <h2 id="180726更新">
-<a id="180726更新" class="anchor" href="#180726%E6%9B%B4%E6%96%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>180726更新</h2>
+<a class="anchor" href="#180726%E6%9B%B4%E6%96%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>180726更新</h2>
 
 <p>注意到本链接在谷歌上排名靠前，如果有其他问题或者建议请使用文末的disqus进行评论交流，博主尽可能提供帮助。</p>
 
 <hr>
 
 <h2 id="机型配置">
-<a id="机型配置" class="anchor" href="#%E6%9C%BA%E5%9E%8B%E9%85%8D%E7%BD%AE" aria-hidden="true"><span class="octicon octicon-link"></span></a>机型配置</h2>
+<a class="anchor" href="#%E6%9C%BA%E5%9E%8B%E9%85%8D%E7%BD%AE" aria-hidden="true"><span class="octicon octicon-link"></span></a>机型配置</h2>
 
 <p>机型：DELL XPS15 9560
 CPU：Intel i5 7300HQ
@@ -211,7 +211,7 @@ CPU：Intel i5 7300HQ
 
 <hr>
 <h2 id="存在的问题">
-<a id="存在的问题" class="anchor" href="#%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>存在的问题</h2>
+<a class="anchor" href="#%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>存在的问题</h2>
 <ol>
   <li>睡眠唤醒。仍旧存在无法唤醒的情况，但通过合理处理硬盘扇区格式能够有效改善。</li>
   <li>独显/SD卡槽/指纹识别无法驱动。而触摸屏功能正常。</li>
@@ -220,7 +220,7 @@ CPU：Intel i5 7300HQ
 
 <hr>
 <h2 id="安装前准备工作">
-<a id="安装前准备工作" class="anchor" href="#%E5%AE%89%E8%A3%85%E5%89%8D%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装前准备工作</h2>
+<a class="anchor" href="#%E5%AE%89%E8%A3%85%E5%89%8D%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装前准备工作</h2>
 
 <ol>
   <li>升级电脑BIOS和SSD固件至最新版，避免积累性bug影响安装</li>
@@ -232,7 +232,7 @@ CPU：Intel i5 7300HQ
 
 <hr>
 <h2 id="系统安装过程">
-<a id="系统安装过程" class="anchor" href="#%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>系统安装过程</h2>
+<a class="anchor" href="#%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>系统安装过程</h2>
 
 <p>具体过程可参见相关文档，此处只简单标明几个重要节点。</p>
 
@@ -245,12 +245,12 @@ CPU：Intel i5 7300HQ
 
 <hr>
 <h2 id="安装后的几个问题">
-<a id="安装后的几个问题" class="anchor" href="#%E5%AE%89%E8%A3%85%E5%90%8E%E7%9A%84%E5%87%A0%E4%B8%AA%E9%97%AE%E9%A2%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装后的几个问题</h2>
+<a class="anchor" href="#%E5%AE%89%E8%A3%85%E5%90%8E%E7%9A%84%E5%87%A0%E4%B8%AA%E9%97%AE%E9%A2%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装后的几个问题</h2>
 <p>安装完系统后会发现苹果的一些应用无法打开，如handoff或facetime等等。另外，Mac Appstore也会提示“无法验证该设备”等内容。前者可通过在config.plist中填写真实的苹果序列号来修复，后者对于本配置可参考rehabman在GitHub上存储的nullEthernet.kext进行改善。</p>
 
 <hr>
 <h1 id="补充">
-<a id="补充" class="anchor" href="#%E8%A1%A5%E5%85%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>补充</h1>
+<a class="anchor" href="#%E8%A1%A5%E5%85%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>补充</h1>
 <ol>
   <li>4k扇区设置。
 由于Windows默认的分区操作中设置了逻辑扇区4096k/物理扇区512k的方法以保证对于之前操作系统的兼容性，与Sierra所使用的双4096k不一致，因此之前对该问题对的解决方案一直是使用第三方驱动。但每次苹果系统小版本升级时，黑苹果们都必须等待新的驱动被编译才能升级，不免有些小小的不爽。更不用说硬盘驱动不一致所带来的诸多问题。</li>

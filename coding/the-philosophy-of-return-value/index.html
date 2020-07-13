@@ -201,7 +201,7 @@
 <hr>
 
 <h2 id="先看几个函数原型">
-<a id="先看几个函数原型" class="anchor" href="#%E5%85%88%E7%9C%8B%E5%87%A0%E4%B8%AA%E5%87%BD%E6%95%B0%E5%8E%9F%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>先看几个函数原型</h2>
+<a class="anchor" href="#%E5%85%88%E7%9C%8B%E5%87%A0%E4%B8%AA%E5%87%BD%E6%95%B0%E5%8E%9F%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>先看几个函数原型</h2>
 
 <pre><code class="language-C">#include &lt;sys/types.h&gt;
 #include &lt;sys/socket.h&gt;
@@ -214,7 +214,7 @@ int getaddrinfo(const char *node, const char *service,
 </code></pre>
 <p><a href="https://man7.org/linux/man-pages/man3/getaddrinfo.3.html">man7</a></p>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">HANDLE</span> <span class="n">CreateThread</span><span class="p">(</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">HANDLE</span> <span class="nf">CreateThread</span><span class="p">(</span>
   <span class="n">LPSECURITY_ATTRIBUTES</span>   <span class="n">lpThreadAttributes</span><span class="p">,</span>
   <span class="n">SIZE_T</span>                  <span class="n">dwStackSize</span><span class="p">,</span>
   <span class="n">LPTHREAD_START_ROUTINE</span>  <span class="n">lpStartAddress</span><span class="p">,</span>
@@ -242,7 +242,7 @@ completionHandler: @escaping (URL?, URLResponse?, Error?) -&gt; Void) -&gt; URLS
 <hr>
 
 <h2 id="返回什么">
-<a id="返回什么" class="anchor" href="#%E8%BF%94%E5%9B%9E%E4%BB%80%E4%B9%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>返回什么？</h2>
+<a class="anchor" href="#%E8%BF%94%E5%9B%9E%E4%BB%80%E4%B9%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>返回什么？</h2>
 
 <p>长久以来，或说从正式开始学习写程序以来，头脑中一直萦绕着这样一个问题：函数返回值应该是什么？</p>
 
@@ -265,7 +265,7 @@ completionHandler: @escaping (URL?, URLResponse?, Error?) -&gt; Void) -&gt; URLS
 <hr>
 
 <h3 id="第一阶段">
-<a id="第一阶段" class="anchor" href="#%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>第一阶段</h3>
+<a class="anchor" href="#%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>第一阶段</h3>
 
 <p>如引用和附录所言，自己第一次正经学编程语言，是在大一时学的C语言程序设计课上。中学虽然用过一些脚本和VB6.0，但都只是玩票，对于数据结构和算法完全没有认知。学完本科的C语言课程后，在很长一段时间里，我的编程思维都是面向过程的、C风格的，没法写出任何稍微复杂的需要有面向对象思维的程序。就拿本科写的最复杂的几个程序来说：MATLAB计算波导磁场、Verilog调制解调、LabVIEW信号采集。它们大多数都像是将数学公式和函数，或是一个操作过程用程序语言描述出来，只需要简单的control flow即可实现“自动化”。</p>
 
@@ -274,10 +274,10 @@ completionHandler: @escaping (URL?, URLResponse?, Error?) -&gt; Void) -&gt; URLS
 <pre><code class="language-C">void foo()
 </code></pre>
 
-<p>完全就是用一个函数把一坨逻辑打包装起来，在需要的时候调用罢了。现在看来，这种所有语句全都堆在<code class="highlighter-rouge">main.c</code>里面的程序，完全可以用<code class="highlighter-rouge">goto</code>甚至汇编的<code class="highlighter-rouge">je</code>来实现。那时对于返回值基本相当于没有概念。</p>
+<p>完全就是用一个函数把一坨逻辑打包装起来，在需要的时候调用罢了。现在看来，这种所有语句全都堆在<code class="language-plaintext highlighter-rouge">main.c</code>里面的程序，完全可以用<code class="language-plaintext highlighter-rouge">goto</code>甚至汇编的<code class="language-plaintext highlighter-rouge">je</code>来实现。那时对于返回值基本相当于没有概念。</p>
 
 <h3 id="第二阶段">
-<a id="第二阶段" class="anchor" href="#%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>第二阶段</h3>
+<a class="anchor" href="#%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>第二阶段</h3>
 
 <p>2017年9月第一次学正经的“工业语言”C++。说是正经学，实际上一知半解。对于面向对象的“封装继承多态”完全没有概念，重载和重写傻傻分不清。甚至连函数指针都唯恐避之不及。最后结果也相当凄惨，在献祭了人生第一次通宵后依旧备受打击。</p>
 
@@ -296,12 +296,12 @@ completionHandler: @escaping (URL?, URLResponse?, Error?) -&gt; Void) -&gt; URLS
 <p>大家会心一笑。后来我才知道Java连malloc都不用，更别提指针了。当然这些都是后话。</p>
 
 <h3 id="第三阶段">
-<a id="第三阶段" class="anchor" href="#%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>第三阶段</h3>
+<a class="anchor" href="#%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>第三阶段</h3>
 
 <p>2019年6月的某一天，是我视作正式“转码”的日子——那天，我打开LeetCode，做了第一道题：Two Sum。第一次提交的代码——</p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
+<span class="nl">public:</span>
     <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">twoSum</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
         <span class="kt">int</span> <span class="n">index1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -333,13 +333,13 @@ completionHandler: @escaping (URL?, URLResponse?, Error?) -&gt; Void) -&gt; URLS
 <p>有一段时间“能不返回就不返回”，尽可能地遵照C风格的返回错误代码，指针传递结果的写法来写。较复杂的函数还好，一些简单的函数如strip()，都这样搞实在费劲。看着函数里一排指针就头疼！写C++后则遵照能不在子函数new就不new的写法来写，在main函数里把所有需要的内存全申请了，这总该可以了吧——引用传来传去还是头疼！后来只好随心所欲，遵循“想返回什么就返回什么”的写法。虽然写起来自然，但重看重构代码有时觉得以前的设计不好，也很纠结。没法子，上论坛发帖，结果发现这个问题确实没有定论。唉，还是得自己慢慢摸索！</p>
 
 <h2 id="再看上面的函数">
-<a id="再看上面的函数" class="anchor" href="#%E5%86%8D%E7%9C%8B%E4%B8%8A%E9%9D%A2%E7%9A%84%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>再看上面的函数</h2>
+<a class="anchor" href="#%E5%86%8D%E7%9C%8B%E4%B8%8A%E9%9D%A2%E7%9A%84%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>再看上面的函数</h2>
 
 <p>比较熟悉的几种编译时语言的一些常用系统函数。反映了我的心路历程。</p>
 
 <ul>
   <li>开始写稍微复杂的C程序时，光是读man page就要读到头痛。无数的自定义结构体、传来传去的指针、未定义的返回错误代码。再加上字符串……还是只让C做它的本职工作好了。</li>
-  <li>写奇怪的平台限定C++程序时：啥啥啥，这些玩意都是啥？如果MATLAB程序的库函数返回一个“handle”、句柄，大部分时候权当做空气无视掉。返回值看不懂不如看看参数。这些参数又是啥？没一个基础值类型，也不是标准库的数据结构。不如再来个<code class="highlighter-rouge">LPCWSTR const wchar_t*</code>图一乐。</li>
+  <li>写奇怪的平台限定C++程序时：啥啥啥，这些玩意都是啥？如果MATLAB程序的库函数返回一个“handle”、句柄，大部分时候权当做空气无视掉。返回值看不懂不如看看参数。这些参数又是啥？没一个基础值类型，也不是标准库的数据结构。不如再来个<code class="language-plaintext highlighter-rouge">LPCWSTR const wchar_t*</code>图一乐。</li>
   <li>C#终于回到了人类世界。真的，第一次写C#程序时，虽然完全不懂它的语法，但还是莫名地有了被微软温柔以待的感觉。风格沿袭C语言，而变得简明。不再纠结写点还是箭头，自动补全也比Sublime手撸C++畅快了许多。虽然文本编辑器也能补全，但预置没法一键查文档，查调用，还是比不上“宇宙第一”IDE来得方便。</li>
   <li>Swift终于让我确信自己不是智障，甚至有了些自信。清晰、简明、一眼看去便知函数在做什么；返回值、参数、异步调用赫然在目，寥寥数语便能安全地把远隔重洋的数据下载到本地。这种对于程序运行结果的完全掌控感，是其他语言难以简单获得的。</li>
 </ul>
@@ -347,7 +347,7 @@ completionHandler: @escaping (URL?, URLResponse?, Error?) -&gt; Void) -&gt; URLS
 <p>或许下一步该看函数式语言了。</p>
 
 <h2 id="瞎比拟">
-<a id="瞎比拟" class="anchor" href="#%E7%9E%8E%E6%AF%94%E6%8B%9F" aria-hidden="true"><span class="octicon octicon-link"></span></a>瞎比拟</h2>
+<a class="anchor" href="#%E7%9E%8E%E6%AF%94%E6%8B%9F" aria-hidden="true"><span class="octicon octicon-link"></span></a>瞎比拟</h2>
 
 <ul>
   <li>C++像清真寺、Swift像麦当劳</li>
@@ -416,7 +416,7 @@ completionHandler: @escaping (URL?, URLResponse?, Error?) -&gt; Void) -&gt; URLS
 <hr>
 
 <h2 id="附录关于返回值的胡比聊天">
-<a id="附录关于返回值的胡比聊天" class="anchor" href="#%E9%99%84%E5%BD%95%E5%85%B3%E4%BA%8E%E8%BF%94%E5%9B%9E%E5%80%BC%E7%9A%84%E8%83%A1%E6%AF%94%E8%81%8A%E5%A4%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>附录：关于返回值的胡比聊天</h2>
+<a class="anchor" href="#%E9%99%84%E5%BD%95%E5%85%B3%E4%BA%8E%E8%BF%94%E5%9B%9E%E5%80%BC%E7%9A%84%E8%83%A1%E6%AF%94%E8%81%8A%E5%A4%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>附录：关于返回值的胡比聊天</h2>
 
 <details>
 
@@ -424,7 +424,7 @@ completionHandler: @escaping (URL?, URLResponse?, Error?) -&gt; Void) -&gt; URLS
 
 &gt; Do we ever use `@inout` in production?
 
-File related wrapper functions (such as this link) in both Cocoa and iOS Foundation sometimes deals with reference or pointers, probably due to legacy interface in OS 9 era <img class="emoji" title=":confused:" alt=":confused:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f615.png" height="20" width="20">. But this is gonna got "fixed" by newly introduced https://developer.apple.com/documentation/system in next Swift release <img class="emoji" title=":smirk_cat:" alt=":smirk_cat:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f63c.png" height="20" width="20">.
+File related wrapper functions (such as this link) in both Cocoa and iOS Foundation sometimes deals with reference or pointers, probably due to legacy interface in OS 9 era <img class="emoji" title=":confused:" alt=":confused:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f615.png" height="20" width="20">. But this is gonna got "fixed" by newly introduced https://developer.apple.com/documentation/system in next Swift release <img class="emoji" title=":smirk_cat:" alt=":smirk_cat:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f63c.png" height="20" width="20">.
 
 - markd
 
@@ -432,11 +432,11 @@ the reason C / objc needs to do that is that you can't have more than one return
 
 - Ting
 
-Actually thinking more on this topic, I recalled a longtime intriguing question back when I started to learn programming with C - what should a function return? Really like to hear some thoughts! <img class="emoji" title=":pray:" alt=":pray:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f64f.png" height="20" width="20">
+Actually thinking more on this topic, I recalled a longtime intriguing question back when I started to learn programming with C - what should a function return? Really like to hear some thoughts! <img class="emoji" title=":pray:" alt=":pray:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f64f.png" height="20" width="20">
 
 When I learned C for the first time, I tend to go "intuitively", sth like `int add(int a, int b) { return a + b }`
 After I learned pointer I got to know `void swap(int * a, int * b) { // ... }`
-And when I later touched syscalls, I found lots of system level functions set return value as error numbers, rather than the result of a function. Some consumes a pointer to a special struct as argument and change it as the “result”. This makes me confused, and I’m a bit lost what to use. <img class="emoji" title=":dizzy_face:" alt=":dizzy_face:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f635.png" height="20" width="20"> 
+And when I later touched syscalls, I found lots of system level functions set return value as error numbers, rather than the result of a function. Some consumes a pointer to a special struct as argument and change it as the “result”. This makes me confused, and I’m a bit lost what to use. <img class="emoji" title=":dizzy_face:" alt=":dizzy_face:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f635.png" height="20" width="20"> 
 
 Is there a "rule of thumb" for what to use as return value?
 I’d like to learn from veterans that how do industries design APIs through the years.
@@ -469,7 +469,7 @@ but for the most part, objc / Cocoa / Apple calls return a value.  Some classes 
 
 - Mikey Ward (BNR)
 
-What he said. <img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"> Mark’s a trustable resource on that stuff. But yeah, when an ObjC method wanted to give you back two pieces of data, usually either a boolean or status code indicating success failure, and a data structure containing the body of output, the method would usually return the bool or int code, since that’s small data, and use its out parameter to give you a handle to the larger data structure. A cool side effect here is that it was returning to you information that you needed first - knowledge of where you had succeeded, or an error code - and then you could use that to decide whether to bother reading through the outparameter's pointer to read the larger payload. No sense in trying to read data you know won't be there, you know? 
+What he said. <img class="emoji" title=":sweat_smile:" alt=":sweat_smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f605.png" height="20" width="20"> Mark’s a trustable resource on that stuff. But yeah, when an ObjC method wanted to give you back two pieces of data, usually either a boolean or status code indicating success failure, and a data structure containing the body of output, the method would usually return the bool or int code, since that’s small data, and use its out parameter to give you a handle to the larger data structure. A cool side effect here is that it was returning to you information that you needed first - knowledge of where you had succeeded, or an error code - and then you could use that to decide whether to bother reading through the outparameter's pointer to read the larger payload. No sense in trying to read data you know won't be there, you know? 
 
 - Mikey Ward (BNR)
 
@@ -477,9 +477,9 @@ In Swift, however, it is generally more idiomatic to define a custom type (struc
 
 - Ting
 
-Thanks Mark and Mikey for the details. Quite informative! <img class="emoji" title=":smile:" alt=":smile:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png" height="20" width="20">
+Thanks Mark and Mikey for the details. Quite informative! <img class="emoji" title=":smile:" alt=":smile:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png" height="20" width="20">
 I guess part of the reasons we are moving towards a more value-based programming style are because - 1. computers are faster and memory is larger nowadays, which allows some overhead and 2. multithreading is less error-prone with each “task” having its own copy of data on stack. Is that correct?
-Powerful struct and enums in Swift are really big reasons for me to pick Swift as my go-to OOP language… <img class="emoji" title=":smirk_cat:" alt=":smirk_cat:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f63c.png" height="20" width="20">
+Powerful struct and enums in Swift are really big reasons for me to pick Swift as my go-to OOP language… <img class="emoji" title=":smirk_cat:" alt=":smirk_cat:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f63c.png" height="20" width="20">
 
 </details>
 

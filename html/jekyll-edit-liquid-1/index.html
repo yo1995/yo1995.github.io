@@ -181,7 +181,7 @@
             <div class="content-color">
             
             <h2 id="遇到的小bug之一相册分类重复">
-<a id="遇到的小bug之一相册分类重复" class="anchor" href="#%E9%81%87%E5%88%B0%E7%9A%84%E5%B0%8Fbug%E4%B9%8B%E4%B8%80%E7%9B%B8%E5%86%8C%E5%88%86%E7%B1%BB%E9%87%8D%E5%A4%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a>遇到的小bug之一：相册分类重复</h2>
+<a class="anchor" href="#%E9%81%87%E5%88%B0%E7%9A%84%E5%B0%8Fbug%E4%B9%8B%E4%B8%80%E7%9B%B8%E5%86%8C%E5%88%86%E7%B1%BB%E9%87%8D%E5%A4%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a>遇到的小bug之一：相册分类重复</h2>
 <p>由于遍历相册分类时，有些相册的分类是相同的。这时生成的页面就会有多个相同的相册分类……（好像绕口令）</p>
 
 <p>其实是当时设计修改相册功能时的一个小疏漏。改之。</p>
@@ -190,8 +190,8 @@
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">photos</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">group_by</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>group<span class="w"> </span>in<span class="w"> </span>groups<span class="w"> </span><span class="p">%}</span>
-	<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>item<span class="w"> </span>in<span class="w"> </span>group.items<span class="w"> </span><span class="p">%}</span>				
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">group</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="p">%}</span>
+	<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">group.items</span><span class="w"> </span><span class="p">%}</span>				
 		&lt;a href="/photos/" data-filter=".f_<span class="p">{{</span><span class="w"> </span><span class="nv">item</span><span class="p">.</span><span class="nv">category</span><span class="w"> </span><span class="p">}}</span>"&gt;
 			&lt;span&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">item</span><span class="p">.</span><span class="nv">category</span><span class="w"> </span><span class="p">}}</span>&lt;/span&gt;
 		&lt;/a&gt;
@@ -199,7 +199,7 @@
 <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
 
 // in post-sidebar.html，| first
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>category<span class="w"> </span>in<span class="w"> </span>site.categories<span class="w"> </span><span class="p">%}{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">category</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.categories</span><span class="w"> </span><span class="p">%}{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
 
 </code></pre></div></div>
 <p>可以看到，其实上面犯了一个比较简单的错误，就是在遍历中遍历了item项。由于具有相同分类的页面会被记为同一分类的多个item，因而遍历出来的也会重复啦。</p>
@@ -207,7 +207,7 @@
 <p>修改后代码：</p>
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">photos</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">group_by</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>group<span class="w"> </span>in<span class="w"> </span>groups<span class="w"> </span><span class="p">%}</span>			
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">group</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="p">%}</span>			
 	&lt;a href="/photos/" data-filter=".f_<span class="p">{{</span><span class="w"> </span><span class="nv">group</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="p">}}</span>"&gt;
 	    &lt;span&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">group</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="p">}}</span>&lt;/span&gt;
 	&lt;/a&gt;
@@ -217,15 +217,15 @@
 <p>遍历一下name标签即可。</p>
 
 <h2 id="遇到的小bug之二category排序">
-<a id="遇到的小bug之二category排序" class="anchor" href="#%E9%81%87%E5%88%B0%E7%9A%84%E5%B0%8Fbug%E4%B9%8B%E4%BA%8Ccategory%E6%8E%92%E5%BA%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>遇到的小bug之二：category排序</h2>
+<a class="anchor" href="#%E9%81%87%E5%88%B0%E7%9A%84%E5%B0%8Fbug%E4%B9%8B%E4%BA%8Ccategory%E6%8E%92%E5%BA%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>遇到的小bug之二：category排序</h2>
 <p>强迫症实在不能忍按照时间顺序建立的tag标签树！必须要按首字母顺序啊，到时集齐了26个字母肯定好看！</p>
 
 <p>还是先看代码：</p>
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>cat<span class="w"> </span>in<span class="w"> </span>site.categories<span class="w"> </span><span class="p">%}</span>
-## <span class="p">{{</span><span class="w"> </span><span class="nv">cat</span><span class="p">.</span><span class="nv">first</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">cat</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.categories</span><span class="w"> </span><span class="p">%}</span>
+## <span class="p">{{</span><span class="w"> </span><span class="nv">cat</span><span class="p">.</span><span class="nf">first</span><span class="w"> </span><span class="p">}}</span>
 &lt;p&gt;&lt;ol&gt;
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>post<span class="w"> </span>in<span class="w"> </span>site.categories[cat.first]<span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">post</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.categories[cat.first]</span><span class="w"> </span><span class="p">%}</span>
 &lt;li&gt;&lt;a href="<span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>"&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">}}</span>&lt;/a&gt; - <span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date</span><span class="p">:</span><span class="w"> </span><span class="s2">"%b %-d, %Y"</span><span class="w"> </span><span class="p">}}</span>&lt;/li&gt;
 <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
 &lt;/ol&gt;&lt;/p&gt;
@@ -240,10 +240,10 @@
 <p>修改后的代码：</p>
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">posts</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">group_by</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>group<span class="w"> </span>in<span class="w"> </span>groups<span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">group</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="p">%}</span>
 	## <span class="p">{{</span><span class="w"> </span><span class="nv">group</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="p">}}</span>	
 	&lt;p&gt;&lt;ol&gt;	
-		<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>post<span class="w"> </span>in<span class="w"> </span>group.items<span class="w"> </span><span class="p">%}</span>
+		<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">post</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">group.items</span><span class="w"> </span><span class="p">%}</span>
 			&lt;li&gt;&lt;a href="<span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>"&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">}}</span>&lt;/a&gt; - <span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date</span><span class="p">:</span><span class="w"> </span><span class="s2">"%b %-d, %Y"</span><span class="w"> </span><span class="p">}}</span>&lt;/li&gt;
 		<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
 	&lt;/ol&gt;&lt;/p&gt;
@@ -255,7 +255,7 @@
 <p>对于tag也是同样的修改。另外记得把sidebar上的也给改掉啦。OK，安逸~</p>
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">posts</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">group_by</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>category<span class="w"> </span>in<span class="w"> </span>groups<span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">category</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="p">%}</span>
 &lt;li&gt;&lt;a href="/categories/#<span class="p">{{</span><span class="w"> </span><span class="nv">category</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">downcase</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">replace</span><span class="p">:</span><span class="w"> </span><span class="s1">' '</span><span class="p">,</span><span class="w"> </span><span class="s1">'-'</span><span class="w"> </span><span class="p">}}</span>"&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">category</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="p">}}</span>&lt;/a&gt;&lt;/li&gt;
 <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
 
@@ -264,7 +264,7 @@
 <p>等等，不对吧……？！</p>
 
 <h2 id="遇到的小bug之三tags排序">
-<a id="遇到的小bug之三tags排序" class="anchor" href="#%E9%81%87%E5%88%B0%E7%9A%84%E5%B0%8Fbug%E4%B9%8B%E4%B8%89tags%E6%8E%92%E5%BA%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>遇到的小bug之三：tags排序</h2>
+<a class="anchor" href="#%E9%81%87%E5%88%B0%E7%9A%84%E5%B0%8Fbug%E4%B9%8B%E4%B8%89tags%E6%8E%92%E5%BA%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>遇到的小bug之三：tags排序</h2>
 <p>每篇文章有一个category，但是有多个tags啊，想当然就直接改了，最后的结果肯定是输出了一堆多元数组……</p>
 
 <p>这倒是难不倒我。还是来分析一下。先看看结构：</p>
@@ -287,14 +287,14 @@
 <p>You can find Liquid documents at <a href="https://shopify.github.io/liquid/">https://shopify.github.io/liquid/</a>, and how Jekyll using it via <a href="https://jekyllrb.com/docs/templates/">https://jekyllrb.com/docs/templates/</a>.</p>
 
 <h2 id="liquid-basics">
-<a id="liquid-basics" class="anchor" href="#liquid-basics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Liquid Basics</h2>
+<a class="anchor" href="#liquid-basics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Liquid Basics</h2>
 
 <p>Liquid code can be categorized into <strong><em>objects</em></strong>, <strong><em>tags</em></strong>, and <strong><em>filters</em></strong>.</p>
 
 <h4 id="objects">
-<a id="objects" class="anchor" href="#objects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objects</h4>
+<a class="anchor" href="#objects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objects</h4>
 
-<p><strong>Objects</strong> tell Liquid where to show content on a page and denoted by double curly braces: <code class="highlighter-rouge">{{</code> and <code class="highlighter-rouge">}}</code>.</p>
+<p><strong>Objects</strong> tell Liquid where to show content on a page and denoted by double curly braces: <code class="language-plaintext highlighter-rouge">{{</code> and <code class="language-plaintext highlighter-rouge">}}</code>.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">}}</span>
@@ -304,15 +304,15 @@ Jekyll 之修改 liquid 代码：去重、排序以及其它
 </code></pre></div></div>
 
 <h4 id="tags">
-<a id="tags" class="anchor" href="#tags" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tags</h4>
+<a class="anchor" href="#tags" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tags</h4>
 
-<p><strong>Tags</strong> create the logic and control flow for templates. They are denoted by curly braces and percent signs: <code class="highlighter-rouge">{%</code> and <code class="highlighter-rouge">%}</code>.</p>
+<p><strong>Tags</strong> create the logic and control flow for templates. They are denoted by curly braces and percent signs: <code class="language-plaintext highlighter-rouge">{%</code> and <code class="language-plaintext highlighter-rouge">%}</code>.</p>
 
 <p>The markup used in tags does not produce any visible text. This means that you can assign variables and create conditions and loops without showing any of the Liquid logic on the page.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">statement</span><span class="w"> </span><span class="p">%}</span>
-  Hello, you are visiting <span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">prepend</span><span class="p">:</span><span class="w"> </span>site.url<span class="w"> </span><span class="p">}}</span>.
+  Hello, you are visiting <span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">prepend</span><span class="p">:</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>.
 <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
 
 Output:
@@ -328,9 +328,9 @@ Output:
 </ul>
 
 <h4 id="filters">
-<a id="filters" class="anchor" href="#filters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filters</h4>
+<a class="anchor" href="#filters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filters</h4>
 
-<p><strong>Filters</strong> change the output of a Liquid object. They are used within an output and are separated by a <code class="highlighter-rouge">|</code>.</p>
+<p><strong>Filters</strong> change the output of a Liquid object. They are used within an output and are separated by a <code class="language-plaintext highlighter-rouge">|</code>.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">append</span><span class="p">:</span><span class="w"> </span><span class="s1">'.html'</span><span class="w"> </span><span class="p">}}</span>
@@ -340,10 +340,10 @@ Output:
 </code></pre></div></div>
 
 <h3 id="operators">
-<a id="operators" class="anchor" href="#operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Operators</h3>
+<a class="anchor" href="#operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Operators</h3>
 
 <h4 id="basic-operators">
-<a id="basic-operators" class="anchor" href="#basic-operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Operators</h4>
+<a class="anchor" href="#basic-operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Operators</h4>
 
 <table>
   <tbody>
@@ -391,37 +391,37 @@ Output:
 
 <p>You can use multiple operators in a single tag:</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">product</span><span class="p">.</span><span class="nv">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Shirt"</span><span class="w"> </span><span class="nv">or</span><span class="w"> </span><span class="nv">product</span><span class="p">.</span><span class="nv">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Shoes"</span><span class="w"> </span><span class="p">%}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">product</span><span class="p">.</span><span class="nv">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Shirt"</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">product</span><span class="p">.</span><span class="nv">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Shoes"</span><span class="w"> </span><span class="p">%}</span>
   This is a shirt or a pair of shoes.
 <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
 </code></pre></div></div>
 
 <h4 id="contains">
-<a id="contains" class="anchor" href="#contains" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contains</h4>
+<a class="anchor" href="#contains" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contains</h4>
 
-<p><code class="highlighter-rouge">contains</code> checks for the presence of a substring inside a string:</p>
+<p><code class="language-plaintext highlighter-rouge">contains</code> checks for the presence of a substring inside a string:</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="ow">contains</span><span class="w"> </span><span class="s1">'Pack'</span><span class="w"> </span><span class="p">%}</span>
   This page's title contains the word Pack.
 <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">contains</code> can also check for the presence of a string in an array of strings:</p>
+<p><code class="language-plaintext highlighter-rouge">contains</code> can also check for the presence of a string in an array of strings:</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">tags</span><span class="w"> </span><span class="ow">contains</span><span class="w"> </span><span class="s1">'Hello'</span><span class="w"> </span><span class="p">%}</span>
   This page has been tagged with 'Hello'.
 <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
 </code></pre></div></div>
 
-<p class="alert alert-info"><code class="highlighter-rouge">contains</code> can only search strings. You cannot use it to check for an object in an array of objects.</p>
+<p class="alert alert-info"><code class="language-plaintext highlighter-rouge">contains</code> can only search strings. You cannot use it to check for an object in an array of objects.</p>
 
 <h3 id="truthy-and-falsy">
-<a id="truthy-and-falsy" class="anchor" href="#truthy-and-falsy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Truthy and Falsy</h3>
+<a class="anchor" href="#truthy-and-falsy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Truthy and Falsy</h3>
 
 <h4 id="truthy">
-<a id="truthy" class="anchor" href="#truthy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Truthy</h4>
+<a class="anchor" href="#truthy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Truthy</h4>
 
-<p>All values in Liquid are <strong>truthy</strong> except <code class="highlighter-rouge">nil</code> and <code class="highlighter-rouge">false</code>. In the example below, the string “Tobi” is not a boolean, but it is truthy in a conditional:</p>
+<p>All values in Liquid are <strong>truthy</strong> except <code class="language-plaintext highlighter-rouge">nil</code> and <code class="language-plaintext highlighter-rouge">false</code>. In the example below, the string “Tobi” is not a boolean, but it is truthy in a conditional:</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">tobi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Tobi"</span><span class="w"> </span><span class="p">%}</span>
 
@@ -430,15 +430,15 @@ Output:
 <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
 </code></pre></div></div>
 
-<p class="alert alert-info"><code class="highlighter-rouge">strings</code>, even when empty, are truthy.</p>
+<p class="alert alert-info"><code class="language-plaintext highlighter-rouge">strings</code>, even when empty, are truthy.</p>
 
 <h4 id="falsy">
-<a id="falsy" class="anchor" href="#falsy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Falsy</h4>
+<a class="anchor" href="#falsy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Falsy</h4>
 
-<p>The falsy values in Liquid are <code class="highlighter-rouge">nil</code> and <code class="highlighter-rouge">false</code>.</p>
+<p>The falsy values in Liquid are <code class="language-plaintext highlighter-rouge">nil</code> and <code class="language-plaintext highlighter-rouge">false</code>.</p>
 
 <h3 id="object-types">
-<a id="object-types" class="anchor" href="#object-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Object Types</h3>
+<a class="anchor" href="#object-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Object Types</h3>
 
 <p>Liquid objects can have one of these types:</p>
 
@@ -453,7 +453,7 @@ Output:
 <p>You can initialize Liquid variables with the <strong>assign</strong> or <strong>capture</strong> tags.</p>
 
 <h4 id="string">
-<a id="string" class="anchor" href="#string" aria-hidden="true"><span class="octicon octicon-link"></span></a>String</h4>
+<a class="anchor" href="#string" aria-hidden="true"><span class="octicon octicon-link"></span></a>String</h4>
 
 <p>Declare a string by wrapping a variable’s value in single or double quotes:</p>
 
@@ -461,7 +461,7 @@ Output:
 </code></pre></div></div>
 
 <h4 id="number">
-<a id="number" class="anchor" href="#number" aria-hidden="true"><span class="octicon octicon-link"></span></a>Number</h4>
+<a class="anchor" href="#number" aria-hidden="true"><span class="octicon octicon-link"></span></a>Number</h4>
 
 <p>Numbers include floats and integers:</p>
 
@@ -470,20 +470,20 @@ Output:
 </code></pre></div></div>
 
 <h4 id="boolean">
-<a id="boolean" class="anchor" href="#boolean" aria-hidden="true"><span class="octicon octicon-link"></span></a>Boolean</h4>
+<a class="anchor" href="#boolean" aria-hidden="true"><span class="octicon octicon-link"></span></a>Boolean</h4>
 
-<p>Booleans are either <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code>. No quotations are necessary when declaring a boolean:</p>
+<p>Booleans are either <code class="language-plaintext highlighter-rouge">true</code> or <code class="language-plaintext highlighter-rouge">false</code>. No quotations are necessary when declaring a boolean:</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">%}</span>
 <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">bar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">%}</span>
 </code></pre></div></div>
 
 <h4 id="nil">
-<a id="nil" class="anchor" href="#nil" aria-hidden="true"><span class="octicon octicon-link"></span></a>Nil</h4>
+<a class="anchor" href="#nil" aria-hidden="true"><span class="octicon octicon-link"></span></a>Nil</h4>
 
-<p>Nil is a special empty value that is returned when Liquid code has no results. It is <strong>not a string</strong> with the characters “nil”. Nil is treated as <code class="highlighter-rouge">false</code> in the conditions of <code class="highlighter-rouge">if</code> blocks and other Liquid tags that check the truthfulness of a statement.</p>
+<p>Nil is a special empty value that is returned when Liquid code has no results. It is <strong>not a string</strong> with the characters “nil”. Nil is treated as <code class="language-plaintext highlighter-rouge">false</code> in the conditions of <code class="language-plaintext highlighter-rouge">if</code> blocks and other Liquid tags that check the truthfulness of a statement.</p>
 
-<p>In the following example, the <code class="highlighter-rouge">page.author</code> does not exist (i.e. <code class="highlighter-rouge">{{ page.author }}</code> returns <code class="highlighter-rouge">nil</code>), Liquid will not print anything:</p>
+<p>In the following example, the <code class="language-plaintext highlighter-rouge">page.author</code> does not exist (i.e. <code class="language-plaintext highlighter-rouge">{{ page.author }}</code> returns <code class="language-plaintext highlighter-rouge">nil</code>), Liquid will not print anything:</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">author</span><span class="w"> </span><span class="p">%}</span>
   post by <span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">author</span><span class="w"> </span><span class="p">}}</span>
@@ -498,14 +498,14 @@ Output:
 </code></pre></div></div>
 
 <h4 id="array">
-<a id="array" class="anchor" href="#array" aria-hidden="true"><span class="octicon octicon-link"></span></a>Array</h4>
+<a class="anchor" href="#array" aria-hidden="true"><span class="octicon octicon-link"></span></a>Array</h4>
 
-<p>Arrays hold lists of variables of any type. You cannot initialize arrays using only Liquid. You can, however, use the <code class="highlighter-rouge">split</code> filter to break a string into an array of substrings.</p>
+<p>Arrays hold lists of variables of any type. You cannot initialize arrays using only Liquid. You can, however, use the <code class="language-plaintext highlighter-rouge">split</code> filter to break a string into an array of substrings.</p>
 
 <p><strong>Accessing items in arrays</strong>:</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>tag<span class="w"> </span>in<span class="w"> </span>page.tags<span class="w"> </span><span class="p">%}</span> <span class="p">{{</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="p">}}</span> <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">page.tags</span><span class="w"> </span><span class="p">%}</span> <span class="p">{{</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="p">}}</span> <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
 
 Output:
  technology  helloworld 
@@ -513,7 +513,7 @@ Output:
 
 <p><strong>Accessing specific items in arrays</strong></p>
 
-<p>You can use square bracket <code class="highlighter-rouge">[ ]</code> notation to access a specific item in an array. Array indexing starts at zero.</p>
+<p>You can use square bracket <code class="language-plaintext highlighter-rouge">[ ]</code> notation to access a specific item in an array. Array indexing starts at zero.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">tags</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">}}</span>
@@ -523,9 +523,9 @@ helloworld
 </code></pre></div></div>
 
 <h3 id="whitespace-control">
-<a id="whitespace-control" class="anchor" href="#whitespace-control" aria-hidden="true"><span class="octicon octicon-link"></span></a>Whitespace Control</h3>
+<a class="anchor" href="#whitespace-control" aria-hidden="true"><span class="octicon octicon-link"></span></a>Whitespace Control</h3>
 
-<p>In Liquid, you can include a hyphen in your tag syntax <code class="highlighter-rouge">{{-</code>, <code class="highlighter-rouge">-}}</code>, <code class="highlighter-rouge">{%-</code>, and <code class="highlighter-rouge">-%}</code> to strip whitespace from the left or right side of a rendered tag. Normally, even if it doesn’t output text, any line of Liquid in your template will still output <strong>a blank line</strong> in the rendered HTML:</p>
+<p>In Liquid, you can include a hyphen in your tag syntax <code class="language-plaintext highlighter-rouge">{{-</code>, <code class="language-plaintext highlighter-rouge">-}}</code>, <code class="language-plaintext highlighter-rouge">{%-</code>, and <code class="language-plaintext highlighter-rouge">-%}</code> to strip whitespace from the left or right side of a rendered tag. Normally, even if it doesn’t output text, any line of Liquid in your template will still output <strong>a blank line</strong> in the rendered HTML:</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"tomato"</span><span class="w"> </span><span class="p">%}</span>
@@ -537,28 +537,28 @@ tomato
 # notice the blank line before “tomato” in the rendered result
 </code></pre></div></div>
 
-<p>By including hyphens in your <code class="highlighter-rouge">assign</code> tag, you can strip the generated whitespace from the rendered template. <strong>But it seems not work when building with Jekyll 3.2.1 locally on my Windows PC.</strong></p>
+<p>By including hyphens in your <code class="language-plaintext highlighter-rouge">assign</code> tag, you can strip the generated whitespace from the rendered template. <strong>But it seems not work when building with Jekyll 3.2.1 locally on my Windows PC.</strong></p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="nt">-</span><span class="w"> </span>assign<span class="w"> </span><span class="na">my_variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"tomato"</span><span class="w"> </span>-<span class="p">%}</span>
+<span class="p">{%-</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"tomato"</span><span class="w"> </span><span class="p">-%}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="p">}}</span>
 
 Output:
-# jekyll 3.2.1 | Error:  Liquid syntax error: Tag '<span class="p">{%</span><span class="nt">-</span><span class="w"> </span>assign<span class="w"> </span><span class="na">my_variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"tomato"</span><span class="w"> </span>-<span class="p">%}</span>' was not properly terminated with regexp: /\%\}/
+# jekyll 3.2.1 | Error:  Liquid syntax error: Tag '<span class="p">{%-</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"tomato"</span><span class="w"> </span><span class="p">-%}</span>' was not properly terminated with regexp: /\%\}/
 </code></pre></div></div>
 
 <h2 id="liquid-tags">
-<a id="liquid-tags" class="anchor" href="#liquid-tags" aria-hidden="true"><span class="octicon octicon-link"></span></a>Liquid Tags</h2>
+<a class="anchor" href="#liquid-tags" aria-hidden="true"><span class="octicon octicon-link"></span></a>Liquid Tags</h2>
 
 <h3 id="control-flow">
-<a id="control-flow" class="anchor" href="#control-flow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Control Flow</h3>
+<a class="anchor" href="#control-flow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Control Flow</h3>
 
 <p>Control flow tags can change the information Liquid shows using programming logic.</p>
 
 <h4 id="case--when">
-<a id="case--when" class="anchor" href="#case--when" aria-hidden="true"><span class="octicon octicon-link"></span></a>case / when</h4>
+<a class="anchor" href="#case--when" aria-hidden="true"><span class="octicon octicon-link"></span></a>case / when</h4>
 
-<p>Creates a switch statement to compare a variable with different values. <code class="highlighter-rouge">case</code> initializes the switch statement, and <code class="highlighter-rouge">when</code> compares its values.</p>
+<p>Creates a switch statement to compare a variable with different values. <code class="language-plaintext highlighter-rouge">case</code> initializes the switch statement, and <code class="language-plaintext highlighter-rouge">when</code> compares its values.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'cake'</span><span class="w"> </span><span class="p">%}</span>
@@ -577,9 +577,9 @@ This is a cake
 </code></pre></div></div>
 
 <h4 id="if">
-<a id="if" class="anchor" href="#if" aria-hidden="true"><span class="octicon octicon-link"></span></a>if</h4>
+<a class="anchor" href="#if" aria-hidden="true"><span class="octicon octicon-link"></span></a>if</h4>
 
-<p>Executes a block of code only if a certain condition is <code class="highlighter-rouge">true</code>.</p>
+<p>Executes a block of code only if a certain condition is <code class="language-plaintext highlighter-rouge">true</code>.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">category</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'Web'</span><span class="w"> </span><span class="p">%}</span>
@@ -590,9 +590,9 @@ Output:
 </code></pre></div></div>
 
 <h4 id="unless">
-<a id="unless" class="anchor" href="#unless" aria-hidden="true"><span class="octicon octicon-link"></span></a>unless</h4>
+<a class="anchor" href="#unless" aria-hidden="true"><span class="octicon octicon-link"></span></a>unless</h4>
 
-<p>The opposite of <code class="highlighter-rouge">if</code> – executes a block of code only if a certain condition is not met. This would be the equivalent by using <code class="highlighter-rouge">if ... !=</code>:</p>
+<p>The opposite of <code class="language-plaintext highlighter-rouge">if</code> – executes a block of code only if a certain condition is not met. This would be the equivalent by using <code class="language-plaintext highlighter-rouge">if ... !=</code>:</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{%</span><span class="w"> </span><span class="kr">unless</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">category</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'Awesome'</span><span class="w"> </span><span class="p">%}</span>
@@ -604,9 +604,9 @@ Output:
 </code></pre></div></div>
 
 <h4 id="elsif--else">
-<a id="elsif--else" class="anchor" href="#elsif--else" aria-hidden="true"><span class="octicon octicon-link"></span></a>elsif / else</h4>
+<a class="anchor" href="#elsif--else" aria-hidden="true"><span class="octicon octicon-link"></span></a>elsif / else</h4>
 
-<p>Adds more conditions within an <code class="highlighter-rouge">if</code> or <code class="highlighter-rouge">unless</code> block.</p>
+<p>Adds more conditions within an <code class="language-plaintext highlighter-rouge">if</code> or <code class="language-plaintext highlighter-rouge">unless</code> block.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">customer</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'kevin'</span><span class="w"> </span><span class="p">%}</span>
   Hey Kevin!
@@ -618,14 +618,14 @@ Output:
 </code></pre></div></div>
 
 <h3 id="iteration">
-<a id="iteration" class="anchor" href="#iteration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Iteration</h3>
+<a class="anchor" href="#iteration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Iteration</h3>
 
 <p>Iteration tags run blocks of code repeatedly.</p>
 
 <h4 id="for">
-<a id="for" class="anchor" href="#for" aria-hidden="true"><span class="octicon octicon-link"></span></a>for</h4>
+<a class="anchor" href="#for" aria-hidden="true"><span class="octicon octicon-link"></span></a>for</h4>
 
-<p>Repeatedly executes a block of code. For a full list of attributes available within a <code class="highlighter-rouge">for</code> loop, click to see 
+<p>Repeatedly executes a block of code. For a full list of attributes available within a <code class="language-plaintext highlighter-rouge">for</code> loop, click to see 
 <a data-toggle="modal" data-target="#forloop"><u>forloop (object)</u></a>.</p>
 
 <!-- Modal -->
@@ -635,21 +635,21 @@ Output:
 <div class="modal-header">
   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
   <h4 class="modal-title" id="myModalLabel">
-<a id="forloop-object" class="anchor" href="#forloop-object" aria-hidden="true"><span class="octicon octicon-link"></span></a>forloop (object)</h4>
+<a class="anchor" href="#myModalLabel" aria-hidden="true"><span class="octicon octicon-link"></span></a>forloop (object)</h4>
 </div>
 <div class="modal-body">
 <div>
 
-          <p>The <code class="highlighter-rouge">forloop</code> object contains attributes of its parent <code class="highlighter-rouge">for</code> loop. And can only be used within <code class="highlighter-rouge">for</code> tags.</p>
+          <p>The <code class="language-plaintext highlighter-rouge">forloop</code> object contains attributes of its parent <code class="language-plaintext highlighter-rouge">for</code> loop. And can only be used within <code class="language-plaintext highlighter-rouge">for</code> tags.</p>
 
           <h5 id="forloopfirst">
-<a id="forloopfirst" class="anchor" href="#forloopfirst" aria-hidden="true"><span class="octicon octicon-link"></span></a>forloop.first</h5>
-          <p>Returns <code class="highlighter-rouge">true</code> if it’s the first iteration of the for loop. Returns <code class="highlighter-rouge">false</code> if it is not the first iteration.</p>
+<a class="anchor" href="#forloopfirst" aria-hidden="true"><span class="octicon octicon-link"></span></a>forloop.first</h5>
+          <p>Returns <code class="language-plaintext highlighter-rouge">true</code> if it’s the first iteration of the for loop. Returns <code class="language-plaintext highlighter-rouge">false</code> if it is not the first iteration.</p>
 
           <div class="language-liquid highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>tag<span class="w"> </span>in<span class="w"> </span>page.tags<span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">forloop</span><span class="p">.</span><span class="nv">first</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">page.tags</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nb">forloop.first</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">%}</span>
     First tag
 <span class="p">{%</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">%}</span>
     Not the first tag.
@@ -662,14 +662,14 @@ Output:
 </code></pre></div>          </div>
 
           <h5 id="forloopindex">
-<a id="forloopindex" class="anchor" href="#forloopindex" aria-hidden="true"><span class="octicon octicon-link"></span></a>forloop.index</h5>
+<a class="anchor" href="#forloopindex" aria-hidden="true"><span class="octicon octicon-link"></span></a>forloop.index</h5>
 
-          <p>Returns the current index of the for loop, starting at <strong>1</strong>. You can use <code class="highlighter-rouge">forloop.index0</code> that starting from <strong>0</strong>.</p>
+          <p>Returns the current index of the for loop, starting at <strong>1</strong>. You can use <code class="language-plaintext highlighter-rouge">forloop.index0</code> that starting from <strong>0</strong>.</p>
 
           <div class="language-liquid highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>tag<span class="w"> </span>in<span class="w"> </span>site.tags<span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="p">%}</span>
-    <span class="p">{{</span><span class="w"> </span><span class="nv">forloop</span><span class="p">.</span><span class="nv">index0</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.tags</span><span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{{</span><span class="w"> </span><span class="nb">forloop.index0</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
 
 Output:
@@ -677,24 +677,24 @@ Output:
 </code></pre></div>          </div>
 
           <h5 id="forlooplast">
-<a id="forlooplast" class="anchor" href="#forlooplast" aria-hidden="true"><span class="octicon octicon-link"></span></a>forloop.last</h5>
+<a class="anchor" href="#forlooplast" aria-hidden="true"><span class="octicon octicon-link"></span></a>forloop.last</h5>
 
-          <p>Just like <code class="highlighter-rouge">forloop.first</code>, <code class="highlighter-rouge">forloop.last</code> returns <code class="highlighter-rouge">true</code> if it’s the last iteration of the for loop. Returns <code class="highlighter-rouge">false</code> if it is not the last iteration.</p>
+          <p>Just like <code class="language-plaintext highlighter-rouge">forloop.first</code>, <code class="language-plaintext highlighter-rouge">forloop.last</code> returns <code class="language-plaintext highlighter-rouge">true</code> if it’s the last iteration of the for loop. Returns <code class="language-plaintext highlighter-rouge">false</code> if it is not the last iteration.</p>
 
           <h5 id="forlooplength">
-<a id="forlooplength" class="anchor" href="#forlooplength" aria-hidden="true"><span class="octicon octicon-link"></span></a>forloop.length</h5>
+<a class="anchor" href="#forlooplength" aria-hidden="true"><span class="octicon octicon-link"></span></a>forloop.length</h5>
 
           <p>Returns the number of iterations of the loop.</p>
 
           <h5 id="forlooprindex">
-<a id="forlooprindex" class="anchor" href="#forlooprindex" aria-hidden="true"><span class="octicon octicon-link"></span></a>forloop.rindex</h5>
+<a class="anchor" href="#forlooprindex" aria-hidden="true"><span class="octicon octicon-link"></span></a>forloop.rindex</h5>
 
-          <p>Returns <code class="highlighter-rouge">forloop.index</code> in reverse order. Similarly, <code class="highlighter-rouge">forloop.rindex0</code> returns <code class="highlighter-rouge">forloop.index0</code> in reverse order.</p>
+          <p>Returns <code class="language-plaintext highlighter-rouge">forloop.index</code> in reverse order. Similarly, <code class="language-plaintext highlighter-rouge">forloop.rindex0</code> returns <code class="language-plaintext highlighter-rouge">forloop.index0</code> in reverse order.</p>
 
           <div class="language-liquid highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>tag<span class="w"> </span>in<span class="w"> </span>site.tags<span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="p">%}</span>
-    <span class="p">{{</span><span class="w"> </span><span class="nv">forloop</span><span class="p">.</span><span class="nv">rindex</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.tags</span><span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{{</span><span class="w"> </span><span class="nb">forloop.rindex</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
 
 Output:
@@ -712,7 +712,7 @@ Output:
 </div>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>item<span class="w"> </span>in<span class="w"> </span>page.array<span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">page.array</span><span class="w"> </span><span class="p">%}</span>
   <span class="p">{{</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
 # page.array = ["1", "2","3","4","5","6","7"]
@@ -722,12 +722,12 @@ Output:
 </code></pre></div></div>
 
 <h4 id="break">
-<a id="break" class="anchor" href="#break" aria-hidden="true"><span class="octicon octicon-link"></span></a>break</h4>
+<a class="anchor" href="#break" aria-hidden="true"><span class="octicon octicon-link"></span></a>break</h4>
 
-<p>Causes the loop to stop iterating when it encounters the <code class="highlighter-rouge">break</code> tag.</p>
+<p>Causes the loop to stop iterating when it encounters the <code class="language-plaintext highlighter-rouge">break</code> tag.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>i<span class="w"> </span>in<span class="w"> </span>(<span class="mi">1</span>..<span class="mi">10</span>)<span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">(1..10)</span><span class="w"> </span><span class="p">%}</span>
   <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">%}</span>
     <span class="p">{%</span><span class="w"> </span><span class="nt">break</span><span class="w"> </span><span class="p">%}</span>
   <span class="p">{%</span><span class="w"> </span><span class="kr">elsif</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="p">%}</span>
@@ -742,7 +742,7 @@ Output:
 </code></pre></div></div>
 
 <h4 id="for-parameters">
-<a id="for-parameters" class="anchor" href="#for-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>for (parameters)</h4>
+<a class="anchor" href="#for-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>for (parameters)</h4>
 
 <p><strong>limit</strong></p>
 
@@ -753,7 +753,7 @@ Output:
 <p>Begins the loop at the specified index.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>item<span class="w"> </span>in<span class="w"> </span>page.array<span class="w"> </span><span class="na">offset</span><span class="o">:</span><span class="mi">2</span><span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="mi">4</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">page.array</span><span class="w"> </span><span class="na">offset</span><span class="o">:</span><span class="mi">2</span><span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="mi">4</span><span class="w"> </span><span class="p">%}</span>
   <span class="p">{{</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
 
@@ -767,7 +767,7 @@ Output:
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>i<span class="w"> </span>in<span class="w"> </span>(<span class="mi">1</span>..num)<span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">(1..num)</span><span class="w"> </span><span class="p">%}</span>
   <span class="p">{{</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
 
@@ -780,7 +780,7 @@ Output:
 <p>Reverses the order of the loop.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>item<span class="w"> </span>in<span class="w"> </span>page.array<span class="w"> </span>reversed<span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">page.array</span><span class="w"> </span><span class="na">reversed</span><span class="w"> </span><span class="p">%}</span>
   <span class="p">{{</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
 
@@ -789,9 +789,9 @@ Output:
 </code></pre></div></div>
 
 <h4 id="cycle">
-<a id="cycle" class="anchor" href="#cycle" aria-hidden="true"><span class="octicon octicon-link"></span></a>cycle</h4>
+<a class="anchor" href="#cycle" aria-hidden="true"><span class="octicon octicon-link"></span></a>cycle</h4>
 
-<p>Loops through a group of strings and outputs them in the order that they were passed as parameters. Each time <code class="highlighter-rouge">cycle</code> is called, the next string that was passed as a parameter is output. <code class="highlighter-rouge">cycle</code> must be used within a for loop block.</p>
+<p>Loops through a group of strings and outputs them in the order that they were passed as parameters. Each time <code class="language-plaintext highlighter-rouge">cycle</code> is called, the next string that was passed as a parameter is output. <code class="language-plaintext highlighter-rouge">cycle</code> must be used within a for loop block.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{%</span><span class="w"> </span><span class="nt">cycle</span><span class="w"> </span><span class="s1">'one'</span><span class="p">,</span><span class="w"> </span><span class="s1">'two'</span><span class="p">,</span><span class="w"> </span><span class="s1">'three'</span><span class="w"> </span><span class="p">%}</span>
@@ -806,7 +806,7 @@ three
 one
 </code></pre></div></div>
 
-<p>Uses for <code class="highlighter-rouge">cycle</code> include:</p>
+<p>Uses for <code class="language-plaintext highlighter-rouge">cycle</code> include:</p>
 <ul>
   <li>applying odd/even classes to rows in a table</li>
   <li>applying a unique class to the last product thumbnail in a row</li>
@@ -814,12 +814,12 @@ one
 
 <p><strong>cycle (parameters)</strong></p>
 
-<p><code class="highlighter-rouge">cycle</code> accepts a parameter called <code class="highlighter-rouge">cycle group</code> in cases where you need multiple cycle blocks in one template. If no name is supplied for the cycle group, then it is assumed that multiple calls with the same parameters are one group.</p>
+<p><code class="language-plaintext highlighter-rouge">cycle</code> accepts a parameter called <code class="language-plaintext highlighter-rouge">cycle group</code> in cases where you need multiple cycle blocks in one template. If no name is supplied for the cycle group, then it is assumed that multiple calls with the same parameters are one group.</p>
 
 <h4 id="tablerow">
-<a id="tablerow" class="anchor" href="#tablerow" aria-hidden="true"><span class="octicon octicon-link"></span></a>tablerow</h4>
+<a class="anchor" href="#tablerow" aria-hidden="true"><span class="octicon octicon-link"></span></a>tablerow</h4>
 
-<p>Generates an HTML table. Must be wrapped in opening <code class="highlighter-rouge">&lt;table&gt;</code> and closing <code class="highlighter-rouge">&lt;/table&gt;</code> HTML tags.</p>
+<p>Generates an HTML table. Must be wrapped in opening <code class="language-plaintext highlighter-rouge">&lt;table&gt;</code> and closing <code class="language-plaintext highlighter-rouge">&lt;/table&gt;</code> HTML tags.</p>
 
 <pre><code class="language-liquid:">&lt;table&gt;
 {% tablerow item in page.array %}
@@ -848,34 +848,34 @@ Output:
 </code></pre>
 
 <h4 id="tablerow-parameters">
-<a id="tablerow-parameters" class="anchor" href="#tablerow-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>tablerow (parameters)</h4>
+<a class="anchor" href="#tablerow-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>tablerow (parameters)</h4>
 
 <ol>
   <li>
-<code class="highlighter-rouge">cols</code>: defines how many columns the tables should have.</li>
+<code class="language-plaintext highlighter-rouge">cols</code>: defines how many columns the tables should have.</li>
   <li>
-<code class="highlighter-rouge">limit</code>: dxits the tablerow after a specific index.</li>
+<code class="language-plaintext highlighter-rouge">limit</code>: dxits the tablerow after a specific index.</li>
   <li>
-<code class="highlighter-rouge">offset</code>: starts the tablerow after a specific index.</li>
+<code class="language-plaintext highlighter-rouge">offset</code>: starts the tablerow after a specific index.</li>
   <li>
-<code class="highlighter-rouge">range</code>: defines a range of numbers to loop through. The range can be defined by both literal and variable numbers.</li>
+<code class="language-plaintext highlighter-rouge">range</code>: defines a range of numbers to loop through. The range can be defined by both literal and variable numbers.</li>
 </ol>
 
 <h3 id="variable">
-<a id="variable" class="anchor" href="#variable" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variable</h3>
+<a class="anchor" href="#variable" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variable</h3>
 
 <h4 id="assign">
-<a id="assign" class="anchor" href="#assign" aria-hidden="true"><span class="octicon octicon-link"></span></a>assign</h4>
+<a class="anchor" href="#assign" aria-hidden="true"><span class="octicon octicon-link"></span></a>assign</h4>
 
-<p>Creates a new variable. Wrap a variable in quotations <code class="highlighter-rouge">"</code> to save it as a string as previous examples.</p>
+<p>Creates a new variable. Wrap a variable in quotations <code class="language-plaintext highlighter-rouge">"</code> to save it as a string as previous examples.</p>
 
 <h4 id="capture">
-<a id="capture" class="anchor" href="#capture" aria-hidden="true"><span class="octicon octicon-link"></span></a>capture</h4>
+<a class="anchor" href="#capture" aria-hidden="true"><span class="octicon octicon-link"></span></a>capture</h4>
 
-<p>Captures the string inside of the opening and closing tags and assigns it to a variable. Variables created through <code class="highlighter-rouge">{%</code> capture <code class="highlighter-rouge">%}</code> are strings.</p>
+<p>Captures the string inside of the opening and closing tags and assigns it to a variable. Variables created through <code class="language-plaintext highlighter-rouge">{%</code> capture <code class="language-plaintext highlighter-rouge">%}</code> are strings.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">capture</span><span class="w"> </span><span class="na">my_variable</span><span class="w"> </span><span class="p">%}</span>I am being captured.<span class="p">{%</span><span class="w"> </span><span class="nt">endcapture</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">capture</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="p">%}</span>I am being captured.<span class="p">{%</span><span class="w"> </span><span class="nt">endcapture</span><span class="w"> </span><span class="p">%}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="p">}}</span>
 
 Output:
@@ -883,14 +883,14 @@ I am being captured.
 </code></pre></div></div>
 
 <h4 id="increment">
-<a id="increment" class="anchor" href="#increment" aria-hidden="true"><span class="octicon octicon-link"></span></a>increment</h4>
+<a class="anchor" href="#increment" aria-hidden="true"><span class="octicon octicon-link"></span></a>increment</h4>
 
 <p>Creates a new number variable, and increases its value by one every time it is called. The initial value is 0.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span>my_counter<span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span>my_counter<span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span>my_counter<span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span><span class="nv">my_counter</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span><span class="nv">my_counter</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span><span class="nv">my_counter</span><span class="w"> </span><span class="p">%}</span>
 
 Output:
 0
@@ -898,14 +898,14 @@ Output:
 2
 </code></pre></div></div>
 
-<p>Variables created through the <code class="highlighter-rouge">increment</code> tag are independent from variables created through <code class="highlighter-rouge">assign</code> or <code class="highlighter-rouge">capture</code>.</p>
+<p>Variables created through the <code class="language-plaintext highlighter-rouge">increment</code> tag are independent from variables created through <code class="language-plaintext highlighter-rouge">assign</code> or <code class="language-plaintext highlighter-rouge">capture</code>.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">%}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span>var<span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span>var<span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span>var<span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="p">%}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="p">}}</span>
 
 Output:
@@ -917,28 +917,28 @@ Output:
 </code></pre></div></div>
 
 <h4 id="decrement">
-<a id="decrement" class="anchor" href="#decrement" aria-hidden="true"><span class="octicon octicon-link"></span></a>decrement</h4>
+<a class="anchor" href="#decrement" aria-hidden="true"><span class="octicon octicon-link"></span></a>decrement</h4>
 
 <p>Creates a new number variable, and decreases its value by one every time it is called. The initial value is <strong>-1</strong>.</p>
 
-<p>Similar to <code class="highlighter-rouge">increment</code>, variables declared inside <code class="highlighter-rouge">decrement</code> are independent from variables created through <code class="highlighter-rouge">assign</code> or <code class="highlighter-rouge">capture</code>.</p>
+<p>Similar to <code class="language-plaintext highlighter-rouge">increment</code>, variables declared inside <code class="language-plaintext highlighter-rouge">decrement</code> are independent from variables created through <code class="language-plaintext highlighter-rouge">assign</code> or <code class="language-plaintext highlighter-rouge">capture</code>.</p>
 
 <h2 id="liquid-filters">
-<a id="liquid-filters" class="anchor" href="#liquid-filters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Liquid Filters</h2>
+<a class="anchor" href="#liquid-filters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Liquid Filters</h2>
 
 <h3 id="string-1">
-<a id="string-1" class="anchor" href="#string-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>String</h3>
+<a class="anchor" href="#string-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>String</h3>
 
 <h4 id="append--prepend">
-<a id="append--prepend" class="anchor" href="#append--prepend" aria-hidden="true"><span class="octicon octicon-link"></span></a>append / prepend</h4>
+<a class="anchor" href="#append--prepend" aria-hidden="true"><span class="octicon octicon-link"></span></a>append / prepend</h4>
 
-<p><code class="highlighter-rouge">append</code> concatenates two strings and returns the concatenated value, and also can be used with variables.</p>
+<p><code class="language-plaintext highlighter-rouge">append</code> concatenates two strings and returns the concatenated value, and also can be used with variables.</p>
 
-<p><code class="highlighter-rouge">prepend</code> adds the specified string to the beginning of another string.</p>
+<p><code class="language-plaintext highlighter-rouge">prepend</code> adds the specified string to the beginning of another string.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"/index.html"</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">append</span><span class="p">:</span><span class="w"> </span>filename<span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">append</span><span class="p">:</span><span class="w"> </span><span class="nv">filename</span><span class="w"> </span><span class="p">}}</span>
 
 <span class="p">{{</span><span class="w"> </span><span class="s2">"apples, oranges, and bananas"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">prepend</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some fruit: "</span><span class="w"> </span><span class="p">}}</span>
 
@@ -948,7 +948,7 @@ Some fruit: apples, oranges, and bananas
 </code></pre></div></div>
 
 <h4 id="capitalize">
-<a id="capitalize" class="anchor" href="#capitalize" aria-hidden="true"><span class="octicon octicon-link"></span></a>capitalize</h4>
+<a class="anchor" href="#capitalize" aria-hidden="true"><span class="octicon octicon-link"></span></a>capitalize</h4>
 
 <p>Makes the first character of a string capitalized, and only capitalizes the first character of the string, so later words are not affected:</p>
 
@@ -960,7 +960,7 @@ This is a great title
 </code></pre></div></div>
 
 <h4 id="cgi_escape">
-<a id="cgi_escape" class="anchor" href="#cgi_escape" aria-hidden="true"><span class="octicon octicon-link"></span></a>cgi_escape</h4>
+<a class="anchor" href="#cgi_escape" aria-hidden="true"><span class="octicon octicon-link"></span></a>cgi_escape</h4>
 
 <p>Escape a string for use in a URL.</p>
 
@@ -972,9 +972,9 @@ foo%2Cbar%3Bbaz%3F
 </code></pre></div></div>
 
 <h4 id="default">
-<a id="default" class="anchor" href="#default" aria-hidden="true"><span class="octicon octicon-link"></span></a>default</h4>
+<a class="anchor" href="#default" aria-hidden="true"><span class="octicon octicon-link"></span></a>default</h4>
 
-<p>Allows you to specify a fallback in case a value doesn’t exist. <code class="highlighter-rouge">default</code> will show its value if the left side is <code class="highlighter-rouge">nil</code>, <code class="highlighter-rouge">false</code>, or <code class="highlighter-rouge">empty</code>.</p>
+<p>Allows you to specify a fallback in case a value doesn’t exist. <code class="language-plaintext highlighter-rouge">default</code> will show its value if the left side is <code class="language-plaintext highlighter-rouge">nil</code>, <code class="language-plaintext highlighter-rouge">false</code>, or <code class="language-plaintext highlighter-rouge">empty</code>.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">product_price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">%}</span>
@@ -985,7 +985,7 @@ Output:
 </code></pre></div></div>
 
 <h4 id="downcase--upcase">
-<a id="downcase--upcase" class="anchor" href="#downcase--upcase" aria-hidden="true"><span class="octicon octicon-link"></span></a>downcase / upcase</h4>
+<a class="anchor" href="#downcase--upcase" aria-hidden="true"><span class="octicon octicon-link"></span></a>downcase / upcase</h4>
 
 <p>Makes each character in a string lowercase (or upcase). It has no effect on strings which are already all lowercase (or upcase).</p>
 
@@ -999,11 +999,11 @@ FRANK LIN
 </code></pre></div></div>
 
 <h4 id="escape--escape_once">
-<a id="escape--escape_once" class="anchor" href="#escape--escape_once" aria-hidden="true"><span class="octicon octicon-link"></span></a>escape / escape_once</h4>
+<a class="anchor" href="#escape--escape_once" aria-hidden="true"><span class="octicon octicon-link"></span></a>escape / escape_once</h4>
 
-<p><code class="highlighter-rouge">escape</code> works to escapes a string by replacing characters with escape sequences (so that the string can be used in a URL, for example). It doesn’t change strings that don’t have anything to escape.</p>
+<p><code class="language-plaintext highlighter-rouge">escape</code> works to escapes a string by replacing characters with escape sequences (so that the string can be used in a URL, for example). It doesn’t change strings that don’t have anything to escape.</p>
 
-<p><code class="highlighter-rouge">escape_once</code> can be used to escapes a string without changing existing escaped entities.</p>
+<p><code class="language-plaintext highlighter-rouge">escape_once</code> can be used to escapes a string without changing existing escaped entities.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{{</span><span class="w"> </span><span class="s2">"Have you read 'James &amp; the Giant Peach'?"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">escape</span><span class="w"> </span><span class="p">}}</span>
@@ -1015,9 +1015,9 @@ Have you read &amp;#39;James &amp;amp; the Giant Peach&amp;#39;?
 </code></pre></div></div>
 
 <h4 id="lstrip--rstrip">
-<a id="lstrip--rstrip" class="anchor" href="#lstrip--rstrip" aria-hidden="true"><span class="octicon octicon-link"></span></a>lstrip / rstrip</h4>
+<a class="anchor" href="#lstrip--rstrip" aria-hidden="true"><span class="octicon octicon-link"></span></a>lstrip / rstrip</h4>
 
-<p><code class="highlighter-rouge">lstrip</code> removes all whitespaces (tabs, spaces, and newlines) from the beginning of a string. The filter does not affect spaces between words. <code class="highlighter-rouge">rstrip</code> removes all whitespace from the right side of a string.</p>
+<p><code class="language-plaintext highlighter-rouge">lstrip</code> removes all whitespaces (tabs, spaces, and newlines) from the beginning of a string. The filter does not affect spaces between words. <code class="language-plaintext highlighter-rouge">rstrip</code> removes all whitespace from the right side of a string.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{{</span><span class="w"> </span><span class="s2">"          So much room for activities!          "</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">lstrip</span><span class="w"> </span><span class="p">}}</span>
@@ -1029,7 +1029,7 @@ So much room for activities!
 </code></pre></div></div>
 
 <h4 id="markdownify">
-<a id="markdownify" class="anchor" href="#markdownify" aria-hidden="true"><span class="octicon octicon-link"></span></a>markdownify</h4>
+<a class="anchor" href="#markdownify" aria-hidden="true"><span class="octicon octicon-link"></span></a>markdownify</h4>
 
 <p>Convert a Markdown-formatted string into HTML.</p>
 
@@ -1042,12 +1042,12 @@ Output:
 </code></pre></div></div>
 
 <h4 id="newline_to_br">
-<a id="newline_to_br" class="anchor" href="#newline_to_br" aria-hidden="true"><span class="octicon octicon-link"></span></a>newline_to_br</h4>
+<a class="anchor" href="#newline_to_br" aria-hidden="true"><span class="octicon octicon-link"></span></a>newline_to_br</h4>
 
-<p>Replaces every newline (<code class="highlighter-rouge">\n</code>) with an HTML line break (<code class="highlighter-rouge">&lt;br&gt;</code>).</p>
+<p>Replaces every newline (<code class="language-plaintext highlighter-rouge">\n</code>) with an HTML line break (<code class="language-plaintext highlighter-rouge">&lt;br&gt;</code>).</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">capture</span><span class="w"> </span><span class="na">string_with_newlines</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">capture</span><span class="w"> </span><span class="nv">string_with_newlines</span><span class="w"> </span><span class="p">%}</span>
 Hello
 there
 <span class="p">{%</span><span class="w"> </span><span class="nt">endcapture</span><span class="w"> </span><span class="p">%}</span>
@@ -1060,7 +1060,7 @@ there&lt;br /&gt;
 </code></pre></div></div>
 
 <h4 id="number_of_words">
-<a id="number_of_words" class="anchor" href="#number_of_words" aria-hidden="true"><span class="octicon octicon-link"></span></a>number_of_words</h4>
+<a class="anchor" href="#number_of_words" aria-hidden="true"><span class="octicon octicon-link"></span></a>number_of_words</h4>
 
 <p>Count the number of words in a string.</p>
 
@@ -1072,11 +1072,11 @@ Output:
 </code></pre></div></div>
 
 <h4 id="remove--remove_first">
-<a id="remove--remove_first" class="anchor" href="#remove--remove_first" aria-hidden="true"><span class="octicon octicon-link"></span></a>remove / remove_first</h4>
+<a class="anchor" href="#remove--remove_first" aria-hidden="true"><span class="octicon octicon-link"></span></a>remove / remove_first</h4>
 
-<p>Use <code class="highlighter-rouge">remove</code> to remove every occurrence of the specified substring from a string.</p>
+<p>Use <code class="language-plaintext highlighter-rouge">remove</code> to remove every occurrence of the specified substring from a string.</p>
 
-<p><code class="highlighter-rouge">remove_first</code> only removes the first occurrence of the specified substring from a string.</p>
+<p><code class="language-plaintext highlighter-rouge">remove_first</code> only removes the first occurrence of the specified substring from a string.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{{</span><span class="w"> </span><span class="s2">"I strained to see the train through the rain"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">remove</span><span class="p">:</span><span class="w"> </span><span class="s2">"rain"</span><span class="w"> </span><span class="p">}}</span>
@@ -1088,11 +1088,11 @@ I sted to see the train through the rain
 </code></pre></div></div>
 
 <h4 id="replace--replace_first">
-<a id="replace--replace_first" class="anchor" href="#replace--replace_first" aria-hidden="true"><span class="octicon octicon-link"></span></a>replace / replace_first</h4>
+<a class="anchor" href="#replace--replace_first" aria-hidden="true"><span class="octicon octicon-link"></span></a>replace / replace_first</h4>
 
-<p>Use <code class="highlighter-rouge">replace</code> to replace every occurrence of an argument in a string with the second argument.</p>
+<p>Use <code class="language-plaintext highlighter-rouge">replace</code> to replace every occurrence of an argument in a string with the second argument.</p>
 
-<p>And <code class="highlighter-rouge">replace_first</code> only replaces the first occurrence of the first argument in a string with the second argument.</p>
+<p>And <code class="language-plaintext highlighter-rouge">replace_first</code> only replaces the first occurrence of the first argument in a string with the second argument.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{{</span><span class="w"> </span><span class="s2">"Take my protein pills and put my helmet on"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">"my"</span><span class="p">,</span><span class="w"> </span><span class="s2">"your"</span><span class="w"> </span><span class="p">}}</span>
@@ -1105,16 +1105,16 @@ Take your protein pills and put my helmet on
 </code></pre></div></div>
 
 <h4 id="size">
-<a id="size" class="anchor" href="#size" aria-hidden="true"><span class="octicon octicon-link"></span></a>size</h4>
+<a class="anchor" href="#size" aria-hidden="true"><span class="octicon octicon-link"></span></a>size</h4>
 
-<p>Returns the number of characters in a string or the number of items in an array. <code class="highlighter-rouge">size</code> can also be used with dot notation (for example, <code class="highlighter-rouge">{{ my_string.size }}</code>). This allows you to use <code class="highlighter-rouge">size</code> inside tags such as conditionals.</p>
+<p>Returns the number of characters in a string or the number of items in an array. <code class="language-plaintext highlighter-rouge">size</code> can also be used with dot notation (for example, <code class="language-plaintext highlighter-rouge">{{ my_string.size }}</code>). This allows you to use <code class="language-plaintext highlighter-rouge">size</code> inside tags such as conditionals.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">size</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"apples, oranges, peaches, plums"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">%}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">size</span><span class="w"> </span><span class="p">}}</span>
 
-<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">pages</span><span class="p">.</span><span class="nv">size</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">pages</span><span class="p">.</span><span class="nf">size</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">%}</span>
   This site has more than 10 pages!
 <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
 
@@ -1125,7 +1125,7 @@ This site has more than 10 pages!
 </code></pre></div></div>
 
 <h4 id="slice">
-<a id="slice" class="anchor" href="#slice" aria-hidden="true"><span class="octicon octicon-link"></span></a>slice</h4>
+<a class="anchor" href="#slice" aria-hidden="true"><span class="octicon octicon-link"></span></a>slice</h4>
 
 <p>Returns a substring of 1 character beginning at the index specified by the argument passed in. An optional second argument specifies the length of the substring to be returned.</p>
 
@@ -1135,7 +1135,7 @@ This site has more than 10 pages!
 <span class="p">{{</span><span class="w"> </span><span class="s2">"Liquid"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slice</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="s2">"Liquid"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slice</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="s2">"Liquid"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slice</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="s2">"Liquid"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slice</span><span class="p">:</span><span class="w"> </span>-<span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="s2">"Liquid"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slice</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}}</span>
 
 Output:
 L
@@ -1145,7 +1145,7 @@ ui
 </code></pre></div></div>
 
 <h4 id="slugify">
-<a id="slugify" class="anchor" href="#slugify" aria-hidden="true"><span class="octicon octicon-link"></span></a>slugify</h4>
+<a class="anchor" href="#slugify" aria-hidden="true"><span class="octicon octicon-link"></span></a>slugify</h4>
 
 <p>Convert a string into a lowercase URL slug.</p>
 
@@ -1153,13 +1153,13 @@ ui
 
 <ul>
   <li>
-<code class="highlighter-rouge">none</code>: no characters</li>
+<code class="language-plaintext highlighter-rouge">none</code>: no characters</li>
   <li>
-<code class="highlighter-rouge">raw</code>: spaces</li>
+<code class="language-plaintext highlighter-rouge">raw</code>: spaces</li>
   <li>
-<code class="highlighter-rouge">default</code>: spaces and non-alphaunmeric characters</li>
+<code class="language-plaintext highlighter-rouge">default</code>: spaces and non-alphaunmeric characters</li>
   <li>
-<code class="highlighter-rouge">pretty</code>: spaces and non-alphaunmeric characters except for <code class="highlighter-rouge">._~!$&amp;'()+,;=@</code>
+<code class="language-plaintext highlighter-rouge">pretty</code>: spaces and non-alphaunmeric characters except for <code class="language-plaintext highlighter-rouge">._~!$&amp;'()+,;=@</code>
 </li>
 </ul>
 
@@ -1173,7 +1173,7 @@ the-_config.yml-file
 </code></pre></div></div>
 
 <h4 id="smartify">
-<a id="smartify" class="anchor" href="#smartify" aria-hidden="true"><span class="octicon octicon-link"></span></a>smartify</h4>
+<a class="anchor" href="#smartify" aria-hidden="true"><span class="octicon octicon-link"></span></a>smartify</h4>
 
 <p>Convert quotes into smart quotes with SmartyPants.</p>
 
@@ -1185,9 +1185,9 @@ Use “Jekyll” — the static generator…
 </code></pre></div></div>
 
 <h4 id="split">
-<a id="split" class="anchor" href="#split" aria-hidden="true"><span class="octicon octicon-link"></span></a>split</h4>
+<a class="anchor" href="#split" aria-hidden="true"><span class="octicon octicon-link"></span></a>split</h4>
 
-<p>Divides an input string into an array using the argument as a separator. <code class="highlighter-rouge">split</code> is commonly used to convert comma-separated items from a string to an array.</p>
+<p>Divides an input string into an array using the argument as a separator. <code class="language-plaintext highlighter-rouge">split</code> is commonly used to convert comma-separated items from a string to an array.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{{</span><span class="w"> </span><span class="s2">"a~b"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="s2">"~"</span><span class="w"> </span><span class="p">}}</span>
@@ -1197,7 +1197,7 @@ ab
 </code></pre></div></div>
 
 <h4 id="strip">
-<a id="strip" class="anchor" href="#strip" aria-hidden="true"><span class="octicon octicon-link"></span></a>strip</h4>
+<a class="anchor" href="#strip" aria-hidden="true"><span class="octicon octicon-link"></span></a>strip</h4>
 
 <p>Removes all whitespace (tabs, spaces, and newlines) from both the left and right side of a string. It does not affect spaces between words.</p>
 
@@ -1209,19 +1209,19 @@ So much room for activities!
 </code></pre></div></div>
 
 <h4 id="strip_html">
-<a id="strip_html" class="anchor" href="#strip_html" aria-hidden="true"><span class="octicon octicon-link"></span></a>strip_html</h4>
+<a class="anchor" href="#strip_html" aria-hidden="true"><span class="octicon octicon-link"></span></a>strip_html</h4>
 
 <p>Removes any HTML tags from a string.</p>
 
 <h4 id="strip_newlines">
-<a id="strip_newlines" class="anchor" href="#strip_newlines" aria-hidden="true"><span class="octicon octicon-link"></span></a>strip_newlines</h4>
+<a class="anchor" href="#strip_newlines" aria-hidden="true"><span class="octicon octicon-link"></span></a>strip_newlines</h4>
 
 <p>Removes any newline characters (line breaks) from a string.</p>
 
 <h4 id="truncate--truncatewords">
-<a id="truncate--truncatewords" class="anchor" href="#truncate--truncatewords" aria-hidden="true"><span class="octicon octicon-link"></span></a>truncate / truncatewords</h4>
+<a class="anchor" href="#truncate--truncatewords" aria-hidden="true"><span class="octicon octicon-link"></span></a>truncate / truncatewords</h4>
 
-<p><code class="highlighter-rouge">truncate</code> shortens a string down to the number of characters passed as a parameter. If the number of characters specified is less than the length of the string, an ellipsis (…) is appended to the string and is included in the character count.</p>
+<p><code class="language-plaintext highlighter-rouge">truncate</code> shortens a string down to the number of characters passed as a parameter. If the number of characters specified is less than the length of the string, an ellipsis (…) is appended to the string and is included in the character count.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">truncate</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="p">}}</span>
@@ -1232,7 +1232,7 @@ Ground control to...
 
 <p><strong>Custom Ellipsis</strong></p>
 
-<p><code class="highlighter-rouge">truncate</code> takes an optional second parameter that specifies the sequence of characters to be appended to the truncated string. By default this is an ellipsis (…), but you can specify a different sequence. The length of the second parameter counts against the number of characters specified by the first parameter.</p>
+<p><code class="language-plaintext highlighter-rouge">truncate</code> takes an optional second parameter that specifies the sequence of characters to be appended to the truncated string. By default this is an ellipsis (…), but you can specify a different sequence. The length of the second parameter counts against the number of characters specified by the first parameter.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">truncate</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="s2">", and so on"</span><span class="w"> </span><span class="p">}}</span>
@@ -1241,7 +1241,7 @@ Output:
 Ground control, and so on
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">truncatewords</code> shortens a string down to the number of words passed as the argument. If the specified number of words is less than the number of words in the string, an ellipsis (…) is appended to the string. And Custom ellipsis can be also applied as <code class="highlighter-rouge">truncate</code>.</p>
+<p><code class="language-plaintext highlighter-rouge">truncatewords</code> shortens a string down to the number of words passed as the argument. If the specified number of words is less than the number of words in the string, an ellipsis (…) is appended to the string. And Custom ellipsis can be also applied as <code class="language-plaintext highlighter-rouge">truncate</code>.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">truncatewords</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">}}</span>
@@ -1251,7 +1251,7 @@ Ground control to...
 </code></pre></div></div>
 
 <h4 id="uri_escape--xml_escape">
-<a id="uri_escape--xml_escape" class="anchor" href="#uri_escape--xml_escape" aria-hidden="true"><span class="octicon octicon-link"></span></a>uri_escape / xml_escape</h4>
+<a class="anchor" href="#uri_escape--xml_escape" aria-hidden="true"><span class="octicon octicon-link"></span></a>uri_escape / xml_escape</h4>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{{</span><span class="w"> </span><span class="s2">"foo, bar \baz?"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">uri_escape</span><span class="w"> </span><span class="p">}}</span>
@@ -1263,7 +1263,7 @@ foo,%20bar%20%5Cbaz?
 </code></pre></div></div>
 
 <h4 id="url_encode">
-<a id="url_encode" class="anchor" href="#url_encode" aria-hidden="true"><span class="octicon octicon-link"></span></a>url_encode</h4>
+<a class="anchor" href="#url_encode" aria-hidden="true"><span class="octicon octicon-link"></span></a>url_encode</h4>
 
 <p>Converts any URL-unsafe characters in a string into percent-encoded characters.</p>
 
@@ -1277,15 +1277,15 @@ Frank+Lin
 </code></pre></div></div>
 
 <h3 id="integer">
-<a id="integer" class="anchor" href="#integer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Integer</h3>
+<a class="anchor" href="#integer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Integer</h3>
 
 <h4 id="abs">
-<a id="abs" class="anchor" href="#abs" aria-hidden="true"><span class="octicon octicon-link"></span></a>abs</h4>
+<a class="anchor" href="#abs" aria-hidden="true"><span class="octicon octicon-link"></span></a>abs</h4>
 
 <p>Returns the absolute value of a number, and also work on a string if the string only contains a number.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="err">-</span><span class="mi">17</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">abs</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="o">-</span><span class="mi">17</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">abs</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{{</span><span class="w"> </span><span class="s2">"-19.86"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">abs</span><span class="w"> </span><span class="p">}}</span>
 
 Output:
@@ -1294,7 +1294,7 @@ Output:
 </code></pre></div></div>
 
 <h4 id="ceil">
-<a id="ceil" class="anchor" href="#ceil" aria-hidden="true"><span class="octicon octicon-link"></span></a>ceil</h4>
+<a class="anchor" href="#ceil" aria-hidden="true"><span class="octicon octicon-link"></span></a>ceil</h4>
 
 <p>Rounds the input up to the nearest whole number. Liquid tries to convert the input to a number before the filter is applied.</p>
 
@@ -1308,13 +1308,13 @@ Output:
 </code></pre></div></div>
 
 <h4 id="divided_by--times">
-<a id="divided_by--times" class="anchor" href="#divided_by--times" aria-hidden="true"><span class="octicon octicon-link"></span></a>divided_by / times</h4>
+<a class="anchor" href="#divided_by--times" aria-hidden="true"><span class="octicon octicon-link"></span></a>divided_by / times</h4>
 
-<p><code class="highlighter-rouge">divided_by</code> divides a number by the specified number. The result is rounded down to the nearest integer (that is, the floor) if the divisor is an integer.</p>
+<p><code class="language-plaintext highlighter-rouge">divided_by</code> divides a number by the specified number. The result is rounded down to the nearest integer (that is, the floor) if the divisor is an integer.</p>
 
-<p><code class="highlighter-rouge">divided_by</code> produces a result of the same type as the divisor — that is, if you divide by an integer, the result will be an integer. If you divide by a float (a number with a decimal in it), the result will be a float.</p>
+<p><code class="language-plaintext highlighter-rouge">divided_by</code> produces a result of the same type as the divisor — that is, if you divide by an integer, the result will be an integer. If you divide by a float (a number with a decimal in it), the result will be a float.</p>
 
-<p><code class="highlighter-rouge">times</code> multiplies a number by another number.</p>
+<p><code class="language-plaintext highlighter-rouge">times</code> multiplies a number by another number.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{{</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">divided_by</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">}}</span>
@@ -1332,7 +1332,7 @@ Output:
 </code></pre></div></div>
 
 <h4 id="floor">
-<a id="floor" class="anchor" href="#floor" aria-hidden="true"><span class="octicon octicon-link"></span></a>floor</h4>
+<a class="anchor" href="#floor" aria-hidden="true"><span class="octicon octicon-link"></span></a>floor</h4>
 
 <p>Rounds a number down to the nearest whole number. Liquid tries to convert the input to a number before the filter is applied.</p>
 
@@ -1348,7 +1348,7 @@ Output:
 </code></pre></div></div>
 
 <h4 id="minus--plus">
-<a id="minus--plus" class="anchor" href="#minus--plus" aria-hidden="true"><span class="octicon octicon-link"></span></a>minus / plus</h4>
+<a class="anchor" href="#minus--plus" aria-hidden="true"><span class="octicon octicon-link"></span></a>minus / plus</h4>
 
 <p>Subtracts (adds) a number from another number.</p>
 
@@ -1364,7 +1364,7 @@ Output:
 </code></pre></div></div>
 
 <h4 id="modulo">
-<a id="modulo" class="anchor" href="#modulo" aria-hidden="true"><span class="octicon octicon-link"></span></a>modulo</h4>
+<a class="anchor" href="#modulo" aria-hidden="true"><span class="octicon octicon-link"></span></a>modulo</h4>
 
 <p>Returns the remainder of a division operation.</p>
 
@@ -1378,7 +1378,7 @@ Output:
 </code></pre></div></div>
 
 <h4 id="round">
-<a id="round" class="anchor" href="#round" aria-hidden="true"><span class="octicon octicon-link"></span></a>round</h4>
+<a class="anchor" href="#round" aria-hidden="true"><span class="octicon octicon-link"></span></a>round</h4>
 
 <p>Rounds an input number to the nearest integer or, if a number is specified as an argument, to that number of decimal places.</p>
 
@@ -1394,10 +1394,10 @@ Output:
 </code></pre></div></div>
 
 <h3 id="array-1">
-<a id="array-1" class="anchor" href="#array-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Array</h3>
+<a class="anchor" href="#array-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Array</h3>
 
 <h4 id="array_to_sentence_string">
-<a id="array_to_sentence_string" class="anchor" href="#array_to_sentence_string" aria-hidden="true"><span class="octicon octicon-link"></span></a>array_to_sentence_string</h4>
+<a class="anchor" href="#array_to_sentence_string" aria-hidden="true"><span class="octicon octicon-link"></span></a>array_to_sentence_string</h4>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">array_to_sentence_string</span><span class="w"> </span><span class="p">}}</span>
@@ -1407,14 +1407,14 @@ Output:
 </code></pre></div></div>
 
 <h4 id="first--last">
-<a id="first--last" class="anchor" href="#first--last" aria-hidden="true"><span class="octicon octicon-link"></span></a>first / last</h4>
+<a class="anchor" href="#first--last" aria-hidden="true"><span class="octicon octicon-link"></span></a>first / last</h4>
 
 <p>Returns the first (or last) item of an array.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"apples, oranges, peaches, plums"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="p">.</span><span class="nv">first</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="p">.</span><span class="nv">last</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="p">.</span><span class="nf">first</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="p">.</span><span class="nf">last</span><span class="w"> </span><span class="p">}}</span>
 
 Output:
 apples
@@ -1422,12 +1422,12 @@ plums
 </code></pre></div></div>
 
 <h4 id="group_by">
-<a id="group_by" class="anchor" href="#group_by" aria-hidden="true"><span class="octicon octicon-link"></span></a>group_by</h4>
+<a class="anchor" href="#group_by" aria-hidden="true"><span class="octicon octicon-link"></span></a>group_by</h4>
 
 <p>Group an array’s items by a given property.</p>
 
 <h4 id="join">
-<a id="join" class="anchor" href="#join" aria-hidden="true"><span class="octicon octicon-link"></span></a>join</h4>
+<a class="anchor" href="#join" aria-hidden="true"><span class="octicon octicon-link"></span></a>join</h4>
 
 <p>Combines the items in an array into a single string using the argument as a separator.</p>
 
@@ -1440,7 +1440,7 @@ John and Paul and George and Ringo
 </code></pre></div></div>
 
 <h4 id="jsonify">
-<a id="jsonify" class="anchor" href="#jsonify" aria-hidden="true"><span class="octicon octicon-link"></span></a>jsonify</h4>
+<a class="anchor" href="#jsonify" aria-hidden="true"><span class="octicon octicon-link"></span></a>jsonify</h4>
 
 <p>Convert Hash or Array to JSON.</p>
 
@@ -1452,18 +1452,18 @@ Output:
 </code></pre></div></div>
 
 <h4 id="map-extract">
-<a id="map-extract" class="anchor" href="#map-extract" aria-hidden="true"><span class="octicon octicon-link"></span></a>map (extract)</h4>
+<a class="anchor" href="#map-extract" aria-hidden="true"><span class="octicon octicon-link"></span></a>map (extract)</h4>
 
 <p>Creates an array of values by extracting the values of a named property from another object.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">all_categories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">posts</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">map</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span>item<span class="w"> </span>in<span class="w"> </span>all_categories<span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="mi">3</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">all_categories</span><span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="mi">3</span><span class="w"> </span><span class="p">%}</span>
 <span class="p">{{</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="p">}}</span>
 <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
 </code></pre></div></div>
 
 <h4 id="push">
-<a id="push" class="anchor" href="#push" aria-hidden="true"><span class="octicon octicon-link"></span></a>push</h4>
+<a class="anchor" href="#push" aria-hidden="true"><span class="octicon octicon-link"></span></a>push</h4>
 
 <p>Adds an object to a array.</p>
 
@@ -1479,9 +1479,9 @@ a, b, c, and d
 </code></pre></div></div>
 
 <h4 id="reverse">
-<a id="reverse" class="anchor" href="#reverse" aria-hidden="true"><span class="octicon octicon-link"></span></a>reverse</h4>
+<a class="anchor" href="#reverse" aria-hidden="true"><span class="octicon octicon-link"></span></a>reverse</h4>
 
-<p>Reverses the order of the items in an array. Although <code class="highlighter-rouge">reverse</code> cannot reverse a string, but you can split a string into an array, reverse the array, and rejoin it by chaining together filters:</p>
+<p>Reverses the order of the items in an array. Although <code class="language-plaintext highlighter-rouge">reverse</code> cannot reverse a string, but you can split a string into an array, reverse the array, and rejoin it by chaining together filters:</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"apples, oranges, peaches, plums"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">%}</span>
@@ -1498,12 +1498,12 @@ Tom. Major to control Ground
 </code></pre></div></div>
 
 <h4 id="size-1">
-<a id="size-1" class="anchor" href="#size-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>size</h4>
+<a class="anchor" href="#size-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>size</h4>
 
 <p>Return the size of an array or string.</p>
 
 <h4 id="sort">
-<a id="sort" class="anchor" href="#sort" aria-hidden="true"><span class="octicon octicon-link"></span></a>sort</h4>
+<a class="anchor" href="#sort" aria-hidden="true"><span class="octicon octicon-link"></span></a>sort</h4>
 
 <p>Sorts items in an array by a property of an item in the array. The order of the sorted array is case-sensitive.</p>
 
@@ -1517,7 +1517,7 @@ Octopus, giraffe, octopus, zebra
 </code></pre></div></div>
 
 <h4 id="uniq">
-<a id="uniq" class="anchor" href="#uniq" aria-hidden="true"><span class="octicon octicon-link"></span></a>uniq</h4>
+<a class="anchor" href="#uniq" aria-hidden="true"><span class="octicon octicon-link"></span></a>uniq</h4>
 
 <p>Removes any duplicate elements in an array.</p>
 
@@ -1530,12 +1530,12 @@ ants, bugs, bees
 </code></pre></div></div>
 
 <h4 id="where">
-<a id="where" class="anchor" href="#where" aria-hidden="true"><span class="octicon octicon-link"></span></a>where</h4>
+<a class="anchor" href="#where" aria-hidden="true"><span class="octicon octicon-link"></span></a>where</h4>
 
 <p>Select all the objects in an array where the key has the given value.</p>
 
 <h3 id="date">
-<a id="date" class="anchor" href="#date" aria-hidden="true"><span class="octicon octicon-link"></span></a>date</h3>
+<a class="anchor" href="#date" aria-hidden="true"><span class="octicon octicon-link"></span></a>date</h3>
 
 <p>Converts a timestamp into another date format. The format for this syntax is the same as <a href="http://strftime.net/">strftime</a>. It also works on strings if they contain well-formatted dates:</p>
 
@@ -1713,7 +1713,7 @@ Aug 20, 16
   </tbody>
 </table>
 
-<p>Besides, <code class="highlighter-rouge">date_to_long_string</code> convert a date to long format; <code class="highlighter-rouge">date_to_long_rfc822</code> convert a Date into RFC-822 format; <code class="highlighter-rouge">date_to_string</code> convert a date to short format and <code class="highlighter-rouge">date_to_xmlschema</code> convert a Date into ISO 8601 format.</p>
+<p>Besides, <code class="language-plaintext highlighter-rouge">date_to_long_string</code> convert a date to long format; <code class="language-plaintext highlighter-rouge">date_to_long_rfc822</code> convert a Date into RFC-822 format; <code class="language-plaintext highlighter-rouge">date_to_string</code> convert a date to short format and <code class="language-plaintext highlighter-rouge">date_to_xmlschema</code> convert a Date into ISO 8601 format.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
 <span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date_to_long_string</span><span class="w"> </span><span class="p">}}</span>
@@ -2335,7 +2335,7 @@ Wed, 31 Aug 2016 00:00:00 -0700
 <li class="toc-entry toc-h3"><a href="#iteration">Iteration</a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#for">for</a></li>
-<li class="toc-entry toc-h4"><a href="#forloop-object">forloop (object)</a>
+<li class="toc-entry toc-h4"><a href="#myModalLabel">forloop (object)</a>
 <ul>
 <li class="toc-entry toc-h5"><a href="#forloopfirst">forloop.first</a></li>
 <li class="toc-entry toc-h5"><a href="#forloopindex">forloop.index</a></li>

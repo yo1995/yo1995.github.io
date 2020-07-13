@@ -181,7 +181,7 @@
             <div class="content-color">
             
             <h1 id="seo">
-<a id="seo" class="anchor" href="#seo" aria-hidden="true"><span class="octicon octicon-link"></span></a>SEO</h1>
+<a class="anchor" href="#seo" aria-hidden="true"><span class="octicon octicon-link"></span></a>SEO</h1>
 
 <p>文件转GIF<br>
 文件转动图 分享<br>
@@ -197,7 +197,7 @@ File to GIF</p>
 <p><a href="https://github.com/yo1995/QRcode_Playground">链接</a></p>
 
 <h2 id="引子">
-<a id="引子" class="anchor" href="#%E5%BC%95%E5%AD%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>引子</h2>
+<a class="anchor" href="#%E5%BC%95%E5%AD%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>引子</h2>
 
 <p>七月九号上午在看虎扑和 V2EX 的时候，突然想到了一个点子：是否可以把文件转化为 GIF 然后放在互联网的图床上进行分享呢？</p>
 
@@ -210,7 +210,7 @@ File to GIF</p>
 <p>事不宜迟，本想先把手头的活干完再来做这件事，但越想越觉得有意思且很容易实现，便立即开始写码。</p>
 
 <h2 id="二维码">
-<a id="二维码" class="anchor" href="#%E4%BA%8C%E7%BB%B4%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>二维码</h2>
+<a class="anchor" href="#%E4%BA%8C%E7%BB%B4%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>二维码</h2>
 
 <p>二维码是日本人在九十年代发明的，最初为了提高工业工程的效率，后来演变为我们在电子支付、内容分享中日常用到的样子。二维码的本质就是将字符串转为一张图像，然后接收端再通过模式识别解码图像，得到原来的字符串。二维码诞生之初，便有了许多复杂的设计，如版本号，对应二维码的矩阵大小，从 21 * 21 到 177 * 177；定位图样，方便模式识别时确定旋转和对齐方向；纠错等级，分别有低、中、高、最高。而且，最好的是——二维码的编码是定长码，这样一来，等长字符串编码生成的二维码尺寸一定相同。为了找到一个合适的矩阵尺寸，我先用一些在线二维码生成器进行了简单的试验。</p>
 
@@ -221,17 +221,17 @@ File to GIF</p>
 <p>看到这个二维码，我突然想到之前见过的许多异形二维码，如三维棱台、圆角、艺术化等变化。上 GitHub 一搜，果然让我找到很多现成的库。其中，以 Halftone QRCodes 和 QArt 二维码最为抓人眼球。前者能够生成抖动的黑白 GIF二维码，且每一帧都能扫出相同的内容；后者能够将彩色图片作为背景嵌入二维码，也能支持动态图。事不宜迟，我便先开始尝试做动态二维码。</p>
 
 <h2 id="个性二维码生成">
-<a id="个性二维码生成" class="anchor" href="#%E4%B8%AA%E6%80%A7%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%94%9F%E6%88%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>个性二维码生成</h2>
+<a class="anchor" href="#%E4%B8%AA%E6%80%A7%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%94%9F%E6%88%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>个性二维码生成</h2>
 
 <p><img src="/images/201907/worship.gif" alt="膜"> + 孙辰表示不服 = <img src="/images/201907/bufu.gif" alt="孙辰表示不服"></p>
 
 <p>重构了 CuteR 这个对 qrcode 进行封装的 Python 库。改进了坐标变换与并行执行的能力。通过给定输入字符串与输入的背景 GIF，即可得到输出的动态二维码。输出后再通过 gifsicle 进行优化压缩，得到最终的图像。示例参照上面的图像。</p>
 
 <h2 id="文件转二维码-gif">
-<a id="文件转二维码-gif" class="anchor" href="#%E6%96%87%E4%BB%B6%E8%BD%AC%E4%BA%8C%E7%BB%B4%E7%A0%81-gif" aria-hidden="true"><span class="octicon octicon-link"></span></a>文件转二维码 GIF</h2>
+<a class="anchor" href="#%E6%96%87%E4%BB%B6%E8%BD%AC%E4%BA%8C%E7%BB%B4%E7%A0%81-gif" aria-hidden="true"><span class="octicon octicon-link"></span></a>文件转二维码 GIF</h2>
 
 <h3 id="逻辑">
-<a id="逻辑" class="anchor" href="#%E9%80%BB%E8%BE%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>逻辑</h3>
+<a class="anchor" href="#%E9%80%BB%E8%BE%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>逻辑</h3>
 
 <ul>
   <li>编码</li>
@@ -246,7 +246,7 @@ File to GIF</p>
 <p>将 GIF 文件按帧读取，对每一帧进行二维码解码，再将解码后得到的字符串进行拼接，并 base64/base32 解码得到文件的二进制表达，存储到相应路径。</p>
 
 <h3 id="改进">
-<a id="改进" class="anchor" href="#%E6%94%B9%E8%BF%9B" aria-hidden="true"><span class="octicon octicon-link"></span></a>改进</h3>
+<a class="anchor" href="#%E6%94%B9%E8%BF%9B" aria-hidden="true"><span class="octicon octicon-link"></span></a>改进</h3>
 
 <p>逻辑比较清晰和简单，改进主要存在于几方面。</p>
 
@@ -339,7 +339,7 @@ File to GIF</p>
 </ol>
 
 <h2 id="总结">
-<a id="总结" class="anchor" href="#%E6%80%BB%E7%BB%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结</h2>
+<a class="anchor" href="#%E6%80%BB%E7%BB%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结</h2>
 
 <p><img src="/images/201907/ECE564.png" alt="测试文件 110KB"> -&gt; <img src="/images/201907/b32_v40_4295.gif" alt="编码后GIF 205KB"></p>
 
@@ -356,7 +356,7 @@ File to GIF</p>
 <p><del>字节跳动</del></p>
 
 <h2 id="参考">
-<a id="参考" class="anchor" href="#%E5%8F%82%E8%80%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>参考</h2>
+<a class="anchor" href="#%E5%8F%82%E8%80%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>参考</h2>
 
 <ul>
   <li>

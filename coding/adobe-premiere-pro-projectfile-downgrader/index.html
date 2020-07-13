@@ -193,17 +193,17 @@
 <p>真的没法打开吗？理论上来说，新版本的工程文件里包含了新版本的新特性，老版本自然无法打开。令人遗憾的是，有时同一个功能，新版本和老版本的命名不同，导致前向转换后依旧需要手动重新适配。除此以外，还是有办法用旧版本Premiere Pro打开新版本工程文件的，尤其是大版本内的各代小版本之间。</p>
 
 <h2 id="windows7-与-windows10-之迷思">
-<a id="windows7-与-windows10-之迷思" class="anchor" href="#windows7-%E4%B8%8E-windows10-%E4%B9%8B%E8%BF%B7%E6%80%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>Windows7 与 Windows10 之迷思</h2>
+<a class="anchor" href="#windows7-%E4%B8%8E-windows10-%E4%B9%8B%E8%BF%B7%E6%80%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>Windows7 与 Windows10 之迷思</h2>
 
 <p>在<a href="https://yo1995.github.io/video/Dolby-Codec-must-be-installed/">这个</a>文章中曾经发现，Windows7最高兼容的Pr版本可能会停留在CC 2017.4了。而我的Windows10由于各种原因需要安装最新版的CC 2018.因此难以用笔记本编辑完后导出到台式机进行渲染。为此，制作了这个极为简易的“Pr工程文件版本转换器”来实现降级的目的。</p>
 
 <h2 id="版本兼容问题的原理">
-<a id="版本兼容问题的原理" class="anchor" href="#%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%E7%9A%84%E5%8E%9F%E7%90%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>版本兼容问题的原理</h2>
+<a class="anchor" href="#%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%E7%9A%84%E5%8E%9F%E7%90%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>版本兼容问题的原理</h2>
 
 <p>很多用户对版本不兼容给出的解决方案是将工程导出为XML文件。然而，通用XML文件有时会损失不少Pr特有的功能，不够理想。另一种方法是直接改动工程文件内的版本号，让软件误以为对应正确的（较旧的）版本，从而读取。例如<a href="http://www.gfxtr1.com/Tutorials/Magazines/2017-09-25/6457.html">PR工程版本转换攻略</a>中所提到，.prproj文件实际上就是XML+gzip。了解到这一流程后，我们自然能够改动版本。</p>
 
 <h2 id="后续改进">
-<a id="后续改进" class="anchor" href="#%E5%90%8E%E7%BB%AD%E6%94%B9%E8%BF%9B" aria-hidden="true"><span class="octicon octicon-link"></span></a>后续改进</h2>
+<a class="anchor" href="#%E5%90%8E%E7%BB%AD%E6%94%B9%E8%BF%9B" aria-hidden="true"><span class="octicon octicon-link"></span></a>后续改进</h2>
 
 <ul>
   <li>
@@ -215,7 +215,7 @@
 </ul>
 
 <h2 id="参考">
-<a id="参考" class="anchor" href="#%E5%8F%82%E8%80%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>参考</h2>
+<a class="anchor" href="#%E5%8F%82%E8%80%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>参考</h2>
 
 <p><a href="https://space.bilibili.com/12360828/#/channel/detail?cid=15549">Pr 视频教程</a></p>
 

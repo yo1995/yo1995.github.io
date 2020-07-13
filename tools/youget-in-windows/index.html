@@ -183,12 +183,12 @@
             <p><a href="https://you-get.org/">官网</a></p>
 
 <h2 id="起因">
-<a id="起因" class="anchor" href="#%E8%B5%B7%E5%9B%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>起因</h2>
+<a class="anchor" href="#%E8%B5%B7%E5%9B%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>起因</h2>
 
 <p>想下载一个优酷的视频，但找了一圈发现过去的在线解析网站如维棠硕鼠等因为版权原因，都已经不再支持优酷了。接下来又找了其他几个网站，要么需要登录会员要么解析出一个m3u8文件，还需要再找工具来下载。尝试用FFmpeg直接下载m3u8列表却发现格式不对。没办法只好转向you-get。</p>
 
 <h2 id="步骤">
-<a id="步骤" class="anchor" href="#%E6%AD%A5%E9%AA%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a>步骤</h2>
+<a class="anchor" href="#%E6%AD%A5%E9%AA%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a>步骤</h2>
 
 <p>you-get从最开始以来一直保持活跃的更新，下载策略随着网站的演进也在不断改善，直至今日仍旧能够正确解析大部分网站的视频。然而，由于主要是面对Linux用户开发的，在Windows下使用存在一点不便，绕了点弯路才运行起来。最开始，找到了release中的Windows可执行文件，但运行后发现版本过低，优酷解析策略已经失效了。遂下载最新版。但它和常见的Python package用法不一样，并非import到自己的代码中或是直接cmd -&gt; Python [some.py]运行，而是另一种模式。话不多说，见如下步骤。</p>
 

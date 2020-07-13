@@ -191,7 +191,7 @@
 <p><img src="/images/201806/table.png" alt=""></p>
 
 <h2 id="尝试一mac自带disk-utility">
-<a id="尝试一mac自带disk-utility" class="anchor" href="#%E5%B0%9D%E8%AF%95%E4%B8%80mac%E8%87%AA%E5%B8%A6disk-utility" aria-hidden="true"><span class="octicon octicon-link"></span></a>尝试一：Mac自带Disk Utility</h2>
+<a class="anchor" href="#%E5%B0%9D%E8%AF%95%E4%B8%80mac%E8%87%AA%E5%B8%A6disk-utility" aria-hidden="true"><span class="octicon octicon-link"></span></a>尝试一：Mac自带Disk Utility</h2>
 
 <p><a href="https://www.reddit.com/r/hackintosh/comments/3g44x2/it_is_safe_to_resize_partition_in_dual_boot/">参考帖子</a>之后，我大致理解了面临的问题是什么。简而言之，如果想把Mac的空间移动到Windows，我分别要对Mac的恢复分区、Windows的MSR分区以及Windows主分区做左移操作，并对Windows主分区进行右扩操作。</p>
 
@@ -202,7 +202,7 @@
 <p>由于没看清帖子里的内容，我花了一点时间尝试用Mac自带的磁盘工具对Mac进行划分。但是尝试了半天，试图将Mac主分区分为两个的操作始终报错失败，只得作罢。这时我回头再看帖子，艾玛，好在没成功，原来Mac默认的分区是逻辑分区。就算我再分出一个空白分区来，也不过相当于在一个大盒子里多划出来一个小格子而已，没法改变大盒子的体积。于是，没有浪费太多时间就结束了这个尝试。</p>
 
 <h2 id="尝试二gparted">
-<a id="尝试二gparted" class="anchor" href="#%E5%B0%9D%E8%AF%95%E4%BA%8Cgparted" aria-hidden="true"><span class="octicon octicon-link"></span></a>尝试二：GParted</h2>
+<a class="anchor" href="#%E5%B0%9D%E8%AF%95%E4%BA%8Cgparted" aria-hidden="true"><span class="octicon octicon-link"></span></a>尝试二：GParted</h2>
 
 <p><img src="/images/201806/features.png" alt=""></p>
 
@@ -210,16 +210,16 @@
 
 <p>根据GParted的功能说明，它能够缩小HFS+分区而不能合并或扩大，因此反向调整双系统大小的情形就不能使用了。对我而言倒是非常适合。于是，按照说明制作了GParted Live USB，本想着应该十分顺利就能进入盘上系统，结果在引导部分出了问题。换硬件，重做镜像无果，遂谷歌之，发现问题可能出在USB3.0接口支持，或者BIOS和电脑硬件驱动上。估计是官方没有考虑到最新型号的设备，还未更新所致。于是放弃了制作GParted Live USB。想起Ubuntu上也有这个工具，干脆做个Xenial的盘算了。</p>
 
-<p>一切顺利进入Ubuntu，打开GParted傻了眼：版本为0.25.0，第三方插件均不自带。那就手动apt-get一下呗，结果发现无法更新源列表；那就手动安装包呗，安装好了hfsprogs却发现GParted仍旧无法识别HFS+分区。试来试去差点都想编译GParted了，转念一想没必要在一棵树上吊死，况且这个尝试已经花了我四个小时了…… <img class="emoji" title=":cry:" alt=":cry:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f622.png" height="20" width="20"></p>
+<p>一切顺利进入Ubuntu，打开GParted傻了眼：版本为0.25.0，第三方插件均不自带。那就手动apt-get一下呗，结果发现无法更新源列表；那就手动安装包呗，安装好了hfsprogs却发现GParted仍旧无法识别HFS+分区。试来试去差点都想编译GParted了，转念一想没必要在一棵树上吊死，况且这个尝试已经花了我四个小时了…… <img class="emoji" title=":cry:" alt=":cry:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png" height="20" width="20"></p>
 
 <p><img src="/images/201806/quad-boot-partitions.png" alt=""></p>
 
 <p>类似的复杂分区情况</p>
 
 <h2 id="尝试三paragon-camptune">
-<a id="尝试三paragon-camptune" class="anchor" href="#%E5%B0%9D%E8%AF%95%E4%B8%89paragon-camptune" aria-hidden="true"><span class="octicon octicon-link"></span></a>尝试三：PARAGON CampTune</h2>
+<a class="anchor" href="#%E5%B0%9D%E8%AF%95%E4%B8%89paragon-camptune" aria-hidden="true"><span class="octicon octicon-link"></span></a>尝试三：PARAGON CampTune</h2>
 
-<p>系统自带、开源软件尝试无果，自然想到有没有成熟的收费解决方案。这个需求并不少见，而且多为Mac用户的需求，那么Mac上一定有类似的软件。查到了这款软件，想办法装在Mac上，一运行，天都亮了——太方便了！ <img class="emoji" title=":joy:" alt=":joy:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png" height="20" width="20"> 😂</p>
+<p>系统自带、开源软件尝试无果，自然想到有没有成熟的收费解决方案。这个需求并不少见，而且多为Mac用户的需求，那么Mac上一定有类似的软件。查到了这款软件，想办法装在Mac上，一运行，天都亮了——太方便了！ <img class="emoji" title=":joy:" alt=":joy:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png" height="20" width="20"> 😂</p>
 
 <p><img src="/images/201806/2.png" alt=""></p>
 
@@ -230,7 +230,7 @@
 <p>三步走，直接就搞定了重新划分大小，根本不用怎么操作，设置好后等着就可以。当然，在重新分配空间前做一下碎片整理能够更有效地利用空间。Mac上用的是iDefrag，看上去很像Windows98 的碎片整理的现代版。</p>
 
 <h1 id="总结">
-<a id="总结" class="anchor" href="#%E6%80%BB%E7%BB%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结</h1>
+<a class="anchor" href="#%E6%80%BB%E7%BB%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结</h1>
 
 <p>拥抱开源，信任闭源。</p>
 

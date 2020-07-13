@@ -181,7 +181,7 @@
             <div class="content-color">
             
             <h2 id="背景">
-<a id="背景" class="anchor" href="#%E8%83%8C%E6%99%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a>背景</h2>
+<a class="anchor" href="#%E8%83%8C%E6%99%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a>背景</h2>
 
 <p>Ric前些阵子提出想部署一个纯Swift的开发环境，即macOS/iOS客户端用Swift写，后台服务器也用Swift起。这样的好处在于开发者只用掌握一门语言，即可完成“全栈”——整个应用的开发流程。</p>
 
@@ -198,23 +198,23 @@
 <hr>
 
 <h2 id="安装swift环境">
-<a id="安装swift环境" class="anchor" href="#%E5%AE%89%E8%A3%85swift%E7%8E%AF%E5%A2%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装Swift环境</h2>
+<a class="anchor" href="#%E5%AE%89%E8%A3%85swift%E7%8E%AF%E5%A2%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装Swift环境</h2>
 
 <p>从<a href="https://swift.org/download/">官网</a>下载，检查签名然后解压。如果不直接放进系统的bin的话，需要设置环境变量：</p>
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>/path/to/usr/bin:<span class="s2">"</span><span class="k">${</span><span class="nv">PATH</span><span class="k">}</span><span class="s2">"</span>
 </code></pre></div></div>
-<p>执行或者将其加入<code class="highlighter-rouge">~/.bashrc</code>即可。</p>
+<p>执行或者将其加入<code class="language-plaintext highlighter-rouge">~/.bashrc</code>即可。</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>swift <span class="nt">--version</span>
 </code></pre></div></div>
 <p>以检查环境是否正确，Swift程序可以找到。</p>
 
 <h2 id="安装vapor环境">
-<a id="安装vapor环境" class="anchor" href="#%E5%AE%89%E8%A3%85vapor%E7%8E%AF%E5%A2%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装Vapor环境</h2>
+<a class="anchor" href="#%E5%AE%89%E8%A3%85vapor%E7%8E%AF%E5%A2%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装Vapor环境</h2>
 
 <p>目前2019年6月19日最新版本的环境是Vapor4，但仅支持Swift5.1.由于Swift官网发布版还在5.0.1版，因此就退而求其次选了Vapor3。等秋季开始时再看是否需要升级。</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">eval</span> <span class="s2">"</span><span class="k">$(</span>curl <span class="nt">-sL</span> https://apt.vapor.sh<span class="k">)</span><span class="s2">"</span>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">eval</span> <span class="s2">"</span><span class="si">$(</span>curl <span class="nt">-sL</span> https://apt.vapor.sh<span class="si">)</span><span class="s2">"</span>
 <span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>vapor
 <span class="nv">$ </span>vapor <span class="nt">--help</span>
 </code></pre></div></div>
@@ -231,11 +231,11 @@
 </code></pre></div></div>
 <p>或直接运行run也会增量编译。</p>
 
-<p>默认编译是Debug的scheme，可通过<code class="highlighter-rouge">vapor run--env production</code>设为禁用debug输出等等。
-最后编译运行，即可在<code class="highlighter-rouge">http://localhost:8080</code>看到It works的字样。</p>
+<p>默认编译是Debug的scheme，可通过<code class="language-plaintext highlighter-rouge">vapor run--env production</code>设为禁用debug输出等等。
+最后编译运行，即可在<code class="language-plaintext highlighter-rouge">http://localhost:8080</code>看到It works的字样。</p>
 
 <h2 id="配置nginx代理">
-<a id="配置nginx代理" class="anchor" href="#%E9%85%8D%E7%BD%AEnginx%E4%BB%A3%E7%90%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>配置Nginx代理</h2>
+<a class="anchor" href="#%E9%85%8D%E7%BD%AEnginx%E4%BB%A3%E7%90%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>配置Nginx代理</h2>
 
 <p>本以为应该没啥问题，结果栽了大跟头。先说说桌子下这台Core Duo的主机。估计有年头了，CPU E8400，至少也是08或09年的机器了。内存2G、硬盘20G，由工院IT支持部门的小哥维护，通过netID登录，网卡注册到devices页面。这网络配置跟散落在学校各处的iMac估计很类似。然而最初我并未意识到这点，仍以为这是台空白的，完全由自己掌控的电脑。</p>
 
@@ -256,7 +256,7 @@
 <span class="nv">$ </span><span class="nb">sudo </span>ufw status
 </code></pre></div></div>
 
-<p>此处ufw是<code class="highlighter-rouge">Uncomplicated Firewall</code>的简称，是Ubuntu的简化版iptables，也就是这段网上看来的描述坑了我两三个小时的时间。</p>
+<p>此处ufw是<code class="language-plaintext highlighter-rouge">Uncomplicated Firewall</code>的简称，是Ubuntu的简化版iptables，也就是这段网上看来的描述坑了我两三个小时的时间。</p>
 
 <p>把ufw打开，允许22和80端口，这都很容易理解。然后配置nginx，因为暂时没有域名，所以直接搞</p>
 
@@ -264,7 +264,7 @@
 </code></pre></div></div>
 <p>即可，指定80端口（上面防火墙允许了的），然后映射到本地的8080端口。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
     listen 80 default_server;
     listen [::]:80 default_server;
     location / {
@@ -273,7 +273,7 @@
 }
 </code></pre></div></div>
 
-<p>一切都是简单直观，不应该有任何问题。然而一刷新我傻了：<code class="highlighter-rouge">Connection Refused.</code></p>
+<p>一切都是简单直观，不应该有任何问题。然而一刷新我傻了：<code class="language-plaintext highlighter-rouge">Connection Refused.</code></p>
 
 <p>不死心，换了两台设备测，结果一台是timeout另一台也是refused。这让我顿生疑虑。一般而言我见过的refused都因为服务器配置了规则禁止连接，但怎么又会timeout呢？难道是nginx根本没起来？</p>
 
@@ -292,15 +292,15 @@
 
 <p>最后只能硬着头皮用关键字搜，搜到了关于<a href="https://serverfault.com/questions/129086/how-to-start-stop-iptables-on-ubuntu">iptables</a>的操作。先是看到了个<a href="https://serverfault.com/questions/670575/failed-to-connect-to-127-0-0-1-port-80">类似的问题</a>，然后开始现场学<a href="https://www.howtogeek.com/177621/the-beginners-guide-to-iptables-the-linux-firewall/">如何改iptables</a>。最后打开这台主机的iptables一看，唉呀妈呀这是turd mountain啊！</p>
 
-<p>130多行的规则，清晰地划分了学院各个子网的访问权限，其中INPUT部分的<code class="highlighter-rouge">-A INPUT -j drop</code>赫然在目。就是这句话浪费了我人生中宝贵的两个半小时。之前一直以为这是台人畜无害的干净主机，甚至连git和nginx都没装过。谁曾想，没装过nginx却把防火墙规则配了一溜够，真是披着羊皮的狼！</p>
+<p>130多行的规则，清晰地划分了学院各个子网的访问权限，其中INPUT部分的<code class="language-plaintext highlighter-rouge">-A INPUT -j drop</code>赫然在目。就是这句话浪费了我人生中宝贵的两个半小时。之前一直以为这是台人畜无害的干净主机，甚至连git和nginx都没装过。谁曾想，没装过nginx却把防火墙规则配了一溜够，真是披着羊皮的狼！</p>
 
-<p>试了试发现靠前的条目优先级高于靠后的条目，于是加了一句<code class="highlighter-rouge">-A INPUT -s 10.0.0.0/8 -p tcp -m tcp --dport 80 -j ACCEPT</code>
+<p>试了试发现靠前的条目优先级高于靠后的条目，于是加了一句<code class="language-plaintext highlighter-rouge">-A INPUT -s 10.0.0.0/8 -p tcp -m tcp --dport 80 -j ACCEPT</code>
 解决问题。按理说，我是不应该配置这台主机的网络的，但阴差阳错又折腾得够呛。除了新知道一个词iptables以外，大半天时间全无收获，非常烦躁。</p>
 
 <hr>
 
 <h2 id="后记">
-<a id="后记" class="anchor" href="#%E5%90%8E%E8%AE%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>后记</h2>
+<a class="anchor" href="#%E5%90%8E%E8%AE%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>后记</h2>
 
 <p>越多地经历这样的情景，越让我觉得刷题有些可取之处。至少刷题时大脑能一直保持活动，时间不算浪费。而这种环境问题自己去找答案除了浪费时间毫无意义。最开始本想找个docker直接配好，结果这种小众的东西并没有人做高度定制化的docker，只有官方的两个镜像孤零零地挂在hub上。</p>
 
@@ -319,7 +319,7 @@
 <hr>
 
 <h2 id="190623-补充">
-<a id="190623-补充" class="anchor" href="#190623-%E8%A1%A5%E5%85%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>190623 补充</h2>
+<a class="anchor" href="#190623-%E8%A1%A5%E5%85%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>190623 补充</h2>
 
 <ul>
   <li>关于 WebSocket 的设置</li>
@@ -327,7 +327,7 @@
 
 <p>环境搭好了以后主要通过两个项目来入门学习后端的配置与编写服务。一个是<a href="https://github.com/IBM-Swift/Kitura-Sample">Kitura-Sample</a>，也就是Kitura官方教程汇总的一个repo。其中有一些问题已经通过issue反馈给了项目管理员。不得不说，正规军的响应速度、解答的耐心程度都值得称道，让我对IBM这家公司路转粉。</p>
 
-<p>在当前的项目中，有一个基于 WebSocket 的在线聊天室的实现。后端代码虽然简单但不失为一个好的脚手架，况且Swift原生的类似程序很少，值得继续探究。但当我想登入聊天室测试一下时，奇怪的事情发生了：<code class="highlighter-rouge">WebSocket connection failed: Error during WebSocket handshake: Unexpected response code: 302</code></p>
+<p>在当前的项目中，有一个基于 WebSocket 的在线聊天室的实现。后端代码虽然简单但不失为一个好的脚手架，况且Swift原生的类似程序很少，值得继续探究。但当我想登入聊天室测试一下时，奇怪的事情发生了：<code class="language-plaintext highlighter-rouge">WebSocket connection failed: Error during WebSocket handshake: Unexpected response code: 302</code></p>
 
 <p>按理说302并非一个错误代码，可为什么无法建立连接呢？分别试了防火墙端口、路由路径以及npm依赖重装以后仍旧没有解决。在<a href="https://stackoverflow.com/questions/41381444/websocket-connection-failed-error-during-websocket-handshake-unexpected-respon">SO的帖子</a>上却看到了真正的原因。似乎是因为 Nginx 需要对 WebSocket 的 Upgrade header 做出<a href="https://www.nginx.com/blog/websocket-nginx/">具体设置</a>以实现长时间连接不断线的功能。</p>
 
@@ -336,7 +336,7 @@
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>nano /etc/nginx/sites-available/default
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
     listen 80 default_server;
     listen [::]:80 default_server;
     location / {

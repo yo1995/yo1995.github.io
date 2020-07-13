@@ -183,7 +183,7 @@
             <p><img src="/images/201804/ds418play.png" alt=""></p>
 
 <h2 id="起因">
-<a id="起因" class="anchor" href="#%E8%B5%B7%E5%9B%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>起因</h2>
+<a class="anchor" href="#%E8%B5%B7%E5%9B%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>起因</h2>
 
 <p>最初了解NAS这个东西，是在本科期间。学校自带PT服务，因而就见到身边的人为了刷上传量使出浑身解数。从全天开机的笔记本，到放到实验室的树莓派，再到各种方法搞来的内网服务器，可谓各显神通。其中就有人使用NAS，使用黑群晖。就在那时，我听说了群晖这个品牌。</p>
 
@@ -194,7 +194,7 @@
 <p>整机自然就是群晖、威联通、铁威马、西数等等品牌了。没费多大功夫我就决定上白群晖算了。在决定之前还看到过HP ProLiant MicroServer——外观不错，配置也够用。在PT论坛区也见到过有人用这款设备。但一来价格优势不明显，二来功耗噪音等细节不适合家用。见网上有人说：技术型玩家看到ProLiant 这几个字母就硬了。于是摸摸自己的蛋蛋，淡淡的忧伤充盈心间：年纪不大，怎么就硬不起来了呢？或许，真的是折腾不动了。</p>
 
 <h2 id="入手">
-<a id="入手" class="anchor" href="#%E5%85%A5%E6%89%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>入手</h2>
+<a class="anchor" href="#%E5%85%A5%E6%89%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>入手</h2>
 
 <p>明确目标后就比较简单了，想办法最低价位入手心仪的设备。</p>
 
@@ -215,19 +215,19 @@
 <p>算上运费和其它成本，大概比国行便宜1200人民币左右。还算比较满意了。</p>
 
 <h2 id="nas需求整理">
-<a id="nas需求整理" class="anchor" href="#nas%E9%9C%80%E6%B1%82%E6%95%B4%E7%90%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>NAS需求整理</h2>
+<a class="anchor" href="#nas%E9%9C%80%E6%B1%82%E6%95%B4%E7%90%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>NAS需求整理</h2>
 
 <p>在等待NAS的日子里，翻阅了很多教程和总结，愈发觉得NAS是一件很有用的电子产品（自我安慰）。于是把家用的场景分析了一通，甚至还画了网络拓扑图。一步步采坑走来，也积累了不少经验和教训，待我慢慢道来。</p>
 
 <h3 id="家里网络状况">
-<a id="家里网络状况" class="anchor" href="#%E5%AE%B6%E9%87%8C%E7%BD%91%E7%BB%9C%E7%8A%B6%E5%86%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>家里网络状况</h3>
+<a class="anchor" href="#%E5%AE%B6%E9%87%8C%E7%BD%91%E7%BB%9C%E7%8A%B6%E5%86%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>家里网络状况</h3>
 
 <p><img src="/images/201804/subnet.svg" alt=""></p>
 
 <p>无ipv6，无公网IP，上行20下行100移动，AS9808。东岸西岸速度大约在15/8的水平。国内速度倒是杠杠的，运营商内部50以上没问题，联通电信也有40左右。就是没有公网IP比较麻烦。最后索性放弃了映射访问和公网唤醒。QuickConnect应该就够，也不指望从公网进行什么复杂操作了。</p>
 
 <h3 id="需求">
-<a id="需求" class="anchor" href="#%E9%9C%80%E6%B1%82" aria-hidden="true"><span class="octicon octicon-link"></span></a>需求</h3>
+<a class="anchor" href="#%E9%9C%80%E6%B1%82" aria-hidden="true"><span class="octicon octicon-link"></span></a>需求</h3>
 <ul>
   <li>无盘1700以下：最后超了一些，不过还是低于最开始想的2500</li>
   <li>6-8T：暂时4T，走之前再上一个2T或者其他</li>
@@ -238,21 +238,21 @@
 </ul>
 
 <h3 id="必需">
-<a id="必需" class="anchor" href="#%E5%BF%85%E9%9C%80" aria-hidden="true"><span class="octicon octicon-link"></span></a>必需</h3>
+<a class="anchor" href="#%E5%BF%85%E9%9C%80" aria-hidden="true"><span class="octicon octicon-link"></span></a>必需</h3>
 <ul>
   <li>文件自动同步与备份，目录：cloud station实在难用，回归了synctoy的方案</li>
   <li>远程访问：QuickConnect</li>
 </ul>
 
 <h3 id="可选">
-<a id="可选" class="anchor" href="#%E5%8F%AF%E9%80%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>可选</h3>
+<a class="anchor" href="#%E5%8F%AF%E9%80%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>可选</h3>
 <ul>
   <li>离线下载BT（缓存+存储）：搞个vps或者买块小点的下载盘</li>
   <li>流媒体服务：video station</li>
 </ul>
 
 <h3 id="附加">
-<a id="附加" class="anchor" href="#%E9%99%84%E5%8A%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>附加</h3>
+<a class="anchor" href="#%E9%99%84%E5%8A%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>附加</h3>
 <ul>
   <li>ss反向代理：无公网IP，frp</li>
   <li>版本管理</li>
@@ -260,14 +260,14 @@
 </ul>
 
 <h3 id="其他">
-<a id="其他" class="anchor" href="#%E5%85%B6%E4%BB%96" aria-hidden="true"><span class="octicon octicon-link"></span></a>其他</h3>
+<a class="anchor" href="#%E5%85%B6%E4%BB%96" aria-hidden="true"><span class="octicon octicon-link"></span></a>其他</h3>
 <ul>
   <li>不面向外网，云盘onedrive box定期同步到NAS</li>
   <li>买新硬盘盒替换快坏的</li>
 </ul>
 
 <h3 id="已有硬盘">
-<a id="已有硬盘" class="anchor" href="#%E5%B7%B2%E6%9C%89%E7%A1%AC%E7%9B%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>已有硬盘：</h3>
+<a class="anchor" href="#%E5%B7%B2%E6%9C%89%E7%A1%AC%E7%9B%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>已有硬盘：</h3>
 <p>pc挂机两块500G、pc挂机ssd 256G、电脑桌抽屉500G、妈320G、爸电脑1T中部分、笔记本500G、移动2T、移动1T音乐、移动1T照片日常、移动500G视频素材</p>
 
 <p>有一堆硬盘，内容极其庞杂，是时候好好整理一下了。</p>
@@ -275,7 +275,7 @@
 <hr>
 
 <h2 id="文件系统初始化">
-<a id="文件系统初始化" class="anchor" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%88%9D%E5%A7%8B%E5%8C%96" aria-hidden="true"><span class="octicon octicon-link"></span></a>文件系统初始化</h2>
+<a class="anchor" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%88%9D%E5%A7%8B%E5%8C%96" aria-hidden="true"><span class="octicon octicon-link"></span></a>文件系统初始化</h2>
 
 <p>文件结构的组织是一门很大的学问。在计算机出现以前，人们就已经面临诸如图书馆管理、典籍编目、行政数据统计等众多确实存在的文档数据管理实例。甚至连图书馆管理这门学科都能设立博士学位，可见这类问题规模之大复杂度之高。到了如今这个数据爆炸的年代，如何有效而有序地管理自己的文档、设计出后向兼容的文件系统，成为了非常重要的问题。直到今日，仍旧有许多网站的文件管理存在问题，以至于层出不穷</p>
 
@@ -295,17 +295,17 @@
   </li>
 </ul>
 
-<p>其次就是如何合理地同步文件。群晖系统自带了三种同步方案，分别是hyper backup/drive/cloud station。可是，尝试了之后，发现这些工具竟然都不能满足我的需求。hyperbackup量级太重，更类似于两地灾备；drive量级太轻，操作逻辑比较像百度网盘，但是和之前的photo station、video station等套件兼容不好；cloud station本该是最好的解决答案，可它的Windows桌面客户端操作逻辑实在不好用。最后<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>保留了drive以备后期备份文档用，而相片和录像则采取了最原始的手动备份的办法。</p>
+<p>其次就是如何合理地同步文件。群晖系统自带了三种同步方案，分别是hyper backup/drive/cloud station。可是，尝试了之后，发现这些工具竟然都不能满足我的需求。hyperbackup量级太重，更类似于两地灾备；drive量级太轻，操作逻辑比较像百度网盘，但是和之前的photo station、video station等套件兼容不好；cloud station本该是最好的解决答案，可它的Windows桌面客户端操作逻辑实在不好用。最后<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup>保留了drive以备后期备份文档用，而相片和录像则采取了最原始的手动备份的办法。</p>
 
 <h3 id="增量化备份的疑惑">
-<a id="增量化备份的疑惑" class="anchor" href="#%E5%A2%9E%E9%87%8F%E5%8C%96%E5%A4%87%E4%BB%BD%E7%9A%84%E7%96%91%E6%83%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>增量化备份的疑惑</h3>
+<a class="anchor" href="#%E5%A2%9E%E9%87%8F%E5%8C%96%E5%A4%87%E4%BB%BD%E7%9A%84%E7%96%91%E6%83%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>增量化备份的疑惑</h3>
 
 <p>由于我之前的文件备份方案非常凌乱，很多不同年代的文件存在散落四处的光盘U盘和移动硬盘中。首先要做的事就是把所有文件集中到一起。然后分门别类放好，再一一存到NAS上面。之后把本地无需备份的文件删掉，需要双重备份的文件放入archived文件夹，从而实现简单的根据时间的版本控制。后期打算把增量放在另一个文件夹里，定时手动归档。</p>
 
 <p>不采用现有套件主要是因为移动硬盘在同步过程中经常由于各种原因自动断线重连，导致同步中断。手动同步只能用比较熟悉的SyncToy进行，操作也不是很方便。正在寻求更好的方案。当然，如果本地存储足够大，完全抛弃移动硬盘，应该会很方便。</p>
 
 <h2 id="内网穿透与ddns">
-<a id="内网穿透与ddns" class="anchor" href="#%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E4%B8%8Eddns" aria-hidden="true"><span class="octicon octicon-link"></span></a>内网穿透与DDNS</h2>
+<a class="anchor" href="#%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E4%B8%8Eddns" aria-hidden="true"><span class="octicon octicon-link"></span></a>内网穿透与DDNS</h2>
 
 <p>首先，去小区网络服务提供商咨询了公网IP的事宜，得到的答复果然是没有希望。根据光猫和tracert的信息来看，从家出发似乎经过两级NAT才来到公网，可见北京移动（铁通）IP资源的稀缺。有人说，可以假装自己家里要装监控去碰碰运气，但在我这里是行不通。</p>
 
@@ -326,25 +326,25 @@
 <p>后期考虑让国外的同学测一下各地的连接速率，看究竟是学校服务器快还是群晖的服务器快。总之，内网穿透这件事暂时放下了。</p>
 
 <h2 id="局域网唤醒wol之迷思">
-<a id="局域网唤醒wol之迷思" class="anchor" href="#%E5%B1%80%E5%9F%9F%E7%BD%91%E5%94%A4%E9%86%92wol%E4%B9%8B%E8%BF%B7%E6%80%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>局域网唤醒(WOL)之迷思</h2>
+<a class="anchor" href="#%E5%B1%80%E5%9F%9F%E7%BD%91%E5%94%A4%E9%86%92wol%E4%B9%8B%E8%BF%B7%E6%80%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>局域网唤醒(WOL)之迷思</h2>
 
 <p>WOL，即Wake-On-LAN，局域网唤醒，指的是通过长期保持通电的Ethernet端口唤醒设备的一种方法。能够实现通过局域网甚至互联网直接唤醒设备从而实现远程开机。考虑到以后不在家时仍旧希望能够随时随地打开NAS进行操作，又不想每次麻烦家人去按下物理按钮来开机，弄清楚WOL的方法有一定必要。</p>
 
 <p>WOL的想法就是给特定的MAC地址发一个“魔术包”，当对应的硬件接收到这种包后唤醒设备。因此，需要搞清楚如何才能让这个数据包安全无虞地抵达彼岸的端口。</p>
 
 <h3 id="静态arp绑定之谜">
-<a id="静态arp绑定之谜" class="anchor" href="#%E9%9D%99%E6%80%81arp%E7%BB%91%E5%AE%9A%E4%B9%8B%E8%B0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>静态ARP绑定之谜</h3>
+<a class="anchor" href="#%E9%9D%99%E6%80%81arp%E7%BB%91%E5%AE%9A%E4%B9%8B%E8%B0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>静态ARP绑定之谜</h3>
 
 <p>虽说是给特定硬件发包，但机在网内一切都得靠IP说话呀。设备关机的时候，自然是没有IP的，那该怎么办呢？</p>
 
-<p>参考了很多文档和讨论<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup><sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>介绍了WOL的原理，大致可分为两种：定向播报和广播。</p>
+<p>参考了很多文档和讨论<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote">2</a></sup><sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote">3</a></sup>介绍了WOL的原理，大致可分为两种：定向播报和广播。</p>
 
 <p>许多现代的路由器都有一个功能叫做静态ARP绑定。它能实现将硬件地址MAC和某一固定IP捆绑，从而使路由器了解如果给某一IP发包的话，怎么找到其对应的硬件实体。几乎所有的现代路由器都有这个功能，然而接NAS的光猫路由一体机『贝尔NBEL G-140W-C』竟然不支持！一台缺少端口转发、动态解析、ARP绑定等功能的路由器……气得我差点直接给厂家写邮件，想来也是屁用没有。</p>
 
 <p>因此，只能换一种思路：把包广播给所有网段内的设备，MAC地址匹配的设备被唤醒。</p>
 
 <ul>
-  <li>定向播报：只向单一IP地址发送唤醒魔术包。然而，这会遇上一个悖论<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>:既然设备没开机，它怎么会有IP地址？此时就需要在路由器端定死它的地址，用的命令是ARP静态绑定。telnet进系统，发现arp命令存在，基本功能也有，那就手动设置一下呗。</li>
+  <li>定向播报：只向单一IP地址发送唤醒魔术包。然而，这会遇上一个悖论<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote">4</a></sup>:既然设备没开机，它怎么会有IP地址？此时就需要在路由器端定死它的地址，用的命令是ARP静态绑定。telnet进系统，发现arp命令存在，基本功能也有，那就手动设置一下呗。</li>
 </ul>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># arp -s 192.168.1.10 01:23:45:67:89:AB</span>
@@ -358,7 +358,7 @@
 </ul>
 
 <h3 id="路由器大作战">
-<a id="路由器大作战" class="anchor" href="#%E8%B7%AF%E7%94%B1%E5%99%A8%E5%A4%A7%E4%BD%9C%E6%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>路由器大作战</h3>
+<a class="anchor" href="#%E8%B7%AF%E7%94%B1%E5%99%A8%E5%A4%A7%E4%BD%9C%E6%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>路由器大作战</h3>
 
 <p>路由器是做什么的？通俗地讲，如果把所有的设备看作一个个士兵，那路由器就是对士兵的编制进行管理的机构。一整支军队倘若不分等级不分团队，那么无论是相互之间的合作交流，还是整体的调度配置，都会产生或多或少的不便。</p>
 
@@ -366,7 +366,7 @@
 
 <p>在我看来，既然下级子网能够直接访问到上级所在的192.168.1.0的网段，且能够打开NAS的主界面，那么理所应当发包过去不会受到什么阻碍。可搞来搞去还是不成。这时候需要一个有力的判据来判断我发的包到底到没到对岸。于是请上了tcpdump这款抓包大杀器。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo tcpdump udp port 9
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo tcpdump udp port 9
 </code></pre></div></div>
 
 <p>分别得到了定向和广播的情况。</p>
@@ -378,7 +378,7 @@
 <p>可以看到，当发包设备在同一网段的时候无论单播还是广播NAS都能收到包。而不在同一网段设置ARP绑定后单播也能接到包。那总该没问题了啊？实在想不通，只得作罢。</p>
 
 <h2 id="电源管理">
-<a id="电源管理" class="anchor" href="#%E7%94%B5%E6%BA%90%E7%AE%A1%E7%90%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>电源管理</h2>
+<a class="anchor" href="#%E7%94%B5%E6%BA%90%E7%AE%A1%E7%90%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>电源管理</h2>
 
 <p>网上很多人都说，既然买了NAS，那么坏之前都不关机了。话虽这么说，但25W的耗电量并不算少，加上光猫和路由器的开销接近40W了。因此，合理地节电还是很重要的。</p>
 
@@ -399,26 +399,26 @@
 <p>除此以外，许多细节还是比较完善的。包括可调节亮度的指示灯、能够正常读取和断开USB设备、空闲时自动降频等等。总体来说用起来很利落，没有烦人的小问题。</p>
 
 <h2 id="带宽情况">
-<a id="带宽情况" class="anchor" href="#%E5%B8%A6%E5%AE%BD%E6%83%85%E5%86%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>带宽情况</h2>
+<a class="anchor" href="#%E5%B8%A6%E5%AE%BD%E6%83%85%E5%86%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>带宽情况</h2>
 
 <p>重中之重。NAS想要用得畅快，上下行带宽是关键。仅从几个例子来说明这台NAS在这方面有多么优秀——</p>
 
 <h3 id="存储设备和接口">
-<a id="存储设备和接口" class="anchor" href="#%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87%E5%92%8C%E6%8E%A5%E5%8F%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a>存储设备和接口</h3>
+<a class="anchor" href="#%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87%E5%92%8C%E6%8E%A5%E5%8F%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a>存储设备和接口</h3>
 
 <p><img src="/images/201804/usb2.0-max-speed.png" alt=""></p>
 
 <p>外接的是一块USB2.0接口的移动硬盘。众所周知USB2.0的理论带宽是480Mbps，算上串行码和校验的损耗理论值最多最多也就45MB/s左右。而群晖居然跑出了43MB/s的速度，着实让我吓了一跳！在这之前我见过PC上最快的USB2.0速度不过33MB/s，还是用的高速设备达到的。更难能可贵的是，这个速度始终较为稳定，并没有虚标的现象。说明不是通过缓存提升瞬发性能来实现的。之后还用USB3.0接口的移动硬盘测试过，瓶颈已然到了硬盘的速度衰减上。</p>
 
 <h3 id="以太网接口">
-<a id="以太网接口" class="anchor" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E6%8E%A5%E5%8F%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a>以太网接口</h3>
+<a class="anchor" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E6%8E%A5%E5%8F%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a>以太网接口</h3>
 
 <p><img src="/images/201804/rj45.png" alt=""></p>
 
 <p>以太网接口是NAS工作的根本。根本不用怀疑其性能。同样瓶颈在于交换机以及硬盘。从西数蓝盘上传至NAS速度基本可以维持在百兆以上，最高速度也达到了网卡的上限。非常满意！</p>
 
 <h3 id="路由器速度衰减">
-<a id="路由器速度衰减" class="anchor" href="#%E8%B7%AF%E7%94%B1%E5%99%A8%E9%80%9F%E5%BA%A6%E8%A1%B0%E5%87%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>路由器速度衰减</h3>
+<a class="anchor" href="#%E8%B7%AF%E7%94%B1%E5%99%A8%E9%80%9F%E5%BA%A6%E8%A1%B0%E5%87%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>路由器速度衰减</h3>
 
 <p><img src="/images/201804/180310speedtest.png" alt=""></p>
 
@@ -433,27 +433,27 @@
 <p>话说回来，一天在用NAS上传文件的时候突然<a href="https://www.v2ex.com/t/452934">遇到了问题</a>，尝试了d0 packet coalescing/RDC/netsh interface tcp设来设去都没弄好。查了诸多资料最后发现很可能是硬件问题。于是重启路由器解决……等以后重新布线家庭网络的时候，一定要配置好弱电设备。</p>
 
 <h2 id="电影中心">
-<a id="电影中心" class="anchor" href="#%E7%94%B5%E5%BD%B1%E4%B8%AD%E5%BF%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>电影中心</h2>
+<a class="anchor" href="#%E7%94%B5%E5%BD%B1%E4%B8%AD%E5%BF%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>电影中心</h2>
 
 <p>在使用DS Video以前，从来不知道还可以这样管理电影资源。自动索引、网络刮削、几乎不费什么事情就能得到一个完善的电影资料库，称得上是赏心悦目。甚至连命名规则清晰的电视剧也能刮削，真令我大开眼界。</p>
 
 <p>这个套件另外一个功能就是NAS预转码然后串流到性能较低的设备，例如旧的智能电视、手机或者平板。这也是我购入NAS的一大原因：希望家人能够方便快捷地欣赏较清晰的电影，而不必花钱买在线视频网站的会员却仍得忍受低画质。</p>
 
 <h3 id="刮削器">
-<a id="刮削器" class="anchor" href="#%E5%88%AE%E5%89%8A%E5%99%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>刮削器</h3>
+<a class="anchor" href="#%E5%88%AE%E5%89%8A%E5%99%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>刮削器</h3>
 
 <p>所谓刮削器/scraper就是从电影资料库网站获取信息的工具。</p>
 
 <h2 id="照片中心">
-<a id="照片中心" class="anchor" href="#%E7%85%A7%E7%89%87%E4%B8%AD%E5%BF%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>照片中心</h2>
+<a class="anchor" href="#%E7%85%A7%E7%89%87%E4%B8%AD%E5%BF%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>照片中心</h2>
 
 <p>待续。似乎人脸识别功能还不完善，目前只能作为最基础的相册使用。分享评论等功能等有机会再体验。</p>
 
 <h2 id="refs">
-<a id="refs" class="anchor" href="#refs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Refs</h2>
+<a class="anchor" href="#refs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Refs</h2>
 
 <h3 id="其他-1">
-<a id="其他-1" class="anchor" href="#%E5%85%B6%E4%BB%96-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>其他</h3>
+<a class="anchor" href="#%E5%85%B6%E4%BB%96-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>其他</h3>
 
 <p>https://www.cnblogs.com/ggjucheng/archive/2012/01/14/2322659.html</p>
 
@@ -464,19 +464,19 @@
 <p>https://blog.csdn.net/qq_29663071/article/details/53508319</p>
 
 <p>https://ubuntuforums.org/archive/index.php/t-1807768.html</p>
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1">
-      <p>后来发现drive确实可以利用到版本控制的特性，还算不错。 <a href="#fnref:1" class="reversefootnote">↩</a></p>
+    <li id="fn:1" role="doc-endnote">
+      <p>后来发现drive确实可以利用到版本控制的特性，还算不错。 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:2">
-      <p>http://bbs.net130.com/archive/index.php/t-233110.html <a href="#fnref:2" class="reversefootnote">↩</a></p>
+    <li id="fn:2" role="doc-endnote">
+      <p>http://bbs.net130.com/archive/index.php/t-233110.html <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:3">
-      <p>https://www.dd-wrt.com/wiki/index.php/WOL <a href="#fnref:3" class="reversefootnote">↩</a></p>
+    <li id="fn:3" role="doc-endnote">
+      <p>https://www.dd-wrt.com/wiki/index.php/WOL <a href="#fnref:3" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:4">
-      <p>https://zhuanlan.zhihu.com/p/29057096 <a href="#fnref:4" class="reversefootnote">↩</a></p>
+    <li id="fn:4" role="doc-endnote">
+      <p>https://zhuanlan.zhihu.com/p/29057096 <a href="#fnref:4" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
   </ol>
 </div>

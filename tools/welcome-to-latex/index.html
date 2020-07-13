@@ -189,7 +189,7 @@
 <p>经过了一系列心理斗争和纠结过后，还是走上了LaTeX的道路。无它，只是因为对排版还是有更高要求吧。改了一整天向国内某杂志社投出的稿件，实在受不了这种低效率的修改和校正了。一步到位，还是用刻板而精准的LaTeX算了。</p>
 
 <h2 id="第一步寻找适合的解决方案">
-<a id="第一步寻找适合的解决方案" class="anchor" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%E5%AF%BB%E6%89%BE%E9%80%82%E5%90%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>第一步，寻找适合的解决方案</h2>
+<a class="anchor" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%E5%AF%BB%E6%89%BE%E9%80%82%E5%90%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>第一步，寻找适合的解决方案</h2>
 <p>很久以前，道听途说了许多关于LaTeX的匿名建议，其中之一就是“不要用CTeX！”另外一条就是“不要使用ctex！”</p>
 
 <p>？？？我的表情#(惊哭)。这就大小写敏感啊什么情况……</p>
@@ -229,7 +229,7 @@ PDF 预览：pdf-view</p>
 <p>我选择了作者推荐的配置二，比较符合目前的状况。</p>
 
 <h2 id="第二步安装">
-<a id="第二步安装" class="anchor" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%E5%AE%89%E8%A3%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>第二步，安装</h2>
+<a class="anchor" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%E5%AE%89%E8%A3%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>第二步，安装</h2>
 <p><a href="https://www.tug.org/texlive/">TeXLive</a>
 <a href="http://www.sumatrapdfreader.org/">SumatraPDF</a>
 <a href="https://github.com/SublimeText/LaTeXTools">LaTeXTools</a></p>
@@ -240,14 +240,14 @@ PDF 预览：pdf-view</p>
 <img src="/images/201609/tex2016.jpg" alt="安装完成"></p>
 
 <h2 id="第三步开始使用">
-<a id="第三步开始使用" class="anchor" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>第三步，开始使用</h2>
+<a class="anchor" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>第三步，开始使用</h2>
 <h3 id="起手">
-<a id="起手" class="anchor" href="#%E8%B5%B7%E6%89%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>起手</h3>
+<a class="anchor" href="#%E8%B5%B7%E6%89%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>起手</h3>
 <p>此处推荐新手打印一份常用命令方便查找。当然，如果你的屏幕够大的话也可以使用编辑器自带doc。由于我暂时要在1366*768@13”使用，所以还是选择了用iPad进行辅助。
 <a href="http://wch.github.io/LaTeXsheet/">常用命令表</a></p>
 
 <h3 id="接着">
-<a id="接着" class="anchor" href="#%E6%8E%A5%E7%9D%80" aria-hidden="true"><span class="octicon octicon-link"></span></a>接着</h3>
+<a class="anchor" href="#%E6%8E%A5%E7%9D%80" aria-hidden="true"><span class="octicon octicon-link"></span></a>接着</h3>
 <p>上来编译就没过，提示：File::Path version 2.08 required ……</p>
 
 <p>总之就是LaTeXmk.pl这个perl脚本依赖的perl版本太低啦，需要一个更高版本的perl。</p>
@@ -263,7 +263,7 @@ PDF 预览：pdf-view</p>
 <p>解决方法很简单，拿一个更新版本的perl放到系统环境变量里就好啦，我放到path的是mysgit自带的perl 5.22.1，加上以后就No errors. No warnings.</p>
 
 <h3 id="最后">
-<a id="最后" class="anchor" href="#%E6%9C%80%E5%90%8E" aria-hidden="true"><span class="octicon octicon-link"></span></a>最后</h3>
+<a class="anchor" href="#%E6%9C%80%E5%90%8E" aria-hidden="true"><span class="octicon octicon-link"></span></a>最后</h3>
 <p>最后还有一个需要解决的：用SumatraPDF预览时，如果需要定位到代码需要修改的地方怎么办呢？这时就需要设置反向搜索功能了。</p>
 
 <p>打开任何一个刚由.tex生成的pdf，在设置-选项里面，最下面就是你用到的编辑器对应的反向搜索功能设置。设为如下格式即可：</p>
@@ -284,9 +284,9 @@ Hello World !<span class="k">\LaTeX</span>
 <p>效果：<img src="/images/201609/helloworldlatex.GIF" alt="helloworld"></p>
 
 <h2 id="第四步真正开始使用">
-<a id="第四步真正开始使用" class="anchor" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%E7%9C%9F%E6%AD%A3%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>第四步，真正开始使用</h2>
+<a class="anchor" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%E7%9C%9F%E6%AD%A3%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>第四步，真正开始使用</h2>
 <h3 id="套模板">
-<a id="套模板" class="anchor" href="#%E5%A5%97%E6%A8%A1%E6%9D%BF" aria-hidden="true"><span class="octicon octicon-link"></span></a>套模板</h3>
+<a class="anchor" href="#%E5%A5%97%E6%A8%A1%E6%9D%BF" aria-hidden="true"><span class="octicon octicon-link"></span></a>套模板</h3>
 
 <p>目前用tex的最主要目的是完成一份格式标准的简历。希望以两栏形式呈现。在一个交大学长的页面上找到了不错的模板，正在尝试使用。</p>
 
@@ -296,7 +296,7 @@ Hello World !<span class="k">\LaTeX</span>
 <p>记录一个小技巧：可以用全角空格当做一个占位符，干掉不需要的label~ 以前发明的没想到在这里用上了。</p>
 
 <h2 id="顺便">
-<a id="顺便" class="anchor" href="#%E9%A1%BA%E4%BE%BF" aria-hidden="true"><span class="octicon octicon-link"></span></a>顺便</h2>
+<a class="anchor" href="#%E9%A1%BA%E4%BE%BF" aria-hidden="true"><span class="octicon octicon-link"></span></a>顺便</h2>
 <p>记录一下第一次自己翻译的新闻被<a href="http://www.nflchina.com/news/detail/1984907.html">nflchina</a>采用咯~</p>
 
             

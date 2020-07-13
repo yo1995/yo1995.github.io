@@ -186,9 +186,9 @@
 一般来说，做什么工作就得选什么工具，工具不好用会浪费不少时间。这次配置编写这台服务器的服务时就体会到了这一点。原谅我水平不济，所有后台服务都想和Django比一比，比完后总会得出结论——Django真是好用啊！无论是数据库模型，还是默认的HTTP服务器，还是Python强大三方库社区的加持，还是验证管理会话安全等中间件……都非常适合对配置服务器或后台服务一知半解的小白——无需懂得太多，只需关注服务逻辑，就能很快搭出原型。想要用Kitura实现许多在Django里面半天就能搞定的功能，可算得上大费周章。</p>
 
 <h2 id="第一个服务---emoji-server">
-<a id="第一个服务---emoji-server" class="anchor" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1---emoji-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>第一个服务 - Emoji Server</h2>
+<a class="anchor" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1---emoji-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>第一个服务 - Emoji Server</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
 ├── [1.6K]  Package.swift
 ├── [4.0K]  public
 │   ├── [4.0K]  css
@@ -254,12 +254,12 @@
 <p>高兴的太早了。</p>
 
 <h2 id="第二个服务--ece564-server">
-<a id="第二个服务--ece564-server" class="anchor" href="#%E7%AC%AC%E4%BA%8C%E4%B8%AA%E6%9C%8D%E5%8A%A1--ece564-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>第二个服务- ECE564 Server</h2>
+<a class="anchor" href="#%E7%AC%AC%E4%BA%8C%E4%B8%AA%E6%9C%8D%E5%8A%A1--ece564-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>第二个服务- ECE564 Server</h2>
 
 <p>给Ric简单介绍完，他觉得看起来不错，于是我便着手开始搭建ECE564的服务器。这个服务的内容其实也很简单——CRUD数据库操作封装成RESTful API，加以简单的展示和管理界面，再加上一个文件传输存储服务便大功告成。实际上，日常大多数API服务器的工作也就是这些，如果没有高并发分布式等需求，大可以把这次的服务器当做一个范本，以后再起服务器时就不用费尽周折再配置了。在这里不得不再次说，Django真的非常方便。上述功能Django的默认组件基本都已经囊括，无需用户再去调研该引入哪些依赖。</p>
 
 <h3 id="api">
-<a id="api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h3>
+<a class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h3>
 
 <p>Kitura的API可分为两种：Codable Route、Raw Route。<br>
 Raw Route顾名思义就是原始数据相关的API，相当于中间件仅将请求封装成一个对象而已，很多parse、decode的工作需要自行完成。在处理文件上传时，由于请求一般为form-data或者binary，所以需要用到原始路由。<br>
@@ -282,14 +282,14 @@ Codable Route高度整合了Swift 4引入的Codable protocol，也继承了JSON�
 <p>总之，一个非常弱的小问题浪费了大量时间，令我很难过😢。</p>
 
 <h3 id="前端">
-<a id="前端" class="anchor" href="#%E5%89%8D%E7%AB%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a>前端</h3>
+<a class="anchor" href="#%E5%89%8D%E7%AB%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a>前端</h3>
 
 <p>为了使数据库展示较为美观，也是受了Django自带管理界面的影响，我决定也部署一个类似的数据库管理前端界面。</p>
 
 <p>对于pg，官方推荐的自然是pgAdmin 4了。Mac上安装时自带就是这个工具，自然我也先尝试使用它。</p>
 
-<p>安装好以后，在MobaXterm上输入<code class="highlighter-rouge">pgadmin4</code>后，过了一会居然直接弹出一个Ubuntu FireFox的图形界面来，让我相当差异。之前见过的类似情景无非gedit跳出个编辑器，这一下搞出个浏览器，让我重新认识了terminal的功能。但是实在不好用，而且在Mac上不知道为什么<code class="highlighter-rouge">ssh -X</code>并不能实现类似的效果。<br>
-尝试将pgadmin设置成headless的，无果；以<code class="highlighter-rouge">pgadmin server mode</code>/<code class="highlighter-rouge">pgadmin remote</code>查询了一大堆帖子，还是设置不好通过HTTP服务从外部访问。甚至还有一种说法在某个版本前，pgadmin必须代理在域名根目录下才能运行。鉴于pgadmin的界面实在不好用，遂弃之。</p>
+<p>安装好以后，在MobaXterm上输入<code class="language-plaintext highlighter-rouge">pgadmin4</code>后，过了一会居然直接弹出一个Ubuntu FireFox的图形界面来，让我相当差异。之前见过的类似情景无非gedit跳出个编辑器，这一下搞出个浏览器，让我重新认识了terminal的功能。但是实在不好用，而且在Mac上不知道为什么<code class="language-plaintext highlighter-rouge">ssh -X</code>并不能实现类似的效果。<br>
+尝试将pgadmin设置成headless的，无果；以<code class="language-plaintext highlighter-rouge">pgadmin server mode</code>/<code class="language-plaintext highlighter-rouge">pgadmin remote</code>查询了一大堆帖子，还是设置不好通过HTTP服务从外部访问。甚至还有一种说法在某个版本前，pgadmin必须代理在域名根目录下才能运行。鉴于pgadmin的界面实在不好用，遂弃之。</p>
 
 <p>pgadmin在我看来就是web1.0时代人们对互联网服务的理解——桌面应用的翻版，功能庞杂而缺少设计感，大量的文字和元素充斥着页面，想看一下数据库中某张表的数据需要点击十余次鼠标，或在键盘输入SQL命令才能实现。因此只得放弃这个方案。<br>
 接着在GitHub一搜，有个叫pgweb的项目星很多。部署了一下一测试，意外的好用！一个界面，一次登录，查看所有数据库中所有的表；不提供鼠标编辑，但可以执行SQL；表结构、约束关系、历史记录、连接状态一应俱全，非常紧凑。一下子就决定用它了。<br>
@@ -300,7 +300,7 @@ Codable Route高度整合了Swift 4引入的Codable protocol，也继承了JSON�
 <p>做了个卡片式的条目展示，这时候RESTful API的优势就显现出来了——ajax发个REST请求，直接就返回JSON，在页面上更新，逻辑非常清晰。但是改CSS和js还是费了不少劲，由于对于前端不太了解，想实现任何功能都要去查如何调库，费了半天劲才写出二三十行代码的感觉很不爽。</p>
 
 <h3 id="匿名请求">
-<a id="匿名请求" class="anchor" href="#%E5%8C%BF%E5%90%8D%E8%AF%B7%E6%B1%82" aria-hidden="true"><span class="octicon octicon-link"></span></a>匿名请求</h3>
+<a class="anchor" href="#%E5%8C%BF%E5%90%8D%E8%AF%B7%E6%B1%82" aria-hidden="true"><span class="octicon octicon-link"></span></a>匿名请求</h3>
 
 <p>最初我是想在访问数据库的过程中加入登录验证的。但后来一想初学者可能弄不清这些复杂的逻辑，遂重新写了匿名请求的API。同时，还怕他们搞不清PUT和POST的区别，于是把PUT的功能也揉进POST里面了。希望我多费点儿时间能让他们少点纠结吧。</p>
 
@@ -315,7 +315,7 @@ Codable Route高度整合了Swift 4引入的Codable protocol，也继承了JSON�
 <p>如此一来，登录和匿名的范围就基本分清了。</p>
 
 <h3 id="头像图片文件上传">
-<a id="头像图片文件上传" class="anchor" href="#%E5%A4%B4%E5%83%8F%E5%9B%BE%E7%89%87%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>头像图片文件上传</h3>
+<a class="anchor" href="#%E5%A4%B4%E5%83%8F%E5%9B%BE%E7%89%87%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>头像图片文件上传</h3>
 
 <p>对于文件上传，最初我是有些纠结的。去年当我初学时，Ric的设计是一切基于JSON，所有都是字符。这样一来，上传文件就变成了先把文件数据转为base64，然后填到JSON字段里POST。虽说这样避免了表单操作，但却增添了后台的难度。究竟应该把这个base64存在数据库里，还是解码后存成文件？返回响应时是把二进制文件传回去，还是再转为base64传回去，还是直接返回一个链接？<br>
 把二进制文件存在数据库里的坏处就在于无端增大了每个条目的大小，且使条目占用空间不可控，必须的按照最大的文件分配。去年采用的就是这样的方案，每次从服务器GET的时候都要等三五秒，体验不太好，因此这次轮到我设计时想做一些改变。<br>
@@ -343,23 +343,23 @@ Codable Route高度整合了Swift 4引入的Codable protocol，也继承了JSON�
 <p>经过测试，文件上传一切正常，整个项目也终于成了气候。下周一看看Ric怎么说吧。</p>
 
 <h3 id="示例文件编写">
-<a id="示例文件编写" class="anchor" href="#%E7%A4%BA%E4%BE%8B%E6%96%87%E4%BB%B6%E7%BC%96%E5%86%99" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例文件编写</h3>
+<a class="anchor" href="#%E7%A4%BA%E4%BE%8B%E6%96%87%E4%BB%B6%E7%BC%96%E5%86%99" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例文件编写</h3>
 
 <p>为了做得稍微圆满一些，我给所有需要用到的API编写了示例代码，GET/POST/PUT/DELETE分别存在playground文件中。</p>
 
 <p>在写参考代码时才发现playground的window机制竟然也很hacky——是用一个iPad simulator精简后实现的。当代码崩溃时，能够看到一个iPad模拟器满桌面全是没有图标的应用😂。同时估计也是相同原因，playground的window还写死为768*1024的大小，导致许多和UI有关的测试都不太方便。Playground还是适合作为一个类似于Jupyter Notebook的工具来使用。</p>
 
 <h2 id="总结">
-<a id="总结" class="anchor" href="#%E6%80%BB%E7%BB%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结</h2>
+<a class="anchor" href="#%E6%80%BB%E7%BB%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结</h2>
 
 <p>这篇文章特地没有涉及许多技术细节，因为这次写的代码自我感觉非常良好，代码的“自明性”很高，直接看代码就能读懂逻辑，用不着记录太多细节。希望以后翻到这篇文章时不要被打脸🤣。</p>
 
 <p>总体来说，搭建一个常规的后台服务，在2019年已经不是什么难事。几乎任何流行的主流互联网语言都具备这种能力，而且造好的轮子很多，只需自己实现“胶合”代码、业务逻辑即可快速建立原型。这在Web1.0时代是难以想象的。跟彭哥讨论项目时，他讲过当初在IBM做JavaEE时配置环境、部署应用是一件非常重量级的任务。几十兆的jar包搭配着WSGI、xml、SOAP等初代互联网协议栈，以及缺乏趁手的版本管理工具、API管理工具等困难，诸多因素混合在一起导致传统应用十分臃肿而错综复杂。而如今，对于Kitura、对于Django，只需一杯茶的功夫，一个后台服务就能冉冉升起，真让我觉得赶上了学编程的好时机。</p>
 
 <h3 id="20190628-tree">
-<a id="20190628-tree" class="anchor" href="#20190628-tree" aria-hidden="true"><span class="octicon octicon-link"></span></a>20190628 Tree</h3>
+<a class="anchor" href="#20190628-tree" aria-hidden="true"><span class="octicon octicon-link"></span></a>20190628 Tree</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
 ├── [9.2K]  Package.resolved
 ├── [1.6K]  Package.swift
 ├── [4.0K]  public
@@ -414,7 +414,7 @@ Codable Route高度整合了Swift 4引入的Codable protocol，也继承了JSON�
 </code></pre></div></div>
 
 <h2 id="参考链接">
-<a id="参考链接" class="anchor" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>参考链接</h2>
+<a class="anchor" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>参考链接</h2>
 
 <ul>
   <li>

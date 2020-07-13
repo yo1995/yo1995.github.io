@@ -183,7 +183,7 @@
             <p>接上回。在写程序的时候，发现性能的一大瓶颈就是ImageDraw.floodfill()函数。最开始用的是库里面自带的函数，结果发现实在太慢。自己略作修改后稍稍提升了一点效率，但还是不够快。当时决定有空一定研究一下应该如何改进。</p>
 
 <h2 id="原始代码">
-<a id="原始代码" class="anchor" href="#%E5%8E%9F%E5%A7%8B%E4%BB%A3%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>原始代码</h2>
+<a class="anchor" href="#%E5%8E%9F%E5%A7%8B%E4%BB%A3%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>原始代码</h2>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_color_diff</span><span class="p">(</span><span class="n">rgb1</span><span class="p">,</span> <span class="n">rgb2</span><span class="p">):</span>
     <span class="s">"""
@@ -208,17 +208,17 @@
         order for it to be replaced. Useful for filling regions of non-
         homogeneous, but similar, colors.
     """</span>
-    <span class="c"># based on an implementation by Eric S. Raymond</span>
-    <span class="n">pixel</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+    <span class="c1"># based on an implementation by Eric S. Raymond
+</span>    <span class="n">pixel</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">load</span><span class="p">()</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">xy</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">background</span> <span class="o">=</span> <span class="n">pixel</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">_color_diff</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">thresh</span><span class="p">:</span>
-            <span class="k">return</span>  <span class="c"># seed point already has fill color</span>
-        <span class="n">pixel</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="k">return</span>  <span class="c1"># seed point already has fill color
+</span>        <span class="n">pixel</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
     <span class="k">except</span> <span class="p">(</span><span class="nb">ValueError</span><span class="p">,</span> <span class="nb">IndexError</span><span class="p">):</span>
-        <span class="k">return</span>  <span class="c"># seed point outside image</span>
-    <span class="n">edge</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)]</span>
+        <span class="k">return</span>  <span class="c1"># seed point outside image
+</span>    <span class="n">edge</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)]</span>
     <span class="k">if</span> <span class="n">border</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">while</span> <span class="n">edge</span><span class="p">:</span>
             <span class="n">newedge</span> <span class="o">=</span> <span class="p">[]</span>
@@ -231,7 +231,7 @@
                     <span class="k">else</span><span class="p">:</span>
                         <span class="k">if</span> <span class="n">_color_diff</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">thresh</span><span class="p">:</span>
                             <span class="n">pixel</span><span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-                            <span class="n">newedge</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+                            <span class="n">newedge</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
             <span class="n">edge</span> <span class="o">=</span> <span class="n">newedge</span>
 
     <span class="k">else</span><span class="p">:</span>
@@ -246,7 +246,7 @@
                     <span class="k">else</span><span class="p">:</span>
                         <span class="k">if</span> <span class="n">p</span> <span class="o">!=</span> <span class="n">value</span> <span class="ow">and</span> <span class="n">p</span> <span class="o">!=</span> <span class="n">border</span><span class="p">:</span>
                             <span class="n">pixel</span><span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-                            <span class="n">newedge</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+                            <span class="n">newedge</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
             <span class="n">edge</span> <span class="o">=</span> <span class="n">newedge</span>
 </code></pre></div></div>
 
@@ -255,45 +255,45 @@
 <p>那么该如何改进呢？通过查找了解到，这个算法最简单、最直观的实现就是头递归了。简单敲了个头递归的代码，却怎么也跑不通：Python提示递归次数超过了限制。也真是，一张图片动辄几百万几千万像素，递归那么多次Python肯定不爽啊。经过测试，递归的方法能处理的图片尺寸甚至小于1000*1000像素。遂放弃递归。</p>
 
 <h3 id="我的改进1">
-<a id="我的改进1" class="anchor" href="#%E6%88%91%E7%9A%84%E6%94%B9%E8%BF%9B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>我的改进1</h3>
+<a class="anchor" href="#%E6%88%91%E7%9A%84%E6%94%B9%E8%BF%9B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>我的改进1</h3>
 
 <p>接下来第一个想法就是用hashtable，C++里的unorderedmap。对应Python的数据类型就是dict和set。理论上讲，这些牺牲空间换时间的数据结构查找时间复杂度都是O(1)，通过hash function找下标的。于是我把所有节点都加到一个大的table里，每次遍历时找是否已经遍历过了即可。但是，如你所料，每次需要把遍历后的像素坐标加到表里，最后形成的便是一个囊括了所有涂色后点坐标的巨大数据体。涂色范围越大占内存越大，仅仅处理一张两千万像素的图片就炸掉了我接近3GB内存……😰</p>
 
 <h3 id="我的改进2">
-<a id="我的改进2" class="anchor" href="#%E6%88%91%E7%9A%84%E6%94%B9%E8%BF%9B2" aria-hidden="true"><span class="octicon octicon-link"></span></a>我的改进2</h3>
+<a class="anchor" href="#%E6%88%91%E7%9A%84%E6%94%B9%E8%BF%9B2" aria-hidden="true"><span class="octicon octicon-link"></span></a>我的改进2</h3>
 
 <p>显然，应该通过一些方法避免记录遍历过的所有像素。顺势躺到麻将席上，看着一块块竹席，考虑该如何优化。像素像涟漪般四面散开，只需记录当前波峰和前一时刻的波谷。没错，表里只用存上个迭代中的像素，以及本次迭代中新增的像素即可。</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">floodfill</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">xy</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="n">pixel</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+    <span class="n">pixel</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">load</span><span class="p">()</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">xy</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">background</span> <span class="o">=</span> <span class="n">pixel</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">_color_diff</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">thresh</span><span class="p">:</span>
-            <span class="k">return</span>  <span class="c"># seed point already has fill color</span>
-        <span class="n">pixel</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="k">return</span>  <span class="c1"># seed point already has fill color
+</span>        <span class="n">pixel</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
     <span class="k">except</span> <span class="p">(</span><span class="nb">ValueError</span><span class="p">,</span> <span class="nb">IndexError</span><span class="p">):</span>
-        <span class="k">return</span>  <span class="c"># seed point outside image</span>
-    <span class="n">edge</span> <span class="o">=</span> <span class="p">{(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)}</span>
-    <span class="n">full_edge</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>  <span class="c"># use a set to record each unique pixel processed</span>
-    <span class="k">if</span> <span class="n">border</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span>  <span class="c1"># seed point outside image
+</span>    <span class="n">edge</span> <span class="o">=</span> <span class="p">{(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)}</span>
+    <span class="n">full_edge</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>  <span class="c1"># use a set to record each unique pixel processed
+</span>    <span class="k">if</span> <span class="n">border</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">while</span> <span class="n">edge</span><span class="p">:</span>
             <span class="n">new_edge</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-            <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">:</span>  <span class="c"># 4 adjacent method</span>
-                <span class="k">for</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">:</span>  <span class="c1"># 4 adjacent method
+</span>                <span class="k">for</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
                     <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="n">full_edge</span><span class="p">:</span>
-                        <span class="k">continue</span>  <span class="c"># if already processed, skip</span>
-                    <span class="k">try</span><span class="p">:</span>
+                        <span class="k">continue</span>  <span class="c1"># if already processed, skip
+</span>                    <span class="k">try</span><span class="p">:</span>
                         <span class="n">p</span> <span class="o">=</span> <span class="n">pixel</span><span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span>
                     <span class="k">except</span> <span class="nb">IndexError</span><span class="p">:</span>
                         <span class="k">pass</span>
                     <span class="k">else</span><span class="p">:</span>
                         <span class="k">if</span> <span class="n">_color_diff</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">thresh</span><span class="p">:</span>
                             <span class="n">pixel</span><span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-                            <span class="n">new_edge</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
-                            <span class="n">full_edge</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
-            <span class="n">full_edge</span> <span class="o">=</span> <span class="n">edge</span>  <span class="c"># do not record useless pixels to reduce memory consumption</span>
-            <span class="n">edge</span> <span class="o">=</span> <span class="n">new_edge</span>
+                            <span class="n">new_edge</span><span class="p">.</span><span class="n">add</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+                            <span class="n">full_edge</span><span class="p">.</span><span class="n">add</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+            <span class="n">full_edge</span> <span class="o">=</span> <span class="n">edge</span>  <span class="c1"># do not record useless pixels to reduce memory consumption
+</span>            <span class="n">edge</span> <span class="o">=</span> <span class="n">new_edge</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">while</span> <span class="n">edge</span><span class="p">:</span>
             <span class="n">new_edge</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
@@ -308,8 +308,8 @@
                     <span class="k">else</span><span class="p">:</span>
                         <span class="k">if</span> <span class="n">p</span> <span class="o">!=</span> <span class="n">value</span> <span class="ow">and</span> <span class="n">p</span> <span class="o">!=</span> <span class="n">border</span><span class="p">:</span>
                             <span class="n">pixel</span><span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-                            <span class="n">new_edge</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
-                            <span class="n">full_edge</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+                            <span class="n">new_edge</span><span class="p">.</span><span class="n">add</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+                            <span class="n">full_edge</span><span class="p">.</span><span class="n">add</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
             <span class="n">full_edge</span> <span class="o">=</span> <span class="n">edge</span>
             <span class="n">edge</span> <span class="o">=</span> <span class="n">new_edge</span>
 
@@ -324,7 +324,7 @@
 <p>另外，本来还想把color_diff也一并修正，模板化处理RGB/RGBA和错误输入的，但懒得再去查色彩标准里容差究竟是否包含透明度了。哪位同学有兴趣可以继续给PIL提PR。</p>
 
 <h3 id="最后">
-<a id="最后" class="anchor" href="#%E6%9C%80%E5%90%8E" aria-hidden="true"><span class="octicon octicon-link"></span></a>最后</h3>
+<a class="anchor" href="#%E6%9C%80%E5%90%8E" aria-hidden="true"><span class="octicon octicon-link"></span></a>最后</h3>
 
 <p>PIL虽然历久弥新，但源代码里还是有不少亟待改进的地方的。要不是借了Python写起来容易的光儿，我宁可写C++/OpenCV。</p>
 

@@ -188,7 +188,7 @@
 
 <p>继续查阅资料发现大致步骤如下：首先在Windows下配对蓝牙键盘，然后重启进入macOS配对键盘，并读取 /private/var/root/Library/Preferences/blued.plist 或 com.apple.bluetoothhd.plist 文件中LinkKeys字典的键值对，Key是设备编号Value是配对编码。记录其中的Value，回到Windows中以高权限(psexec.exe)运行注册表程序(regedit.exe)，并在如下注册表条目中修改键值。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Keys
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Keys
 </code></pre></div></div>
 <p>打开对应设备编号的键值，清空原先键值并手动填入大端序与小端序转换后的Value即能配对。一般来说完成修改后立即配对，无需重新启动。</p>
 
@@ -198,7 +198,7 @@
 
 <p>通过一定调查和猜想，我认为主要需要修改的文件分别为</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/private/var/root/Library/Preferences/blued.plist
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/private/var/root/Library/Preferences/blued.plist
 /private/var/root/Library/Preferences/com.apple.bluetoothhd.plist
 /Library/Preferences/com.apple.Bluetooth.plist
 </code></pre></div></div>
