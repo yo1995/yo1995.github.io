@@ -203,15 +203,15 @@
 <h2 id="先看几个函数原型">
 <a class="anchor" href="#%E5%85%88%E7%9C%8B%E5%87%A0%E4%B8%AA%E5%87%BD%E6%95%B0%E5%8E%9F%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>先看几个函数原型</h2>
 
-<pre><code class="language-C">#include &lt;sys/types.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;sys/types.h&gt;
 #include &lt;sys/socket.h&gt;
 #include &lt;netdb.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">getaddrinfo</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">node</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">service</span><span class="p">,</span>
+               <span class="k">const</span> <span class="k">struct</span> <span class="n">addrinfo</span> <span class="o">*</span><span class="n">hints</span><span class="p">,</span>
+               <span class="k">struct</span> <span class="n">addrinfo</span> <span class="o">**</span><span class="n">res</span><span class="p">);</span>
 
-int getaddrinfo(const char *node, const char *service,
-               const struct addrinfo *hints,
-               struct addrinfo **res);
-
-</code></pre>
+</code></pre></div></div>
 <p><a href="https://man7.org/linux/man-pages/man3/getaddrinfo.3.html">man7</a></p>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">HANDLE</span> <span class="nf">CreateThread</span><span class="p">(</span>
@@ -229,14 +229,14 @@ int getaddrinfo(const char *node, const char *service,
 </code></pre></div></div>
 <p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.openfiledialog">dotnet</a></p>
 
-<pre><code class="language-ObjC">func fileExists(atPath path: String, 
-    isDirectory: UnsafeMutablePointer&lt;ObjCBool&gt;?) -&gt; Bool
-</code></pre>
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">func</span> <span class="n">fileExists</span><span class="p">(</span><span class="n">atPath</span> <span class="n">path</span><span class="o">:</span> <span class="n">String</span><span class="p">,</span> 
+    <span class="n">isDirectory</span><span class="o">:</span> <span class="n">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">ObjCBool</span><span class="o">&gt;</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="n">Bool</span>
+</code></pre></div></div>
 <p><a href="https://developer.apple.com/documentation/foundation/filemanager/1410277-fileexists">foundation OC</a></p>
 
-<pre><code class="language-Swift">func downloadTask(with request: URLRequest, 
-completionHandler: @escaping (URL?, URLResponse?, Error?) -&gt; Void) -&gt; URLSessionDownloadTask
-</code></pre>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">downloadTask</span><span class="p">(</span><span class="n">with</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="p">,</span> 
+<span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">URL</span><span class="p">?,</span> <span class="kt">URLResponse</span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">URLSessionDownloadTask</span>
+</code></pre></div></div>
 <p><a href="https://developer.apple.com/documentation/foundation/urlsession/1411511-downloadtask">Swift rules</a></p>
 
 <hr>
@@ -271,7 +271,7 @@ completionHandler: @escaping (URL?, URLResponse?, Error?) -&gt; Void) -&gt; URLS
 
 <p>那时非常常见的函数原型：</p>
 
-<pre><code class="language-C">void foo()
+<pre><code class="language-C">void foo();
 </code></pre>
 
 <p>完全就是用一个函数把一坨逻辑打包装起来，在需要的时候调用罢了。现在看来，这种所有语句全都堆在<code class="language-plaintext highlighter-rouge">main.c</code>里面的程序，完全可以用<code class="language-plaintext highlighter-rouge">goto</code>甚至汇编的<code class="language-plaintext highlighter-rouge">je</code>来实现。那时对于返回值基本相当于没有概念。</p>
@@ -510,7 +510,7 @@ Powerful struct and enums in Swift are really big reasons for me to pick Swift a
 				<!--被墙替换class="disqus-comment-count" data-disqus-identifier="Chen's Blog//coding/the-philosophy-of-return-value-->
             </span>
             <span>
-                <i class="fa fa-check-square-o"></i><span>10105 words</span>
+                <i class="fa fa-check-square-o"></i><span>10106 words</span>
             </span>
             <span>
                 <i class="fa fa-link"></i>
