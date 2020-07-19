@@ -193,6 +193,7 @@
 
 <h2 id="需求分析">
 <a class="anchor" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>需求分析</h2>
+
 <ul>
   <li>输入中文或英文，输出微信可识别的GIF表情图</li>
   <li>可通过修改参数控制字体字号和文字颜色</li>
@@ -210,12 +211,15 @@
 
 <h2 id="log">
 <a class="anchor" href="#log" aria-hidden="true"><span class="octicon octicon-link"></span></a>Log</h2>
+
 <h3 id="20160904-ver-01-alpha">
 <a class="anchor" href="#20160904-ver-01-alpha" aria-hidden="true"><span class="octicon octicon-link"></span></a>20160904 ver 0.1 alpha</h3>
+
 <p>解决了最基础的需求，即输入文字输出GIF文件</p>
 
 <h3 id="编程过程及难点">
 <a class="anchor" href="#%E7%BC%96%E7%A8%8B%E8%BF%87%E7%A8%8B%E5%8F%8A%E9%9A%BE%E7%82%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>编程过程及难点</h3>
+
 <p>微信识别表情图片时，在移动端不限制文件格式，会通过色度和容差的方法去掉纯色背景，生成表情。在PC端则只支持GIF文件，会保留图片所有细节，如背景颜色等。因而，生成PC端GIF图片时，存在三个主要难点：</p>
 <ol>
   <li>如何将文字无失真转化为图片</li>
@@ -225,6 +229,7 @@
 
 <h3 id="解决方案">
 <a class="anchor" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>解决方案</h3>
+
 <p>第一版程序写的简单，主要就是解决上述两个问题。
 首先是文字变图片。PIL库的ImageDraw提供了text方案。尽管对于小字体存在一定异常，但本案例中并无大碍。
 另外可以考虑的方案是通过一些与GUI结合的库实现，网上案例有使用pygame实现的，效果类似。</p>
