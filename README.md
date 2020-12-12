@@ -59,18 +59,19 @@ The blog was not fully tuned for the maximum performance, hence could be slow du
 1. git scm
 2. ruby26
 3. ruby devkit
-  To install RubyGems: `gem update --system`
+    - To install RubyGems: `gem update --system`
 4. gem install jekyll (Sometime blocked by GFW)
 5. gem install bundler (To use bundler as the additional gem-package manager)
-gem list: To check current gem list
-if cannot install, remove previous gemfile.lock
-6. bundle init
-  bundle install
+    - `gem list`: To check current gem list
+    - if cannot install, remove previous gemfile.lock
+    - `gem install bundler jekyll`
+6. (bundle init)  `bundle install`
+7. `bundle exec jekyll serve`
 
-cd jekyll build directory and bundle update, remember to do twice to both servers! (Will fix that one day! :disappointed_relieved:)
+cd jekyll build directory and bundle update.
 
 When updating, bundle update [pack name]
 
 ---
 
-200718
+201127
