@@ -222,7 +222,7 @@
 
 <p>突然间，疫情来了。</p>
 
-<p>2月25日，国内正处于“flatten the curve”的时期，而美国已经被人心惶惶的、不可名状的疫情阴霾所笼罩。西雅图养老院爆发的集中疫情，各大空港零星报道的社区传染，都让同学朋友们产生了一丝忧虑。中国人擅长未雨绸缪，我认识的人们都早早把亚马逊、Home Depot和CVS的口罩抢购一空；西方人则不以为然，都觉得美国不可一世的生物医药医学水平，对付一个“大流感”似的疫情简直不费吹灰之力。年末今日，看看人口1000万，病例突破200万例的洛杉矶郡的悲惨现状，我想人们和我自己都会重新思考当初的一举一动。</p>
+<p>2月25日，国内正处于“flatten the curve”的时期，而美国已经被人心惶惶的、不可名状的疫情阴霾所笼罩。西雅图养老院爆发的集中疫情，各大空港零星报道的社区传染，都让同学朋友们产生了一丝忧虑。中国人擅长未雨绸缪，我认识的人们都早早把亚马逊、Home Depot和CVS的口罩抢购一空；西方人则不以为然，都觉得美国不可一世的生物医药医学水平，对付一个“大流感”似的疫情简直不费吹灰之力。年末今日，看看人口1000万，病例突破80万例的洛杉矶郡的悲惨现状，我想人们和我自己都会重新思考当初的一举一动。</p>
 
 <p>当天我驱车前往洛杉矶，Sepulveda周围的一切都像什么都没有发生一样。人们依旧熙熙攘攘地聚集在中餐馆，在谈论起新冠病毒时多有一种置身事外的情绪。虽然当时我相信总有一天疫情会蔓延到美国，但依旧不相信事情会发展地如此之快。我有N95口罩，但去洛杉矶的三天根本没戴；上班到三月下旬，公司零星传出回家办公的声音；在湾区的朋友鳞次栉比地爆料公司宣布在家办公到下半年。而我却依旧抱有侥幸心理，一直没有任何防护措施坚持到了公司食堂开门的最后一天。</p>
 
@@ -268,6 +268,70 @@
 
 <p>于2020年12月30日Barton Rd.</p>
 
+<hr />
+
+<h2 id="附录制作过程与相关链接">附录：制作过程与相关链接</h2>
+
+<h3 id="想法">想法</h3>
+
+<ol>
+  <li>✔爬取月度数据</li>
+  <li>✔从月度数据下载gpx文件（根据轨迹ID）并区分是否为骑车轨迹</li>
+  <li>✔将月度数据json汇总得到全年总数据：
+    <ul>
+      <li>总里程</li>
+      <li>总爬升 elevation_gain</li>
+      <li>均速 distance / duration * 3600</li>
+      <li>总时间 duration</li>
+      <li>次数 len(arr)</li>
+    </ul>
+  </li>
+  <li>✔将GPX文件导入ArcGIS Pro画出年度热力图
+    <ul>
+      <li>按时间读取所有gpx文件并导入成为散点和折线 feature class</li>
+      <li>对散点进行热力图绘制</li>
+      <li>对折线进行一定距离内的平均和叠加（model builder）</li>
+    </ul>
+  </li>
+</ol>
+
+<hr />
+
+<h3 id="展示内容">展示内容</h3>
+
+<ul>
+  <li>2020年总体数据</li>
+  <li>2020年月度数据表格</li>
+  <li>美国地图全图，leader指向两个地方</li>
+  <li>Durham热图</li>
+  <li>Redlands热图</li>
+  <li>三条高程汇总</li>
+  <li>分别三条速度</li>
+  <li>照片</li>
+</ul>
+
+<hr />
+
+<h3 id="行者相关">行者相关</h3>
+
+<p><a href="https://www.imxingzhe.com/heatmap/map/api/?year=2019&amp;user_id=109458">2019年热力图</a>
+<a href="https://www.imxingzhe.com/heatmap/map/api/?year=2018&amp;user_id=109458">2018年热力图</a>
+<a href="https://www.imxingzhe.com/h5/heatmap/109458/#/updateheatmap">热力图页面</a>
+<a href="https://www.imxingzhe.com/api/v4/user_month_info/?user_id=109458&amp;year=2020&amp;month=11">月度信息页面</a></p>
+
+<h3 id="geoprocessing">Geoprocessing</h3>
+
+<p><a href="https://www.youtube.com/watch?v=MAY9mJQVODk">Importing Strava Data into ArcGIS Pro</a>
+<a href="https://www.strava.com/heatmap#12/-117.18/34.04/hot/ride">Redlands Strava heatmap</a>
+<a href="https://community.esri.com/t5/arcgis-enterprise-portal/make-overlaped-lines-thicker/td-p/380294">Make overlaped lines thicker</a>
+<a href="https://pro.arcgis.com/en/pro-app/help/analysis/geoprocessing/basics/the-in-memory-workspace.htm">ArcPy Memory Workspace</a>
+<a href="https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-class-to-geodatabase.htm">Feature Class To Geodatabase</a>
+<a href="https://pro.arcgis.com/en/pro-app/arcpy/geoprocessing_and_python/using-environment-settings.htm">Using environment settings in Python</a>
+<a href="https://pro.arcgis.com/en/pro-app/tool-reference/data-management/append.htm">Append</a>
+<a href="https://pro.arcgis.com/en/pro-app/tool-reference/conversion/gpx-to-features.htm">GPX To Features</a>
+<a href="https://gis.stackexchange.com/questions/202455/how-to-extract-the-speed-from-a-gpx-file">GPSBabel差分计算速度</a>
+<a href="https://geo.javawa.nl/trackanalyse/index.php?lang=en">在线读取gpx并显示简单数据</a></p>
+
             
             </div>
             
@@ -294,7 +358,7 @@
                 <a href="#comments" class="disqus-comment-count" data-disqus-identifier="Ting's Blog/life/2020review-cycling">GFW comments</a>
             </span>
             <span>
-                <i class="fa fa-check-square-o"></i><span>3106 words</span>
+                <i class="fa fa-check-square-o"></i><span>3787 words</span>
             </span>
             <span>
                 <i class="fa fa-link"></i>
@@ -540,6 +604,11 @@
             </h6>
             <ul class="recent-posts">
             
+                
+                
+                
+                
+                    
                 
                 
                 
