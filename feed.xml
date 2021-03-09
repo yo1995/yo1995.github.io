@@ -5,9 +5,210 @@
     <description></description>
     <link>https://yo1995.github.io/</link>
     <atom:link href="https://yo1995.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 27 Feb 2021 23:32:32 -0800</pubDate>
-    <lastBuildDate>Sat, 27 Feb 2021 23:32:32 -0800</lastBuildDate>
+    <pubDate>Mon, 08 Mar 2021 23:46:23 -0800</pubDate>
+    <lastBuildDate>Mon, 08 Mar 2021 23:46:23 -0800</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
+    
+      <item>
+        <title>2021年Nonresident Alien报税小结</title>
+        <description>&lt;h2 id=&quot;关键词seo&quot;&gt;关键词SEO&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2021年 取消 1040-NR-EZ 1040nrez&lt;/li&gt;
+  &lt;li&gt;OPT 转 H1B dual status&lt;/li&gt;
+  &lt;li&gt;non-resident alien Nonresident Aliens NRA e-file efile  // &lt;del&gt;美国步枪协会&lt;/del&gt; &lt;del&gt;不是&lt;/del&gt;&lt;/li&gt;
+  &lt;li&gt;2021年 填写 1040NR&lt;/li&gt;
+  &lt;li&gt;免费报税&lt;/li&gt;
+  &lt;li&gt;Sprintax OLT TaxSlayer TaxAct&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;链接&quot;&gt;链接&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;参考链接&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://www.1point3acres.com/bbs/thread-709213-1-1.html&quot;&gt;【干货】 F-1留学生报税全攻略&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://www.1point3acres.com/bbs/thread-709804-1-1.html&quot;&gt;【税务】 Non Resident也可以efile的报税工具OLT&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://taxpanda.com/1040nr%E6%80%8E%E4%B9%88%E5%A1%AB/&quot;&gt;1040NR怎么填&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://apps.irs.gov/app/freeFile/&quot;&gt;IRS Free File&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://www.irs.gov/individuals/international-taxpayers/nonresident-alien-figuring-your-tax&quot;&gt;IRS NRA&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://www.irs.gov/forms-pubs/about-form-1040-nr-ez&quot;&gt;1040-NR-EZ 取消官网通知&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;本文要点&quot;&gt;本文要点&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2018, 2019, 2020年对比&lt;/li&gt;
+  &lt;li&gt;如何判断自己的各种状态：以NRA对比RA举例；FICA&lt;/li&gt;
+  &lt;li&gt;报税指导文档非常详尽&lt;/li&gt;
+  &lt;li&gt;州税比联邦税难太多了&lt;/li&gt;
+  &lt;li&gt;OLT和Sprintax和手算的对比&lt;/li&gt;
+  &lt;li&gt;后记：会计师、挣钱与瞎琢磨&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;又到了美帝报税的日子。刚来美国时，曾有所耳闻美国国税局(Internal Revenue Service, IRS)的厉害之处。印象中有好几部美国电影，都讲过警察局毫无办法的匪帮头子如阿尔-卡彭，是如何被税务部门绳之以法的。从最初的懵懂无知、“两眼一抹黑”，到如今驾轻就熟，自己经历了一段费劲的学习过程。今年由于感觉自己终于对非居民外国人(Non-Resident Alien, NRA)报税有了比较整体的了解，且转身份以后不再按NRA报税了，因此在此做简短记录。希望本文能够或多或少帮到近几年在美报税的朋友们，也作为以后回顾美国社会发展、自己经历的片段简记于此。&lt;/p&gt;
+
+&lt;h2 id=&quot;近几年报税对比&quot;&gt;近几年报税对比&lt;/h2&gt;
+
+&lt;p&gt;下面所说的年份都是指所报税的年份，即前一年。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;2018。这是我第一年申请“美国身份证号”——社会保障号码(Social Security number, SSN)的年份。由于当年尚无工资收入，而只有一笔税后奖品收入，因此仅填写了Form 8843并寄给了德州的IRS地址。后来注册IRS账号一查，发现2018年在官网没有记录。因此，我对网上普遍流传的“无收入留学生需提交8843表格”的说法持保留态度。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;2019。这一年仅从学校获得了数千美元的工资收入，无其他收入。在2019税季，即2020年三四月份时，学校的国际生事务处发放了免费的Sprintax兑换码。后面会提到这款专门面向NRA的报税软件。因此我直接借助软件，填写了8843与1040-NR-EZ，并附带关于中美赵紫阳20(c)条约的8233表格与附件，打印出来、附上W2，寄到了德州的地址。疫情影响之下，退税支票直到7月份才收到，还产生了一定的利息。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;2020。这一年从学校和公司获得了远少于十万美元的工资收入，无股票、银行利息等收入；但有10美元的去年退税所得利息；以及给学校基金会的一点点捐款。最初我打算用Sprintax填写完，手动再算一遍，如果数额相等则直接填写纸质版寄出；后来在网上发现了许多新消息，最后通过OLT网上电子提交(e-file)，暂时显示已送达。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2018和2019年的情况&quot;&gt;2018和2019年的情况&lt;/h3&gt;
+
+&lt;p&gt;之前两年，由于自己的收入情况几乎是最简单的，因此没太调研就完成了报税。2018年，由于理论上无任何工资收入和利息收入，因此无需提交1040系列表格。2019年，由于只有单身汉单一的工资收入，因此只需完成1040NR-EZ简化版表格的填写。&lt;/p&gt;
+
+&lt;h3 id=&quot;2020年的新情况&quot;&gt;2020年的新情况&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/202103/cancellation-1040-nr-ez.png&quot; alt=&quot;取消EZ表格&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;取消1040-NR-EZ表格&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;今年的一大改变是EZ表格的取消，具体参考上面链接中的官网页面。这意味着，本来留学生简简单单的两页表格，一下子变成了近十页的1040NR完全版，一下子给大家增加了不少负担。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/202103/taxpayer-burden.png&quot; alt=&quot;耗费时间&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;按照2019年填表教程中的数据，平均填写EZ表格花费的时间是6小时。个人感觉并不夸张——作为外国人，每次报税都像脱层皮。先得把各种寄来的信件、表格收集整理好，然后下载当年的税务空表，然后决定是手动填写还是交给软件包办。因为过去NRA不能efile，所以还得把填好的表格检查无误后打印出来，拿到邮局寄平邮或挂号信。也没法确定自己的信究竟有没有妥投——要是退税支票在4月15日之前就收到还好，没收到的话真是干着急。又不能重新寄一遍，打电话大概是查无此信，只能心中默念没出差错。而今年情况发生了变化。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;non-resident alien 可以 e-file&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;据小道消息，其实2019年开始NRA就可以e-file了。但是2019年，公认支持填写1040NR表格的只有Sprintax一款软件。其余传闻可用的软件有：TaxAct (Deluxe)、Glacier（仅有机构版）、OLT等等。而这些软件都是不支持NRA efile的，因此2019报税极少有成功efile的案例。&lt;/p&gt;
+
+&lt;p&gt;2020年则不同。尽管Sprintax看起来仍不支持efile，需要打印出来去寄信，但网传已有多个成功efile的案例，其使用了好几种不同的软件进行报税。因此，虽然我没去找IRS具体说明NRA支持efile的证据，但不妨一试。&lt;/p&gt;
+
+&lt;p&gt;为何开始支持efile？个人猜测有几个原因：疫情避免接触、取消EZ表格、（疫情导致2020年在美）外国人数减少。efile可以有效减少去邮局这样的封闭空间的人数，从而避免病毒传播。EZ表格取消后，所有NRA不得不填写完全版的1040NR表格，反而给了各大报税软件厂家适配、卖钱的动机——以往EZ的受众太小，蚊子腿肉没人愿意抢；而现在只要稍微改动1040的报税流程便可兼容。最后，2020年美国作为世界头号病夫，进出美国的外国人肯定少了很多，客观上也让IRS有了二一添作五的动机。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;纾困金&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;跟NRA没关系，不用查了……只要2020年上半年还没变RA就与我无瓜。&lt;/p&gt;
+
+&lt;h2 id=&quot;判断自己状态&quot;&gt;判断自己状态&lt;/h2&gt;
+
+&lt;p&gt;每年报税，最重要的一点就是知己知彼。所谓知己，即清楚了解自己一年内都有哪些财务进出；所谓知彼，即了解当年税务政策有哪些变动。&lt;/p&gt;
+
+&lt;p&gt;对于NRA而言，最常见的问题便是：如何判断自己能否用RA身份报税。&lt;a href=&quot;https://www.1point3acres.com/bbs/thread-513238-1-1.html&quot;&gt;1P3A上有个著名的反例&lt;/a&gt;，NRA期间强行报RA。不过一般来说IRS是没空audit这种鸡毛蒜皮的小事儿的，所以只要三年没人找就没太大影响（假设不想当美国公民的话）。对于留学生而言，最常见的几种情况：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;美高美本/美本美硕，一般来说毕业即RA&lt;/li&gt;
+  &lt;li&gt;PhD，第五年后毕业变OPT RA，主要的特别之处在于Treaty、实习的FICA&lt;/li&gt;
+  &lt;li&gt;OPT转H1B，转的当年仍然是NRA，一般为了避免麻烦也按照当年NRA，次年RA来报。关于dual status的说法众说纷纭，所以除非挣得足够多，不然还是NRA -&amp;gt; RA比较简单&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;搞清楚自己是NRA还是RA以后其他都很简单。&lt;/p&gt;
+
+&lt;h2 id=&quot;看文档&quot;&gt;看文档&lt;/h2&gt;
+
+&lt;p&gt;为啥说简单？其实可以很复杂，但是对于刚进入社会的学生来说，收入来源的大头是工资便决定了报税很简单。当然，买房置业开公司博彩炒股的当我没说。&lt;/p&gt;
+
+&lt;p&gt;IRS最好的一点，便是每年不辞辛劳地更新修订每种税表的填写指南。而填写指南基本上是把填表规则喂到了嘴边儿上，只要能读能写，都能填好表。话不能说满，填写指南只告诉人们最简单的情况是什么样的，像盖茨、贝索斯、特朗普这样的人当然不适用。如果作为NRA年收入来源已经到了不得不请法务团队的级别，那俺觉得还是回国发展、报效祖国来得更实在些。&lt;/p&gt;
+
+&lt;p&gt;在我看来，IRS的税表填写指南就像文字版的流程图、UML一样。先这样，再这样，左加右减一通算下来，和正确答案分毫不差，最多也就差个正负一两档。相比之下，有些技术企业的文档，还不如搞会计的呢……&lt;/p&gt;
+
+&lt;h2 id=&quot;联邦税和州税的比较&quot;&gt;联邦税和州税的比较&lt;/h2&gt;
+
+&lt;h3 id=&quot;联邦税简单&quot;&gt;联邦税简单&lt;/h3&gt;
+
+&lt;p&gt;说简单也不简单，但对于收入来源较为单一的单身无娃学生NRA而言，需要算的项目，1040NREZ全都涵盖了——只可惜2020年取消了EZ表，事情一下子麻烦了许多。但如果有兴趣，我还是推荐学生朋友们下载一个&lt;a href=&quot;https://www.irs.gov/pub/irs-prior/f1040nre--2019.pdf&quot;&gt;2019年的EZ表&lt;/a&gt;，作为手算核对时的参考。&lt;/p&gt;
+
+&lt;p&gt;EZ表分为两页。第一页是“算术”，第二页是“语文”。&lt;/p&gt;
+
+&lt;p&gt;在第一页上，只有第3行到第21行需要查收到的信件。其余都是些事务性的空格，比如填身份、住址、退税账号等等。填数字的区域也很简单，全都是与学生有关的内容：工资、奖学金、学生贷款、条约额度；已交税款、税务减免（如州税避免双重缴税、捐款等）；查表后得到的税档和最终补交、多交数额。&lt;/p&gt;
+
+&lt;p&gt;众所周知的小技巧是利用支持NR报税的软件如Sprintax得到数值，对比手算的结果。一般来说应该是完全相同的，除非抹零的数值恰好在税档边界附近。软件在输出表格前都不收费，所以不在乎把数据交给报税厂家的话，用来验算非常方便。&lt;/p&gt;
+
+&lt;h3 id=&quot;州税复杂&quot;&gt;州税复杂&lt;/h3&gt;
+
+&lt;p&gt;相比之下，州税显得复杂很多。抛出几个免州税的&lt;del&gt;亚麻微软&lt;/del&gt;州，其他的州税（地税）规则不像联邦税（国税）那么有迹可循，很多政策也是朝令夕改，很难追本溯源。从这次报税中，仅举三个加州州税的规则，来展示其变化多端之处：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.ftb.ca.gov/forms/2020/2020-540-ca-instructions.html&quot;&gt;跨州搬家有税务减免&lt;/a&gt;。从别的州搬家到加州，搬家费是可以部分抵税的。但搬家距离却有限制。东岸到西岸肯定没问题，但从邻近的几个州还有些复杂情况。这一条是联邦改税法、加州没跟进的典型情况。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.ftb.ca.gov/file/personal/credits/nonrefundable-renters-credit.html&quot;&gt;低收入租房者的一次性税务补贴(tax credit)&lt;/a&gt;。年收入四万八千多刀以下的个人或八万多以下的家庭，在加州租房满一定天数，可以申领一次性60刀的补贴。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;不承认Tax Treaty。加州州税据说不承认中美条约，因此算总收入AGI时还得把减去的5000加回来……报完税我才想起来这件事，希望不要被地税audit啊啊啊……🥲&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;软件和手算&quot;&gt;软件和手算&lt;/h2&gt;
+
+&lt;p&gt;如前所述，如果税务状况简单，软件结果适于作为手算的验证。之前提到的Sprintax和参考链接中推荐的OLT算出的结果与我手算完全一致，因此联邦税我很有信心自己算的是对的。其中还有几件趣事：当我把去年退税的利息加进收入后，发现总收入跑到了高一档，变成了XXX08美元，结果比低一档还要多交十余刀的税……合着IRS一分利息没掏，俺还得饶两个呗？！结果算到后面，发现把给学校捐的几块钱减掉后，税档又退回了低一档。艾玛，整挺好，肥水不流外人田！&lt;/p&gt;
+
+&lt;p&gt;Sprintax的界面相对较为现代，优点在于EZ表上所有的项目都清晰地一步步展示给用户了。但缺点在于能处理的情况极为有限，如果NRA稍微有些出格的收入，它就理不清逻辑了。另外，还有一个缺点在于：假如前面的步骤需要改动，则需要把后面所有步骤全流程走一遍。比如填完表，发现自己地址写错了——得嘞，重头再来！&lt;/p&gt;
+
+&lt;p&gt;OLT的界面比较古老，但功能很齐全，且对于低收入者免费，标准版也比其他软件便宜一大截（小于$20对比大于$40）。优缺点在上面链接中的帖子已经说了不少，我再各补充一个——优点：填表流程的问题和表格中项目对应关系很明确，原本熟悉表格项目的人非常确定自己在填哪里；缺点：网页有bug，下拉列表会内存溢出（可通过F12缓解）。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;后记&quot;&gt;后记&lt;/h2&gt;
+
+&lt;p&gt;写这篇文章的目的，就是在于记录一些无足轻重却十分有趣的、对于美国的观察。当然，也在于帮到恰好能帮到的人啦。&lt;/p&gt;
+
+&lt;p&gt;在前两年报税时，我最大的体会就是：如果有恰好和我情况非常接近的同学，大家互通有无的话，报税便不在因未知而显得可怖。（当然也有可能三个臭皮匠合计完把自己坑了，像那位RA铁头娃小哥一样）最初，甚至税表上每一个生词都要查词典，查完词典再查“如何查词典”，查完后依旧云里雾里——你说Itemized Deduction该咋翻？！反正以我的阅读量，高中时候是从来没学过这些词组的。更遑论一些复杂的判断逻辑，稍有不慎就会把正负号看反，闹出把自己归为非“Heterosexual”的Others的笑话来。&lt;/p&gt;
+
+&lt;p&gt;经过了三年磨炼，自己终于把NRA的几种简单情形搞清楚了，但也没机会再用这些心得了。索性把我经历过的几种情况记录于此，倘若三五年内有类似情况的朋友，可以摸着我的石头过河，看到我曾经顺利报税至少放心一些，得到些心理安慰吧。这也是我前面搞了点不知道有没有用的SEO的缘故。&lt;/p&gt;
+
+&lt;p&gt;互联网上中文的报税教学内容并不少，但落到每个人的五花八门的情况，最常见的是有问无答——一个人发帖“急求，OPT转H1B如何报税”，下面回复没有答案，却在每年三月被循环往复的“bd”、“同求”的洛阳铲挖起来，再沉下去，周而复始地“年经”。好在，奥巴马第二任期前后来到美国的众多中国朋友们逐渐走向社会，生活经验类的中文内容也逐渐在互联网四处积累起来。大家互帮互助的意识在不断地变强。&lt;/p&gt;
+
+&lt;p&gt;生活的细节是由人构成的。普通人大抵是无法“遗世而独立”、脱离群体而生活的。互相搭把手，不用重复造轮子，不也和自己所想所做的开源努力相契合嘛！&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;当然，最主要还是穷。&lt;/del&gt;同学干脆找了个CPA，花了一百来块就大撒把了，好不痛快！自己非得苦哈哈地花周末一下午时间埋头故纸堆，琢磨如何自食其力，讨要多交的税款。时间白费不少，过程却很有收获——通过各种查找调研学习，对自己的收入和美国的许多规则有了更清晰的了解。出国读书工作，就是为了体验不一样的生活呀。&lt;/p&gt;
+</description>
+        <pubDate>Mon, 08 Mar 2021 00:00:00 -0800</pubDate>
+        <link>https://yo1995.github.io/life/2021-tax-season/</link>
+        <guid isPermaLink="true">https://yo1995.github.io/life/2021-tax-season/</guid>
+        
+        <category>review</category>
+        
+        <category>world</category>
+        
+        <category>investment</category>
+        
+        
+        <category>Life</category>
+        
+      </item>
     
       <item>
         <title>一年后</title>
@@ -1010,77 +1211,6 @@ SAD症状、寒冷的天气造成的生病概率提升、干燥冷冽的寒风�
         
         
         <category>Life</category>
-        
-      </item>
-    
-      <item>
-        <title>不靠墙的书桌</title>
-        <description>&lt;p&gt;一直以来，我对未来的家有一个执念——到那时在书房，我想要一个不靠墙的书桌。&lt;/p&gt;
-
-&lt;p&gt;我家曾经有一个不靠墙的书桌。在那个书桌上我做了好些事情。&lt;/p&gt;
-
-&lt;p&gt;我的第一个书房，大约和现在的情况类似。右手是书柜，左手是暑假，背后是床，面前是窗。在这个小小的书房兼卧室，我度过了整个少年时代。&lt;/p&gt;
-
-&lt;p&gt;小时候电脑是家电，是和电视一类的产品。因此，电脑放在另外的屋子里。我的屋子里最高级的电器，则是书架上的JVC组合迷你音响。带CD和磁带播放和收音机功能；以及一些诸如闹钟、电子表、定时开关等功能，展现在典型三洋亮蓝色的液晶显示屏上。每次拿到《大家说英语》和《空中英语教室》的新一期杂志时，我都会迫不及待地把过去的CD放到爸爸车上，新的CD塞到音响里。一张光溜溜的碟片，蕴藏着无数未知等待我去探索。&lt;/p&gt;
-
-&lt;p&gt;更早的时候，配合复读机和幼小发放的英文磁带，一遍又一遍地回放的课文声陪我进入梦乡。有一次，我在网上看到了BeoSound 9000这款CD机。当时我就想，如果以后有了新家或是自己的家，一定要搞一个这样的酷酷的CD播放器和音响。哈，青年人总是对未来充满了憧憬。&lt;/p&gt;
-
-&lt;p&gt;在之后很长的时间，我没有书房。搬到乡下的新家，先是在北屋，后来在南屋，打游击似的度过了我的中学时代。好几张桌子做过我的书桌：一张木质旧电脑桌；一张四方木高桌；一张由宜家铁桌腿和一块木桌板组成的简易桌子；一张巴西花梨的厚重的长书桌。但他们都有一个共同点：靠墙。&lt;/p&gt;
-
-&lt;p&gt;初中在北屋坐着的时候，因为方桌又高又大，如果不靠墙，桌子边沿的东西很容易掉地上。因此，我们把桌子靠在屋子的西北角上，这样两面都靠墙，靠墙的部分就可以堆上书籍、课本和一些杂物了。我坐南朝北，对着窗户，这样光线好些。但是这样坐有一个问题：在冬天北京最冷的时节，冷飕飕的凉风似乎能顺着墙缝钻进来似的，让我写着写着字便手脚冰凉，穿棉拖鞋也没用。或许是靠外墙的缘故，好不容易迸发出来的“思维的火花”，都被冷风给吹散了。十分扫兴。&lt;/p&gt;
-
-&lt;p&gt;过了几年我们把家具重新摆放，以此为家里增添几分新意。我也因此换了地方，换了桌子。期间，有一阵子我在电脑桌上学习。就是把电脑键盘推到桌板下边，显示器推到桌子的后沿，从而腾出一块平坦的地方写字。右手边是一个书架，之前放着许多杂物，在我坐到电脑桌学习后便按照科目分成了语数外其他四格，用以置放课本、习题与卷子。虽然这回换到了南屋，变成坐北朝南。但扫兴的是，书桌依旧是靠墙的——而且还是靠墙角！每次收拾、擦桌子的时候，我都忿忿不平地想到：真是没辙，角落里太难打扫了，困难重重。为什么我们不能书桌不靠墙，这样就可以走到另一面去充分地打扫卫生了呢？&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/202012/desklamp.jpg&quot; alt=&quot;靠墙的混乱的书桌一角&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;学业渐进，终于我的书房也搬到了卧室，那是高二、高三了。高三时很多时候学习完比较晚，如果再从书房走到卧室还挺累，索性直接在一个屋里搞定学习、洗漱、睡觉三件事。还有一大原因：坐在电脑屋，自制力比较差。有时候写着作业就忍不住摸电脑，有几回闹到半夜三点还没写完作业，搞得妈妈很不愉快。搬到卧室后，就在物理层面杜绝了玩电脑。因而，高三时整体学习的节奏更为平稳，很多时候也能静下心来想一些问题。&lt;/p&gt;
-
-&lt;p&gt;可惜的是，这张两米长的书桌，依旧没能逃过靠墙的命运。那时的景色蔚为壮观：各类“大部头”一字排开，最左边是镇桌的《唐诗鉴赏辞典》一套两本；最右边则是我最喜欢的“新概念”作文选1-3、4-6两册。中间高高凸起的是《科学的历程》。横看成岭侧成峰，颇有几分“从胜利走向胜利”的意味在里面。为了避免这些满腹经纶的老先生摔坏了身子骨，只好再次把书桌摆在墙角。高三散场，彻底打扫屋子迎接新生活时发现，沿着桌子边沿的轮廓，墙上已经留下了无法抹平的塔灰痕迹，抑或油脂分泌物与灰尘混合而成的泥浆。与左手边后方暖气片上方“热泳”形成的黑道道交相辉映，充满了曾经在此生活奋斗过的气息。&lt;/p&gt;
-
-&lt;p&gt;“什么时候才能有一张不靠墙的、不偏不倚的书桌呢？”，我暗自思忖。我想，或许自己宁愿那些时光，未曾留下黑黢黢的印记。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;在乡下的家里，唯一一张曾经不靠墙的书桌，是我最爱的独处空间之一。在家里还没有网络的2007年左右，那台老旧的奔腾Ⅱ处理器、Windows 98系统的全塔机箱的老家伙、“载重自行车”便靠在书桌的右下角。大屁股纯平特丽珑显示器放在桌子中央，面前是键盘鼠标，右面是一盏35瓦的白炽灯。除此之外，桌上什么也没有。&lt;/p&gt;
-
-&lt;p&gt;没有堆得一摞摞的书籍、没有插线板和杂乱无章的线头、没有多余的稿纸和钢笔铅笔签字笔、没有如今我早已习惯的落满灰尘的书桌上的小零碎儿们——一人、一桌、一椅、一屏、一键鼠而已。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/202012/wallpaper.jpg&quot; alt=&quot;桌面壁纸&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;我很喜欢跑到这张桌子上，摸摸慢吞吞的老电脑。这台电脑虽然只有几个GB的硬盘，但存了不少我爱鼓捣的软件。3DHome、梦幻西餐厅、VBA1.73、NFS5、Office 97、Photoshop 6.0、空当接龙。小游戏大合集的几张光碟中感兴趣的软件和游戏，几乎让我尝试了个遍。听着光驱、软驱嗡嗡地一丝不苟地读取数据，我总能耐心地等待一切安排停当。&lt;/p&gt;
-
-&lt;p&gt;在这个书桌上，我通关了绿娃传奇、叶绿386以及梦幻西餐厅。虽然那时没有《文明》，但玩儿起这些小游戏来，我可是丝毫不含糊，经常沉浸其中从午饭到天黑。透过百叶窗洒进来的阳光影子逐渐拖得很长，自己却浑然不知。我很喜欢这种时刻。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;在美国的书桌很简单：bobo学姐半卖半送给我的。后来从另一个学妹那里收来一张一模一样的，几经辗转最后被我运到了加州。这张桌子不错，尺寸适中，也比较坐实，典型的美式铁艺家具。寄人篱下没法子，目前还是放在了墙角。&lt;/p&gt;
-
-&lt;p&gt;之前在客厅，至少有过一阵这张桌子只有一边靠墙。果然，疏通了书桌的风水后，写代码写得“下笔如有神”！&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;未来，我想要一个宽敞、素雅而沉静的书房。像Minecraft的图书馆那样，周遭是高高的书柜和书架，正中间书桌上放着一本一打开便会跳舞的魔法书。&lt;/p&gt;
-
-&lt;p&gt;书桌不靠墙有&lt;a href=&quot;/life/life-notes-200613-stand-up-and-make-my-living/#周五的wsj上没有低于3m的地产&quot;&gt;诸多好处&lt;/a&gt;。最明显的——书桌靠墙给人心理暗示，令人无法舒展思路。书桌靠墙角更是雪上加霜，南来北往的念头都挤在墙角，杂乱无章，“不在沉默中爆发，就在沉默中灭亡”。&lt;/p&gt;
-
-&lt;p&gt;我不喜欢这种感觉：盯着书籍或是屏幕许久，抬头换换思路看到的是墙；转头向左看也是墙；目光绕过显示器还是墙。这让人很容易“出戏”，前脚还在西伯利亚的草原，后脚就被死死拴在关塔那摩的监狱。与墙角的书桌迥然相异的便是国图的书桌。抬头望望天，环视周遭，赏心悦目。国图真是读书思索的天堂呀！未来的书房只要有一半那么好就满足了。&lt;/p&gt;
-
-&lt;p&gt;一张简洁、明式、又宽又大的木桌子。但不要像坚毅桌那么笨重。内翻马蹄、细细的罗锅枨，可以在缺乏灵感的时候脚踩手磨出包浆。能是檀木或者酸枝木的吗？哈哈，不能光意淫，还得撸起袖子加油干呀。&lt;/p&gt;
-
-&lt;p&gt;题外话。改slug的时候不知道英文该怎么说，反倒是直接反应出s’appuie contre le mur……&lt;/p&gt;
-</description>
-        <pubDate>Thu, 24 Dec 2020 00:00:00 -0800</pubDate>
-        <link>https://yo1995.github.io/fantasywhimridicule/desk-not-standing-against-the-wall/</link>
-        <guid isPermaLink="true">https://yo1995.github.io/fantasywhimridicule/desk-not-standing-against-the-wall/</guid>
-        
-        <category>lifestyle</category>
-        
-        <category>reminiscence</category>
-        
-        <category>future</category>
-        
-        
-        <category>FantasyWhimRidicule</category>
         
       </item>
     
