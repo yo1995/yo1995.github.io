@@ -5,9 +5,145 @@
     <description></description>
     <link>https://yo1995.github.io/</link>
     <atom:link href="https://yo1995.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 14 Mar 2021 21:58:47 -0700</pubDate>
-    <lastBuildDate>Sun, 14 Mar 2021 21:58:47 -0700</lastBuildDate>
+    <pubDate>Sun, 14 Mar 2021 22:01:31 -0700</pubDate>
+    <lastBuildDate>Sun, 14 Mar 2021 22:01:31 -0700</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
+    
+      <item>
+        <title>波美对过儿披萨店</title>
+        <description>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;地图&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://map.baidu.com/@12950188.46,4828951.96,21z,87t,-179.69h#panoid=0100220000130728075358476J3&amp;amp;panotype=street&amp;amp;heading=306.99&amp;amp;pitch=-7.51&amp;amp;l=21&amp;amp;tn=B_NORMAL_MAP&amp;amp;sc=0&amp;amp;newmap=1&amp;amp;shareurl=1&amp;amp;pid=0100220000130728075358476J3&quot;&gt;新疆村风味烤馕&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://goo.gl/maps/1NeXCWgVFhozZKZp6&quot;&gt;MFA对面的披萨店&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://goo.gl/maps/AwC3HNr6bGjJ8ZvB9&quot;&gt;Enzo’s Pizza&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;自从在地图公司上班，越来越喜欢在博客里放地图了。我晕🥴~~&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;前序&quot;&gt;前序&lt;/h2&gt;
+
+&lt;p&gt;周末了，咱写写吃的。&lt;/p&gt;
+
+&lt;p&gt;昨天晚上调整2021年的夏令时，相当于夜里少睡一小时。按理说该早点儿睡吧，呦呵！美东的俩人一个两点半睡一个四点睡。带得我也熬夜直到十二点半才睡着。睡之前看两眼虎扑，看见一个帖子问为何国内达美乐披萨不如必胜客流行。肚子里便犯嘀咕，思索起上次吃披萨是啥时候了。&lt;/p&gt;
+
+&lt;p&gt;来美国后，我很少主动吃披萨，因为披萨对我而言，一般是开会发免费饭的代名词。学校只要有点活动——譬如公司宣讲会、系里茶话会、助教讨论会……——诸多零预算聚集性事件的“指定官方伙食”一定是披萨。学校附近、公寓楼下有一家&lt;a href=&quot;https://goo.gl/maps/AwC3HNr6bGjJ8ZvB9&quot;&gt;Enzo’s Pizza&lt;/a&gt;，由于离学校近，而成为了各路人马点披萨的最常见选择。要我说，这家披萨做的还凑合，尤其是几款特色推荐的馅料；但学校最常点的还是Pepperoni和Classic两款，即帕帕罗尼红肠，以及洋葱、青椒和蘑菇馅料的披萨。它们太普通了，以至于不咋好吃。&lt;/p&gt;
+
+&lt;p&gt;来美国后，点披萨曾是我畏手畏脚的知识盲区。有菜单的餐厅还好；没有菜单，光是一堆披萨摆在橱窗里，你叫我咋点？！总不能说“I’d like this red one please”吧。或者“This, this, thank you”？好在，在踏上美帝土地之前，自己早早就听说过“Pepperoni”和“Buffalo Chicken”这两个专有名词。每次到了没菜单愣点的披萨店，我先装模作样把各式披萨端详一遍，然后若有所思地说“Do you have Buffalo Chicken please?”如果没有，则祭出万能兜底的帕帕罗尼。流程如下——&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Buffalo Chicken&quot;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;toppings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Buffalo Chicken&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;🤤&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Pepperoni&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;😌&quot;&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NotExistException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;raise&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Can I have this? 😥&quot;&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# !@$%@!$@^%
+&lt;/span&gt;		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;😰🧏‍♂️&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;后来终于在一次SnackChat上学到了一些美国披萨的知识。学问可真不少！方的、圆的、薄的、厚的、意大利的、纽约的、带菠萝不带菠萝……也让我心里有了数，不用再拘泥于最常吃的几种&lt;a href=&quot;/introspection/financial-independence/&quot;&gt;没创意&lt;/a&gt;的口味了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/202103/pineapple.jpg&quot; alt=&quot;放菠萝🍍&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;小时候对于披萨的认知，约等于必胜客+好伦哥+比格。吃必胜客披萨，我比较喜欢带芝心和牛肉的。到了美国，居然发现不知道芝心咋说，只好随遇而安……美国很多速冻披萨的饼皮做得很薄，烤出来非常硬。本以为美国人就习惯吃这种呢，没成想有一次散会后，发现美国人的纸盘子里也扔了一堆饼底和饼皮，还有好些如硬纸壳贝儿摩擦产生的碎沫沫。好嘛，原来他们也咬不动！&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;深盘披萨&quot;&gt;深盘披萨&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/202103/pizzeria-uno.jpg&quot; alt=&quot;Pizzeria Uno&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;爸妈来芝加哥，免不了一尝芝加哥特色的“深盘披萨”。我也没吃过，想着去网红店凑热闹，便导航去了华丽一英里的Pizzeria Uno一探究竟。那天下着小雨，天空阴沉沉的，许多游客无事可做，便全跑到这家小店凑热闹。排号十桌，恰好有了个三人的空位，我们便幸得插队落座。45刀，点了一个披萨和一些小食，倒看看这深盘是个什么名堂。&lt;/p&gt;
+
+&lt;p&gt;披萨上桌，倒也不小。迫不及待地想把它切成六份，刚一下刀，我就愣住了——馅儿倒是切开了，这底下硬的，是铁盘子呢，还是饼皮呢？大力出奇迹，哐嗤一下子，听到了金属碰撞的声音。好家伙，这饼皮饼边跟城墙拐弯儿似的，没治了！&lt;/p&gt;
+
+&lt;p&gt;刚开始吃第一块的时候，我们还煞有介事举起刀叉、文绉绉地从圆心径向一口一口地咀嚼着饼底。但吃到饼边，真是喇嗓子！咽吧，如鲠在喉；吐出来？有失体统。勉勉强强把第一块饼吃完，我妈表示打住。我和我爸一人再吃一块，这回算是彻底放飞自我了。把馅儿吃光，饼底尽力咬上一两口，吃不动就吐在碟子里。最后剩了一牙儿半，店家还好心地帮我们装小盒子里打包。我们面面相觑——这玩意儿带回去谁吃啊？！&lt;/p&gt;
+
+&lt;p&gt;当晚下雨，决定不再出门参观，但是得买点儿吃的。楼下711一逛，有三明治、速热的意面和高热量的吃食，还有披萨。爸妈再次看到披萨目光有些闪躲，但最后我还是买了两块另做打算。微波炉一叮，不比不知道——原来超市的披萨比网红好吃了好几倍。吃罢表示，打包的那点儿直接扔了吧……毕竟，中国人还是愿意吃更接近中国口味的披萨。&lt;/p&gt;
+
+&lt;h2 id=&quot;costco初体验&quot;&gt;Costco初体验&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/202103/Costco.jpg&quot; alt=&quot;Costco的象征&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2018年10月21日，我第一次去Costco。最具有代表性的场景之一就是它的Food Court。牛肉热狗1.5美刀，吃了特顶饱！当然，还有披萨。&lt;/p&gt;
+
+&lt;p&gt;在18年秋天，我们常在周日上午去Costco采购，顺带午餐。基本把几种吃的吃了个遍——油条、肉酱糊糊、鸡肉奶酪饼、沙拉、披萨、圣代。Costco的披萨不算难吃，热量也很高，川经常吃完下午就犯Food Coma了。细节不表。&lt;/p&gt;
+
+&lt;p&gt;有一次Enzo’s给公寓优惠，全场半价。于是我们仨就决定去趸一顿。点了两个14寸的附带一盘小食，仨人吃了个肚歪。胡吃海塞天南海北地扯，德罕早早入夜秋的寒凉完全抵挡不住一肚子的热量。离开很久，有时嘴边也会泛起咸渍油腻的全肉披萨的味道，不由得舔舐嘴角，咂么咂么往昔的滋味儿。&lt;/p&gt;
+
+&lt;h2 id=&quot;mfa对面的披萨店&quot;&gt;MFA对面的披萨店&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/202103/University-House-of-Pizza.jpg&quot; alt=&quot;University House of Pizza&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;正主来了。说到上次吃披萨，第一个映入眼帘的就是波美对过儿的这家披萨店。或许我在2020年还吃过其他披萨，但实在记不得了。印象最深刻的反倒是这家不起眼的小店。&lt;/p&gt;
+
+&lt;p&gt;波美三进宫，两次吃了这家名为University House of Pizza的小店。这家店就在美国东北大学(Northeastern University, NEU)工学院的楼下，因此得名University。而马路对面，就是大名鼎鼎的、馆藏有《历代帝王图》和一众国之瑰宝的波士顿美术艺术馆。波美馆内有餐吧，但大多是浅尝辄止的小酌——冷餐吧没有油烟机，自然也吃不到什么能饱腹的东西；披萨则不一样——肉肉吃进肚子里，脂肪可不会撒谎。逛博物馆是一项不输徒步的高强度体力脑力活动，要是没吃饱，真能逛到眼冒金星！&lt;/p&gt;
+
+&lt;p&gt;第一次吃是和陈宜祯（大哥）一起逛波美。上午逛完，大哥说下午要去学校学习，一起吃个饭就散伙。这家小店位置得天独厚，距离美术馆直线距离不到一百米，一下子就成为了我们的首选。本以为到了饭点儿，又是景区附近的餐饮，一定很火爆；来到店里，意外地人却不多。店里只有四五张桌子，一个小小的柜台里摆了几种沙拉，身后便是烤披萨的后厨。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/202103/mfa-pizza.jpg&quot; alt=&quot;大学披萨屋&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;认识的朋友里在NEU读过书的很多，列为若恰也去过这家店，那咱们真是有缘分！或者未来大家有计划去MFA参观的话，可以顺道去瞜一眼。&lt;/p&gt;
+
+&lt;p&gt;我俩坐下，小小的披萨店一下子从萧索变得充满了生机。大哥一个人就占了店里四分之一的面积似的。点了两种披萨和一些烤翅。烤翅先上，蘸着酸奶油倒是滋味颇丰；接下来是两张披萨。别看俩大小伙子，还有大哥这样的战斗力超强的主，我俩愣是没吃完！布法罗鸡肉的酱料比较酸涩，又有点咸；另外一张记不得是哪种了，反正也比较油腻和咸。就算喝着饮料、蘸着sour cream，还是吃了几块就吃不下了。但是味道是真不错！吃了一块还想吃第二块，现烤的饼皮也很松软，导致碳水和油脂双重爆炸。没吃完打包了，本来说去学习的大哥干脆也缴械投降——“我去楼里找个地方迷瞪会儿”。最后俩人才花二十多块钱，吃得都顶了。&lt;/p&gt;
+
+&lt;p&gt;第二次则是和爸妈来逛波美。天阴沉沉的，零星下几滴小雨，典型的入秋后的、新英格兰地区的那种阴郁的天气。路上有些红枫和黄叶，冷冽的秋风呼号，落叶随着呼号翻飞，吹得人心里空落落的。我一看，这天气也不适合逛街了，干脆直接绿线杀到博物馆。提前跟爸妈交代好：波士顿美术馆的馆藏颇丰，这一进去估计就是晚上了，要不要先填饱肚子？大伙一合计，干脆还是去吃披萨吧。一边笑谈和大哥上次在这儿吃披萨的经历，一边就在店里靠窗落座。爸妈估计对深盘披萨还心有余悸，劝我别点太多。我哈哈一笑，心想，我可是“身经百战”了，这家还是不错的。&lt;/p&gt;
+
+&lt;p&gt;一边聊天一边等着披萨烤好，倏忽间，外面暴雨如注。顶着手提包赶忙跑进来几个印度小伙子，笑着跳着操着浊辅音的英语点起披萨来。雨越下越大，店里的生意也越来越好。电话叮铃铃响个不停，前台大妹子左一单右一单马不停蹄地奋笔疾书着——听送餐地址，点餐的多是学生。不一会儿，后厨便嘈杂起来，气力哐啷地揉饼、铺馅儿、烤盘上下翻飞。我们的披萨也热腾腾地上桌了。氤氲水汽的橱窗穿过大雨滂沱的街道，挥洒在“伟大精神呼唤”的铜像上，旷野中仿佛传来原住民的呼喊……&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/202103/mfa-interior.jpg&quot; alt=&quot;波美前厅台阶&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;波士顿美术馆是我在美国最喜欢的博物馆。当然，我还没进去过大都会，特区的博物馆也没来得及仔细品鉴。关于MFA，&lt;a href=&quot;/school/two-girls-06/#看到了三幅很喜欢的印象派真迹&quot;&gt;之前提到过&lt;/a&gt;——莫奈和雷诺阿交相辉映，令人目不暇接；中庭高悬的的宏伟巨制、巨幅油画，令人肃然起敬；从远古至现代的收藏种类之丰、数量之多，令人啧啧称奇。当然，最爱的还是二层左手边的一爿中国展区。&lt;/p&gt;
+
+&lt;p&gt;写披萨的随笔，偏题拽文不太恰当，就此打住。&lt;/p&gt;
+
+&lt;h2 id=&quot;新疆村烤馕&quot;&gt;新疆村烤馕&lt;/h2&gt;
+
+&lt;p&gt;过去写过&lt;a href=&quot;/life/ganjiakou/&quot;&gt;甘家口和烤馕&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;有人说，披萨是“意大利馅儿饼”；也有人说，糊塌子是“中式披萨”。我总会想起一口满嘴香的羊油烤馕，当我在异乡啃意大利锅贴儿的时候。&lt;/p&gt;
+
+&lt;p&gt;距这篇博客又过去了四年有余。时过境迁，往事如风，自己依旧连一次烤馕或是柴氏都没再吃过。根据百度街景地图的历史快照，2016年时烤馕摊位似乎就已经难觅踪影。记忆中的这份风味，仿佛成了随风摇曳的野指针，无从求索。&lt;/p&gt;
+
+&lt;p&gt;去年一位高中同学曾琦阴差阳错得以回国WFH。下了飞机后的第一条朋友圈便是朝思暮想的烙饼。看着看着，哈喇子就下来了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/202103/dabing.jpg&quot; alt=&quot;烙饼&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;末了儿想到的，是在孙辰之前央街高档公寓楼下吃的披萨。先去711买烤鸡翅，然后跑到披萨店大开特开，作为搬家一天对自己的犒劳……不说了，茨菇炖旁肋坐在火上，写完吃完床上一躺，囊膪往小肚子上猛长！&lt;/p&gt;
+
+&lt;p&gt;此时此刻，写完文章的九点二十七分发生了一件细思极恐的事：大晚上九点半，突然有外卖敲门送披萨……😱我寻思光是想也没操作啊，人咋知道我在想披萨？！&lt;/p&gt;
+</description>
+        <pubDate>Sun, 14 Mar 2021 00:00:00 -0800</pubDate>
+        <link>https://yo1995.github.io/life/MFA-pizza/</link>
+        <guid isPermaLink="true">https://yo1995.github.io/life/MFA-pizza/</guid>
+        
+        <category>lifestyle</category>
+        
+        <category>reminiscence</category>
+        
+        <category>food</category>
+        
+        
+        <category>Life</category>
+        
+      </item>
     
       <item>
         <title>2021年Nonresident Alien报税小结</title>
@@ -1062,174 +1198,6 @@ SAD症状、寒冷的天气造成的生病概率提升、干燥冷冽的寒风�
         
         
         <category>Society</category>
-        
-      </item>
-    
-      <item>
-        <title>2020 Review - Cycling</title>
-        <description>&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;相关阅读&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://bbs.byr.cn/article/Cycling/173041&quot;&gt;【心得】开个贴回顾2019骑车？&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://bbs.byr.cn/article/Cycling/172062&quot;&gt;【心得】开个贴回顾2018骑车？&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://bbs.byr.cn/article/Cycling/168927&quot;&gt;2016&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://bbs.byr.cn/article/Cycling/165340&quot;&gt;2015&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://bbs.byr.cn/article/Cycling/158160&quot;&gt;2015&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://bbs.byr.cn/article/Cycling/144001&quot;&gt;2014&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://bbs.byr.cn/article/Cycling/142295&quot;&gt;2013&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;2020年过去了。对于我的骑行旅程来说，这一年中大多数的日子都是普通而寻常的；回首望去，这一年却又非比寻常。&lt;/p&gt;
-
-&lt;p&gt;2020年原本应是重建训练计划的一年。在年初，我信心满满地规划着每周游两次泳、骑两次车，一步一个脚印向着目标迈去。南加州的天气一如既往地适合户外运动——天气也是我选择不远千里跑到这个小城镇的重要原因之一。一月二月在学校游了三次泳；三月则经过多方打听，找到了一家罕见的室内游泳馆，试游了两次就准备办卡了——&lt;/p&gt;
-
-&lt;p&gt;突然间，疫情来了。&lt;/p&gt;
-
-&lt;p&gt;2月25日，国内正处于“flatten the curve”的时期，而美国已经被人心惶惶的、不可名状的疫情阴霾所笼罩。西雅图养老院爆发的集中疫情，各大空港零星报道的社区传染，都让同学朋友们产生了一丝忧虑。中国人擅长未雨绸缪，我认识的人们都早早把亚马逊、Home Depot和CVS的口罩抢购一空；西方人则不以为然，都觉得美国不可一世的生物医药医学水平，对付一个“大流感”似的疫情简直不费吹灰之力。年末今日，看看人口1000万，病例突破80万例的洛杉矶郡的悲惨现状，我想人们和我自己都会重新思考当初的一举一动。&lt;/p&gt;
-
-&lt;p&gt;当天我驱车前往洛杉矶，Sepulveda周围的一切都像什么都没有发生一样。人们依旧熙熙攘攘地聚集在中餐馆，在谈论起新冠病毒时多有一种置身事外的情绪。虽然当时我相信总有一天疫情会蔓延到美国，但依旧不相信事情会发展地如此之快。我有N95口罩，但去洛杉矶的三天根本没戴；上班到三月下旬，公司零星传出回家办公的声音；在湾区的朋友鳞次栉比地爆料公司宣布在家办公到下半年。而我却依旧抱有侥幸心理，一直没有任何防护措施坚持到了公司食堂开门的最后一天。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/2020rev/menu.png&quot; alt=&quot;食堂菜单最后一天&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;讽刺的是，在2020年12月30日，我打开食堂菜单，发现上面的日子依旧停留在了3月20日。那是我最后一次吹着口哨戴着头盔走出办公楼的日子。&lt;/p&gt;
-
-&lt;p&gt;2020年的骑行之旅，便在这样一种毫无防备却猝不及防的气氛下徐徐展开了。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;在3月20日前，2020年我一共游了5次泳；在学校骑了65公里；在公司所在地，上下班加去四处闲逛骑了60公里。原本的打算，是按部就班地拿到每一块行者APP的月度铜牌，在天气最好的几个月冲击银牌。这样，在年底公里数大约能够破一千。从2013年开始骑车运动以来，除了2015年突破过1000公里外，从未有一年达到这个数字。使用智能手机前，码表上的数字停留在了三千左右；而用行者到如今，总计也刚好三千公里。&lt;/p&gt;
-
-&lt;p&gt;过去总觉得一年骑一千公里那都不叫事儿。毕竟，走一趟四海大环就是三百公里，不过两三天的事情。问题是，上学期间能走大活儿的机会太少了，北京适合远途骑车的时间太短了。清明假期，国庆假期，仅此而已。春季学期有时能趁着晚上走一趟奥园，刷上三四十公里。但就算常去奥园，算下来一年也得去20次才能把总和加到一千。在2016年定下的“去20次香山”的计划，直到2018年才将将完成——而去一趟香山的距离不过十来公里！哈，骑车的计划，总是想着容易做起来难！&lt;/p&gt;
-
-&lt;p&gt;但说到底，我还是对骑车具有长久的、难以磨灭的热情的。我曾尝试去健身房，纯粹因为羡慕别人轮廓分明的肌肉。但只坚持了半年就坚持不下去了——持续做一件没有兴趣的事，只为一个功利性的结果，真的很难耶！除非健身真的能对谈恋爱有帮助。&lt;/p&gt;
-
-&lt;p&gt;骑车则不然。只要天气允许，心底便会有“内驱力”鼓舞自己跨上车子出去溜一圈儿。骑车还是一种“代偿性”的逃避——如果我骑车了，就可以代替别的运动了，省得心里总有今天没运动的负罪感。甚至，一段时间里我认为游泳运动员的上肢，与骑车运动员的下肢组合是最完美的身材……总之，为了能骑车，我可以找出千万种理由。&lt;/p&gt;
-
-&lt;p&gt;在疫情最初还不太严重的时候，这个小城每日确诊病例只有个位数。考虑到整个城市偌大的地盘和零星分布的居民区，被感染的风险应该可以忽略不计。我侥幸地想。而骑车，相较于跑步、泡健身房、游泳、球类运动而言，应该是风险最小的一种了——甚至比滑雪还小。毕竟，去滑雪要经过人挤人的更衣室，还要坐在缆车上呼吸同一条轨道上的空气。有一阵子很怕病毒，觉得只要人走过一条道，身后便会留下长达数十米的“污染区”，可以想象为拿着燃烧的烟花走过身后留下的印记。而骑车既远离人行道，又不会以准静态的速度跟着别人呼吸废气，应该没啥风险。&lt;/p&gt;
-
-&lt;p&gt;一年能够从事的为数不多的几项户外运动：野球、散步、徒步、骑车；随着疫情的逐渐失控，最后只剩下了骑车。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/2020rev/clouds.jpg&quot; alt=&quot;洪波涌起&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;小城市的路出人意料地好。或许是我在美国见过的最适合骑车的地方了。宽阔的自行车道几乎覆盖了城市的主干道；山丘间有沥青新铺就的鲜有车辆问津的山道，平日成了遛狗和骑车的专用道。地图里我最常骑的三条路，两条都经过“Sunset Dr.”——洛杉矶有著名的“日落大道”，我愿把这条丘陵山路称为“日落小道”。整体爬升300米有余，缓坡多于长坡，难度不比黑陈路。而爬山的过程中，路边的风景也在不断地变化。从最初的郁郁葱葱的树木、到较为开阔的光秃秃的丘陵、到星罗棋布的山间豪宅、再到接近山顶时看到的远方高耸入云的南加州横断山脉，以及山脚下高速上川流不息的车流。每每骑到终点的观景平台，凭栏远眺，心中总会升起一种“秋风萧瑟、洪波涌起”的苍凉与悲怆杂糅的感情。&lt;/p&gt;
-
-&lt;p&gt;最初的几个月，因为人生地不熟，加之疫情不太严重，我还兴致勃勃地每个周末骑不同的路线，探索这座小城的各式道路。但到了夏天末尾，第二波疫情袭来，每周确诊病例都会增加一二百例。要知道，整个镇子一共才七八万人！一周新增的病例数超过了北京所有病例的总和。当时想起来便已经觉得不可思议了。至于感恩节后二十天增加两千例的惨状，实在不忍直视。于是，后面我只在风险最小的时候骑熟悉的路线，避免让自己陷入麻烦。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/2020rev/SmileyHeights.jpg&quot; alt=&quot;笑脸高地&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;探索与循环往复，是我对于今年骑行路径的总结。我既喜欢信马由缰地骑不同的路，也并不反感周而复始骑同样的路。在北京，我可以骑香山的“四种写法”，也可以无脑奥园刷圈。在这里，我依旧可以每次骑到固定地点，拍一张照片然后打道回府。&lt;/p&gt;
-
-&lt;p&gt;就这样，在一次又一次的重复中，在散漫却又自我督促的一年中，我终于完成了一千公里的目标。甚至，我还超额完成了！1200.609公里是最后的距离。平均每个月刚好超过了100公里。&lt;/p&gt;
-
-&lt;p&gt;在紧张兮兮等待爬虫运行获取结果时，我曾设想过许多种结果：没准我超了很多？如果没完成，那我立马搬着车下楼把剩下的差额补齐。在上次统计时，依稀记得零头是64.5公里左右。在那之后我骑了一趟A线、一趟B线、一趟C线，大概……24，19，22，嘿！还真说不准呢。结果打印出来，我的心提到了嗓子眼儿——整整100次，1200公里，居然过线一公里都不到！好家伙，要是我三月某天上班斜着骑过停车场，也许这一年的目标就付之东流了。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;这一年的骑行经历，让我更加笃定地相信了日积月累的价值与效用。日子一天天过，生活充满了涨落。一年当中，总有几天浑身不得劲儿，抗拒运动；也总会有天朗气清惠风和畅的日子让人浑身上下充满干劲儿，非要运动个爽不成。没必要因为种种因素打破既定计划就自怨自艾，只要心中有这根弦儿，就算看起来遥不可及，达成目标也是早晚的事儿；有时候实现目标也需要一点点运气，就算失之毫厘也不必懊丧。毕竟，最美的不是骑行的终点，而是骑行路上的风景，以及看风景时的心情。&lt;/p&gt;
-
-&lt;p&gt;于2020年12月30日Barton Rd.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;附录制作过程与相关链接&quot;&gt;附录：制作过程与相关链接&lt;/h2&gt;
-
-&lt;h3 id=&quot;想法&quot;&gt;想法&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;✔爬取月度数据&lt;/li&gt;
-  &lt;li&gt;✔从月度数据下载gpx文件（根据轨迹ID）并区分是否为骑车轨迹&lt;/li&gt;
-  &lt;li&gt;✔将月度数据json汇总得到全年总数据：
-    &lt;ul&gt;
-      &lt;li&gt;总里程&lt;/li&gt;
-      &lt;li&gt;总爬升 elevation_gain&lt;/li&gt;
-      &lt;li&gt;均速 distance / duration * 3600&lt;/li&gt;
-      &lt;li&gt;总时间 duration&lt;/li&gt;
-      &lt;li&gt;次数 len(arr)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;✔将GPX文件导入ArcGIS Pro画出年度热力图
-    &lt;ul&gt;
-      &lt;li&gt;按时间读取所有gpx文件并导入成为散点和折线 feature class&lt;/li&gt;
-      &lt;li&gt;对散点进行热力图绘制&lt;/li&gt;
-      &lt;li&gt;对折线进行一定距离内的平均和叠加（model builder）&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;展示内容&quot;&gt;展示内容&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;2020年总体数据&lt;/li&gt;
-  &lt;li&gt;2020年月度数据表格&lt;/li&gt;
-  &lt;li&gt;美国地图全图，leader指向两个地方&lt;/li&gt;
-  &lt;li&gt;Durham热图&lt;/li&gt;
-  &lt;li&gt;Redlands热图&lt;/li&gt;
-  &lt;li&gt;三条高程汇总&lt;/li&gt;
-  &lt;li&gt;分别三条速度&lt;/li&gt;
-  &lt;li&gt;照片&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;行者相关&quot;&gt;行者相关&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.imxingzhe.com/heatmap/map/api/?year=2019&amp;amp;user_id=109458&quot;&gt;2019年热力图&lt;/a&gt;
-&lt;a href=&quot;https://www.imxingzhe.com/heatmap/map/api/?year=2018&amp;amp;user_id=109458&quot;&gt;2018年热力图&lt;/a&gt;
-&lt;a href=&quot;https://www.imxingzhe.com/h5/heatmap/109458/#/updateheatmap&quot;&gt;热力图页面&lt;/a&gt;
-&lt;a href=&quot;https://www.imxingzhe.com/api/v4/user_month_info/?user_id=109458&amp;amp;year=2020&amp;amp;month=11&quot;&gt;月度信息页面&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;geoprocessing&quot;&gt;Geoprocessing&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=MAY9mJQVODk&quot;&gt;Importing Strava Data into ArcGIS Pro&lt;/a&gt;
-&lt;a href=&quot;https://www.strava.com/heatmap#12/-117.18/34.04/hot/ride&quot;&gt;Redlands Strava heatmap&lt;/a&gt;
-&lt;a href=&quot;https://community.esri.com/t5/arcgis-enterprise-portal/make-overlaped-lines-thicker/td-p/380294&quot;&gt;Make overlaped lines thicker&lt;/a&gt;
-&lt;a href=&quot;https://pro.arcgis.com/en/pro-app/help/analysis/geoprocessing/basics/the-in-memory-workspace.htm&quot;&gt;ArcPy Memory Workspace&lt;/a&gt;
-&lt;a href=&quot;https://pro.arcgis.com/en/pro-app/tool-reference/conversion/feature-class-to-geodatabase.htm&quot;&gt;Feature Class To Geodatabase&lt;/a&gt;
-&lt;a href=&quot;https://pro.arcgis.com/en/pro-app/arcpy/geoprocessing_and_python/using-environment-settings.htm&quot;&gt;Using environment settings in Python&lt;/a&gt;
-&lt;a href=&quot;https://pro.arcgis.com/en/pro-app/tool-reference/data-management/append.htm&quot;&gt;Append&lt;/a&gt;
-&lt;a href=&quot;https://pro.arcgis.com/en/pro-app/tool-reference/conversion/gpx-to-features.htm&quot;&gt;GPX To Features&lt;/a&gt;
-&lt;a href=&quot;https://gis.stackexchange.com/questions/202455/how-to-extract-the-speed-from-a-gpx-file&quot;&gt;GPSBabel差分计算速度&lt;/a&gt;
-&lt;a href=&quot;https://geo.javawa.nl/trackanalyse/index.php?lang=en&quot;&gt;在线读取gpx并显示简单数据&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Tue, 29 Dec 2020 00:00:00 -0800</pubDate>
-        <link>https://yo1995.github.io/life/2020review-cycling/</link>
-        <guid isPermaLink="true">https://yo1995.github.io/life/2020review-cycling/</guid>
-        
-        <category>review</category>
-        
-        <category>year</category>
-        
-        <category>sport</category>
-        
-        <category>cycling</category>
-        
-        
-        <category>Life</category>
         
       </item>
     
