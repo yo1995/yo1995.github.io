@@ -1952,48 +1952,150 @@ Wed, 31 Aug 2016 00:00:00 -0700
 -->
 
         </aside>
-        <!-- END WIDGET-WRAP -->		
-        <aside class="widget-wrap widget-categories">
+		<!-- END WIDGET-WRAP -->
+		
+        <aside class="widget-wrap widget-toc">
             <h6 class="widget-title">
-                <span>Categories</span>
+                <span>Table of Contents <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
             </h6>
-            <ul>
-				
-				
-                <li><a href="/categories/#coding">Coding</a></li>
-                
-                <li><a href="/categories/#ee">EE</a></li>
-                
-                <li><a href="/categories/#fantasywhimridicule">FantasyWhimRidicule</a></li>
-                
-                <li><a href="/categories/#games">Games</a></li>
-                
-                <li><a href="/categories/#html">Html</a></li>
-                
-                <li><a href="/categories/#introspection">Introspection</a></li>
-                
-                <li><a href="/categories/#life">Life</a></li>
-                
-                <li><a href="/categories/#movie">Movie</a></li>
-                
-                <li><a href="/categories/#physics">Physics</a></li>
-                
-                <li><a href="/categories/#reading">Reading</a></li>
-                
-                <li><a href="/categories/#school">School</a></li>
-                
-                <li><a href="/categories/#society">Society</a></li>
-                
-                <li><a href="/categories/#tools">Tools</a></li>
-                
-                <li><a href="/categories/#video">Video</a></li>
-                
-                <li><a href="/categories/#zhuism">Zhuism</a></li>
-                
-            </ul>
+            <div id="navbar">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#遇到的小bug之一相册分类重复">遇到的小bug之一：相册分类重复</a></li>
+<li class="toc-entry toc-h2"><a href="#遇到的小bug之二category排序">遇到的小bug之二：category排序</a></li>
+<li class="toc-entry toc-h2"><a href="#遇到的小bug之三tags排序">遇到的小bug之三：tags排序</a></li>
+<li class="toc-entry toc-h2"><a href="#liquid-basics">Liquid Basics</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#objects">Objects</a></li>
+<li class="toc-entry toc-h4"><a href="#tags">Tags</a></li>
+<li class="toc-entry toc-h4"><a href="#filters">Filters</a></li>
+<li class="toc-entry toc-h3"><a href="#operators">Operators</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#basic-operators">Basic Operators</a></li>
+<li class="toc-entry toc-h4"><a href="#contains">Contains</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#truthy-and-falsy">Truthy and Falsy</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#truthy">Truthy</a></li>
+<li class="toc-entry toc-h4"><a href="#falsy">Falsy</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#object-types">Object Types</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#string">String</a></li>
+<li class="toc-entry toc-h4"><a href="#number">Number</a></li>
+<li class="toc-entry toc-h4"><a href="#boolean">Boolean</a></li>
+<li class="toc-entry toc-h4"><a href="#nil">Nil</a></li>
+<li class="toc-entry toc-h4"><a href="#array">Array</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#whitespace-control">Whitespace Control</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#liquid-tags">Liquid Tags</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#control-flow">Control Flow</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#case--when">case / when</a></li>
+<li class="toc-entry toc-h4"><a href="#if">if</a></li>
+<li class="toc-entry toc-h4"><a href="#unless">unless</a></li>
+<li class="toc-entry toc-h4"><a href="#elsif--else">elsif / else</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#iteration">Iteration</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#for">for</a></li>
+<li class="toc-entry toc-h4"><a href="#myModalLabel">forloop (object)</a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#forloopfirst">forloop.first</a></li>
+<li class="toc-entry toc-h5"><a href="#forloopindex">forloop.index</a></li>
+<li class="toc-entry toc-h5"><a href="#forlooplast">forloop.last</a></li>
+<li class="toc-entry toc-h5"><a href="#forlooplength">forloop.length</a></li>
+<li class="toc-entry toc-h5"><a href="#forlooprindex">forloop.rindex</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h4"><a href="#break">break</a></li>
+<li class="toc-entry toc-h4"><a href="#for-parameters">for (parameters)</a></li>
+<li class="toc-entry toc-h4"><a href="#cycle">cycle</a></li>
+<li class="toc-entry toc-h4"><a href="#tablerow">tablerow</a></li>
+<li class="toc-entry toc-h4"><a href="#tablerow-parameters">tablerow (parameters)</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#variable">Variable</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#assign">assign</a></li>
+<li class="toc-entry toc-h4"><a href="#capture">capture</a></li>
+<li class="toc-entry toc-h4"><a href="#increment">increment</a></li>
+<li class="toc-entry toc-h4"><a href="#decrement">decrement</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#liquid-filters">Liquid Filters</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#string-1">String</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#append--prepend">append / prepend</a></li>
+<li class="toc-entry toc-h4"><a href="#capitalize">capitalize</a></li>
+<li class="toc-entry toc-h4"><a href="#cgi_escape">cgi_escape</a></li>
+<li class="toc-entry toc-h4"><a href="#default">default</a></li>
+<li class="toc-entry toc-h4"><a href="#downcase--upcase">downcase / upcase</a></li>
+<li class="toc-entry toc-h4"><a href="#escape--escape_once">escape / escape_once</a></li>
+<li class="toc-entry toc-h4"><a href="#lstrip--rstrip">lstrip / rstrip</a></li>
+<li class="toc-entry toc-h4"><a href="#markdownify">markdownify</a></li>
+<li class="toc-entry toc-h4"><a href="#newline_to_br">newline_to_br</a></li>
+<li class="toc-entry toc-h4"><a href="#number_of_words">number_of_words</a></li>
+<li class="toc-entry toc-h4"><a href="#remove--remove_first">remove / remove_first</a></li>
+<li class="toc-entry toc-h4"><a href="#replace--replace_first">replace / replace_first</a></li>
+<li class="toc-entry toc-h4"><a href="#size">size</a></li>
+<li class="toc-entry toc-h4"><a href="#slice">slice</a></li>
+<li class="toc-entry toc-h4"><a href="#slugify">slugify</a></li>
+<li class="toc-entry toc-h4"><a href="#smartify">smartify</a></li>
+<li class="toc-entry toc-h4"><a href="#split">split</a></li>
+<li class="toc-entry toc-h4"><a href="#strip">strip</a></li>
+<li class="toc-entry toc-h4"><a href="#strip_html">strip_html</a></li>
+<li class="toc-entry toc-h4"><a href="#strip_newlines">strip_newlines</a></li>
+<li class="toc-entry toc-h4"><a href="#truncate--truncatewords">truncate / truncatewords</a></li>
+<li class="toc-entry toc-h4"><a href="#uri_escape--xml_escape">uri_escape / xml_escape</a></li>
+<li class="toc-entry toc-h4"><a href="#url_encode">url_encode</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#integer">Integer</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#abs">abs</a></li>
+<li class="toc-entry toc-h4"><a href="#ceil">ceil</a></li>
+<li class="toc-entry toc-h4"><a href="#divided_by--times">divided_by / times</a></li>
+<li class="toc-entry toc-h4"><a href="#floor">floor</a></li>
+<li class="toc-entry toc-h4"><a href="#minus--plus">minus / plus</a></li>
+<li class="toc-entry toc-h4"><a href="#modulo">modulo</a></li>
+<li class="toc-entry toc-h4"><a href="#round">round</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#array-1">Array</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#array_to_sentence_string">array_to_sentence_string</a></li>
+<li class="toc-entry toc-h4"><a href="#first--last">first / last</a></li>
+<li class="toc-entry toc-h4"><a href="#group_by">group_by</a></li>
+<li class="toc-entry toc-h4"><a href="#join">join</a></li>
+<li class="toc-entry toc-h4"><a href="#jsonify">jsonify</a></li>
+<li class="toc-entry toc-h4"><a href="#map-extract">map (extract)</a></li>
+<li class="toc-entry toc-h4"><a href="#push">push</a></li>
+<li class="toc-entry toc-h4"><a href="#reverse">reverse</a></li>
+<li class="toc-entry toc-h4"><a href="#size-1">size</a></li>
+<li class="toc-entry toc-h4"><a href="#sort">sort</a></li>
+<li class="toc-entry toc-h4"><a href="#uniq">uniq</a></li>
+<li class="toc-entry toc-h4"><a href="#where">where</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#date">date</a></li>
+</ul>
+</li>
+</ul>
+            </div>
         </aside>
-        <!-- END WIDGET-WRAP -->
-        <aside class="widget-wrap widget-recent-posts">
+		
+		<!-- END WIDGET-WRAP -->
+		<aside class="widget-wrap widget-recent-posts">
             <h6 class="widget-title">
                 <span>Related Posts</span>
             </h6>
@@ -2273,14 +2375,52 @@ Wed, 31 Aug 2016 00:00:00 -0700
                 
                                    
             </ul>
-
         </aside>
+        <!-- END WIDGET-WRAP -->
+        <!--aside class="widget-wrap widget-categories">
+            <h6 class="widget-title">
+                <span>Categories</span>
+            </h6>
+            <ul>
+				
+				
+                <li><a href="/categories/#coding">Coding</a></li>
+                
+                <li><a href="/categories/#ee">EE</a></li>
+                
+                <li><a href="/categories/#fantasywhimridicule">FantasyWhimRidicule</a></li>
+                
+                <li><a href="/categories/#games">Games</a></li>
+                
+                <li><a href="/categories/#html">Html</a></li>
+                
+                <li><a href="/categories/#introspection">Introspection</a></li>
+                
+                <li><a href="/categories/#life">Life</a></li>
+                
+                <li><a href="/categories/#movie">Movie</a></li>
+                
+                <li><a href="/categories/#physics">Physics</a></li>
+                
+                <li><a href="/categories/#reading">Reading</a></li>
+                
+                <li><a href="/categories/#school">School</a></li>
+                
+                <li><a href="/categories/#society">Society</a></li>
+                
+                <li><a href="/categories/#tools">Tools</a></li>
+                
+                <li><a href="/categories/#video">Video</a></li>
+                
+                <li><a href="/categories/#zhuism">Zhuism</a></li>
+                
+            </ul>
+        </aside -->
         <!-- END WIDGET-WRAP -->
         <aside class="widget-wrap widget-tag">
             <h6 class="widget-title">
                 <span>Tags Widget <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
             </h6>
-
             <div class="tag-cloud">
                 
                 <a href="/tags/#lifestyle">lifestyle</a>
@@ -2374,148 +2514,6 @@ Wed, 31 Aug 2016 00:00:00 -0700
             </div>
         </aside>
         <!-- END WIDGET-WRAP -->
-		
-        <aside class="widget-wrap widget-toc">
-            <h6 class="widget-title">
-                <span>Table of Contents <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
-            </h6>
-            <div id="navbar">
-                <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#遇到的小bug之一相册分类重复">遇到的小bug之一：相册分类重复</a></li>
-<li class="toc-entry toc-h2"><a href="#遇到的小bug之二category排序">遇到的小bug之二：category排序</a></li>
-<li class="toc-entry toc-h2"><a href="#遇到的小bug之三tags排序">遇到的小bug之三：tags排序</a></li>
-<li class="toc-entry toc-h2"><a href="#liquid-basics">Liquid Basics</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#objects">Objects</a></li>
-<li class="toc-entry toc-h4"><a href="#tags">Tags</a></li>
-<li class="toc-entry toc-h4"><a href="#filters">Filters</a></li>
-<li class="toc-entry toc-h3"><a href="#operators">Operators</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#basic-operators">Basic Operators</a></li>
-<li class="toc-entry toc-h4"><a href="#contains">Contains</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#truthy-and-falsy">Truthy and Falsy</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#truthy">Truthy</a></li>
-<li class="toc-entry toc-h4"><a href="#falsy">Falsy</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#object-types">Object Types</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#string">String</a></li>
-<li class="toc-entry toc-h4"><a href="#number">Number</a></li>
-<li class="toc-entry toc-h4"><a href="#boolean">Boolean</a></li>
-<li class="toc-entry toc-h4"><a href="#nil">Nil</a></li>
-<li class="toc-entry toc-h4"><a href="#array">Array</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#whitespace-control">Whitespace Control</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#liquid-tags">Liquid Tags</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#control-flow">Control Flow</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#case--when">case / when</a></li>
-<li class="toc-entry toc-h4"><a href="#if">if</a></li>
-<li class="toc-entry toc-h4"><a href="#unless">unless</a></li>
-<li class="toc-entry toc-h4"><a href="#elsif--else">elsif / else</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#iteration">Iteration</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#for">for</a></li>
-<li class="toc-entry toc-h4"><a href="#myModalLabel">forloop (object)</a>
-<ul>
-<li class="toc-entry toc-h5"><a href="#forloopfirst">forloop.first</a></li>
-<li class="toc-entry toc-h5"><a href="#forloopindex">forloop.index</a></li>
-<li class="toc-entry toc-h5"><a href="#forlooplast">forloop.last</a></li>
-<li class="toc-entry toc-h5"><a href="#forlooplength">forloop.length</a></li>
-<li class="toc-entry toc-h5"><a href="#forlooprindex">forloop.rindex</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h4"><a href="#break">break</a></li>
-<li class="toc-entry toc-h4"><a href="#for-parameters">for (parameters)</a></li>
-<li class="toc-entry toc-h4"><a href="#cycle">cycle</a></li>
-<li class="toc-entry toc-h4"><a href="#tablerow">tablerow</a></li>
-<li class="toc-entry toc-h4"><a href="#tablerow-parameters">tablerow (parameters)</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#variable">Variable</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#assign">assign</a></li>
-<li class="toc-entry toc-h4"><a href="#capture">capture</a></li>
-<li class="toc-entry toc-h4"><a href="#increment">increment</a></li>
-<li class="toc-entry toc-h4"><a href="#decrement">decrement</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#liquid-filters">Liquid Filters</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#string-1">String</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#append--prepend">append / prepend</a></li>
-<li class="toc-entry toc-h4"><a href="#capitalize">capitalize</a></li>
-<li class="toc-entry toc-h4"><a href="#cgi_escape">cgi_escape</a></li>
-<li class="toc-entry toc-h4"><a href="#default">default</a></li>
-<li class="toc-entry toc-h4"><a href="#downcase--upcase">downcase / upcase</a></li>
-<li class="toc-entry toc-h4"><a href="#escape--escape_once">escape / escape_once</a></li>
-<li class="toc-entry toc-h4"><a href="#lstrip--rstrip">lstrip / rstrip</a></li>
-<li class="toc-entry toc-h4"><a href="#markdownify">markdownify</a></li>
-<li class="toc-entry toc-h4"><a href="#newline_to_br">newline_to_br</a></li>
-<li class="toc-entry toc-h4"><a href="#number_of_words">number_of_words</a></li>
-<li class="toc-entry toc-h4"><a href="#remove--remove_first">remove / remove_first</a></li>
-<li class="toc-entry toc-h4"><a href="#replace--replace_first">replace / replace_first</a></li>
-<li class="toc-entry toc-h4"><a href="#size">size</a></li>
-<li class="toc-entry toc-h4"><a href="#slice">slice</a></li>
-<li class="toc-entry toc-h4"><a href="#slugify">slugify</a></li>
-<li class="toc-entry toc-h4"><a href="#smartify">smartify</a></li>
-<li class="toc-entry toc-h4"><a href="#split">split</a></li>
-<li class="toc-entry toc-h4"><a href="#strip">strip</a></li>
-<li class="toc-entry toc-h4"><a href="#strip_html">strip_html</a></li>
-<li class="toc-entry toc-h4"><a href="#strip_newlines">strip_newlines</a></li>
-<li class="toc-entry toc-h4"><a href="#truncate--truncatewords">truncate / truncatewords</a></li>
-<li class="toc-entry toc-h4"><a href="#uri_escape--xml_escape">uri_escape / xml_escape</a></li>
-<li class="toc-entry toc-h4"><a href="#url_encode">url_encode</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#integer">Integer</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#abs">abs</a></li>
-<li class="toc-entry toc-h4"><a href="#ceil">ceil</a></li>
-<li class="toc-entry toc-h4"><a href="#divided_by--times">divided_by / times</a></li>
-<li class="toc-entry toc-h4"><a href="#floor">floor</a></li>
-<li class="toc-entry toc-h4"><a href="#minus--plus">minus / plus</a></li>
-<li class="toc-entry toc-h4"><a href="#modulo">modulo</a></li>
-<li class="toc-entry toc-h4"><a href="#round">round</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#array-1">Array</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#array_to_sentence_string">array_to_sentence_string</a></li>
-<li class="toc-entry toc-h4"><a href="#first--last">first / last</a></li>
-<li class="toc-entry toc-h4"><a href="#group_by">group_by</a></li>
-<li class="toc-entry toc-h4"><a href="#join">join</a></li>
-<li class="toc-entry toc-h4"><a href="#jsonify">jsonify</a></li>
-<li class="toc-entry toc-h4"><a href="#map-extract">map (extract)</a></li>
-<li class="toc-entry toc-h4"><a href="#push">push</a></li>
-<li class="toc-entry toc-h4"><a href="#reverse">reverse</a></li>
-<li class="toc-entry toc-h4"><a href="#size-1">size</a></li>
-<li class="toc-entry toc-h4"><a href="#sort">sort</a></li>
-<li class="toc-entry toc-h4"><a href="#uniq">uniq</a></li>
-<li class="toc-entry toc-h4"><a href="#where">where</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#date">date</a></li>
-</ul>
-</li>
-</ul>
-            </div>
-        </aside>
-        <!-- END WIDGET-WRAP -->
-		
     </div>
     <!-- END SIDEBAR -->
 </div>

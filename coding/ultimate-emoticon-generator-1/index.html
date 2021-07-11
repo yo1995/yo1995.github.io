@@ -666,48 +666,55 @@
 -->
 
         </aside>
-        <!-- END WIDGET-WRAP -->		
-        <aside class="widget-wrap widget-categories">
+		<!-- END WIDGET-WRAP -->
+		
+        <aside class="widget-wrap widget-toc">
             <h6 class="widget-title">
-                <span>Categories</span>
+                <span>Table of Contents <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
             </h6>
-            <ul>
-				
-				
-                <li><a href="/categories/#coding">Coding</a></li>
-                
-                <li><a href="/categories/#ee">EE</a></li>
-                
-                <li><a href="/categories/#fantasywhimridicule">FantasyWhimRidicule</a></li>
-                
-                <li><a href="/categories/#games">Games</a></li>
-                
-                <li><a href="/categories/#html">Html</a></li>
-                
-                <li><a href="/categories/#introspection">Introspection</a></li>
-                
-                <li><a href="/categories/#life">Life</a></li>
-                
-                <li><a href="/categories/#movie">Movie</a></li>
-                
-                <li><a href="/categories/#physics">Physics</a></li>
-                
-                <li><a href="/categories/#reading">Reading</a></li>
-                
-                <li><a href="/categories/#school">School</a></li>
-                
-                <li><a href="/categories/#society">Society</a></li>
-                
-                <li><a href="/categories/#tools">Tools</a></li>
-                
-                <li><a href="/categories/#video">Video</a></li>
-                
-                <li><a href="/categories/#zhuism">Zhuism</a></li>
-                
-            </ul>
+            <div id="navbar">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#缘起">缘起</a></li>
+<li class="toc-entry toc-h2"><a href="#起手">起手</a></li>
+<li class="toc-entry toc-h2"><a href="#最初设计">最初设计</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#第一步">第一步</a></li>
+<li class="toc-entry toc-h3"><a href="#第二步1若为图片则自动识别图片格式">第二步1：若为图片，则自动识别图片格式</a></li>
+<li class="toc-entry toc-h3"><a href="#第二步2若为视频则调用相关解码器进行解码并">第二步2：若为视频，则调用相关解码器进行解码，并</a></li>
+<li class="toc-entry toc-h3"><a href="#第三步子模块">第三步子模块</a></li>
+<li class="toc-entry toc-h3"><a href="#第四步-保存文件">第四步 保存文件</a></li>
+<li class="toc-entry toc-h3"><a href="#其他">其他</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#实现">实现</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#关于各种动态图像格式">关于各种动态图像格式</a></li>
+<li class="toc-entry toc-h3"><a href="#论熊猫人为何在web20时代凭借gif成功">论熊猫人为何在web2.0时代凭借GIF成功</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#总结">总结</a></li>
+<li class="toc-entry toc-h2"><a href="#开发随记">开发随记</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#pyqt-安装与配置">PyQt 安装与配置</a></li>
+<li class="toc-entry toc-h3"><a href="#tqdm">tqdm</a></li>
+<li class="toc-entry toc-h3"><a href="#grayconnectedfloodfill">grayconnected/floodfill</a></li>
+<li class="toc-entry toc-h3"><a href="#whats-in-a-gif">what’s in a GIF</a></li>
+<li class="toc-entry toc-h3"><a href="#optimize-transparency">optimize transparency</a></li>
+<li class="toc-entry toc-h3"><a href="#windows复制路径小贴士">Windows复制路径小贴士</a></li>
+<li class="toc-entry toc-h3"><a href="#issues-about-pil-gif-dither-rgb-rgba-p-and-convert">Issues about PIL GIF dither RGB RGBA P and convert</a></li>
+<li class="toc-entry toc-h3"><a href="#人脸识别clm">人脸识别：CLM</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#animoji-的鼻子也能动">Animoji 的鼻子也能动……</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </div>
         </aside>
-        <!-- END WIDGET-WRAP -->
-        <aside class="widget-wrap widget-recent-posts">
+		
+		<!-- END WIDGET-WRAP -->
+		<aside class="widget-wrap widget-recent-posts">
             <h6 class="widget-title">
                 <span>Related Posts</span>
             </h6>
@@ -1088,14 +1095,52 @@
                 
                                    
             </ul>
-
         </aside>
+        <!-- END WIDGET-WRAP -->
+        <!--aside class="widget-wrap widget-categories">
+            <h6 class="widget-title">
+                <span>Categories</span>
+            </h6>
+            <ul>
+				
+				
+                <li><a href="/categories/#coding">Coding</a></li>
+                
+                <li><a href="/categories/#ee">EE</a></li>
+                
+                <li><a href="/categories/#fantasywhimridicule">FantasyWhimRidicule</a></li>
+                
+                <li><a href="/categories/#games">Games</a></li>
+                
+                <li><a href="/categories/#html">Html</a></li>
+                
+                <li><a href="/categories/#introspection">Introspection</a></li>
+                
+                <li><a href="/categories/#life">Life</a></li>
+                
+                <li><a href="/categories/#movie">Movie</a></li>
+                
+                <li><a href="/categories/#physics">Physics</a></li>
+                
+                <li><a href="/categories/#reading">Reading</a></li>
+                
+                <li><a href="/categories/#school">School</a></li>
+                
+                <li><a href="/categories/#society">Society</a></li>
+                
+                <li><a href="/categories/#tools">Tools</a></li>
+                
+                <li><a href="/categories/#video">Video</a></li>
+                
+                <li><a href="/categories/#zhuism">Zhuism</a></li>
+                
+            </ul>
+        </aside -->
         <!-- END WIDGET-WRAP -->
         <aside class="widget-wrap widget-tag">
             <h6 class="widget-title">
                 <span>Tags Widget <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
             </h6>
-
             <div class="tag-cloud">
                 
                 <a href="/tags/#lifestyle">lifestyle</a>
@@ -1189,53 +1234,6 @@
             </div>
         </aside>
         <!-- END WIDGET-WRAP -->
-		
-        <aside class="widget-wrap widget-toc">
-            <h6 class="widget-title">
-                <span>Table of Contents <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
-            </h6>
-            <div id="navbar">
-                <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#缘起">缘起</a></li>
-<li class="toc-entry toc-h2"><a href="#起手">起手</a></li>
-<li class="toc-entry toc-h2"><a href="#最初设计">最初设计</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#第一步">第一步</a></li>
-<li class="toc-entry toc-h3"><a href="#第二步1若为图片则自动识别图片格式">第二步1：若为图片，则自动识别图片格式</a></li>
-<li class="toc-entry toc-h3"><a href="#第二步2若为视频则调用相关解码器进行解码并">第二步2：若为视频，则调用相关解码器进行解码，并</a></li>
-<li class="toc-entry toc-h3"><a href="#第三步子模块">第三步子模块</a></li>
-<li class="toc-entry toc-h3"><a href="#第四步-保存文件">第四步 保存文件</a></li>
-<li class="toc-entry toc-h3"><a href="#其他">其他</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#实现">实现</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#关于各种动态图像格式">关于各种动态图像格式</a></li>
-<li class="toc-entry toc-h3"><a href="#论熊猫人为何在web20时代凭借gif成功">论熊猫人为何在web2.0时代凭借GIF成功</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#总结">总结</a></li>
-<li class="toc-entry toc-h2"><a href="#开发随记">开发随记</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#pyqt-安装与配置">PyQt 安装与配置</a></li>
-<li class="toc-entry toc-h3"><a href="#tqdm">tqdm</a></li>
-<li class="toc-entry toc-h3"><a href="#grayconnectedfloodfill">grayconnected/floodfill</a></li>
-<li class="toc-entry toc-h3"><a href="#whats-in-a-gif">what’s in a GIF</a></li>
-<li class="toc-entry toc-h3"><a href="#optimize-transparency">optimize transparency</a></li>
-<li class="toc-entry toc-h3"><a href="#windows复制路径小贴士">Windows复制路径小贴士</a></li>
-<li class="toc-entry toc-h3"><a href="#issues-about-pil-gif-dither-rgb-rgba-p-and-convert">Issues about PIL GIF dither RGB RGBA P and convert</a></li>
-<li class="toc-entry toc-h3"><a href="#人脸识别clm">人脸识别：CLM</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#animoji-的鼻子也能动">Animoji 的鼻子也能动……</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-            </div>
-        </aside>
-        <!-- END WIDGET-WRAP -->
-		
     </div>
     <!-- END SIDEBAR -->
 </div>
