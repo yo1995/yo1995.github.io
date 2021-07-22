@@ -1,7 +1,7 @@
 // each row has 7 items, respectively are initials, name, atomic mass, row/col, link & piclink
 var table = [
   "H", "Hydrogen", "1.00794", 1, 1, "https://yo1995.github.io", "https://yo1995.github.io/img/logo.png",
-  "He", "Helium", "4.002602", 18, 1, "https://www.sunchen.tech/", "http://0.gravatar.com/avatar/976ac1288b0e7ab0056711a93c5d647b?s=480&d=monsterid&r=g",
+  "He", "Helium", "4.002602", 18, 1, "https://chensunuoft.github.io/new_blog", "http://0.gravatar.com/avatar/976ac1288b0e7ab0056711a93c5d647b?s=480&d=monsterid&r=g",
   "Li", "Lithium", "6.941", 1, 2, "", "",
   "Be", "Beryllium", "9.012182", 2, 2, "", "",
   "B", "Boron", "10.811", 13, 2, "", "",
