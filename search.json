@@ -1,6 +1,15 @@
 [
   
     {
+      "title"    : "Xcode文档对齐小技巧",
+      "category" : "Coding",
+      "tags"     : "swift, programming, tip, trivia",
+      "url"      : "/coding/Xcode-markup-font/",
+	  "desc"     : "终于发现了一直困扰我的一个设置藏在哪儿",
+	  "content"  : "关键词SEO  如何使Xcode文档对齐行宽  Xcode Page guide at column  80 characters ruler  Xcode DocC markup font width  monospace font  documentation markup  how to align Xcode markup with page guide  如何 对齐 Xcode 注释 80 行宽正文  旧文档  新文档Xcode使用一种叫做”documentation markup”的语法用来在编辑器内生成函数、方法、属性等符号的文档弹窗。我的所有Swift项目都使用了这种推荐的文档格式，但之前一直有一个问题没能搞定：在编辑器内，三斜线///起始的文档会被渲染为非等宽字体，且字宽小于常见的等宽字体，导致其无法与80字符行宽线进行比较。这样，推到GitHub以后发现注释超过了行宽，或者没有对齐，就会使格式强迫症非常难受。过去我退而求其次的步骤一直是这样：先删去一个斜线使其渲染为C标准注释，比较完行宽后再加上一个斜线。但是这种操作会产生极大的不便，也无法利用Xcode编辑器的高级注释功能。因此一直不爽。最近终于在Phil的指导下发现了该设置在偏好设置中的位置：原来是需要改字体！如下图"
+    } ,
+  
+    {
       "title"    : "城市的脉搏",
       "category" : "Zhuism",
       "tags"     : "world, career, lifestyle, future, dream, choice",
