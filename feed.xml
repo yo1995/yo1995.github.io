@@ -5,9 +5,85 @@
     <description></description>
     <link>https://yo1995.github.io/</link>
     <atom:link href="https://yo1995.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 13 Feb 2022 14:00:06 -0800</pubDate>
-    <lastBuildDate>Sun, 13 Feb 2022 14:00:06 -0800</lastBuildDate>
+    <pubDate>Wed, 02 Mar 2022 20:57:13 -0800</pubDate>
+    <lastBuildDate>Wed, 02 Mar 2022 20:57:13 -0800</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
+    
+      <item>
+        <title>未来职业想法 - 2022</title>
+        <description>&lt;h2 id=&quot;引言&quot;&gt;引言&lt;/h2&gt;
+
+&lt;p&gt;2022年3月的到来，标志着我迈过了参加工作两年的里程碑。疫情使人觉得两年的时光好似溜走了一般。但和人多聊聊，发现工作后的时光确实要比学生时代囫囵很多。在学校时，尽管一切受学业约束，但因为每天都要对付各种各样的新鲜事儿，许多的青春记忆都会令人记忆犹新；而工作后，每天固定八小时做公司安排的工作，卖劳力换钱。刨除工作和睡眠的十六小时后，生命的厚度与年轻时相比好似一下子减少了一半。总而言之，打工的生活进入了温水煮青蛙般波澜不惊、富有规律而又充斥着无法跳脱的迷茫的新阶段。&lt;/p&gt;
+
+&lt;p&gt;个人而言，我不具有随时敞开怀抱、拥抱一切未知与改变的心境与实力。我热爱未知，但不喜欢被命运强加新桥段。即：我想要的时候可以自己决定开副本，而应付不过来时不希望被强制分配新剧情。在过去与Mary心理咨询时曾探讨过“存活模式”对于学习、工作和生活的影响，最后的结论是：活在悬崖边尽管有时能够激发人的潜能，但最终的期望不如保持健康节奏、一步一个脚印的人生。好比环法时，康塔多孤胆英雄式山地摇车进攻无法战胜对手，反而是天空车队“山地火车”完全依照功率计的数据，科学地输出有氧功率均值的最大值能够大获成功。因此，在初入职场时，我与同僚们踏上了一条稍显不同的路——避开群星荟萃的互联网“大厂”行业，自废武功般摒弃了靠智商和数学挣钱的思路，转而偏安一隅，在鲜有人问津的边陲小镇研究地图。&lt;/p&gt;
+
+&lt;p&gt;赴美至今，尚未去过旧金山和圣何塞。到了这个年纪，许多的同学都已经步入了“前三部曲”——结婚、买房、生娃的旅途，人生路的分水岭也在身后愈发地高大起来。如果有机会，今年疫情过后得要去一趟“硅谷”，切身实地体会那里生活的感觉，再做出评判也不迟。但无论如何，到现在为止我并不后悔选择了南加州。没有太多成绩，也没费多大力气，便过上了健康安逸的生活。许多人告诫我要知足。我现在很知足，但也深知自己的人生不该仅限于此。&lt;/p&gt;
+
+&lt;h2 id=&quot;客户端之困&quot;&gt;客户端之困&lt;/h2&gt;
+
+&lt;p&gt;北邮以高产程序员著称。许多校友在三五年工作后，纷纷得出“客户端是火坑”的结论，转管理的转管理、转架构的转架构，鲜有人深耕iOS与Android客户端领域。尽管我不愿意承认，但自己目前的工作内容里有60%以上都是在和iOS，即美国苹果公司移动操作系统上运行的app、客户端应用程序打交道。单进程、面向用户、业务逻辑，从事软件开发和互联网行业的技术人员对客户端这门行当嗤之以鼻，觉得技术含量低、受制于人、没有职业前景。我不完全赞同这个观点，但能够理解为何客户端不招人待见。&lt;/p&gt;
+
+&lt;p&gt;先说反驳的理由。&lt;/p&gt;
+
+&lt;p&gt;我始终相信，在下一个十年，普通人的工作生活，会与高性能的个人主机分道扬镳；人们生活的多数场景，将被手机等移动终端所提供的的服务所垄断。即，未来的个人终端会发展为泛娱乐化、泛服务化的设备，而计算机则会成为更加专业化的一种输入输出工具。因此，面向大众的客户端开发依旧有广阔的前景。或许平台会改变，不再是手机操作系统，但仍旧是一种小型化的内容分发终端。&lt;/p&gt;
+
+&lt;p&gt;客户端从业者更易习得全局观。往好了说是大局观，不好了说就是知识面广而粗浅繁杂。不同于钻研计算机高性能技术的架构方向，客户端从业者能更好理解人对机器的需求是什么，并通过技术实践来满足这些需求。如前所述，我不喜欢过多与机器打交道，所以做客户端也算是权宜之计。&lt;/p&gt;
+
+&lt;p&gt;随着移动互联网成长起来的新生代，会对传统计算机技术产生反哺和倒逼的影响。他们少年时代接触的人机交互方式受到iOS的深刻影响，未来进入社会后会有思维惯性，将推动技术向着相似的方向前进。&lt;/p&gt;
+
+&lt;p&gt;再说赞同的缘故。客户端技术像是“围墙花园”，能做的事情由一两家巨头完全限定，受制于人，深度不足以让从业者达到资深、专家的级别——iOS的专家最终都在苹果自家。因此，有志于用程序改变世界的朋友，无法在客户端领域做到一鸣惊人的程度。它引出了另一个话题——&lt;/p&gt;
+
+&lt;h2 id=&quot;编程与否&quot;&gt;编程与否&lt;/h2&gt;
+
+&lt;p&gt;我的职业目标是什么？可以肯定的是，不是成为世界上最厉害的程序员。我已经无法成为Fabrice Bellard，也不便当做Linus Torvalds。因此，没法在程序领域深耕成专家，倒不是什么问题。&lt;/p&gt;
+
+&lt;p&gt;对我而言，编程的意义如同掌握一门外语。我需要一门表达能力强、词法精准、信息熵较高的语言来言简意赅地阐释想法。有些人编程是为了构建宏大的未来机器世界、有些人编程是为了雕琢一件精致的“小宇宙”，一个自洽的微缩生态系统的艺术品。我对编程的诉求，在于用机器的语言记录下人的思考。好比用数学语言阐明几何原理、用物理语言写出麦克斯韦方程组一样。或许多年后我们所写的一切程序，都因硬件软件技术的更迭而无法运行；我希望到那时自己所写的程序，依然能够超越运行环境，直达阅读的人或机器的内心。&lt;/p&gt;
+
+&lt;p&gt;编程只是手段，内容才是目的。这是我当下对于编程与否这个问题的答案。&lt;/p&gt;
+
+&lt;h2 id=&quot;十年之后&quot;&gt;十年之后&lt;/h2&gt;
+
+&lt;p&gt;说点现实的。十年之后自己在做什么？&lt;/p&gt;
+
+&lt;p&gt;不可避免落入俗套，十年后一定也会重走结婚买房生娃的道路。可以肯定的是，我希望自己的子女在学龄前回到纯正的汉语言教育环境，来接受基础教育。&lt;/p&gt;
+
+&lt;p&gt;鹰哥毕业后五年拿到了美国绿卡。按照这个时间线，我的试错空间并不大，往后的每一步都不可贸然行动。无数次在夜里辗转反侧，想着去他妈的，凭什么美国靠一张废纸，就能笼络全世界的青年才俊心甘情愿地给这个国家当牛做马，领着微不足道的废纸当做报酬。但回到日间，发觉自己能做的只有坚守内心，在我们的主义取得全面胜利前日拱一卒，做些微薄的贡献。&lt;/p&gt;
+
+&lt;p&gt;在此期间，我不奢求暴富，但也希望自己的付出能得到应有的回报。我将尽可能避免卷入corporate ladder的无底洞，而专注于丰富自己的工具箱。十年之后，当人们谈到我，或许不会是什么领导；而更希望听到的是这个人是一个健康、丰富、自信的全乎人儿。&lt;/p&gt;
+
+&lt;h2 id=&quot;破罐破摔的人生目标&quot;&gt;破罐破摔的人生目标&lt;/h2&gt;
+
+&lt;p&gt;健康，到了这个年纪不得不提到的关键词。&lt;/p&gt;
+
+&lt;p&gt;已经有许多的同路人在我们的年纪不幸离世。“为祖国健康工作五十年”的口号不应仅是一句口号，更得落到实际。身体才是革命的本钱。&lt;/p&gt;
+
+&lt;p&gt;人们时而扭捏，时而自信地说出自己的人生目标。我也不例外。我有远大的遥不可及的人生“梦想”、需要垫脚才能够到的“理想”、以及癞皮狗般破罐破摔的“底线”——“高中低分类法”于我人生的又一重展现。大家笑谈人生规划，问到此处，我都可以大言不惭地说，我的“破罐破摔”人生目标如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;健康地活到看到人类登上火星的那天。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;短短一句话倒也有不少条件。健康自不必说，视力也得有保障。至于火星的部分，希望各位人类同僚能维护和平、通力合作，不要开历史倒车，按照现有的时间线顺利地达成科技胜利。乐观在2060年，平均在2080年，悲观在2100年。我争取能够健康地活到平均和悲观之间——要是到时候人类连火星都上不去，那我平凡的一生也死不足惜。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;谁的青春不迷茫&lt;br /&gt;
+其实我们都一样&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Wed, 02 Mar 2022 00:00:00 -0800</pubDate>
+        <link>https://yo1995.github.io/introspection/future-career-1/</link>
+        <guid isPermaLink="true">https://yo1995.github.io/introspection/future-career-1/</guid>
+        
+        <category>writing</category>
+        
+        <category>choice</category>
+        
+        <category>future</category>
+        
+        <category>career</category>
+        
+        
+        <category>Introspection</category>
+        
+      </item>
     
       <item>
         <title>风险与机遇</title>
@@ -981,160 +1057,6 @@ Before you call him a man? - &lt;a href=&quot;https://www.youtube.com/watch?v=MM
         
         
         <category>Life</category>
-        
-      </item>
-    
-      <item>
-        <title>飞盘高尔夫介绍</title>
-        <description>&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;2021 Season&lt;/th&gt;
-      &lt;th&gt;2022 Season&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;https://www.dgpt.com/wp-content/uploads/2020/09/DGPT-PDGA_sched-annc_full-map.jpg&quot; alt=&quot;2021 Season&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;https://www.dgpt.com/wp-content/uploads/2021/10/DGPT_2022_map_full.jpg&quot; alt=&quot;2022 Season&quot; /&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;seo&quot;&gt;SEO&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;飞盘 高尔夫 飞盘高尔夫&lt;/li&gt;
-  &lt;li&gt;Disc Golf介绍&lt;/li&gt;
-  &lt;li&gt;Paul McBeth, Ricky Wysocki, Eagle McMahon, James Conrad&lt;/li&gt;
-  &lt;li&gt;飞盘高尔夫赛事&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;赛事安排&quot;&gt;赛事安排&lt;/h2&gt;
-
-&lt;p&gt;飞盘高尔夫的赛制安排可以与传统高尔夫相类比。美国职业高尔夫的主要赛事为PGA Tour以及WGC，其中包含了“四大满贯”赛事——Masters、PGA Championship、U.S. Open、The Open；而飞盘高尔夫的主要赛事为Disc Golf Pro Tour以及PDGA National Tour，其中最重要的两项赛事当属Pro Worlds与USDGC。如果和高尔夫类比的话，前者相当于USPGA而后者相当于US Open。&lt;/p&gt;
-
-&lt;p&gt;2022年起PDGA National Tour和DGPT Elite Series合并成为新的Pro Tour，而PDGA则主要负责大满贯赛事的筹办。&lt;/p&gt;
-
-&lt;h2 id=&quot;四大满贯&quot;&gt;“四大满贯”&lt;/h2&gt;
-
-&lt;p&gt;截止2021年，Disc Golf还不存在类似于高尔夫、网球中的“四大满贯”的说法。目前列为Major级别的职业男子赛事为&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Pro Worlds，职业飞盘高尔夫世界锦标赛&lt;/li&gt;
-  &lt;li&gt;European Open，欧洲公开赛，在芬兰举办&lt;/li&gt;
-  &lt;li&gt;USDGC，美国飞盘高尔夫锦标赛&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;2022年职业高尔夫联盟添加了PDGA Champions Cup，对应高尔夫里的The Masters。这样就补齐了与高尔夫对应的四大满贯赛事。新增加的Champions Cup同样在PDGA的总部，亚特兰大的Augusta举办。或许应该趁着Disc Golf还未完全成为大众商业运动之前，争取去现场看一次”Masters”。&lt;/p&gt;
-
-&lt;h2 id=&quot;值得关注的比赛&quot;&gt;值得关注的比赛&lt;/h2&gt;
-
-&lt;p&gt;从一个观众角度看，我认为的比较重要的赛事。&lt;/p&gt;
-
-&lt;h3 id=&quot;pro-worlds&quot;&gt;Pro Worlds&lt;/h3&gt;
-
-&lt;p&gt;PDGA Professional Disc Golf World Championships。人们常调侃美国几大商业体育联盟的总冠军都自称“世界冠军”，但不得不说，美国在这些体育项目上的统治力还是很强的，自称世界冠军也让人心服口服。Pro Worlds每年的举办地由各个飞盘高尔夫赛道竞标确定，基本吸引了当下最好的运动员参加。比赛的竞技水平，观众氛围，转播质量都是最高的。如果一个赛季只看一场比赛的话，世锦赛是当仁不让的第一选择。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;2019 Final B9: https://youtu.be/ULczFFENOy8&lt;/li&gt;
-  &lt;li&gt;2021 Final B9: https://youtu.be/_35PJikJcPs&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;usdgc&quot;&gt;USDGC&lt;/h3&gt;
-
-&lt;p&gt;United States Disc Golf Championship。美国锦标赛固定在南卡罗莱纳Rock Hill的Winthrop Gold赛道举办，是每个赛季的倒数第二场比赛。这个场地的设计十分综合；由于大量存在的出界和途经点的设计，难度也很高。不同于中东部常见的全是树的场地，这里更为开阔也更为丰富。近些年美国锦标赛由飞盘厂商Innova冠名，导致各大油管媒体无法获得转播权；而DGPT新开辟的“PPV”付费线上观看模式饱受诟病，转播质量也堪忧。因此，飞盘高尔夫的第二重要的招牌赛事，现在处于尴尬的境地。&lt;/p&gt;
-
-&lt;p&gt;很多新晋爱好者都非常反感厂家“涸泽而渔”的行为，但落袋为安无可厚非。相对于赚钱的商业体育而言，新兴的小众体育项目前途不确定性更高。厂家在此领域深耕多年，自然希望尽早回本。&lt;/p&gt;
-
-&lt;p&gt;Innova的行为让我有种似曾相识感——在2020年疫情期间，在波特兰举办的Retro Game Expo里分会场每年固定举办的”CTWC”——Classic Tetris World Championship，NES版俄罗斯方块世锦赛不得不取消。油管上CTWC账号的维护者曾发了个视频“乞讨”，希望观众在Patreon上打钱支持一下。后来再看这条视频已经消失了，而CTWC在2020年到2021年之间知名度得到了质的提升。Jeff对阵Jonas的视频播放量突破了一千万次，相较于我第一次看到时已经翻了三四倍。在一个项目高速发展传播阶段，乞讨的行为是非常跌份儿的。因此，希望明年独家冠名权结束后，USDGC能够再为Disc Golf的“出圈”做出贡献。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;有关”Niche Sport”小众体育项目进入公众视野的报导: https://www.theringer.com/features/2021/6/21/22542839/disc-golf-niche-sports-million-dollar-endorsement-deals&lt;/li&gt;
-  &lt;li&gt;2018 Final B9: https://youtu.be/Z7FqBxk4sNc&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;ddogbo&quot;&gt;DDO/GBO&lt;/h3&gt;
-
-&lt;p&gt;Dynamic Discs Open。同样是厂家冠名的比赛。赛道在Emporia KS，给人印象最深的就是第16洞。如果和高尔夫类比的话，就相当于&lt;a href=&quot;https://www.nbcsports.com/17th-hole-tpc-sawgrass&quot;&gt;TPC Sawgrass的17洞&lt;/a&gt;——”Island Green”。&lt;/p&gt;
-
-&lt;p&gt;个人喜欢这个赛事的原因有两点：作为经典赛道，比赛比较具有观赏性；Emporia曾经举办过世锦赛，DDO高手云集，看高手于此过招相当于大赛的预演。从这个层面上来讲，DDO对应高尔夫里的TPC很合理。&lt;/p&gt;
-
-&lt;h3 id=&quot;dgptc&quot;&gt;DGPTC&lt;/h3&gt;
-
-&lt;p&gt;DGPT Championship。赛季的最后一场比赛，也是所谓“季后赛”中的一站，在夏洛特郊区举办。这个比赛的场地是典型的林木型，非常挑战技术，也容易造成意想不到的失分。作为收关比赛，对于年度排名和积分的影响值得关注。可以对比高尔夫的The Tour Championship。&lt;/p&gt;
-
-&lt;h3 id=&quot;其他&quot;&gt;其他&lt;/h3&gt;
-
-&lt;p&gt;WACO，Great Lakes Open，Portland Open，Green Mountain Championship，Ledgestone，Jonesboro，OTB&lt;/p&gt;
-
-&lt;h2 id=&quot;油管主要观看渠道&quot;&gt;油管主要观看渠道&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;JomezPro: https://www.youtube.com/c/JomezProductions&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;JomezPro的转播画质、后期制作水平、BigSexyBarri解说、数据统计都是所有渠道里最好的，没有之一。更加难能可贵的是，油管上这些飞盘高尔夫频道都是免费提供相当高质量的内容。他们的付出极大促进这项运动的发展和传播。一般来说Jomez会转播每项赛事的Lead Card，即每轮开始时排名前四的运动员的比赛。而下文的Gatekeeper则转播Chase Card，即五至八名的比赛。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Gatekeeper: https://www.youtube.com/c/GatekeeperMedia&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;相比于Jomez来说更接地气一些。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;CCDG: https://www.youtube.com/user/CentralCoastDiscGolf&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;GK Pro: https://www.youtube.com/c/GKProductionsGoThrow&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;DGPT: https://www.youtube.com/channel/UCw0WzNn6m2Na6ZW7rKqWI3g&lt;/li&gt;
-  &lt;li&gt;PDGA: https://www.youtube.com/c/PDGAmedia&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;我与disc-golf&quot;&gt;我与Disc Golf&lt;/h2&gt;
-
-&lt;p&gt;大概在2019年，我的账号第一次被油管推荐Jomez Pro的视频。&lt;/p&gt;
-
-&lt;p&gt;最开始我看到飞盘高尔夫的视频推荐时，“三过家门而不入”，怕点开分类奇特的视频，污染自己的“用户画像”；另外就是Paul的头像让我觉得这人不是“善茬儿”，没有让人点开看的欲望。就好比Brodie Smith或者PBA的视频封面，总是有一种“铁憨憨”的感觉，让人觉得下限过低；相比之下许多“头部”视频博主如Mr. Beast、Mark Rober、Dude Perfect的视频封面都是非常的engineered，不是click bait却胜过click bait。看油管的时候，我尽量避免点到这两种“头部”和“尾部”的视频，生怕算法被我带到沟里去；更喜欢点击“好看不火”的视频。就好比Jomez Pro，虽然已经是飞盘高尔夫领域当仁不让的领头羊频道了，播放量最高的视频还没有到5M。&lt;/p&gt;
-
-&lt;p&gt;最终我决定一探究竟。自然是从播放量最高的视频开始看起——2019 Pro Worlds Final F9/B9。看完慨叹，以前咋不知道这运动呢？由于Ultimate Frisbee与Flag Football的相似性，很早就听说过这项飞盘运动。但却未曾耳闻飞盘的另一项运动——Disc Golf。&lt;/p&gt;
-
-&lt;p&gt;相比于传统高尔夫来说，飞盘高尔夫在我看来更接近美国的气质：乡野、自然、嬉皮士、胡须白男、耿直、不矫揉造作、新潮。甚至有失偏颇地讲，仅对比Jomez的飞盘高尔夫视频与NBC Golf Channel的PGA Tour转播，前者更胜一筹——节奏更紧凑、镜头语言更娴熟、解说更有激情、剪辑更为现代化。新时代的传统高尔夫已经很久没有出现过”Better than most”的时刻了，而飞盘高尔夫单是2021年，就打出了一个跌宕起伏高潮迭起的赛季。&lt;/p&gt;
-
-&lt;p&gt;在2021年以前，个人认为Paul的-18视频最能够体现这项运动的魅力。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Greatest Disc Golf Round Ever? Paul McBeth Shoots 18 Down: https://www.youtube.com/watch?v=352G0B4OClU&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;技术、技巧、运气、对于比赛的把控、能够快速从失误中反弹、对于比赛的谦虚与敬畏、以及必胜的信念。可以讲，在过去的一个年代，Paul McBeth几乎凭借一己之力，将一项“乡野村夫”的休闲运动一步步推介至主流的舞台。看过他对于比赛的态度，一丝不苟的技术动作和装束，人们会对这项运动有全新的认识。大家发现，哦，原来飞盘高尔夫不是（和狗）闹着玩儿的。&lt;/p&gt;
-
-&lt;p&gt;而2021赛季将会载入史册的一定是James的”The Shot”了。随着参赛的职业选手日渐增多，飞盘高尔夫的经典瞬间也在逐渐的积累。这就像橄榄球、篮球或者高尔夫的发展历程一样。越来越多的比赛载入史册，一项运动的内容性也就逐渐产生了。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;要不是疫情影响，2020年我本来计划去看亚利桑那红雀的比赛的。尽管2021年NFL已经全面放弃抵抗，已然恢复往日球迷大规模聚集，我却依旧不敢冒险去现场看比赛。如果妃子今年退役了，那这必将是个极其遗憾却不得不做的决定。&lt;/p&gt;
-
-&lt;p&gt;同样，现在有些后悔当时在学校时，没有去夏洛特看一次飞盘高尔夫。当时还没有被这项运动如现在这般吸引，错失了机会。正如没能专门在离开学校前去一次11-8 Bridge一样，人生中许多无足轻重的决定——它们并不会对生活轨迹造成什么影响，却会在未来的日子里，每次想到时都有种淡淡的忧伤。&lt;/p&gt;
-
-&lt;p&gt;我在设想入门飞盘高尔夫这项运动，但内陆帝国沙漠贫瘠不长草的土地确不适合这项运动。同事讨论里，要么去帕萨迪纳或者尔湾等与传统高尔夫伴生的场地玩儿，要么就干脆去中部如科罗拉多、堪萨斯，甚至东部的佛蒙特、南北卡等“传统”飞盘高尔夫热门地区的场地玩儿。或许这件事也只会停留在想想的阶段。&lt;/p&gt;
-
-&lt;p&gt;另一方面，我希望去现场看一次DGPT赛事。相比于Augusta动辄上千还买不到的黄牛票，Disc Golf的观赛成本可谓十分亲民。USDGC的单日门票好像只要20美元。也就是说，倘若我能在秋游时去到北卡，那么完全可以花两个周末看完全年最好的两场比赛。因此，我想鼓噪身边还未落听的单身青年，同我一起去体验Disc Golf现场观赛的感觉。但有了红雀的前车之鉴，话也不敢说瓷实。总有莫名其妙的原因让人无法前去现场看比赛。不过是一种“第一世界烦恼”，去不了又能怎样呢？&lt;/p&gt;
-</description>
-        <pubDate>Wed, 20 Oct 2021 00:00:00 -0700</pubDate>
-        <link>https://yo1995.github.io/sports/disc-golf-101/</link>
-        <guid isPermaLink="true">https://yo1995.github.io/sports/disc-golf-101/</guid>
-        
-        <category>sport</category>
-        
-        <category>lifestyle</category>
-        
-        <category>future</category>
-        
-        
-        <category>Sports</category>
         
       </item>
     
