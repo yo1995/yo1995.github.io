@@ -72,6 +72,10 @@ cd jekyll build directory and bundle update.
 
 When updating, bundle update [pack name]
 
+## Changelog
+
+- 221221: Added Timeline template using https://stackoverflow.com/a/43190996/14369688
+
 ---
 
 201127
