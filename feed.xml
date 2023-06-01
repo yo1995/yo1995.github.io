@@ -5,8 +5,8 @@
     <description></description>
     <link>https://yo1995.github.io/</link>
     <atom:link href="https://yo1995.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 30 May 2023 18:05:53 -0700</pubDate>
-    <lastBuildDate>Tue, 30 May 2023 18:05:53 -0700</lastBuildDate>
+    <pubDate>Wed, 31 May 2023 22:08:08 -0700</pubDate>
+    <lastBuildDate>Wed, 31 May 2023 22:08:08 -0700</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
@@ -176,6 +176,76 @@
         
         
         <category>Society</category>
+        
+      </item>
+    
+      <item>
+        <title>Studio C 十日谈之一</title>
+        <description>&lt;audio src=&quot;https://www.youtube.com/watch?v=Z_WDsOdwT-A&quot; autoplay=&quot;autoplay&quot; controls=&quot;controls&quot;&gt;Your browser does not support the audio element. 😢&lt;/audio&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I don’t know how the whole &lt;del&gt;Mattory&lt;/del&gt; Studio C thing started&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;保时捷356&lt;/th&gt;
+      &lt;th&gt;雪佛兰克尔维特&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;356.jpg&quot; alt=&quot;356&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;corvette.jpg&quot; alt=&quot;Corvette&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;昨天YouTube推送了一条&lt;a href=&quot;https://www.hagerty.com/media/people/bruce-meyer-the-car-guys-car-guy-turns-80/&quot;&gt;Bruce Meyer&lt;/a&gt;的视频。他说自己在十几岁刚学会开车的1960年，父母许诺要是他能学会掌控自己的财政，就赞助他买一辆车。他本来想花两千四百刀买一台最新的克尔维特，但因为住在比弗利附近，看到街上的人们总是开又小又酷的保时捷，便改弦更张去问街口的车商，最终花了两千七百刀订了一台工厂提货的356低配。&lt;/p&gt;
+
+&lt;p&gt;以这样无厘头毫无关系的内容开篇，原因竟是准备开始写自己看Studio C的前世今生之前五秒突然刷到了莫名其妙的朋友圈评论。在我的生活里，如果自己曾经经历过一些事，甚至哪怕只是道听途说身边的人经历过的事，凭借够强的脑补能力，我都能把这些故事“内化”到一个合理的生活世界线上来。就像&lt;a href=&quot;/movie/tmd-multiverse/&quot;&gt;《妈的多重宇宙》&lt;/a&gt;所讲的那样，人生做出决定，平行宇宙的世界线就会分化。不断地经历不断地听闻，宇宙就能铺满视界。可像&lt;a href=&quot;https://www.latimes.com/business/la-fi-hy-himi-bruce-meyer-20180119-htmlstory.html&quot;&gt;Meyer&lt;/a&gt;和&lt;a href=&quot;https://canepa.com/bruce_canepa/&quot;&gt;Canepa&lt;/a&gt;这样的人生，尽管住得离我不远，呼吸都是同一片天空下的雾霾，却仿佛存在于视界外的另一个宇宙一样。就算听闻了他们的生平，我也无法脑补出他们的人生究竟是如何起承转合，才能得出如今我们看到的结果。&lt;/p&gt;
+
+&lt;p&gt;朋友圈回复孙辰的评论另一件事：很多事，在一出生时就注定了。&lt;/p&gt;
+
+&lt;p&gt;Studio C和他们的前身Devine Comedy，后面简称DC，在很多方面有一种“神性”，使我决心写关于他们的文字。正巧，今天是美国的“星战节”五月四号。星战主题也是Studio C第六季演了好几场的内容。而第六季，是原班人马十人组“出圈”，一下为互联网所熟知的爆发之季。&lt;/p&gt;
+
+&lt;p&gt;如有些人说我喜欢喝不好喝的饮料一样，倘若说出去自己是个原版Studio C的忠实粉丝，估计会引来一堆问号？我不知道有多少中国人听说过DC，有多少人看过他们的作品并能说出每个演员的名字，有多少人看过DC完整一季的作品。我猜大概很少。说实话，每次我想把DC的视频分享给别人的时候，都得掂量掂量。他们的情景喜剧的笑点是如此地人畜无害、老少咸宜，真的能让如今浸淫短视频和社交媒体的互联网老兵们尴尬到脚趾扣地。&lt;/p&gt;
+
+&lt;p&gt;在了解DC很久以前，偶然看到过Scott Sterling经典的&lt;a href=&quot;https://youtu.be/8F9jXYOH2c0&quot;&gt;守门员视频&lt;/a&gt;。2015年说远不远，说近也不近。土豆网和百度空间都倒闭了，第一代Web 2.0的产品都已经进入了衰退期；如今出人头地的&lt;a href=&quot;/introspection/Feb-7th/&quot;&gt;Doug&lt;/a&gt;当年还开着法拉利拍无厘头视频。这么说吧，当年市场上卖的还是GoPro 4。而Matt Meese和他的好朋友们，在彼时彼刻，进入了创作的巅峰期。&lt;/p&gt;
+
+&lt;p&gt;听闻了解并逐渐接受DC，大概是2018年年末。当时算我去到美国以后刚开始沉迷YouTube，推送里的视频还没有完全风格化，还有各种“猜你喜欢”真的在使劲地猜。我是一个特别看眼缘的人，如果一个频道让我第一眼看上去很难受，宁肯错过一个亿也不会去看——直到现在我也从没点开过Tom Scott的任何视频。DC的视频封面最初是很令我不适的。当时他们频道上最新的视频都是长得乱七八糟的小年轻弄得特别夸张的表情，搭配第11季的紫色色调，一下子就让我把他们归类为美国肥皂剧之类的弱智玩意，类似Family Feud或者Seinfield。小心翼翼地避免点到首页推荐的贴片，偶尔点开赶紧关掉免得污染了算法中的用户画像。特别是Whitney和Mallory那些夸张的动作和表情，用今天的话来讲就是真的很“下头”啊嗯。&lt;/p&gt;
+
+&lt;p&gt;从认识到最终接纳DC的表演，归根到底还是归功于Matt Meese。外围六人组里，Jeremy属于外形喜剧内心正剧的人，James老单身汉了，Adam第一眼看就知道是Gay，Stephen属于取巧型演员只适合特定角色，Stacey的台风不错但表演差点火候，Natalie台词总让人出戏。核心四人组里Mallory表演张力足但厚度不够有点剽悍的女汉子气质，Whitney细节把控得好可惜太矮在实景里看着不够合理。Jason是所有人里我觉得如果未来从事表演最不会饿死的。客观评价演技，Jason是原班人马里最强的，没有之一。对于性格迥异的人物的塑造，表演张弛的把控，台词轻重缓急举重若轻。最为难能可贵的是，在第一季到第九季的过程中，以至于后来更加沉迷DC的作品后看到pre Studio C时代的舞台剧录像，能够明显地感觉到Jason在表演业务上的成长。从最初的表情用力过猛，到最终收放自如炉火纯青，他是硬件上绝对够格进入演员行业的。&lt;/p&gt;
+
+&lt;p&gt;可这一切，如果没有Matt Meese，故事又从何而起呢？又何曾能有这样的缘分，创造出如此美妙的化学反应呢？或许一切偶然的相遇，在摩门教诞生的时候，一切都决定好了。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;一文一集&lt;/p&gt;
+
+&lt;p&gt;Studio C - &lt;a href=&quot;https://www.youtube.com/playlist?list=PLGVpxD1HlmJ-tqNkoNC7auOvkI0hn-Sm5&quot;&gt;Season 1 Sketches&lt;/a&gt;, Episode 2&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.byutv.org/7aaa04b7-6e9d-4e9c-b7a3-3664bbdeeb07&quot;&gt;The Doorstep: Part 1&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 04 May 2023 00:00:00 -0700</pubDate>
+        <link>https://yo1995.github.io/video/studio-c-1/</link>
+        <guid isPermaLink="true">https://yo1995.github.io/video/studio-c-1/</guid>
+        
+        <category>friend</category>
+        
+        <category>review</category>
+        
+        <category>lifestyle</category>
+        
+        <category>entertainment</category>
+        
+        <category>music</category>
+        
+        <category>universe</category>
+        
+        
+        <category>Video</category>
         
       </item>
     
@@ -813,55 +883,6 @@ David M. Eagleman, Sum: Forty Tales from the Afterlives&lt;/p&gt;
         
         
         <category>Life</category>
-        
-      </item>
-    
-      <item>
-        <title>相对自由行</title>
-        <description>&lt;p&gt;越往后才发现，相比“纯玩”旅游团，自由行是旅行里更贵的一种。“自由”意味着更为松散的行程、量体裁衣式的时间安排、异想天开地偏离既定规划、以及自己掌握节奏快慢的“松弛感”。年纪大了口味越来越刁，自然也对自由行更为偏爱。&lt;/p&gt;
-
-&lt;p&gt;自由的行程的代价是更多的金钱和时间。单就我自己来说，时间还算好办，单身出门在外，需要协调的事体不多，只要想好了去哪儿转悠，到了点儿抬起屁股就能走；金钱则不然，年轻时囊中羞涩，没法一掷千金、不计成本地去获得最好的体验。以往看到家里富裕的年轻人上山下海，足迹覆盖了BoraBora直至南极，别提多羡慕了。但自己也明白一夜暴富这事情，努力是无法得来的。只好精打细算，在玩儿得尽兴的前提下，尽量“拆东墙补西墙”，进行“相对”自由行。&lt;/p&gt;
-
-&lt;p&gt;在自由行里，我最希望有的、不能抛弃的：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;足够长的时间：能够没有顾虑地在一地停留，甚至反复去相同的目的地&lt;/li&gt;
-  &lt;li&gt;在地文化交流：如果能有认识的人、老乡、对本地熟悉的人带我走进当地生活，那是再好不过了&lt;/li&gt;
-  &lt;li&gt;见人的机会：出去玩的一大目的就是见认识的人，扯家长里短、增进感情、获得新知&lt;/li&gt;
-  &lt;li&gt;不排队：从某种意义上来讲，（存在跳过方法的、或是先来后到投入回报比不成比例的）排队完全是浪费人生。如果必须得排队，除了不可抗力以外，要么是我还没有找到“自由”的门道，要么是行程安排的不合理——我宁可鸣金收兵，重整旗鼓，下次再战&lt;/li&gt;
-  &lt;li&gt;自由探索：交通工具能够便捷地触及我想去看的所有地点，“走地图”方便，不能像朝鲜那样式儿的&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;可以作为“相对自由”的代价而失去的：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;饮食：我实在没啥口福，太多次自由行的伙食靠7-11、Costco、大华、麦当劳、Chick-Fil-A和自带香蕉解决。希望未来的另一半能在寻觅美食方面颇有造诣&lt;/li&gt;
-  &lt;li&gt;住宿：高档酒店是不错，但每次住完高档酒店我总觉得，仿佛出来玩的目的变成了住酒店似的，恨不得下午两点就入住，上午十一点才退房，大半天都在酒店设施里消磨时光。这和自由行的本意相悖，更像是家庭游或休闲游的氛围。基本每次自由行我都以民宿和借宿为目标，一是省钱，二是避免住旅舍的模式化的感觉&lt;/li&gt;
-  &lt;li&gt;作息：如果能看到不一样的风景，早出晚归不叫事儿&lt;/li&gt;
-  &lt;li&gt;该花的钱：来都来了，没准是这辈子最后一次来，不花这钱还不得后悔？&lt;/li&gt;
-  &lt;li&gt;景点覆盖度：规划完善的商业旅游往往事半功倍——一趟走下来，一个城市的所有热门景点全部覆盖。我却不以为意：如果都覆盖了，岂不是以后再去就没新鲜感了？如果不得不付出“走马观花”的代价，那我宁可这次不去，把想象留给下次，而只是好好品味眼前的人事&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;从小到大记忆深刻的出行的瞬间多是这般“相对自由行”——呼伦贝尔、台湾2、大学之旅、川西。来美国后有了汽车，到处转的欲望得到了极大地释放。去年没出去几次，但每次都玩儿得尽兴：三月海边高山和棕榈泉、五月Oak Glen与Getty Villa、六月九天西雅图、十二月八天圣迭戈。非得是周中挨着周末一大段日子，才能令我真正开始感受到一座不同的城市的脉搏。&lt;/p&gt;
-
-&lt;p&gt;2023年，相亲的压力不小，假期的日子不多，还能再像这般走地图吗？还能去到我想去的许多远方吗？为了相对自由，我还要、还能牺牲些什么呢？&lt;/p&gt;
-</description>
-        <pubDate>Mon, 26 Dec 2022 00:00:00 -0800</pubDate>
-        <link>https://yo1995.github.io/introspection/self-guided-tour/</link>
-        <guid isPermaLink="true">https://yo1995.github.io/introspection/self-guided-tour/</guid>
-        
-        <category>world</category>
-        
-        <category>choice</category>
-        
-        <category>lifestyle</category>
-        
-        <category>travel</category>
-        
-        <category>trivia</category>
-        
-        
-        <category>Introspection</category>
         
       </item>
     
