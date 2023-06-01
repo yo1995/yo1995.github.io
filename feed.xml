@@ -5,8 +5,8 @@
     <description></description>
     <link>https://yo1995.github.io/</link>
     <atom:link href="https://yo1995.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 31 May 2023 22:08:08 -0700</pubDate>
-    <lastBuildDate>Wed, 31 May 2023 22:08:08 -0700</lastBuildDate>
+    <pubDate>Wed, 31 May 2023 22:17:37 -0700</pubDate>
+    <lastBuildDate>Wed, 31 May 2023 22:17:37 -0700</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
@@ -181,7 +181,7 @@
     
       <item>
         <title>Studio C 十日谈之一</title>
-        <description>&lt;audio src=&quot;https://www.youtube.com/watch?v=Z_WDsOdwT-A&quot; autoplay=&quot;autoplay&quot; controls=&quot;controls&quot;&gt;Your browser does not support the audio element. 😢&lt;/audio&gt;
+        <description>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Z_WDsOdwT-A&quot; frameborder=&quot;0&quot; autoplay=&quot;autoplay&quot; allowfullscreen=&quot;&quot;&gt;Your browser does not support the video element. 😢&lt;/iframe&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;I don’t know how the whole &lt;del&gt;Mattory&lt;/del&gt; Studio C thing started&lt;/p&gt;
@@ -196,8 +196,8 @@
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;356.jpg&quot; alt=&quot;356&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;corvette.jpg&quot; alt=&quot;Corvette&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/images/202305/356.jpg&quot; alt=&quot;356&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/images/202305/corvette.jpg&quot; alt=&quot;Corvette&quot; /&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
