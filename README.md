@@ -1,18 +1,18 @@
 ## Main
 
-Jekyll rendered files.
+This repository contains Jekyll rendered files.
 
-This repository aims to exhibit some of my previous works and thoughts. Currently it seems to contain more life-related blog posts than tech reviews.
+It aims to exhibit some of my previous works and thoughts. Currently in 2023 it leans towards lifestyle blog posts.
 
-The blog was not fully tuned for the maximum performance, hence could be slow during loading. Will optimize if I have adequate reasons to do it. (e.g. `want popularity`/`want a front-end job`/`become an ecrivan`/`want to rebuild a new version`, etc. :joy:)
+The blog was not tuned for the best browsing performance, and could have *very* long loading time. Will optimize if I have good reasons to do it one day :joy:. <sub>(e.g. `gained popularity`/`want a front-end job`/`become an ecrivan`/`want to rebuild a new version`, etc.)</sub>
 
 ## References
 
-### Formatting syntax
+### Jekyll Formatting syntax
 
 [Doc](/html/helloworld-jekyll/)
 
-#### Ref
+### Ref or Footnote
 
 ```
 [^1]
@@ -20,13 +20,15 @@ The blog was not fully tuned for the maximum performance, hence could be slow du
 [^1]: [Title](http://example.com/)
 ```
 
-#### Music
+[GitHub ref](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)
+
+### Music
 
 ```html
 <audio src="/music/some.mp3" autoplay="autoplay" loop="loop" controls="controls">Your browser does not support the audio element.</audio>
 ```
 
-#### Alert
+### Alert
 
 ```
 {: .alert .alert-info}
@@ -38,11 +40,11 @@ The blog was not fully tuned for the maximum performance, hence could be slow du
 {: .alert .alert-danger}
 ```
 
-#### Math
+### Math
 
 [MathJax with Jekyll](http://www.gastonsanchez.com/visually-enforced/opinion/2014/02/16/Mathjax-with-jekyll/)
 
-#### Video
+### Video
 
 - YouTube
 ```html
@@ -54,7 +56,7 @@ The blog was not fully tuned for the maximum performance, hence could be slow du
 <video src="/images/201711/nbalive95.mp4" controls preload="auto" poster="/images/201711/nbalive95_spurs.jpg" style="width:auto"></video> 
 ```
 
-### Installing and Updating Procedure
+## Installing and Updating Procedure
 
 1. git scm
 2. ruby26
@@ -74,8 +76,9 @@ When updating, bundle update [pack name]
 
 ## Changelog
 
+- 230619 Page title: Manifestations of Ting Chen -> Ting's Étude
 - 221221: Added Timeline template using https://stackoverflow.com/a/43190996/14369688
 
 ---
 
-201127
+Created @ 201127
