@@ -5,5 +5,10 @@
 User-agent: *
 Disallow: 
 
+# Disallow GPT
+
+User-agent: GPTBot
+Disallow: /
+
 # Announce sitemap - https://support.google.com/webmasters/answer/183668
 Sitemap: https://yo1995.github.io/sitemap.xml
