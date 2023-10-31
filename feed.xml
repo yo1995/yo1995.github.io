@@ -5,9 +5,148 @@
     <description></description>
     <link>https://yo1995.github.io/</link>
     <atom:link href="https://yo1995.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 22 Aug 2023 00:39:01 -0700</pubDate>
-    <lastBuildDate>Tue, 22 Aug 2023 00:39:01 -0700</lastBuildDate>
+    <pubDate>Mon, 30 Oct 2023 23:25:18 -0700</pubDate>
+    <lastBuildDate>Mon, 30 Oct 2023 23:25:18 -0700</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
+    
+      <item>
+        <title>RX1R2设置</title>
+        <description>&lt;p&gt;相关链接：https://www.dpreview.com/forums/thread/3931048&lt;/p&gt;
+
+&lt;p&gt;前日在已经成为历史的DPReview网站上，看到当年RX1R II发售时，网友对其设置的讨论。众所周知，索尼无反相机的菜单系统直到2020年更新过后才变得稍微合理一些。在此之前，几乎就是一股脑把所有配置项随机夯在一块儿，毫无条理可言。因此，在开始拍照之前，把相机所有设置都调好，设置和快捷键的位置都稔熟于心，是那时候确保能够最佳使用一台索尼相机的关键。&lt;/p&gt;
+
+&lt;p&gt;关于RX1的故事，以后再讲。这里记录一下如今我对这台相机的设置。也许很多年以后当RX1也成为了禄来2.8、佳能F1这样的历史经典相机后，自己还能按图索骥，回想起此时此刻这台相机对我而言的意义和价值。&lt;/p&gt;
+
+&lt;h2 id=&quot;总述&quot;&gt;总述&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;仅拍摄18M像素的JPEG格式图片；42M和RAW只有在静态补拍情况下使用，补拍时关掉补偿&lt;/li&gt;
+  &lt;li&gt;默认状态下置于光圈优先A模式、ISO AUTO自动模式&lt;/li&gt;
+  &lt;li&gt;根据拍摄内容，依次选择单次自动对焦AF-S、自动手动对焦DMF、连续对焦AF-C&lt;/li&gt;
+  &lt;li&gt;常用中心对焦，备用按下快门后的跟踪对焦，通过C1按键进行眼部对焦&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;拍摄设置&quot;&gt;拍摄设置&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;RAW文件格式：压缩&lt;/li&gt;
+  &lt;li&gt;全景：方向向下，以获得最大的拼接后宽边像素&lt;/li&gt;
+  &lt;li&gt;录像文件格式：XAVC S HD，60p 50M，通过Sony-PMCA-RE软件禁用NTSC提示&lt;/li&gt;
+  &lt;li&gt;ISO AUTO最小速度：标准（1/100秒）&lt;/li&gt;
+  &lt;li&gt;测光模式：多重&lt;/li&gt;
+  &lt;li&gt;DRO：动态范围优化&lt;/li&gt;
+  &lt;li&gt;LPF效果：关&lt;/li&gt;
+  &lt;li&gt;人脸检测：开&lt;/li&gt;
+  &lt;li&gt;SteadyShot：开&lt;/li&gt;
+  &lt;li&gt;色彩空间：AdobeRGB&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;自定义设置&quot;&gt;自定义设置&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;网格线：三等分线网格&lt;/li&gt;
+  &lt;li&gt;自动检视：2秒&lt;/li&gt;
+  &lt;li&gt;峰值水平：低&lt;/li&gt;
+  &lt;li&gt;峰值色彩：红&lt;/li&gt;
+  &lt;li&gt;显示连续AF区域：开&lt;/li&gt;
+  &lt;li&gt;相位检测区域：开&lt;/li&gt;
+  &lt;li&gt;无储存卡时释放快门：禁止&lt;/li&gt;
+  &lt;li&gt;镜头补偿：全部设为自动&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;功能菜单设置&quot;&gt;功能菜单设置&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;拍摄模式&lt;/li&gt;
+  &lt;li&gt;ISO AUTO最小速度&lt;/li&gt;
+  &lt;li&gt;影像质量&lt;/li&gt;
+  &lt;li&gt;笑脸检测&lt;/li&gt;
+  &lt;li&gt;曝光补偿&lt;/li&gt;
+  &lt;li&gt;照片效果&lt;/li&gt;
+  &lt;li&gt;测光模式&lt;/li&gt;
+  &lt;li&gt;白平衡模式&lt;/li&gt;
+  &lt;li&gt;创意风格&lt;/li&gt;
+  &lt;li&gt;DRO&lt;/li&gt;
+  &lt;li&gt;LPF&lt;/li&gt;
+  &lt;li&gt;照相模式&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;自定义键拍摄&quot;&gt;自定义键（拍摄）&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;控制拨轮：ISO&lt;/li&gt;
+  &lt;li&gt;自定义按钮1：眼控AF&lt;/li&gt;
+  &lt;li&gt;自定义按钮2：DRO&lt;/li&gt;
+  &lt;li&gt;中央按钮：标准&lt;/li&gt;
+  &lt;li&gt;左按钮：智能远摄转换&lt;/li&gt;
+  &lt;li&gt;右按钮：白平衡模式&lt;/li&gt;
+  &lt;li&gt;下按钮：对焦区域&lt;/li&gt;
+  &lt;li&gt;AEL按钮：AEL锁定切换&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;无线&quot;&gt;无线&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;飞行模式：开&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;应用程序&quot;&gt;应用程序&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;TimeLapse&lt;/li&gt;
+  &lt;li&gt;Better Manual&lt;/li&gt;
+  &lt;li&gt;Focus Bracket&lt;/li&gt;
+  &lt;li&gt;DoF Math&lt;/li&gt;
+  &lt;li&gt;嵌入式智能遥控&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;设置&quot;&gt;设置&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;音频信号：关&lt;/li&gt;
+  &lt;li&gt;平铺菜单：开&lt;/li&gt;
+  &lt;li&gt;模式转盘指南：关&lt;/li&gt;
+  &lt;li&gt;删除确认画面：默认为“删除”&lt;/li&gt;
+  &lt;li&gt;区域设置：旧金山/蒂华纳&lt;/li&gt;
+  &lt;li&gt;文件夹名：日期型&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;评论&quot;&gt;评论&lt;/h2&gt;
+
+&lt;p&gt;这台相机对我而言是一台纯粹的兴趣相机，因此除去偶尔特殊情况需要拍RAW格式外，只使用中等大小JPEG来存储。毕竟，单卡槽UHS-I的写入速度实在太慢了。&lt;/p&gt;
+
+&lt;p&gt;R2相对于前两代的最大进化在于相位对焦。之前的对比度对焦在很多情况下都是无尽“拉风箱”，经过这次升级后终于达到了堪用的水准。然而，在第一个月的测试中，我发现很多时候对焦点找得并不准。尤其是在使用单次中心对焦时，经常出现跑焦到远处其他物体的情况。这是我从未预料到的一个很大的缺点。尽管前两代相机对焦慢，但大多数时候焦点还是很准的。查阅了网上资料后，我还是无法确定这到底是我这台相机个体的问题，还是普遍存在的缺点。&lt;/p&gt;
+
+&lt;p&gt;因为上述对焦困难的症状，我不得不打开了对焦峰值显示，即用红色细线表示当前焦点范围。在2022年之后，索尼相机添加了“对焦热力图”的功能，通过热力图色块来更清晰地展现焦点范围。但是对于这台古老的相机，还是得仰仗峰值。同时，峰值功能只能在手动对焦下显示，因此在对对焦更注重的场景中，我只好把默认对焦模式设为DMF，根据峰值用对焦环来微调焦点。&lt;/p&gt;
+
+&lt;p&gt;色彩空间开到AdobeRGB是因为我终于再次用上了高级屏。UltraFine 5K在我第一次看到过这块屏幕后，就认定一定要用高清广色域的屏。本想一步到位Studio Display甚至XDR，但价格还是超出了目前我能承受的范围。&lt;/p&gt;
+
+&lt;p&gt;这台相机因为采用了A7R2的高像素传感器，又没有机内五轴防抖，因此对于手稳的要求大大提高。原先RX1只要用1/60秒就可以几乎不糊的照片，现在1/100几乎是我能达到的极限。&lt;/p&gt;
+
+&lt;p&gt;C1按键设成了Eye AF和发送到手机。R2几乎是当今“智能相机”的开端，所有现在人们习以为常的机器学习和AI的功能，在当年都是“索尼黑科技”的一部分。眼控对焦在拍人物的时候还算好用，虽然远比不上当下的A7R5那么先进，但总比对比度对焦强了不少。搭配上AF-C连续对焦模式和半按跟踪，尽管受限于镜头设计还得吱吱扭扭地来回找焦点，但总归还是实用了许多。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;总之，经过一番设置之后，这台相机终于变成了我习惯的形状。每每交给别人，都会使人惊呼“又碰错了快捷键快帮我恢复一下”。相对于RX1初代而言，多出的两个自定义按键极大地缓解了之前快捷键不足的问题；而镜头自带的光圈环，也几乎把这台相机锁定在了自动-光圈优先-手动这三种模式上。以至于我拿到A7C后惊呼：五年后的产品，居然快捷键比R2还要不够用。&lt;/p&gt;
+
+&lt;p&gt;当对焦正常工作、电量充足时，这是一台美好的相机。这种得心应手的感觉，比起古早时薇薇安迈尔抱着禄来往外冲，有过之而无不及。大多数时候，它总会让我扼腕叹息，唉，又没对上焦；而总有那么几个“决定性时刻”，却让我无比热爱、无比痴迷于那些被凝固的时间碎片。&lt;/p&gt;
+</description>
+        <pubDate>Sat, 28 Oct 2023 00:00:00 -0700</pubDate>
+        <link>https://yo1995.github.io/video/RX1-settings/</link>
+        <guid isPermaLink="true">https://yo1995.github.io/video/RX1-settings/</guid>
+        
+        <category>choice</category>
+        
+        <category>photography</category>
+        
+        <category>review</category>
+        
+        <category>tip</category>
+        
+        
+        <category>Video</category>
+        
+      </item>
     
       <item>
         <title>Automator</title>
@@ -62,7 +201,7 @@
 
 &lt;p&gt;让速不让道，过了将近一分钟我才缓过神来，复盘自己行为的对错。如果踩刹车，事故是一定避免不了的，但肯定也是前车的全部责任；如果打方向，就需要赌左侧车道没有来车，否则后果可能不仅仅是侧面的碰撞，而是失控甚至被撞翻车了。想象起各种可能的情景，心里阵阵发毛。值得庆幸的几点：在即将进入缓行区前的那脚刹车给了我一点点时间反应；在并入最左道前，我几秒前在后视镜观察了左后方车，因为那是一辆黑色改装宝马，声音不小，而且刚从右侧并过来速度不快，所以对那车的位置有个大致判断；上高速前我特地把行车记录仪接通。前几天行车记录仪一直接触不良，我也懒得弄就没开，这次鬼使神差地执着地出发前接通电源。不然，各位看官也无法看到下面的惊险精彩回放——&lt;/p&gt;
 
-&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;https://youtu.be/-0EcILI2Tgk&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;https://www.youtube.com/embed/-0EcILI2Tgk&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;p&gt;第三次是今天开车去Costco。经历过前两次和车祸的惊险擦肩而过，我逐渐形成了“开车慢又怂”的安全驾驶、防御性驾驶的习惯。不再走最左道紧跟着车流超速，而几乎都是走最右道，或者能避开大货车和出口的最靠右的那条车道，慢悠悠地按照自己的定速巡航行驶。因为车又小又矮，我尽可能地离开大车，比如皮卡呀、货车呀、SUV等等车远一点，避开他们的视觉盲区。&lt;/p&gt;
 
@@ -70,7 +209,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/images/202308/on-ramp.jpg&quot; alt=&quot;高速示意图&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;sub&gt;*长度比例和示意图不符&lt;/sub&gt;&lt;/p&gt;
+&lt;p&gt;&lt;sub&gt;*实际长度比例和示意图不同&lt;/sub&gt;&lt;/p&gt;
 
 &lt;p&gt;当我从上高速的斜坡下到A附近的位置，准备并入主路时，后方来了一辆破破烂烂、黑白相间、排气声贼大的本田。我一看，改装轮毂，熏黑前灯，改装排气，算了，让你过去。松了松油门让开这位瘟神，然后并入A线正常行驶。这大哥或许是看见黄车，一下子来劲了，一脚油门就想开启街头赛车。那你想赛就赛呗，从来不跟马路上的破烂儿飙车的我，鬼使神差地跟了一脚油门，跟住了车距，速度立马来到了75。旋即，理智重新占领了高地。赛什么赛啊，好好开车不行吗？&lt;/p&gt;
 
@@ -82,7 +221,7 @@
 
 &lt;p&gt;空亢乓啷！&lt;/p&gt;
 
-&lt;p&gt;等我反应过来出现重大追尾车祸时，刚才还被胶带粘在本田上的保险杠已经掉在了我的车道右方。紧急避让，车速逐渐慢下来。再看后视镜时，被追尾的福特皮卡已经缓缓驶上右侧路肩，轰隆隆的改装本田变为破铜烂铁，早没了那时的神气。&lt;/p&gt;
+&lt;p&gt;等我反应过来意识到出现重大追尾车祸时，刚才还被胶带粘在本田上的保险杠已经掉在了我的车道右方。紧急避让，车速逐渐慢下来。再看后视镜时，被追尾的福特皮卡已经缓缓驶上右侧路肩，轰隆隆的改装本田变为破铜烂铁，早没了那时的神气。&lt;/p&gt;
 
 &lt;p&gt;后续上网查到事故ID：230819IN00611 &amp;amp; 230819INFSP00065。如果当时我上头了，被total的很可能就是我了。&lt;/p&gt;
 
@@ -167,7 +306,7 @@
   &lt;p&gt;你报名就已经是浪费钱了，再去就是浪费时间了&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;在此之前，仅有《星际穿越》和《哈利波特与死亡圣器》看的是IMAX 2D。相较于小屏放映厅，观感确实挺不错的。既然已经下定决心要看这电影，只能再来一趟呗。退款改签一气呵成，超清晰的悬念更增添一分神秘。&lt;/p&gt;
+&lt;p&gt;在此之前，仅有《星际穿越》和《哈利波特与死亡圣器》看的是IMAX 2D。IMAX格式的放映，相较于小屏放映厅，观感确实挺不错的。既然已经下定决心要看这电影，只能再来一趟呗。退款改签一气呵成，超清晰的悬念更增添一分神秘。&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -180,8 +319,8 @@
 &lt;p&gt;另一方面，之前&lt;a href=&quot;https://www.youtube.com/watch?v=VYJtb2YXae8&quot;&gt;Vox有一期视频&lt;/a&gt;专门讲过为什么当代电影和视频，越来越多的人需要打开字幕，才能明白演员在嘟囔什么。总结起来有几大原因：&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;采音设备变多，允许演员小声bb后期再调整&lt;/li&gt;
-  &lt;li&gt;数字信号处理技术升级，更容易把人声和背景音分开处理&lt;/li&gt;
+  &lt;li&gt;采音设备变多，允许演员小声bb后期再调整；导致演员可以肆无忌惮地压低声音&lt;/li&gt;
+  &lt;li&gt;数字信号处理技术升级，更容易把人声和背景音分开处理；给予演员更大的声音演绎的空间，不拘泥于诵读清楚台词&lt;/li&gt;
   &lt;li&gt;人耳的采样频率范围固定，可用的频段只有那么多&lt;/li&gt;
   &lt;li&gt;为了扩大动态范围，音量上限被世界卫生组织定死了，只能不断靠堆设备来突破下限&lt;/li&gt;
   &lt;li&gt;影院和个人终端视听技术不同，源信号被不断压缩重编码导致品质受损&lt;/li&gt;
@@ -1002,55 +1141,6 @@
         
         
         <category>Video</category>
-        
-      </item>
-    
-      <item>
-        <title>新泳裤踩坑记</title>
-        <description>&lt;p&gt;SEO：米奇巴西利&lt;/p&gt;
-
-&lt;p&gt;熟悉我的朋友或许知道，我对Mizuno（“美津浓”、“水野”）这个牌子有莫名的好感。好感一小部分来源于《当我谈跑步时》村上春树总是有意无意提及他在剑桥康河旁穿着水野跑鞋跑步，骑车人礼貌地”on your left”的场景。中等部分来源于奥运会和游泳世锦赛上，除了大路货Speedo速比涛和Arena阿瑞娜以外，总有些高手穿戴美津浓装备，显得逼格很高，甭管比赛赢不赢，风格先秀出来了。一大部分在于小时候还没听说过穿过Ascis亚瑟士之前，美津浓就是跑鞋和走路鞋的黄金标准。&lt;/p&gt;
-
-&lt;p&gt;因此，从小就被各种广告宣传所影响，潜移默化地认为，美津浓装备等同于“退烧”爱好者的最终归宿之一——玩儿一项体育运动玩儿到资深，度过了“装备党”的青涩期，又因为自己能力所限努力不够而达不到专业级，于是乎便选择美津浓这样的性能并非顶尖，品牌略微小众，但颇具“信仰”的品牌。类比于自行车里的TIME、Lapierre，汽车里的Lotus、Alpine，相机里禄来或者徕卡。&lt;/p&gt;
-
-&lt;p&gt;美津浓的装备在美国卖得老贵了！作为一家全品类的运动器材公司，尽管美津浓的产品线覆盖了常见的日本流行运动如棒球排球跑步游泳网球高尔夫等等，但每个单拎出来都算不上顶尖，却又都属于叫得上名字的品牌。个中缘由，我猜是因为产品的性能没办法称霸某一个门类，导致没法走量，只好作为“其他选项”逐渐变为小众品牌。单拿泳具来说，美津浓的同类产品比速比涛标价大概要贵15%。因为速比涛作为美国人认知里的国产牌子，所以销量高，折扣也多，实际到手价格甚至只有美津浓的一半。跑鞋和亚瑟士比，大概就是次顶级产品线和亚瑟士的顶级产品线年终折扣价格差不多。既不叫好，也不叫座；每次想尝试，美津浓装备的性价比都令我咋舌。&lt;/p&gt;
-
-&lt;p&gt;唯一能够说服自己的方式就是“充值信仰”。不得不说，美津浓的装备整体设计感都不错。相比于速比涛的“快糙猛”和亚瑟士的“科技以换皮为主”，美津浓自有那么一分日式的“侘寂”在里面——花色、纹路、质地、留白，透露出一种大巧不工的高级感。搭配上简笔画的“走鹃”或曰“奔跑的鸟”的商标，里外透着一股速度与矫健。有钱难买爷开心，想到此处，我决定下一条泳裤还是尝试&lt;a href=&quot;/introspection/2021review-continuation/&quot;&gt;买美津浓&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;从&lt;a href=&quot;/sports/life-notes-180812/&quot;&gt;2017年重新开始学游泳&lt;/a&gt;到现在，我一共用过三条泳裤：第一条是淘宝的杂牌平角短裤，大概用到了2018年年底就松垮了。第二条是速比涛的入门五分裤，游了整个2019年和2020年疫情之前。间隔了一年半之后再次回到泳池，这条泳裤也老化了。再网上查，大家都推荐速比涛的Endurance Plus，应该相当于它的中级产品。购得后一直用到了2023年初。不得不说，这条泳裤的质量相当不错，剪裁服帖、材料老化慢、尺寸精确、质感上乘。在此之前，我估计每条泳裤大概能游100次左右，而这条泳裤一直游到了140次才稍微松垮。趁此机会，我便想，不如奖励自己一条美津浓的泳裤。&lt;/p&gt;
-
-&lt;p&gt;泳裤到手，海军蓝的藏蓝色深得我意，流畅的线条纹路搭配奔鸟标，怎么看怎么顺眼。迫不及待地等着下次游泳试穿一番。泳裤包裹性挺好，材料摸着也比速比涛厚一些，条纹比起速比涛沉闷的黑色白板，看起来更像高手。还设计了“鸟巢”结构，防止对蛋的过度压迫。穿着泳裤从更衣室走向泳池，自我感觉良好，似乎屁股蛋子都大了一圈似的。终于穿上美津浓装备了嘿！咱个老百姓，今儿个真高兴！&lt;/p&gt;
-
-&lt;p&gt;一切的幻灭，来得如此猝不及防。&lt;/p&gt;
-
-&lt;p&gt;全身浸入池中，一道凉意从腰窝袭来。暗叫不妙！难道是我腰围变粗了？赶忙浮出水面，使劲提裤腰带，重新打一个紧实的蝴蝶结。或许只是我还没适应新泳裤吧，侥幸地想到。&lt;/p&gt;
-
-&lt;p&gt;到边，滚翻，蹬边。咵嗤一下，更多的液体嘟哩当啷钻进了腚沟子深处。好巧不巧，肚皮一个激灵产生了应激反应，一个闷屁压满了全塘。对美津浓的最后奢望，像泄了气的皮球，一点点消失殆尽。&lt;/p&gt;
-
-&lt;p&gt;阳光下的泡沫，是彩色的，却早知泡沫，一触就破。最初的泳裤像一个气囊，二硫化氢随着自由泳的打腿、转体而蛄蛹蛄蛹地左右摆动；随着时间的衰退，气泡一点一点从缝隙中挤出来。最后，只剩下凉啪啪的泳裤，夹着一层水膜膜，贴在屁屁上。&lt;/p&gt;
-
-&lt;p&gt;快请速比涛回来！😭 是我对那天泳池的最后记忆。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;现在，我端详这这条嘎嘎新却出师未捷身先死的泳裤，陷入了沉默——&lt;/p&gt;
-
-&lt;p&gt;老铁们，你们说，我是否还应再给美津浓一个机会？&lt;/p&gt;
-</description>
-        <pubDate>Tue, 23 May 2023 00:00:00 -0700</pubDate>
-        <link>https://yo1995.github.io/sports/mizuno-jammer/</link>
-        <guid isPermaLink="true">https://yo1995.github.io/sports/mizuno-jammer/</guid>
-        
-        <category>ball</category>
-        
-        <category>sport</category>
-        
-        <category>lifestyle</category>
-        
-        <category>reminiscence</category>
-        
-        
-        <category>Sports</category>
         
       </item>
     
