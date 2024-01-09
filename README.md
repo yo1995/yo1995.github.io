@@ -76,8 +76,9 @@ When updating, bundle update [pack name]
 
 ## Changelog
 
+- 240108: Change all filename to lowercase - some comments and PV will be lost
 - 230808: Disallow GPTBot
-- 230619 Page title: Manifestations of Ting Chen -> Ting's Étude
+- 230619: Page title: Manifestations of Ting Chen -> Ting's Étude
 - 221221: Added Timeline template using https://stackoverflow.com/a/43190996/14369688
 
 ---
