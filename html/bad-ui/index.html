@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html>
+
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="从苹果开发者登录页面谈起">
+  <meta name="author" content="Chen Ting">
+  <meta name="keywords" content="">
+  <meta name="theme-color" content="#272727">
+
+  <title>交互设计</title>
+
+  <link rel="icon" href="/img/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="canonical" href="https://yo1995.github.io/html/bad-ui/" />
+  <link rel="alternate" type="application/rss+xml" title="Ting's Blog" href="https://yo1995.github.io/feed.xml" />
+  
+  <meta property="og:site_name" content="Ting's Blog" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://yo1995.github.io/html/bad-ui/" />
+  <meta property="og:title" content="交互设计" />
+  <meta property="og:description" content="从苹果开发者登录页面谈起" />
+  <meta property="og:article:published_time" content="2024-04-01T00:00:00-07:00" />
+  <meta property="og:article:author" content="Chen Ting" />
+
+  <meta property="og:image" content="/images/202404/northwest.jpg" />
+  
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <!-- PLUGINS -->
+  <link rel="stylesheet" href="/assets/css/vlthemes.css">
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">	
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  
+  
+  
+
+</head>
+
+
+  <body data-spy="scroll" data-target="#navbar" data-offset="100">
+
+		<!-- FRAMES -->
+		<span class="frame-line top-frame"></span>
+		<span class="frame-line right-frame"></span>
+		<span class="frame-line bottom-frame"></span>
+		<span class="frame-line left-frame"></span>
+
+    <div class="animsition">
+      <div class="content">
+
+        
+<!-- header-fixed / header-scroll-up  -->
+<div class="scroll-indicator fixedheader" style="width"></div>
+<header class="header-wrap header-fixed minimal-menu">
+    <div class="header-inner">
+        <div class="container">
+			
+            <div class="logo">
+                <a href="/blog/" class="animsition-link">Tin<span>g</span>'s Blog</a>
+            </div>
+			
+
+            <a href="#" class="menu-toggle desctop-menu">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <a href="#" class="menu-toggle mobile-menu-toggle">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <nav class="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="/" class="animsition-link">
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item-has-children" class="current-menu-item">
+                        <a href="">
+                            <span>Blog</span>
+                        </a>
+						    <ul class="sub-menu">
+								<li>
+									<a href="/blog/" class="animsition-link">
+										<span>Index</span>
+									</a>
+								</li>
+								<li>
+									<a href="/posts/" class="animsition-link">
+										<span>Archives</span>
+									</a>
+								</li>
+								<li>
+									<a href="/categories/" class="animsition-link">
+										<span>Categories</span>
+									</a>
+								</li>
+								<li>
+									<a href="/tags/" class="animsition-link">
+										<span>Tags</span>
+									</a>
+								</li>
+								<li>
+									<a href="/timeline/" class="animsition-link">
+										<span>Timeline</span>
+									</a>
+								</li>								
+								<li>
+									<a href="/cards/" class="animsition-link">
+										<span>Cards</span>
+									</a>
+								</li>
+							</ul>
+                    </li>
+
+                    <li>
+                        <a href="/photos/" class="animsition-link">
+                            <span>Photos</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/about/" class="animsition-link">
+                            <span>About</span>
+                        </a>
+                    </li>
+					
+					  <!--li>
+                        <a href="" class="animsition-link" id="CN">
+                            <span>CN</span>
+                        </a>
+                    </li-->
+                </ul>
+            </nav>
+            <!-- END PRIMARY-MENU -->
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <!-- END HEADER-INNER -->
+</header>
+<!-- END HEADER-WRAP -->
+
+
+        
+
+        <main id="main-content">
+          
+          <div class="single-post-wrap clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 content-fixed">
+
+        <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
+          <div class="post-thumb clearfix">
+            
+            <img src="/images/202404/northwest.jpg" alt="交互设计">
+            
+          </div>
+          
+          <div class="post-content" itemprop="articleBody">
+            <div class="post-date" datetime="2024-04-01T00:00:00-07:00" itemprop="datePublished">
+              Apr 1, 2024
+            </div>
+            <h1 class="post-title" itemprop="name headline">交互设计</h1>
+            <div class="content-color">
+            
+            <h2 id="1-恼人的交互设计">
+<a class="anchor" href="#1-%E6%81%BC%E4%BA%BA%E7%9A%84%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 恼人的交互设计</h2>
+
+<p>比起用户界面（UI），我更在乎用户交互（UX）的体验。</p>
+
+<p>在我眼中，这二者的差别，是好不好看和好不好用的差别。我当然希望平日用的电子产品、软件服务的界面都好看一些，用起来身心愉悦；但如果交互逻辑设计不佳，再好看的界面也是面子工程。</p>
+
+<p><img src="/images/202404/apple-developer.png" alt="苹果登录"></p>
+
+<p>最近一段时间，Apple Developer苹果开发者网站的登录界面改版。这次改版看似细微无伤大雅，实际体验令人大跌眼镜，拳头硬了👊。</p>
+
+<p>一个最简单的登录页面应包含两或三个元素：用户名输入框、密码输入框，大多情况下再加一个登录按钮。对于键盘支持较好的页面，则应当你第一次把焦点通过鼠标或点触放置到用户名输入框后，手指无需再离开键盘：输入用户名、输入密码、点击键盘“确认”按钮，完成登录。就算是初学者实现一个登录界面，最多也只需在每次输入完成后，点选移动焦点至下一个元素，最多不过三次键盘和光标之间的切换。</p>
+
+<p>而苹果开发者登录的新页面，最常见的情况要点五次鼠标才能通过。如果中途出了岔子，次数翻倍增加。如果跳出两步验证和信任当前设备，则又增加三次点击。其中最反人类的设计，并不在于“输入完用户名后弹出按钮选择验证方式”这个交互上，而在于“输入密码时如果不小心修改了用户名输入框，所有输入状态重置回到第一步”的弱智设计。</p>
+
+<p>为什么这件事最为恼人呢？因为密码管理器里存了很多个开发者账号。当我双击唤起密码管理器时，最常用账号会自动被选中，填入用户名输入框，从而导致输入状态被重置。于是，从头再来，再一次唤起密码管理器，手一抖又被重置状态。在密码管理器协助下，本该被优化为“仅一次点击加一次两步验证操作”的登录体验，活生生被劣化成了十多次鼠标点击的艰难过程。</p>
+
+<h2 id="2-经典的交互设计">
+<a class="anchor" href="#2-%E7%BB%8F%E5%85%B8%E7%9A%84%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 经典的交互设计</h2>
+
+<p>在我看来，最好的用户交互，是完全黑盒式的，是“你奶奶来了也能上手直接用”的。曾经异想天开：应该设计一个交互实验，找到一些被试者老年人，或完全未被现代电子设备交互污染过的成年人类，给他们一些交互试验品，看人类是如何直觉性地与机器交互的。只可惜，过去十多年的层层渗透，“你奶奶”也知道看见屏幕要用手指划拉用手指戳。人类可能已经在不知不觉中，越过了“point of no return”——接受过完整教育和社会性培养、而未被“垃圾”交互污染过感官和思维的人类，已经不复存在了。</p>
+
+<p>这么一想，很多当年懵懂无知开疆拓土的交互设计师，设计的“弱智”交互，竟因为受众太广，不得不成为约定俗成的社会常识，不可不称得上是一种遗憾。</p>
+
+<p>如果让我举三个人机交互的典范，最先想到的三个是</p>
+
+<ul>
+  <li>方向盘</li>
+  <li>谷歌输入框</li>
+  <li>苹果无限平滑列表</li>
+</ul>
+
+<p>当然，还有很多其他例子可以举；库布里克直接一步从“猩猩拿棍”跳到宇宙飞船，也算笼统意义上的人机交互发展史。但是这三件交互，覆盖率之广、影响之深，堪称现代社会的奇迹。</p>
+
+<p>当第一辆汽车发明时，它还是马车座椅和自行车轮组杂交的三轮车产物。最初的汽车没有方向盘，只有操纵舵杆。直到十多年后，才演变出了平置的方向盘雏形，再后来才出现了如今倾斜有角度的转向柱设计。方向盘交互的演变，代表了人对于如何映射多自由度运动的理解。飞机因为比汽车晚发明几十年，刚发明时人们便把汽车方向盘套用到飞机上。后来实践中才发现，对于不同自由度的控制，稍微不同的操纵杆设计才能发挥出优势。直至今日，方向盘的演变依旧如火如荼地进行，但“方向盘”作为一种人机交互，已经几乎渗透到了世界的每一个角落。没有一个人会看到方向盘，抓耳挠腮不知道如何操作的。</p>
+
+<p>谷歌输入框，乃至当下的ChatGPT输入框对它的致敬，代表了人类与计算机交互的核心。说到底，计算机直到今日，仍是一台输入输出状态机。无论输入多么复杂，输出多么色彩缤纷，交互的本质是传递信息。因此，输入框和确认按钮，构成了输入交互的最为基本的元素。本来，当Siri这样的语音助手出现，本该是一场划时代的人机交互革命；但因为工程师搞砸了，导致这种更为直接的输入输出方式，至今没能完全渗透到人类社会的各个角落。突然就和<a href="/movie/her/">上一篇博文</a>莫名呼应了：在那个人类想象的美好未来，人机交互本该是无痕的，你说我听式的。离那一天到来，还有一段距离。</p>
+
+<p>无限列表，真的是乔布斯凭一己之力改变世界的最经典的案例。在iOS列表出现之前，人们对列表的理解是静态的：一张纸上打印了不能变的表格；手机上按一下按钮就切换一行的定长列表；设备一经出厂就无法更新的操作手册。在iOS列表出现以后，连我奶奶都知道扒拉屏幕能改变微信显示内容。鼠标、iPod、触屏，这些早有先例的交互，经果粉乱吹，安在乔布斯头上造神，我不认同；但无限滚动列表，我是真的心服口服。如果非要牵强拔高其意义，那它应该标志了人类无止境的好奇心与贪婪本性的十字路口。构成列表新的一行的元胞是零成本复用的，人们便会无止境地循环滑下去，直到时间尽头。</p>
+
+<blockquote>
+  <p>It works like <a href="https://youtu.be/VQKMoT-6XSg?t=975">magic</a>. - Steve Jobs</p>
+</blockquote>
+
+<h2 id="3-我从事的交互设计">
+<a class="anchor" href="#3-%E6%88%91%E4%BB%8E%E4%BA%8B%E7%9A%84%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. 我从事的交互设计</h2>
+
+<p>关于“<a href="https://dev.to/yo1995/wei-shi-yao-wo-xuan-ze-liao-ping-guo-kai-fa-52k1">我为什么选择苹果开发</a>”这个<a href="/coding/mobile-apps/">话题</a>，在<a href="/coding/the-philosophy-of-return-value/">很多</a>地方已经谈论了很多次。有关用户交互的部分，在这里补充一二。</p>
+
+<p>在我理想中的完美交互世界中，仅存在“完全黑盒”和“完全白盒”两种极端情况，任何中间地带，都会最终滑向这两个极端。在人与计算机交互这件事上，必须承认，我是有私心的。我希望自己制作的产品能够足够简单，足够低门槛，任何人都可以立刻上手；但几乎没有人能够搞清背后的运行机制。</p>
+
+<p>“完全黑盒”的代表就是ChatGPT的输入框。用户可以对机器学习、数据中心、模型训练一无所知，只需提问即可。</p>
+
+<p>“完全白盒”理想上代表了对于计算机的完全控制。从技术人员的角度讲，像Gentoo或Alpine这样的Linux发行版已经很接近于“了解一切、控制一切”的理念了。但从更传统的角度讲，我们希望有一个触手可及的、视觉上的“控制台”式交互，来实现完全控制。就好像70年代月球飞船，只有几KB的计算机把所有可控变量都暴露成开关、按钮、轨迹球或旋钮。</p>
+
+<blockquote>
+  <p><a href="https://www.youtube.com/watch?v=Pzl1B7nB9Kc">Linus Torvalds on why desktop Linux sucks</a></p>
+</blockquote>
+
+<p>这种控制台式的软件，只有经过专业训练的技术人员才可以操作。见过的一些例子：ArcGIS Pro、Bloomberg Terminal、COMSOL、Vivado……在我看来，根据设计指南来优化这些软件的交互无可厚非；但试图“简化”某些操作，以达成“使软件更容易上手”的目的，完全是缘木求鱼。专业人士需要的是精准控制，而非点了按钮不知道软件在做什么。</p>
+
+<p>归结起来，我对于计算机交互的终极追求，就是<strong>用白盒软件制作黑盒产品</strong>。</p>
+
+<p>而至少在我所处的时代看来，苹果软件开发部署到移动设备，是令我最接近这个目标的平台。</p>
+
+<h2 id="4-最差的交互设计">
+<a class="anchor" href="#4-%E6%9C%80%E5%B7%AE%E7%9A%84%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. 最差的交互设计</h2>
+
+<p><img src="/images/202404/sprinkler-controller.jpg" alt="喷水控制器"></p>
+
+<p>近三年前的2021年7月28日，我拍摄了一张照片，内容是Ash这座老房子的自动喷水系统控制器。这是我在日常生活中、这座房子里见到的最差交互设计。它触动了我的逆鳞🐉，我自然要批判一番🤬。</p>
+
+<p>光看这个操作界面，你能够想象如何设定如下的喷水日程吗？</p>
+
+<ul>
+  <li>周一、周二：夜里12:30喷淋一次</li>
+  <li>周三：不喷淋</li>
+  <li>周四、周五：夜里12:30喷淋一次</li>
+  <li>周六、周日：夜里12:30喷淋一次、夜里3:30喷淋一次</li>
+</ul>
+
+<p>你想猜猜设定这个日程，需要按下按钮，扭动旋钮一共多少次吗？😫</p>
+
+<p>三年后的今天，我仍旧坚定不移、历久弥新地靠Siri提醒我每周三晚把旋钮调到OFF位置的方法，来手动绕过这个弱智反人类的人机交互界面。</p>
+
+<p><sub>或许人工智能，将会是人类攻破“历法系统数字化”这一人机交互最后的高峰的银弹。</sub></p>
+
+            
+            </div>
+            
+<div class="entry-tags clearfix">
+
+    <div class="entry-footer clearfix">
+
+        <div class="pull-left">
+            <span>
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/#helloworld">helloworld</a>
+                
+                <a href="/tags/#technology">technology</a>
+                
+                <a href="/tags/#programming">programming</a>
+                
+                <a href="/tags/#technology">technology</a>
+                
+            </span>            
+            <span><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv">0</span> views</span>
+            <span>
+                <i class="fa fa-comments-o"></i>
+                <a href="#comments" class="disqus-comment-count" data-disqus-identifier="Ting's Blog/html/bad-ui">GFW comments</a>
+            </span>
+            <span>
+                <i class="fa fa-check-square-o"></i><span>3022 words</span>
+            </span>
+            <span>
+                <i class="fa fa-link"></i>
+                <a data-toggle="collapse" href="#share-content" aria-expanded="false" aria-controls="share-content">Share</a>
+        </div>
+        <div class="pull-right collapse in" id="share-content">
+            
+<div class="entry-share-links">
+
+    <div class="btn-group" role="group" aria-label="Share">
+        <button type="button" class="btn btn-default btn-sm btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="http://www.facebook.com/sharer.php?u=https://yo1995.github.io/html/bad-ui/" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></button>
+        
+        <button type="button" class="btn btn-default btn-sm btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="https://twitter.com/share?url=https://yo1995.github.io/html/bad-ui/&amp;text=交互设计" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-weibo" data-toggle="tooltip" data-placement="top" title="新浪微博"><a href="http://service.weibo.com/share/share.php?url=https://yo1995.github.io/html/bad-ui/&title=分享%4011L23+的文章「交互设计」&content=从苹果开发者登录页面谈起&pic=https://yo1995.github.io/images/202404/northwest.jpg" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-douban" data-toggle="tooltip" data-placement="top" title="豆瓣"><a href="https://www.douban.com/share/service?name=交互设计&href=https://yo1995.github.io/html/bad-ui/&image=https://yo1995.github.io/images/202404/northwest.jpg&url=https://yo1995.github.io/html/bad-ui/&title=交互设计" target="_blank"><i class="fa fa-fw">豆</i></a></button>
+
+        <a tabindex="0" class="btn btn-sm btn-weixin" role="button" data-trigger="hover" data-placement="top" id="qrcode-btn"><i class="fa fa-fw fa-weixin"></i></a>
+
+        <div id="qrcode-content" class="qrcode-hidden"><div id="qrcode"></div></div>
+        <div id="qrcode-title" class="qrcode-hidden">Scan to Read</div>
+		
+		<button type="button" class="btn btn-default btn-sm btn-email"><a href="mailto:?Subject=交互设计&amp;Body=从苹果开发者登录页面谈起%20https://yo1995.github.io/html/bad-ui/"><i class="fa fa-fw fa-envelope-o"></i> Email</a></button>
+
+        <div class="btn-group btn-group-justified dropup" role="group">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle btn-more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-share-alt"></i><span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-google"><a href="https://plus.google.com/share?url=https://yo1995.github.io/html/bad-ui/" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google Plus</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://yo1995.github.io/html/bad-ui/" target="_blank"><i class="fa fa-fw fa-linkedin"></i> Linkedin</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-digg"><a href="http://www.digg.com/submit?url=https://yo1995.github.io/html/bad-ui/" target="_blank"><i class="fa fa-fw fa-digg"></i> Digg</a></button></li>
+
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-pinterest"><a href="https://pinterest.com/pin/create/bookmarklet/?media=https://yo1995.github.io/images/202404/northwest.jpg&url=https://yo1995.github.io/html/bad-ui/&description=交互设计" target="_blank"><i class="fa fa-fw fa-pinterest-p"></i> Pinterest</a></button></li>
+                 
+                 
+
+                <li><button type="button" class="btn btn-default btn-sm btn-reddit"><a href="http://reddit.com/submit?url=https://yo1995.github.io/html/bad-ui/&amp;title=交互设计" target="_blank"><i class="fa fa-fw fa-reddit-alien"></i> Reddit</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-tumblr"><a href="http://www.tumblr.com/share/link?url=https://yo1995.github.io/html/bad-ui/&amp;title=交互设计" target="_blank"><i class="fa fa-fw fa-tumblr"></i> Tumblr</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-print"><a href="javascript:;" onclick="window.print()"><i class="fa fa-fw fa-print"></i> Print</a></button></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+        </div>
+    </div>  
+
+</div>
+
+          </div>
+        </article>
+        <!-- END SINGLE-POST -->
+
+        
+<div class="post-navigation clearfix">
+    <div class="row">
+
+        <div class="col-xs-6">
+            <div class="previous-post">
+                <div class="arrow">
+                    <i class="fa fa-angle-double-left"></i>
+                    
+                    <a href="/movie/her/" class="animsition-link" data-hover-text="Prev: 《Her》">Prev: 《Her》</a>
+                    
+                </div>
+
+            </div>
+            <!-- END PREVIOUS-POST -->
+        </div>
+        <div class="col-xs-6">
+            <div class="next-post">
+                <div class="arrow">
+                    
+                    <a href="/blog/" class="animsition-link" data-hover-text="Blog Archive">Blog Archive</a>
+                    
+                    <i class="fa fa-angle-double-right"></i>
+                </div>
+
+            </div>
+            <!-- END NEXT-POST -->
+        </div>
+    </div>
+</div>
+<!-- END POST-NAVIGATION -->
+		<!-- 180726 add multi author support -->
+		 
+			<div class="author-info clearfix">
+    <div class="author-avatar">
+        <img class="avatar" src="/img/avatar.png" alt="Chen Ting">
+    </div>
+
+    <div class="author-description">
+        <h4 class="author-title">
+            <a href="/about/">Chen Ting <i class="fa fa-link"></i></a>
+        </h4>
+        <p class="author-bio">
+            The page aimed to exhibit activities & achievements during Ting's undergraduate & graduate period. Meanwhile, other aspects such as lifestyles, literary work, travel notes, etc. would interweave in the narration.
+        </p>
+    </div>
+	<!-- add busaunzi to see how many views and reads happens to my page. addition to tecent -->
+	<script async src="/assets/js/busuanzi.pure.mini.js"></script>
+</div>
+<!-- END AUTHOR-INFO -->
+		 
+		 
+        
+
+<div class="comments-area clearfix">
+    <div class="comment-respond">
+		<h4 class="comment-reply-title" id="comments">Leave a Comment</h4>
+		<div class="disqus-placeholder alert alert-info" style="text-align: center">
+			<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Disqus might be GFW-ed. Excited!
+		</div>
+		<script src="/assets/js/disqusloader.js"></script>
+		<div class="disqus"></div>
+		<!--
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+        this.page.url = "https://yo1995.github.io/html/bad-ui/";
+        this.page.identifier = "Ting's Blog//html/bad-ui";
+        this.page.title = "交互设计";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//yo1995.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+		-->
+		<script>disqusLoader( '.disqus', { 
+			scriptUrl: '//yo1995.disqus.com/embed.js',
+			disqusConfig: function(){
+				this.callbacks.onReady = [function(){
+				var el = document.querySelector( '.disqus-placeholder' );
+				if( el.classList )
+					el.classList.add( 'is-hidden' ); // IE 10+
+				else
+					el.className += ' ' + 'is-hidden'; // IE 8-9
+				}];}
+			});
+		</script>
+       <noscript>Please conquer the GFW or enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+<!-- END COMMENTS-AREA -->
+
+
+      </div>
+
+      <div class="col-md-4 sidebar-fixed">
+    <div class="sidebar">
+        <!-- aside class="widget-wrap widget-search">
+            <h6 class="widget-title">
+                <span>Search for a topic?</span>
+            </h6>
+			<div onclick="keyinsearch()" class="search-form text-center" id="search-container">
+				<input type="text" id="search-input" placeholder="search...">
+				<i class="fa fa-search"></i>
+				<ul id="results-container" style="list-style:square"></ul>
+			</div>
+			<!-- 230226 - update -->
+<script src="/assets/js/jekyll-search.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  function keyinsearch () {
+  SimpleJekyllSearch({
+	searchInput: document.getElementById('search-input'),
+	resultsContainer: document.getElementById('results-container'),
+	json: '/search.json',
+	searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+	noResultsText: '无结果',
+	limit: 5,
+	fuzzy: false
+  });
+  }
+</script>
+
+
+<!-- 暂时还没想好cache怎么改写，目前每次请求都是200 ！= = 不过chrome貌似是直接从本地磁盘加载的 -->
+<!--
+<form class="search-form" action="/search/" target="_blank" method="get">
+	<input type="text" placeholder="Search..." name="q">
+	<i class="fa fa-search"></i>
+</form>
+-->
+
+        </aside -->
+		<!-- END WIDGET-WRAP -->
+		
+        <aside class="widget-wrap widget-toc">
+            <h6 class="widget-title">
+                <span>Table of Contents <!-- sup class="scroll-top" style="text-transform:none">back to top</sup --></span>
+            </h6>
+            <div id="navbar">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#1-恼人的交互设计">1. 恼人的交互设计</a></li>
+<li class="toc-entry toc-h2"><a href="#2-经典的交互设计">2. 经典的交互设计</a></li>
+<li class="toc-entry toc-h2"><a href="#3-我从事的交互设计">3. 我从事的交互设计</a></li>
+<li class="toc-entry toc-h2"><a href="#4-最差的交互设计">4. 最差的交互设计</a></li>
+</ul>
+            </div>
+        </aside>
+		
+		<!-- END WIDGET-WRAP -->
+		<aside class="widget-wrap widget-recent-posts">
+            <h6 class="widget-title">
+                <span>Related Posts</span>
+            </h6>
+            <ul class="recent-posts">
+            
+                
+                
+                
+                
+                    
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/life/unpalatable/">
+                                <img src="/images/202403/dude-meal.jpg" alt="难吃的饭和难喝的汤">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/life/unpalatable/">难吃的饭和难喝的汤</a>
+                            <span>2024/03/23</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/society/mexico-first-impressions/">
+                                <img src="/images/202312/cello.jpg" alt="初见墨西哥">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/society/mexico-first-impressions/">初见墨西哥</a>
+                            <span>2023/12/22</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/tools/automator/">
+                                <img src="/images/202308/Automator.png" alt="Automator">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/tools/automator/">Automator</a>
+                            <span>2023/08/20</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                    
+
+                
+                                   
+            </ul>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <!-- aside class="widget-wrap widget-categories">
+            <h6 class="widget-title">
+                <span>Categories</span>
+            </h6>
+            <ul>
+				
+				
+                <li><a href="/categories/#coding">Coding</a></li>
+                
+                <li><a href="/categories/#ee">EE</a></li>
+                
+                <li><a href="/categories/#fantasywhimridicule">FantasyWhimRidicule</a></li>
+                
+                <li><a href="/categories/#games">Games</a></li>
+                
+                <li><a href="/categories/#html">Html</a></li>
+                
+                <li><a href="/categories/#introspection">Introspection</a></li>
+                
+                <li><a href="/categories/#life">Life</a></li>
+                
+                <li><a href="/categories/#movie">Movie</a></li>
+                
+                <li><a href="/categories/#physics">Physics</a></li>
+                
+                <li><a href="/categories/#reading">Reading</a></li>
+                
+                <li><a href="/categories/#school">School</a></li>
+                
+                <li><a href="/categories/#society">Society</a></li>
+                
+                <li><a href="/categories/#sports">Sports</a></li>
+                
+                <li><a href="/categories/#tools">Tools</a></li>
+                
+                <li><a href="/categories/#video">Video</a></li>
+                
+                <li><a href="/categories/#zhuism">Zhuism</a></li>
+                
+            </ul>
+        </aside -->
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-tag">
+            <h6 class="widget-title">
+                <span>Tags Widget <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+            <div class="tag-cloud">
+                
+                <a href="/tags/#lifestyle">lifestyle</a>
+                
+                <a href="/tags/#love">love</a>
+                
+                <a href="/tags/#choice">choice</a>
+                
+                <a href="/tags/#education">education</a>
+                
+                <a href="/tags/#future">future</a>
+                
+                <a href="/tags/#reminiscence">reminiscence</a>
+                
+                <a href="/tags/#project">project</a>
+                
+                <a href="/tags/#girl">girl</a>
+                
+                <a href="/tags/#review">review</a>
+                
+                <a href="/tags/#year">year</a>
+                
+                <a href="/tags/#trivia">trivia</a>
+                
+                <a href="/tags/#world">world</a>
+                
+                <a href="/tags/#friend">friend</a>
+                
+                <a href="/tags/#cycling">cycling</a>
+                
+                <a href="/tags/#science">science</a>
+                
+                <a href="/tags/#ball">ball</a>
+                
+                <a href="/tags/#sport">sport</a>
+                
+                <a href="/tags/#entertainment">entertainment</a>
+                
+                <a href="/tags/#reading">reading</a>
+                
+                <a href="/tags/#technology">technology</a>
+                
+                <a href="/tags/#writing">writing</a>
+                
+                <a href="/tags/#travel">travel</a>
+                
+                <a href="/tags/#politics">politics</a>
+                
+                <a href="/tags/#helloworld">helloworld</a>
+                
+                <a href="/tags/#programming">programming</a>
+                
+                <a href="/tags/#career">career</a>
+                
+                <a href="/tags/#python">python</a>
+                
+                <a href="/tags/#windows">windows</a>
+                
+                <a href="/tags/#tool">tool</a>
+                
+                <a href="/tags/#bbs">bbs</a>
+                
+                <a href="/tags/#universe">universe</a>
+                
+                <a href="/tags/#dream">dream</a>
+                
+                <a href="/tags/#history">history</a>
+                
+                <a href="/tags/#investment">investment</a>
+                
+                <a href="/tags/#finance">finance</a>
+                
+                <a href="/tags/#mac">mac</a>
+                
+                <a href="/tags/#food">food</a>
+                
+                <a href="/tags/#music">music</a>
+                
+                <a href="/tags/#buy">buy</a>
+                
+                <a href="/tags/#data">data</a>
+                
+                <a href="/tags/#tip">tip</a>
+                
+                <a href="/tags/#cpp">cpp</a>
+                
+                <a href="/tags/#swimming">swimming</a>
+                
+                <a href="/tags/#photography">photography</a>
+                
+                <a href="/tags/#museum">museum</a>
+                
+                <a href="/tags/#swift">swift</a>
+                
+                <a href="/tags/#bq">BQ</a>
+                
+                <a href="/tags/#opinion">opinion</a>
+                
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+    </div>
+    <!-- END SIDEBAR -->
+</div>
+
+    </div>
+  </div>
+</div>
+<!-- END SINGLE-POST-WRAP -->
+
+
+        </main>
+        <!-- END MAIN -->
+
+        
+<footer>
+  <div class="footer">
+    <div class="container">
+      <div class="text-center">
+        <a href="/blog" class="logo clearfix animsition-link"><img src="/img/sig.svg" width="400" alt="Signature"></a>
+        <p class="copy">
+          Maintained by <a href="/about/">Chen Ting</a> 
+		  
+        </p>
+        <div class="icon-list">
+          <a href="https://www.linkedin.com/in/ting-chen-402bab122/" target="_blank">
+            <i class="fa fa-fw fa-linkedin"></i>
+          </a>
+		  <a href="https://github.com/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-github"></i>
+          </a>
+		  <a href="https://dev.to/yo1995" target="_blank">
+            <i class="fa fa-fw fa-medium"></i>
+          </a>
+          <a href="http://my.hupu.com/17573413/" target="_blank">
+            <i class="fa fa-fw fa-futbol-o"></i>
+          </a>
+          <a href="https://www.douban.com/people/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-book"></i>
+          </a>
+		   <a href="https://www.flickr.com/photos/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-flickr"></i>
+          </a>
+		  <a href="/feed.xml" target="_blank">
+            <i class="fa fa-fw fa-rss"></i>
+          </a>
+        </div>
+        <div class="scroll-top">go to top</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END FOOTER -->
+</footer>
+
+      </div>
+      <!-- END CONTENT -->
+    </div>
+    <!-- END ANIMSITION -->
+
+    
+<!-- SCRIPTS -->
+<script src="/assets/js/jquery-1.12.0.min.js"></script>
+<script src="/assets/js/plugins.min.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<!-- CUSTOM SCRIPT -->
+<script src="/assets/js/script.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/js/tether.min.js"></script>
+
+
+<script src="/assets/js/qrcode.js"></script>
+<script>
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: "https://yo1995.github.io/html/bad-ui/",
+    width: 196,
+    height: 196,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H,
+    useSVG: true
+});
+</script>
+
+
+<!-- 爱心特效 -->
+
+
+
+<script async src="/assets/js/busuanzi.pure.mini.js"></script>
+<!--script id="dsq-count-scr" src="//yo1995.disqus.com/count.js" async></script-->
+
+
+
+
+
+
+
+<!--script>
+  'GoogleAnalyticsObject'
+  'https://www.google-analytics.com/analytics.js'
+</script-->
+
+
+  </body>
+
+</html>

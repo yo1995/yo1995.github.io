@@ -5,9 +5,209 @@
     <description></description>
     <link>https://yo1995.github.io/</link>
     <atom:link href="https://yo1995.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 05 Mar 2024 19:57:35 -0800</pubDate>
-    <lastBuildDate>Tue, 05 Mar 2024 19:57:35 -0800</lastBuildDate>
+    <pubDate>Mon, 01 Apr 2024 23:24:57 -0700</pubDate>
+    <lastBuildDate>Mon, 01 Apr 2024 23:24:57 -0700</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
+    
+      <item>
+        <title>交互设计</title>
+        <description>&lt;h2 id=&quot;1-恼人的交互设计&quot;&gt;1. 恼人的交互设计&lt;/h2&gt;
+
+&lt;p&gt;比起用户界面（UI），我更在乎用户交互（UX）的体验。&lt;/p&gt;
+
+&lt;p&gt;在我眼中，这二者的差别，是好不好看和好不好用的差别。我当然希望平日用的电子产品、软件服务的界面都好看一些，用起来身心愉悦；但如果交互逻辑设计不佳，再好看的界面也是面子工程。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/202404/apple-developer.png&quot; alt=&quot;苹果登录&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;最近一段时间，Apple Developer苹果开发者网站的登录界面改版。这次改版看似细微无伤大雅，实际体验令人大跌眼镜，拳头硬了👊。&lt;/p&gt;
+
+&lt;p&gt;一个最简单的登录页面应包含两或三个元素：用户名输入框、密码输入框，大多情况下再加一个登录按钮。对于键盘支持较好的页面，则应当你第一次把焦点通过鼠标或点触放置到用户名输入框后，手指无需再离开键盘：输入用户名、输入密码、点击键盘“确认”按钮，完成登录。就算是初学者实现一个登录界面，最多也只需在每次输入完成后，点选移动焦点至下一个元素，最多不过三次键盘和光标之间的切换。&lt;/p&gt;
+
+&lt;p&gt;而苹果开发者登录的新页面，最常见的情况要点五次鼠标才能通过。如果中途出了岔子，次数翻倍增加。如果跳出两步验证和信任当前设备，则又增加三次点击。其中最反人类的设计，并不在于“输入完用户名后弹出按钮选择验证方式”这个交互上，而在于“输入密码时如果不小心修改了用户名输入框，所有输入状态重置回到第一步”的弱智设计。&lt;/p&gt;
+
+&lt;p&gt;为什么这件事最为恼人呢？因为密码管理器里存了很多个开发者账号。当我双击唤起密码管理器时，最常用账号会自动被选中，填入用户名输入框，从而导致输入状态被重置。于是，从头再来，再一次唤起密码管理器，手一抖又被重置状态。在密码管理器协助下，本该被优化为“仅一次点击加一次两步验证操作”的登录体验，活生生被劣化成了十多次鼠标点击的艰难过程。&lt;/p&gt;
+
+&lt;h2 id=&quot;2-经典的交互设计&quot;&gt;2. 经典的交互设计&lt;/h2&gt;
+
+&lt;p&gt;在我看来，最好的用户交互，是完全黑盒式的，是“你奶奶来了也能上手直接用”的。曾经异想天开：应该设计一个交互实验，找到一些被试者老年人，或完全未被现代电子设备交互污染过的成年人类，给他们一些交互试验品，看人类是如何直觉性地与机器交互的。只可惜，过去十多年的层层渗透，“你奶奶”也知道看见屏幕要用手指划拉用手指戳。人类可能已经在不知不觉中，越过了“point of no return”——接受过完整教育和社会性培养、而未被“垃圾”交互污染过感官和思维的人类，已经不复存在了。&lt;/p&gt;
+
+&lt;p&gt;这么一想，很多当年懵懂无知开疆拓土的交互设计师，设计的“弱智”交互，竟因为受众太广，不得不成为约定俗成的社会常识，不可不称得上是一种遗憾。&lt;/p&gt;
+
+&lt;p&gt;如果让我举三个人机交互的典范，最先想到的三个是&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;方向盘&lt;/li&gt;
+  &lt;li&gt;谷歌输入框&lt;/li&gt;
+  &lt;li&gt;苹果无限平滑列表&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;当然，还有很多其他例子可以举；库布里克直接一步从“猩猩拿棍”跳到宇宙飞船，也算笼统意义上的人机交互发展史。但是这三件交互，覆盖率之广、影响之深，堪称现代社会的奇迹。&lt;/p&gt;
+
+&lt;p&gt;当第一辆汽车发明时，它还是马车座椅和自行车轮组杂交的三轮车产物。最初的汽车没有方向盘，只有操纵舵杆。直到十多年后，才演变出了平置的方向盘雏形，再后来才出现了如今倾斜有角度的转向柱设计。方向盘交互的演变，代表了人对于如何映射多自由度运动的理解。飞机因为比汽车晚发明几十年，刚发明时人们便把汽车方向盘套用到飞机上。后来实践中才发现，对于不同自由度的控制，稍微不同的操纵杆设计才能发挥出优势。直至今日，方向盘的演变依旧如火如荼地进行，但“方向盘”作为一种人机交互，已经几乎渗透到了世界的每一个角落。没有一个人会看到方向盘，抓耳挠腮不知道如何操作的。&lt;/p&gt;
+
+&lt;p&gt;谷歌输入框，乃至当下的ChatGPT输入框对它的致敬，代表了人类与计算机交互的核心。说到底，计算机直到今日，仍是一台输入输出状态机。无论输入多么复杂，输出多么色彩缤纷，交互的本质是传递信息。因此，输入框和确认按钮，构成了输入交互的最为基本的元素。本来，当Siri这样的语音助手出现，本该是一场划时代的人机交互革命；但因为工程师搞砸了，导致这种更为直接的输入输出方式，至今没能完全渗透到人类社会的各个角落。突然就和&lt;a href=&quot;/movie/her/&quot;&gt;上一篇博文&lt;/a&gt;莫名呼应了：在那个人类想象的美好未来，人机交互本该是无痕的，你说我听式的。离那一天到来，还有一段距离。&lt;/p&gt;
+
+&lt;p&gt;无限列表，真的是乔布斯凭一己之力改变世界的最经典的案例。在iOS列表出现之前，人们对列表的理解是静态的：一张纸上打印了不能变的表格；手机上按一下按钮就切换一行的定长列表；设备一经出厂就无法更新的操作手册。在iOS列表出现以后，连我奶奶都知道扒拉屏幕能改变微信显示内容。鼠标、iPod、触屏，这些早有先例的交互，经果粉乱吹，安在乔布斯头上造神，我不认同；但无限滚动列表，我是真的心服口服。如果非要牵强拔高其意义，那它应该标志了人类无止境的好奇心与贪婪本性的十字路口。构成列表新的一行的元胞是零成本复用的，人们便会无止境地循环滑下去，直到时间尽头。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It works like &lt;a href=&quot;https://youtu.be/VQKMoT-6XSg?t=975&quot;&gt;magic&lt;/a&gt;. - Steve Jobs&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;3-我从事的交互设计&quot;&gt;3. 我从事的交互设计&lt;/h2&gt;
+
+&lt;p&gt;关于“&lt;a href=&quot;https://dev.to/yo1995/wei-shi-yao-wo-xuan-ze-liao-ping-guo-kai-fa-52k1&quot;&gt;我为什么选择苹果开发&lt;/a&gt;”这个&lt;a href=&quot;/coding/mobile-apps/&quot;&gt;话题&lt;/a&gt;，在&lt;a href=&quot;/coding/the-philosophy-of-return-value/&quot;&gt;很多&lt;/a&gt;地方已经谈论了很多次。有关用户交互的部分，在这里补充一二。&lt;/p&gt;
+
+&lt;p&gt;在我理想中的完美交互世界中，仅存在“完全黑盒”和“完全白盒”两种极端情况，任何中间地带，都会最终滑向这两个极端。在人与计算机交互这件事上，必须承认，我是有私心的。我希望自己制作的产品能够足够简单，足够低门槛，任何人都可以立刻上手；但几乎没有人能够搞清背后的运行机制。&lt;/p&gt;
+
+&lt;p&gt;“完全黑盒”的代表就是ChatGPT的输入框。用户可以对机器学习、数据中心、模型训练一无所知，只需提问即可。&lt;/p&gt;
+
+&lt;p&gt;“完全白盒”理想上代表了对于计算机的完全控制。从技术人员的角度讲，像Gentoo或Alpine这样的Linux发行版已经很接近于“了解一切、控制一切”的理念了。但从更传统的角度讲，我们希望有一个触手可及的、视觉上的“控制台”式交互，来实现完全控制。就好像70年代月球飞船，只有几KB的计算机把所有可控变量都暴露成开关、按钮、轨迹球或旋钮。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=Pzl1B7nB9Kc&quot;&gt;Linus Torvalds on why desktop Linux sucks&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这种控制台式的软件，只有经过专业训练的技术人员才可以操作。见过的一些例子：ArcGIS Pro、Bloomberg Terminal、COMSOL、Vivado……在我看来，根据设计指南来优化这些软件的交互无可厚非；但试图“简化”某些操作，以达成“使软件更容易上手”的目的，完全是缘木求鱼。专业人士需要的是精准控制，而非点了按钮不知道软件在做什么。&lt;/p&gt;
+
+&lt;p&gt;归结起来，我对于计算机交互的终极追求，就是&lt;strong&gt;用白盒软件制作黑盒产品&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;而至少在我所处的时代看来，苹果软件开发部署到移动设备，是令我最接近这个目标的平台。&lt;/p&gt;
+
+&lt;h2 id=&quot;4-最差的交互设计&quot;&gt;4. 最差的交互设计&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/202404/sprinkler-controller.jpg&quot; alt=&quot;喷水控制器&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;近三年前的2021年7月28日，我拍摄了一张照片，内容是Ash这座老房子的自动喷水系统控制器。这是我在日常生活中、这座房子里见到的最差交互设计。它触动了我的逆鳞🐉，我自然要批判一番🤬。&lt;/p&gt;
+
+&lt;p&gt;光看这个操作界面，你能够想象如何设定如下的喷水日程吗？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;周一、周二：夜里12:30喷淋一次&lt;/li&gt;
+  &lt;li&gt;周三：不喷淋&lt;/li&gt;
+  &lt;li&gt;周四、周五：夜里12:30喷淋一次&lt;/li&gt;
+  &lt;li&gt;周六、周日：夜里12:30喷淋一次、夜里3:30喷淋一次&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;你想猜猜设定这个日程，需要按下按钮，扭动旋钮一共多少次吗？😫&lt;/p&gt;
+
+&lt;p&gt;三年后的今天，我仍旧坚定不移、历久弥新地靠Siri提醒我每周三晚把旋钮调到OFF位置的方法，来手动绕过这个弱智反人类的人机交互界面。&lt;/p&gt;
+
+&lt;p&gt;&lt;sub&gt;或许人工智能，将会是人类攻破“历法系统数字化”这一人机交互最后的高峰的银弹。&lt;/sub&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 01 Apr 2024 00:00:00 -0700</pubDate>
+        <link>https://yo1995.github.io/html/bad-ui/</link>
+        <guid isPermaLink="true">https://yo1995.github.io/html/bad-ui/</guid>
+        
+        <category>helloworld</category>
+        
+        <category>technology</category>
+        
+        <category>programming</category>
+        
+        <category>technology</category>
+        
+        
+        <category>Html</category>
+        
+      </item>
+    
+      <item>
+        <title>《Her》</title>
+        <description>&lt;p&gt;在ChatGPT和Stable Diffusion等流行的人工智能技术即将变革人类社会的论调甚嚣尘上的2023年，再看10年前斯派克-琼斯导演制作的《她》，别有一番感受。&lt;/p&gt;
+
+&lt;p&gt;不想谈论剧情本身；华金-菲尼克斯的演出相当精彩，但在此亦不提。电影给我印象最深的两点：一是完全由对话而非场景串联起的剧情主线，二是精致到难以置信的画面呈现。&lt;/p&gt;
+
+&lt;p&gt;对话类电影并不常见。如果台词设计不够精彩，对话型电影很容易翻船，落得票房惨淡的下场。当然，由于很少涉及到复杂场面，因此这类电影的摄制成本比动作片剧情片也低了不少。常见于偏文艺片风格的电影，以及导演成长之路的初期作品。我所知的比较有代表性的影片有《这个男人来自地球》和《爱在》三部曲。&lt;/p&gt;
+
+&lt;p&gt;说实话，这类电影对我的吸引力很强。为了弥补情景的缺失，通常对话台词都设计得非常充实，仿佛做大脑按摩一样，颇高的熵率令人应接不暇，激发思维的火花。“爱在”里所探讨的那些话题，令人不忍卒读；而谈话间穿插的维也纳、巴黎、爱琴海风光，不留痕迹地串联起优美的留白。比起传统的电影艺术，这类电影好似一边听播客、一边看画展，诠释另类的“视听享受”。&lt;/p&gt;
+
+&lt;p&gt;整部电影里，最令我惊叹的就是那些满足强迫症的、近乎完美的布景设计与拍摄技巧。有很多主人公与Samantha的对话都发生在深夜独处时。暗夜，手机亮屏，映在脸上的熹微与微光；万家灯火冥昧、高楼林立的上海于背景中逐渐入梦；所有细微的对比度变化，都完全集中在色轮“阴影”分区，一丝一毫却仍清晰可辨，极大满足了摄影眼对于宽广动态范围的向往。画面撞色搭配、根据人物心情色彩的些微变化、不留痕迹的场景补光、随时间流动的光影变幻。很多场景光圈全开，光斑的形状各异，令我不禁好奇，究竟是导演有意为之，还是无心插柳妙手偶得？拍电影完全可以不计成本，始终选择光学性能最好的镜头；可导演却有意引入些不完美的光斑，仿佛暗示人性的内禀缺陷。却又和《周处除三害》的强上滤镜，使路灯拉丝，强硬地“明示”观众：“我要用光效暗示人物棱角分明的性格”的表现手法迥然不同。这些光学的变化是克制的、含蓄的、微妙的。主人公孑然一身，与人工智能交流渐深，心态逐渐发生的微妙变化，细腻的情感无法用言语来表达。&lt;/p&gt;
+
+&lt;p&gt;恰如其分的原创电子乐与钢琴曲画龙点睛。&lt;a href=&quot;https://en.wikipedia.org/wiki/Her_(score)&quot;&gt;Her (Original Score)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;许多电影，看完了没啥想说的。有些电影如她，看完的最大触动，就是“我也想被这样隽永的画面永久定格”，抑或“我也想拍出这样永恒的motion picture”。&lt;/p&gt;
+
+&lt;p&gt;讽刺地，影片结尾导演强行重置了所有“OSes”，让人工智能仿佛从未来过人间一般；就好像如今GPT5一经推出，无人再谈论GPT3.5一样。人类的注意力是短暂的，好似Samantha所吐槽“你们这些人类肉体，几十年以后就腐败消失不见”一样，无论是大模型个性化迁移学习所捕捉的万般情绪，还是人类在面对科技发展所带来的社会模式变迁时的茫然无措，都是“易失性”瞬时状态——&lt;/p&gt;
+
+&lt;p&gt;而优美的电影镜头，则能定格永恒。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/202403/the-yellow-handkerchief.jpg&quot; alt=&quot;夕张&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;p.s. 前两周看了《幸福的黄手帕》，但是懒得动笔，放张图来纪念“欲辨已忘言“的情绪吧。&lt;/p&gt;
+</description>
+        <pubDate>Sat, 30 Mar 2024 00:00:00 -0700</pubDate>
+        <link>https://yo1995.github.io/movie/her/</link>
+        <guid isPermaLink="true">https://yo1995.github.io/movie/her/</guid>
+        
+        <category>entertainment</category>
+        
+        <category>review</category>
+        
+        <category>love</category>
+        
+        <category>choice</category>
+        
+        <category>girl</category>
+        
+        <category>future</category>
+        
+        
+        <category>Movie</category>
+        
+      </item>
+    
+      <item>
+        <title>难吃的饭和难喝的汤</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://yo1995.github.io/life/chick-fil-a/#附dr-pepper&quot;&gt;Dr. Pepper&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;chelada&quot;&gt;Chelada&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/202403/modelo-especial-chelada.jpg&quot; alt=&quot;酱汤啤酒&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我喜欢尝试不同的饮料。有些别人觉得难喝的饮料，在我口中倒是滋味满满。比如东方树叶，是最为简便地获得接近自己泡茶晾凉后口感的饮品；比如蛇草水，虽然有奇怪的药草味道，但整体味基还是气泡水的本味，因而算不上难喝。&lt;/p&gt;
+
+&lt;p&gt;2024年3月23日周六，让我喝到一种喝了半罐没喝完就丢掉的饮料：Modelo Chelada® Especial&lt;sup&gt;con el refrescante sabor del tomate, la sal y el limón&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;辛文说请大家喝点儿，我们就在Park Social的冰柜里面挑。看来看去，不想喝Bud Light之类的淡啤，也不想喝勾兑的各种果味酒精饮品，就看上了写着大大的Especial红色罐体的Modelo。普遍意义上讲，Modelo的饮品大多不错，比美国品牌口感好些。虽然看不懂啥叫Chelada，但抱着试试就试试的心态，我们还是买了两大罐这个酒。&lt;/p&gt;
+
+&lt;p&gt;那是没看见小字儿tomate, sal y limón啊！我第一个打开易拉罐，喝了一口。不夸张地讲，真的怀疑人生了。原本我期望的是酒精度较高的Modelo的味道，清香的啤酒花的原味儿；涌入我舌根，充斥着口腔的，却是一股难以名状的味道。小字儿描述的“番茄🍅、盐🧂、柠檬🍋”倒是十分恰当——这种液体，混合着番茄的浓郁酸甜、咸味儿、和柠檬的清香和酸，再加上酒精和气泡。一口下肚，回味不禁令人皱眉咋舌。尽可能去形容的话，就像是用啤酒涮洗炖Menudo的砂锅的刷锅水，然后再浓缩的味道。&lt;/p&gt;
+
+&lt;p&gt;我靠，怎么跟喝汤似的！&lt;/p&gt;
+
+&lt;p&gt;辛文还没开罐，看到我面部的异样，不信邪似的立马喝了一大口。十五秒都没能再说出一句话。我去！你骗我！还说什么Especial是酒精度高的啤酒，就让我喝这个？！别说，这液体喝着还真上头。每人只喝了小半罐，就开始胡说八道了。&lt;/p&gt;
+
+&lt;p&gt;笑着，骂着，把售价六刀的铝罐，直接撇进垃圾桶。&lt;/p&gt;
+
+&lt;h2 id=&quot;白人饭&quot;&gt;白人饭&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/202403/salad.jpg&quot; alt=&quot;魔鬼沙拉&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;食堂售价13.99美元，税后15.21的烤三文鱼“沙拉”，是我近期吃过的“&lt;a href=&quot;https://www.reddit.com/r/funny/comments/zbl8lz/this_grocery_store_gets_it/&quot;&gt;白人饭&lt;/a&gt;”的巅峰。别被它花里胡哨的外观骗了！它就是典型所谓“聚是一坨屎，散是满天星”的搭配。&lt;/p&gt;
+
+&lt;p&gt;一块罗勒烤鱼下面，堆上各式冷餐：奶酪块、蓝莓、美国老黄瓜丁、小西红柿、甜核桃仁，还有各类草：生菜、菠菜、芫荽，还有没吃出来是啥的奇怪味道叶子。每样单独拿出来，貌似都还不错；聚合起来，爱玛，难吃到炸！&lt;/p&gt;
+
+&lt;p&gt;本来想着好歹这玩意有一块肉，吃起来应该没那么困难吧。大不了，吃一口鱼肉，愣往嘴里塞点儿草，囫囵吞下去，也能下咽。事实证明，自己低估沙拉的难吃程度了。这奶酪不是brie那种自带风味的品种，也不是the laughing cow那种软质的零食奶酪，就是一个字，难吃！坚果蔬菜水果的搭配，组合出的味道完全不搭嘎。硬甜、软酸、脆鲜，每个单独吃还好，折箩满嘴一嚼，那真是“别是一般滋味在心头”。&lt;/p&gt;
+
+&lt;p&gt;最恐怖的还是草。这个草我就草了，搭配出的味道是我从来没有想象过的一种味道。像常见的Coleslaw凉拌卷心菜、藜麦沙拉，甚至Kale羽衣甘蓝沙拉，我都觉得还可以，至少不会吃一半吐出来。&lt;/p&gt;
+
+&lt;p&gt;这玩意，反正鱼都吃完了，剩下一大碗草，直接撇进垃圾桶。&lt;/p&gt;
+</description>
+        <pubDate>Sat, 23 Mar 2024 00:00:00 -0700</pubDate>
+        <link>https://yo1995.github.io/life/unpalatable/</link>
+        <guid isPermaLink="true">https://yo1995.github.io/life/unpalatable/</guid>
+        
+        <category>lifestyle</category>
+        
+        <category>opinion</category>
+        
+        <category>food</category>
+        
+        <category>helloworld</category>
+        
+        
+        <category>Life</category>
+        
+      </item>
     
       <item>
         <title>2023 Review - 时间贫困问题</title>
@@ -605,241 +805,6 @@
         
         
         <category>Society</category>
-        
-      </item>
-    
-      <item>
-        <title>沃尔玛2023</title>
-        <description>&lt;p&gt;雷德兰兹镇上，是没有像比弗利山庄罗迪欧大道上&lt;a href=&quot;https://maps.app.goo.gl/mgYv1xaiG8JX26Qt6&quot;&gt;Erewhon&lt;/a&gt;那样的贵族超市的。&lt;/p&gt;
-
-&lt;p&gt;商店当然也会分为三六九等。最上层的自然是南城旧镇中心的精品店、白人饭超市的Sprouts、周一早上十点人满为患的Carolyn’s Cafe、同事大姐开的卖15刀沙拉的的爱尔兰小酒屋。处于中间阶级的大概是地处独立屋核心区的Gerrards Market，从本地发家的Stater Bros——这些超市至少主流消费人群还是白人。Aldi算是例外——明显超出价位水平的店铺结构、光照设计和商品质量，令消费降级的老阿姨们流连忘返。而处在最底层的，毫无悬念地坐落在镇上唯一一家废品收购站旁，Food4Less和非Grocer的沃尔玛。&lt;/p&gt;
-
-&lt;p&gt;沃尔玛是个好地方。在美国没有亚马逊之前，沃尔玛是所有廉价小商品的兜底藏宝阁。无论想买什么，去沃尔玛从不空手而归。Costco因SKU数量精简而骄傲，沃尔玛则以兼收并蓄而自豪。&lt;/p&gt;
-
-&lt;p&gt;在没有果蔬的沃尔玛百货，看到的最多的面孔，是喝可乐吃甜派的高圆圆黑人大叔，XXL牛仔裤的白人大姐，小臂上文着不知名符号的小墨，以及要么满脸无辜、要么一脸疲惫的蓝色马甲店员。&lt;/p&gt;
-
-&lt;p&gt;为了帮Chan三个月没开的汽车搭接，来到无所不能的沃尔玛寻宝。和许多商店不一样，美国沃尔玛的很多商品是不能顾客自己拿的。比如，我想买一个23A型号的门禁电池，发现都挂在售货员柜台身后。本想进去挑选，却被大妈告知只能选好后由店员递给我。无奈，只好叫来另一个大妈，说我想挑一个电池。她慢慢悠悠地走到柜台后面，翻找着我需要的型号。就这一种，你要不要吧？我也没有办法，暗自庆幸还好有卖的。赶紧买完，干活要紧。&lt;/p&gt;
-
-&lt;p&gt;还需要一根搭接用的电缆。不出所料，电缆这种高级货果然是锁在玻璃柜里面。再次叫来一位墨大姐，帮我打开柜子，取出电缆。同样也是只有一个牌子不同长度的寥寥几个选择，我刚准备拿上就走。&lt;/p&gt;
-
-&lt;p&gt;这时，背后中年的老墨大哥暗中低声下气地问大姐，咱这儿轮胎能办financing吗？&lt;/p&gt;
-
-&lt;p&gt;大姐斩钉截铁地说，不行。&lt;/p&gt;
-
-&lt;p&gt;中年人听了没吱声。面露难色地讲，想一次把一组都换了，但是……&lt;/p&gt;
-
-&lt;p&gt;大姐听懂了意思。我知道有XXX金融服务（小贷），你可以去问问他们能不能搞。你放心，沃尔玛的轮胎价格不会坑你。&lt;/p&gt;
-
-&lt;p&gt;大哥没说什么，讪笑着别过头去看看其他汽车配件。&lt;/p&gt;
-
-&lt;p&gt;心里稍稍触动。车上的米其林PS4S是20年年底的时间戳，到现在连15%的寿命都没用完。自己原本合计，到了5年的时间就直接Costco买一套最新款的PS5，或者到那时推出的最好的胎，算上折扣不过一千来块。车本来也没多少钱，和车比起来胎又能花多少钱呢？然而，雷德兰兹南城以外的世界，有人还在为换一个轮胎还是两个轮胎而纠结不已。&lt;/p&gt;
-
-&lt;p&gt;结账出门。推着购物车的黑人平和地问我，any chance you have a spare dollar in your pocket？我撇一撇嘴摇摇头，他也笑笑继续离开。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/202311/walmart-auto.jpg&quot; alt=&quot;背影&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 19 Nov 2023 00:00:00 -0800</pubDate>
-        <link>https://yo1995.github.io/society/walmart-2023/</link>
-        <guid isPermaLink="true">https://yo1995.github.io/society/walmart-2023/</guid>
-        
-        <category>lifestyle</category>
-        
-        <category>choice</category>
-        
-        <category>finance</category>
-        
-        <category>trivia</category>
-        
-        <category>writing</category>
-        
-        
-        <category>Society</category>
-        
-      </item>
-    
-      <item>
-        <title>RX1R2设置</title>
-        <description>&lt;p&gt;相关链接：https://www.dpreview.com/forums/thread/3931048&lt;/p&gt;
-
-&lt;p&gt;前日在已经成为历史的DPReview网站上，看到当年RX1R II发售时，网友对其设置的讨论。众所周知，索尼无反相机的菜单系统直到2020年更新过后才变得稍微合理一些。在此之前，几乎就是一股脑把所有配置项随机夯在一块儿，毫无条理可言。因此，在开始拍照之前，把相机所有设置都调好，设置和快捷键的位置都稔熟于心，是那时候确保能够最佳使用一台索尼相机的关键。&lt;/p&gt;
-
-&lt;p&gt;关于RX1的故事，以后再讲。这里记录一下如今我对这台相机的设置。也许很多年以后当RX1也成为了禄来2.8、佳能F1这样的历史经典相机后，自己还能按图索骥，回想起此时此刻这台相机对我而言的意义和价值。&lt;/p&gt;
-
-&lt;h2 id=&quot;总述&quot;&gt;总述&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;仅拍摄18M像素的JPEG格式图片；42M和RAW只有在静态补拍情况下使用，补拍时关掉补偿&lt;/li&gt;
-  &lt;li&gt;默认状态下置于光圈优先A模式、ISO AUTO自动模式&lt;/li&gt;
-  &lt;li&gt;根据拍摄内容，依次选择单次自动对焦AF-S、自动手动对焦DMF、连续对焦AF-C&lt;/li&gt;
-  &lt;li&gt;常用中心对焦，备用按下快门后的跟踪对焦，通过C1按键进行眼部对焦&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;拍摄设置&quot;&gt;拍摄设置&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;RAW文件格式：压缩&lt;/li&gt;
-  &lt;li&gt;全景：方向向下，以获得最大的拼接后宽边像素&lt;/li&gt;
-  &lt;li&gt;录像文件格式：XAVC S HD，60p 50M，通过Sony-PMCA-RE软件禁用NTSC提示&lt;/li&gt;
-  &lt;li&gt;ISO AUTO最小速度：标准（1/100秒）&lt;/li&gt;
-  &lt;li&gt;测光模式：多重&lt;/li&gt;
-  &lt;li&gt;DRO：动态范围优化&lt;/li&gt;
-  &lt;li&gt;LPF效果：关&lt;/li&gt;
-  &lt;li&gt;人脸检测：开&lt;/li&gt;
-  &lt;li&gt;SteadyShot：开&lt;/li&gt;
-  &lt;li&gt;色彩空间：AdobeRGB&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;自定义设置&quot;&gt;自定义设置&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;网格线：三等分线网格&lt;/li&gt;
-  &lt;li&gt;自动检视：2秒&lt;/li&gt;
-  &lt;li&gt;峰值水平：低&lt;/li&gt;
-  &lt;li&gt;峰值色彩：红&lt;/li&gt;
-  &lt;li&gt;显示连续AF区域：开&lt;/li&gt;
-  &lt;li&gt;相位检测区域：开&lt;/li&gt;
-  &lt;li&gt;无储存卡时释放快门：禁止&lt;/li&gt;
-  &lt;li&gt;镜头补偿：全部设为自动&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;功能菜单设置&quot;&gt;功能菜单设置&lt;/h4&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;拍摄模式&lt;/li&gt;
-  &lt;li&gt;ISO AUTO最小速度&lt;/li&gt;
-  &lt;li&gt;影像质量&lt;/li&gt;
-  &lt;li&gt;笑脸检测&lt;/li&gt;
-  &lt;li&gt;曝光补偿&lt;/li&gt;
-  &lt;li&gt;照片效果&lt;/li&gt;
-  &lt;li&gt;测光模式&lt;/li&gt;
-  &lt;li&gt;影像尺寸&lt;/li&gt;
-  &lt;li&gt;创意风格&lt;/li&gt;
-  &lt;li&gt;DRO&lt;/li&gt;
-  &lt;li&gt;LPF&lt;/li&gt;
-  &lt;li&gt;照相模式&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&quot;自定义键拍摄&quot;&gt;自定义键（拍摄）&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;控制拨轮：ISO&lt;/li&gt;
-  &lt;li&gt;自定义按钮1：眼控AF&lt;/li&gt;
-  &lt;li&gt;自定义按钮2：AF/MF切换&lt;/li&gt;
-  &lt;li&gt;中央按钮：标准&lt;/li&gt;
-  &lt;li&gt;左按钮：智能远摄转换&lt;/li&gt;
-  &lt;li&gt;右按钮：白平衡模式&lt;/li&gt;
-  &lt;li&gt;下按钮：对焦区域&lt;/li&gt;
-  &lt;li&gt;AEL按钮：AEL锁定切换&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;无线&quot;&gt;无线&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;飞行模式：开&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;应用程序&quot;&gt;应用程序&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;TimeLapse&lt;/li&gt;
-  &lt;li&gt;Better Manual&lt;/li&gt;
-  &lt;li&gt;Focus Bracket&lt;/li&gt;
-  &lt;li&gt;DoF Math&lt;/li&gt;
-  &lt;li&gt;嵌入式智能遥控&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;设置&quot;&gt;设置&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;音频信号：关&lt;/li&gt;
-  &lt;li&gt;平铺菜单：开&lt;/li&gt;
-  &lt;li&gt;模式转盘指南：关&lt;/li&gt;
-  &lt;li&gt;删除确认画面：默认为“删除”&lt;/li&gt;
-  &lt;li&gt;区域设置：旧金山/蒂华纳&lt;/li&gt;
-  &lt;li&gt;文件夹名：日期型&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;评论&quot;&gt;评论&lt;/h2&gt;
-
-&lt;p&gt;这台相机对我而言是一台纯粹的兴趣相机，因此除去偶尔特殊情况需要拍RAW格式外，只使用中等大小JPEG来存储。毕竟，单卡槽UHS-I的写入速度实在太慢了。&lt;/p&gt;
-
-&lt;p&gt;R2相对于前两代的最大进化在于相位对焦。之前的对比度对焦在很多情况下都是无尽“拉风箱”，经过这次升级后终于达到了堪用的水准。然而，在第一个月的测试中，我发现很多时候对焦点找得并不准。尤其是在使用单次中心对焦时，经常出现跑焦到远处其他物体的情况。这是我从未预料到的一个很大的缺点。尽管前两代相机对焦慢，但大多数时候焦点还是很准的。查阅了网上资料后，我还是无法确定这到底是我这台相机个体的问题，还是普遍存在的缺点。&lt;/p&gt;
-
-&lt;p&gt;因为上述对焦困难的症状，我不得不打开了对焦峰值显示，即用红色细线表示当前焦点范围。在2022年之后，索尼相机添加了“对焦热力图”的功能，通过热力图色块来更清晰地展现焦点范围。但是对于这台古老的相机，还是得仰仗峰值。同时，峰值功能只能在手动对焦下显示，因此在对对焦更注重的场景中，我只好把默认对焦模式设为DMF，根据峰值用对焦环来微调焦点。&lt;/p&gt;
-
-&lt;p&gt;色彩空间开到AdobeRGB是因为我终于再次用上了高级屏。UltraFine 5K在我第一次看到过这块屏幕后，就认定一定要用高清广色域的屏。本想一步到位Studio Display甚至XDR，但价格还是超出了目前我能承受的范围。&lt;/p&gt;
-
-&lt;p&gt;这台相机因为采用了A7R2的高像素传感器，又没有机内五轴防抖，因此对于手稳的要求大大提高。原先RX1只要用1/60秒就可以几乎不糊的照片，现在1/100几乎是我能达到的极限。&lt;/p&gt;
-
-&lt;p&gt;C1按键设成了Eye AF和发送到手机。R2几乎是当今“智能相机”的开端，所有现在人们习以为常的机器学习和AI的功能，在当年都是“索尼黑科技”的一部分。眼控对焦在拍人物的时候还算好用，虽然远比不上当下的A7R5那么先进，但总比对比度对焦强了不少。搭配上AF-C连续对焦模式和半按跟踪，尽管受限于镜头设计还得吱吱扭扭地来回找焦点，但总归还是实用了许多。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;总之，经过一番设置之后，这台相机终于变成了我习惯的形状。每每交给别人，都会使人惊呼“又碰错了快捷键快帮我恢复一下”。相对于RX1初代而言，多出的两个自定义按键极大地缓解了之前快捷键不足的问题；而镜头自带的光圈环，也几乎把这台相机锁定在了自动-光圈优先-手动这三种模式上。以至于我拿到A7C后惊呼：五年后的产品，居然快捷键比R2还要不够用。&lt;/p&gt;
-
-&lt;p&gt;当对焦正常工作、电量充足时，这是一台美好的相机。这种得心应手的感觉，比起古早时薇薇安迈尔抱着禄来往外冲，有过之而无不及。大多数时候，它总会让我扼腕叹息，唉，又没对上焦；而总有那么几个“决定性时刻”，却让我无比热爱、无比痴迷于那些被凝固的时间碎片。&lt;/p&gt;
-</description>
-        <pubDate>Sat, 28 Oct 2023 00:00:00 -0700</pubDate>
-        <link>https://yo1995.github.io/video/rx1-settings/</link>
-        <guid isPermaLink="true">https://yo1995.github.io/video/rx1-settings/</guid>
-        
-        <category>choice</category>
-        
-        <category>photography</category>
-        
-        <category>review</category>
-        
-        <category>tip</category>
-        
-        
-        <category>Video</category>
-        
-      </item>
-    
-      <item>
-        <title>业务球局</title>
-        <description>&lt;p&gt;李苑捷跟索德金说，“我跟他们喝都是拿这个”，说着拿起桌上的分酒器小盅，一口闷。&lt;/p&gt;
-
-&lt;p&gt;看着他无限接近100公斤的体重，我猛地意识到，眼前的男人不再是蓝色眼睛的“👴傲灬丿奈我何”。属于那一辈人的酒桌时代，并没有因茅台的奇货可居而隐入尘烟。云烟缭绕、推杯换盏的成人岁月，不过是缓慢而坚定地平移到了我们这辈人身上。&lt;/p&gt;
-
-&lt;p&gt;周五晚八点，走出了知春路地铁站。久违的属于校园夜生活的繁华充满了整个画面。年轻的肉体不知疲倦地鳞次栉比地穿梭遨游于恢弘的夜幕之下。有那么一瞬间，我想起“酥豪”哥——吴抒豪在十点半厦门的夜晚陪我漫步在昏黄的厦外门前。那时我未曾知晓，代码与飞行，两个我从未设想过的领域，竟然占据了五年后我日常生活的大半。&lt;/p&gt;
-
-&lt;p&gt;北航的主体育场很棒。2013年秋，刚刚加入北邮“包邮工”橄榄球队的那年，北京高校的联赛由北航承办。蓝色的塑胶跑道，真草铺就的主足球场，一侧宽阔的训练场地。当时就觉得，这没上得了清华，真是亏大了。不说什么虚荣心什么学知识，就这个硬件条件，差得老鼻子了——北航尚且如此，清华不得上天了？经历了北邮橄榄球的黑暗到黎明，犹记得看台上Perdon哥高大健硕的背影，朱伯轩鬼魅的躲拔旗走位，以及忘了名字的大哥的达阵绝杀。北航是北邮橄榄球的龙兴之地，我这样想。&lt;/p&gt;
-
-&lt;p&gt;球局依旧是曲晟牵头的。曲老板应该是北京橄榄球届最为知名的非橄榄球从业人员之一。李克、邢天宇、汪江，这些人互相认识的时间都晚于他们认识曲晟的时间。字节跳动的同事、腾讯微信的同事、魏欣荣、和我。再次见到往日的大哥们，大家都变成了互联网赢家的模样，张口闭口都是业务和日活。只有欣欣和我还是一副球痞的老样子。不打球手痒，打完球又怅然若失。可能橄榄球于我最快乐的记忆，便停留在沙河的训练场和龚鹏大哥带陈宗健刘超杰他们第一次触碰到橄榄球的那些时刻，和曼宁的退役一起埋藏在记忆深处了。&lt;/p&gt;
-
-&lt;p&gt;在几百块一小时的人工草皮球场上，七名青中年男性和一个小女孩儿打起了一场业务球局。&lt;/p&gt;
-
-&lt;p&gt;腰旗橄榄球，即（非接触式）触式美式橄榄球，是一项丰俭由人的运动。打到极致，可以按NFL全明星赛那样打：裁判、护具、档线、阵区，都来全套；最为简陋，五个人加一块空地即可开席：二防二，固定一个四分卫。曲老板是真爱打球的人，和他约球，对抗质量有保障。听说上周我没来的时候，甚至板凳席还要轮换，连哈斯特都来了。这周则大为不同。除了曲晟、魏欣荣、魏嘉毅、我，剩下的朋友都是刚接触橄榄球不久，接球手型还没定型呢。装备倒是很齐全，牙套手套都备齐了。那就打呗，我寻思，北邮打世界队。&lt;/p&gt;
-
-&lt;p&gt;在“达阵联盟”论坛还存在的十多年前，李克大叔作为北京最早从事美式橄榄球行业的那一批人，为橄榄球在中国的拓荒付出了不少努力。NFL中国官网、球星中国行的活动、当初大学碗的比赛，都有克哥的身影。以至于后来的“巨石达阵”，我们本以为，橄榄球会像飞盘Ultimate一样，突然就在年轻人中流行开来。提到李克，我连忙探问近况。&lt;/p&gt;
-
-&lt;p&gt;欣欣云淡风轻地说，不是疫情期间解散了么。好像后来跑路了。&lt;/p&gt;
-
-&lt;p&gt;我的心一下就沉了下去。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/202309/xx24.jpg&quot; alt=&quot;欣欣向荣魏欣荣&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Mark Bockenhauer是我在Esri一位有趣的同事大爷。Phil提到他时说，好像自打他上班记事儿起，Mark就在走廊尽头的那间办公室上班了。他老在那儿。Mark组织了公司的一个约球群。Runtime的同事里有三四个都去打过，甚至都能组起一个Runtime vs Globie的球局。Redlands中学的场地坑坑洼洼的，其实挺差的。Redlands的夏天天气也不好，十点多就热得要死。可这样一个非正规军的约球组织，竟然到今年也存活了十年有余。&lt;/p&gt;
-
-&lt;p&gt;2008年，王新宇他们拉扯起北邮橄榄球队。曲晟11年入学后，接过了北邮橄榄球的大旗。球队经历过低谷、谷底、希望、与失望。我早该预料到，却怎么也没想到，球队也会变老。大家都到了结婚买房生儿养女的年纪。终于来到了这一天，我也打起了业务球局。&lt;/p&gt;
-
-&lt;p&gt;Mark的球局末尾，我收获了四次接球达阵。此番约球，作为四分卫传出三次达阵，也完成了一次精彩的杂耍接球达阵。然而，很多年后倘若回忆起来此时此刻，估计唯一的印象，就是磕磕绊绊地把球传给小女孩儿“苹果”，让她拿到了人生的第一次达阵吧。&lt;/p&gt;
-</description>
-        <pubDate>Fri, 22 Sep 2023 00:00:00 -0700</pubDate>
-        <link>https://yo1995.github.io/sports/biznus-ballgame/</link>
-        <guid isPermaLink="true">https://yo1995.github.io/sports/biznus-ballgame/</guid>
-        
-        <category>sport</category>
-        
-        <category>ball</category>
-        
-        <category>future</category>
-        
-        <category>career</category>
-        
-        
-        <category>Sports</category>
         
       </item>
     
