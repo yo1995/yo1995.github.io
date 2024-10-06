@@ -76,6 +76,7 @@ When updating, bundle update [pack name]
 
 ## Changelog
 
+- 241006: toc: true -> toc on; clean up all tag delimiters
 - 241002: Fixed the post author blog layout downcase href issue
 - 240108: Change all filename to lowercase - some comments and PV will be lost
 - 230808: Disallow GPTBot
