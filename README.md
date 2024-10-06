@@ -77,6 +77,21 @@ When updating, bundle update [pack name]
 ## Changelog
 
 - 241006: hide search bar in the side bar for tags, categories and timeline
+
+```html
+<aside class="widget-wrap widget-search">
+    <h4 class="widget-title">
+        <span>Looking around?</span>
+    </h4>
+    {% include jekyll-search.html %}
+    <div onclick="keyinsearch()" class="search-form" id="search-container">
+        <input type="text" id="search-input" placeholder="search...">
+        <i class="fa fa-search"></i>
+        <ul id="results-container" style="list-style:square"></ul>
+    </div>
+</aside>
+```
+
 - 241006: toc: true -> toc on; clean up all tag delimiters
 - 241002: Fixed the post author blog layout downcase href issue
 - 240108: Change all filename to lowercase - some comments and PV will be lost
