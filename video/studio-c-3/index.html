@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html>
+
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Seeing Matt break character again is absolutely awesome!">
+  <meta name="author" content="Chen Ting">
+  <meta name="keywords" content="">
+  <meta name="theme-color" content="#272727">
+
+  <title>Studio C 十日谈之三</title>
+
+  <link rel="icon" href="/img/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="canonical" href="https://yo1995.github.io/video/studio-c-3/" />
+  <link rel="alternate" type="application/rss+xml" title="Ting's Blog" href="https://yo1995.github.io/feed.xml" />
+  
+  <meta property="og:site_name" content="Ting's Blog" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://yo1995.github.io/video/studio-c-3/" />
+  <meta property="og:title" content="Studio C 十日谈之三" />
+  <meta property="og:description" content="Seeing Matt break character again is absolutely awesome!" />
+  <meta property="og:article:published_time" content="2026-03-01T00:00:00-08:00" />
+  <meta property="og:article:author" content="Chen Ting" />
+
+  <meta property="og:image" content="/images/202603/matt-cannot-hold-his-laugh.jpg" />
+  
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <!-- PLUGINS -->
+  <link rel="stylesheet" href="/assets/css/vlthemes.css">
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">	
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  
+  
+  
+
+</head>
+
+
+  <body>
+
+		<!-- FRAMES -->
+		<span class="frame-line top-frame"></span>
+		<span class="frame-line right-frame"></span>
+		<span class="frame-line bottom-frame"></span>
+		<span class="frame-line left-frame"></span>
+
+    <div class="animsition">
+      <div class="content">
+
+        
+<!-- header-fixed / header-scroll-up  -->
+<div class="scroll-indicator fixedheader" style="width"></div>
+<header class="header-wrap header-fixed minimal-menu">
+    <div class="header-inner">
+        <div class="container">
+			
+            <div class="logo">
+                <a href="/blog/" class="animsition-link">Tin<span>g</span>'s Blog</a>
+            </div>
+			
+
+            <a href="#" class="menu-toggle desctop-menu">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <a href="#" class="menu-toggle mobile-menu-toggle">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <nav class="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="/" class="animsition-link">
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item-has-children" class="current-menu-item">
+                        <a href="">
+                            <span>Blog</span>
+                        </a>
+						    <ul class="sub-menu">
+								<li>
+									<a href="/blog/" class="animsition-link">
+										<span>Index</span>
+									</a>
+								</li>
+								<li>
+									<a href="/posts/" class="animsition-link">
+										<span>Archives</span>
+									</a>
+								</li>
+								<li>
+									<a href="/categories/" class="animsition-link">
+										<span>Categories</span>
+									</a>
+								</li>
+								<li>
+									<a href="/tags/" class="animsition-link">
+										<span>Tags</span>
+									</a>
+								</li>
+								<li>
+									<a href="/timeline/" class="animsition-link">
+										<span>Timeline</span>
+									</a>
+								</li>								
+								<li>
+									<a href="/cards/" class="animsition-link">
+										<span>Cards</span>
+									</a>
+								</li>
+							</ul>
+                    </li>
+
+                    <li>
+                        <a href="/photos/" class="animsition-link">
+                            <span>Photos</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/about/" class="animsition-link">
+                            <span>About</span>
+                        </a>
+                    </li>
+					
+					  <!--li>
+                        <a href="" class="animsition-link" id="CN">
+                            <span>CN</span>
+                        </a>
+                    </li-->
+                </ul>
+            </nav>
+            <!-- END PRIMARY-MENU -->
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <!-- END HEADER-INNER -->
+</header>
+<!-- END HEADER-WRAP -->
+
+
+        
+
+        <main id="main-content">
+          
+          <div class="single-post-wrap clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 content-fixed">
+
+        <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
+          <div class="post-thumb clearfix">
+            
+            <img src="/images/202603/matt-cannot-hold-his-laugh.jpg" alt="Studio C 十日谈之三">
+            
+          </div>
+          
+          <div class="post-content" itemprop="articleBody">
+            <div class="post-date" datetime="2026-03-01T00:00:00-08:00" itemprop="datePublished">
+              Mar 1, 2026
+            </div>
+            <h1 class="post-title" itemprop="name headline">Studio C 十日谈之三</h1>
+            <div class="content-color">
+            
+            <p>似乎有种冥冥中的力量，驱使我每隔差不多一年，都要痴迷Studio C一段时间。这不，从<a href="/video/studio-c-2/">去年四月份</a>到现在，我有大半年都没有binge-watching Studio C的视频。可最近两天，突然又开始看他们的节目了。</p>
+
+<p>巧的是，二月又去了一趟Provo；新的一季Studio C，也即将开演了。</p>
+
+<p>或许这冥冥中的力量，是他们演出季后逐渐上传视频，与推荐算法加成之下的共同作用吧。</p>
+
+<p>不知道为什么，2025年和2026年写的东西，<a href="/life/life-notes-1111/">考据癖</a>逐渐演变为说明文。或许是这两年感官接受的信息过多，造成大脑缓存溢出，还没来得及处理的许多感受，就被新的体验所覆盖了。造成写的东西东一嘴西一句的，缺乏连贯性。可能需要等到一段时间过后，尘埃落定，像疫情期间那样，囿于书房里，独自坐在墙角的书桌反刍，才能重构这些思维历程吧。</p>
+
+<p>今年动笔的冲动，来自于第21季<a href="https://www.youtube.com/watch?v=D20YMkvkRQ8">「Wedding Sales Pitch Goes Too Far – Studio C」</a>这集表演。这是我在”Bro this is MY LITTLE PONY!”之后，笑得最惨的一次。Studio C创造了无数经典的桥段，小马那集和这集完全排不上号；可由于Matt在这两集里的疯狂笑场，让我每每想起Studio C最欢乐的剧集时，马上都会想起这些爆笑的镜头。而这些狂笑的根基，有太多语境和圈内梗，非得看过大多数Studio C原班人马演出的剧集，才能笑得人仰马翻。</p>
+
+<p><img src="/images/202603/this-is-my-little-pony.jpg" alt="这是我的马！🦄" /></p>
+
+<p>这篇文章最初是想重新评价一下为何Matt是Studio C的灵魂，或者Jericho和Matt之间奇妙的舞台化学反应。但今晚往回翻看第十季到第二十季之间的剧集时，突然产生了一种不着边际的联想：</p>
+
+<blockquote>
+  <p>第10季原班人马离开后，到第200集快闪回归，这之间的Studio C时代，和保时捷996世代有异曲同工之妙</p>
+</blockquote>
+
+<p>Hear me out.</p>
+
+<p>播放量数据而论，无可否认的是，自从Matt和原班人马10人组演员与BYUtv Studio C断崖式分道扬镳，另起炉灶开辟JK Studios!以来，Studio C陷入了“黑暗的中世纪”。以Aaron、Jessica等人领衔的996.1阶段，以及Garet、Tori等人领衔的996.2阶段，尽管节目制作水平依旧，但整体“笑”果相比于之前的经典剧集，显得相当anticlimactic。这种夹在两段高光时期之间的低谷，特别像保时捷911之993世代自吸风冷最后的绝唱，与997重现经典再创辉煌之间，无人问津的996世代。这些剧集既不是Sonny那样”went out with a loud bang”，也不如Michael那样兼收并蓄家族智慧，集大成于一身再创辉煌。Studio C的贫乏年代，就像教父的次子Fredo，脱胎于伟大的灵感，成长在极高的平台；他也能做事，但是结果乏善可陈，弄巧成拙。</p>
+
+<p><img src="/images/202603/studio-c-cast-timeline.webp" alt="剧组名单时间线" /></p>
+
+<p>Matt组建原班人马团队之前，其前身是BYU的Divine Comedy舞台剧社。那时还曾有许多“编外人员”，比如<a href="https://scottsterlingsface.fandom.com/wiki/McKay_Jacobsen">McKay Jacobsen</a>、<a href="https://scottsterlingsface.fandom.com/wiki/Brittni_Miner">Brittni Miner</a>，都是通过DC的试镜选拔脱颖而出的，台风相当不错；以及校内校友名人客串，包括Steve Young和Shawn Bradley等，也能让节目的受众感到relatable。因此，Studio C开机伊始，就已经有了充分的演员经验、深厚的喜剧素材积累，以及较好的观众缘基础。而新剧组接手时，Studio C已经是YouTube上现象级的频道了，很多视频都火到了圈儿外，世界范围都有传播（也是我偶然间迷上Studio C的原因）。</p>
+
+<p>我并不想刻薄地批评“中世纪”演员名单里的各位演员，毕竟他们为了创作演出这些剧集，也付出了许多年的青春岁月。或许如《亨利四世》“欲戴皇冠，必承其重”所言，接手这样一个已经打响的品牌，并尽可能地延续、发扬光大，对于学生出身的演员们来说，不可不谓巨大的挑战。而且，这种“非快消”类、目标是笑点穿越时代的老少咸宜的喜剧，前人把能想的点子都实现了，后人想继续创新、拔高，空间会越来越少。Matt走后的“中世纪”，可以说是大势所趋。</p>
+
+<p>其实在Matt离开之前，从第八季新加入的Tori、Dalton和Aaron身上看，就已经能看出Studio C内部在发生转变的征兆了。十年之后，当年的我是真没预料到Tori和Dalton还能在这个剧组里站稳脚跟。当年Studio C分裂时，reddit上曾经有好事的观众做过演员评分表。Matt和Jeremy自然是在顶端排在S（神）级，而Dalton和Tori不出所料地排在C和D级。人们对Tori的评价是：“不好笑”。</p>
+
+<p>不好笑。</p>
+
+<p>喜剧演员生涯的悼词，不好笑。Sketch Comedy和中国的小品，在表现形式、时间长短、故事架构等等方面都有相似之处。想必我们这代人成长阶段，都体验过被春晚“主旋律”小品所支配的、尴尬到脚趾抠出“三室两厅”的笑不出来的难受感觉。这便是第10季到17季这段Studio C“低光时期”许多段子的阿喀琉斯之踵。</p>
+
+<p>喜剧是一种精妙的平衡。刻意的包袱非常膈应，好像“恐怖谷”曲线上，光辉的黎明前深不见底的黑暗。如果观众察觉出演员抖这个包袱是为了逗你笑，演员在台上察觉出观众察觉出他们的包袱，“第四面墙”就分崩离析了。it’s all about finesse and subtlety, not being pretentious. 很可惜，中世纪的有些剧集，里面藏着这样一种刻意感，就好像很多恐怖片里刻画的那种露全齿的、机械僵硬的假笑一般，让人看了不仅不感到好笑，甚至都感不到无聊，而是让人龇牙咧嘴地感到羞耻。</p>
+
+<p>当然，不能一竿子打死所有剧集。长达七年的时间里，还是有不少值得纪念的高光时刻。让我从脑海里直接想，会回忆起这样一些内容：</p>
+
+<ul>
+  <li>
+    <p>中世纪期间，Studio C的音乐剧水平，相比原剧组，得到了进一步提升。</p>
+  </li>
+  <li>
+    <p>deadpan笑话的表现，得益于好几个演员的个人特质，有些很炸裂的表演。</p>
+  </li>
+  <li>
+    <p>相比于最初Studio C小作坊似的名不见经传的名气，中期他们已经成为了美国不可忽视的一个中型喜剧团体。值得一提的是，2025年末，甚至已经有不少观众已经开始把他们的节目和SNL的喜剧相提并论。假以时日，Studio C写出更好的段子，与美国全国性商业性的大制作喜剧团体分庭抗礼，也不是不可能发生的事情。</p>
+  </li>
+  <li>
+    <p>客串嘉宾逐渐成为常态。得益于节目组名气的增长，来客串的明星咖位越来越大，比起以前偶尔来一集就激动不已，如今出现更频繁。</p>
+  </li>
+  <li>
+    <p>枯木逢春。</p>
+  </li>
+</ul>
+
+<p>受制于BYU本身的宗教性，Studio C每一季都有一定比例的剧集和桥段，需要脱胎于传统宗教场景：婚丧嫁娶、志怪传奇。中期有些剧集，虽然不好笑，但是却为这些已经写烂了的主题提供了新的思路和零散的幽默，从而为新世代传统主题重获新生，爆发出新的笑点提供了养分。就像近两年非常不错的三集有关婚礼的段子：<a href="https://www.youtube.com/watch?v=z8jqmw2i8rc">Jericho和Matt飚绕口令</a>、<a href="https://www.youtube.com/watch?v=4OH4XsaTmaQ">Matt和Kiri阴阳怪气新人</a>、以及上文提到的21季Matt和Tori的讽刺婚礼机构漫天要价，都能在中期剧集中找到某些灵感的来源。如果再做个不恰当的比喻，中世纪剧集演出的很多段子，虽然因为演员和剧本共同作用下不够好笑，但他们的作用就和Divine Comedy最初的试验性喜剧一样，尽管表现形式尚有提升空间，却提供了足够的空间去尝试新的想法。从而，在更高水准的演员再次组队之后，许多很好的点子得以重现天日，用更好的表演得以精彩呈现。</p>
+
+<p>最后，也是很重要的一点：长达7年的磨合，令许多曾经“不好笑”的演员，找准了自己的定位，在新的一季中能够扬长避短，成为“特型演员”，选择更适合自己的角色。</p>
+
+<ul>
+  <li>
+    <p>Tori，最开始的时候有女汉子的气质，中期想温柔没温柔起来，如今在白雪公主和城堡女巫方面大放异彩；</p>
+  </li>
+  <li>
+    <p>Garet，本来是中世纪剧组的指定男主，可竹竿儿细长的体型和不够张力的表现让人看了很尬。如今，他的deadpan与taunting能力，使某些角色出彩（还有装老大爷）；</p>
+  </li>
+  <li>
+    <p>Kiri，台风更适合舞台剧与正剧，但长相又更适合沙发喜剧。如今，她牢牢地把控了“反差”和“惊悚”两大选女主角方向的角色；</p>
+  </li>
+  <li>
+    <p>Dalton，不说了，过去的超重特型锁男，如今的台柱劲曲舞王。</p>
+  </li>
+</ul>
+
+<p><sub>半夜一点三十二了，很想睡觉，但是还没说到今天动笔的冲动。博客又要虎头蛇尾？嗨呀，没法子。</sub></p>
+
+<p>如果要我说Studio C从996转向997的时间，我认为并非Jason或者Mallory的回归，也不是200集原剧组的偶尔客串，而是Jericho Lopez的加入。</p>
+
+<p>说实话，Jericho和Studio C的风格并非完全一致。这个演员的舞台爆发力很强，甚至自己出去做一档节目都没问题。但他是新生代里，唯一能和Matt对戏还不落下风的男人。尽管Garet和Tori名义上还是剧团的男女主，但实际上，Jericho主演的剧集，大多叫好又叫座。相比之下，Kiri也有潜质巩固其新世代女主的地位，但还有一段路要走。</p>
+
+<p>Jericho能做到和Matt、Steven He、Jack McBrayer对戏不落下风甚至出彩，侧面显示了他的实力。有一次我特别惊讶地在一个不记得在哪儿看到的training video里，看到Jericho的表演，才猛地发觉，他应该未来能走向更广阔的舞台。</p>
+
+<p>但最后的一切，Studio C的再次复兴，说到底，还是因为Matt Meese呀。The MAN, the MYTH, the LEGEND! Studio C的诞生，是Matt一手搭建起的一场秀；Matt的归来，令Studio C的笑点重新走上正轨。Matt的表演张力，给新生代的其他演员做了很好的榜样，甚至可以说得上是舞台教学了。</p>
+
+<p>这便是喜剧的魅力，这便是喜剧演员的价值。</p>
+
+<p>有些演员，让人天生看了就想笑，就像Jeremy，什么都不做，站在那里用眼睛看着你，观众都收不住笑，这是老天爷赏饭吃；有些演员，则能用恰如其分的表演，令人会心一笑，Matt属于此类，而且随着年龄的增长，喜剧表演水平日臻醇熟。这是职业演员的看家本领。</p>
+
+<p>说句扎心的，和Matt相比，哪怕爆发力强如Mallory，都属于“不好笑”的演员。而Matt最终和Tori结婚在一起，两人同台演出时，Tori的表现力亦成倍地增加。有Matt在，Studio C的魔力才在。哪怕他像Flirting Academy里一句话都不说，纯默剧表演，也能飙戏斗翻全场一样。</p>
+
+<p>在属于他的舞台上，Matt是永远的主角。</p>
+
+<p><a href="https://youtu.be/I6d_pfJQaVI?t=198">Patooey!</a></p>
+
+<blockquote>
+  <p>I have superhuman patooey… 😂 Joie de vivre!</p>
+</blockquote>
+
+            
+            </div>
+            
+<div class="entry-tags clearfix">
+
+    <div class="entry-footer clearfix">
+
+        <div class="pull-left">
+            <span>
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/#review">review</a>
+                
+                <a href="/tags/#lifestyle">lifestyle</a>
+                
+                <a href="/tags/#entertainment">entertainment</a>
+                
+                <a href="/tags/#opinion">opinion</a>
+                
+            </span>            
+            <span><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv">0</span> views</span>
+            <span>
+                <i class="fa fa-comments-o"></i>
+                <a href="#comments" class="disqus-comment-count" data-disqus-identifier="Ting's Blog/video/studio-c-3">GFW comments</a>
+            </span>
+            <span>
+                <i class="fa fa-check-square-o"></i><span>4340 words</span>
+            </span>
+            <span>
+                <i class="fa fa-link"></i>
+                <a data-toggle="collapse" href="#share-content" aria-expanded="false" aria-controls="share-content">Share</a>
+        </div>
+        <div class="pull-right collapse in" id="share-content">
+            
+<div class="entry-share-links">
+
+    <div class="btn-group" role="group" aria-label="Share">
+        <button type="button" class="btn btn-default btn-sm btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="http://www.facebook.com/sharer.php?u=https://yo1995.github.io/video/studio-c-3/" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></button>
+        
+        <button type="button" class="btn btn-default btn-sm btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="https://twitter.com/share?url=https://yo1995.github.io/video/studio-c-3/&amp;text=Studio C 十日谈之三" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-weibo" data-toggle="tooltip" data-placement="top" title="新浪微博"><a href="http://service.weibo.com/share/share.php?url=https://yo1995.github.io/video/studio-c-3/&title=分享%4011L23+的文章「Studio C 十日谈之三」&content=Seeing Matt break character again is absolutely...&pic=https://yo1995.github.io/images/202603/matt-cannot-hold-his-laugh.jpg" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-douban" data-toggle="tooltip" data-placement="top" title="豆瓣"><a href="https://www.douban.com/share/service?name=Studio C 十日谈之三&href=https://yo1995.github.io/video/studio-c-3/&image=https://yo1995.github.io/images/202603/matt-cannot-hold-his-laugh.jpg&url=https://yo1995.github.io/video/studio-c-3/&title=Studio C 十日谈之三" target="_blank"><i class="fa fa-fw">豆</i></a></button>
+
+        <a tabindex="0" class="btn btn-sm btn-weixin" role="button" data-trigger="hover" data-placement="top" id="qrcode-btn"><i class="fa fa-fw fa-weixin"></i></a>
+
+        <div id="qrcode-content" class="qrcode-hidden"><div id="qrcode"></div></div>
+        <div id="qrcode-title" class="qrcode-hidden">Scan to Read</div>
+		
+		<button type="button" class="btn btn-default btn-sm btn-email"><a href="mailto:?Subject=Studio C 十日谈之三&amp;Body=Seeing Matt break character again is absolutely awesome!%20https://yo1995.github.io/video/studio-c-3/"><i class="fa fa-fw fa-envelope-o"></i> Email</a></button>
+
+        <div class="btn-group btn-group-justified dropup" role="group">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle btn-more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-share-alt"></i><span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-google"><a href="https://plus.google.com/share?url=https://yo1995.github.io/video/studio-c-3/" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google Plus</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://yo1995.github.io/video/studio-c-3/" target="_blank"><i class="fa fa-fw fa-linkedin"></i> Linkedin</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-digg"><a href="http://www.digg.com/submit?url=https://yo1995.github.io/video/studio-c-3/" target="_blank"><i class="fa fa-fw fa-digg"></i> Digg</a></button></li>
+
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-pinterest"><a href="https://pinterest.com/pin/create/bookmarklet/?media=https://yo1995.github.io/images/202603/matt-cannot-hold-his-laugh.jpg&url=https://yo1995.github.io/video/studio-c-3/&description=Studio C 十日谈之三" target="_blank"><i class="fa fa-fw fa-pinterest-p"></i> Pinterest</a></button></li>
+                 
+                 
+
+                <li><button type="button" class="btn btn-default btn-sm btn-reddit"><a href="http://reddit.com/submit?url=https://yo1995.github.io/video/studio-c-3/&amp;title=Studio C 十日谈之三" target="_blank"><i class="fa fa-fw fa-reddit-alien"></i> Reddit</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-tumblr"><a href="http://www.tumblr.com/share/link?url=https://yo1995.github.io/video/studio-c-3/&amp;title=Studio C 十日谈之三" target="_blank"><i class="fa fa-fw fa-tumblr"></i> Tumblr</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-print"><a href="javascript:;" onclick="window.print()"><i class="fa fa-fw fa-print"></i> Print</a></button></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+        </div>
+    </div>  
+
+</div>
+
+          </div>
+        </article>
+        <!-- END SINGLE-POST -->
+
+        
+<div class="post-navigation clearfix">
+    <div class="row">
+
+        <div class="col-xs-6">
+            <div class="previous-post">
+                <div class="arrow">
+                    <i class="fa fa-angle-double-left"></i>
+                    
+                    <a href="/life/pick-n-pull/" class="animsition-link" data-hover-text="Prev: 自助汽车零件厂">Prev: 自助汽车零件厂</a>
+                    
+                </div>
+
+            </div>
+            <!-- END PREVIOUS-POST -->
+        </div>
+        <div class="col-xs-6">
+            <div class="next-post">
+                <div class="arrow">
+                    
+                    <a href="/blog/" class="animsition-link" data-hover-text="Blog Archive">Blog Archive</a>
+                    
+                    <i class="fa fa-angle-double-right"></i>
+                </div>
+
+            </div>
+            <!-- END NEXT-POST -->
+        </div>
+    </div>
+</div>
+<!-- END POST-NAVIGATION -->
+		<!-- 180726 add multi author support -->
+		 
+			<div class="author-info clearfix">
+    <div class="author-avatar">
+        <img class="avatar" src="/img/avatar.png" alt="Chen Ting">
+    </div>
+
+    <div class="author-description">
+        <h4 class="author-title">
+            <a href="/about/">Chen Ting <i class="fa fa-link"></i></a>
+        </h4>
+        <p class="author-bio">
+            The page aimed to exhibit activities & achievements during Ting's undergraduate & graduate period. Meanwhile, other aspects such as lifestyles, literary work, travel notes, etc. would interweave in the narration.
+        </p>
+    </div>
+	<!-- add busaunzi to see how many views and reads happens to my page. addition to tecent -->
+	<script async src="/assets/js/busuanzi.pure.mini.js"></script>
+</div>
+<!-- END AUTHOR-INFO -->
+		 
+		 
+        
+
+<div class="comments-area clearfix">
+    <div class="comment-respond">
+		<h4 class="comment-reply-title" id="comments">Leave a Comment</h4>
+		<div class="disqus-placeholder alert alert-info" style="text-align: center">
+			<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Disqus might be GFW-ed. Excited!
+		</div>
+		<script src="/assets/js/disqusloader.js"></script>
+		<div class="disqus"></div>
+		<!--
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+        this.page.url = "https://yo1995.github.io/video/studio-c-3/";
+        this.page.identifier = "Ting's Blog//video/studio-c-3";
+        this.page.title = "Studio C 十日谈之三";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//yo1995.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+		-->
+		<script>disqusLoader( '.disqus', { 
+			scriptUrl: '//yo1995.disqus.com/embed.js',
+			disqusConfig: function(){
+				this.callbacks.onReady = [function(){
+				var el = document.querySelector( '.disqus-placeholder' );
+				if( el.classList )
+					el.classList.add( 'is-hidden' ); // IE 10+
+				else
+					el.className += ' ' + 'is-hidden'; // IE 8-9
+				}];}
+			});
+		</script>
+       <noscript>Please conquer the GFW or enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+<!-- END COMMENTS-AREA -->
+
+
+      </div>
+
+      <div class="col-md-4 sidebar-fixed">
+    <div class="sidebar">
+        <!-- aside class="widget-wrap widget-search">
+            <h6 class="widget-title">
+                <span>Search for a topic?</span>
+            </h6>
+			<div onclick="keyinsearch()" class="search-form text-center" id="search-container">
+				<input type="text" id="search-input" placeholder="search...">
+				<i class="fa fa-search"></i>
+				<ul id="results-container" style="list-style:square"></ul>
+			</div>
+			<!-- 230226 - update -->
+<script src="/assets/js/jekyll-search.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  function keyinsearch () {
+  SimpleJekyllSearch({
+	searchInput: document.getElementById('search-input'),
+	resultsContainer: document.getElementById('results-container'),
+	json: '/search.json',
+	searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+	noResultsText: '无结果',
+	limit: 5,
+	fuzzy: false
+  });
+  }
+</script>
+
+
+<!-- 暂时还没想好cache怎么改写，目前每次请求都是200 ！= = 不过chrome貌似是直接从本地磁盘加载的 -->
+<!--
+<form class="search-form" action="/search/" target="_blank" method="get">
+	<input type="text" placeholder="Search..." name="q">
+	<i class="fa fa-search"></i>
+</form>
+-->
+
+        </aside -->
+		<!-- END WIDGET-WRAP -->
+		
+		<!-- END WIDGET-WRAP -->
+		<aside class="widget-wrap widget-recent-posts">
+            <h6 class="widget-title">
+                <span>Related Posts</span>
+            </h6>
+            <ul class="recent-posts">
+            
+                
+                
+                
+                
+                    
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/life/pick-n-pull/">
+                                <img src="/images/202601/lkq.jpg" alt="自助汽车零件厂">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/life/pick-n-pull/">自助汽车零件厂</a>
+                            <span>2026/01/26</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/life/third-car/">
+                                <img src="/images/202512/queen-daimler.webp" alt="第三辆车">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/life/third-car/">第三辆车</a>
+                            <span>2025/12/30</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/life/cars-3/">
+                                <img src="/images/reviews/cars/na-miata.jpg" alt="开过的车 - 3">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/life/cars-3/">开过的车 - 3</a>
+                            <span>2025/12/29</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                    
+
+                
+                                   
+            </ul>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <!-- aside class="widget-wrap widget-categories">
+            <h6 class="widget-title">
+                <span>Categories</span>
+            </h6>
+            <ul>
+				
+				
+                <li><a href="/categories/#coding">Coding</a></li>
+                
+                <li><a href="/categories/#ee">EE</a></li>
+                
+                <li><a href="/categories/#fantasywhimridicule">FantasyWhimRidicule</a></li>
+                
+                <li><a href="/categories/#games">Games</a></li>
+                
+                <li><a href="/categories/#html">Html</a></li>
+                
+                <li><a href="/categories/#introspection">Introspection</a></li>
+                
+                <li><a href="/categories/#life">Life</a></li>
+                
+                <li><a href="/categories/#movie">Movie</a></li>
+                
+                <li><a href="/categories/#physics">Physics</a></li>
+                
+                <li><a href="/categories/#reading">Reading</a></li>
+                
+                <li><a href="/categories/#school">School</a></li>
+                
+                <li><a href="/categories/#society">Society</a></li>
+                
+                <li><a href="/categories/#sports">Sports</a></li>
+                
+                <li><a href="/categories/#tools">Tools</a></li>
+                
+                <li><a href="/categories/#video">Video</a></li>
+                
+                <li><a href="/categories/#zhuism">Zhuism</a></li>
+                
+            </ul>
+        </aside -->
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-tag">
+            <h6 class="widget-title">
+                <span>Tags Widget <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+            <div class="tag-cloud">
+                
+                <a href="/tags/#lifestyle">lifestyle</a>
+                
+                <a href="/tags/#love">love</a>
+                
+                <a href="/tags/#choice">choice</a>
+                
+                <a href="/tags/#education">education</a>
+                
+                <a href="/tags/#future">future</a>
+                
+                <a href="/tags/#reminiscence">reminiscence</a>
+                
+                <a href="/tags/#project">project</a>
+                
+                <a href="/tags/#girl">girl</a>
+                
+                <a href="/tags/#review">review</a>
+                
+                <a href="/tags/#year">year</a>
+                
+                <a href="/tags/#trivia">trivia</a>
+                
+                <a href="/tags/#world">world</a>
+                
+                <a href="/tags/#friend">friend</a>
+                
+                <a href="/tags/#cycling">cycling</a>
+                
+                <a href="/tags/#science">science</a>
+                
+                <a href="/tags/#ball">ball</a>
+                
+                <a href="/tags/#sport">sport</a>
+                
+                <a href="/tags/#entertainment">entertainment</a>
+                
+                <a href="/tags/#reading">reading</a>
+                
+                <a href="/tags/#technology">technology</a>
+                
+                <a href="/tags/#writing">writing</a>
+                
+                <a href="/tags/#travel">travel</a>
+                
+                <a href="/tags/#politics">politics</a>
+                
+                <a href="/tags/#helloworld">helloworld</a>
+                
+                <a href="/tags/#programming">programming</a>
+                
+                <a href="/tags/#career">career</a>
+                
+                <a href="/tags/#python">python</a>
+                
+                <a href="/tags/#windows">windows</a>
+                
+                <a href="/tags/#tool">tool</a>
+                
+                <a href="/tags/#bbs">bbs</a>
+                
+                <a href="/tags/#universe">universe</a>
+                
+                <a href="/tags/#dream">dream</a>
+                
+                <a href="/tags/#history">history</a>
+                
+                <a href="/tags/#investment">investment</a>
+                
+                <a href="/tags/#finance">finance</a>
+                
+                <a href="/tags/#mac">mac</a>
+                
+                <a href="/tags/#food">food</a>
+                
+                <a href="/tags/#lifenotes">lifenotes</a>
+                
+                <a href="/tags/#car">car</a>
+                
+                <a href="/tags/#music">music</a>
+                
+                <a href="/tags/#buy">buy</a>
+                
+                <a href="/tags/#data">data</a>
+                
+                <a href="/tags/#tip">tip</a>
+                
+                <a href="/tags/#cpp">cpp</a>
+                
+                <a href="/tags/#swimming">swimming</a>
+                
+                <a href="/tags/#photography">photography</a>
+                
+                <a href="/tags/#museum">museum</a>
+                
+                <a href="/tags/#swift">swift</a>
+                
+                <a href="/tags/#aviation">aviation</a>
+                
+                <a href="/tags/#bq">BQ</a>
+                
+                <a href="/tags/#opinion">opinion</a>
+                
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+    </div>
+    <!-- END SIDEBAR -->
+</div>
+
+    </div>
+  </div>
+</div>
+<!-- END SINGLE-POST-WRAP -->
+
+
+        </main>
+        <!-- END MAIN -->
+
+        
+<footer>
+  <div class="footer">
+    <div class="container">
+      <div class="text-center">
+        <a href="/blog" class="logo clearfix animsition-link"><img src="/img/sig.svg" width="400" alt="Signature"></a>
+        <p class="copy">
+          Maintained by <a href="/about/">Chen Ting</a> 
+		  
+        </p>
+        <div class="icon-list">
+          <a href="https://www.linkedin.com/in/ting-chen-402bab122/" target="_blank">
+            <i class="fa fa-fw fa-linkedin"></i>
+          </a>
+		  <a href="https://github.com/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-github"></i>
+          </a>
+		  <a href="https://dev.to/yo1995" target="_blank">
+            <i class="fa fa-fw fa-medium"></i>
+          </a>
+          <a href="http://my.hupu.com/17573413/" target="_blank">
+            <i class="fa fa-fw fa-futbol-o"></i>
+          </a>
+          <a href="https://www.douban.com/people/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-book"></i>
+          </a>
+		   <a href="https://www.flickr.com/photos/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-flickr"></i>
+          </a>
+		  <a href="/feed.xml" target="_blank">
+            <i class="fa fa-fw fa-rss"></i>
+          </a>
+        </div>
+        <div class="scroll-top">go to top</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END FOOTER -->
+</footer>
+
+      </div>
+      <!-- END CONTENT -->
+    </div>
+    <!-- END ANIMSITION -->
+
+    
+<!-- SCRIPTS -->
+<script src="/assets/js/jquery-1.12.0.min.js"></script>
+<script src="/assets/js/plugins.min.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<!-- CUSTOM SCRIPT -->
+<script src="/assets/js/script.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/js/tether.min.js"></script>
+
+
+<script src="/assets/js/qrcode.js"></script>
+<script>
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: "https://yo1995.github.io/video/studio-c-3/",
+    width: 196,
+    height: 196,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H,
+    useSVG: true
+});
+</script>
+
+
+<!-- 爱心特效 -->
+
+
+
+<script async src="/assets/js/busuanzi.pure.mini.js"></script>
+<!--script id="dsq-count-scr" src="//yo1995.disqus.com/count.js" async></script-->
+
+
+
+
+
+
+
+<!--script>
+  'GoogleAnalyticsObject'
+  'https://www.google-analytics.com/analytics.js'
+</script-->
+
+
+  </body>
+
+</html>
