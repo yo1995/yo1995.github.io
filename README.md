@@ -18,6 +18,7 @@ Jekyll rendered files for my blog. One of the last bastions for human crafted co
   - clean up README
   - set up new environment on Mac Studio, farewell Windows 🥲
   - update robots.txt to block AI crawling. stop training slop with gems 💎
+  - rename branch `master` > `main`
 - 241006: Hide search bar in the side bar for tags, categories and timeline
 
 ```html
@@ -34,7 +35,7 @@ Jekyll rendered files for my blog. One of the last bastions for human crafted co
 </aside>
 ```
 
-- 241006: Change toc: true -> toc on; clean up all tag delimiters
+- 241006: Change `toc: true` > `toc on`; clean up all tag delimiters
 - 241002: Fixed the post author blog layout downcase href issue
 - 240108: Change all filename to lowercase - some comments and PV will be lost
 - 230808: Disallow GPTBot
