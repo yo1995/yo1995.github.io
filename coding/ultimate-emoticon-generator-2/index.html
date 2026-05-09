@@ -194,14 +194,14 @@
 <a class="anchor" href="#%E5%8E%9F%E5%A7%8B%E4%BB%A3%E7%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>原始代码</h2>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_color_diff</span><span class="p">(</span><span class="n">rgb1</span><span class="p">,</span> <span class="n">rgb2</span><span class="p">):</span>
-    <span class="s">"""
+    <span class="sh">"""</span><span class="s">
     Uses 1-norm distance to calculate difference between two rgb values.
-    """</span>
-    <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rgb1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">rgb2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rgb1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">rgb2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rgb1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">rgb2</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    </span><span class="sh">"""</span>
+    <span class="k">return</span> <span class="nf">abs</span><span class="p">(</span><span class="n">rgb1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">rgb2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="nf">abs</span><span class="p">(</span><span class="n">rgb1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">rgb2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="nf">abs</span><span class="p">(</span><span class="n">rgb1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">rgb2</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 
 
 <span class="k">def</span> <span class="nf">floodfill_o</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">xy</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="s">"""
+    <span class="sh">"""</span><span class="s">
     (experimental) Fills a bounded region with a given color.
     :param image: Target image.
     :param xy: Seed position (a 2-item coordinate tuple). See
@@ -212,41 +212,41 @@
         the region consists of pixels having the same color as the seed
         pixel.
     :param thresh: Optional threshold value which specifies a maximum
-        tolerable difference of a pixel value from the 'background' in
+        tolerable difference of a pixel value from the </span><span class="sh">'</span><span class="s">background</span><span class="sh">'</span><span class="s"> in
         order for it to be replaced. Useful for filling regions of non-
         homogeneous, but similar, colors.
-    """</span>
+    </span><span class="sh">"""</span>
     <span class="c1"># based on an implementation by Eric S. Raymond
-</span>    <span class="n">pixel</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">load</span><span class="p">()</span>
+</span>    <span class="n">pixel</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="nf">load</span><span class="p">()</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">xy</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">background</span> <span class="o">=</span> <span class="n">pixel</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">_color_diff</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">thresh</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nf">_color_diff</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">thresh</span><span class="p">:</span>
             <span class="k">return</span>  <span class="c1"># seed point already has fill color
 </span>        <span class="n">pixel</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-    <span class="k">except</span> <span class="p">(</span><span class="nb">ValueError</span><span class="p">,</span> <span class="nb">IndexError</span><span class="p">):</span>
+    <span class="nf">except </span><span class="p">(</span><span class="nb">ValueError</span><span class="p">,</span> <span class="nb">IndexError</span><span class="p">):</span>
         <span class="k">return</span>  <span class="c1"># seed point outside image
 </span>    <span class="n">edge</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)]</span>
     <span class="k">if</span> <span class="n">border</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">while</span> <span class="n">edge</span><span class="p">:</span>
             <span class="n">newedge</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">:</span>
-                <span class="k">for</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
+            <span class="nf">for </span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">:</span>
+                <span class="nf">for </span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
                     <span class="k">try</span><span class="p">:</span>
                         <span class="n">p</span> <span class="o">=</span> <span class="n">pixel</span><span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span>
                     <span class="k">except</span> <span class="nb">IndexError</span><span class="p">:</span>
                         <span class="k">pass</span>
                     <span class="k">else</span><span class="p">:</span>
-                        <span class="k">if</span> <span class="n">_color_diff</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">thresh</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="nf">_color_diff</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">thresh</span><span class="p">:</span>
                             <span class="n">pixel</span><span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-                            <span class="n">newedge</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+                            <span class="n">newedge</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
             <span class="n">edge</span> <span class="o">=</span> <span class="n">newedge</span>
 
     <span class="k">else</span><span class="p">:</span>
         <span class="k">while</span> <span class="n">edge</span><span class="p">:</span>
             <span class="n">newedge</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">:</span>
-                <span class="k">for</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
+            <span class="nf">for </span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">:</span>
+                <span class="nf">for </span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
                     <span class="k">try</span><span class="p">:</span>
                         <span class="n">p</span> <span class="o">=</span> <span class="n">pixel</span><span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span>
                     <span class="k">except</span> <span class="nb">IndexError</span><span class="p">:</span>
@@ -254,7 +254,7 @@
                     <span class="k">else</span><span class="p">:</span>
                         <span class="k">if</span> <span class="n">p</span> <span class="o">!=</span> <span class="n">value</span> <span class="ow">and</span> <span class="n">p</span> <span class="o">!=</span> <span class="n">border</span><span class="p">:</span>
                             <span class="n">pixel</span><span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-                            <span class="n">newedge</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+                            <span class="n">newedge</span><span class="p">.</span><span class="nf">append</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
             <span class="n">edge</span> <span class="o">=</span> <span class="n">newedge</span>
 </code></pre></div></div>
 
@@ -273,41 +273,41 @@
 <p>显然，应该通过一些方法避免记录遍历过的所有像素。顺势躺到麻将席上，看着一块块竹席，考虑该如何优化。像素像涟漪般四面散开，只需记录当前波峰和前一时刻的波谷。没错，表里只用存上个迭代中的像素，以及本次迭代中新增的像素即可。</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">floodfill</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">xy</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="n">pixel</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">load</span><span class="p">()</span>
+    <span class="n">pixel</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="nf">load</span><span class="p">()</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">xy</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">background</span> <span class="o">=</span> <span class="n">pixel</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">_color_diff</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">thresh</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nf">_color_diff</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">thresh</span><span class="p">:</span>
             <span class="k">return</span>  <span class="c1"># seed point already has fill color
 </span>        <span class="n">pixel</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-    <span class="k">except</span> <span class="p">(</span><span class="nb">ValueError</span><span class="p">,</span> <span class="nb">IndexError</span><span class="p">):</span>
+    <span class="nf">except </span><span class="p">(</span><span class="nb">ValueError</span><span class="p">,</span> <span class="nb">IndexError</span><span class="p">):</span>
         <span class="k">return</span>  <span class="c1"># seed point outside image
 </span>    <span class="n">edge</span> <span class="o">=</span> <span class="p">{(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)}</span>
-    <span class="n">full_edge</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>  <span class="c1"># use a set to record each unique pixel processed
+    <span class="n">full_edge</span> <span class="o">=</span> <span class="nf">set</span><span class="p">()</span>  <span class="c1"># use a set to record each unique pixel processed
 </span>    <span class="k">if</span> <span class="n">border</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">while</span> <span class="n">edge</span><span class="p">:</span>
-            <span class="n">new_edge</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-            <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">:</span>  <span class="c1"># 4 adjacent method
-</span>                <span class="k">for</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
-                    <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="n">full_edge</span><span class="p">:</span>
+            <span class="n">new_edge</span> <span class="o">=</span> <span class="nf">set</span><span class="p">()</span>
+            <span class="nf">for </span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">:</span>  <span class="c1"># 4 adjacent method
+</span>                <span class="nf">for </span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
+                    <span class="nf">if </span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="n">full_edge</span><span class="p">:</span>
                         <span class="k">continue</span>  <span class="c1"># if already processed, skip
 </span>                    <span class="k">try</span><span class="p">:</span>
                         <span class="n">p</span> <span class="o">=</span> <span class="n">pixel</span><span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span>
                     <span class="k">except</span> <span class="nb">IndexError</span><span class="p">:</span>
                         <span class="k">pass</span>
                     <span class="k">else</span><span class="p">:</span>
-                        <span class="k">if</span> <span class="n">_color_diff</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">thresh</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="nf">_color_diff</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">thresh</span><span class="p">:</span>
                             <span class="n">pixel</span><span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-                            <span class="n">new_edge</span><span class="p">.</span><span class="n">add</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
-                            <span class="n">full_edge</span><span class="p">.</span><span class="n">add</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+                            <span class="n">new_edge</span><span class="p">.</span><span class="nf">add</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+                            <span class="n">full_edge</span><span class="p">.</span><span class="nf">add</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
             <span class="n">full_edge</span> <span class="o">=</span> <span class="n">edge</span>  <span class="c1"># do not record useless pixels to reduce memory consumption
 </span>            <span class="n">edge</span> <span class="o">=</span> <span class="n">new_edge</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">while</span> <span class="n">edge</span><span class="p">:</span>
-            <span class="n">new_edge</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-            <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">:</span>
-                <span class="k">for</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
-                    <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="n">full_edge</span><span class="p">:</span>
+            <span class="n">new_edge</span> <span class="o">=</span> <span class="nf">set</span><span class="p">()</span>
+            <span class="nf">for </span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">edge</span><span class="p">:</span>
+                <span class="nf">for </span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
+                    <span class="nf">if </span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="ow">in</span> <span class="n">full_edge</span><span class="p">:</span>
                         <span class="k">continue</span>
                     <span class="k">try</span><span class="p">:</span>
                         <span class="n">p</span> <span class="o">=</span> <span class="n">pixel</span><span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span>
@@ -316,17 +316,17 @@
                     <span class="k">else</span><span class="p">:</span>
                         <span class="k">if</span> <span class="n">p</span> <span class="o">!=</span> <span class="n">value</span> <span class="ow">and</span> <span class="n">p</span> <span class="o">!=</span> <span class="n">border</span><span class="p">:</span>
                             <span class="n">pixel</span><span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-                            <span class="n">new_edge</span><span class="p">.</span><span class="n">add</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
-                            <span class="n">full_edge</span><span class="p">.</span><span class="n">add</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+                            <span class="n">new_edge</span><span class="p">.</span><span class="nf">add</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+                            <span class="n">full_edge</span><span class="p">.</span><span class="nf">add</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
             <span class="n">full_edge</span> <span class="o">=</span> <span class="n">edge</span>
             <span class="n">edge</span> <span class="o">=</span> <span class="n">new_edge</span>
 
 
 <span class="k">def</span> <span class="nf">_color_diff</span><span class="p">(</span><span class="n">rgb1</span><span class="p">,</span> <span class="n">rgb2</span><span class="p">):</span>
-    <span class="s">"""
+    <span class="sh">"""</span><span class="s">
     Uses 1-norm distance to calculate difference between two rgb values.
-    """</span>
-    <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rgb1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">rgb2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rgb1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">rgb2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rgb1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">rgb2</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    </span><span class="sh">"""</span>
+    <span class="k">return</span> <span class="nf">abs</span><span class="p">(</span><span class="n">rgb1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">rgb2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="nf">abs</span><span class="p">(</span><span class="n">rgb1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">rgb2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="nf">abs</span><span class="p">(</span><span class="n">rgb1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">rgb2</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 </code></pre></div></div>
 
 <p>另外，本来还想把color_diff也一并修正，模板化处理RGB/RGBA和错误输入的，但懒得再去查色彩标准里容差究竟是否包含透明度了。哪位同学有兴趣可以继续给PIL提PR。</p>
@@ -572,7 +572,7 @@
                 <span>Table of Contents <!-- sup class="scroll-top" style="text-transform:none">back to top</sup --></span>
             </h6>
             <div id="navbar">
-                <ul class="section-nav">
+                <ul id="toc" class="section-nav">
 <li class="toc-entry toc-h2"><a href="#原始代码">原始代码</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#我的改进1">我的改进1</a></li>

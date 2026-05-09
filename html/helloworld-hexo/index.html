@@ -266,11 +266,11 @@
 <a class="anchor" href="#%E5%8A%A0%E5%85%A5%E7%BD%AE%E9%A1%B6%E5%8A%9F%E8%83%BD" aria-hidden="true"><span class="octicon octicon-link"></span></a>加入置顶功能</h3>
 <p>node_modules/hexo-generator-index/lib/generator.js</p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">'</span><span class="s1">use strict</span><span class="dl">'</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">pagination</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">hexo-pagination</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">pagination</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">hexo-pagination</span><span class="dl">'</span><span class="p">);</span>
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">locals</span><span class="p">){</span>
   <span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">config</span><span class="p">;</span>
   <span class="kd">var</span> <span class="nx">posts</span> <span class="o">=</span> <span class="nx">locals</span><span class="p">.</span><span class="nx">posts</span><span class="p">;</span>
-    <span class="nx">posts</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="nx">posts</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">posts</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="nx">posts</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nf">sort</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">top</span> <span class="o">&amp;&amp;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">top</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 两篇文章top都有定义</span>
             <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">top</span> <span class="o">==</span> <span class="nx">b</span><span class="p">.</span><span class="nx">top</span><span class="p">)</span> <span class="k">return</span> <span class="nx">b</span><span class="p">.</span><span class="nx">date</span> <span class="o">-</span> <span class="nx">a</span><span class="p">.</span><span class="nx">date</span><span class="p">;</span> <span class="c1">// 若top值一样则按照文章日期降序排</span>
             <span class="k">else</span> <span class="k">return</span> <span class="nx">b</span><span class="p">.</span><span class="nx">top</span> <span class="o">-</span> <span class="nx">a</span><span class="p">.</span><span class="nx">top</span><span class="p">;</span> <span class="c1">// 否则按照top值降序排</span>
@@ -284,7 +284,7 @@
         <span class="k">else</span> <span class="k">return</span> <span class="nx">b</span><span class="p">.</span><span class="nx">date</span> <span class="o">-</span> <span class="nx">a</span><span class="p">.</span><span class="nx">date</span><span class="p">;</span> <span class="c1">// 都没定义按照文章日期降序排</span>
     <span class="p">});</span>
   <span class="kd">var</span> <span class="nx">paginationDir</span> <span class="o">=</span> <span class="nx">config</span><span class="p">.</span><span class="nx">pagination_dir</span> <span class="o">||</span> <span class="dl">'</span><span class="s1">page</span><span class="dl">'</span><span class="p">;</span>
-  <span class="k">return</span> <span class="nx">pagination</span><span class="p">(</span><span class="dl">''</span><span class="p">,</span> <span class="nx">posts</span><span class="p">,</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nf">pagination</span><span class="p">(</span><span class="dl">''</span><span class="p">,</span> <span class="nx">posts</span><span class="p">,</span> <span class="p">{</span>
     <span class="na">perPage</span><span class="p">:</span> <span class="nx">config</span><span class="p">.</span><span class="nx">index_generator</span><span class="p">.</span><span class="nx">per_page</span><span class="p">,</span>
     <span class="na">layout</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">index</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">archive</span><span class="dl">'</span><span class="p">],</span>
     <span class="na">format</span><span class="p">:</span> <span class="nx">paginationDir</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">/%d/</span><span class="dl">'</span><span class="p">,</span>
@@ -578,7 +578,7 @@ git push
                 <span>Table of Contents <!-- sup class="scroll-top" style="text-transform:none">back to top</sup --></span>
             </h6>
             <div id="navbar">
-                <ul class="section-nav">
+                <ul id="toc" class="section-nav">
 <li class="toc-entry toc-h1"><a href="#原模板自带简介">原模板自带简介</a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#quick-start">Quick Start</a>

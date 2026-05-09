@@ -1,3 +1,4 @@
+# Jekyll build output
 _site
 public
 .sass-cache
@@ -8,3 +9,18 @@ Gemfile.lock
 *.lnk
 *.dat
 *.sh
+
+# macOS system files
+.DS_Store
+.Spotlight-V100
+.Trashes
+.fseventsd
+
+# Editor/IDE files
+.vscode/
+
+# Jekyll and Ruby
+.bundle/
+vendor/
+.ruby-version
+.ruby-gemset

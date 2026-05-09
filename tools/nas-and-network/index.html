@@ -303,7 +303,7 @@
   </li>
 </ul>
 
-<p>其次就是如何合理地同步文件。群晖系统自带了三种同步方案，分别是hyper backup/drive/cloud station。可是，尝试了之后，发现这些工具竟然都不能满足我的需求。hyperbackup量级太重，更类似于两地灾备；drive量级太轻，操作逻辑比较像百度网盘，但是和之前的photo station、video station等套件兼容不好；cloud station本该是最好的解决答案，可它的Windows桌面客户端操作逻辑实在不好用。最后<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup>保留了drive以备后期备份文档用，而相片和录像则采取了最原始的手动备份的办法。</p>
+<p>其次就是如何合理地同步文件。群晖系统自带了三种同步方案，分别是hyper backup/drive/cloud station。可是，尝试了之后，发现这些工具竟然都不能满足我的需求。hyperbackup量级太重，更类似于两地灾备；drive量级太轻，操作逻辑比较像百度网盘，但是和之前的photo station、video station等套件兼容不好；cloud station本该是最好的解决答案，可它的Windows桌面客户端操作逻辑实在不好用。最后<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>保留了drive以备后期备份文档用，而相片和录像则采取了最原始的手动备份的办法。</p>
 
 <h3 id="增量化备份的疑惑">
 <a class="anchor" href="#%E5%A2%9E%E9%87%8F%E5%8C%96%E5%A4%87%E4%BB%BD%E7%9A%84%E7%96%91%E6%83%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>增量化备份的疑惑</h3>
@@ -345,14 +345,14 @@
 
 <p>虽说是给特定硬件发包，但机在网内一切都得靠IP说话呀。设备关机的时候，自然是没有IP的，那该怎么办呢？</p>
 
-<p>参考了很多文档和讨论<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote">2</a></sup><sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote">3</a></sup>介绍了WOL的原理，大致可分为两种：定向播报和广播。</p>
+<p>参考了很多文档和讨论<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup><sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>介绍了WOL的原理，大致可分为两种：定向播报和广播。</p>
 
 <p>许多现代的路由器都有一个功能叫做静态ARP绑定。它能实现将硬件地址MAC和某一固定IP捆绑，从而使路由器了解如果给某一IP发包的话，怎么找到其对应的硬件实体。几乎所有的现代路由器都有这个功能，然而接NAS的光猫路由一体机『贝尔NBEL G-140W-C』竟然不支持！一台缺少端口转发、动态解析、ARP绑定等功能的路由器……气得我差点直接给厂家写邮件，想来也是屁用没有。</p>
 
 <p>因此，只能换一种思路：把包广播给所有网段内的设备，MAC地址匹配的设备被唤醒。</p>
 
 <ul>
-  <li>定向播报：只向单一IP地址发送唤醒魔术包。然而，这会遇上一个悖论<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote">4</a></sup>:既然设备没开机，它怎么会有IP地址？此时就需要在路由器端定死它的地址，用的命令是ARP静态绑定。telnet进系统，发现arp命令存在，基本功能也有，那就手动设置一下呗。</li>
+  <li>定向播报：只向单一IP地址发送唤醒魔术包。然而，这会遇上一个悖论<sup id="fnref:4"><a href="#fn:4" class="footnote" rel="footnote" role="doc-noteref">4</a></sup>:既然设备没开机，它怎么会有IP地址？此时就需要在路由器端定死它的地址，用的命令是ARP静态绑定。telnet进系统，发现arp命令存在，基本功能也有，那就手动设置一下呗。</li>
 </ul>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># arp -s 192.168.1.10 01:23:45:67:89:AB</span>
@@ -474,16 +474,16 @@
 <p>https://ubuntuforums.org/archive/index.php/t-1807768.html</p>
 <div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1" role="doc-endnote">
+    <li id="fn:1">
       <p>后来发现drive确实可以利用到版本控制的特性，还算不错。 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:2" role="doc-endnote">
+    <li id="fn:2">
       <p>http://bbs.net130.com/archive/index.php/t-233110.html <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:3" role="doc-endnote">
+    <li id="fn:3">
       <p>https://www.dd-wrt.com/wiki/index.php/WOL <a href="#fnref:3" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
-    <li id="fn:4" role="doc-endnote">
+    <li id="fn:4">
       <p>https://zhuanlan.zhihu.com/p/29057096 <a href="#fnref:4" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
   </ol>
@@ -721,7 +721,7 @@
                 <span>Table of Contents <!-- sup class="scroll-top" style="text-transform:none">back to top</sup --></span>
             </h6>
             <div id="navbar">
-                <ul class="section-nav">
+                <ul id="toc" class="section-nav">
 <li class="toc-entry toc-h2"><a href="#起因">起因</a></li>
 <li class="toc-entry toc-h2"><a href="#入手">入手</a></li>
 <li class="toc-entry toc-h2"><a href="#nas需求整理">NAS需求整理</a>

@@ -225,7 +225,7 @@
 </code></pre></div></div>
 
 <p>先去看fancybox的documentation。用起来比较简单，直接调用就好</p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.fancybox</span><span class="dl">'</span><span class="p">).</span><span class="nx">fancybox</span><span class="p">();</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.fancybox</span><span class="dl">'</span><span class="p">).</span><span class="nf">fancybox</span><span class="p">();</span>
 </code></pre></div></div>
 
 <p>由于Icarus主题作者ppoffice贴心地在main.js配置好了fancybox载入相关的内容，我们只需要将需要载入的图片调整好标签的格式就行。
@@ -258,13 +258,13 @@ noshare: true
 首先，为了区分相册页面中的图片与普通博文中的图片，上面在标签中添加了Instagram的属性。
 在main.js中需要对这个标签进行处理：</p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//insta</span>
-<span class="k">if</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.instagram</span><span class="dl">'</span><span class="p">).</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">bp</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">script</span><span class="dl">"</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="nf">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.instagram</span><span class="dl">'</span><span class="p">).</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">bp</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">script</span><span class="dl">"</span><span class="p">);</span>
 	<span class="nx">bp</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">/js/photo.js</span><span class="dl">"</span><span class="p">;</span>
-	<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="dl">"</span><span class="s2">script</span><span class="dl">"</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
-	<span class="nx">s</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">bp</span><span class="p">,</span> <span class="nx">s</span><span class="p">),</span>
-	<span class="nx">require</span><span class="p">([</span><span class="dl">'</span><span class="s1">/js/photo.js</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">/js/jquery.lazyload.js</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">/vendor/fancybox/jquery.fancybox.js</span><span class="dl">'</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">obj</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+	<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementsByTagName</span><span class="p">(</span><span class="dl">"</span><span class="s2">script</span><span class="dl">"</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+	<span class="nx">s</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nf">insertBefore</span><span class="p">(</span><span class="nx">bp</span><span class="p">,</span> <span class="nx">s</span><span class="p">),</span>
+	<span class="nf">require</span><span class="p">([</span><span class="dl">'</span><span class="s1">/js/photo.js</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">/js/jquery.lazyload.js</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">/vendor/fancybox/jquery.fancybox.js</span><span class="dl">'</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">obj</span><span class="p">.</span><span class="nf">init</span><span class="p">();</span>
     <span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div></div>
@@ -550,7 +550,7 @@ noshare: true
                 <span>Table of Contents <!-- sup class="scroll-top" style="text-transform:none">back to top</sup --></span>
             </h6>
             <div id="navbar">
-                <ul class="section-nav">
+                <ul id="toc" class="section-nav">
 <li class="toc-entry toc-h3"><a href="#前言">前言</a></li>
 <li class="toc-entry toc-h3"><a href="#起手">起手</a></li>
 <li class="toc-entry toc-h3"><a href="#js的修改">js的修改</a></li>

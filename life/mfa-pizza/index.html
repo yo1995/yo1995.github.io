@@ -221,16 +221,16 @@
 
 <p>来美国后，点披萨曾是我畏手畏脚的知识盲区。有菜单的餐厅还好；没有菜单，光是一堆披萨摆在橱窗里，你叫我咋点？！总不能说“I’d like this red one please”吧。或者“This, this, thank you”？好在，在踏上美帝土地之前，自己早早就听说过“Pepperoni”和“Buffalo Chicken”这两个专有名词。每次到了没菜单愣点的披萨店，我先装模作样把各式披萨端详一遍，然后若有所思地说“Do you have Buffalo Chicken please?”如果没有，则祭出万能兜底的帕帕罗尼。流程如下——</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="s">"Buffalo Chicken"</span> <span class="ow">in</span> <span class="n">toppings</span><span class="p">:</span>
-	<span class="n">order</span><span class="p">(</span><span class="s">"Buffalo Chicken"</span><span class="p">)</span>
-	<span class="k">return</span> <span class="s">"🤤"</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="sh">"</span><span class="s">Buffalo Chicken</span><span class="sh">"</span> <span class="ow">in</span> <span class="n">toppings</span><span class="p">:</span>
+	<span class="nf">order</span><span class="p">(</span><span class="sh">"</span><span class="s">Buffalo Chicken</span><span class="sh">"</span><span class="p">)</span>
+	<span class="k">return</span> <span class="sh">"</span><span class="s">🤤</span><span class="sh">"</span>
 <span class="k">else</span><span class="p">:</span>
-	<span class="k">try</span> <span class="n">order</span><span class="p">(</span><span class="s">"Pepperoni"</span><span class="p">):</span>
-		<span class="k">return</span> <span class="s">"😌"</span>
+	<span class="k">try</span> <span class="nf">order</span><span class="p">(</span><span class="sh">"</span><span class="s">Pepperoni</span><span class="sh">"</span><span class="p">):</span>
+		<span class="k">return</span> <span class="sh">"</span><span class="s">😌</span><span class="sh">"</span>
 	<span class="k">except</span> <span class="n">NotExistException</span><span class="p">:</span>
-		<span class="k">raise</span> <span class="s">"Can I have this? 😥"</span>
+		<span class="k">raise</span> <span class="sh">"</span><span class="s">Can I have this? 😥</span><span class="sh">"</span>
 	<span class="k">else</span><span class="p">:</span>  <span class="c1"># !@$%@!$@^%
-</span>		<span class="k">return</span> <span class="s">"😰🧏‍♂️"</span>
+</span>		<span class="k">return</span> <span class="sh">"</span><span class="s">😰🧏‍♂️</span><span class="sh">"</span>
 </code></pre></div></div>
 
 <p>后来终于在一次SnackChat上学到了一些美国披萨的知识。学问可真不少！方的、圆的、薄的、厚的、意大利的、纽约的、带菠萝不带菠萝……也让我心里有了数，不用再拘泥于最常吃的几种<a href="/introspection/financial-independence/">没创意</a>的口味了。</p>

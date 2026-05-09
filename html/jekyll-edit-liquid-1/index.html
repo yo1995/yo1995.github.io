@@ -197,29 +197,29 @@
 <p>原先代码：</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">photos</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">group_by</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">group</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="p">%}</span>
-	<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">group.items</span><span class="w"> </span><span class="p">%}</span>				
-		&lt;a href="/photos/" data-filter=".f_<span class="p">{{</span><span class="w"> </span><span class="nv">item</span><span class="p">.</span><span class="nv">category</span><span class="w"> </span><span class="p">}}</span>"&gt;
-			&lt;span&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">item</span><span class="p">.</span><span class="nv">category</span><span class="w"> </span><span class="p">}}</span>&lt;/span&gt;
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">photos</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">group_by</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">group</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="cp">%}</span>
+	<span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">group</span><span class="p">.</span><span class="nv">items</span><span class="w"> </span><span class="cp">%}</span>				
+		&lt;a href="/photos/" data-filter=".f_<span class="cp">{{</span><span class="w"> </span><span class="nv">item</span><span class="p">.</span><span class="nv">category</span><span class="w"> </span><span class="cp">}}</span>"&gt;
+			&lt;span&gt;<span class="cp">{{</span><span class="w"> </span><span class="nv">item</span><span class="p">.</span><span class="nv">category</span><span class="w"> </span><span class="cp">}}</span>&lt;/span&gt;
 		&lt;/a&gt;
-	<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+	<span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 
 // in post-sidebar.html，| first
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">category</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.categories</span><span class="w"> </span><span class="p">%}{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">category</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">categories</span><span class="w"> </span><span class="cp">%}{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 
 </code></pre></div></div>
 <p>可以看到，其实上面犯了一个比较简单的错误，就是在遍历中遍历了item项。由于具有相同分类的页面会被记为同一分类的多个item，因而遍历出来的也会重复啦。</p>
 
 <p>修改后代码：</p>
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">photos</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">group_by</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">group</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="p">%}</span>			
-	&lt;a href="/photos/" data-filter=".f_<span class="p">{{</span><span class="w"> </span><span class="nv">group</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="p">}}</span>"&gt;
-	    &lt;span&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">group</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="p">}}</span>&lt;/span&gt;
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">photos</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">group_by</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">group</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="cp">%}</span>			
+	&lt;a href="/photos/" data-filter=".f_<span class="cp">{{</span><span class="w"> </span><span class="nv">group</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="cp">}}</span>"&gt;
+	    &lt;span&gt;<span class="cp">{{</span><span class="w"> </span><span class="nv">group</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="cp">}}</span>&lt;/span&gt;
 	&lt;/a&gt;
-<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 
 </code></pre></div></div>
 <p>遍历一下name标签即可。</p>
@@ -230,15 +230,15 @@
 
 <p>还是先看代码：</p>
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">cat</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.categories</span><span class="w"> </span><span class="p">%}</span>
-## <span class="p">{{</span><span class="w"> </span><span class="nv">cat</span><span class="p">.</span><span class="nf">first</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">cat</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">categories</span><span class="w"> </span><span class="cp">%}</span>
+## <span class="cp">{{</span><span class="w"> </span><span class="nv">cat</span><span class="p">.</span><span class="nf">first</span><span class="w"> </span><span class="cp">}}</span>
 &lt;p&gt;&lt;ol&gt;
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">post</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.categories[cat.first]</span><span class="w"> </span><span class="p">%}</span>
-&lt;li&gt;&lt;a href="<span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>"&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">}}</span>&lt;/a&gt; - <span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date</span><span class="p">:</span><span class="w"> </span><span class="s2">"%b %-d, %Y"</span><span class="w"> </span><span class="p">}}</span>&lt;/li&gt;
-<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">post</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">categories</span><span class="p">[</span><span class="nv">cat</span><span class="p">.</span><span class="nf">first</span><span class="p">]</span><span class="w"> </span><span class="cp">%}</span>
+&lt;li&gt;&lt;a href="<span class="cp">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="cp">}}</span>"&gt;<span class="cp">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="cp">}}</span>&lt;/a&gt; - <span class="cp">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date</span><span class="p">:</span><span class="w"> </span><span class="s2">"%b %-d, %Y"</span><span class="w"> </span><span class="cp">}}</span>&lt;/li&gt;
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 &lt;/ol&gt;&lt;/p&gt;
 &lt;div class="sep"&gt;&lt;hr&gt;&lt;/div&gt;
-<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 
 </code></pre></div></div>
 <p>哎呀呀，这代码看得我真的很难受诶。非要从一个生成的category列表中一个个取出第一项，这要是以后生成规则变了还不全都挂掉？</p>
@@ -247,25 +247,25 @@
 
 <p>修改后的代码：</p>
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">posts</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">group_by</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">group</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="p">%}</span>
-	## <span class="p">{{</span><span class="w"> </span><span class="nv">group</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="p">}}</span>	
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">posts</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">group_by</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">group</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="cp">%}</span>
+	## <span class="cp">{{</span><span class="w"> </span><span class="nv">group</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="cp">}}</span>	
 	&lt;p&gt;&lt;ol&gt;	
-		<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">post</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">group.items</span><span class="w"> </span><span class="p">%}</span>
-			&lt;li&gt;&lt;a href="<span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>"&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">}}</span>&lt;/a&gt; - <span class="p">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date</span><span class="p">:</span><span class="w"> </span><span class="s2">"%b %-d, %Y"</span><span class="w"> </span><span class="p">}}</span>&lt;/li&gt;
-		<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+		<span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">post</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">group</span><span class="p">.</span><span class="nv">items</span><span class="w"> </span><span class="cp">%}</span>
+			&lt;li&gt;&lt;a href="<span class="cp">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="cp">}}</span>"&gt;<span class="cp">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="cp">}}</span>&lt;/a&gt; - <span class="cp">{{</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date</span><span class="p">:</span><span class="w"> </span><span class="s2">"%b %-d, %Y"</span><span class="w"> </span><span class="cp">}}</span>&lt;/li&gt;
+		<span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 	&lt;/ol&gt;&lt;/p&gt;
 	&lt;div class="sep"&gt;&lt;hr&gt;&lt;/div&gt;
-<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 
 </code></pre></div></div>
 
 <p>对于tag也是同样的修改。另外记得把sidebar上的也给改掉啦。OK，安逸~</p>
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">posts</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">group_by</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">category</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="p">%}</span>
-&lt;li&gt;&lt;a href="/categories/#<span class="p">{{</span><span class="w"> </span><span class="nv">category</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">downcase</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">replace</span><span class="p">:</span><span class="w"> </span><span class="s1">' '</span><span class="p">,</span><span class="w"> </span><span class="s1">'-'</span><span class="w"> </span><span class="p">}}</span>"&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">category</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="p">}}</span>&lt;/a&gt;&lt;/li&gt;
-<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">posts</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">group_by</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">category</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="cp">%}</span>
+&lt;li&gt;&lt;a href="/categories/#<span class="cp">{{</span><span class="w"> </span><span class="nv">category</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">downcase</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">replace</span><span class="p">:</span><span class="w"> </span><span class="s1">' '</span><span class="p">,</span><span class="w"> </span><span class="s1">'-'</span><span class="w"> </span><span class="cp">}}</span>"&gt;<span class="cp">{{</span><span class="w"> </span><span class="nv">category</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="cp">}}</span>&lt;/a&gt;&lt;/li&gt;
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 
 </code></pre></div></div>
 
@@ -277,7 +277,7 @@
 
 <p>这倒是难不倒我。还是来分析一下。先看看结构：</p>
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="p">{{</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">tags</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">tags</span><span class="w"> </span><span class="cp">}}</span>
 
 </code></pre></div></div>
 
@@ -305,7 +305,7 @@
 <p><strong>Objects</strong> tell Liquid where to show content on a page and denoted by double curly braces: <code class="language-plaintext highlighter-rouge">{{</code> and <code class="language-plaintext highlighter-rouge">}}</code>.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 Jekyll 之修改 liquid 代码：去重、排序以及其它
@@ -319,9 +319,9 @@ Jekyll 之修改 liquid 代码：去重、排序以及其它
 <p>The markup used in tags does not produce any visible text. This means that you can assign variables and create conditions and loops without showing any of the Liquid logic on the page.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">statement</span><span class="w"> </span><span class="p">%}</span>
-  Hello, you are visiting <span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">prepend</span><span class="p">:</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>.
-<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">if</span><span class="w"> </span><span class="nv">statement</span><span class="w"> </span><span class="cp">%}</span>
+  Hello, you are visiting <span class="cp">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">prepend</span><span class="p">:</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="cp">}}</span>.
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endif</span><span class="w"> </span><span class="cp">%}</span>
 
 Output:
   Hello, you are visiting https://yo1995.github.io/html/jekyll-edit-liquid-1/.
@@ -341,7 +341,7 @@ Output:
 <p><strong>Filters</strong> change the output of a Liquid object. They are used within an output and are separated by a <code class="language-plaintext highlighter-rouge">|</code>.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">append</span><span class="p">:</span><span class="w"> </span><span class="s1">'.html'</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">append</span><span class="p">:</span><span class="w"> </span><span class="s1">'.html'</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 /html/jekyll-edit-liquid-1/.html
@@ -392,16 +392,16 @@ Output:
 
 <p>For example:</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">product</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Awesome Shoes"</span><span class="w"> </span><span class="p">%}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">if</span><span class="w"> </span><span class="nv">product</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Awesome Shoes"</span><span class="w"> </span><span class="cp">%}</span>
   These shoes are awesome!
-<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endif</span><span class="w"> </span><span class="cp">%}</span>
 </code></pre></div></div>
 
 <p>You can use multiple operators in a single tag:</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">product</span><span class="p">.</span><span class="nv">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Shirt"</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">product</span><span class="p">.</span><span class="nv">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Shoes"</span><span class="w"> </span><span class="p">%}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">if</span><span class="w"> </span><span class="nv">product</span><span class="p">.</span><span class="nv">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Shirt"</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">product</span><span class="p">.</span><span class="nv">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Shoes"</span><span class="w"> </span><span class="cp">%}</span>
   This is a shirt or a pair of shoes.
-<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endif</span><span class="w"> </span><span class="cp">%}</span>
 </code></pre></div></div>
 
 <h4 id="contains">
@@ -409,16 +409,16 @@ Output:
 
 <p><code class="language-plaintext highlighter-rouge">contains</code> checks for the presence of a substring inside a string:</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="ow">contains</span><span class="w"> </span><span class="s1">'Pack'</span><span class="w"> </span><span class="p">%}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="ow">contains</span><span class="w"> </span><span class="s1">'Pack'</span><span class="w"> </span><span class="cp">%}</span>
   This page's title contains the word Pack.
-<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endif</span><span class="w"> </span><span class="cp">%}</span>
 </code></pre></div></div>
 
 <p><code class="language-plaintext highlighter-rouge">contains</code> can also check for the presence of a string in an array of strings:</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">tags</span><span class="w"> </span><span class="ow">contains</span><span class="w"> </span><span class="s1">'Hello'</span><span class="w"> </span><span class="p">%}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">tags</span><span class="w"> </span><span class="ow">contains</span><span class="w"> </span><span class="s1">'Hello'</span><span class="w"> </span><span class="cp">%}</span>
   This page has been tagged with 'Hello'.
-<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endif</span><span class="w"> </span><span class="cp">%}</span>
 </code></pre></div></div>
 
 <p class="alert alert-info"><code class="language-plaintext highlighter-rouge">contains</code> can only search strings. You cannot use it to check for an object in an array of objects.</p>
@@ -431,11 +431,11 @@ Output:
 
 <p>All values in Liquid are <strong>truthy</strong> except <code class="language-plaintext highlighter-rouge">nil</code> and <code class="language-plaintext highlighter-rouge">false</code>. In the example below, the string “Tobi” is not a boolean, but it is truthy in a conditional:</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">tobi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Tobi"</span><span class="w"> </span><span class="p">%}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">tobi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Tobi"</span><span class="w"> </span><span class="cp">%}</span>
 
-<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">tobi</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">if</span><span class="w"> </span><span class="nv">tobi</span><span class="w"> </span><span class="cp">%}</span>
   This condition will always be true.
-<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endif</span><span class="w"> </span><span class="cp">%}</span>
 </code></pre></div></div>
 
 <p class="alert alert-info"><code class="language-plaintext highlighter-rouge">strings</code>, even when empty, are truthy.</p>
@@ -465,7 +465,7 @@ Output:
 
 <p>Declare a string by wrapping a variable’s value in single or double quotes:</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello World! This is Frank Lin."</span><span class="w"> </span><span class="p">%}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Hello World! This is Frank Lin."</span><span class="w"> </span><span class="cp">%}</span>
 </code></pre></div></div>
 
 <h4 id="number">
@@ -473,8 +473,8 @@ Output:
 
 <p>Numbers include floats and integers:</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_float</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">39.756</span><span class="w"> </span><span class="p">%}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_float</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">39.756</span><span class="w"> </span><span class="cp">%}</span>
 </code></pre></div></div>
 
 <h4 id="boolean">
@@ -482,8 +482,8 @@ Output:
 
 <p>Booleans are either <code class="language-plaintext highlighter-rouge">true</code> or <code class="language-plaintext highlighter-rouge">false</code>. No quotations are necessary when declaring a boolean:</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">bar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">%}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">bar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="cp">%}</span>
 </code></pre></div></div>
 
 <h4 id="nil">
@@ -493,12 +493,12 @@ Output:
 
 <p>In the following example, the <code class="language-plaintext highlighter-rouge">page.author</code> does not exist (i.e. <code class="language-plaintext highlighter-rouge">{{ page.author }}</code> returns <code class="language-plaintext highlighter-rouge">nil</code>), Liquid will not print anything:</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">author</span><span class="w"> </span><span class="p">%}</span>
-  post by <span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">author</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">%}</span>
- the title of this post: <span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">author</span><span class="w"> </span><span class="cp">%}</span>
+  post by <span class="cp">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">author</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endif</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="cp">%}</span>
+ the title of this post: <span class="cp">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endif</span><span class="w"> </span><span class="cp">%}</span>
 
 Output:
 
@@ -513,7 +513,7 @@ Output:
 <p><strong>Accessing items in arrays</strong>:</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">page.tags</span><span class="w"> </span><span class="p">%}</span> <span class="p">{{</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="p">}}</span> <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">tags</span><span class="w"> </span><span class="cp">%}</span> <span class="cp">{{</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="cp">}}</span> <span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 
 Output:
  technology  helloworld 
@@ -524,7 +524,7 @@ Output:
 <p>You can use square bracket <code class="language-plaintext highlighter-rouge">[ ]</code> notation to access a specific item in an array. Array indexing starts at zero.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">tags</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">tags</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 helloworld
@@ -536,8 +536,8 @@ helloworld
 <p>In Liquid, you can include a hyphen in your tag syntax <code class="language-plaintext highlighter-rouge">{{-</code>, <code class="language-plaintext highlighter-rouge">-}}</code>, <code class="language-plaintext highlighter-rouge">{%-</code>, and <code class="language-plaintext highlighter-rouge">-%}</code> to strip whitespace from the left or right side of a rendered tag. Normally, even if it doesn’t output text, any line of Liquid in your template will still output <strong>a blank line</strong> in the rendered HTML:</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"tomato"</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"tomato"</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 
@@ -548,11 +548,11 @@ tomato
 <p>By including hyphens in your <code class="language-plaintext highlighter-rouge">assign</code> tag, you can strip the generated whitespace from the rendered template. <strong>But it seems not work when building with Jekyll 3.2.1 locally on my Windows PC.</strong></p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%-</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"tomato"</span><span class="w"> </span><span class="p">-%}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{%-</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"tomato"</span><span class="w"> </span><span class="cp">-%}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
-# jekyll 3.2.1 | Error:  Liquid syntax error: Tag '<span class="p">{%-</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"tomato"</span><span class="w"> </span><span class="p">-%}</span>' was not properly terminated with regexp: /\%\}/
+# jekyll 3.2.1 | Error:  Liquid syntax error: Tag '<span class="cp">{%-</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"tomato"</span><span class="w"> </span><span class="cp">-%}</span>' was not properly terminated with regexp: /\%\}/
 </code></pre></div></div>
 
 <h2 id="liquid-tags">
@@ -569,15 +569,15 @@ Output:
 <p>Creates a switch statement to compare a variable with different values. <code class="language-plaintext highlighter-rouge">case</code> initializes the switch statement, and <code class="language-plaintext highlighter-rouge">when</code> compares its values.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'cake'</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="kr">case</span><span class="w"> </span><span class="nv">handle</span><span class="w"> </span><span class="p">%}</span>
-  <span class="p">{%</span><span class="w"> </span><span class="kr">when</span><span class="w"> </span><span class="s1">'cake'</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">handle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'cake'</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">case</span><span class="w"> </span><span class="nv">handle</span><span class="w"> </span><span class="cp">%}</span>
+  <span class="cp">{%</span><span class="w"> </span><span class="nt">when</span><span class="w"> </span><span class="s1">'cake'</span><span class="w"> </span><span class="cp">%}</span>
      This is a cake
-  <span class="p">{%</span><span class="w"> </span><span class="kr">when</span><span class="w"> </span><span class="s1">'cookie'</span><span class="w"> </span><span class="p">%}</span>
+  <span class="cp">{%</span><span class="w"> </span><span class="nt">when</span><span class="w"> </span><span class="s1">'cookie'</span><span class="w"> </span><span class="cp">%}</span>
      This is a cookie
-  <span class="p">{%</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">%}</span>
+  <span class="cp">{%</span><span class="w"> </span><span class="nt">else</span><span class="w"> </span><span class="cp">%}</span>
      This is not a cake nor a cookie
-<span class="p">{%</span><span class="w"> </span><span class="kr">endcase</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endcase</span><span class="w"> </span><span class="cp">%}</span>
 
 Output:
 This is a cake
@@ -590,9 +590,9 @@ This is a cake
 <p>Executes a block of code only if a certain condition is <code class="language-plaintext highlighter-rouge">true</code>.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">category</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'Web'</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">if</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">category</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'Web'</span><span class="w"> </span><span class="cp">%}</span>
   This post is in Web.
-<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endif</span><span class="w"> </span><span class="cp">%}</span>
 
 Output:
 </code></pre></div></div>
@@ -603,9 +603,9 @@ Output:
 <p>The opposite of <code class="language-plaintext highlighter-rouge">if</code> – executes a block of code only if a certain condition is not met. This would be the equivalent by using <code class="language-plaintext highlighter-rouge">if ... !=</code>:</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="kr">unless</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">category</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'Awesome'</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">unless</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">category</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'Awesome'</span><span class="w"> </span><span class="cp">%}</span>
   This post is not awesome.
-<span class="p">{%</span><span class="w"> </span><span class="kr">endunless</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endunless</span><span class="w"> </span><span class="cp">%}</span>
 
 Output:
   This post is not awesome.
@@ -616,13 +616,13 @@ Output:
 
 <p>Adds more conditions within an <code class="language-plaintext highlighter-rouge">if</code> or <code class="language-plaintext highlighter-rouge">unless</code> block.</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">customer</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'kevin'</span><span class="w"> </span><span class="p">%}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">if</span><span class="w"> </span><span class="nv">customer</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'kevin'</span><span class="w"> </span><span class="cp">%}</span>
   Hey Kevin!
-<span class="p">{%</span><span class="w"> </span><span class="kr">elsif</span><span class="w"> </span><span class="nv">customer</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'anonymous'</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">elsif</span><span class="w"> </span><span class="nv">customer</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'anonymous'</span><span class="w"> </span><span class="cp">%}</span>
   Hey Anonymous!
-<span class="p">{%</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">else</span><span class="w"> </span><span class="cp">%}</span>
   Hi Stranger!
-<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endif</span><span class="w"> </span><span class="cp">%}</span>
 </code></pre></div></div>
 
 <h3 id="iteration">
@@ -656,13 +656,13 @@ Output:
 
           <div class="language-liquid highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">page.tags</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nb">forloop.first</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">tags</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">if</span><span class="w"> </span><span class="nb">forloop.first</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="cp">%}</span>
     First tag
-<span class="p">{%</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">else</span><span class="w"> </span><span class="cp">%}</span>
     Not the first tag.
-<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endif</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 
 Output:
     First tag
@@ -676,9 +676,9 @@ Output:
 
           <div class="language-liquid highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.tags</span><span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="p">%}</span>
-    <span class="p">{{</span><span class="w"> </span><span class="nb">forloop.index0</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">tags</span><span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="cp">%}</span>
+    <span class="cp">{{</span><span class="w"> </span><span class="nb">forloop.index0</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 
 Output:
  0  1  2  3  4  5  6  7  8  9  10 
@@ -701,9 +701,9 @@ Output:
 
           <div class="language-liquid highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.tags</span><span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="p">%}</span>
-    <span class="p">{{</span><span class="w"> </span><span class="nb">forloop.rindex</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">tags</span><span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="cp">%}</span>
+    <span class="cp">{{</span><span class="w"> </span><span class="nb">forloop.rindex</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 
 Output:
  11  10  9  8  7  6  5  4  3  2  1 
@@ -720,9 +720,9 @@ Output:
 </div>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">page.array</span><span class="w"> </span><span class="p">%}</span>
-  <span class="p">{{</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">array</span><span class="w"> </span><span class="cp">%}</span>
+  <span class="cp">{{</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 # page.array = ["1", "2","3","4","5","6","7"]
 
 Output:
@@ -735,15 +735,15 @@ Output:
 <p>Causes the loop to stop iterating when it encounters the <code class="language-plaintext highlighter-rouge">break</code> tag.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">(1..10)</span><span class="w"> </span><span class="p">%}</span>
-  <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">%}</span>
-    <span class="p">{%</span><span class="w"> </span><span class="nt">break</span><span class="w"> </span><span class="p">%}</span>
-  <span class="p">{%</span><span class="w"> </span><span class="kr">elsif</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="p">%}</span>
-    <span class="p">{%</span><span class="w"> </span><span class="nt">break</span><span class="w"> </span><span class="p">%}</span>
-  <span class="p">{%</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">%}</span>
-    <span class="p">{{</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="p">}}</span>
-  <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">..</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="cp">%}</span>
+  <span class="cp">{%</span><span class="w"> </span><span class="nt">if</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="cp">%}</span>
+    <span class="cp">{%</span><span class="w"> </span><span class="kr">break</span><span class="w"> </span><span class="cp">%}</span>
+  <span class="cp">{%</span><span class="w"> </span><span class="nt">elsif</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="cp">%}</span>
+    <span class="cp">{%</span><span class="w"> </span><span class="kr">break</span><span class="w"> </span><span class="cp">%}</span>
+  <span class="cp">{%</span><span class="w"> </span><span class="nt">else</span><span class="w"> </span><span class="cp">%}</span>
+    <span class="cp">{{</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="cp">}}</span>
+  <span class="cp">{%</span><span class="w"> </span><span class="nt">endif</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 
 Output:
  1  2  3 
@@ -761,9 +761,9 @@ Output:
 <p>Begins the loop at the specified index.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">page.array</span><span class="w"> </span><span class="na">offset</span><span class="o">:</span><span class="mi">2</span><span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="mi">4</span><span class="w"> </span><span class="p">%}</span>
-  <span class="p">{{</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">array</span><span class="w"> </span><span class="na">offset</span><span class="o">:</span><span class="mi">2</span><span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="mi">4</span><span class="w"> </span><span class="cp">%}</span>
+  <span class="cp">{{</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 
 Output:
  3  4  5  6 
@@ -774,10 +774,10 @@ Output:
 <p>Defines a range of numbers to loop through. The range can be defined by both literal and variable numbers.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">(1..num)</span><span class="w"> </span><span class="p">%}</span>
-  <span class="p">{{</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">..</span><span class="nv">num</span><span class="p">)</span><span class="w"> </span><span class="cp">%}</span>
+  <span class="cp">{{</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 
 Output:
  1  2  3  4 
@@ -788,9 +788,9 @@ Output:
 <p>Reverses the order of the loop.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">page.array</span><span class="w"> </span><span class="na">reversed</span><span class="w"> </span><span class="p">%}</span>
-  <span class="p">{{</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">array</span><span class="w"> </span><span class="na">reversed</span><span class="w"> </span><span class="cp">%}</span>
+  <span class="cp">{{</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 
 Output:
  7  6  5  4  3  2  1 
@@ -802,10 +802,10 @@ Output:
 <p>Loops through a group of strings and outputs them in the order that they were passed as parameters. Each time <code class="language-plaintext highlighter-rouge">cycle</code> is called, the next string that was passed as a parameter is output. <code class="language-plaintext highlighter-rouge">cycle</code> must be used within a for loop block.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">cycle</span><span class="w"> </span><span class="s1">'one'</span><span class="p">,</span><span class="w"> </span><span class="s1">'two'</span><span class="p">,</span><span class="w"> </span><span class="s1">'three'</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">cycle</span><span class="w"> </span><span class="s1">'one'</span><span class="p">,</span><span class="w"> </span><span class="s1">'two'</span><span class="p">,</span><span class="w"> </span><span class="s1">'three'</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">cycle</span><span class="w"> </span><span class="s1">'one'</span><span class="p">,</span><span class="w"> </span><span class="s1">'two'</span><span class="p">,</span><span class="w"> </span><span class="s1">'three'</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">cycle</span><span class="w"> </span><span class="s1">'one'</span><span class="p">,</span><span class="w"> </span><span class="s1">'two'</span><span class="p">,</span><span class="w"> </span><span class="s1">'three'</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">cycle</span><span class="w"> </span><span class="s1">'one'</span><span class="p">,</span><span class="w"> </span><span class="s1">'two'</span><span class="p">,</span><span class="w"> </span><span class="s1">'three'</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">cycle</span><span class="w"> </span><span class="s1">'one'</span><span class="p">,</span><span class="w"> </span><span class="s1">'two'</span><span class="p">,</span><span class="w"> </span><span class="s1">'three'</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">cycle</span><span class="w"> </span><span class="s1">'one'</span><span class="p">,</span><span class="w"> </span><span class="s1">'two'</span><span class="p">,</span><span class="w"> </span><span class="s1">'three'</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">cycle</span><span class="w"> </span><span class="s1">'one'</span><span class="p">,</span><span class="w"> </span><span class="s1">'two'</span><span class="p">,</span><span class="w"> </span><span class="s1">'three'</span><span class="w"> </span><span class="cp">%}</span>
 
 Output:
 one
@@ -883,8 +883,8 @@ Output:
 <p>Captures the string inside of the opening and closing tags and assigns it to a variable. Variables created through <code class="language-plaintext highlighter-rouge">{%</code> capture <code class="language-plaintext highlighter-rouge">%}</code> are strings.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">capture</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="p">%}</span>I am being captured.<span class="p">{%</span><span class="w"> </span><span class="nt">endcapture</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">capture</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="cp">%}</span>I am being captured.<span class="cp">{%</span><span class="w"> </span><span class="nt">endcapture</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">my_variable</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 I am being captured.
@@ -896,9 +896,9 @@ I am being captured.
 <p>Creates a new number variable, and increases its value by one every time it is called. The initial value is 0.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span><span class="nv">my_counter</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span><span class="nv">my_counter</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span><span class="nv">my_counter</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span><span class="nv">my_counter</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span><span class="nv">my_counter</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span><span class="nv">my_counter</span><span class="w"> </span><span class="cp">%}</span>
 
 Output:
 0
@@ -909,12 +909,12 @@ Output:
 <p>Variables created through the <code class="language-plaintext highlighter-rouge">increment</code> tag are independent from variables created through <code class="language-plaintext highlighter-rouge">assign</code> or <code class="language-plaintext highlighter-rouge">capture</code>.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">increment</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">var</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 100
@@ -945,10 +945,10 @@ Output:
 <p><code class="language-plaintext highlighter-rouge">prepend</code> adds the specified string to the beginning of another string.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"/index.html"</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">append</span><span class="p">:</span><span class="w"> </span><span class="nv">filename</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"/index.html"</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">append</span><span class="p">:</span><span class="w"> </span><span class="nv">filename</span><span class="w"> </span><span class="cp">}}</span>
 
-<span class="p">{{</span><span class="w"> </span><span class="s2">"apples, oranges, and bananas"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">prepend</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some fruit: "</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"apples, oranges, and bananas"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">prepend</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some fruit: "</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 https://yo1995.github.io/index.html
@@ -961,7 +961,7 @@ Some fruit: apples, oranges, and bananas
 <p>Makes the first character of a string capitalized, and only capitalizes the first character of the string, so later words are not affected:</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="s2">"this is a great title"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">capitalize</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"this is a great title"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">capitalize</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 This is a great title
@@ -973,7 +973,7 @@ This is a great title
 <p>Escape a string for use in a URL.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="s2">"foo,bar;baz?"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">cgi_escape</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"foo,bar;baz?"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">cgi_escape</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 foo%2Cbar%3Bbaz%3F
@@ -985,8 +985,8 @@ foo%2Cbar%3Bbaz%3F
 <p>Allows you to specify a fallback in case a value doesn’t exist. <code class="language-plaintext highlighter-rouge">default</code> will show its value if the left side is <code class="language-plaintext highlighter-rouge">nil</code>, <code class="language-plaintext highlighter-rouge">false</code>, or <code class="language-plaintext highlighter-rouge">empty</code>.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">product_price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">product_price</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">default</span><span class="p">:</span><span class="w"> </span><span class="mf">2.99</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">product_price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">product_price</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">default</span><span class="p">:</span><span class="w"> </span><span class="mf">2.99</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 2.99
@@ -998,8 +998,8 @@ Output:
 <p>Makes each character in a string lowercase (or upcase). It has no effect on strings which are already all lowercase (or upcase).</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="s2">"Frank Lin"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">downcase</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="s2">"Frank Lin"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">upcase</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"Frank Lin"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">downcase</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"Frank Lin"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">upcase</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 frank lin
@@ -1014,8 +1014,8 @@ FRANK LIN
 <p><code class="language-plaintext highlighter-rouge">escape_once</code> can be used to escapes a string without changing existing escaped entities.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="s2">"Have you read 'James &amp; the Giant Peach'?"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">escape</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="s2">"1 &lt; 2 &amp; 3"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">escape_once</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"Have you read 'James &amp; the Giant Peach'?"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">escape</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"1 &lt; 2 &amp; 3"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">escape_once</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 Have you read &amp;#39;James &amp;amp; the Giant Peach&amp;#39;?
@@ -1028,8 +1028,8 @@ Have you read &amp;#39;James &amp;amp; the Giant Peach&amp;#39;?
 <p><code class="language-plaintext highlighter-rouge">lstrip</code> removes all whitespaces (tabs, spaces, and newlines) from the beginning of a string. The filter does not affect spaces between words. <code class="language-plaintext highlighter-rouge">rstrip</code> removes all whitespace from the right side of a string.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="s2">"          So much room for activities!          "</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">lstrip</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="s2">"          So much room for activities!          "</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">rstrip</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"          So much room for activities!          "</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">lstrip</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"          So much room for activities!          "</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">rstrip</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 So much room for activities!          
@@ -1042,7 +1042,7 @@ So much room for activities!
 <p>Convert a Markdown-formatted string into HTML.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="s2">"Hello **Jekyll**"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">markdownify</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"Hello **Jekyll**"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">markdownify</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 &lt;p&gt;Hello &lt;strong&gt;Jekyll&lt;/strong&gt;&lt;/p&gt;
@@ -1055,15 +1055,17 @@ Output:
 <p>Replaces every newline (<code class="language-plaintext highlighter-rouge">\n</code>) with an HTML line break (<code class="language-plaintext highlighter-rouge">&lt;br&gt;</code>).</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">capture</span><span class="w"> </span><span class="nv">string_with_newlines</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">capture</span><span class="w"> </span><span class="nv">string_with_newlines</span><span class="w"> </span><span class="cp">%}</span>
 Hello
 there
-<span class="p">{%</span><span class="w"> </span><span class="nt">endcapture</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">string_with_newlines</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">newline_to_br</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endcapture</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">string_with_newlines</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">newline_to_br</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
-Hello&lt;br /&gt;
-there&lt;br /&gt;
+Hello
+&lt;br /&gt;
+there
+&lt;br /&gt;
 
 </code></pre></div></div>
 
@@ -1073,7 +1075,7 @@ there&lt;br /&gt;
 <p>Count the number of words in a string.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="s2">"Hello Jekyll!"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">number_of_words</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"Hello Jekyll!"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">number_of_words</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 2
@@ -1087,8 +1089,8 @@ Output:
 <p><code class="language-plaintext highlighter-rouge">remove_first</code> only removes the first occurrence of the specified substring from a string.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="s2">"I strained to see the train through the rain"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">remove</span><span class="p">:</span><span class="w"> </span><span class="s2">"rain"</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="s2">"I strained to see the train through the rain"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">remove_first</span><span class="p">:</span><span class="w"> </span><span class="s2">"rain"</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"I strained to see the train through the rain"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">remove</span><span class="p">:</span><span class="w"> </span><span class="s2">"rain"</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"I strained to see the train through the rain"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">remove_first</span><span class="p">:</span><span class="w"> </span><span class="s2">"rain"</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 I sted to see the t through the 
@@ -1103,9 +1105,9 @@ I sted to see the train through the rain
 <p>And <code class="language-plaintext highlighter-rouge">replace_first</code> only replaces the first occurrence of the first argument in a string with the second argument.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="s2">"Take my protein pills and put my helmet on"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">"my"</span><span class="p">,</span><span class="w"> </span><span class="s2">"your"</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Take my protein pills and put my helmet on"</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">my_string</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">replace_first</span><span class="p">:</span><span class="w"> </span><span class="s2">"my"</span><span class="p">,</span><span class="w"> </span><span class="s2">"your"</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"Take my protein pills and put my helmet on"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">"my"</span><span class="p">,</span><span class="w"> </span><span class="s2">"your"</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Take my protein pills and put my helmet on"</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">my_string</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">replace_first</span><span class="p">:</span><span class="w"> </span><span class="s2">"my"</span><span class="p">,</span><span class="w"> </span><span class="s2">"your"</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 Take your protein pills and put your helmet on
@@ -1118,13 +1120,13 @@ Take your protein pills and put my helmet on
 <p>Returns the number of characters in a string or the number of items in an array. <code class="language-plaintext highlighter-rouge">size</code> can also be used with dot notation (for example, <code class="language-plaintext highlighter-rouge">{{ my_string.size }}</code>). This allows you to use <code class="language-plaintext highlighter-rouge">size</code> inside tags such as conditionals.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">size</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"apples, oranges, peaches, plums"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">size</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">size</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"apples, oranges, peaches, plums"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">size</span><span class="w"> </span><span class="cp">}}</span>
 
-<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">pages</span><span class="p">.</span><span class="nf">size</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">if</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">pages</span><span class="p">.</span><span class="nf">size</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="cp">%}</span>
   This site has more than 10 pages!
-<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endif</span><span class="w"> </span><span class="cp">%}</span>
 
 Output:
 28
@@ -1140,10 +1142,10 @@ This site has more than 10 pages!
 <p>String indices are numbered starting from 0. If the first parameter is a negative number, the indices are counted from the end of the string:</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="s2">"Liquid"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slice</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="s2">"Liquid"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slice</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="s2">"Liquid"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slice</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="s2">"Liquid"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slice</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"Liquid"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slice</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"Liquid"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slice</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"Liquid"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slice</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"Liquid"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slice</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 L
@@ -1172,8 +1174,8 @@ ui
 </ul>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="s2">"The _config.yml file"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slugify</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="s2">"The _config.yml file"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slugify</span><span class="p">:</span><span class="w"> </span><span class="s1">'pretty'</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"The _config.yml file"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slugify</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"The _config.yml file"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">slugify</span><span class="p">:</span><span class="w"> </span><span class="s1">'pretty'</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 the-config-yml-file
@@ -1186,7 +1188,7 @@ the-_config.yml-file
 <p>Convert quotes into smart quotes with SmartyPants.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="s1">'Use "Jekyll" --- the static generator...'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">smartify</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s1">'Use "Jekyll" --- the static generator...'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">smartify</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 Use “Jekyll” — the static generator…
@@ -1198,7 +1200,7 @@ Use “Jekyll” — the static generator…
 <p>Divides an input string into an array using the argument as a separator. <code class="language-plaintext highlighter-rouge">split</code> is commonly used to convert comma-separated items from a string to an array.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="s2">"a~b"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="s2">"~"</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"a~b"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="s2">"~"</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 ab
@@ -1210,7 +1212,7 @@ ab
 <p>Removes all whitespace (tabs, spaces, and newlines) from both the left and right side of a string. It does not affect spaces between words.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="s2">"          So much room for activities!          "</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">strip</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"          So much room for activities!          "</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">strip</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 So much room for activities!
@@ -1232,7 +1234,7 @@ So much room for activities!
 <p><code class="language-plaintext highlighter-rouge">truncate</code> shortens a string down to the number of characters passed as a parameter. If the number of characters specified is less than the length of the string, an ellipsis (…) is appended to the string and is included in the character count.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">truncate</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">truncate</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 Ground control to...
@@ -1243,7 +1245,7 @@ Ground control to...
 <p><code class="language-plaintext highlighter-rouge">truncate</code> takes an optional second parameter that specifies the sequence of characters to be appended to the truncated string. By default this is an ellipsis (…), but you can specify a different sequence. The length of the second parameter counts against the number of characters specified by the first parameter.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">truncate</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="s2">", and so on"</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">truncate</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="s2">", and so on"</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 Ground control, and so on
@@ -1252,7 +1254,7 @@ Ground control, and so on
 <p><code class="language-plaintext highlighter-rouge">truncatewords</code> shortens a string down to the number of words passed as the argument. If the specified number of words is less than the number of words in the string, an ellipsis (…) is appended to the string. And Custom ellipsis can be also applied as <code class="language-plaintext highlighter-rouge">truncate</code>.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">truncatewords</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">truncatewords</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 Ground control to...
@@ -1262,8 +1264,8 @@ Ground control to...
 <a class="anchor" href="#uri_escape--xml_escape" aria-hidden="true"><span class="octicon octicon-link"></span></a>uri_escape / xml_escape</h4>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="s2">"foo, bar \baz?"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">uri_escape</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="s2">"&lt;p&gt;Hi Jekyll&lt;/p&gt;"</span><span class="p">|</span><span class="w"> </span><span class="nf">xml_escape</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"foo, bar \baz?"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">uri_escape</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"&lt;p&gt;Hi Jekyll&lt;/p&gt;"</span><span class="p">|</span><span class="w"> </span><span class="nf">xml_escape</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 foo,%20bar%20%5Cbaz?
@@ -1276,8 +1278,8 @@ foo,%20bar%20%5Cbaz?
 <p>Converts any URL-unsafe characters in a string into percent-encoded characters.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="s2">"franklin@flinhong.com"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">url_encode</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="s2">"Frank Lin"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">url_encode</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"franklin@flinhong.com"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">url_encode</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"Frank Lin"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">url_encode</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 franklin%40flinhong.com
@@ -1293,8 +1295,8 @@ Frank+Lin
 <p>Returns the absolute value of a number, and also work on a string if the string only contains a number.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="o">-</span><span class="mi">17</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">abs</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="s2">"-19.86"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">abs</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="o">-</span><span class="mi">17</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">abs</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"-19.86"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">abs</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 17
@@ -1307,8 +1309,8 @@ Output:
 <p>Rounds the input up to the nearest whole number. Liquid tries to convert the input to a number before the filter is applied.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="mf">183.357</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">ceil</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="s2">"3.5"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">ceil</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="mf">183.357</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">ceil</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"3.5"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">ceil</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 184
@@ -1325,11 +1327,11 @@ Output:
 <p><code class="language-plaintext highlighter-rouge">times</code> multiplies a number by another number.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">divided_by</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">divided_by</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">divided_by</span><span class="p">:</span><span class="w"> </span><span class="mf">7.0</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">times</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="mf">183.357</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">times</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">divided_by</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">divided_by</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">divided_by</span><span class="p">:</span><span class="w"> </span><span class="mf">7.0</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">times</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="mf">183.357</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">times</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 4
@@ -1345,9 +1347,9 @@ Output:
 <p>Rounds a number down to the nearest whole number. Liquid tries to convert the input to a number before the filter is applied.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="mf">1.2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">floor</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="s2">"3.5"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">floor</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="mf">183.357</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">floor</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="mf">1.2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">floor</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"3.5"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">floor</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="mf">183.357</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">floor</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 1
@@ -1361,9 +1363,9 @@ Output:
 <p>Subtracts (adds) a number from another number.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">minus</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="mf">183.357</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">minus</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">plus</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">minus</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="mf">183.357</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">minus</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">plus</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 2
@@ -1377,8 +1379,8 @@ Output:
 <p>Returns the remainder of a division operation.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">modulo</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="mf">183.357</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">modulo</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">modulo</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="mf">183.357</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">modulo</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 1
@@ -1391,9 +1393,9 @@ Output:
 <p>Rounds an input number to the nearest integer or, if a number is specified as an argument, to that number of decimal places.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="mf">1.2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">round</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="mf">2.7</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">round</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="mf">183.357</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">round</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="mf">1.2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">round</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="mf">2.7</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">round</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="mf">183.357</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">round</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 1
@@ -1408,7 +1410,7 @@ Output:
 <a class="anchor" href="#array_to_sentence_string" aria-hidden="true"><span class="octicon octicon-link"></span></a>array_to_sentence_string</h4>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">array_to_sentence_string</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">array_to_sentence_string</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 1, 2, 3, 4, 5, 6, and 7
@@ -1420,9 +1422,9 @@ Output:
 <p>Returns the first (or last) item of an array.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"apples, oranges, peaches, plums"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="p">.</span><span class="nf">first</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="p">.</span><span class="nf">last</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"apples, oranges, peaches, plums"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="p">.</span><span class="nf">first</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="p">.</span><span class="nf">last</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 apples
@@ -1440,8 +1442,8 @@ plums
 <p>Combines the items in an array into a single string using the argument as a separator.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">beatles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"John, Paul, George, Ringo"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">beatles</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s2">" and "</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">beatles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"John, Paul, George, Ringo"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">beatles</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s2">" and "</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 John and Paul and George and Ringo
@@ -1453,7 +1455,7 @@ John and Paul and George and Ringo
 <p>Convert Hash or Array to JSON.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">jsonify</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 ["1","2","3","4","5","6","7"]
@@ -1464,10 +1466,10 @@ Output:
 
 <p>Creates an array of values by extracting the values of a named property from another object.</p>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">all_categories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">posts</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">map</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">all_categories</span><span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="mi">3</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">all_categories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">posts</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">map</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">all_categories</span><span class="w"> </span><span class="na">limit</span><span class="o">:</span><span class="mi">3</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">item</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="cp">%}</span>
 </code></pre></div></div>
 
 <h4 id="push">
@@ -1478,9 +1480,9 @@ Output:
 <p>Creates an array of values by extracting the values of a named property from another object.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"a,b,c"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="s2">","</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">push</span><span class="p">:</span><span class="w"> </span><span class="s1">'d'</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">array_to_sentence_string</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"a,b,c"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="s2">","</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">push</span><span class="p">:</span><span class="w"> </span><span class="s1">'d'</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">array_to_sentence_string</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 a, b, c, and d
@@ -1492,11 +1494,11 @@ a, b, c, and d
 <p>Reverses the order of the items in an array. Although <code class="language-plaintext highlighter-rouge">reverse</code> cannot reverse a string, but you can split a string into an array, reverse the array, and rejoin it by chaining together filters:</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"apples, oranges, peaches, plums"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">reverse</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"apples, oranges, peaches, plums"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">reverse</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="cp">}}</span>
 
-<span class="p">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">reverse</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">" "</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">reverse</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s2">" "</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">reverse</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"Ground control to Major Tom."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">" "</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">reverse</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s2">" "</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 plums, peaches, oranges, apples
@@ -1516,8 +1518,8 @@ Tom. Major to control Ground
 <p>Sorts items in an array by a property of an item in the array. The order of the sorted array is case-sensitive.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"zebra, octopus, giraffe, Octopus"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"zebra, octopus, giraffe, Octopus"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">sort</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 
@@ -1530,8 +1532,8 @@ Octopus, giraffe, octopus, zebra
 <p>Removes any duplicate elements in an array.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ants, bugs, bees, bugs, ants"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">%}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">uniq</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ants, bugs, bees, bugs, ants"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">split</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="cp">%}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">my_array</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">uniq</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">join</span><span class="p">:</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 ants, bugs, bees
@@ -1548,8 +1550,8 @@ ants, bugs, bees
 <p>Converts a timestamp into another date format. The format for this syntax is the same as <a href="http://strftime.net/">strftime</a>. It also works on strings if they contain well-formatted dates:</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date</span><span class="p">:</span><span class="w"> </span><span class="s2">"%a, %b %d, %y"</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="s2">"August 20, 2016"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date</span><span class="p">:</span><span class="w"> </span><span class="s2">"%b %d, %y"</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date</span><span class="p">:</span><span class="w"> </span><span class="s2">"%a, %b %d, %y"</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="s2">"August 20, 2016"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date</span><span class="p">:</span><span class="w"> </span><span class="s2">"%b %d, %y"</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 Wed, Aug 31, 16
@@ -1724,10 +1726,10 @@ Aug 20, 16
 <p>Besides, <code class="language-plaintext highlighter-rouge">date_to_long_string</code> convert a date to long format; <code class="language-plaintext highlighter-rouge">date_to_long_rfc822</code> convert a Date into RFC-822 format; <code class="language-plaintext highlighter-rouge">date_to_string</code> convert a date to short format and <code class="language-plaintext highlighter-rouge">date_to_xmlschema</code> convert a Date into ISO 8601 format.</p>
 
 <div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Input:
-<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date_to_long_string</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date_to_rfc822</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date_to_string</span><span class="w"> </span><span class="p">}}</span>
-<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date_to_xmlschema</span><span class="w"> </span><span class="p">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date_to_long_string</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date_to_rfc822</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date_to_string</span><span class="w"> </span><span class="cp">}}</span>
+<span class="cp">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">date_to_xmlschema</span><span class="w"> </span><span class="cp">}}</span>
 
 Output:
 31 August 2016
@@ -1964,7 +1966,7 @@ Wed, 31 Aug 2016 00:00:00 -0700
                 <span>Table of Contents <!-- sup class="scroll-top" style="text-transform:none">back to top</sup --></span>
             </h6>
             <div id="navbar">
-                <ul class="section-nav">
+                <ul id="toc" class="section-nav">
 <li class="toc-entry toc-h2"><a href="#遇到的小bug之一相册分类重复">遇到的小bug之一：相册分类重复</a></li>
 <li class="toc-entry toc-h2"><a href="#遇到的小bug之二category排序">遇到的小bug之二：category排序</a></li>
 <li class="toc-entry toc-h2"><a href="#遇到的小bug之三tags排序">遇到的小bug之三：tags排序</a></li>
