@@ -6,12 +6,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="About me">
+  <meta name="description" content="Find posts and pages across the site.">
   <meta name="author" content="Chen Ting">
   <meta name="keywords" content="">
   <meta name="theme-color" content="#272727">
 
-  <title>About</title>
+  <title>Search</title>
 
   <link rel="icon" href="/img/favicons/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
@@ -19,7 +19,7 @@
   <link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
   <link rel="manifest" href="/img/favicons/manifest.json">
   <link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="canonical" href="https://yo1995.github.io/about/" />
+  <link rel="canonical" href="https://yo1995.github.io/search/" />
   <link rel="alternate" type="application/rss+xml" title="Ting's Blog" href="https://yo1995.github.io/feed.xml" />
   
 
@@ -135,7 +135,7 @@
                         </a>
                     </li>
 
-                    <li class="current-menu-item">
+                    <li>
                         <a href="/about/" class="animsition-link">
                             <span>About</span>
                         </a>
@@ -158,154 +158,56 @@
 <!-- END HEADER-WRAP -->
 
         
-				<section>
-					<div class="container">
-						<div class="page-title text-center">
-							<h1>Bonjour !</h1>
-							<p>Qui suis-je ?</p>
-						</div>
-					</div>
-				</section>
-				<!-- END SECTION -->
-				
 
         <main id="main-content">
           
-          <div class="padding">
-    <div class="container">
-        <div class="row">
-			
-			<div class="col-sm-4">
-                <div class="contact-box text-center">
-				<a href="mailto:cht@bupt.cn">
-                    <i class="fa fa-envelope"></i>
-                    <p>cht@bupt.cn</p>
-				</a>
-                </div>
-                <!-- END CONTACT-BOX -->
-            </div>
+          <!-- 230226 - update -->
+<script src="/assets/js/jekyll-search.js" type="text/javascript"></script>
 
-            <div class="col-sm-4">
-                <div class="contact-box text-center">
-				<a href="https://www.google.com/maps/place/Redlands,+CA/">
-                    <i class="fa fa-map"></i>
-                    <p>Redlands, CA</p>
-				</a>
-                </div>
-                <!-- END CONTACT-BOX -->
-            </div>
+<script type="text/javascript">
+  function keyinsearch () {
+  SimpleJekyllSearch({
+	searchInput: document.getElementById('search-input'),
+	resultsContainer: document.getElementById('results-container'),
+	json: '/search.json',
+	searchResultTemplate: '<li><a href="{url}">{title}</a><div class="search-preview">{desc}</div></li>',
+	noResultsText: '无结果',
+	limit: 50,
+	fuzzy: false
+  });
+  }
+</script>
 
-            <div class="col-sm-4">
-                <div class="contact-box text-center">
-				<a href="https://www.linkedin.com/in/ting-chen-402bab122/">
-                    <i class="fa fa-linkedin"></i>
-                    <p>Find me on LinkedIn</p>
-				</a>
-                </div>
-                <!-- END CONTACT-BOX -->
-            </div>
-			<div class="col-xs-12">
-				<br><br><br>
-			</div>
-			<!-- 空三行更美观 -->
-            <div class="col-md-6">
-                <div class="small-title">
-                    <h4>About</h4>
-                </div>
-                <p>
-                    <strong>This is Ting, currently doing Swift at Esri. Was a grad student at Duke and undergrad at BUPT.</strong>
-                </p>
-                <p>MS in ECE (DSP -> iOS 😝). Undergrad in Applied Physics - Pilot Class of Communication Sciences. Proudly spent 6 years at <a href="https://www.cnuhs.cn/">HSACNU</a>.</p>
-				<p>This page aimed to exhibit the activities & achievements during my undergrad, but it gradually turned into a sanctuarized lockbox for retrospection and ridicule. Meanwhile, other aspects such as lifestyle, readings, travel notes, video clipping, etc. would interweave in the narration.</p>
-				<p>For more information, you may want to read <a href="https://people.duke.edu/~mobile_dev_center/TingChen/">this page</a>. Leave a Disqus comment below if you'd like to.</p>
-            </div>
-            <div class="col-md-6">
-                <div class="small-title">
-                    <h4>Skills</h4>
-                </div>
-                <!-- END SMALL-TITLE -->
 
-                <div class="progress-bar">
-		            <i class="ti-bar-chart"></i>
-                    <div class="progress-outer">
-                        <div class="progress-inner"></div>
-                    </div>
-                    <h6>Experiments & Simulations -
-                        <span>89</span>%</h6>
-                </div>
-                <!-- END PROGRESS-BAR -->
+<!-- 暂时还没想好cache怎么改写，目前每次请求都是200 ！= = 不过chrome貌似是直接从本地磁盘加载的 -->
+<!--
+<form class="search-form" action="/search/" target="_blank" method="get">
+	<input type="text" placeholder="Search..." name="q">
+	<i class="fa fa-search"></i>
+</form>
+-->
 
-                <div class="progress-bar">
-                    <div class="progress-outer">
-                        <div class="progress-inner"></div>
-                    </div>
-                    <h6>Language Learning -
-                        <span>83</span>%</h6>
-                </div>
-				<div class="progress-bar">
-                    <div class="progress-outer">
-                        <div class="progress-inner"></div>
-                    </div>
-                    <h6>Coding -
-                        <span>79</span>%</h6>
-                </div>
-                <!-- END PROGRESS-BAR -->
-				<div class="progress-bar">
-                    <div class="progress-outer">
-                        <div class="progress-inner"></div>
-                    </div>
-                    <h6>Acting -
-                        <span>73</span>%</h6>
-                </div>
-				<div class="progress-bar">
-                    <div class="progress-outer">
-                        <div class="progress-inner"></div>
-                    </div>
-                    <h6>Writing -
-                        <span>71</span>%</h6>
-                </div>
-                <!-- END PROGRESS-BAR -->
-                <div class="progress-bar">
-                    <div class="progress-outer">
-                        <div class="progress-inner"></div>
-                    </div>
-                    <h6>Photography -
-                        <span>71</span>%</h6>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-outer">
-                        <div class="progress-inner"></div>
-                    </div>
-                    <h6>Awkward Chatting 210606 -
-                        <span>1</span>%</h6>
-                </div>
-                <!-- END PROGRESS-BAR -->
-            </div>
-			
-			<div class="col-xs-12">
-			<h4 class="comment-reply-title" id="comments">Leave a Comment</h4>
-			<div class="disqus-placeholder alert alert-info" style="text-align: center">
-				<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Disqus might be GFW-ed. Excited!
-			</div>
-			<script src="/assets/js/disqusloader.js"></script>
-			<div class="disqus"></div>
-			<script>disqusLoader( '.disqus', { 
-			scriptUrl: '//yo1995.disqus.com/embed.js',
-			disqusConfig: function(){
-				this.callbacks.onReady = [function(){
-				var el = document.querySelector( '.disqus-placeholder' );
-				if( el.classList )
-					el.classList.add( 'is-hidden' ); // IE 10+
-				else
-					el.className += ' ' + 'is-hidden'; // IE 8-9
-				}];}
-			});</script>
-			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-			</div>
-        </div>
+
+<section class="search-center-wrap">
+  <div class="container">
+    <div class="page-title text-center">
+      <h1>Search</h1>
+      <p>Find posts and pages across the site.</p>
     </div>
-</div>
-<!-- END PADDING ff1939-->
+
+    <div class="search-center-inner">
+      <div onclick="keyinsearch()" class="search-form search-form-center" id="search-container">
+        <input type="text" id="search-input" placeholder="Search by keyword…" autofocus>
+        <i class="fa fa-search"></i>
+      </div>
+      <ul id="results-container" class="search-results-list"></ul>
+    </div>
+  </div>
+</section>
+
+
+
+
 
         </main>
         <!-- END MAIN -->

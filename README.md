@@ -14,6 +14,7 @@ Jekyll rendered files for my blog. One of the last bastions for human crafted co
 
 ## Changelog
 
+- 260509: Add search page to the blog
 - 260509: Migrate my blog deployment system to macOS
   - clean up README
   - set up new environment on Mac Studio, farewell Windows 🥲
