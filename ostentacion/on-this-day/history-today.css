@@ -1,0 +1,135 @@
+.go-today-btn {
+  border: 1px solid #27272722;
+  border-radius: 18px;
+  padding: 6px 22px;
+  font-size: 1.1em;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.go-today-btn:hover {
+  background: #ff1939;
+  color: #fffbe6;
+}
+/* Improve touch scroll experience */
+#timeline-wheel {
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
+}
+/* history-today.css */
+#timeline-axis {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  max-width: 900px;
+  width: 100%;
+}
+.history-today-axis-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto 0 auto;
+  width: 100%;
+}
+.axis-month-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  font-weight: bold;
+  color: #272727;
+  margin-bottom: 2px;
+  min-height: 28px;
+}
+.axis-day-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 48px;
+  position: relative;
+}
+.axis-day {
+  flex: 0 0 48px;
+  text-align: center;
+  font-size: 1.1em;
+  color: #888;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.2s, font-size 0.2s;
+}
+.axis-day.center {
+  color: #ff1939;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.axis-day::after {
+  content: '';
+  display: block;
+  margin: 0 auto;
+  width: 2px;
+  height: 18px;
+  background: #ff193922;
+  border-radius: 2px;
+  margin-top: 4px;
+}
+.axis-day.center::after {
+  background: #ff1939;
+  height: 24px;
+}
+.wheel-arrow {
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: #bbb;
+  cursor: pointer;
+  margin: 0 8px;
+  transition: color 0.2s;
+}
+.wheel-arrow:hover {
+  color: #ff1939;
+}
+#timeline-articles {
+  margin: 30px auto 0 auto;
+  max-width: 900px;
+  min-height: 120px;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.4s;
+}
+#timeline-articles.fade-in {
+  opacity: 1;
+  animation: fadeInUp 0.5s;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.timeline-date {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin: 10px 0 8px 0;
+}
+.timeline-date.today {
+  color: #272727;
+}
+.timeline-posts {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+.timeline-posts li {
+  margin: 6px 0;
+  font-size: 1em;
+}
+.timeline-year {
+  color: #888;
+  font-size: 0.95em;
+}
+.no-articles {
+  color: #aaa;
+  margin: 20px 0;
+}

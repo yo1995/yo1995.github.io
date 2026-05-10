@@ -1,0 +1,3071 @@
+<!DOCTYPE html>
+<html>
+
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="See what happened on this day in history.Rediscover old content and see how it connects to the present day.">
+  <meta name="author" content="Chen Ting">
+  <meta name="keywords" content="">
+  <meta name="theme-color" content="#272727">
+
+  <title>On This Day</title>
+
+  <link rel="icon" href="/img/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="canonical" href="https://yo1995.github.io/ostentacion/on-this-day/" />
+  <link rel="alternate" type="application/rss+xml" title="Ting's Blog" href="https://yo1995.github.io/feed.xml" />
+  
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <!-- PLUGINS -->
+  <link rel="stylesheet" href="/assets/css/vlthemes.css">
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">	
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  
+  
+
+</head>
+
+
+  <body>
+
+		<!-- FRAMES -->
+		<span class="frame-line top-frame"></span>
+		<span class="frame-line right-frame"></span>
+		<span class="frame-line bottom-frame"></span>
+		<span class="frame-line left-frame"></span>
+
+    <div class="animsition">
+      <div class="content">
+
+        
+<!-- header-fixed / header-scroll-up  -->
+<div class="scroll-indicator fixedheader"></div>
+<header class="header-wrap header-fixed minimal-menu">
+    <div class="header-inner">
+        <div class="container">
+			
+			<div class="logo">
+                <a href="/" class="animsition-link">Hom<span>e</span></a>
+            </div>
+			
+
+            <a href="#" class="menu-toggle desctop-menu">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <a href="#" class="menu-toggle mobile-menu-toggle">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <nav class="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="/" class="animsition-link">
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item-has-children">
+                        <a href="">
+                            <span>Blog</span>
+                        </a>
+						    <ul class="sub-menu">
+								<li>
+									<a href="/blog/" class="animsition-link">
+										<span>Index</span>
+									</a>
+								</li>
+								<li>
+									<a href="/posts/" class="animsition-link">
+										<span>Archives</span>
+									</a>
+								</li>
+								<li>
+									<a href="/categories/" class="animsition-link">
+										<span>Categories</span>
+									</a>
+								</li>
+                                <li>
+                                    <a href="/search/" class="animsition-link">
+                                        <span>Search</span>
+                                    </a>
+                                </li>
+								<li>
+									<a href="/tags/" class="animsition-link">
+										<span>Tags</span>
+									</a>
+								</li>
+								<li>
+									<a href="/timeline/" class="animsition-link">
+										<span>Timeline</span>
+									</a>
+								</li>								
+								<li>
+									<a href="/cards/" class="animsition-link">
+										<span>Cards</span>
+									</a>
+								</li>
+							</ul>
+                    </li>
+
+                    <li>
+                        <a href="/photos/" class="animsition-link">
+                            <span>Photos</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/about/" class="animsition-link">
+                            <span>About</span>
+                        </a>
+                    </li>
+					
+					  <!--li>
+                        <a href="" class="animsition-link" id="CN">
+                            <span>CN</span>
+                        </a>
+                    </li-->
+                </ul>
+            </nav>
+            <!-- END PRIMARY-MENU -->
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <!-- END HEADER-INNER -->
+</header>
+<!-- END HEADER-WRAP -->
+
+        
+				<section>
+					<div class="container">
+						<div class="page-title text-center">
+							<h1>On This Day</h1>
+							<p>See what happened on this day in history.<br>Rediscover old content and see how it connects to the present day.</p>
+						</div>
+					</div>
+				</section>
+				<!-- END SECTION -->
+				
+
+        <main id="main-content">
+          
+          <link rel="stylesheet" href="/ostentacion/on-this-day/history-today.css">
+<div class="container">
+  <div class="history-today-axis-wrap">
+    <button id="wheel-left" class="wheel-arrow">&#8592;</button>
+    <div id="timeline-axis">
+      <div class="axis-month-row"></div>
+      <div class="axis-day-row"></div>
+    </div>
+    <button id="wheel-right" class="wheel-arrow">&#8594;</button>
+  </div>
+</div>
+<div style="text-align:center;margin-top:18px;">
+  <button id="go-today-btn" class="go-today-btn" style="display:none;">回到今天</button>
+</div>
+<div id="timeline-articles"></div>
+<script>
+// Collect all posts and group by MM-DD
+window.onThisDayPostsByDate = {};
+
+
+  
+  if (!window.onThisDayPostsByDate['11-28']) window.onThisDayPostsByDate['11-28'] = [];
+  window.onThisDayPostsByDate['11-28'].push({
+    title: "考古系 - 做喜欢的自己 by 孙辰",
+    url: "/school/chensun-be-yourself/",
+    date: "2013-11-28"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-25']) window.onThisDayPostsByDate['12-25'] = [];
+  window.onThisDayPostsByDate['12-25'].push({
+    title: "考古系 - 江南Style",
+    url: "/video/gangnanstyle/",
+    date: "2013-12-25"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-31']) window.onThisDayPostsByDate['12-31'] = [];
+  window.onThisDayPostsByDate['12-31'].push({
+    title: "考古系 - 我给你写信 by 孙辰",
+    url: "/school/chensun-s-2013-review/",
+    date: "2013-12-31"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['03-22']) window.onThisDayPostsByDate['03-22'] = [];
+  window.onThisDayPostsByDate['03-22'].push({
+    title: "考古系 - 纯粹胡言乱语 by 孙辰",
+    url: "/school/chensun-gibberish/",
+    date: "2014-03-22"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-29']) window.onThisDayPostsByDate['05-29'] = [];
+  window.onThisDayPostsByDate['05-29'].push({
+    title: "考古系 - 有些事现在不错 by 孙辰",
+    url: "/school/chensun-wrongful/",
+    date: "2014-05-29"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-06']) window.onThisDayPostsByDate['08-06'] = [];
+  window.onThisDayPostsByDate['08-06'].push({
+    title: "考古系 - Righteors, behind the scenes",
+    url: "/video/the-righteors-behind-the-scenes/",
+    date: "2014-08-06"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-28']) window.onThisDayPostsByDate['08-28'] = [];
+  window.onThisDayPostsByDate['08-28'].push({
+    title: "考古系 - 2014.8 APSA Program",
+    url: "/life/apsa/",
+    date: "2014-08-28"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-30']) window.onThisDayPostsByDate['08-30'] = [];
+  window.onThisDayPostsByDate['08-30'].push({
+    title: "考古系 - 过期在校生 by 孙辰",
+    url: "/school/chensun-expired-teenage/",
+    date: "2014-08-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-28']) window.onThisDayPostsByDate['10-28'] = [];
+  window.onThisDayPostsByDate['10-28'].push({
+    title: "考古系 - 生活与选择 by 孙辰",
+    url: "/school/chensun-choice-of-life/",
+    date: "2014-10-28"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-01']) window.onThisDayPostsByDate['11-01'] = [];
+  window.onThisDayPostsByDate['11-01'].push({
+    title: "Lectures I've attended in rookie year",
+    url: "/physics/lectures-attended-in-first-year/",
+    date: "2014-11-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-16']) window.onThisDayPostsByDate['11-16'] = [];
+  window.onThisDayPostsByDate['11-16'].push({
+    title: "考古系 - Joe Montana & Jerry Rice",
+    url: "/life/joe-montana-jerry-rice/",
+    date: "2014-11-16"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-27']) window.onThisDayPostsByDate['02-27'] = [];
+  window.onThisDayPostsByDate['02-27'].push({
+    title: "考古系 - 大宅门",
+    url: "/movie/dazhaimen/",
+    date: "2015-02-27"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-01']) window.onThisDayPostsByDate['07-01'] = [];
+  window.onThisDayPostsByDate['07-01'].push({
+    title: "考古系 - 写在毕业季 by 孙辰",
+    url: "/school/chensun-graduation-season/",
+    date: "2015-07-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-29']) window.onThisDayPostsByDate['11-29'] = [];
+  window.onThisDayPostsByDate['11-29'].push({
+    title: "大学的第二次迷茫",
+    url: "/introspection/second-hesitation-of-college/",
+    date: "2015-11-29"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-10']) window.onThisDayPostsByDate['12-10'] = [];
+  window.onThisDayPostsByDate['12-10'].push({
+    title: "故乡·江南",
+    url: "/school/jiangnan/",
+    date: "2015-12-10"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-27']) window.onThisDayPostsByDate['12-27'] = [];
+  window.onThisDayPostsByDate['12-27'].push({
+    title: "转山·观海·单车·台湾",
+    url: "/video/taiwan/",
+    date: "2015-12-27"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-04']) window.onThisDayPostsByDate['05-04'] = [];
+  window.onThisDayPostsByDate['05-04'].push({
+    title: "敬告青年",
+    url: "/reading/a-la-jeunesse/",
+    date: "2016-05-04"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-22']) window.onThisDayPostsByDate['05-22'] = [];
+  window.onThisDayPostsByDate['05-22'].push({
+    title: "大创简记",
+    url: "/school/innovation-program-second-year/",
+    date: "2016-05-22"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['06-27']) window.onThisDayPostsByDate['06-27'] = [];
+  window.onThisDayPostsByDate['06-27'].push({
+    title: "在黑暗中的时候，我会想些什么 - 1",
+    url: "/introspection/when-its-dark-1/",
+    date: "2016-06-27"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-12']) window.onThisDayPostsByDate['07-12'] = [];
+  window.onThisDayPostsByDate['07-12'].push({
+    title: "ASM no longer supports impact factors",
+    url: "/physics/no-longer-if-support-for-asm/",
+    date: "2016-07-12"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-16']) window.onThisDayPostsByDate['08-16'] = [];
+  window.onThisDayPostsByDate['08-16'].push({
+    title: "Hello World & hexo notes",
+    url: "/html/helloworld-hexo/",
+    date: "2016-08-16"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-18']) window.onThisDayPostsByDate['08-18'] = [];
+  window.onThisDayPostsByDate['08-18'].push({
+    title: "Hexo - 相册解决方案 - Icarus主题",
+    url: "/html/the-evolution-of-the-album-page/",
+    date: "2016-08-18"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-25']) window.onThisDayPostsByDate['08-25'] = [];
+  window.onThisDayPostsByDate['08-25'].push({
+    title: "Days in semi.ac - 1",
+    url: "/physics/cas-semi-1/",
+    date: "2016-08-25"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-25']) window.onThisDayPostsByDate['08-25'] = [];
+  window.onThisDayPostsByDate['08-25'].push({
+    title: "Jekyll 新坑之 Hello my new blog !",
+    url: "/html/helloworld-jekyll/",
+    date: "2016-08-25"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-27']) window.onThisDayPostsByDate['08-27'] = [];
+  window.onThisDayPostsByDate['08-27'].push({
+    title: "Using PIL(Pillow) to generate thumbnail",
+    url: "/coding/python-pil-101/",
+    date: "2016-08-27"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-27']) window.onThisDayPostsByDate['08-27'] = [];
+  window.onThisDayPostsByDate['08-27'].push({
+    title: "Google Fonts and substitution",
+    url: "/html/googleapis-substitution/",
+    date: "2016-08-27"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-29']) window.onThisDayPostsByDate['08-29'] = [];
+  window.onThisDayPostsByDate['08-29'].push({
+    title: "Windows 文件夹同步工具 - SyncToy + Shell 同步脚本",
+    url: "/tools/synctoy-windows/",
+    date: "2016-08-29"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-31']) window.onThisDayPostsByDate['08-31'] = [];
+  window.onThisDayPostsByDate['08-31'].push({
+    title: "有关T大的一些链接 + 自己的一些反省",
+    url: "/introspection/tsinghua-thoughts/",
+    date: "2016-08-31"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-31']) window.onThisDayPostsByDate['08-31'] = [];
+  window.onThisDayPostsByDate['08-31'].push({
+    title: "Jekyll 之修改 liquid 代码：去重、排序以及其它",
+    url: "/html/jekyll-edit-liquid-1/",
+    date: "2016-08-31"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-01']) window.onThisDayPostsByDate['09-01'] = [];
+  window.onThisDayPostsByDate['09-01'].push({
+    title: "再谈独立博客",
+    url: "/life/talk-about-blogging-again/",
+    date: "2016-09-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-05']) window.onThisDayPostsByDate['09-05'] = [];
+  window.onThisDayPostsByDate['09-05'].push({
+    title: "Python日常小记 - NFL官网相册下载",
+    url: "/coding/nfl-album-download/",
+    date: "2016-09-05"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-05']) window.onThisDayPostsByDate['09-05'] = [];
+  window.onThisDayPostsByDate['09-05'].push({
+    title: "Python日常小记 - 文字表情包制作器 for Wechat",
+    url: "/coding/python-gif-emoticon-generator/",
+    date: "2016-09-05"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-05']) window.onThisDayPostsByDate['09-05'] = [];
+  window.onThisDayPostsByDate['09-05'].push({
+    title: "Python日常小记 - 关于Python的碎碎念",
+    url: "/coding/python-understandings-101s/",
+    date: "2016-09-05"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-08']) window.onThisDayPostsByDate['09-08'] = [];
+  window.onThisDayPostsByDate['09-08'].push({
+    title: "Welcome to LaTeX!",
+    url: "/tools/welcome-to-latex/",
+    date: "2016-09-08"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-14']) window.onThisDayPostsByDate['09-14'] = [];
+  window.onThisDayPostsByDate['09-14'].push({
+    title: "Days in school physics lab - 1",
+    url: "/physics/phys-lab-1/",
+    date: "2016-09-14"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-15']) window.onThisDayPostsByDate['09-15'] = [];
+  window.onThisDayPostsByDate['09-15'].push({
+    title: "Game Review - FTL(Faster Than Light)",
+    url: "/games/about-ftl/",
+    date: "2016-09-15"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-15']) window.onThisDayPostsByDate['09-15'] = [];
+  window.onThisDayPostsByDate['09-15'].push({
+    title: "Days in school physics lab - 2",
+    url: "/physics/phys-lab-2/",
+    date: "2016-09-15"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-20']) window.onThisDayPostsByDate['09-20'] = [];
+  window.onThisDayPostsByDate['09-20'].push({
+    title: "考古系 - 扎营之乐",
+    url: "/life/camping-notes/",
+    date: "2016-09-20"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-28']) window.onThisDayPostsByDate['09-28'] = [];
+  window.onThisDayPostsByDate['09-28'].push({
+    title: "考古系 - 与三位NFL传奇的邂逅",
+    url: "/life/peyton-manning-omaha/",
+    date: "2016-09-28"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-29']) window.onThisDayPostsByDate['10-29'] = [];
+  window.onThisDayPostsByDate['10-29'].push({
+    title: "《中华之剑》观后感",
+    url: "/movie/zhonghuazhijian/",
+    date: "2016-10-29"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-10']) window.onThisDayPostsByDate['11-10'] = [];
+  window.onThisDayPostsByDate['11-10'].push({
+    title: "既然学会了跑，为何还要走？",
+    url: "/zhuism/puisque-courir/",
+    date: "2016-11-10"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-28']) window.onThisDayPostsByDate['11-28'] = [];
+  window.onThisDayPostsByDate['11-28'].push({
+    title: "谦德之效",
+    url: "/introspection/reverence/",
+    date: "2016-11-28"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-10']) window.onThisDayPostsByDate['12-10'] = [];
+  window.onThisDayPostsByDate['12-10'].push({
+    title: "圆观",
+    url: "/reading/yuanguan/",
+    date: "2016-12-10"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-16']) window.onThisDayPostsByDate['12-16'] = [];
+  window.onThisDayPostsByDate['12-16'].push({
+    title: "Compilation of works related to optics",
+    url: "/physics/optics-collection/",
+    date: "2016-12-16"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-17']) window.onThisDayPostsByDate['12-17'] = [];
+  window.onThisDayPostsByDate['12-17'].push({
+    title: "Days in semi.ac - 2",
+    url: "/physics/cas-semi-2/",
+    date: "2016-12-17"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-04']) window.onThisDayPostsByDate['01-04'] = [];
+  window.onThisDayPostsByDate['01-04'].push({
+    title: "2016 Review - Replaceability",
+    url: "/life/replaceability-2016review/",
+    date: "2017-01-04"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-06']) window.onThisDayPostsByDate['01-06'] = [];
+  window.onThisDayPostsByDate['01-06'].push({
+    title: "记一次奇怪的梦境",
+    url: "/life/dream-of-a-girl/",
+    date: "2017-01-06"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-11']) window.onThisDayPostsByDate['01-11'] = [];
+  window.onThisDayPostsByDate['01-11'].push({
+    title: "Sum-ups of circuit designs",
+    url: "/ee/circuits-sum-up/",
+    date: "2017-01-11"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-15']) window.onThisDayPostsByDate['01-15'] = [];
+  window.onThisDayPostsByDate['01-15'].push({
+    title: "Jettison",
+    url: "/life/throw-away-my-past/",
+    date: "2017-01-15"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-18']) window.onThisDayPostsByDate['01-18'] = [];
+  window.onThisDayPostsByDate['01-18'].push({
+    title: "遇见一个来自X的法国人",
+    url: "/school/meet-a-polytechnicien/",
+    date: "2017-01-18"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-25']) window.onThisDayPostsByDate['01-25'] = [];
+  window.onThisDayPostsByDate['01-25'].push({
+    title: "BBS随想录 - 0 - BBS的历史",
+    url: "/coding/bbs-history/",
+    date: "2017-01-25"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-26']) window.onThisDayPostsByDate['01-26'] = [];
+  window.onThisDayPostsByDate['01-26'].push({
+    title: "BBS随想录 - 1 - 站务与用户",
+    url: "/school/bbs-love/",
+    date: "2017-01-26"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-02']) window.onThisDayPostsByDate['02-02'] = [];
+  window.onThisDayPostsByDate['02-02'].push({
+    title: "Python日常小记 - 奇怪的需求之拿东西",
+    url: "/coding/burp-it-up/",
+    date: "2017-02-02"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-20']) window.onThisDayPostsByDate['02-20'] = [];
+  window.onThisDayPostsByDate['02-20'].push({
+    title: "天津之行",
+    url: "/video/tianjin-tour/",
+    date: "2017-02-20"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-27']) window.onThisDayPostsByDate['02-27'] = [];
+  window.onThisDayPostsByDate['02-27'].push({
+    title: "下一代",
+    url: "/life/next-generation/",
+    date: "2017-02-27"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['03-15']) window.onThisDayPostsByDate['03-15'] = [];
+  window.onThisDayPostsByDate['03-15'].push({
+    title: "又见清华",
+    url: "/school/reconnaitre-tsinghua/",
+    date: "2017-03-15"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['04-05']) window.onThisDayPostsByDate['04-05'] = [];
+  window.onThisDayPostsByDate['04-05'].push({
+    title: "Future.XYZ",
+    url: "/school/choix-difficile/",
+    date: "2017-04-05"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['04-20']) window.onThisDayPostsByDate['04-20'] = [];
+  window.onThisDayPostsByDate['04-20'].push({
+    title: "申请回顾与遗憾",
+    url: "/school/retrospection-on-grad-application/",
+    date: "2017-04-20"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-05']) window.onThisDayPostsByDate['05-05'] = [];
+  window.onThisDayPostsByDate['05-05'].push({
+    title: "泛谈“最值得”的投资",
+    url: "/life/valuable-investment/",
+    date: "2017-05-05"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-17']) window.onThisDayPostsByDate['08-17'] = [];
+  window.onThisDayPostsByDate['08-17'].push({
+    title: "来杜克后见的两个人",
+    url: "/life/foudre/",
+    date: "2017-08-17"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-18']) window.onThisDayPostsByDate['08-18'] = [];
+  window.onThisDayPostsByDate['08-18'].push({
+    title: "XPS 9560 OS X Sierra 步骤记录",
+    url: "/coding/xps-set-up/",
+    date: "2017-08-18"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-27']) window.onThisDayPostsByDate['08-27'] = [];
+  window.onThisDayPostsByDate['08-27'].push({
+    title: "《Introduction to Awkwardly Chatting with Girls 101》",
+    url: "/school/itacwg101-01/",
+    date: "2017-08-27"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-28']) window.onThisDayPostsByDate['08-28'] = [];
+  window.onThisDayPostsByDate['08-28'].push({
+    title: "来杜克后见的两个人 - 2",
+    url: "/school/harvest-in-duke/",
+    date: "2017-08-28"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-01']) window.onThisDayPostsByDate['09-01'] = [];
+  window.onThisDayPostsByDate['09-01'].push({
+    title: "小忆甘家口",
+    url: "/life/ganjiakou/",
+    date: "2017-09-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-08']) window.onThisDayPostsByDate['09-08'] = [];
+  window.onThisDayPostsByDate['09-08'].push({
+    title: "来杜克后见的两个人 - 3",
+    url: "/school/once-i-dreamt-france/",
+    date: "2017-09-08"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-12']) window.onThisDayPostsByDate['09-12'] = [];
+  window.onThisDayPostsByDate['09-12'].push({
+    title: "生活点滴随记",
+    url: "/life/let-it-be/",
+    date: "2017-09-12"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-13']) window.onThisDayPostsByDate['09-13'] = [];
+  window.onThisDayPostsByDate['09-13'].push({
+    title: "弯道超车",
+    url: "/reading/wandaochaoche/",
+    date: "2017-09-13"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-15']) window.onThisDayPostsByDate['09-15'] = [];
+  window.onThisDayPostsByDate['09-15'].push({
+    title: "美式乡村酒吧",
+    url: "/life/bar/",
+    date: "2017-09-15"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-23']) window.onThisDayPostsByDate['09-23'] = [];
+  window.onThisDayPostsByDate['09-23'].push({
+    title: "Campout Weekend thoughts",
+    url: "/life/campout-finde/",
+    date: "2017-09-23"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-25']) window.onThisDayPostsByDate['09-25'] = [];
+  window.onThisDayPostsByDate['09-25'].push({
+    title: "自怨自艾 - 1",
+    url: "/introspection/self-confession-1/",
+    date: "2017-09-25"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-30']) window.onThisDayPostsByDate['09-30'] = [];
+  window.onThisDayPostsByDate['09-30'].push({
+    title: "参天大树",
+    url: "/zhuism/tree-vs-bush/",
+    date: "2017-09-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-01']) window.onThisDayPostsByDate['10-01'] = [];
+  window.onThisDayPostsByDate['10-01'].push({
+    title: "生活点滴随记 - 1001",
+    url: "/life/life-notes-1001/",
+    date: "2017-10-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-09']) window.onThisDayPostsByDate['10-09'] = [];
+  window.onThisDayPostsByDate['10-09'].push({
+    title: "来杜克后见的两个人 - 4",
+    url: "/school/two-girls-04/",
+    date: "2017-10-09"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-28']) window.onThisDayPostsByDate['10-28'] = [];
+  window.onThisDayPostsByDate['10-28'].push({
+    title: "PhD碎碎念 - 2",
+    url: "/introspection/phd-1/",
+    date: "2017-10-28"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-04']) window.onThisDayPostsByDate['11-04'] = [];
+  window.onThisDayPostsByDate['11-04'].push({
+    title: "Days with NBA2K through the years - 1",
+    url: "/games/nba2k/",
+    date: "2017-11-04"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-11']) window.onThisDayPostsByDate['11-11'] = [];
+  window.onThisDayPostsByDate['11-11'].push({
+    title: "生活点滴随记 - 1111",
+    url: "/life/life-notes-1111/",
+    date: "2017-11-11"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-14']) window.onThisDayPostsByDate['11-14'] = [];
+  window.onThisDayPostsByDate['11-14'].push({
+    title: "单边指数时域信号的傅里叶反变换",
+    url: "/ee/inverse-fourier-transform/",
+    date: "2017-11-14"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-25']) window.onThisDayPostsByDate['11-25'] = [];
+  window.onThisDayPostsByDate['11-25'].push({
+    title: "Parseval's theorem",
+    url: "/ee/parsevals-theorem/",
+    date: "2017-11-25"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-26']) window.onThisDayPostsByDate['11-26'] = [];
+  window.onThisDayPostsByDate['11-26'].push({
+    title: "生活点滴随记 - 1126",
+    url: "/life/life-notes-1126/",
+    date: "2017-11-26"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-30']) window.onThisDayPostsByDate['11-30'] = [];
+  window.onThisDayPostsByDate['11-30'].push({
+    title: "XPS15 9560纯主观安利",
+    url: "/tools/xps-9560-review/",
+    date: "2017-11-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-07']) window.onThisDayPostsByDate['12-07'] = [];
+  window.onThisDayPostsByDate['12-07'].push({
+    title: "触乐女神杨中依",
+    url: "/games/chuapp-review-17/",
+    date: "2017-12-07"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-10']) window.onThisDayPostsByDate['12-10'] = [];
+  window.onThisDayPostsByDate['12-10'].push({
+    title: "生活点滴随记 - 1210",
+    url: "/life/life-notes-1210/",
+    date: "2017-12-10"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-14']) window.onThisDayPostsByDate['02-14'] = [];
+  window.onThisDayPostsByDate['02-14'].push({
+    title: "生活点滴随记 - 0214",
+    url: "/life/life-notes-0214/",
+    date: "2018-02-14"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-22']) window.onThisDayPostsByDate['02-22'] = [];
+  window.onThisDayPostsByDate['02-22'].push({
+    title: "2017 Review - Uncertainty",
+    url: "/life/uncertainty-2017review/",
+    date: "2018-02-22"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['03-12']) window.onThisDayPostsByDate['03-12'] = [];
+  window.onThisDayPostsByDate['03-12'].push({
+    title: "我为什么向往城市",
+    url: "/zhuism/city-love-1/",
+    date: "2018-03-12"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['03-19']) window.onThisDayPostsByDate['03-19'] = [];
+  window.onThisDayPostsByDate['03-19'].push({
+    title: "Python日常小记 - 《风月》",
+    url: "/coding/python-fengyue/",
+    date: "2018-03-19"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['04-01']) window.onThisDayPostsByDate['04-01'] = [];
+  window.onThisDayPostsByDate['04-01'].push({
+    title: "丢数据",
+    url: "/life/data-loss-traceback/",
+    date: "2018-04-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['04-11']) window.onThisDayPostsByDate['04-11'] = [];
+  window.onThisDayPostsByDate['04-11'].push({
+    title: "NAS",
+    url: "/tools/nas-and-network/",
+    date: "2018-04-11"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['04-28']) window.onThisDayPostsByDate['04-28'] = [];
+  window.onThisDayPostsByDate['04-28'].push({
+    title: "Self-esteem",
+    url: "/introspection/life-notes-180428/",
+    date: "2018-04-28"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-01']) window.onThisDayPostsByDate['05-01'] = [];
+  window.onThisDayPostsByDate['05-01'].push({
+    title: "Random thoughts on property",
+    url: "/introspection/random-thoughts-on-property/",
+    date: "2018-05-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-10']) window.onThisDayPostsByDate['05-10'] = [];
+  window.onThisDayPostsByDate['05-10'].push({
+    title: "如何玩坏微信小游戏",
+    url: "/coding/master-of-arithmetic-game/",
+    date: "2018-05-10"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-28']) window.onThisDayPostsByDate['05-28'] = [];
+  window.onThisDayPostsByDate['05-28'].push({
+    title: "BR图片下载器",
+    url: "/coding/ultimate-nba-downloader/",
+    date: "2018-05-28"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['06-07']) window.onThisDayPostsByDate['06-07'] = [];
+  window.onThisDayPostsByDate['06-07'].push({
+    title: "调整Mac分区大小",
+    url: "/tools/shrink-mac-partition/",
+    date: "2018-06-07"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['06-07']) window.onThisDayPostsByDate['06-07'] = [];
+  window.onThisDayPostsByDate['06-07'].push({
+    title: "必须安装Dolby解码器",
+    url: "/video/dolby-codec-must-be-installed/",
+    date: "2018-06-07"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['06-07']) window.onThisDayPostsByDate['06-07'] = [];
+  window.onThisDayPostsByDate['06-07'].push({
+    title: "正版Adobe初体验",
+    url: "/video/genuine-adobe-software-subscription/",
+    date: "2018-06-07"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['06-10']) window.onThisDayPostsByDate['06-10'] = [];
+  window.onThisDayPostsByDate['06-10'].push({
+    title: "生活点滴随记 - 180610",
+    url: "/life/life-notes-180610/",
+    date: "2018-06-10"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['06-11']) window.onThisDayPostsByDate['06-11'] = [];
+  window.onThisDayPostsByDate['06-11'].push({
+    title: "《Introduction to Awkwardly Chatting with Girls 101》- 02",
+    url: "/school/itacwg101-02/",
+    date: "2018-06-11"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['06-21']) window.onThisDayPostsByDate['06-21'] = [];
+  window.onThisDayPostsByDate['06-21'].push({
+    title: "由爱消除乐园引发的几点思考",
+    url: "/games/bejeweled-like-game/",
+    date: "2018-06-21"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['06-24']) window.onThisDayPostsByDate['06-24'] = [];
+  window.onThisDayPostsByDate['06-24'].push({
+    title: "又到高考出分时",
+    url: "/school/gaokao-and-my-choice/",
+    date: "2018-06-24"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-06']) window.onThisDayPostsByDate['07-06'] = [];
+  window.onThisDayPostsByDate['07-06'].push({
+    title: "NBA2K11 投篮点辅助",
+    url: "/coding/nba2k11-shotchart-project/",
+    date: "2018-07-06"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-12']) window.onThisDayPostsByDate['07-12'] = [];
+  window.onThisDayPostsByDate['07-12'].push({
+    title: "三体模拟器小记",
+    url: "/coding/threebody-visualization/",
+    date: "2018-07-12"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-21']) window.onThisDayPostsByDate['07-21'] = [];
+  window.onThisDayPostsByDate['07-21'].push({
+    title: "Pr工程文件版本转换器",
+    url: "/coding/adobe-premiere-pro-projectfile-downgrader/",
+    date: "2018-07-21"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-28']) window.onThisDayPostsByDate['07-28'] = [];
+  window.onThisDayPostsByDate['07-28'].push({
+    title: "为凡凡打尻！",
+    url: "/video/call-kriswu-skr/",
+    date: "2018-07-28"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-30']) window.onThisDayPostsByDate['07-30'] = [];
+  window.onThisDayPostsByDate['07-30'].push({
+    title: "Windows 下运行 you-get 获取视频",
+    url: "/tools/youget-in-windows/",
+    date: "2018-07-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-06']) window.onThisDayPostsByDate['08-06'] = [];
+  window.onThisDayPostsByDate['08-06'].push({
+    title: "终极表情包生成器 - 1",
+    url: "/coding/ultimate-emoticon-generator-1/",
+    date: "2018-08-06"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-07']) window.onThisDayPostsByDate['08-07'] = [];
+  window.onThisDayPostsByDate['08-07'].push({
+    title: "终极表情包生成器 - 2",
+    url: "/coding/ultimate-emoticon-generator-2/",
+    date: "2018-08-07"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-12']) window.onThisDayPostsByDate['08-12'] = [];
+  window.onThisDayPostsByDate['08-12'].push({
+    title: "生活点滴随记 - 游泳的乐趣",
+    url: "/sports/life-notes-180812/",
+    date: "2018-08-12"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-23']) window.onThisDayPostsByDate['08-23'] = [];
+  window.onThisDayPostsByDate['08-23'].push({
+    title: "VoluMax 小记",
+    url: "/video/volumax-notes/",
+    date: "2018-08-23"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-02']) window.onThisDayPostsByDate['09-02'] = [];
+  window.onThisDayPostsByDate['09-02'].push({
+    title: "多个系统使用同一蓝牙键盘",
+    url: "/tools/pairing-bluetooth-device-with-multiple-systems/",
+    date: "2018-09-02"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-03']) window.onThisDayPostsByDate['09-03'] = [];
+  window.onThisDayPostsByDate['09-03'].push({
+    title: "Random thoughts on Tiger's comeback in 2018",
+    url: "/life/tiger-woods-1/",
+    date: "2018-09-03"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-05']) window.onThisDayPostsByDate['09-05'] = [];
+  window.onThisDayPostsByDate['09-05'].push({
+    title: "GBBB - My favs",
+    url: "/video/gbbb-highlight-1/",
+    date: "2018-09-05"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-10']) window.onThisDayPostsByDate['09-10'] = [];
+  window.onThisDayPostsByDate['09-10'].push({
+    title: "MacBook Air 外接 2560×1080 分辨率的屏幕",
+    url: "/tools/mba-2k-output/",
+    date: "2018-09-10"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-20']) window.onThisDayPostsByDate['09-20'] = [];
+  window.onThisDayPostsByDate['09-20'].push({
+    title: "生活点滴随记 - 180920",
+    url: "/life/life-notes-180920/",
+    date: "2018-09-20"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-29']) window.onThisDayPostsByDate['09-29'] = [];
+  window.onThisDayPostsByDate['09-29'].push({
+    title: "Windows快速搜索Emoji小工具",
+    url: "/coding/wox-plugin-emoji/",
+    date: "2018-09-29"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-02']) window.onThisDayPostsByDate['10-02'] = [];
+  window.onThisDayPostsByDate['10-02'].push({
+    title: "关于AE项目文件降级的一些想法",
+    url: "/video/thoughts-on-ae-downgrading/",
+    date: "2018-10-02"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-24']) window.onThisDayPostsByDate['10-24'] = [];
+  window.onThisDayPostsByDate['10-24'].push({
+    title: "生活点滴随记 - 181024",
+    url: "/life/life-notes-181024/",
+    date: "2018-10-24"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-10']) window.onThisDayPostsByDate['11-10'] = [];
+  window.onThisDayPostsByDate['11-10'].push({
+    title: "蝴蝶与蚊子",
+    url: "/fantasywhimridicule/papillon-et-moustique/",
+    date: "2018-11-10"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-11']) window.onThisDayPostsByDate['11-11'] = [];
+  window.onThisDayPostsByDate['11-11'].push({
+    title: "生活点滴随记 - 181111",
+    url: "/life/life-notes-181111/",
+    date: "2018-11-11"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-19']) window.onThisDayPostsByDate['11-19'] = [];
+  window.onThisDayPostsByDate['11-19'].push({
+    title: "实干主义 - 1",
+    url: "/zhuism/pragmatism-1/",
+    date: "2018-11-19"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-20']) window.onThisDayPostsByDate['11-20'] = [];
+  window.onThisDayPostsByDate['11-20'].push({
+    title: "浴室记录仪",
+    url: "/fantasywhimridicule/bathroom-recorder/",
+    date: "2018-11-20"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-21']) window.onThisDayPostsByDate['11-21'] = [];
+  window.onThisDayPostsByDate['11-21'].push({
+    title: "生活点滴随记 - 181121-181229",
+    url: "/life/life-notes-181121/",
+    date: "2018-11-21"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-01']) window.onThisDayPostsByDate['01-01'] = [];
+  window.onThisDayPostsByDate['01-01'].push({
+    title: "2018 Review - Uncertainty unfolded - Traveling",
+    url: "/life/uncertainty-unfolded-2018review-traveling/",
+    date: "2019-01-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-01']) window.onThisDayPostsByDate['01-01'] = [];
+  window.onThisDayPostsByDate['01-01'].push({
+    title: "2018 Review - Uncertainty unfolded",
+    url: "/life/uncertainty-unfolded-2018review/",
+    date: "2019-01-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-16']) window.onThisDayPostsByDate['01-16'] = [];
+  window.onThisDayPostsByDate['01-16'].push({
+    title: "BBS随想录 - 2 - 为什么我依旧看好北邮人",
+    url: "/school/bbs-future-1/",
+    date: "2019-01-16"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-28']) window.onThisDayPostsByDate['01-28'] = [];
+  window.onThisDayPostsByDate['01-28'].push({
+    title: "三件小事",
+    url: "/society/shameful-acts/",
+    date: "2019-01-28"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-06']) window.onThisDayPostsByDate['02-06'] = [];
+  window.onThisDayPostsByDate['02-06'].push({
+    title: "《流浪地球》电影简评",
+    url: "/movie/wandering-earth/",
+    date: "2019-02-06"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-17']) window.onThisDayPostsByDate['02-17'] = [];
+  window.onThisDayPostsByDate['02-17'].push({
+    title: "中国话主义",
+    url: "/zhuism/speak-dialect/",
+    date: "2019-02-17"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-21']) window.onThisDayPostsByDate['02-21'] = [];
+  window.onThisDayPostsByDate['02-21'].push({
+    title: "Do what I can't",
+    url: "/zhuism/do-what-i-cant/",
+    date: "2019-02-21"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['04-07']) window.onThisDayPostsByDate['04-07'] = [];
+  window.onThisDayPostsByDate['04-07'].push({
+    title: "LG UltraFine brightness adjustment tool for Windows",
+    url: "/coding/lg-ultrafine-brightness/",
+    date: "2019-04-07"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['04-16']) window.onThisDayPostsByDate['04-16'] = [];
+  window.onThisDayPostsByDate['04-16'].push({
+    title: "650 作业回顾",
+    url: "/coding/ece650-homework-review/",
+    date: "2019-04-16"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-10']) window.onThisDayPostsByDate['05-10'] = [];
+  window.onThisDayPostsByDate['05-10'].push({
+    title: "他们毕业了",
+    url: "/school/graduation-one-last-dance/",
+    date: "2019-05-10"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-17']) window.onThisDayPostsByDate['05-17'] = [];
+  window.onThisDayPostsByDate['05-17'].push({
+    title: "来杜克后见的四个人 - 5",
+    url: "/school/two-girls-05/",
+    date: "2019-05-17"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['06-08']) window.onThisDayPostsByDate['06-08'] = [];
+  window.onThisDayPostsByDate['06-08'].push({
+    title: "学术道路优越性",
+    url: "/fantasywhimridicule/tenure-track-advantages/",
+    date: "2019-06-08"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['06-09']) window.onThisDayPostsByDate['06-09'] = [];
+  window.onThisDayPostsByDate['06-09'].push({
+    title: "生活点滴随记 - 190609",
+    url: "/introspection/life-notes-190609/",
+    date: "2019-06-09"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['06-19']) window.onThisDayPostsByDate['06-19'] = [];
+  window.onThisDayPostsByDate['06-19'].push({
+    title: "Kitura deployment notes",
+    url: "/coding/kitura-deployment/",
+    date: "2019-06-19"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['06-27']) window.onThisDayPostsByDate['06-27'] = [];
+  window.onThisDayPostsByDate['06-27'].push({
+    title: "Kitura 配置小感",
+    url: "/coding/kitura-setup/",
+    date: "2019-06-27"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-09']) window.onThisDayPostsByDate['07-09'] = [];
+  window.onThisDayPostsByDate['07-09'].push({
+    title: "GIF 与 QRcode 玩具二则",
+    url: "/coding/file-to-gif/",
+    date: "2019-07-09"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-14']) window.onThisDayPostsByDate['07-14'] = [];
+  window.onThisDayPostsByDate['07-14'].push({
+    title: "数学与物理",
+    url: "/introspection/math-and-physics/",
+    date: "2019-07-14"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-10']) window.onThisDayPostsByDate['08-10'] = [];
+  window.onThisDayPostsByDate['08-10'].push({
+    title: "同和居的素什锦",
+    url: "/life/sushijin/",
+    date: "2019-08-10"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-31']) window.onThisDayPostsByDate['08-31'] = [];
+  window.onThisDayPostsByDate['08-31'].push({
+    title: "生活点滴随记 - 命题作文《最后的8月31日》",
+    url: "/life/life-notes-190831/",
+    date: "2019-08-31"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-15']) window.onThisDayPostsByDate['09-15'] = [];
+  window.onThisDayPostsByDate['09-15'].push({
+    title: "第四类问题 - 1",
+    url: "/school/problems-cat-4-1/",
+    date: "2019-09-15"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-04']) window.onThisDayPostsByDate['10-04'] = [];
+  window.onThisDayPostsByDate['10-04'].push({
+    title: "生活点滴随记 - 191004；来杜克后见的三个人 - 6",
+    url: "/school/two-girls-06/",
+    date: "2019-10-04"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-29']) window.onThisDayPostsByDate['10-29'] = [];
+  window.onThisDayPostsByDate['10-29'].push({
+    title: "生活点滴随记 - 191029",
+    url: "/life/life-notes-191029/",
+    date: "2019-10-29"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-12']) window.onThisDayPostsByDate['12-12'] = [];
+  window.onThisDayPostsByDate['12-12'].push({
+    title: "“衡水名师”贩运团",
+    url: "/fantasywhimridicule/hengshui-emigrate/",
+    date: "2019-12-12"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-20']) window.onThisDayPostsByDate['12-20'] = [];
+  window.onThisDayPostsByDate['12-20'].push({
+    title: "NBA2K11中的一个小小成就",
+    url: "/games/nba2k11-1on1-defense/",
+    date: "2019-12-20"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-26']) window.onThisDayPostsByDate['12-26'] = [];
+  window.onThisDayPostsByDate['12-26'].push({
+    title: "走一步，看一步",
+    url: "/introspection/planless-leap/",
+    date: "2019-12-26"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-26']) window.onThisDayPostsByDate['12-26'] = [];
+  window.onThisDayPostsByDate['12-26'].push({
+    title: "生活点滴随记 - 191226",
+    url: "/life/life-notes-191226/",
+    date: "2019-12-26"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-27']) window.onThisDayPostsByDate['12-27'] = [];
+  window.onThisDayPostsByDate['12-27'].push({
+    title: "真实姓名主义",
+    url: "/zhuism/real-name-maniac/",
+    date: "2019-12-27"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-30']) window.onThisDayPostsByDate['12-30'] = [];
+  window.onThisDayPostsByDate['12-30'].push({
+    title: "2019 Review - Traveling",
+    url: "/life/2019review-traveling/",
+    date: "2019-12-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-31']) window.onThisDayPostsByDate['12-31'] = [];
+  window.onThisDayPostsByDate['12-31'].push({
+    title: "2019 Review - Sports",
+    url: "/sports/2019review-sports/",
+    date: "2019-12-31"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-31']) window.onThisDayPostsByDate['12-31'] = [];
+  window.onThisDayPostsByDate['12-31'].push({
+    title: "2019 Review - 混乱中找寻秩序",
+    url: "/life/2019review/",
+    date: "2019-12-31"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-01']) window.onThisDayPostsByDate['01-01'] = [];
+  window.onThisDayPostsByDate['01-01'].push({
+    title: "2019 Review - 想法向量空间",
+    url: "/life/2019review-vector/",
+    date: "2020-01-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-08']) window.onThisDayPostsByDate['01-08'] = [];
+  window.onThisDayPostsByDate['01-08'].push({
+    title: "求职这件事",
+    url: "/coding/job-hunting-101/",
+    date: "2020-01-08"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-09']) window.onThisDayPostsByDate['01-09'] = [];
+  window.onThisDayPostsByDate['01-09'].push({
+    title: "求职这件事 - 补遗1",
+    url: "/coding/job-hunting-102/",
+    date: "2020-01-09"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-09']) window.onThisDayPostsByDate['01-09'] = [];
+  window.onThisDayPostsByDate['01-09'].push({
+    title: "求职这件事 - 补遗2",
+    url: "/coding/job-hunting-103/",
+    date: "2020-01-09"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-11']) window.onThisDayPostsByDate['01-11'] = [];
+  window.onThisDayPostsByDate['01-11'].push({
+    title: "奇葩说 - 2",
+    url: "/fantasywhimridicule/weirdo-2/",
+    date: "2020-01-11"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-13']) window.onThisDayPostsByDate['01-13'] = [];
+  window.onThisDayPostsByDate['01-13'].push({
+    title: "好为人师不可取",
+    url: "/introspection/haoweirenshi/",
+    date: "2020-01-13"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-19']) window.onThisDayPostsByDate['01-19'] = [];
+  window.onThisDayPostsByDate['01-19'].push({
+    title: "离校前的随想 - 1",
+    url: "/school/departing-duke-1/",
+    date: "2020-01-19"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-23']) window.onThisDayPostsByDate['01-23'] = [];
+  window.onThisDayPostsByDate['01-23'].push({
+    title: "论紫装 - 1",
+    url: "/zhuism/purple-1/",
+    date: "2020-01-23"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-23']) window.onThisDayPostsByDate['01-23'] = [];
+  window.onThisDayPostsByDate['01-23'].push({
+    title: "心动",
+    url: "/life/foudre-2/",
+    date: "2020-01-23"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-24']) window.onThisDayPostsByDate['01-24'] = [];
+  window.onThisDayPostsByDate['01-24'].push({
+    title: "论漏儿",
+    url: "/society/lou/",
+    date: "2020-01-24"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-25']) window.onThisDayPostsByDate['01-25'] = [];
+  window.onThisDayPostsByDate['01-25'].push({
+    title: "论漏儿 - 补遗",
+    url: "/society/lou-2/",
+    date: "2020-01-25"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-30']) window.onThisDayPostsByDate['01-30'] = [];
+  window.onThisDayPostsByDate['01-30'].push({
+    title: "小忆程紫薇",
+    url: "/life/ziweiiii/",
+    date: "2020-01-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-31']) window.onThisDayPostsByDate['01-31'] = [];
+  window.onThisDayPostsByDate['01-31'].push({
+    title: "2019年，亏欠张少鹏太多",
+    url: "/school/shaopeng-dmv/",
+    date: "2020-01-31"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-02']) window.onThisDayPostsByDate['02-02'] = [];
+  window.onThisDayPostsByDate['02-02'].push({
+    title: "3409与Swift转码",
+    url: "/school/ric-story/",
+    date: "2020-02-02"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-13']) window.onThisDayPostsByDate['02-13'] = [];
+  window.onThisDayPostsByDate['02-13'].push({
+    title: "晚餐",
+    url: "/life/first-dateish-dinner/",
+    date: "2020-02-13"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-14']) window.onThisDayPostsByDate['02-14'] = [];
+  window.onThisDayPostsByDate['02-14'].push({
+    title: "他们毕业了 - 2",
+    url: "/school/after-graduation-2/",
+    date: "2020-02-14"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-16']) window.onThisDayPostsByDate['02-16'] = [];
+  window.onThisDayPostsByDate['02-16'].push({
+    title: "《Introduction to Awkwardly Chatting with Girls 101》- 03",
+    url: "/school/itacwg101-03/",
+    date: "2020-02-16"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-17']) window.onThisDayPostsByDate['02-17'] = [];
+  window.onThisDayPostsByDate['02-17'].push({
+    title: "《Introduction to Girls Fishing 102》",
+    url: "/school/itacwg102-pyq/",
+    date: "2020-02-17"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['03-15']) window.onThisDayPostsByDate['03-15'] = [];
+  window.onThisDayPostsByDate['03-15'].push({
+    title: "算账的有趣观察",
+    url: "/school/accouting-for-schooling/",
+    date: "2020-03-15"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['04-09']) window.onThisDayPostsByDate['04-09'] = [];
+  window.onThisDayPostsByDate['04-09'].push({
+    title: "中关村与软件混杂的记忆 - 1",
+    url: "/life/zhongguancun-memories-1/",
+    date: "2020-04-09"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['04-10']) window.onThisDayPostsByDate['04-10'] = [];
+  window.onThisDayPostsByDate['04-10'].push({
+    title: "中关村与软件混杂的记忆 - 2",
+    url: "/life/zhongguancun-memories-2/",
+    date: "2020-04-10"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['04-25']) window.onThisDayPostsByDate['04-25'] = [];
+  window.onThisDayPostsByDate['04-25'].push({
+    title: "关于唱歌的小计划 - 1",
+    url: "/life/songlist-1/",
+    date: "2020-04-25"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-04']) window.onThisDayPostsByDate['05-04'] = [];
+  window.onThisDayPostsByDate['05-04'].push({
+    title: "工作后的第一次迷茫",
+    url: "/introspection/first-hesitation-after-work/",
+    date: "2020-05-04"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-10']) window.onThisDayPostsByDate['05-10'] = [];
+  window.onThisDayPostsByDate['05-10'].push({
+    title: "生活点滴随记 - 200510",
+    url: "/life/life-notes-200510/",
+    date: "2020-05-10"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-12']) window.onThisDayPostsByDate['05-12'] = [];
+  window.onThisDayPostsByDate['05-12'].push({
+    title: "骑过美国三条路",
+    url: "/sports/roads-in-america-1/",
+    date: "2020-05-12"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-24']) window.onThisDayPostsByDate['05-24'] = [];
+  window.onThisDayPostsByDate['05-24'].push({
+    title: "看报纸",
+    url: "/reading/wsj-daily/",
+    date: "2020-05-24"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-25']) window.onThisDayPostsByDate['05-25'] = [];
+  window.onThisDayPostsByDate['05-25'].push({
+    title: "生活点滴随记 - 200525",
+    url: "/life/life-notes-200525/",
+    date: "2020-05-25"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-30']) window.onThisDayPostsByDate['05-30'] = [];
+  window.onThisDayPostsByDate['05-30'].push({
+    title: "龙古村的石头",
+    url: "/introspection/lhistoire-de-pierre/",
+    date: "2020-05-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['06-13']) window.onThisDayPostsByDate['06-13'] = [];
+  window.onThisDayPostsByDate['06-13'].push({
+    title: "生活点滴随记 - 200613",
+    url: "/life/life-notes-200613-stand-up-and-make-my-living/",
+    date: "2020-06-13"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-03']) window.onThisDayPostsByDate['07-03'] = [];
+  window.onThisDayPostsByDate['07-03'].push({
+    title: "生活点滴随记 - 200703 - 鸡毛蒜皮",
+    url: "/life/life-notes-200703/",
+    date: "2020-07-03"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-11']) window.onThisDayPostsByDate['07-11'] = [];
+  window.onThisDayPostsByDate['07-11'].push({
+    title: "再论返回值",
+    url: "/coding/the-philosophy-of-return-value/",
+    date: "2020-07-11"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-18']) window.onThisDayPostsByDate['07-18'] = [];
+  window.onThisDayPostsByDate['07-18'].push({
+    title: "Mobile APPs",
+    url: "/coding/mobile-apps/",
+    date: "2020-07-18"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-26']) window.onThisDayPostsByDate['07-26'] = [];
+  window.onThisDayPostsByDate['07-26'].push({
+    title: "改变人生的决定",
+    url: "/introspection/life-changing-decision/",
+    date: "2020-07-26"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-01']) window.onThisDayPostsByDate['08-01'] = [];
+  window.onThisDayPostsByDate['08-01'].push({
+    title: "疫情期间的LA出游",
+    url: "/life/snow-redlands-la/",
+    date: "2020-08-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-15']) window.onThisDayPostsByDate['08-15'] = [];
+  window.onThisDayPostsByDate['08-15'].push({
+    title: "饺子",
+    url: "/life/dumplings/",
+    date: "2020-08-15"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-25']) window.onThisDayPostsByDate['08-25'] = [];
+  window.onThisDayPostsByDate['08-25'].push({
+    title: "弯角之美",
+    url: "/sports/grip/",
+    date: "2020-08-25"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-21']) window.onThisDayPostsByDate['10-21'] = [];
+  window.onThisDayPostsByDate['10-21'].push({
+    title: "空闲时间计算",
+    url: "/introspection/disposable-time-calculation/",
+    date: "2020-10-21"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-21']) window.onThisDayPostsByDate['10-21'] = [];
+  window.onThisDayPostsByDate['10-21'].push({
+    title: "最快主义",
+    url: "/zhuism/speedism/",
+    date: "2020-10-21"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-02']) window.onThisDayPostsByDate['11-02'] = [];
+  window.onThisDayPostsByDate['11-02'].push({
+    title: "北京人，北邮的",
+    url: "/introspection/byr-and-happyness/",
+    date: "2020-11-02"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-09']) window.onThisDayPostsByDate['11-09'] = [];
+  window.onThisDayPostsByDate['11-09'].push({
+    title: "漫谈美国网购 - 1",
+    url: "/life/amazon-vs-taobao/",
+    date: "2020-11-09"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-15']) window.onThisDayPostsByDate['11-15'] = [];
+  window.onThisDayPostsByDate['11-15'].push({
+    title: "2020年最喜爱的同学的猫",
+    url: "/life/favorite-cats-2020/",
+    date: "2020-11-15"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-20']) window.onThisDayPostsByDate['11-20'] = [];
+  window.onThisDayPostsByDate['11-20'].push({
+    title: "来不来布莱德",
+    url: "/school/blade/",
+    date: "2020-11-20"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-21']) window.onThisDayPostsByDate['11-21'] = [];
+  window.onThisDayPostsByDate['11-21'].push({
+    title: "BOOX Note Air",
+    url: "/reading/boox-air-e-reader/",
+    date: "2020-11-21"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-11']) window.onThisDayPostsByDate['12-11'] = [];
+  window.onThisDayPostsByDate['12-11'].push({
+    title: "财富自由（白日）梦",
+    url: "/introspection/financial-independence/",
+    date: "2020-12-11"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-19']) window.onThisDayPostsByDate['12-19'] = [];
+  window.onThisDayPostsByDate['12-19'].push({
+    title: "抢时间",
+    url: "/fantasywhimridicule/silo/",
+    date: "2020-12-19"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-24']) window.onThisDayPostsByDate['12-24'] = [];
+  window.onThisDayPostsByDate['12-24'].push({
+    title: "不靠墙的书桌",
+    url: "/fantasywhimridicule/desk-not-standing-against-the-wall/",
+    date: "2020-12-24"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-29']) window.onThisDayPostsByDate['12-29'] = [];
+  window.onThisDayPostsByDate['12-29'].push({
+    title: "2020 Review - Cycling",
+    url: "/sports/2020review-cycling/",
+    date: "2020-12-29"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-31']) window.onThisDayPostsByDate['12-31'] = [];
+  window.onThisDayPostsByDate['12-31'].push({
+    title: "疫情之下，信任崩塌",
+    url: "/society/covid19/",
+    date: "2020-12-31"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-01']) window.onThisDayPostsByDate['01-01'] = [];
+  window.onThisDayPostsByDate['01-01'].push({
+    title: "2020 Review - Re-calibration",
+    url: "/life/2020review-recalibration/",
+    date: "2021-01-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-03']) window.onThisDayPostsByDate['01-03'] = [];
+  window.onThisDayPostsByDate['01-03'].push({
+    title: "云南白药创可贴",
+    url: "/life/baiyao-shit/",
+    date: "2021-01-03"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-10']) window.onThisDayPostsByDate['01-10'] = [];
+  window.onThisDayPostsByDate['01-10'].push({
+    title: "活下去 - 2021",
+    url: "/introspection/keep-alive-2021/",
+    date: "2021-01-10"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-24']) window.onThisDayPostsByDate['01-24'] = [];
+  window.onThisDayPostsByDate['01-24'].push({
+    title: "2020 Review - 工作",
+    url: "/introspection/2020review-my-job/",
+    date: "2021-01-24"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-30']) window.onThisDayPostsByDate['01-30'] = [];
+  window.onThisDayPostsByDate['01-30'].push({
+    title: "2020 Review - 片段",
+    url: "/life/2020review-snippets/",
+    date: "2021-01-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-07']) window.onThisDayPostsByDate['02-07'] = [];
+  window.onThisDayPostsByDate['02-07'].push({
+    title: "超级碗LV之后对自己说的话",
+    url: "/introspection/after-sb55/",
+    date: "2021-02-07"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-13']) window.onThisDayPostsByDate['02-13'] = [];
+  window.onThisDayPostsByDate['02-13'].push({
+    title: "一年后",
+    url: "/life/my-white-castle/",
+    date: "2021-02-13"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['03-08']) window.onThisDayPostsByDate['03-08'] = [];
+  window.onThisDayPostsByDate['03-08'].push({
+    title: "2021年Nonresident Alien报税小结",
+    url: "/life/2021-tax-season/",
+    date: "2021-03-08"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['03-14']) window.onThisDayPostsByDate['03-14'] = [];
+  window.onThisDayPostsByDate['03-14'].push({
+    title: "波美对过儿披萨店",
+    url: "/life/mfa-pizza/",
+    date: "2021-03-14"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['03-21']) window.onThisDayPostsByDate['03-21'] = [];
+  window.onThisDayPostsByDate['03-21'].push({
+    title: "装嫩",
+    url: "/zhuism/naivete/",
+    date: "2021-03-21"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['04-20']) window.onThisDayPostsByDate['04-20'] = [];
+  window.onThisDayPostsByDate['04-20'].push({
+    title: "Bio Dilemma 2021",
+    url: "/introspection/bio-dilemma/",
+    date: "2021-04-20"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['04-30']) window.onThisDayPostsByDate['04-30'] = [];
+  window.onThisDayPostsByDate['04-30'].push({
+    title: "赠牛说",
+    url: "/introspection/would-you-take-third/",
+    date: "2021-04-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-24']) window.onThisDayPostsByDate['05-24'] = [];
+  window.onThisDayPostsByDate['05-24'].push({
+    title: "恋爱导师",
+    url: "/fantasywhimridicule/flirting-academy/",
+    date: "2021-05-24"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['06-06']) window.onThisDayPostsByDate['06-06'] = [];
+  window.onThisDayPostsByDate['06-06'].push({
+    title: "生活点滴随记 - 210606 - Zion",
+    url: "/life/life-notes-210606/",
+    date: "2021-06-06"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['06-27']) window.onThisDayPostsByDate['06-27'] = [];
+  window.onThisDayPostsByDate['06-27'].push({
+    title: "葡萄成熟时",
+    url: "/life/grape-maturity/",
+    date: "2021-06-27"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-01']) window.onThisDayPostsByDate['07-01'] = [];
+  window.onThisDayPostsByDate['07-01'].push({
+    title: "清想法列表 - 210701",
+    url: "/fantasywhimridicule/pop-ideas-queue-210701/",
+    date: "2021-07-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-05']) window.onThisDayPostsByDate['07-05'] = [];
+  window.onThisDayPostsByDate['07-05'].push({
+    title: "开过的车",
+    url: "/life/cars/",
+    date: "2021-07-05"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-20']) window.onThisDayPostsByDate['07-20'] = [];
+  window.onThisDayPostsByDate['07-20'].push({
+    title: "骑过的车",
+    url: "/life/bikes/",
+    date: "2021-07-20"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-22']) window.onThisDayPostsByDate['07-22'] = [];
+  window.onThisDayPostsByDate['07-22'].push({
+    title: "尝试",
+    url: "/introspection/fight-against-fear-of-failure/",
+    date: "2021-07-22"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-08']) window.onThisDayPostsByDate['08-08'] = [];
+  window.onThisDayPostsByDate['08-08'].push({
+    title: "捕银鱼记",
+    url: "/life/grunion-run-2021/",
+    date: "2021-08-08"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-08']) window.onThisDayPostsByDate['08-08'] = [];
+  window.onThisDayPostsByDate['08-08'].push({
+    title: "对于尔湾的第一印象",
+    url: "/society/irvine-first-impressions/",
+    date: "2021-08-08"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-08']) window.onThisDayPostsByDate['08-08'] = [];
+  window.onThisDayPostsByDate['08-08'].push({
+    title: "看奥运，练游泳",
+    url: "/sports/olympics-and-swimming/",
+    date: "2021-08-08"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-12']) window.onThisDayPostsByDate['08-12'] = [];
+  window.onThisDayPostsByDate['08-12'].push({
+    title: "随机主义",
+    url: "/zhuism/randomism/",
+    date: "2021-08-12"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-14']) window.onThisDayPostsByDate['08-14'] = [];
+  window.onThisDayPostsByDate['08-14'].push({
+    title: "城市的脉搏",
+    url: "/zhuism/city-vibe/",
+    date: "2021-08-14"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-21']) window.onThisDayPostsByDate['08-21'] = [];
+  window.onThisDayPostsByDate['08-21'].push({
+    title: "Xcode文档对齐小技巧",
+    url: "/coding/xcode-markup-font/",
+    date: "2021-08-21"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-01']) window.onThisDayPostsByDate['09-01'] = [];
+  window.onThisDayPostsByDate['09-01'].push({
+    title: "包子店的悲伤",
+    url: "/fantasywhimridicule/baozi-weicongcun/",
+    date: "2021-09-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-19']) window.onThisDayPostsByDate['09-19'] = [];
+  window.onThisDayPostsByDate['09-19'].push({
+    title: "文化密度",
+    url: "/society/cultural-density/",
+    date: "2021-09-19"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-30']) window.onThisDayPostsByDate['09-30'] = [];
+  window.onThisDayPostsByDate['09-30'].push({
+    title: "台球风云",
+    url: "/sports/pool-biliards/",
+    date: "2021-09-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-03']) window.onThisDayPostsByDate['10-03'] = [];
+  window.onThisDayPostsByDate['10-03'].push({
+    title: "剥蒜",
+    url: "/introspection/bagatelle/",
+    date: "2021-10-03"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-18']) window.onThisDayPostsByDate['10-18'] = [];
+  window.onThisDayPostsByDate['10-18'].push({
+    title: "道德疑惑 - 1",
+    url: "/fantasywhimridicule/moral-dilemmas-1/",
+    date: "2021-10-18"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-20']) window.onThisDayPostsByDate['10-20'] = [];
+  window.onThisDayPostsByDate['10-20'].push({
+    title: "飞盘高尔夫介绍",
+    url: "/sports/disc-golf-101/",
+    date: "2021-10-20"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-30']) window.onThisDayPostsByDate['10-30'] = [];
+  window.onThisDayPostsByDate['10-30'].push({
+    title: "快了",
+    url: "/life/looming/",
+    date: "2021-10-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-06']) window.onThisDayPostsByDate['11-06'] = [];
+  window.onThisDayPostsByDate['11-06'].push({
+    title: "清想法列表 - 211106",
+    url: "/fantasywhimridicule/pop-ideas-queue-211106/",
+    date: "2021-11-06"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-15']) window.onThisDayPostsByDate['11-15'] = [];
+  window.onThisDayPostsByDate['11-15'].push({
+    title: "Retell Store",
+    url: "/fantasywhimridicule/retell-store/",
+    date: "2021-11-15"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-27']) window.onThisDayPostsByDate['11-27'] = [];
+  window.onThisDayPostsByDate['11-27'].push({
+    title: "山前山后城市印象",
+    url: "/society/socal-first-impressions/",
+    date: "2021-11-27"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-04']) window.onThisDayPostsByDate['12-04'] = [];
+  window.onThisDayPostsByDate['12-04'].push({
+    title: "清想法列表 - 211204",
+    url: "/fantasywhimridicule/pop-ideas-queue-211204/",
+    date: "2021-12-04"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-27']) window.onThisDayPostsByDate['12-27'] = [];
+  window.onThisDayPostsByDate['12-27'].push({
+    title: "2021 Review - 延续与惯性",
+    url: "/introspection/2021review-continuation/",
+    date: "2021-12-27"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-07']) window.onThisDayPostsByDate['01-07'] = [];
+  window.onThisDayPostsByDate['01-07'].push({
+    title: "买车纪实",
+    url: "/life/my-first-car/",
+    date: "2022-01-07"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-07']) window.onThisDayPostsByDate['01-07'] = [];
+  window.onThisDayPostsByDate['01-07'].push({
+    title: "开GT3去上班",
+    url: "/fantasywhimridicule/gt3-to-work/",
+    date: "2022-01-07"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-08']) window.onThisDayPostsByDate['02-08'] = [];
+  window.onThisDayPostsByDate['02-08'].push({
+    title: "运气",
+    url: "/fantasywhimridicule/luck/",
+    date: "2022-02-08"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-12']) window.onThisDayPostsByDate['02-12'] = [];
+  window.onThisDayPostsByDate['02-12'].push({
+    title: "风险与机遇",
+    url: "/introspection/risk-and-opportunity/",
+    date: "2022-02-12"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['03-02']) window.onThisDayPostsByDate['03-02'] = [];
+  window.onThisDayPostsByDate['03-02'].push({
+    title: "未来职业想法 - 2022",
+    url: "/introspection/future-career-1/",
+    date: "2022-03-02"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['03-22']) window.onThisDayPostsByDate['03-22'] = [];
+  window.onThisDayPostsByDate['03-22'].push({
+    title: "日记 0322",
+    url: "/life/diary-220322/",
+    date: "2022-03-22"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['03-28']) window.onThisDayPostsByDate['03-28'] = [];
+  window.onThisDayPostsByDate['03-28'].push({
+    title: "跟随",
+    url: "/introspection/following/",
+    date: "2022-03-28"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-08']) window.onThisDayPostsByDate['05-08'] = [];
+  window.onThisDayPostsByDate['05-08'].push({
+    title: "关于恋爱缺失的自我分析 - 1",
+    url: "/introspection/relationship-analysis-1/",
+    date: "2022-05-08"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-11']) window.onThisDayPostsByDate['05-11'] = [];
+  window.onThisDayPostsByDate['05-11'].push({
+    title: "朋友 - 1",
+    url: "/zhuism/friends-1/",
+    date: "2022-05-11"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-12']) window.onThisDayPostsByDate['05-12'] = [];
+  window.onThisDayPostsByDate['05-12'].push({
+    title: "朋友 - 2",
+    url: "/zhuism/friends-2/",
+    date: "2022-05-12"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-13']) window.onThisDayPostsByDate['05-13'] = [];
+  window.onThisDayPostsByDate['05-13'].push({
+    title: "朋友 - 3",
+    url: "/zhuism/friends-3/",
+    date: "2022-05-13"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-22']) window.onThisDayPostsByDate['05-22'] = [];
+  window.onThisDayPostsByDate['05-22'].push({
+    title: "Venus",
+    url: "/life/venus/",
+    date: "2022-05-22"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-30']) window.onThisDayPostsByDate['05-30'] = [];
+  window.onThisDayPostsByDate['05-30'].push({
+    title: "生活中的栈问题",
+    url: "/fantasywhimridicule/stack-problem-irl/",
+    date: "2022-05-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['06-14']) window.onThisDayPostsByDate['06-14'] = [];
+  window.onThisDayPostsByDate['06-14'].push({
+    title: "朋友 - 5",
+    url: "/zhuism/friends-birthday/",
+    date: "2022-06-14"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['06-15']) window.onThisDayPostsByDate['06-15'] = [];
+  window.onThisDayPostsByDate['06-15'].push({
+    title: "初夏的晚风",
+    url: "/sports/first-night-ride-2022/",
+    date: "2022-06-15"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-06']) window.onThisDayPostsByDate['07-06'] = [];
+  window.onThisDayPostsByDate['07-06'].push({
+    title: "西雅图观察",
+    url: "/life/seattle-first-impressions/",
+    date: "2022-07-06"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-17']) window.onThisDayPostsByDate['07-17'] = [];
+  window.onThisDayPostsByDate['07-17'].push({
+    title: "西瓜与赌石",
+    url: "/fantasywhimridicule/pasteque-et-pari/",
+    date: "2022-07-17"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-18']) window.onThisDayPostsByDate['07-18'] = [];
+  window.onThisDayPostsByDate['07-18'].push({
+    title: "夜深情绪综合征 - 2",
+    url: "/introspection/when-its-dark-2/",
+    date: "2022-07-18"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-29']) window.onThisDayPostsByDate['07-29'] = [];
+  window.onThisDayPostsByDate['07-29'].push({
+    title: "国际降落",
+    url: "/sports/first-international-arrival/",
+    date: "2022-07-29"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-14']) window.onThisDayPostsByDate['08-14'] = [];
+  window.onThisDayPostsByDate['08-14'].push({
+    title: "《妈的多重宇宙》观后感",
+    url: "/movie/tmd-multiverse/",
+    date: "2022-08-14"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-30']) window.onThisDayPostsByDate['09-30'] = [];
+  window.onThisDayPostsByDate['09-30'].push({
+    title: "《廊桥遗梦》和《追捕》",
+    url: "/movie/the-bridges-of-madison-county/",
+    date: "2022-09-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-12']) window.onThisDayPostsByDate['10-12'] = [];
+  window.onThisDayPostsByDate['10-12'].push({
+    title: "体重2022",
+    url: "/life/body-weight-control/",
+    date: "2022-10-12"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-15']) window.onThisDayPostsByDate['10-15'] = [];
+  window.onThisDayPostsByDate['10-15'].push({
+    title: "生活点滴随记 - 充实的一天",
+    url: "/life/ksna-expo/",
+    date: "2022-10-15"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-15']) window.onThisDayPostsByDate['10-15'] = [];
+  window.onThisDayPostsByDate['10-15'].push({
+    title: "4+2 → 4+1",
+    url: "/life/aihi-euv-1/",
+    date: "2022-10-15"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-23']) window.onThisDayPostsByDate['10-23'] = [];
+  window.onThisDayPostsByDate['10-23'].push({
+    title: "猜焦距",
+    url: "/fantasywhimridicule/guess-focal-length/",
+    date: "2022-10-23"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-05']) window.onThisDayPostsByDate['11-05'] = [];
+  window.onThisDayPostsByDate['11-05'].push({
+    title: "偶遇王争",
+    url: "/sports/wang-zheng/",
+    date: "2022-11-05"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-11']) window.onThisDayPostsByDate['11-11'] = [];
+  window.onThisDayPostsByDate['11-11'].push({
+    title: "圣迭戈第二印象",
+    url: "/life/san-diego-second-impressions/",
+    date: "2022-11-11"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-22']) window.onThisDayPostsByDate['11-22'] = [];
+  window.onThisDayPostsByDate['11-22'].push({
+    title: "车坏了",
+    url: "/life/jack-in-the-box/",
+    date: "2022-11-22"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-25']) window.onThisDayPostsByDate['11-25'] = [];
+  window.onThisDayPostsByDate['11-25'].push({
+    title: "720P",
+    url: "/video/720p/",
+    date: "2022-11-25"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-03']) window.onThisDayPostsByDate['12-03'] = [];
+  window.onThisDayPostsByDate['12-03'].push({
+    title: "和男的 - 3",
+    url: "/introspection/i-dunno-what-i-even-gotta-say/",
+    date: "2022-12-03"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-06']) window.onThisDayPostsByDate['12-06'] = [];
+  window.onThisDayPostsByDate['12-06'].push({
+    title: "不充分竞争 - 2",
+    url: "/zhuism/incomplete-competition/",
+    date: "2022-12-06"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-10']) window.onThisDayPostsByDate['12-10'] = [];
+  window.onThisDayPostsByDate['12-10'].push({
+    title: "禅与自行车保养艺术",
+    url: "/sports/zen-and-the-art-of-bicycle-maintenance/",
+    date: "2022-12-10"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-15']) window.onThisDayPostsByDate['12-15'] = [];
+  window.onThisDayPostsByDate['12-15'].push({
+    title: "破地方",
+    url: "/society/gettos/",
+    date: "2022-12-15"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-26']) window.onThisDayPostsByDate['12-26'] = [];
+  window.onThisDayPostsByDate['12-26'].push({
+    title: "相对自由行",
+    url: "/introspection/self-guided-tour/",
+    date: "2022-12-26"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-30']) window.onThisDayPostsByDate['12-30'] = [];
+  window.onThisDayPostsByDate['12-30'].push({
+    title: "圣迭戈第二点五印象",
+    url: "/life/this-is-not-home/",
+    date: "2022-12-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-31']) window.onThisDayPostsByDate['12-31'] = [];
+  window.onThisDayPostsByDate['12-31'].push({
+    title: "2022 Review - 开",
+    url: "/life/2022review-conduire/",
+    date: "2022-12-31"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-01']) window.onThisDayPostsByDate['01-01'] = [];
+  window.onThisDayPostsByDate['01-01'].push({
+    title: "2022年值得回忆的事情",
+    url: "/life/2022review-moments/",
+    date: "2023-01-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-16']) window.onThisDayPostsByDate['01-16'] = [];
+  window.onThisDayPostsByDate['01-16'].push({
+    title: "《冷面天使》",
+    url: "/reading/angel-densetsu/",
+    date: "2023-01-16"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-07']) window.onThisDayPostsByDate['02-07'] = [];
+  window.onThisDayPostsByDate['02-07'].push({
+    title: "2023年2月7日随记",
+    url: "/introspection/feb-7th/",
+    date: "2023-02-07"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['03-18']) window.onThisDayPostsByDate['03-18'] = [];
+  window.onThisDayPostsByDate['03-18'].push({
+    title: "旅居美国年轻人",
+    url: "/society/american-youngsters/",
+    date: "2023-03-18"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['03-30']) window.onThisDayPostsByDate['03-30'] = [];
+  window.onThisDayPostsByDate['03-30'].push({
+    title: "Chick-fil-A",
+    url: "/life/chick-fil-a/",
+    date: "2023-03-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-04']) window.onThisDayPostsByDate['05-04'] = [];
+  window.onThisDayPostsByDate['05-04'].push({
+    title: "Studio C 十日谈之一",
+    url: "/video/studio-c-1/",
+    date: "2023-05-04"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-06']) window.onThisDayPostsByDate['05-06'] = [];
+  window.onThisDayPostsByDate['05-06'].push({
+    title: "棕榈泉初体验",
+    url: "/society/palm-springs-first-impressions/",
+    date: "2023-05-06"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-23']) window.onThisDayPostsByDate['05-23'] = [];
+  window.onThisDayPostsByDate['05-23'].push({
+    title: "新泳裤踩坑记",
+    url: "/sports/mizuno-jammer/",
+    date: "2023-05-23"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-29']) window.onThisDayPostsByDate['05-29'] = [];
+  window.onThisDayPostsByDate['05-29'].push({
+    title: "University Challenge",
+    url: "/video/university-challenge/",
+    date: "2023-05-29"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['06-14']) window.onThisDayPostsByDate['06-14'] = [];
+  window.onThisDayPostsByDate['06-14'].push({
+    title: "摄影的追求与阶段",
+    url: "/fantasywhimridicule/pursuit-of-photography/",
+    date: "2023-06-14"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-02']) window.onThisDayPostsByDate['07-02'] = [];
+  window.onThisDayPostsByDate['07-02'].push({
+    title: "BQ故事集 - 1",
+    url: "/fantasywhimridicule/bq-story-1/",
+    date: "2023-07-02"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-14']) window.onThisDayPostsByDate['07-14'] = [];
+  window.onThisDayPostsByDate['07-14'].push({
+    title: "初识旧金山",
+    url: "/society/san-francisco-first-impressions/",
+    date: "2023-07-14"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-15']) window.onThisDayPostsByDate['07-15'] = [];
+  window.onThisDayPostsByDate['07-15'].push({
+    title: "他们毕业了 - 3",
+    url: "/society/bay-area-first-impressions/",
+    date: "2023-07-15"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-16']) window.onThisDayPostsByDate['07-16'] = [];
+  window.onThisDayPostsByDate['07-16'].push({
+    title: "逃离恶魔岛",
+    url: "/life/missed-flight/",
+    date: "2023-07-16"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-30']) window.onThisDayPostsByDate['07-30'] = [];
+  window.onThisDayPostsByDate['07-30'].push({
+    title: "板球规则",
+    url: "/sports/cricket-rules/",
+    date: "2023-07-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-14']) window.onThisDayPostsByDate['08-14'] = [];
+  window.onThisDayPostsByDate['08-14'].push({
+    title: "《奥本海默》",
+    url: "/movie/oppenheimer/",
+    date: "2023-08-14"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-19']) window.onThisDayPostsByDate['08-19'] = [];
+  window.onThisDayPostsByDate['08-19'].push({
+    title: "生活点滴随记 - 230819",
+    url: "/life/life-notes-230819/",
+    date: "2023-08-19"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-20']) window.onThisDayPostsByDate['08-20'] = [];
+  window.onThisDayPostsByDate['08-20'].push({
+    title: "Automator",
+    url: "/tools/automator/",
+    date: "2023-08-20"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-13']) window.onThisDayPostsByDate['09-13'] = [];
+  window.onThisDayPostsByDate['09-13'].push({
+    title: "我与RX1",
+    url: "/video/rx1-and-me/",
+    date: "2023-09-13"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-21']) window.onThisDayPostsByDate['09-21'] = [];
+  window.onThisDayPostsByDate['09-21'].push({
+    title: "田村美利达",
+    url: "/society/tiancun-merida/",
+    date: "2023-09-21"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-22']) window.onThisDayPostsByDate['09-22'] = [];
+  window.onThisDayPostsByDate['09-22'].push({
+    title: "业务球局",
+    url: "/sports/biznus-ballgame/",
+    date: "2023-09-22"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-28']) window.onThisDayPostsByDate['10-28'] = [];
+  window.onThisDayPostsByDate['10-28'].push({
+    title: "RX1R2设置",
+    url: "/video/rx1-settings/",
+    date: "2023-10-28"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-19']) window.onThisDayPostsByDate['11-19'] = [];
+  window.onThisDayPostsByDate['11-19'].push({
+    title: "沃尔玛2023",
+    url: "/society/walmart-2023/",
+    date: "2023-11-19"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-22']) window.onThisDayPostsByDate['12-22'] = [];
+  window.onThisDayPostsByDate['12-22'].push({
+    title: "初见墨西哥",
+    url: "/society/mexico-first-impressions/",
+    date: "2023-12-22"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-23']) window.onThisDayPostsByDate['12-23'] = [];
+  window.onThisDayPostsByDate['12-23'].push({
+    title: "布法多拉",
+    url: "/life/la-bufadora/",
+    date: "2023-12-23"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-24']) window.onThisDayPostsByDate['12-24'] = [];
+  window.onThisDayPostsByDate['12-24'].push({
+    title: "瓜达卢佩山谷",
+    url: "/society/valle-de-guadalupe/",
+    date: "2023-12-24"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-26']) window.onThisDayPostsByDate['12-26'] = [];
+  window.onThisDayPostsByDate['12-26'].push({
+    title: "Baja奇闻逸事",
+    url: "/society/baja-anecdote/",
+    date: "2023-12-26"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-30']) window.onThisDayPostsByDate['12-30'] = [];
+  window.onThisDayPostsByDate['12-30'].push({
+    title: "2023 Review - Traveling",
+    url: "/life/2023review-traveling/",
+    date: "2023-12-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-30']) window.onThisDayPostsByDate['01-30'] = [];
+  window.onThisDayPostsByDate['01-30'].push({
+    title: "拜登式养狗",
+    url: "/zhuism/emotional-support-pets/",
+    date: "2024-01-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-20']) window.onThisDayPostsByDate['02-20'] = [];
+  window.onThisDayPostsByDate['02-20'].push({
+    title: "2023 Review - 时间贫困问题",
+    url: "/life/2023review-poverty-problem/",
+    date: "2024-02-20"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['03-23']) window.onThisDayPostsByDate['03-23'] = [];
+  window.onThisDayPostsByDate['03-23'].push({
+    title: "难吃的饭和难喝的汤",
+    url: "/life/unpalatable/",
+    date: "2024-03-23"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['03-30']) window.onThisDayPostsByDate['03-30'] = [];
+  window.onThisDayPostsByDate['03-30'].push({
+    title: "《Her》",
+    url: "/movie/her/",
+    date: "2024-03-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['04-01']) window.onThisDayPostsByDate['04-01'] = [];
+  window.onThisDayPostsByDate['04-01'].push({
+    title: "交互设计",
+    url: "/html/bad-ui/",
+    date: "2024-04-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['04-17']) window.onThisDayPostsByDate['04-17'] = [];
+  window.onThisDayPostsByDate['04-17'].push({
+    title: "带人飞问题合集",
+    url: "/sports/passenger-briefing-qa/",
+    date: "2024-04-17"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['04-18']) window.onThisDayPostsByDate['04-18'] = [];
+  window.onThisDayPostsByDate['04-18'].push({
+    title: "中置后驱",
+    url: "/zhuism/mid-engine/",
+    date: "2024-04-18"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['06-08']) window.onThisDayPostsByDate['06-08'] = [];
+  window.onThisDayPostsByDate['06-08'].push({
+    title: "生活点滴随记 - 240608",
+    url: "/life/life-notes-ctwc-weekend/",
+    date: "2024-06-08"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-04']) window.onThisDayPostsByDate['07-04'] = [];
+  window.onThisDayPostsByDate['07-04'].push({
+    title: "生活点滴随记 - 240704",
+    url: "/life/life-notes-240704/",
+    date: "2024-07-04"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-20']) window.onThisDayPostsByDate['07-20'] = [];
+  window.onThisDayPostsByDate['07-20'].push({
+    title: "《回到未来》",
+    url: "/movie/back-to-the-future/",
+    date: "2024-07-20"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-28']) window.onThisDayPostsByDate['07-28'] = [];
+  window.onThisDayPostsByDate['07-28'].push({
+    title: "班宁机场",
+    url: "/society/kbng/",
+    date: "2024-07-28"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-15']) window.onThisDayPostsByDate['08-15'] = [];
+  window.onThisDayPostsByDate['08-15'].push({
+    title: "30岁前登山年鉴",
+    url: "/sports/hiking-almanac/",
+    date: "2024-08-15"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-16']) window.onThisDayPostsByDate['08-16'] = [];
+  window.onThisDayPostsByDate['08-16'].push({
+    title: "Mount Whitney",
+    url: "/sports/mt-whitney/",
+    date: "2024-08-16"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-17']) window.onThisDayPostsByDate['08-17'] = [];
+  window.onThisDayPostsByDate['08-17'].push({
+    title: "爬山最终章",
+    url: "/sports/quit-hiking/",
+    date: "2024-08-17"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-01']) window.onThisDayPostsByDate['09-01'] = [];
+  window.onThisDayPostsByDate['09-01'].push({
+    title: "他们毕业了 - 4",
+    url: "/school/love-story-in-champaign-county/",
+    date: "2024-09-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-14']) window.onThisDayPostsByDate['09-14'] = [];
+  window.onThisDayPostsByDate['09-14'].push({
+    title: "美国野驴",
+    url: "/fantasywhimridicule/burros/",
+    date: "2024-09-14"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-19']) window.onThisDayPostsByDate['09-19'] = [];
+  window.onThisDayPostsByDate['09-19'].push({
+    title: "《黑客帝国》25周年重映",
+    url: "/movie/matrix-25th-anniversary/",
+    date: "2024-09-19"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-27']) window.onThisDayPostsByDate['09-27'] = [];
+  window.onThisDayPostsByDate['09-27'].push({
+    title: "赠予今年的大学毕业生 - 胡适",
+    url: "/reading/words-of-advice-for-the-graduates/",
+    date: "2024-09-27"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-28']) window.onThisDayPostsByDate['09-28'] = [];
+  window.onThisDayPostsByDate['09-28'].push({
+    title: "一次令人疑惑的怦然心动",
+    url: "/introspection/foudre-with-hesitation/",
+    date: "2024-09-28"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-19']) window.onThisDayPostsByDate['10-19'] = [];
+  window.onThisDayPostsByDate['10-19'].push({
+    title: "乡间松弛感",
+    url: "/society/chill-out-in-bishop/",
+    date: "2024-10-19"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-25']) window.onThisDayPostsByDate['10-25'] = [];
+  window.onThisDayPostsByDate['10-25'].push({
+    title: "开过的车 - 2",
+    url: "/life/cars-2/",
+    date: "2024-10-25"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['10-26']) window.onThisDayPostsByDate['10-26'] = [];
+  window.onThisDayPostsByDate['10-26'].push({
+    title: "第二辆车",
+    url: "/life/second-car/",
+    date: "2024-10-26"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-21']) window.onThisDayPostsByDate['11-21'] = [];
+  window.onThisDayPostsByDate['11-21'].push({
+    title: "羊杂汤",
+    url: "/life/lamb-offal-soup/",
+    date: "2024-11-21"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-14']) window.onThisDayPostsByDate['12-14'] = [];
+  window.onThisDayPostsByDate['12-14'].push({
+    title: "索诺拉山口",
+    url: "/life/sonora-pass/",
+    date: "2024-12-14"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-17']) window.onThisDayPostsByDate['12-17'] = [];
+  window.onThisDayPostsByDate['12-17'].push({
+    title: "豪华微型车",
+    url: "/life/luxury-supermini/",
+    date: "2024-12-17"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-29']) window.onThisDayPostsByDate['12-29'] = [];
+  window.onThisDayPostsByDate['12-29'].push({
+    title: "汽车事故反省",
+    url: "/introspection/car-accidents/",
+    date: "2024-12-29"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-01']) window.onThisDayPostsByDate['01-01'] = [];
+  window.onThisDayPostsByDate['01-01'].push({
+    title: "2024 Review - 寂寞难耐舒适圈",
+    url: "/life/2024review/",
+    date: "2025-01-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-06']) window.onThisDayPostsByDate['01-06'] = [];
+  window.onThisDayPostsByDate['01-06'].push({
+    title: "2024 Review - Traveling",
+    url: "/life/2024review-travelling/",
+    date: "2025-01-06"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-25']) window.onThisDayPostsByDate['01-25'] = [];
+  window.onThisDayPostsByDate['01-25'].push({
+    title: "过美利坚论",
+    url: "/tools/deepseek-singularity/",
+    date: "2025-01-25"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['02-12']) window.onThisDayPostsByDate['02-12'] = [];
+  window.onThisDayPostsByDate['02-12'].push({
+    title: "免面谈困局",
+    url: "/life/interview-waiver-fiasco/",
+    date: "2025-02-12"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['03-30']) window.onThisDayPostsByDate['03-30'] = [];
+  window.onThisDayPostsByDate['03-30'].push({
+    title: "178 Seconds to Live",
+    url: "/introspection/imc-near-death/",
+    date: "2025-03-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['04-21']) window.onThisDayPostsByDate['04-21'] = [];
+  window.onThisDayPostsByDate['04-21'].push({
+    title: "Studio C 十日谈之二",
+    url: "/video/studio-c-2/",
+    date: "2025-04-21"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['05-29']) window.onThisDayPostsByDate['05-29'] = [];
+  window.onThisDayPostsByDate['05-29'].push({
+    title: "大坝",
+    url: "/fantasywhimridicule/seven-oaks-dam/",
+    date: "2025-05-29"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['06-21']) window.onThisDayPostsByDate['06-21'] = [];
+  window.onThisDayPostsByDate['06-21'].push({
+    title: "泰奥加山口",
+    url: "/life/tioga-pass/",
+    date: "2025-06-21"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-26']) window.onThisDayPostsByDate['07-26'] = [];
+  window.onThisDayPostsByDate['07-26'].push({
+    title: "鱼翔浅底",
+    url: "/sports/scuba-catalina/",
+    date: "2025-07-26"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['07-30']) window.onThisDayPostsByDate['07-30'] = [];
+  window.onThisDayPostsByDate['07-30'].push({
+    title: "约书亚树第五次",
+    url: "/life/joshua-tree-5th-time/",
+    date: "2025-07-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['08-31']) window.onThisDayPostsByDate['08-31'] = [];
+  window.onThisDayPostsByDate['08-31'].push({
+    title: "第一次自驾飞机旅行",
+    url: "/sports/solvang-xc/",
+    date: "2025-08-31"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-01']) window.onThisDayPostsByDate['09-01'] = [];
+  window.onThisDayPostsByDate['09-01'].push({
+    title: "飞去看看",
+    url: "/life/fly-lompoc/",
+    date: "2025-09-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['09-24']) window.onThisDayPostsByDate['09-24'] = [];
+  window.onThisDayPostsByDate['09-24'].push({
+    title: "私人飞行与时薪",
+    url: "/fantasywhimridicule/private-flying-and-hourly-rate/",
+    date: "2025-09-24"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-09']) window.onThisDayPostsByDate['11-09'] = [];
+  window.onThisDayPostsByDate['11-09'].push({
+    title: "禅与冰箱维修技巧",
+    url: "/life/fix-fridge/",
+    date: "2025-11-09"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['11-27']) window.onThisDayPostsByDate['11-27'] = [];
+  window.onThisDayPostsByDate['11-27'].push({
+    title: "二号公路",
+    url: "/life/ca-sr-2/",
+    date: "2025-11-27"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-24']) window.onThisDayPostsByDate['12-24'] = [];
+  window.onThisDayPostsByDate['12-24'].push({
+    title: "《初吻2》",
+    url: "/movie/la-boum-2/",
+    date: "2025-12-24"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-29']) window.onThisDayPostsByDate['12-29'] = [];
+  window.onThisDayPostsByDate['12-29'].push({
+    title: "开过的车 - 3",
+    url: "/life/cars-3/",
+    date: "2025-12-29"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['12-30']) window.onThisDayPostsByDate['12-30'] = [];
+  window.onThisDayPostsByDate['12-30'].push({
+    title: "第三辆车",
+    url: "/life/third-car/",
+    date: "2025-12-30"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-01']) window.onThisDayPostsByDate['01-01'] = [];
+  window.onThisDayPostsByDate['01-01'].push({
+    title: "2025 Review - 真诚地对待自己",
+    url: "/life/2025review/",
+    date: "2026-01-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-19']) window.onThisDayPostsByDate['01-19'] = [];
+  window.onThisDayPostsByDate['01-19'].push({
+    title: "2025 Review - Traveling",
+    url: "/life/2025review-traveling/",
+    date: "2026-01-19"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['01-26']) window.onThisDayPostsByDate['01-26'] = [];
+  window.onThisDayPostsByDate['01-26'].push({
+    title: "自助汽车零件厂",
+    url: "/life/pick-n-pull/",
+    date: "2026-01-26"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['03-01']) window.onThisDayPostsByDate['03-01'] = [];
+  window.onThisDayPostsByDate['03-01'].push({
+    title: "Studio C 十日谈之三",
+    url: "/video/studio-c-3/",
+    date: "2026-03-01"
+  });
+
+  
+  if (!window.onThisDayPostsByDate['04-08']) window.onThisDayPostsByDate['04-08'] = [];
+  window.onThisDayPostsByDate['04-08'].push({
+    title: "寻轮记",
+    url: "/life/searching-third-wheel/",
+    date: "2026-04-08"
+  });
+
+</script>
+<script src="/ostentacion/on-this-day/history-today.js"></script>
+
+
+
+        </main>
+        <!-- END MAIN -->
+
+        
+<footer>
+  <div class="footer">
+    <div class="container">
+      <div class="text-center">
+        <a href="/blog" class="logo clearfix animsition-link"><img src="/img/sig.svg" width="400" alt="Signature"></a>
+        <p class="copy">
+          Maintained by <a href="/about/">Chen Ting</a> 
+		  
+        </p>
+        <div class="icon-list">
+          <a href="https://www.linkedin.com/in/ting-chen-402bab122/" target="_blank">
+            <i class="fa fa-fw fa-linkedin"></i>
+          </a>
+		  <a href="https://github.com/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-github"></i>
+          </a>
+		  <a href="https://dev.to/yo1995" target="_blank">
+            <i class="fa fa-fw fa-medium"></i>
+          </a>
+          <a href="http://my.hupu.com/17573413/" target="_blank">
+            <i class="fa fa-fw fa-futbol-o"></i>
+          </a>
+          <a href="https://www.douban.com/people/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-book"></i>
+          </a>
+		   <a href="https://www.flickr.com/photos/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-flickr"></i>
+          </a>
+		  <a href="/feed.xml" target="_blank">
+            <i class="fa fa-fw fa-rss"></i>
+          </a>
+        </div>
+        <div class="scroll-top">go to top</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END FOOTER -->
+</footer>
+
+      </div>
+      <!-- END CONTENT -->
+    </div>
+    <!-- END ANIMSITION -->
+
+    
+<!-- SCRIPTS -->
+<script src="/assets/js/jquery-1.12.0.min.js"></script>
+<script src="/assets/js/plugins.min.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<!-- CUSTOM SCRIPT -->
+<script src="/assets/js/script.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/js/tether.min.js"></script>
+
+
+
+<!-- 爱心特效 -->
+
+
+
+
+
+
+
+
+
+<!--script>
+  'GoogleAnalyticsObject'
+  'https://www.google-analytics.com/analytics.js'
+</script-->
+
+
+  </body>
+
+</html>
