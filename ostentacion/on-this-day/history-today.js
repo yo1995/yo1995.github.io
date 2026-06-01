@@ -27,10 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const leftBtn = document.getElementById('wheel-left');
   const rightBtn = document.getElementById('wheel-right');
 
-  // --- Smooth axis rendering with offset ---
-  let currentOffset = 0; // float, 0 = centerIdx, -1 = one day left, etc.
-  let animating = false;
-  function renderAxis(centerIdx, offset = 0) {
+  function renderAxis(centerIdx) {
     // Show 9 days: 4 left, center, 4 right
     let daysHtml = '';
     for (let i = -4; i <= 4; i++) {
@@ -38,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
       let day = allDays[idx];
       let dayNum = parseInt(day.slice(3), 10);
       let classes = 'axis-day';
-      if (i === 0 && Math.abs(offset) < 0.5) classes += ' center';
+      if (i === 0) classes += ' center';
       daysHtml += `<div class="${classes}" data-idx="${idx}">${dayNum}</div>`;
     }
     dayRow.innerHTML = daysHtml;
@@ -46,8 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let centerDay = allDays[centerIdx];
     let monthIdx = parseInt(centerDay.slice(0,2), 10) - 1;
     monthRow.innerHTML = `<span class="axis-month">${allMonths[monthIdx]}</span>`;
-    // Move dayRow with transform for smoothness
-    dayRow.style.transform = `translateX(${offset * 48}px)`;
   }
 
   function renderArticles(idx) {
@@ -66,8 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function goTo(idx) {
     currentIdx = (idx + allDays.length) % allDays.length;
-    currentOffset = 0;
-    renderAxis(currentIdx, 0);
+    renderAxis(currentIdx);
     renderArticles(currentIdx);
     // Show/hide go-to-today button
     if (currentIdx !== todayIdx) {
@@ -81,105 +75,48 @@ document.addEventListener('DOMContentLoaded', function() {
   leftBtn.onclick = () => goTo(currentIdx - 1);
   rightBtn.onclick = () => goTo(currentIdx + 1);
 
-  // --- Touch/drag/scroll with inertia and spring ---
+  // Touch/drag/scroll support for iOS-like axis (simple, no inertia)
   let dragStartX = null;
-  let dragStartOffset = 0;
   let dragStartIdx = null;
   let dragging = false;
-  let velocity = 0;
-  let lastMoveTime = 0;
-  let lastMoveX = 0;
-  let animationFrame = null;
-
-  function animateToNearestDay() {
-    if (animating) return;
-    animating = true;
-    let target = Math.round(currentOffset);
-    let spring = 0.18;
-    let damping = 0.75;
-    function step() {
-      let dist = target - currentOffset;
-      velocity += dist * spring;
-      velocity *= damping;
-      currentOffset += velocity;
-      renderAxis(currentIdx, currentOffset);
-      if (Math.abs(velocity) < 0.01 && Math.abs(dist) < 0.01) {
-        currentOffset = target;
-        renderAxis(currentIdx, 0);
-        animating = false;
-        goTo(currentIdx - target);
-        return;
-      }
-      animationFrame = requestAnimationFrame(step);
-    }
-    step();
-  }
 
   dayRow.addEventListener('touchstart', e => {
     if (e.touches.length === 1) {
       dragStartX = e.touches[0].clientX;
-      dragStartOffset = currentOffset;
       dragStartIdx = currentIdx;
       dragging = true;
-      velocity = 0;
-      lastMoveTime = Date.now();
-      lastMoveX = dragStartX;
-      if (animationFrame) cancelAnimationFrame(animationFrame);
     }
   });
   dayRow.addEventListener('touchmove', e => {
     if (dragging && e.touches.length === 1) {
       let dx = e.touches[0].clientX - dragStartX;
-      let now = Date.now();
-      let dt = now - lastMoveTime;
-      if (dt > 0) {
-        velocity = (e.touches[0].clientX - lastMoveX) / dt * 0.5;
-        lastMoveTime = now;
-        lastMoveX = e.touches[0].clientX;
-      }
-      currentOffset = dragStartOffset - dx / 48;
-      renderAxis(currentIdx, currentOffset);
+      let offset = Math.round(dx / 48);
+      goTo(dragStartIdx - offset);
     }
   });
   dayRow.addEventListener('touchend', e => {
     dragging = false;
-    animateToNearestDay();
   });
 
-  // Mouse drag for desktop (with inertia)
+  // Mouse drag for desktop (simple, no inertia)
   dayRow.addEventListener('mousedown', e => {
     dragStartX = e.clientX;
-    dragStartOffset = currentOffset;
     dragStartIdx = currentIdx;
     dragging = true;
-    velocity = 0;
-    lastMoveTime = Date.now();
-    lastMoveX = dragStartX;
-    if (animationFrame) cancelAnimationFrame(animationFrame);
     e.preventDefault();
   });
   window.addEventListener('mousemove', e => {
     if (dragging) {
       let dx = e.clientX - dragStartX;
-      let now = Date.now();
-      let dt = now - lastMoveTime;
-      if (dt > 0) {
-        velocity = (e.clientX - lastMoveX) / dt * 0.5;
-        lastMoveTime = now;
-        lastMoveX = e.clientX;
-      }
-      currentOffset = dragStartOffset - dx / 48;
-      renderAxis(currentIdx, currentOffset);
+      let offset = Math.round(dx / 48);
+      goTo(dragStartIdx - offset);
     }
   });
   window.addEventListener('mouseup', e => {
-    if (dragging) {
-      dragging = false;
-      animateToNearestDay();
-    }
+    dragging = false;
   });
 
-  // Wheel/trackpad scroll (no inertia)
+  // Wheel/trackpad scroll
   dayRow.addEventListener('wheel', e => {
     e.preventDefault();
     let delta = e.deltaX || e.deltaY;
@@ -203,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Initial render
-  renderAxis(currentIdx, 0);
+  renderAxis(currentIdx);
   renderArticles(currentIdx);
   if (currentIdx !== todayIdx) goTodayBtn.style.display = '';
 });

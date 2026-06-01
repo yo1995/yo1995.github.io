@@ -366,33 +366,21 @@
 		</div>
 		<script src="/assets/js/disqusloader.js"></script>
 		<div class="disqus"></div>
-		<!--
-        <div id="disqus_thread"></div>
-        <script>
-        var disqus_config = function () {
-        this.page.url = "https://yo1995.github.io/physics/cas-semi-2/";
-        this.page.identifier = "Ting's Blog//physics/cas-semi-2";
-        this.page.title = "Days in semi.ac - 2";
-        };
-        (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = '//yo1995.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-        })();
-        </script>
-		-->
-		<script>disqusLoader( '.disqus', { 
-			scriptUrl: '//yo1995.disqus.com/embed.js',
+		<script>disqusLoader( '.disqus', {
+			scriptUrl: 'https://yo1995.disqus.com/embed.js',
 			disqusConfig: function(){
+				this.page.url = "https://yo1995.github.io/physics/cas-semi-2/";
+				this.page.identifier = "/physics/cas-semi-2";
+				this.page.title = "Days in semi.ac - 2";
 				this.callbacks.onReady = [function(){
-				var el = document.querySelector( '.disqus-placeholder' );
-				if( el.classList )
-					el.classList.add( 'is-hidden' ); // IE 10+
-				else
-					el.className += ' ' + 'is-hidden'; // IE 8-9
-				}];}
-			});
+					var el = document.querySelector( '.disqus-placeholder' );
+					if( el.classList )
+						el.classList.add( 'is-hidden' ); // IE 10+
+					else
+						el.className += ' ' + 'is-hidden'; // IE 8-9
+				}];
+			}
+		});
 		</script>
        <noscript>Please conquer the GFW or enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
     </div>
@@ -450,6 +438,28 @@
             <ul class="recent-posts">
             
                 
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/movie/async-research/">
+                                <img src="/images/202605/threshold.webp" alt="《Backrooms》电影观后感">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/movie/async-research/">《Backrooms》电影观后感</a>
+                            <span>2026/05/31</span>
+                        </div>
+                    </li>
+                    
+                    
                 
                 
                 
@@ -713,24 +723,6 @@
                         <div class="recent-post-content">
                             <a class="animsition-link" href="/fantasywhimridicule/seven-oaks-dam/">大坝</a>
                             <span>2025/05/29</span>
-                        </div>
-                    </li>
-                    
-                    
-                
-                
-                
-                    
-                    
-                    <li>
-                        <figure>
-                            <a class="animsition-link" href="/video/studio-c-2/">
-                                <img src="/images/202504/studio-c-behind-the-door.jpg" alt="Studio C 十日谈之二">
-                            </a>
-                        </figure>
-                        <div class="recent-post-content">
-                            <a class="animsition-link" href="/video/studio-c-2/">Studio C 十日谈之二</a>
-                            <span>2025/04/21</span>
                         </div>
                     </li>
                     
