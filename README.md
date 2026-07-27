@@ -128,6 +128,8 @@ When updating, bundle update [pack name]
 
 ```html
 <video src="/images/201711/nbalive95.mp4" controls preload="auto" poster="/images/201711/nbalive95_spurs.jpg" style="width:auto"></video> 
+
+<video src="/images/202509/bronco.mov" controls preload="auto" poster="/images/reviews/cars/bronco-sport.jpg" width="560"></video> 
 ```
 
 ---
